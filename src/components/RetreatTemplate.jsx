@@ -14,7 +14,6 @@ import {
   Home,
   Leaf,
   MapPin,
-  MessageCircle,
   Moon,
   ShieldCheck,
   Sparkles,
@@ -33,6 +32,7 @@ import BookingForm from "./retreat/BookingForm";
 import TestimonialCarousel, { VideoTestimonials } from "./retreat/TestimonialCarousel";
 import MonthGuide from "./retreat/MonthGuide";
 import { FadeIn, Stagger, StaggerItem } from "./retreat/Motion";
+import { SiWhatsapp } from "react-icons/si";
 
 const whyIcons = {
   users: Users,
@@ -78,6 +78,25 @@ export default function RetreatTemplate({ retreat, page }) {
       acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
   };
+  const tripOffers = [];
+  if (typeof p.pricing.shared.price === "number") {
+    tripOffers.push({
+      "@type": "Offer",
+      name: "Shared room",
+      price: p.pricing.shared.price,
+      priceCurrency: p.pricing.shared.currency,
+      availability: "https://schema.org/InStock",
+    });
+  }
+  if (typeof p.pricing.private.price === "number") {
+    tripOffers.push({
+      "@type": "Offer",
+      name: "Private room",
+      price: p.pricing.private.price,
+      priceCurrency: p.pricing.private.currency,
+      availability: "https://schema.org/InStock",
+    });
+  }
   const tripSchema = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
@@ -95,23 +114,13 @@ export default function RetreatTemplate({ retreat, page }) {
         description: day.intro,
       })),
     },
-    offers: [
-      {
-        "@type": "Offer",
-        name: "Shared room",
-        price: p.pricing.shared.price,
-        priceCurrency: p.pricing.shared.currency,
-        availability: "https://schema.org/InStock",
-      },
-      {
-        "@type": "Offer",
-        name: "Private room",
-        price: p.pricing.private.price,
-        priceCurrency: p.pricing.private.currency,
-        availability: "https://schema.org/InStock",
-      },
-    ],
+    offers: tripOffers.length > 0 ? tripOffers : undefined,
   };
+  const currencySymbol = p.pricing.shared.currency === "EUR" ? "€" : "$";
+  const priceRange =
+    typeof p.pricing.shared.price === "number" && typeof p.pricing.private.price === "number"
+      ? `${currencySymbol}${p.pricing.shared.price}-${currencySymbol}${p.pricing.private.price}`
+      : currencySymbol;
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -119,7 +128,7 @@ export default function RetreatTemplate({ retreat, page }) {
     name: site.name,
     url: site.url,
     image: absoluteUrl(site.defaultImage),
-    priceRange: `$${p.pricing.shared.price}-$${p.pricing.private.price}`,
+    priceRange,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Goa",
@@ -146,13 +155,16 @@ export default function RetreatTemplate({ retreat, page }) {
       name: site.name,
       address: { "@type": "PostalAddress", addressLocality: "Goa", addressCountry: "IN" },
     },
-    offers: {
-      "@type": "Offer",
-      price: p.pricing.shared.price,
-      priceCurrency: p.pricing.shared.currency,
-      availability: "https://schema.org/InStock",
-      url: absoluteUrl(`/retreats/${retreat.slug}`),
-    },
+    offers:
+      typeof p.pricing.shared.price === "number"
+        ? {
+            "@type": "Offer",
+            price: p.pricing.shared.price,
+            priceCurrency: p.pricing.shared.currency,
+            availability: "https://schema.org/InStock",
+            url: absoluteUrl(`/retreats/${retreat.slug}`),
+          }
+        : undefined,
     organizer: { "@type": "Organization", name: site.name, url: site.url },
   };
   const breadcrumbSchema = {
@@ -241,7 +253,7 @@ export default function RetreatTemplate({ retreat, page }) {
               View Schedule
             </ButtonLink>
             <a href={whatsappHref} className="button retreat-whatsapp">
-              <MessageCircle size={17} aria-hidden="true" />
+              <SiWhatsapp size={17} aria-hidden="true" />
               WhatsApp Inquiry
             </a>
           </div>
@@ -259,11 +271,41 @@ export default function RetreatTemplate({ retreat, page }) {
         </div>
       </section>
 
-      {/* ============ 60% CONTENT / 30% STICKY SIDEBAR ============ */}
+      {/* ============ STICKY BOOKING SIDEBAR / 60% CONTENT ============ */}
       <div className="container retreat-layout">
+        {/* Sticky booking sidebar */}
+        <BookingSidebar page={p} retreat={retreat} />
+
         <div className="retreat-content" id="overview">
 
-          {/* ============ SECTION 2 — OVERVIEW ============ */}
+          {/* ============ SECTION 2 — WHAT THIS IS (SEO) ============ */}
+          {retreat.whatIs && (
+            <section className="retreat-section" id="what-is">
+              <RetreatEyebrow>What this retreat is</RetreatEyebrow>
+              <h2 className="retreat-section-title">{retreat.whatIs.heading}</h2>
+              <div className="retreat-overview">
+                {retreat.whatIs.paragraphs.map((paragraph, index) => (
+                  <FadeIn key={index} delay={index * 0.04}>
+                    <p>{paragraph}</p>
+                  </FadeIn>
+                ))}
+              </div>
+              {retreat.whatIs.points?.length > 0 && (
+                <Stagger className="retreat-highlight-grid">
+                  {retreat.whatIs.points.map((point) => (
+                    <StaggerItem key={point}>
+                      <div className="retreat-highlight-card">
+                        <CheckCircle2 size={19} className="text-[#b9473e]" aria-hidden="true" />
+                        <span>{point}</span>
+                      </div>
+                    </StaggerItem>
+                  ))}
+                </Stagger>
+              )}
+            </section>
+          )}
+
+          {/* ============ SECTION 3 — OVERVIEW ============ */}
           <section className="retreat-section">
             <RetreatEyebrow>Overview</RetreatEyebrow>
             <h2 className="retreat-section-title">A pause that changes the pace of your life</h2>
@@ -352,7 +394,7 @@ export default function RetreatTemplate({ retreat, page }) {
             <RetreatEyebrow>Detailed daily schedule</RetreatEyebrow>
             <h2 className="retreat-section-title">A {p.days}-day rhythm designed to restore</h2>
             <p className="retreat-section-lead">
-              Predictable days make deep rest possible. Here is how your {p.days} days at The Hatha Yogashala unfold.
+              Predictable days make deep rest possible. Here is how your {p.days} days at Hatha Yogashala unfold.
             </p>
             <div className="retreat-schedule">
               {p.daysSchedule.map((day, dayIndex) => (
@@ -578,8 +620,8 @@ export default function RetreatTemplate({ retreat, page }) {
                 <article className="retreat-price-card">
                   <span className="retreat-price-badge">Shared Room</span>
                   <div className="retreat-price-value">
-                    <span className="retreat-price-currency">$</span>
-                    <strong>{p.pricing.shared.price}</strong>
+                    <span className="retreat-price-currency">{p.pricing.shared.currency === "EUR" ? "€" : "$"}</span>
+                    <strong>{p.pricing.shared.price ?? "—"}</strong>
                     <span className="retreat-price-per">/ person</span>
                   </div>
                   <ul>
@@ -596,8 +638,8 @@ export default function RetreatTemplate({ retreat, page }) {
                     <Heart size={11} aria-hidden="true" /> Most booked
                   </span>
                   <div className="retreat-price-value">
-                    <span className="retreat-price-currency">$</span>
-                    <strong>{p.pricing.private.price}</strong>
+                    <span className="retreat-price-currency">{p.pricing.private.currency === "EUR" ? "€" : "$"}</span>
+                    <strong>{p.pricing.private.price ?? "—"}</strong>
                     <span className="retreat-price-per">/ person</span>
                   </div>
                   <ul>
@@ -628,7 +670,11 @@ export default function RetreatTemplate({ retreat, page }) {
             <FadeIn>
               <div className="retreat-booking-form">
                 <h3>Secure booking form</h3>
-                <BookingForm retreatName={retreat.name} paymentOptions={p.pricing.paymentOptions} />
+                <BookingForm
+                  retreatName={retreat.name}
+                  paymentOptions={p.pricing.paymentOptions}
+                  pricing={p.pricing}
+                />
                 <div className="retreat-booking-trust">
                   <span>
                     <ShieldCheck size={15} aria-hidden="true" /> Secure encrypted submission
@@ -644,9 +690,6 @@ export default function RetreatTemplate({ retreat, page }) {
             </FadeIn>
           </section>
         </div>
-
-        {/* Sticky booking sidebar */}
-        <BookingSidebar page={p} retreat={retreat} />
       </div>
 
       {/* ============ SECTION 16 — FINAL CTA ============ */}
@@ -662,7 +705,7 @@ export default function RetreatTemplate({ retreat, page }) {
                 Book Your Retreat
               </ButtonLink>
               <a href={whatsappHref} className="button retreat-whatsapp">
-                <MessageCircle size={17} aria-hidden="true" />
+                <SiWhatsapp size={17} aria-hidden="true" />
                 WhatsApp Inquiry
               </a>
               <ButtonLink href="/contact" variant="light">

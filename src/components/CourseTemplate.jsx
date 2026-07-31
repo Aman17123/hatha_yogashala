@@ -1,15 +1,41 @@
 import Link from "next/link";
 import {
+  Activity,
+  Award,
+  Backpack,
+  BadgeCheck,
+  BookOpen,
+  Brain,
   Check,
   ClipboardCheck,
+  Compass,
+  Feather,
+  GraduationCap,
+  Handshake,
+  Heart,
   Home,
+  Layers,
   MapPin,
-  MessageCircle,
+  Moon,
+  Music2,
+  Network,
+  NotebookText,
+  PersonStanding,
+  Plane,
+  ReceiptText,
   Salad,
+  Scale,
   ShieldCheck,
   Sparkles,
+  Sprout,
+  Sunrise,
+  Target,
+  Timer,
+  UserRound,
   Users,
+  Wind,
 } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
 import { courses, teacherTrainings } from "@/data/coursesData";
 import {
   absoluteUrl,
@@ -17,13 +43,13 @@ import {
   site,
   teachers,
   testimonials,
+  whatsappLink,
 } from "@/data/siteData";
 import {
   Accordion,
   CourseContents,
   Gallery,
   Reveal,
-  WhyChooser,
 } from "./Interactive";
 import {
   ButtonLink,
@@ -33,12 +59,82 @@ import {
   JsonLd,
   Media,
   PageHero,
+  PriceRow,
   ProgramCard,
   SectionHeading,
   Snapshot,
 } from "./ui";
 
+const segmentIcons = {
+  sprout: Sprout,
+  backpack: Backpack,
+  user: UserRound,
+  graduation: GraduationCap,
+  heart: Heart,
+  compass: Compass,
+  users: Users,
+  target: Target,
+};
+
+const whyIcons = {
+  shield: ShieldCheck,
+  award: Award,
+  layers: Layers,
+  map: MapPin,
+  receipt: ReceiptText,
+  network: Network,
+  users: Users,
+  graduation: GraduationCap,
+  badge: BadgeCheck,
+  feather: Feather,
+  target: Target,
+};
+
+const moduleIcons = {
+  asana: PersonStanding,
+  breath: Wind,
+  observation: NotebookText,
+  sequencing: Layers,
+  meditation: Brain,
+  ethics: Scale,
+  anatomy: Activity,
+  adjustment: Handshake,
+  feather: Feather,
+  teaching: GraduationCap,
+  target: Target,
+};
+
+const journeyIcons = {
+  arrival: Plane,
+  ceremony: Sunrise,
+  foundation: BookOpen,
+  rest: Moon,
+  certification: Award,
+  teaching: Users,
+};
+
+function formatDateRange(start, end) {
+  if (
+    !start ||
+    !end ||
+    String(start).startsWith("Available") ||
+    String(start).startsWith("Confirm")
+  ) {
+    return null;
+  }
+  const startDate = new Date(`${start}T00:00:00`);
+  const endDate = new Date(`${end}T00:00:00`);
+  if (Number.isNaN(startDate.getTime()) || Number.isNaN(endDate.getTime())) {
+    return null;
+  }
+  const monthDay = { month: "short", day: "numeric" };
+  const withYear = { month: "short", day: "numeric", year: "numeric" };
+  const sameYear = startDate.getFullYear() === endDate.getFullYear();
+  return `${new Intl.DateTimeFormat("en-IN", monthDay).format(startDate)} – ${new Intl.DateTimeFormat("en-IN", sameYear ? monthDay : withYear).format(endDate)}`;
+}
+
 const toc = [
+  { id: "what-is", label: "What is it" },
   { id: "overview", label: "Introduction" },
   { id: "eligibility", label: "Who can join" },
   { id: "why-us", label: "Why choose us" },
@@ -136,6 +232,7 @@ export default function CourseTemplate({ course }) {
       (item.id !== "why-us" || course.whyChoose) &&
       (item.id !== "journey" || course.journey),
   );
+  const currency = course.pricing?.currency || "$";
   const batches = course.courseDates.length
     ? course.courseDates
     : [
@@ -190,6 +287,7 @@ export default function CourseTemplate({ course }) {
             label: "Ask on WhatsApp",
             href: "/contact#whatsapp",
             variant: "light",
+            icon: <SiWhatsapp size={16} aria-hidden="true" />,
           },
         ]}
       />
@@ -245,6 +343,32 @@ export default function CourseTemplate({ course }) {
         </Container>
       </section>
 
+      {course.whatIs && (
+        <section className="section" id="what-is">
+          <Container className="content-narrow">
+            <SectionHeading
+              eyebrow="What it is"
+              title={course.whatIs.heading}
+            />
+            <div className="prose-compact">
+              {course.whatIs.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+            {course.whatIs.points?.length > 0 && (
+              <ul className="check-list mt-6">
+                {course.whatIs.points.map((point) => (
+                  <li key={point}>
+                    <Check aria-hidden="true" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </Container>
+        </section>
+      )}
+
       <section className="section" id="overview">
         <Container className="split-layout">
           <div>
@@ -294,19 +418,24 @@ export default function CourseTemplate({ course }) {
             title="Choose by readiness and intention"
             text={course.bestFor}
           />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="feature-grid three">
             {(course.whoCanJoin ||
               course.designedFor.map((title) => ({
                 title,
                 content:
                   "Review the course scope and prerequisites, then share relevant experience and support needs before enrolment.",
-              }))).map((item) => (
-              <article className="card card-body" key={item.title}>
-                <Users aria-hidden="true" />
-                <h3 className="mt-4">{item.title}</h3>
-                <p className="mt-2 text-muted">{item.content}</p>
-              </article>
-            ))}
+              }))).map((item) => {
+              const Icon = segmentIcons[item.icon] || Users;
+              return (
+                <article className="card card-body feature-card" key={item.title}>
+                  <span className="feature-icon">
+                    <Icon aria-hidden="true" size={20} />
+                  </span>
+                  <h3>{item.title}</h3>
+                  <p>{item.content}</p>
+                </article>
+              );
+            })}
           </div>
           <article className="card card-body mt-8">
             <h3 className="flex items-center gap-2">
@@ -334,13 +463,25 @@ export default function CourseTemplate({ course }) {
       {course.whyChoose && (
         <section className="section" id="why-us">
           <Container>
-            <WhyChooser items={course.whyChoose}>
-              <SectionHeading
-                eyebrow="Why The Hatha Yogashala"
-                title="Nine practical reasons to look closer"
-                text="Each benefit is explained without inventing a teacher, class limit, credential, price, or included activity."
-              />
-            </WhyChooser>
+            <SectionHeading
+              eyebrow="Why Hatha Yogashala"
+              title="Practical reasons to look closer"
+              text="Each benefit is explained without inventing a teacher, class limit, credential, price, or included activity."
+            />
+            <div className="feature-grid three">
+              {course.whyChoose.map((item) => {
+                const Icon = whyIcons[item.icon] || Sparkles;
+                return (
+                  <article className="card card-body feature-card" key={item.title}>
+                    <span className="feature-icon">
+                      <Icon aria-hidden="true" size={20} />
+                    </span>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </article>
+                );
+              })}
+            </div>
           </Container>
         </section>
       )}
@@ -372,21 +513,35 @@ export default function CourseTemplate({ course }) {
             text="Only faculty with an approved name, portrait, role, specialisation, experience, biography, and batch assignment are displayed."
           />
           {publishedTeachers.length ? (
-            <div className="teacher-grid">
+            <div className="course-teacher-grid">
               {publishedTeachers.map((teacher) => (
                 <article className="card overflow-hidden" key={teacher.name}>
-                  <Media
-                    src={teacher.image}
-                    alt={teacher.name}
-                    className="teacher-profile-image"
-                  />
+                  <div className="course-teacher-media">
+                    <Media
+                      src={teacher.image || "/images/course-goa-yoga.png"}
+                      alt={teacher.name}
+                      className="h-full w-full"
+                    />
+                    {teacher.experience && (
+                      <span className="course-teacher-exp">
+                        {teacher.experience}
+                      </span>
+                    )}
+                  </div>
                   <div className="card-body">
                     <h3>{teacher.name}</h3>
                     <p className="teacher-role">{teacher.role}</p>
+                    <div className="course-teacher-tags">
+                      {(teacher.specialties || []).map((tag) => (
+                        <span key={tag}>{tag}</span>
+                      ))}
+                    </div>
                     <p className="mt-3">{teacher.bio}</p>
-                    <p className="mt-3 text-sm text-muted">
-                      {teacher.experience} · {(teacher.specialties || []).join(", ")}
-                    </p>
+                    {teacher.qualifications && (
+                      <p className="mt-3 text-sm text-muted">
+                        {teacher.qualifications}
+                      </p>
+                    )}
                     {teacher.href && (
                       <Link
                         className="button button-text mt-4"
@@ -411,7 +566,7 @@ export default function CourseTemplate({ course }) {
             </div>
           )}
           <ButtonLink href="/teachers" variant="text" className="mt-7">
-            Review the faculty policy
+            Meet Our Teachers
           </ButtonLink>
         </Container>
       </section>
@@ -460,15 +615,24 @@ export default function CourseTemplate({ course }) {
               title="From arrival to check-out"
               text="The sequence is realistic; exact dates, times, ceremonies, and completion conditions remain batch-specific."
             />
-            <div className="journey-timeline">
-              {course.journey.map(([title, text], index) => (
-                <Reveal key={title}>
-                  <article>
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    <div><h3>{title}</h3><p>{text}</p></div>
-                  </article>
-                </Reveal>
-              ))}
+            <div className="day-grid">
+              {course.journey.map((day) => {
+                const Icon = journeyIcons[day.icon] || Sparkles;
+                return (
+                  <Reveal key={day.label}>
+                    <article className="card card-body day-card">
+                      <span className="feature-icon">
+                        <Icon aria-hidden="true" size={20} />
+                      </span>
+                      <div className="day-card-head">
+                        <h3>{day.label}</h3>
+                        <span>{day.time}</span>
+                      </div>
+                      <p>{day.text}</p>
+                    </article>
+                  </Reveal>
+                );
+              })}
             </div>
           </Container>
         </section>
@@ -498,13 +662,26 @@ export default function CourseTemplate({ course }) {
       </section>
 
       <section className="section" id="curriculum">
-        <Container className="content-narrow">
+        <Container>
           <SectionHeading
             eyebrow="Detailed syllabus"
             title={`Inside the ${course.hours} curriculum`}
-            text="Course hours are not broken down by subject because no approved contact-hour allocation has been supplied."
+            text="Module hours are confirmed with the batch timetable; each module shows what the study covers."
           />
-          <Accordion items={course.curriculum} />
+          <div className="feature-grid">
+            {course.curriculum.map((module) => {
+              const Icon = moduleIcons[module.icon] || BookOpen;
+              return (
+                <article className="card card-body feature-card" key={module.title}>
+                  <span className="feature-icon">
+                    <Icon aria-hidden="true" size={20} />
+                  </span>
+                  <h3>{module.title}</h3>
+                  <p>{module.content}</p>
+                </article>
+              );
+            })}
+          </div>
         </Container>
       </section>
 
@@ -513,59 +690,50 @@ export default function CourseTemplate({ course }) {
           <SectionHeading
             eyebrow="Upcoming dates and pricing"
             title="Book from a complete written breakdown"
-            text="No fake discount, crossed-out fee, scarcity label, or unverified availability is shown."
+            text="Batch dates, availability, and room prices are shown for planning — the written offer remains the source of truth before you pay."
           />
-          <div className="hidden overflow-x-auto rounded-3xl border border-black/10 bg-white md:block">
-            <table className="w-full min-w-[900px] border-collapse text-left text-sm">
-              <caption className="sr-only">
-                Upcoming dates and prices for {course.name}
-              </caption>
-              <thead>
-                <tr>
-                  {["Start", "End", "Duration", "Shared room", "Private room", "Availability", "Booking"].map((heading) => (
-                    <th className="p-4" key={heading}>{heading}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {batches.map((batch) => (
-                  <tr key={batch.id}>
-                    <td className="border-t border-black/10 p-4">{batch.start}</td>
-                    <td className="border-t border-black/10 p-4">{batch.end}</td>
-                    <td className="border-t border-black/10 p-4">{batch.duration}</td>
-                    <td className="border-t border-black/10 p-4">{batch.shared}</td>
-                    <td className="border-t border-black/10 p-4">{batch.private}</td>
-                    <td className="border-t border-black/10 p-4">{batch.availability}</td>
-                    <td className="border-t border-black/10 p-4"><ButtonLink href="/apply">Enquire</ButtonLink></td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="grid gap-4 md:hidden">
-            {batches.map((batch) => (
-              <article className="card card-body" key={batch.id}>
-                <h3>{batch.start}</h3>
-                <dl className="mt-4 grid gap-3">
-                  {[
-                    ["End", batch.end],
-                    ["Duration", batch.duration],
-                    ["Shared room", batch.shared],
-                    ["Private room", batch.private],
-                    ["Availability", batch.availability],
-                  ].map(([label, value]) => (
-                    <div className="border-t border-black/10 pt-3" key={label}>
-                      <dt className="text-xs font-bold uppercase tracking-[0.12em] text-muted">{label}</dt>
-                      <dd className="mt-1">{value}</dd>
+          <div className="batch-grid">
+            {batches.map((batch) => {
+              const availability = String(batch.availability || "");
+              const tagClass = availability.toLowerCase().includes("filling")
+                ? "filling"
+                : availability.toLowerCase().includes("available")
+                  ? "open"
+                  : "pending";
+              const range = formatDateRange(batch.start, batch.end);
+              return (
+                <article className="card card-body batch-card" key={batch.id}>
+                  <div className="batch-card-head">
+                    <div>
+                      <h3>{range || batch.label || "Batch dates"}</h3>
+                      {!range && (
+                        <p className="batch-dates">Dates confirmed with the batch</p>
+                      )}
                     </div>
-                  ))}
-                </dl>
-                <div className="mt-5 flex flex-wrap gap-3">
-                  <ButtonLink href="/apply">Reserve Your Spot</ButtonLink>
-                  <ButtonLink href="/contact#whatsapp" variant="secondary">WhatsApp</ButtonLink>
-                </div>
-              </article>
-            ))}
+                    <span className={`availability-tag ${tagClass}`}>
+                      {batch.availability}
+                    </span>
+                  </div>
+                  <div className="batch-prices">
+                    <PriceRow label="Shared room" price={batch.shared} currency={currency} />
+                    <PriceRow label="Private room" price={batch.private} currency={currency} />
+                  </div>
+                  <div className="batch-card-actions">
+                    <ButtonLink href="/apply">Reserve Spot</ButtonLink>
+                    <a
+                      className="program-wa"
+                      href={whatsappLink(course.whatsappMessage)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Ask about ${course.name} on WhatsApp`}
+                      title="Ask on WhatsApp"
+                    >
+                      <SiWhatsapp aria-hidden="true" size={19} />
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </Container>
       </section>
@@ -740,7 +908,7 @@ export default function CourseTemplate({ course }) {
                   Get Directions
                 </a>
                 <ButtonLink href="/contact#whatsapp" variant="secondary">
-                  <MessageCircle aria-hidden="true" size={17} />
+                  <SiWhatsapp aria-hidden="true" size={17} />
                   WhatsApp
                 </ButtonLink>
               </div>

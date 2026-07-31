@@ -7,11 +7,11 @@ import {
   Heart,
   Leaf,
   MapPin,
-  MessageCircle,
   Sparkles,
   Star,
   Zap,
 } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
 import { retreats, shortPrograms, teacherTrainings } from "@/data/coursesData";
 import { posts } from "@/data/blogData";
 import {
@@ -118,9 +118,13 @@ export default function HomePage() {
               Yoga study in Goa, India
             </p>
             <h1>
-              Yoga teacher training shaped by{" "}
-              <em>practice, place & presence.</em>
+              Hatha Yogashala
+              <em>Yoga School in Goa</em>
             </h1>
+            <p className="hero-tagline">
+              Yoga teacher training shaped by{" "}
+              <em>practice, place &amp; presence.</em>
+            </p>
             <p>
               Explore residential Hatha yoga teacher training and restorative
               yoga retreats in Goa, with clear course scope, thoughtful student
@@ -573,7 +577,7 @@ export default function HomePage() {
                     </span>
                   </div>
                   <p className="text-[11px] text-[#9b8a7e] leading-relaxed font-medium">
-                    North Goa · Mandrem &amp; Arambol · 45 min from MOPA Airport
+                    Querim, North Goa · near Arambol · ~30 min from MOPA Airport
                   </p>
                 </div>
               </div>
@@ -714,10 +718,8 @@ export default function HomePage() {
                 <div className="mt-4 space-y-3 text-sm text-black/70 border-t border-black/10 pt-4">
                   <p>
                     Nestled in peaceful{" "}
-                    <strong>
-                      North Goa (Mandrem & Arambol coastal shala area)
-                    </strong>
-                    , The Hatha Yogashala is a premier residential yoga teacher
+                    <strong>Querim, Pernem, North Goa</strong>
+                    , Hatha Yogashala is a premier residential yoga teacher
                     training school and restorative retreat sanctuary in India.
                   </p>
                   <ul className="grid gap-2 text-xs font-medium text-black/80">
@@ -738,7 +740,7 @@ export default function HomePage() {
                     <li className="flex items-center gap-2">
                       <Compass className="size-3.5 text-[#cf5b50] shrink-0" />
                       <span>
-                        <strong>Airport Access:</strong> ~45 min from MOPA (GOX)
+                        <strong>Airport Access:</strong> ~30 min from MOPA (GOX)
                         & 60 min from Dabolim (GOI)
                       </span>
                     </li>
@@ -761,7 +763,7 @@ export default function HomePage() {
                   Get directions
                 </a>
                 <ButtonLink href="/contact#whatsapp" variant="secondary">
-                  <MessageCircle aria-hidden="true" size={17} />
+                  <SiWhatsapp aria-hidden="true" size={17} />
                   Ask on WhatsApp
                 </ButtonLink>
               </div>

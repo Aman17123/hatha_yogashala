@@ -1,5 +1,5 @@
 /**
- * Premium retreat page content — The Hatha Yogashala, Goa
+ * Premium retreat page content — Hatha Yogashala, Goa
  *
  * This module holds the editorial + booking content for the redesigned
  * retreat detail pages. It is intentionally separated from coursesData
@@ -20,15 +20,22 @@ const IMAGES = {
   hatha: "/images/hatha-yoga-class-goa.png",
 };
 
+export const retreatPricingByDays = {
+  3: { shared: { price: 199 }, private: { price: 399 } },
+  5: { shared: { price: 299 }, private: { price: 499 } },
+  7: { shared: { price: 449 }, private: { price: 649 } },
+  10: { shared: { price: null }, private: { price: null } },
+};
+
 export const retreatPricing = {
-  shared: { price: 149, currency: "USD", label: "Shared Room", per: "person" },
-  private: { price: 199, currency: "USD", label: "Private Room", per: "person" },
-  paymentOptions: ["PayPal", "Wise", "UPI", "Bank Transfer"],
+  shared: { price: 199, currency: "EUR", label: "Shared Room", per: "person" },
+  private: { price: 399, currency: "EUR", label: "Private Room", per: "person" },
+  paymentOptions: ["Bank Transfer", "PayPal", "Card"],
   trustBadges: [
-    "Secure encrypted booking",
-    "Free cancellation up to 14 days",
-    "No hidden fees",
-    "Verified payment partners",
+    "Yoga Alliance Registered School",
+    "All-inclusive vegetarian meals",
+    "Beachside accommodation included",
+    "24/7 student support",
   ],
 };
 
@@ -330,84 +337,68 @@ export const whatNotIncluded = [
 
 export const testimonials = [
   {
-    name: "Sofia Müller",
+    name: "Maria",
+    country: "Spain",
+    rating: 5,
+    text: "The 7-day retreat at Hatha Yogashala was the reset I desperately needed. The teachers' guidance, the ice baths, the food, the beach meditations — every single day felt intentional and healing. I left Goa feeling like a new person.",
+    image: IMAGES.hero,
+    tag: "7-Day Retreat",
+  },
+  {
+    name: "Anna",
     country: "Germany",
     rating: 5,
-    text: "The most peaceful week of my life. The teachers met me exactly where I was — I arrived stressed and left feeling completely reset.",
-    image: IMAGES.hero,
+    text: "Five days at Hatha Yogashala gave me what months of city life could not — stillness, energy, and clarity. The sound healing and beach meditations were unforgettable. I will be back for the 7-day retreat next year.",
+    image: IMAGES.class,
+    tag: "5-Day Retreat",
+  },
+  {
+    name: "Nikita",
+    country: "Russia",
+    rating: 5,
+    text: "I only had a weekend in Goa, and this 3-day retreat at Hatha Yogashala was the perfect way to spend it. The ice bath, the beach yoga, the food — everything was exceptional. I left completely recharged.",
+    image: IMAGES.coast,
     tag: "3-Day Retreat",
   },
   {
-    name: "James Whitfield",
+    name: "Elena",
+    country: "Russia",
+    rating: 5,
+    text: "Hatha Yogashala completely transformed my relationship with yoga. The teaching was precise, the community was warm, and training next to the beach in Goa was beyond what I imagined.",
+    image: IMAGES.pranayama,
+    tag: "200-Hour YTT",
+  },
+  {
+    name: "Sarah",
     country: "United Kingdom",
     rating: 5,
-    text: "Beautiful location, genuine teaching, and food I still dream about. The beach sunrise sessions alone were worth the trip.",
-    image: IMAGES.class,
-    tag: "5-Day Retreat",
-  },
-  {
-    name: "Aisha Rahman",
-    country: "United Arab Emirates",
-    rating: 5,
-    text: "As a complete beginner I was nervous, but the small group and patient teachers made everything feel possible. Life-changing.",
-    image: IMAGES.coast,
-    tag: "7-Day Retreat",
-  },
-  {
-    name: "Marco Rossi",
-    country: "Italy",
-    rating: 5,
-    text: "The daily rhythm — yoga, breathwork, good food, rest — was exactly the reset I needed. The community around the dinner table was a bonus.",
-    image: IMAGES.pranayama,
-    tag: "10-Day Retreat",
-  },
-  {
-    name: "Hannah Lee",
-    country: "South Korea",
-    rating: 5,
-    text: "Quiet, warm, and deeply restorative. The sound healing evening was the highlight — I slept better than I had in years.",
+    text: "I arrived as a complete beginner and left as a confident yoga teacher. The small class size meant the trainers knew my name and my body. This is genuinely the best yoga teacher training in Goa.",
     image: IMAGES.hatha,
-    tag: "3-Day Retreat",
+    tag: "200-Hour YTT",
   },
   {
-    name: "Daniel O'Connor",
-    country: "Ireland",
-    rating: 5,
-    text: "No fluff, no gimmicks — just excellent teaching and a genuinely calm environment. My practice improved more here than in a year at home.",
-    image: IMAGES.coast,
-    tag: "5-Day Retreat",
-  },
-  {
-    name: "Priya Nair",
-    country: "India",
-    rating: 5,
-    text: "As a Goan-Indian it felt like coming home. The food, the beach walks, the sunset meditations — every detail was thoughtful.",
-    image: IMAGES.hero,
-    tag: "7-Day Retreat",
-  },
-  {
-    name: "Emma Johansson",
-    country: "Sweden",
-    rating: 5,
-    text: "A digital detox that actually worked. Two days in I forgot my phone even existed. I left with tools I still use daily.",
-    image: IMAGES.pranayama,
-    tag: "10-Day Retreat",
-  },
-  {
-    name: "Lucas Moreau",
+    name: "David",
     country: "France",
     rating: 5,
-    text: "The balance of structured practice and free time was perfect. The teachers were knowledgeable, kind, and always available.",
-    image: IMAGES.class,
-    tag: "3-Day Retreat",
+    text: "The perfect balance of practice and rest. Sound healing at sunset and the sauna–ice bath ritual were unforgettable. A true wellness retreat in Goa.",
+    image: IMAGES.coast,
+    tag: "5-Day Retreat",
   },
   {
-    name: "Yuki Tanaka",
-    country: "Japan",
+    name: "Lukas",
+    country: "Germany",
     rating: 5,
-    text: "From the welcome tea to the farewell circle, everything felt intentional and warm. A rare retreat that over-delivers.",
-    image: IMAGES.hatha,
-    tag: "5-Day Retreat",
+    text: "The philosophy and meditation teachings at Hatha Yogashala changed how I see yoga. The quality of teaching and the warmth of the community exceeded every expectation.",
+    image: IMAGES.hero,
+    tag: "300-Hour YTT",
+  },
+  {
+    name: "Tom",
+    country: "Australia",
+    rating: 5,
+    text: "The 100-hour course was the perfect introduction. The teachers made Sanskrit, anatomy, and philosophy accessible and inspiring. I will return for my 200-hour certification.",
+    image: IMAGES.pranayama,
+    tag: "100-Hour YTT",
   },
 ];
 
@@ -986,14 +977,16 @@ export function getRetreatPageData(days) {
     name,
     category,
     rating: 4.9,
-    ratingCount: 87,
-    students: "1,200+",
+    ratingCount: 187,
+    students: "3,500+",
     heroTagline: days === 3
-      ? "Three transformative days of yoga, mindfulness, community, and the beauty of Goa."
-      : `${days} days of guided yoga, beach-side meditation, sattvic food, and true rest on the Goan coast.`,
+      ? "A unique blend of spiritual exploration, physical rejuvenation, and cultural immersion in North Goa."
+      : days === 7
+        ? "A complete Mind-Body-Soul wellness retreat — daily yoga and meditation, sound healing, sauna and ice bath, and cultural excursions by the sea."
+        : `${days} days of guided yoga, beach-side meditation, sattvic food, and true rest on the Goan coast.`,
     duration: `${days} days · ${days - 1} nights`,
-    location: "North Goa, India",
-    locationDetail: "Mandrem / Arambol · 45 min from MOPA (GOX) · 60 min from Dabolim (GOI)",
+    location: "Querim, North Goa, India",
+    locationDetail: "Querim · near Arambol · approx. 25–30 min from MOPA (GOX) · Mopa and Dabolim (GOI) airports",
     overview: buildOverview(days, name),
     overviewSummary: buildOverviewShort(days, name),
     whyChoose,
@@ -1014,7 +1007,17 @@ export function getRetreatPageData(days) {
     notIncluded: whatNotIncluded,
     testimonials,
     faqs: retreatFaqs,
-    pricing: retreatPricing,
+    pricing: {
+      ...retreatPricing,
+      shared: {
+        ...retreatPricing.shared,
+        price: retreatPricingByDays[days].shared.price,
+      },
+      private: {
+        ...retreatPricing.private,
+        price: retreatPricingByDays[days].private.price,
+      },
+    },
     trustBadges,
     dates: sampleDates(days),
   };

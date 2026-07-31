@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
   if (!course) return {};
   return makeMetadata(
     course.name,
-    `Review the curriculum, prerequisites, schedule, accommodation, fees, and application process for ${course.name} at The Hatha Yogashala.`,
+    `Review the curriculum, prerequisites, schedule, accommodation, fees, and application process for ${course.name} at Hatha Yogashala.`,
     `/courses/${course.slug}`,
   );
 }

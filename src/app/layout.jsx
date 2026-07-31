@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Bricolage_Grotesque, Manrope } from "next/font/google";
-import { MessageCircle } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -21,7 +21,7 @@ export const metadata = {
   metadataBase: new URL(site.url),
   title: {
     default: pageSeo.home.title,
-    template: "%s | The Hatha Yogashala",
+    template: "%s | Hatha Yogashala",
   },
   description: pageSeo.home.description,
   applicationName: site.name,
@@ -40,7 +40,7 @@ export const metadata = {
     images: [
       {
         url: "/images/course-goa-yoga.png",
-        alt: "Yoga practice at The Hatha Yogashala in Goa",
+        alt: "Yoga practice at Hatha Yogashala in Goa",
       },
     ],
   },
@@ -94,7 +94,7 @@ export default function RootLayout({ children }) {
         <div className="floating-actions" aria-label="Quick actions">
           <Link href="/apply">Apply now</Link>
           <Link href="/contact#whatsapp" aria-label="Ask about WhatsApp contact">
-            <MessageCircle aria-hidden="true" size={21} />
+            <SiWhatsapp aria-hidden="true" size={21} />
             <span>WhatsApp</span>
           </Link>
         </div>

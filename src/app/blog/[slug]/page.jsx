@@ -119,7 +119,7 @@ export default async function BlogPostPage({ params }) {
               <div aria-hidden="true">HY</div>
               <div>
                 <strong>{post.author}</strong>
-                <p>Original planning guidance from The Hatha Yogashala. School-specific claims remain unpublished until verified.</p>
+                <p>Original planning guidance from Hatha Yogashala. School-specific claims remain unpublished until verified.</p>
               </div>
             </div>
           </div>

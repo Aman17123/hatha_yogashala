@@ -10,10 +10,10 @@ const course = courses.find(
 
 assert.equal(
   course?.name,
-  "100 Hour Yoga Teacher Training in Goa, India",
+  "100-Hour Yoga Teacher Training in Goa",
 );
-assert.equal(course.curriculum.length, 12);
-assert.equal(course.faq.length, 12);
+assert.equal(course.curriculum.length, 10);
+assert.equal(course.faq.length, 7);
 assert.deepEqual(
   retreats.map(({ days }) => days),
   expectedRetreats,

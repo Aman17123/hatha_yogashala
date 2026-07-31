@@ -5,7 +5,7 @@ export const posts = [
     category: "Teacher Training",
     date: "2026-07-20",
     updated: "2026-07-20",
-    author: "The Hatha Yogashala Editorial Team",
+    author: "Hatha Yogashala Editorial Team",
     readingTime: "6 min read",
     excerpt:
       "A practical checklist for comparing curriculum, teachers, accommodation, fees, and certification without relying on marketing claims.",
@@ -40,7 +40,7 @@ export const posts = [
     category: "Course Guides",
     date: "2026-07-15",
     updated: "2026-07-15",
-    author: "The Hatha Yogashala Editorial Team",
+    author: "Hatha Yogashala Editorial Team",
     readingTime: "5 min read",
     excerpt:
       "Understand what each training length is commonly designed to support before you compare dates and fees.",
@@ -70,7 +70,7 @@ export const posts = [
     category: "Goa",
     date: "2026-07-08",
     updated: "2026-07-08",
-    author: "The Hatha Yogashala Editorial Team",
+    author: "Hatha Yogashala Editorial Team",
     readingTime: "4 min read",
     excerpt:
       "Choose a season, location, and retreat rhythm that leave enough room for both practice and recovery.",
@@ -101,7 +101,7 @@ export const posts = [
     category: "Travel Planning",
     date: "2026-07-01",
     updated: "2026-07-01",
-    author: "The Hatha Yogashala Editorial Team",
+    author: "Hatha Yogashala Editorial Team",
     readingTime: "6 min read",
     excerpt:
       "A practical packing list for practice, study, tropical weather, personal health, and residential life in Goa.",
@@ -137,7 +137,7 @@ export const posts = [
     category: "Goa",
     date: "2026-06-24",
     updated: "2026-06-24",
-    author: "The Hatha Yogashala Editorial Team",
+    author: "Hatha Yogashala Editorial Team",
     readingTime: "5 min read",
     excerpt:
       "Compare Goa’s drier, hotter, and monsoon periods by comfort, facilities, travel style, and the rhythm you want from your stay.",
@@ -173,7 +173,7 @@ export const posts = [
     category: "Yoga Foundations",
     date: "2026-06-16",
     updated: "2026-06-16",
-    author: "The Hatha Yogashala Editorial Team",
+    author: "Hatha Yogashala Editorial Team",
     readingTime: "6 min read",
     excerpt:
       "Understand how a beginner Hatha practice uses posture, breath, attention, rest, and patient progression.",
@@ -208,7 +208,7 @@ export const posts = [
     category: "Yoga Foundations",
     date: "2026-06-08",
     updated: "2026-06-08",
-    author: "The Hatha Yogashala Editorial Team",
+    author: "Hatha Yogashala Editorial Team",
     readingTime: "5 min read",
     excerpt:
       "Start pranayama with posture, natural breath observation, simple techniques, and clear safety boundaries.",
@@ -244,7 +244,7 @@ export const posts = [
     category: "Teacher Training",
     date: "2026-05-30",
     updated: "2026-05-30",
-    author: "The Hatha Yogashala Editorial Team",
+    author: "Hatha Yogashala Editorial Team",
     readingTime: "6 min read",
     excerpt:
       "See how practice, lectures, teaching labs, meals, rest, study, and reflection can fit into a residential training day.",

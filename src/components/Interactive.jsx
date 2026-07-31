@@ -91,6 +91,13 @@ export function Reveal({ children, className = "" }) {
   );
 }
 
+function RichText({ text }) {
+  if (typeof text !== "string" || !text.includes("**")) return text;
+  return text.split("**").map((part, index) =>
+    index % 2 === 1 ? <strong key={index}>{part}</strong> : part,
+  );
+}
+
 export function Accordion({ items, initialOpen = 0 }) {
   const [open, setOpen] = useState(initialOpen);
 
@@ -119,7 +126,9 @@ export function Accordion({ items, initialOpen = 0 }) {
               aria-hidden={!isOpen}
             >
               <div>
-                <p>{item.answer || item.content}</p>
+                <p>
+                  <RichText text={item.answer || item.content} />
+                </p>
               </div>
             </div>
           </div>

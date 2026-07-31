@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Bus, Mail, MapPin, MessageCircle, Phone, Plane, Train } from "lucide-react";
+import { Bus, Mail, MapPin, Phone, Plane, Train } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
 import EnquiryForm from "@/components/EnquiryForm";
 import { Accordion } from "@/components/Interactive";
 import {
@@ -30,7 +31,7 @@ export default function ContactPage() {
       <JsonLd data={faqSchema} />
       <PageHero
         eyebrow="We’re here to help"
-        title="Contact The Hatha Yogashala"
+        title="Contact Hatha Yogashala"
         text="Ask about a course, retreat, accommodation, travel, accessibility, or the application process."
       />
       <section className="section">
@@ -45,13 +46,17 @@ export default function ContactPage() {
           </div>
           <aside className="contact-aside">
             {[
-              ["WhatsApp", site.contact.whatsapp, MessageCircle, "whatsapp"],
+              ["WhatsApp", site.contact.whatsapp, SiWhatsapp, "whatsapp", "#25D366"],
               ["Email", site.contact.email, Mail, "email"],
               ["Phone", site.contact.phone, Phone, "phone"],
               ["Address", site.contact.address, MapPin, "address"],
-            ].map(([label, value, Icon, id]) => (
+            ].map(([label, value, Icon, id, iconColor]) => (
               <div className="contact-card" id={id} key={label}>
-                <Icon aria-hidden="true" />
+                <Icon
+                  aria-hidden="true"
+                  size={24}
+                  style={iconColor ? { color: iconColor } : undefined}
+                />
                 <div><strong>{label}</strong><p>{value}</p></div>
               </div>
             ))}

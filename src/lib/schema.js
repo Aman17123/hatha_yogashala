@@ -1,6 +1,6 @@
 import { site } from "@/data/siteData";
 /**
- * JSON-LD structured data generators — The Hatha Yogashala
+ * JSON-LD structured data generators — Hatha Yogashala
  *
  * Why this matters for GEO specifically: AI answer engines (ChatGPT,
  * Perplexity, Google AI Overviews) lean heavily on structured,

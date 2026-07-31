@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUp, ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { SiFacebook, SiInstagram, SiYoutube } from "react-icons/si";
 import { site } from "@/data/siteData";
 import { Container } from "@/components/shared/SiteUI";
 import { Reveal } from "@/components/Interactive";
@@ -30,17 +31,20 @@ const socialLinks = [
   {
     label: "Instagram",
     href: site.social.instagram,
-    Icon: InstagramIcon,
+    Icon: SiInstagram,
+    color: "#E4405F",
   },
   {
     label: "Facebook",
     href: site.social.facebook,
-    Icon: FacebookIcon,
+    Icon: SiFacebook,
+    color: "#1877F2",
   },
   {
     label: "YouTube",
     href: site.social.youtube,
-    Icon: YouTubeIcon,
+    Icon: SiYoutube,
+    color: "#FF0000",
   },
 ];
 
@@ -120,7 +124,7 @@ export default function Footer() {
               >
                 <Image
                   src="/images/logo.png"
-                  alt="The Hatha Yogashala"
+                  alt="Hatha Yogashala"
                   width={180}
                   height={72}
                   unoptimized
@@ -134,7 +138,7 @@ export default function Footer() {
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2">
-                {socialLinks.map(({ label, href, Icon }) =>
+                {socialLinks.map(({ label, href, Icon, color }) =>
                   typeof href === "string" && href.startsWith("https://") ? (
                     <a
                       key={label}
@@ -143,10 +147,11 @@ export default function Footer() {
                       rel="noopener noreferrer"
                       aria-label={label}
                       title={label}
-                      className="grid size-9 place-items-center rounded-md border border-[#14151a]/15 text-[#14151a]/60 transition duration-200 hover:border-[#9c7a3d] hover:text-[#9c7a3d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9c7a3d]"
+                      className="grid size-9 place-items-center rounded-md border border-[#14151a]/15 transition duration-200 hover:border-[#14151a]/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9c7a3d]"
                     >
                       <Icon
-                        className="size-4 stroke-[1.7]"
+                        className="size-4"
+                        color={color}
                         aria-hidden="true"
                       />
                     </a>
@@ -157,10 +162,7 @@ export default function Footer() {
                       title={`${label} link pending`}
                       className="grid size-9 place-items-center rounded-md border border-[#14151a]/15 text-[#14151a]/35"
                     >
-                      <Icon
-                        className="size-4 stroke-[1.7]"
-                        aria-hidden="true"
-                      />
+                      <Icon className="size-4" aria-hidden="true" />
                     </span>
                   ),
                 )}
@@ -291,50 +293,5 @@ function FooterPolicyLink({ href, children }) {
     <Link href={href} className="transition hover:text-[#0c0d12]">
       {children}
     </Link>
-  );
-}
-
-function InstagramIcon({ className = "", ...props }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      {...props}
-    >
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function FacebookIcon({ className = "", ...props }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      {...props}
-    >
-      <path d="M13.7 21v-8h2.8l.42-3.1H13.7V7.92c0-.9.26-1.5 1.62-1.5h1.73V3.65c-.3-.04-1.33-.13-2.53-.13-2.5 0-4.22 1.49-4.22 4.23V9.9H7.47V13h2.83v8h3.4Z" />
-    </svg>
-  );
-}
-
-function YouTubeIcon({ className = "", ...props }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      {...props}
-    >
-      <path d="M21.58 7.19a2.72 2.72 0 0 0-1.91-1.93C17.99 4.8 12 4.8 12 4.8s-5.99 0-7.67.46a2.72 2.72 0 0 0-1.91 1.93A28.2 28.2 0 0 0 2 12a28.2 28.2 0 0 0 .42 4.81 2.72 2.72 0 0 0 1.91 1.93c1.68.46 7.67.46 7.67.46s5.99 0 7.67-.46a2.72 2.72 0 0 0 1.91-1.93A28.2 28.2 0 0 0 22 12a28.2 28.2 0 0 0-.42-4.81ZM10 15.1V8.9l5.2 3.1-5.2 3.1Z" />
-    </svg>
   );
 }

@@ -9,16 +9,20 @@ import {
   Clock3,
   Heart,
   MapPin,
-  MessageCircle,
   Star,
   Users,
 } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
 import BookingForm from "./BookingForm";
 
 export default function BookingSidebar({ page, retreat }) {
   const [openForm, setOpenForm] = useState(false);
   const p = page.pricing;
   const whatsappHref = "/contact#whatsapp";
+  const formatPrice = (price) =>
+    typeof price === "number"
+      ? `${p.shared.currency === "EUR" ? "€" : "$"}${price}`
+      : null;
 
   return (
     <aside className="retreat-sidebar" aria-label="Retreat booking summary">
@@ -28,12 +32,15 @@ export default function BookingSidebar({ page, retreat }) {
           <div className="booking-price">
             <span className="booking-price-from">From</span>
             <span>
-              <strong>${p.shared.price}</strong>
+              <strong>{formatPrice(p.shared.price) ?? "On enquiry"}</strong>
               <small>/person</small>
             </span>
           </div>
           <div className="booking-rating">
-            <span aria-label={`${page.rating} out of 5`}>
+            <span
+              aria-label={`${page.rating} out of 5`}
+              className="inline-flex items-center gap-0.5"
+            >
               {Array.from({ length: 5 }, (_, i) => (
                 <Star
                   key={i}
@@ -79,14 +86,14 @@ export default function BookingSidebar({ page, retreat }) {
         <div className="booking-rooms">
           <div>
             <span>Shared Room</span>
-            <strong>${p.shared.price}</strong>
+            <strong>{formatPrice(p.shared.price) ?? "On enquiry"}</strong>
             <small>/ person</small>
           </div>
           <div className="booking-rooms-featured">
             <span>
               <Heart size={11} aria-hidden="true" /> Most booked
             </span>
-            <strong>${p.private.price}</strong>
+            <strong>{formatPrice(p.private.price) ?? "On enquiry"}</strong>
             <small>/ person</small>
           </div>
         </div>
@@ -111,7 +118,7 @@ export default function BookingSidebar({ page, retreat }) {
               className="button booking-whatsapp"
               aria-label="WhatsApp inquiry"
             >
-              <MessageCircle size={17} aria-hidden="true" />
+              <SiWhatsapp size={17} aria-hidden="true" />
               WhatsApp
             </a>
           </div>
@@ -124,6 +131,7 @@ export default function BookingSidebar({ page, retreat }) {
               retreatName={retreat.name}
               compact
               paymentOptions={p.paymentOptions}
+              pricing={p}
             />
           </div>
         )}

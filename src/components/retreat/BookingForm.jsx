@@ -38,6 +38,7 @@ export default function BookingForm({
   retreatName,
   compact = false,
   paymentOptions = [],
+  pricing,
   showPayment = true,
 }) {
   const [status, setStatus] = useState(initialStatus);
@@ -150,8 +151,8 @@ export default function BookingForm({
             value={accommodation}
             onChange={(event) => setAccommodation(event.target.value)}
           >
-            <option value="Shared room">Shared Room — $149/person</option>
-            <option value="Private room">Private Room — $199/person</option>
+            <option value="Shared room">Shared Room — €{pricing?.shared?.price ?? 199}/person</option>
+            <option value="Private room">Private Room — €{pricing?.private?.price ?? 399}/person</option>
           </select>
         </Field>
         {!compact && (

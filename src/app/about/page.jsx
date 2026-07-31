@@ -18,7 +18,7 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="Our story"
-        title="About The Hatha Yogashala"
+        title="About Hatha Yogashala"
         text="A yoga school identity built around clear teaching, traditional Hatha practice, honest information, and a grounded relationship with Goa."
         image="/images/hero-goa-yoga.png"
       />
@@ -42,7 +42,7 @@ export default function AboutPage() {
                 reflection, and responsible student support in Goa.
               </p>
               <p>
-                Whether joining our certified 200-hour teacher training or a restorative yoga retreat, students at The Hatha Yogashala learn in an environment focused on personal growth, correct posture alignment, and practical teaching methodology.
+                Whether joining our certified 200-hour teacher training or a restorative yoga retreat, students at Hatha Yogashala learn in an environment focused on personal growth, correct posture alignment, and practical teaching methodology.
               </p>
             </div>
           </div>

@@ -2,14 +2,19 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
+  BadgeCheck,
   CalendarDays,
   Check,
   Clock3,
+  GraduationCap,
   MapPin,
   Sparkles,
   Star,
+  Timer,
+  Users,
 } from "lucide-react";
-import { publicValue } from "@/data/siteData";
+import { SiWhatsapp } from "react-icons/si";
+import { publicValue, whatsappLink } from "@/data/siteData";
 import { getRetreatPageData } from "@/data/retreatData";
 
 export function Container({ children, className = "" }) {
@@ -126,6 +131,7 @@ export function PageHero({
                 href={action.href}
                 variant={action.variant}
               >
+                {action.icon}
                 {action.label}
               </ButtonLink>
             ))}
@@ -146,75 +152,141 @@ export function PageHero({
   );
 }
 
-export function ProgramCard({ course, horizontal = false }) {
-  const duration = publicValue(course.duration);
-  const date = publicValue(course.date, "Dates to be announced");
-  const price = publicValue(course.price, "Fee to be confirmed");
-  const certification = publicValue(
-    course.certification,
-    "Certification details pending",
+function formatPrice(value) {
+  const num = Number(value);
+  if (Number.isFinite(num)) return num.toLocaleString("en-US");
+  return value;
+}
+
+export function PriceRow({ label, price, currency }) {
+  if (!price) return null;
+  if (typeof price === "string") {
+    return (
+      <div className="program-price">
+        <span className="program-price-label">{label}</span>
+        <span className="program-price-values"><strong>{price}</strong></span>
+      </div>
+    );
+  }
+  const current = Number(price.current);
+  const original = Number(price.original);
+  const save =
+    original && current && original > current
+      ? Math.round((1 - current / original) * 100)
+      : 0;
+  return (
+    <div className="program-price">
+      <span className="program-price-label">{label}</span>
+      <span className="program-price-values">
+        {original > 0 && <del>{currency}{formatPrice(original)}</del>}
+        <strong>{currency}{formatPrice(current)}</strong>
+      </span>
+      {save > 0 && <span className="program-save">Save {save}%</span>}
+    </div>
   );
-  const room = publicValue(course.room, "Room options confirmed in writing");
+}
+
+export function ProgramCard({ course, horizontal = false }) {
+  const image = course.image || "/images/course-goa-yoga.png";
+  const stats = course.cardStats || {};
+  const pricing = course.pricing || null;
+  const currency = pricing?.currency || "$";
   const isFeatured = course.featured;
+  const hasRating = typeof course.rating === "number";
+  const hasGraduates = typeof course.graduates === "number";
 
   return (
     <article
-      className={`card program-card relative overflow-hidden transition-all duration-300 ${
-        isFeatured
-          ? "ring-2 ring-[#cf5b50] bg-[#fff8f6] shadow-xl lg:-translate-y-2"
-          : ""
-      } ${horizontal ? "program-card-horizontal" : ""}`}
+      className={`card program-card group ${
+        horizontal ? "program-card-horizontal" : ""
+      } ${isFeatured ? "program-card-featured" : ""}`}
     >
-      {isFeatured && (
-        <span className="absolute top-3 right-3 z-10 rounded-full bg-[#cf5b50] px-3.5 py-1 text-[10px] font-black uppercase tracking-wider text-white shadow-md">
-          ★ Recommended
-        </span>
-      )}
-      <Media
-        src={course.image}
-        alt={`Students taking part in ${course.name}`}
-        className="program-media"
-      />
-      <div className="card-body flex flex-1 flex-col">
-        <div className="flex flex-wrap gap-2">
-          <span className="pill">{course.level}</span>
-          <span className="pill pill-muted">{course.hours}</span>
-        </div>
-        <h3 className="program-title mt-4 text-2xl font-serif">{course.name}</h3>
-        <p className="program-description mt-3 text-muted">
-          {course.description}
+      <div className="program-media">
+        <Image
+          src={image}
+          alt={`Students taking part in ${course.name}`}
+          fill
+          sizes={
+            horizontal
+              ? "(max-width: 820px) 100vw, 45vw"
+              : "(max-width: 820px) 100vw, 33vw"
+          }
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        {course.cardBadge && (
+          <span className="program-badge">{course.cardBadge}</span>
+        )}
+      </div>
+      <div className="card-body program-body">
+        <p className="program-kicker">
+          {course.hours} YTTC · {course.location}
         </p>
-        <dl className="program-details mt-5">
+        <h3 className="program-title">{course.name}</h3>
+        <p className="program-description">
+          {course.cardSummary || course.description || course.bestFor}
+        </p>
+
+        <dl className="program-stats">
           <div>
-            <dt>Duration</dt>
-            <dd>{duration}</dd>
+            <dt><Timer aria-hidden="true" size={13} /> Duration</dt>
+            <dd>{publicValue(stats.duration)}</dd>
           </div>
           <div>
-            <dt>Level</dt>
-            <dd>{course.level}</dd>
+            <dt><GraduationCap aria-hidden="true" size={13} /> Level</dt>
+            <dd>{publicValue(stats.level)}</dd>
           </div>
           <div>
-            <dt>Next start</dt>
-            <dd>{date}</dd>
+            <dt><BadgeCheck aria-hidden="true" size={13} /> Certification</dt>
+            <dd>{publicValue(stats.certification)}</dd>
           </div>
           <div>
-            <dt>Accommodation</dt>
-            <dd>{room}</dd>
-          </div>
-          <div className="program-details-wide">
-            <dt>Completion document</dt>
-            <dd>{certification}</dd>
+            <dt><Users aria-hidden="true" size={13} /> Batch size</dt>
+            <dd>{publicValue(stats.batchSize)}</dd>
           </div>
         </dl>
-        <div className="program-footer mt-auto pt-5">
-          <p>
-            <span>Fee</span>
-            <strong className={isFeatured ? "text-[#cf5b50]" : ""}>{price}</strong>
-          </p>
-          <ButtonLink href={`/courses/${course.slug}`} className={isFeatured ? "shadow-md" : ""}>
-            View course
+
+        {pricing && (
+          <div className="program-pricing">
+            <PriceRow label="Shared room" price={pricing.shared} currency={currency} />
+            <PriceRow label="Private room" price={pricing.private} currency={currency} />
+          </div>
+        )}
+
+        <div className="program-actions">
+          <ButtonLink
+            href={`/courses/${course.slug}`}
+            className={isFeatured ? "shadow-md" : ""}
+          >
+            View Details
           </ButtonLink>
+          <a
+            className="program-wa"
+            href={whatsappLink(course.whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Ask about ${course.name} on WhatsApp`}
+            title="Ask on WhatsApp"
+          >
+            <SiWhatsapp aria-hidden="true" size={19} />
+          </a>
         </div>
+
+        {(hasRating || hasGraduates) && (
+          <p className="program-trust">
+            {hasRating && (
+              <span className="program-rating">
+                <Star className="program-star" aria-hidden="true" size={14} />
+                {course.rating.toFixed(1)}
+              </span>
+            )}
+            {hasRating && hasGraduates && (
+              <span className="program-dot" aria-hidden="true">·</span>
+            )}
+            {hasGraduates && (
+              <span>{course.graduates.toLocaleString("en-US")}+ Graduates</span>
+            )}
+          </p>
+        )}
       </div>
     </article>
   );
@@ -302,7 +374,10 @@ export function ShortProgramCard({ course }) {
 export function RetreatCard({ retreat }) {
   const page = getRetreatPageData(retreat.days);
   const date = page.dates[0]?.label || "Dates to be announced";
-  const price = page.pricing.shared.price;
+  const numericPrice = page.pricing.shared.price;
+  const price = typeof numericPrice === "number"
+    ? `${page.pricing.shared.currency === "EUR" ? "€" : "$"}${numericPrice}`
+    : retreat.price ?? "On enquiry";
   const room = publicValue(retreat.room, "Room confirmed in writing");
   const meals = publicValue(retreat.meals, "Meal plan confirmed in writing");
 
@@ -369,7 +444,7 @@ export function RetreatCard({ retreat }) {
         <div className="mt-auto pt-5 flex items-center justify-between gap-3 border-t border-[#f0ebe6] mt-5">
           <div>
             <span className="block text-[10px] font-bold uppercase tracking-wider text-[#9b8a7e]">From / person</span>
-            <strong className="text-lg font-bold text-[#cf5b50]">${price}</strong>
+            <strong className="text-lg font-bold text-[#cf5b50]">{price}</strong>
           </div>
           <ButtonLink href={`/retreats/${retreat.slug}`} className="!py-2.5 !px-4 !text-xs">
             View Retreat
@@ -408,7 +483,7 @@ export function Snapshot({ items }) {
             <Clock3 aria-hidden="true" size={20} />
           )}
           <dt>{label}</dt>
-          <dd>{value}</dd>
+          <dd>{publicValue(value)}</dd>
         </div>
       ))}
     </dl>
@@ -442,6 +517,7 @@ export function FinalCTA({
           <div className="flex flex-wrap gap-3">
             <ButtonLink href="/apply">Reserve your spot</ButtonLink>
             <ButtonLink href="/contact#whatsapp" variant="light">
+              <SiWhatsapp aria-hidden="true" size={17} />
               Ask on WhatsApp
             </ButtonLink>
           </div>

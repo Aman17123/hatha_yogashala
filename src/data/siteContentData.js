@@ -1,5 +1,5 @@
 /**
- * Site Content Data for The Hatha Yogashala, Goa
+ * Site Content Data for Hatha Yogashala, Goa
  * Contains structured reusable data objects for About, Founder, Teachers,
  * and Interactive Enrolment Questions.
  */
@@ -12,7 +12,7 @@ export const enrolmentQuestionsData = [
     shortSummary:
       "Transparent verification without unverified claims or false affiliations.",
     description:
-      "Choosing a yoga school requires certainty about the credential you earn. At The Hatha Yogashala in Goa, we confirm the exact certificate, issuing body, attendance conditions, and public verification status in writing before you pay your deposit.",
+      "Choosing a yoga school requires certainty about the credential you earn. At Hatha Yogashala in Goa, we confirm the exact certificate, issuing body, attendance conditions, and public verification status in writing before you pay your deposit.",
     bullets: [
       "Written breakdown of certificate designation (100-Hr foundation vs 200-Hr / 300-Hr teaching qualification).",
       "Clear explanation of Yoga Alliance registration status and graduate registration eligibility.",
@@ -71,7 +71,7 @@ export const enrolmentQuestionsData = [
     ],
     image: "/images/accommodation-goa.png",
     imageAlt:
-      "Clean, peaceful residential room for students at The Hatha Yogashala in Goa",
+      "Clean, peaceful residential room for students at Hatha Yogashala in Goa",
   },
   {
     id: "practical-teaching",
@@ -110,30 +110,30 @@ export const enrolmentQuestionsData = [
 ];
 
 export const founderData = {
-  name: "Acharya Ramkrishna",
+  name: "Lead Teacher — Director of Yoga Education",
   role: "Founder & Lead Hatha Yoga Master",
   shortBio:
-    "Grounded in traditional Hatha Yoga lineages and modern functional biomechanics, Acharya Ramkrishna founded The Hatha Yogashala in Goa to offer an authentic, disciplined, and accessible sanctuary for yoga education.",
+    "Grounded in traditional Hatha Yoga and Ashtanga Vinyasa lineages, our lead teacher founded Hatha Yogashala in Goa to offer an authentic, disciplined, and accessible sanctuary for yoga education — Yoga Alliance-registered and built on more than 15 years of teaching experience.",
   fullBio:
-    "Acharya Ramkrishna has spent over 15 years immersed in classical Hatha Yoga, pranayama, and yogic philosophy. Having trained under respected traditional masters in Rishikesh and South India, he established The Hatha Yogashala near the tranquil coastal shores of North Goa. His teaching integrates traditional sequencing, breath retention (Kumbhaka), and anatomical precision, ensuring students build a personal practice rooted in clarity, mental stillness, and bodily safety.",
-  qualifications: "E-RYT 500, Traditional Hatha Master",
-  experience: "15+ Years Practising & Teaching",
+    "Our lead teacher has spent over 15 years immersed in classical Hatha Yoga, Ashtanga Vinyasa, pranayama, meditation, and Ayurveda, teaching yoga teacher training in India and internationally. With E-RYT 500 certification and advanced Ashtanga training, they have mentored more than 1,500 certified teachers now teaching across Europe, Russia, and the Americas. The teaching integrates traditional sequencing, breath retention (Kumbhaka), and anatomical precision, ensuring students build a personal practice rooted in clarity, mental stillness, and bodily safety.",
+  qualifications: "E-RYT 500 (Yoga Alliance), Advanced Ashtanga",
+  experience: "15+ Years Teaching Yoga Teacher Training",
   philosophy:
     "Yoga is not a performance of difficult shapes; it is a steady, conscious inquiry into breath, body alignment, and mental quietude. We teach Hatha Yoga as a lived discipline that restores harmony to everyday life.",
   quote:
-    "True yoga begins when we stop striving to impress others with physical postures and start listening deeply to the body's natural intelligence.",
+    "Yoga is a path of self-inquiry. I teach from the breath outward, guiding students to find alignment, steadiness, and ease — on the mat and in life.",
   image: "/images/hero-goa-yoga.png",
-  imageAlt: "Acharya Ramkrishna, Founder of The Hatha Yogashala in Goa",
-  lineage: "Classical Hatha Yoga (Rishikesh & South Indian Traditions)",
+  imageAlt: "Lead Teacher of Hatha Yogashala in Goa",
+  lineage: "Classical Hatha Yoga & Ashtanga Vinyasa (India)",
   areasOfExpertise: [
     "Traditional Hatha Postures",
-    "Pranayama & Subtle Energy (Kriyas)",
+    "Ashtanga Vinyasa & Pranayama",
     "Yoga Philosophy & Sutra Study",
     "Functional Anatomical Alignment",
     "Teacher Mentorship & Practicums",
   ],
   message:
-    "Welcome to The Hatha Yogashala in Goa. Our shala was built to be a sanctuary where sincere seekers can study traditional Hatha Yoga deeply, away from the noise and rush of modern life. Whether you come to become a certified teacher or to immerse yourself in self-discovery, we welcome you with warmth, discipline, and honest guidance.",
+    "Welcome to Hatha Yogashala in Querim, North Goa. Our shala was built to be a sanctuary where sincere seekers can study traditional Hatha Yoga deeply, away from the noise and rush of modern life. Whether you come to become a certified teacher or to immerse yourself in self-discovery, we welcome you with warmth, discipline, and honest guidance.",
   isPlaceholder: true,
   placeholderNote:
     "[EDITABLE DATA PLACEHOLDER: Replace name, portrait, qualifications, and biography with verified founder details as needed.]",
@@ -141,15 +141,15 @@ export const founderData = {
 
 export const teachersData = [
   {
-    id: "acharya-ramkrishna",
-    name: "Acharya Ramkrishna",
-    role: "Founder & Lead Hatha Teacher",
-    specialty: "Hatha Yoga & Philosophy",
-    bio: "Leads traditional Hatha yoga practices, pranayama, and classical text studies with a focus on breath retention and inner stillness.",
-    qualifications: "E-RYT 500 Master",
+    id: "lead-teacher",
+    name: "Lead Teacher",
+    role: "Founder & Director of Yoga Education",
+    specialty: "Hatha Yoga, Philosophy & Teacher Training",
+    bio: "Leads the teacher-training curriculum, pranayama, and classical text studies. With more than 15 years of experience and E-RYT 500 certification, has mentored over 1,500 certified teachers worldwide.",
+    qualifications: "E-RYT 500 (Yoga Alliance)",
     experience: "15+ Years",
     image: "/images/hatha-yoga-class-goa.png",
-    imageAlt: "Acharya Ramkrishna guiding a Hatha yoga class in Goa",
+    imageAlt: "Lead teacher guiding a Hatha yoga class at Hatha Yogashala in Goa",
     coursesTaught: [
       "100-Hour Yoga Teacher Training",
       "200-Hour Yoga Teacher Training",
@@ -157,71 +157,87 @@ export const teachersData = [
     ],
   },
   {
-    id: "priya-sharma",
-    name: "Priya Sharma",
-    role: "Anatomy & Alignment Specialist",
-    specialty: "Functional Yoga Anatomy",
-    bio: "Combines modern biomechanics with traditional alignment to ensure safe, injury-free practice for all student body types.",
-    qualifications: "M.Sc. Kinesiology, RYT 500",
-    experience: "9 Years",
+    id: "senior-ashtanga-teacher",
+    name: "Senior Ashtanga Teacher",
+    role: "Ashtanga Vinyasa Faculty",
+    specialty: "Ashtanga Vinyasa & Mysore Practice",
+    bio: "Certified Ashtanga Vinyasa teacher (under Paramaguru Sharath Jois, Mysore) with 10+ years of experience. Leads Mysore-style practice, sequencing, and teaching methodology.",
+    qualifications: "Certified Ashtanga (Mysore) Teacher",
+    experience: "10+ Years",
     image: "/images/course-goa-yoga.png",
-    imageAlt: "Priya Sharma demonstrating anatomical alignment in Goa",
+    imageAlt: "Senior Ashtanga teacher demonstrating alignment in Goa",
     coursesTaught: [
       "200-Hour Yoga Teacher Training",
+      "300-Hour Yoga Teacher Training",
+    ],
+  },
+  {
+    id: "hatha-philosophy-teacher",
+    name: "Hatha & Philosophy Teacher",
+    role: "Philosophy, Sanskrit & Meditation Faculty",
+    specialty: "Yoga Philosophy, Sanskrit, Meditation",
+    bio: "Guides daily meditation, philosophy, Sanskrit, and chanting studies — deepening students' understanding of the traditions behind the practice.",
+    qualifications: "Traditional Hatha & Philosophy Scholar",
+    experience: "10+ Years",
+    image: "/images/pranayama-meditation-goa.png",
+    imageAlt: "Hatha and philosophy teacher leading meditation at Hatha Yogashala",
+    coursesTaught: ["100-Hour Yoga Teacher Training", "Meditation & Yoga Nidra"],
+  },
+  {
+    id: "anatomy-alignment-teacher",
+    name: "Anatomy & Alignment Teacher",
+    role: "Anatomy & Adjustment Faculty",
+    specialty: "Functional Yoga Anatomy",
+    bio: "Combines modern movement science with traditional alignment to ensure safe, injury-free practice for all student body types.",
+    qualifications: "M.Sc. Anatomy & Kinesiology",
+    experience: "8+ Years",
+    image: "/images/accommodation-goa.png",
+    imageAlt: "Anatomy and alignment teacher explaining yogic alignment",
+    coursesTaught: [
+      "200-Hour Yoga Teacher Training",
+      "300-Hour Yoga Teacher Training",
       "Adjustment & Alignment Course",
     ],
   },
   {
-    id: "dev-ananth",
-    name: "Dev Ananth",
-    role: "Pranayama & Meditation Faculty",
-    specialty: "Pranayama, Sound & Nidra",
-    bio: "Guides daily meditation, Vedic chanting, and sound healing immersions in our quiet coastal yoga shala.",
-    qualifications: "Certified Sound & Nidra Master",
-    experience: "11 Years",
-    image: "/images/pranayama-meditation-goa.png",
-    imageAlt: "Dev Ananth leading meditation in Goa shala",
-    coursesTaught: ["Sound Healing Course", "Meditation & Yoga Nidra"],
-  },
-  {
-    id: "ananya-deshmukh",
-    name: "Ananya Deshmukh",
-    role: "Ayurveda & Lifestyle Teacher",
+    id: "ayurveda-teacher",
+    name: "Ayurveda & Lifestyle Teacher",
+    role: "Ayurveda & Wellness Faculty",
     specialty: "Ayurvedic Diet & Living",
     bio: "Teaches practical Ayurvedic nutrition, dosha balancing, and daily sattvic routines for residential students.",
     qualifications: "B.A.M.S. (Ayurvedic Physician)",
-    experience: "8 Years",
-    image: "/images/accommodation-goa.png",
-    imageAlt: "Ananya Deshmukh teaching Ayurveda principles",
+    experience: "8+ Years",
+    image: "/images/goa-coast-yoga-retreat.png",
+    imageAlt: "Ayurveda teacher sharing wellness principles at Hatha Yogashala",
     coursesTaught: ["Ayurveda Course", "Goa Yoga Retreats"],
   },
 ];
 
 export const aboutSectionData = {
-  eyebrow: "Authentic Yoga School in Goa",
+  eyebrow: "Yoga Alliance Registered School in Goa",
   heading: "A Sanctuary for Traditional Hatha Yoga Study & Practice",
   subheading:
-    "Rooted in classical traditions and surrounded by North Goa's calming coastal nature, The Hatha Yogashala provides residential teacher training and retreats designed for deep learning.",
+    "Rooted in classical traditions and surrounded by North Goa's calming coastal nature, Hatha Yogashala in Querim provides residential teacher training and retreats designed for deep learning.",
   paragraph1:
-    "As an established Hatha Yoga school in India, The Hatha Yogashala offers intensive Yoga teacher training in Goa that balances traditional practices with modern biomechanics and safe alignment. Our school provides a peaceful learning environment where students cultivate physical strength, mental clarity, and authentic teaching methodology.",
+    "Hatha Yogashala is a Yoga Alliance-registered yoga school in North Goa, offering authentic 100, 200, and 300-hour teacher training led by internationally certified teachers with 15+ years of experience. Students have trained here from all over the world, and our graduates now teach across Europe, Russia, and the Americas.",
   paragraph2:
-    "Whether you are joining our certified yoga courses in Goa to launch a teaching career or attending our restorative yoga retreats in Goa for personal renewal, our small-group approach ensures you receive dedicated guidance, transparent course information, and personalized feedback at every step.",
+    "Our residential school sits a short walk from Querim beach, blending daily Hatha yoga and meditation, breathwork, and philosophy with the warmth of a true Indian ashram. The curriculum includes functional anatomy, alignment, teaching methodology, and the art of making yoga safe, accessible, and transformative for every body.",
   trustPoints: [
     {
+      title: "Yoga Alliance Registered",
+      description: "RYS certification for 100-Hr, 200-Hr, and 300-Hr training.",
+    },
+    {
       title: "Small-Group Ratio",
-      description: "Max 12-16 students per batch for individual feedback.",
+      description: "Intimate batches so every student receives personal attention.",
     },
     {
-      title: "Certified Yoga Pathways",
-      description: "Structured 100-Hr, 200-Hr, and 300-Hr curricula.",
+      title: "Experienced Faculty",
+      description: "E-RYT 500 lead teacher with 15+ years of teaching experience.",
     },
     {
-      title: "Traditional & Anatomy Focus",
-      description: "Classical Hatha merged with modern movement science.",
-    },
-    {
-      title: "Coastal Goa Setting",
-      description: "Peaceful residential shala near North Goa beaches.",
+      title: "Beachside Querim Setting",
+      description: "Peaceful residential ashram near North Goa's cleanest beaches.",
     },
   ],
 };
