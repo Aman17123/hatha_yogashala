@@ -1,12 +1,8 @@
 import { teacherTrainings, shortPrograms } from "@/data/coursesData";
-import { makeMetadata } from "@/data/siteData";
+import { pageMetadata } from "@/data/siteData";
 import { Container, FinalCTA, PageHero, ProgramCard, SectionHeading } from "@/components/ui";
 
-export const metadata = makeMetadata(
-  "Yoga Courses in Goa",
-  "Compare yoga teacher training and short courses at The Hatha Yogashala in Goa.",
-  "/courses",
-);
+export const metadata = pageMetadata("courses");
 
 export default function CoursesPage() {
   return (

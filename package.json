@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "check:content": "node --experimental-default-type=module scripts/check-content.mjs",
     "check:enquiry": "node --experimental-default-type=module scripts/check-enquiry.mjs"
   },
   "dependencies": {

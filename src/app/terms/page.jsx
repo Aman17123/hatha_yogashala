@@ -1,11 +1,7 @@
 import PolicyPage from "@/components/PolicyPage";
-import { makeMetadata } from "@/data/siteData";
+import { pageMetadata, placeholders } from "@/data/siteData";
 
-export const metadata = makeMetadata(
-  "Terms & Conditions",
-  "Terms and conditions template for The Hatha Yogashala.",
-  "/terms",
-);
+export const metadata = pageMetadata("terms");
 
 const sections = [
   {
@@ -17,26 +13,26 @@ const sections = [
   {
     title: "Student responsibilities",
     paragraphs: [
-      "[Add approved attendance, conduct, health disclosure, insurance, visa, travel, and participation requirements.]",
+      placeholders.policy.studentResponsibilities,
       "Students should seek appropriate medical advice before participating and disclose information relevant to safe instruction.",
     ],
   },
   {
     title: "Changes and cancellations",
     paragraphs: [
-      "[Add the school’s approved right to change teachers, schedules, venues, activities, or dates, together with the remedies available to students.]",
-      "[Add cancellation, transfer, refund, no-show, early-departure, illness, and force-majeure terms.]",
+      placeholders.policy.schoolChanges,
+      placeholders.payment.changes,
     ],
   },
   {
     title: "Website information",
     paragraphs: [
-      "Bracketed content and editorial placeholders are not booking promises. Confirm all course and retreat details directly with the school before payment or travel.",
+      "General planning information is not a booking promise. Confirm the selected dates, total fee, room, meals, faculty, activities, completion details, and policies in writing before payment or travel.",
     ],
   },
   {
     title: "Governing terms and contact",
-    paragraphs: ["[Add legal entity, jurisdiction, dispute process, contact email, and effective date.]"],
+    paragraphs: [`${placeholders.legalEntity}. ${placeholders.email}. ${placeholders.effectiveDate}.`],
   },
 ];
 

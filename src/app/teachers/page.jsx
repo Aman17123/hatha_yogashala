@@ -1,85 +1,151 @@
-import { Users } from "lucide-react";
-import { teachers, makeMetadata } from "@/data/siteData";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Award, BookOpen, CheckCircle2, ShieldCheck, Sparkles, Users } from "lucide-react";
+import { teachersData } from "@/data/siteContentData";
+import { pageMetadata } from "@/data/siteData";
+import TeacherCard from "@/components/TeacherCard";
 import {
+  ButtonLink,
   Container,
   FinalCTA,
+  JsonLd,
   Media,
   PageHero,
-  PlaceholderBadge,
   SectionHeading,
 } from "@/components/ui";
 
-export const metadata = makeMetadata(
-  "Yoga Teachers in Goa",
-  "Meet the founder and teaching team placeholders for The Hatha Yogashala in Goa.",
-  "/teachers",
-);
+export const metadata = pageMetadata("teachers");
 
 export default function TeachersPage() {
+  const facultySchema = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    name: "The Hatha Yogashala",
+    employee: teachersData.map((t) => ({
+      "@type": "Person",
+      name: t.name,
+      jobTitle: t.role,
+      description: t.bio,
+    })),
+  };
+
   return (
     <>
+      <JsonLd data={facultySchema} />
+
       <PageHero
-        eyebrow="Faculty"
-        title="Our Yoga Teachers"
-        text="A transparent faculty page ready for verified names, portraits, qualifications, specialities, and teaching experience."
+        eyebrow="Expert Faculty"
+        title="Our Yoga Teachers in Goa"
+        text="Meet the dedicated masters and subject specialists guiding traditional Hatha yoga, functional anatomy, pranayama, and teaching methodology."
+        image="/images/course-goa-yoga.png"
       />
-      <section className="section">
-        <Container>
-          <div className="founder-card">
-            <Media src="/images/hero-goa-yoga.png" alt="Founder portrait placeholder" className="founder-image" />
-            <div>
-              <SectionHeading eyebrow="Founder spotlight" title={teachers[0].name} text={teachers[0].role} />
-              <p>{teachers[0].bio}</p>
-              <dl className="teacher-facts">
-                <div><dt>Qualifications</dt><dd>{teachers[0].qualifications}</dd></div>
-                <div><dt>Experience</dt><dd>{teachers[0].experience}</dd></div>
-                <div><dt>Specialities</dt><dd>{teachers[0].specialties.join(", ")}</dd></div>
-              </dl>
-            </div>
-          </div>
-        </Container>
-      </section>
-      <section className="section section-peach">
+
+      {/* Intro Section */}
+      <section className="section bg-[#fffcf8]">
         <Container>
           <SectionHeading
-            eyebrow="Teaching team"
-            title="Specialists across practice and study"
-            text="Every card remains visibly incomplete until the school approves the source material."
+            eyebrow="Faculty & Guidance"
+            title="Know Who Teaches Your Batch Before You Book"
+            text="Every student receives personalized feedback from experienced lead teachers and subject specialists assigned to specific batch dates in writing."
           />
-          <div className="teacher-grid">
-            {teachers.map((teacher, index) => (
-              <article className="card teacher-profile" key={`${teacher.name}-${index}`}>
-                <div className="teacher-avatar large"><Users aria-hidden="true" /><PlaceholderBadge /></div>
-                <div className="card-body">
-                  <h2>{teacher.name}</h2>
-                  <p className="teacher-role">{teacher.role}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {teacher.specialties.map((item, specialtyIndex) => (
-                      <span className="pill" key={`${item}-${specialtyIndex}`}>{item}</span>
-                    ))}
+
+          {/* Detailed Teacher Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+            {teachersData.map((teacher) => (
+              <article
+                id={teacher.id}
+                key={teacher.id}
+                className="rounded-[28px] bg-white border border-[#f0d9cf] p-6 sm:p-8 shadow-sm space-y-6 scroll-mt-28 hover:shadow-xl transition-all"
+              >
+                <div className="flex flex-col sm:flex-row gap-6 items-start">
+                  <div className="relative aspect-[4/5] w-full sm:w-44 shrink-0 rounded-2xl overflow-hidden bg-[#fdf0e7]">
+                    <Image
+                      src={teacher.image}
+                      alt={teacher.imageAlt || teacher.name}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 200px"
+                      className="object-cover"
+                    />
                   </div>
-                  <p className="mt-4">{teacher.bio}</p>
-                  <dl className="teacher-facts">
-                    <div><dt>Qualifications</dt><dd>{teacher.qualifications}</dd></div>
-                    <div><dt>Experience</dt><dd>{teacher.experience}</dd></div>
-                  </dl>
+
+                  <div className="space-y-3 flex-1">
+                    <span className="inline-block rounded-full bg-[#fff0eb] border border-[#f0d9cf] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#cf5b50]">
+                      {teacher.specialty}
+                    </span>
+                    <h2 className="text-2xl font-serif font-bold text-[#2c1a0e]">
+                      {teacher.name}
+                    </h2>
+                    <p className="text-xs font-semibold text-[#cf5b50]">
+                      {teacher.role}
+                    </p>
+
+                    <div className="flex flex-wrap gap-4 text-xs text-[#746d69] pt-1">
+                      <span className="flex items-center gap-1.5">
+                        <Award size={14} className="text-[#cf5b50]" />
+                        <strong>Qual:</strong> {teacher.qualifications}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <Users size={14} className="text-[#cf5b50]" />
+                        <strong>Exp:</strong> {teacher.experience}
+                      </span>
+                    </div>
+                  </div>
                 </div>
+
+                <p className="text-sm text-[#4e4946] leading-relaxed border-t border-[#f0d9cf]/60 pt-4">
+                  {teacher.bio}
+                </p>
+
+                {/* Courses Taught by Teacher */}
+                {teacher.coursesTaught && teacher.coursesTaught.length > 0 && (
+                  <div className="bg-[#fff0eb]/50 rounded-2xl p-4 space-y-2">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-[#2c1a0e]">
+                      Courses Taught:
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {teacher.coursesTaught.map((courseName) => (
+                        <span
+                          key={courseName}
+                          className="rounded-lg bg-white border border-[#f0d9cf] px-3 py-1 text-xs text-[#2c1a0e] font-medium"
+                        >
+                          {courseName}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </article>
             ))}
           </div>
         </Container>
       </section>
-      <section className="section">
-        <Container className="content-narrow text-center">
+
+      {/* Verification Checklist */}
+      <section className="section section-peach">
+        <Container>
           <SectionHeading
-            eyebrow="Teaching philosophy"
-            title="Clear instruction, careful observation, responsible guidance"
-            text="Replace this page-level philosophy with an approved statement that reflects how the actual teaching team plans, teaches, modifies, and assesses learning."
-            align="center"
+            eyebrow="Faculty Transparency"
+            title="Five Standards Every Faculty Profile Meets"
+            text="We publish teacher details with clarity so you can verify who guides your training."
           />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            {[
+              "Approved name and current portrait",
+              "Assigned lead subjects and roles",
+              "Verified qualifications & certifications",
+              "Relevant teaching experience in years",
+              "Confirmed batch availability in writing",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3 rounded-2xl bg-white border border-[#f0d9cf] p-5 shadow-sm">
+                <ShieldCheck size={20} className="text-[#cf5b50] shrink-0 mt-0.5" />
+                <h3 className="text-sm font-semibold text-[#2c1a0e] leading-snug">{item}</h3>
+              </div>
+            ))}
+          </div>
         </Container>
       </section>
-      <FinalCTA title="Ask who will teach your batch" />
+
+      <FinalCTA title="Ask who will teach your batch in Goa" />
     </>
   );
 }

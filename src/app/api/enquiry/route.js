@@ -1,4 +1,4 @@
-import { validateEnquiry } from "@/lib/enquiry";
+import { isAllowedOrigin, validateEnquiry } from "@/lib/enquiry";
 
 const attempts = new Map();
 const WINDOW_MS = 15 * 60 * 1000;
@@ -16,7 +16,7 @@ function isRateLimited(key) {
 export async function POST(request) {
   const origin = request.headers.get("origin");
   const host = request.headers.get("host");
-  if (origin && host && new URL(origin).host !== host) {
+  if (!isAllowedOrigin(origin, host)) {
     return Response.json({ message: "Cross-origin submissions are not accepted." }, { status: 403 });
   }
 

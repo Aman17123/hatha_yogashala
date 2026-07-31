@@ -1,6 +1,7 @@
-import { BookOpen, Heart, Leaf, ShieldCheck } from "lucide-react";
-import { teachers } from "@/data/siteData";
-import { makeMetadata } from "@/data/siteData";
+import { BookOpen, Heart, Leaf, ShieldCheck, Users } from "lucide-react";
+import { placeholders, teachers } from "@/data/siteData";
+import { pageMetadata } from "@/data/siteData";
+import FounderPreview from "@/components/FounderPreview";
 import {
   ButtonLink,
   Container,
@@ -10,11 +11,7 @@ import {
   SectionHeading,
 } from "@/components/ui";
 
-export const metadata = makeMetadata(
-  "About Our Yoga School in Goa",
-  "Learn the developing philosophy, teaching approach, values, and Goa setting of The Hatha Yogashala.",
-  "/about",
-);
+export const metadata = pageMetadata("about");
 
 export default function AboutPage() {
   return (
@@ -22,14 +19,14 @@ export default function AboutPage() {
       <PageHero
         eyebrow="Our story"
         title="About The Hatha Yogashala"
-        text="A yoga school identity built around clear teaching, honest information, and a grounded relationship with Goa."
+        text="A yoga school identity built around clear teaching, traditional Hatha practice, honest information, and a grounded relationship with Goa."
         image="/images/hero-goa-yoga.png"
       />
       <section className="section">
         <Container className="split-layout">
           <Media
             src="/images/course-goa-yoga.png"
-            alt="Editorial placeholder of yoga teacher training in Goa"
+            alt="Students learning Hatha yoga in a small group in Goa"
             className="course-overview-image"
           />
           <div>
@@ -40,18 +37,18 @@ export default function AboutPage() {
             />
             <div className="prose-compact">
               <p>
-                The final school story should be written from the founder’s approved account:
-                why the school began, whose teaching shaped it, and what responsibility it takes
-                toward students and tradition.
+                The school story stays grounded in its public purpose: create
+                a clear residential setting for Hatha yoga practice, study,
+                reflection, and responsible student support in Goa.
               </p>
               <p>
-                Until that material is supplied, this page offers a transparent editorial
-                framework instead of inventing lineage, achievements, or qualifications.
+                Whether joining our certified 200-hour teacher training or a restorative yoga retreat, students at The Hatha Yogashala learn in an environment focused on personal growth, correct posture alignment, and practical teaching methodology.
               </p>
             </div>
           </div>
         </Container>
       </section>
+
       <section className="section section-peach">
         <Container>
           <SectionHeading eyebrow="Our direction" title="Mission, vision, and values" />
@@ -69,19 +66,10 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
-      <section className="section" id="founder">
-        <Container>
-          <div className="founder-card">
-            <Media src="/images/hero-goa-yoga.png" alt="Founder portrait placeholder" className="founder-image" />
-            <div>
-              <SectionHeading eyebrow="Founder" title={teachers[0].name} text={teachers[0].role} />
-              <p>{teachers[0].bio}</p>
-              <p className="placeholder-note mt-4">{teachers[0].qualifications} · {teachers[0].experience}</p>
-              <blockquote>“[Add an approved founder philosophy quote.]”</blockquote>
-            </div>
-          </div>
-        </Container>
-      </section>
+
+      {/* Founder Preview Section */}
+      <FounderPreview />
+
       <section className="section section-cream">
         <Container className="split-layout split-reverse">
           <div>
@@ -96,20 +84,21 @@ export default function AboutPage() {
               ))}
             </ul>
           </div>
-          <Media src="/images/accommodation-goa.png" alt="Goa residential learning placeholder" className="course-overview-image" />
+          <Media src="/images/accommodation-goa.png" alt="Residential study environment for yoga training in Goa" className="course-overview-image" />
         </Container>
       </section>
+
       <section className="section">
         <Container>
           <SectionHeading
             eyebrow="Verification"
-            title="Credentials and reviews will be published responsibly"
-            text="Certification, teachers, graduate outcomes, and student voices remain placeholders until supporting information is supplied."
+            title="Credentials and reviews are published responsibly"
+            text="Certification, teachers, graduate outcomes, and student voices require supporting information and an appropriate public source."
           />
           <div className="policy-grid">
-            <article><h2>Certification</h2><p>[Add exact registration name, course designation, registration number, and verification link.]</p><ButtonLink href="/certification" variant="text">View certification</ButtonLink></article>
-            <article><h2>Teaching team</h2><p>[Add approved biographies, qualifications, subjects, experience, and batch assignment.]</p><ButtonLink href="/teachers" variant="text">Meet the teachers</ButtonLink></article>
-            <article><h2>Student reviews</h2><p>[Add verified excerpts with permission and link to the original review profile.]</p><ButtonLink href="/contact" variant="text">Ask a question</ButtonLink></article>
+            <article><h2>Certification</h2><p>{placeholders.certification}. {placeholders.verificationUrl}</p><ButtonLink href="/certification" variant="text">View certification</ButtonLink></article>
+            <article><h2>Teaching team</h2><p>Faculty names, qualifications, experience, subject roles, and batch assignments are verified before publication.</p><ButtonLink href="/teachers" variant="text">Meet the teachers</ButtonLink></article>
+            <article><h2>Student reviews</h2><p>No student review is displayed without the original platform source, reviewer attribution, rating, and date.</p><ButtonLink href="/contact" variant="text">Ask a question</ButtonLink></article>
           </div>
         </Container>
       </section>

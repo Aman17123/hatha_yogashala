@@ -1,11 +1,7 @@
 import PolicyPage from "@/components/PolicyPage";
-import { makeMetadata } from "@/data/siteData";
+import { pageMetadata, placeholders } from "@/data/siteData";
 
-export const metadata = makeMetadata(
-  "Privacy Policy",
-  "Privacy policy template for The Hatha Yogashala website and enquiry form.",
-  "/privacy-policy",
-);
+export const metadata = pageMetadata("privacy");
 
 const sections = [
   {
@@ -25,8 +21,8 @@ const sections = [
   {
     title: "Storage, sharing, and retention",
     paragraphs: [
-      "[Add the approved form provider, storage location, staff access, retention period, deletion process, and any international data transfers.]",
-      "[Add the lawful basis, privacy contact, and rights that apply to the school’s students and website visitors.]",
+      placeholders.policy.formProvider,
+      placeholders.policy.privacyRights,
     ],
   },
   {
@@ -37,7 +33,7 @@ const sections = [
   },
   {
     title: "Contact",
-    paragraphs: ["Privacy questions: [EMAIL ADDRESS]. Effective date: [ADD DATE]."],
+    paragraphs: [`Privacy questions: ${placeholders.email}. Effective date: ${placeholders.effectiveDate}.`],
   },
 ];
 

@@ -25,9 +25,10 @@ Copy `.env.example` to `.env.local` and set:
 - `ENQUIRY_WEBHOOK_URL`: a secure endpoint that accepts the validated enquiry JSON.
 
 The form intentionally returns `503` until `ENQUIRY_WEBHOOK_URL` is configured. It never shows a fake success message and does not store failed submissions.
+Without `NEXT_PUBLIC_SITE_URL`, metadata uses the reserved `.example` fallback and robots block indexing.
 
 ## Content replacement
 
-Search for `[` to find editable placeholders. Replace all bracketed contact details, fees, dates, certifications, qualifications, reviews, policies, and availability information with approved facts before launch.
+Replace the bracketed values in `src/data/siteData.js` and `src/data/coursesData.js`. They centralize contact details, fees, dates, certification, qualifications, reviews, policies, facilities, travel, and availability.
 
 The files in `public/images/` are generated editorial placeholders. Replace them with original school photography while keeping the same filenames, or update the shared paths in `src/data/`.

@@ -34,8 +34,12 @@ const aboutColumns = [
         href: findHref(["About", "About Us"], "/about"),
       },
       {
+        label: "Our Founder",
+        href: "/founder",
+      },
+      {
         label: "Our Teachers",
-        href: findHref(["Our Teachers", "Our Team"], "/our-team"),
+        href: findHref(["Our Teachers", "Our Team"], "/teachers"),
       },
       {
         label: "Our Certification",
@@ -45,7 +49,7 @@ const aboutColumns = [
         label: "Our Accommodation",
         href: findHref(["Accommodation"], "/accommodation"),
       },
-      { label: "Payment", href: findHref(["Payment"], "/payment") },
+      { label: "Payment", href: "/payment-policy" },
     ],
   },
   {
@@ -53,13 +57,10 @@ const aboutColumns = [
     links: [
       { label: "Gallery", href: findHref(["Gallery"], "/gallery") },
       { label: "Blogs", href: findHref(["Blog", "Blogs"], "/blog") },
-      { label: "Books", href: findHref(["Books"], "/books") },
+      { label: "Contact & Travel", href: "/contact#travel" },
       {
         label: "YTTC Pricing & Dates",
-        href: findHref(
-          ["YTTC Pricing & Dates", "Pricing & Dates"],
-          "/yttc-pricing-dates",
-        ),
+        href: findHref(["YTTC Pricing & Dates", "Pricing & Dates"], "/pricing"),
       },
     ],
   },
@@ -71,24 +72,15 @@ const yogaTtcColumns = [
     links: [
       {
         label: "100 Hour Yoga TTC",
-        href: findHref(
-          ["100 Hour Yoga TTC", "100 Hour YTTC"],
-          "/100-hour-yttc",
-        ),
+        href: "/courses/100-hour-yoga-teacher-training-goa",
       },
       {
         label: "200 Hour Yoga TTC",
-        href: findHref(
-          ["200 Hour Yoga TTC", "200 Hour YTTC"],
-          "/200-hour-yttc",
-        ),
+        href: "/courses/200-hour-yoga-teacher-training-goa",
       },
       {
         label: "300 Hour Yoga TTC",
-        href: findHref(
-          ["300 Hour Yoga TTC", "300 Hour YTTC"],
-          "/300-hour-yttc",
-        ),
+        href: "/courses/300-hour-yoga-teacher-training-goa",
       },
     ],
   },
@@ -97,15 +89,15 @@ const yogaTtcColumns = [
     links: [
       {
         label: "Sound Healing Course",
-        href: findHref(["Sound Healing Course"], "/sound-healing-course"),
+        href: "/courses/sound-healing-course-goa",
       },
       {
         label: "Meditation Yoga Course",
-        href: findHref(["Meditation Yoga Course"], "/meditation-yoga-course"),
+        href: "/courses/meditation-course-goa",
       },
       {
         label: "Ayurveda Yoga Course",
-        href: findHref(["Ayurveda Yoga Course"], "/ayurveda-yoga-course"),
+        href: "/courses/ayurveda-course-goa",
       },
       {
         label: "Adjustment & Alignment",
@@ -230,6 +222,7 @@ export default function Navbar() {
               width={150}
               height={60}
               priority
+              unoptimized
               className="h-12 w-auto object-contain md:h-14"
             />
           </Link>
@@ -346,18 +339,18 @@ export default function Navbar() {
             <Link
               href="/apply"
               aria-label="Reserve your spot"
-              className="group relative isolate hidden items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full border border-[#cf5b50] bg-[#cf5b50] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-white shadow-[0_8px_20px_rgba(207,91,80,0.24)] transition-all duration-300 ease-out before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:rounded-full before:bg-[#f5d9c9] before:transition-transform before:duration-300 before:ease-out after:absolute after:inset-y-0 after:-left-1/2 after:-z-10 after:w-1/3 after:skew-x-[-20deg] after:bg-white/40 after:opacity-0 after:blur-sm after:transition-all after:duration-500 hover:-translate-y-0.5 hover:border-[#cf5b50] hover:text-black hover:shadow-[0_12px_26px_rgba(169,61,53,0.28)] hover:before:scale-x-100 hover:after:left-[120%] hover:after:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E97467]/40 focus-visible:ring-offset-2 motion-reduce:transform-none xl:inline-flex"
+              className="group relative isolate hidden items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full border border-[#cf5b50] bg-[#cf5b50] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] !text-white shadow-[0_8px_20px_rgba(207,91,80,0.24)] transition-all duration-300 ease-out before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:rounded-full before:bg-white before:transition-transform before:duration-300 before:ease-out hover:-translate-y-0.5 hover:!text-black hover:border-white hover:shadow-[0_12px_26px_rgba(0,0,0,0.18)] hover:before:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E97467]/40 focus-visible:ring-offset-2 xl:inline-flex"
             >
               <ClipboardList
                 aria-hidden="true"
                 strokeWidth={1.9}
-                className="size-4 shrink-0 transition-transform duration-300 ease-out group-hover:-rotate-6 group-hover:scale-110"
+                className="size-4 shrink-0 transition-all duration-300 group-hover:-rotate-6 group-hover:scale-110"
               />
 
               <span className="relative transition-transform duration-300 group-hover:translate-x-0.5">
                 Reserve Your Spot
               </span>
-            </Link>{" "}
+            </Link>
             <button
               type="button"
               className="grid size-10 place-items-center rounded-full border border-[#294936]/15 bg-[#f3f4ed] text-[#344c3b] transition duration-200 hover:border-[#5f7350] hover:bg-[#e9eee2] hover:text-[#5f7350] xl:hidden"
@@ -387,6 +380,7 @@ export default function Navbar() {
               alt={`${site.name} logo`}
               width={130}
               height={52}
+              unoptimized
               className="h-11 w-auto object-contain"
             />
             <button

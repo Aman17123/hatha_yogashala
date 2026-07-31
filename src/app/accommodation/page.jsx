@@ -3,17 +3,14 @@ import { Accordion } from "@/components/Interactive";
 import {
   Container,
   FinalCTA,
+  JsonLd,
   Media,
   PageHero,
   SectionHeading,
 } from "@/components/ui";
-import { makeMetadata } from "@/data/siteData";
+import { pageMetadata, placeholders } from "@/data/siteData";
 
-export const metadata = makeMetadata(
-  "Yoga School Accommodation in Goa",
-  "Explore accommodation, meals, yoga hall, and residential facility placeholders for The Hatha Yogashala.",
-  "/accommodation",
-);
+export const metadata = pageMetadata("accommodation");
 
 const stayFaqs = [
   { question: "Are rooms on the school campus?", answer: "The exact building, distance to the yoga hall, and room allocation process are awaiting confirmation." },
@@ -22,12 +19,23 @@ const stayFaqs = [
 ];
 
 export default function AccommodationPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: stayFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+
   return (
     <>
+      <JsonLd data={faqSchema} />
       <PageHero
         eyebrow="Residential life"
         title="Accommodation in Goa"
-        text="A calm, useful framework for rooms, meals, practice spaces, and everyday amenities—ready for verified school details."
+        text="Review the room, meals, practice spaces, everyday amenities, and written details to confirm before a residential stay."
         image="/images/accommodation-goa.png"
       />
       <section className="section">
@@ -35,15 +43,15 @@ export default function AccommodationPage() {
           <SectionHeading
             eyebrow="Room categories"
             title="Rest should support the training"
-            text="Generated room imagery is editorial only. Replace it with photographs of the exact rooms students book."
+            text="Request current photographs and a written facility list for the exact room category attached to your booking."
           />
           <div className="room-grid">
-            {["Shared room", "Private room", "Optional upgraded room"].map((room) => (
+            {["Shared room request", "Private room request"].map((room) => (
               <article className="card overflow-hidden" key={room}>
-                <Media src="/images/accommodation-goa.png" alt={`${room} editorial placeholder`} className="room-image" />
+                <Media src="/images/accommodation-goa.png" alt={`${room} setting for residential yoga training`} className="room-image" />
                 <div className="card-body">
                   <h2>{room}</h2>
-                  <p>[Add occupancy, bed type, bathroom, view, floor, accessibility, amenities, and confirmed price.]</p>
+                  <p>{placeholders.accommodation.roomDetails}</p>
                 </div>
               </article>
             ))}
@@ -55,10 +63,10 @@ export default function AccommodationPage() {
           <SectionHeading eyebrow="Amenities" title="Details students need before travel" />
           <div className="values-grid">
             {[
-              ["Beds & linen", BedDouble, "[Add linen, towel, and housekeeping details]"],
-              ["Bathrooms", Bath, "[Add private/shared, hot water, and accessibility details]"],
-              ["Connectivity", Wifi, "[Add Wi-Fi and mobile signal information]"],
-              ["Meals", Salad, "[Add meal plan, dietary options, and allergen process]"],
+              ["Beds & linen", BedDouble, placeholders.accommodation.linen],
+              ["Bathrooms", Bath, placeholders.accommodation.bathroom],
+              ["Connectivity", Wifi, placeholders.accommodation.connectivity],
+              ["Meals", Salad, placeholders.course.meals],
             ].map(([title, Icon, text]) => (
               <article className="card card-body" key={title}><Icon aria-hidden="true" /><h2>{title}</h2><p>{text}</p></article>
             ))}
@@ -67,15 +75,15 @@ export default function AccommodationPage() {
       </section>
       <section className="section">
         <Container className="split-layout">
-          <Media src="/images/course-goa-yoga.png" alt="Yoga hall editorial placeholder" className="course-overview-image" />
+          <Media src="/images/course-goa-yoga.png" alt="Naturally lit yoga hall used for group practice" className="course-overview-image" />
           <div>
             <SectionHeading
               eyebrow="Shared spaces"
               title="Yoga hall, meals, and common areas"
-              text="Add verified hall dimensions, floor material, ventilation, props, common-space hours, meal service, and quiet-time policies."
+              text="Confirm hall size, floor material, ventilation, props, common-space hours, meal service, and quiet-time policies for your batch."
             />
             <ul className="check-list">
-              {["[Yoga hall details]", "[Dining area details]", "[Study / common space]", "[Laundry process]", "[Drinking water]", "[Campus safety and support]"].map((item) => (
+              {Object.values(placeholders.accommodation).slice(4).map((item) => (
                 <li key={item}><BedDouble aria-hidden="true" />{item}</li>
               ))}
             </ul>

@@ -1,23 +1,33 @@
+import Link from "next/link";
 import { Bus, Mail, MapPin, MessageCircle, Phone, Plane, Train } from "lucide-react";
 import EnquiryForm from "@/components/EnquiryForm";
 import { Accordion } from "@/components/Interactive";
 import {
   Container,
   FinalCTA,
+  JsonLd,
   PageHero,
   SectionHeading,
 } from "@/components/ui";
-import { faqs, makeMetadata, site } from "@/data/siteData";
+import { faqs, pageMetadata, site, travelOptions } from "@/data/siteData";
 
-export const metadata = makeMetadata(
-  "Contact The Hatha Yogashala in Goa",
-  "Contact The Hatha Yogashala about yoga teacher training, retreats, travel, and applications in Goa.",
-  "/contact",
-);
+export const metadata = pageMetadata("contact");
 
 export default function ContactPage() {
+  const contactFaqs = faqs.slice(0, 4);
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: contactFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+
   return (
     <>
+      <JsonLd data={faqSchema} />
       <PageHero
         eyebrow="We’re here to help"
         title="Contact The Hatha Yogashala"
@@ -45,7 +55,10 @@ export default function ContactPage() {
                 <div><strong>{label}</strong><p>{value}</p></div>
               </div>
             ))}
-            <p className="placeholder-note">Replace all bracketed contact information before launch.</p>
+            <p className="placeholder-note">
+              Public contact details are shown only after the school confirms
+              them. The enquiry form remains the available contact route.
+            </p>
           </aside>
         </Container>
       </section>
@@ -57,26 +70,45 @@ export default function ContactPage() {
             text="Distances, pickup services, and routes must be confirmed against the final school address."
           />
           <div className="travel-grid">
-            {[
-              ["By air", Plane, "[Nearest airport, distance, and transfer options]"],
-              ["By train", Train, "[Nearest station, distance, and transfer options]"],
-              ["By bus", Bus, "[Recommended arrival point and local connection]"],
-              ["Local transfer", MapPin, "[Verified taxi or pickup instructions]"],
-            ].map(([label, Icon, text]) => (
+            {travelOptions.map(({ label, text }) => {
+              const Icon = label === "By air" ? Plane : label === "By train" ? Train : label === "By bus" ? Bus : MapPin;
+              return (
               <article className="card card-body" key={label}><Icon aria-hidden="true" /><h2>{label}</h2><p>{text}</p></article>
-            ))}
+              );
+            })}
           </div>
-          <div className="map-placeholder mt-8">
-            <MapPin aria-hidden="true" />
-            <strong>Map embed pending</strong>
-            <p>{site.contact.map}</p>
+          <div className="grid gap-6 mt-8 lg:grid-cols-[0.8fr_1.2fr]">
+            <article className="card card-body">
+              <MapPin aria-hidden="true" />
+              <h2 className="mt-4">{site.contact.address}</h2>
+              <p className="mt-3">
+                The map remains regional until the school confirms an exact
+                public pin. Request the arrival window and route before travel.
+              </p>
+              <Link
+                className="button button-primary mt-6"
+                href={site.contact.directionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Get Directions
+              </Link>
+            </article>
+            <iframe
+              className="map-frame"
+              src={site.contact.mapEmbedUrl}
+              title="Map showing Goa, India"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
         </Container>
       </section>
       <section className="section">
         <Container className="content-narrow">
           <SectionHeading eyebrow="Contact FAQ" title="Useful answers before you write" />
-          <Accordion items={faqs.slice(0, 4)} />
+          <Accordion items={contactFaqs} />
         </Container>
       </section>
       <FinalCTA />

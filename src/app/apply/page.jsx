@@ -1,13 +1,9 @@
 import { Check, ShieldCheck } from "lucide-react";
 import EnquiryForm from "@/components/EnquiryForm";
 import { Container, PageHero, SectionHeading } from "@/components/ui";
-import { makeMetadata } from "@/data/siteData";
+import { pageMetadata } from "@/data/siteData";
 
-export const metadata = makeMetadata(
-  "Apply for Yoga Training in Goa",
-  "Apply for yoga teacher training, short courses, or retreats at The Hatha Yogashala in Goa.",
-  "/apply",
-);
+export const metadata = pageMetadata("apply");
 
 export default function ApplyPage() {
   return (

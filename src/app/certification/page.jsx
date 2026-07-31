@@ -1,13 +1,9 @@
 import { ShieldCheck } from "lucide-react";
 import { Accordion } from "@/components/Interactive";
-import { Container, FinalCTA, PageHero, SectionHeading } from "@/components/ui";
-import { makeMetadata } from "@/data/siteData";
+import { Container, FinalCTA, JsonLd, PageHero, SectionHeading } from "@/components/ui";
+import { pageMetadata, placeholders } from "@/data/siteData";
 
-export const metadata = makeMetadata(
-  "Yoga Certification & Verification",
-  "Review certification placeholders and the verification process for The Hatha Yogashala.",
-  "/certification",
-);
+export const metadata = pageMetadata("certification");
 
 const certificationFaqs = [
   { question: "Is the school currently certified?", answer: "No certification claim is published because approved registration details have not been provided." },
@@ -16,8 +12,19 @@ const certificationFaqs = [
 ];
 
 export default function CertificationPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: certificationFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+
   return (
     <>
+      <JsonLd data={faqSchema} />
       <PageHero
         eyebrow="Credentials"
         title="Certification & Verification"
@@ -28,13 +35,13 @@ export default function CertificationPage() {
           <SectionHeading
             eyebrow="Certification overview"
             title="Every credential should lead to a source"
-            text="Before launch, replace each bracketed item with exact information and a public verification path."
+            text="The exact issuer, designation, registration identifier, validity, and public verification path must agree with the student’s written offer."
           />
           <div className="credential-cards">
             {[
-              ["[Certification Name]", "Exact name of the issuing or registering body"],
-              ["[Registration Number]", "Public school or provider registration identifier"],
-              ["[Approved Course Designation]", "Exact credential attached to each program"],
+              [placeholders.certificationName, "Exact name of the issuing or registering body"],
+              [placeholders.yogaAllianceNumber, "Public school or provider registration identifier"],
+              [placeholders.courseDesignation, "Exact credential attached to each program"],
             ].map(([title, text]) => (
               <div className="card" key={title}><ShieldCheck aria-hidden="true" /><strong>{title}</strong><span>{text}</span></div>
             ))}
@@ -43,20 +50,20 @@ export default function CertificationPage() {
       </section>
       <section className="section section-peach">
         <Container className="certification-grid">
-          <div className="certificate-placeholder">
-            <span>Certificate preview</span>
-            <strong>[Add approved certificate image]</strong>
-            <p>Show a watermarked specimen only after the issuing details are confirmed.</p>
+          <div className="card card-body grid place-items-center text-center">
+            <ShieldCheck aria-hidden="true" size={52} />
+            <strong className="mt-4">{placeholders.certificateImage}</strong>
+            <p className="mt-2">A specimen will appear only after the issuing details are verified and publication is approved.</p>
           </div>
           <div>
             <SectionHeading eyebrow="What students receive" title="Publish the complete credential pathway" />
             <ul className="check-list">
               {[
-                "[Document issued on successful completion]",
-                "[Assessment and attendance conditions]",
-                "[Registration steps after graduation]",
-                "[Any additional registration fees]",
-                "[Verification contact or public profile]",
+                placeholders.certification,
+                placeholders.certificationConditions,
+                placeholders.graduateRegistration,
+                placeholders.courseDesignation,
+                placeholders.verificationUrl,
               ].map((item) => <li key={item}><ShieldCheck aria-hidden="true" />{item}</li>)}
             </ul>
           </div>

@@ -5,7 +5,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { JsonLd } from "@/components/ui";
-import { site } from "@/data/siteData";
+import { absoluteUrl, pageSeo, site } from "@/data/siteData";
 
 const heading = Bricolage_Grotesque({
   variable: "--font-heading",
@@ -20,39 +20,39 @@ const body = Manrope({
 export const metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "The Hatha Yogashala | Yoga Teacher Training in Goa",
+    default: pageSeo.home.title,
     template: "%s | The Hatha Yogashala",
   },
-  description: site.description,
+  description: pageSeo.home.description,
   applicationName: site.name,
   authors: [{ name: site.name }],
   creator: site.name,
   publisher: site.name,
   category: "Yoga education",
-  alternates: { canonical: "/" },
+  alternates: { canonical: site.url },
   openGraph: {
-    title: "The Hatha Yogashala | Yoga Teacher Training in Goa",
-    description: site.description,
-    url: "/",
+    title: pageSeo.home.title,
+    description: pageSeo.home.description,
+    url: site.url,
     siteName: site.name,
     locale: "en_IN",
     type: "website",
     images: [
       {
         url: "/images/course-goa-yoga.png",
-        width: 1792,
-        height: 896,
-        alt: "Yoga teacher training in Goa — editorial placeholder",
+        alt: "Yoga practice at The Hatha Yogashala in Goa",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Hatha Yogashala | Yoga Teacher Training in Goa",
-    description: site.description,
+    title: pageSeo.home.title,
+    description: pageSeo.home.description,
     images: ["/images/course-goa-yoga.png"],
   },
-  robots: { index: true, follow: true },
+  robots: site.hasProductionUrl
+    ? { index: true, follow: true }
+    : { index: false, follow: false, noarchive: true },
 };
 
 export default function RootLayout({ children }) {
@@ -61,8 +61,18 @@ export default function RootLayout({ children }) {
     "@type": "EducationalOrganization",
     name: site.name,
     url: site.url,
+    logo: absoluteUrl("/images/logo.png"),
+    image: absoluteUrl(site.defaultImage),
     description: site.description,
     areaServed: { "@type": "AdministrativeArea", name: "Goa" },
+    address: {
+      "@type": "PostalAddress",
+      addressRegion: "Goa",
+      addressCountry: "IN",
+    },
+    sameAs: Object.values(site.social).filter(
+      (url) => typeof url === "string" && url.startsWith("https://"),
+    ),
   };
   const website = {
     "@context": "https://schema.org",
@@ -74,7 +84,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en-IN" className={`${heading.variable} ${body.variable}`}>
-      <body>
+      <body id="top">
         <JsonLd data={organization} />
         <JsonLd data={website} />
         <a className="skip-link" href="#main-content">Skip to content</a>
@@ -83,7 +93,7 @@ export default function RootLayout({ children }) {
         <Footer />
         <div className="floating-actions" aria-label="Quick actions">
           <Link href="/apply">Apply now</Link>
-          <Link href="/contact#whatsapp" aria-label="Ask on WhatsApp">
+          <Link href="/contact#whatsapp" aria-label="Ask about WhatsApp contact">
             <MessageCircle aria-hidden="true" size={21} />
             <span>WhatsApp</span>
           </Link>

@@ -60,7 +60,12 @@ export default function EnquiryForm({ compact = false }) {
   }
 
   return (
-    <form className="enquiry-form" onSubmit={submit} noValidate={false}>
+    <form
+      className="enquiry-form"
+      onSubmit={submit}
+      noValidate={false}
+      data-conversion-form={compact ? "contact-enquiry" : "course-application"}
+    >
       <div className="form-grid">
         <Field label="Full name" name="name" required>
           <input id="name" name="name" autoComplete="name" maxLength="80" required />
@@ -130,7 +135,12 @@ export default function EnquiryForm({ compact = false }) {
         <input type="checkbox" name="consent" required />
         <span>I agree that the school may use these details to respond to my enquiry.</span>
       </label>
-      <button className="button button-primary submit-button" type="submit" disabled={status.state === "loading"}>
+      <button
+        className="button button-primary submit-button"
+        type="submit"
+        disabled={status.state === "loading"}
+        data-conversion-action="submit-enquiry"
+      >
         {status.state === "loading" ? (
           <LoaderCircle className="spin" aria-hidden="true" size={18} />
         ) : (

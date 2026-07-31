@@ -1,6 +1,6 @@
 import { posts } from "@/data/blogData";
 import { courses, retreats } from "@/data/coursesData";
-import { site } from "@/data/siteData";
+import { absoluteUrl } from "@/data/siteData";
 
 export default function sitemap() {
   const staticRoutes = [
@@ -23,31 +23,30 @@ export default function sitemap() {
 
   return [
     ...staticRoutes.map((path) => ({
-      url: `${site.url}${path}`,
-      changeFrequency: path === "/blog" ? "weekly" : "monthly",
-      priority: path === "" ? 1 : 0.7,
+      url: absoluteUrl(path || "/"),
       ...(path === "" || path === "/gallery"
-        ? { images: [`${site.url}/images/hero-goa-yoga.png`, `${site.url}/images/course-goa-yoga.png`] }
+        ? {
+            images: [
+              absoluteUrl("/images/hero-goa-yoga.png"),
+              absoluteUrl("/images/hatha-yoga-class-goa.png"),
+              absoluteUrl("/images/pranayama-meditation-goa.png"),
+              absoluteUrl("/images/goa-coast-yoga-retreat.png"),
+            ],
+          }
         : {}),
     })),
     ...courses.map((course) => ({
-      url: `${site.url}/courses/${course.slug}`,
-      changeFrequency: "monthly",
-      priority: 0.8,
-      images: [`${site.url}${course.image}`],
+      url: absoluteUrl(`/courses/${course.slug}`),
+      images: [absoluteUrl(course.image)],
     })),
     ...retreats.map((retreat) => ({
-      url: `${site.url}/retreats/${retreat.slug}`,
-      changeFrequency: "monthly",
-      priority: 0.8,
-      images: [`${site.url}${retreat.image}`],
+      url: absoluteUrl(`/retreats/${retreat.slug}`),
+      images: [absoluteUrl(retreat.image)],
     })),
     ...posts.map((post) => ({
-      url: `${site.url}/blog/${post.slug}`,
+      url: absoluteUrl(`/blog/${post.slug}`),
       lastModified: post.updated,
-      changeFrequency: "monthly",
-      priority: 0.6,
-      images: [`${site.url}${post.image}`],
+      images: [absoluteUrl(post.image)],
     })),
   ];
 }

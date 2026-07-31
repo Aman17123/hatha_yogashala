@@ -2,13 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CalendarDays, Clock3, UserRound } from "lucide-react";
+import { BlogCard, } from "@/components/Interactive";
 import { Breadcrumbs, ButtonLink, Container, FinalCTA, JsonLd } from "@/components/ui";
 import { getPost, posts } from "@/data/blogData";
-import { makeMetadata, site } from "@/data/siteData";
+import { absoluteUrl, makeMetadata, site } from "@/data/siteData";
 
 function slugify(value) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return posts.map(({ slug }) => ({ slug }));
@@ -18,7 +21,17 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) return {};
-  return makeMetadata(post.title, post.excerpt, `/blog/${post.slug}`);
+  const metadata = makeMetadata(post.seoTitle || post.title, post.excerpt, `/blog/${post.slug}`, post.image);
+  return {
+    ...metadata,
+    openGraph: {
+      ...metadata.openGraph,
+      type: "article",
+      publishedTime: post.date,
+      modifiedTime: post.updated,
+      authors: [post.author],
+    },
+  };
 }
 
 export default async function BlogPostPage({ params }) {
@@ -34,17 +47,27 @@ export default async function BlogPostPage({ params }) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    image: `${site.url}${post.image}`,
+    image: absoluteUrl(post.image),
     datePublished: post.date,
     dateModified: post.updated,
     author: { "@type": "Organization", name: post.author },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
-    mainEntityOfPage: `${site.url}/blog/${post.slug}`,
+    mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
+  };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Blog", item: absoluteUrl("/blog") },
+      { "@type": "ListItem", position: 3, name: post.title, item: absoluteUrl(`/blog/${post.slug}`) },
+    ],
   };
 
   return (
     <>
       <JsonLd data={schema} />
+      <JsonLd data={breadcrumbSchema} />
       <article>
         <header className="article-header">
           <Container className="article-header-inner">
@@ -67,13 +90,12 @@ export default async function BlogPostPage({ params }) {
           <div className="article-image">
             <Image
               src={post.image}
-              alt=""
+              alt={post.imageAlt}
               fill
               loading="eager"
               fetchPriority="high"
               sizes="(max-width: 900px) 100vw, 1200px"
             />
-            <span className="placeholder-badge">Editorial placeholder</span>
           </div>
         </Container>
         <Container className="article-layout">
@@ -108,12 +130,7 @@ export default async function BlogPostPage({ params }) {
           <div className="section-heading"><p className="eyebrow plain">Keep reading</p><h2>Related articles</h2></div>
           <div className="related-posts">
             {related.map((item) => (
-              <article className="card card-body" key={item.slug}>
-                <p className="eyebrow plain">{item.category}</p>
-                <h3>{item.title}</h3>
-                <p>{item.excerpt}</p>
-                <Link href={`/blog/${item.slug}`} className="button button-text">Read article</Link>
-              </article>
+              <BlogCard post={item} key={item.slug} />
             ))}
           </div>
         </Container>

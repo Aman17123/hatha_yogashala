@@ -2,74 +2,87 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  BookOpen,
-  Bus,
   Check,
   Compass,
   Heart,
   Leaf,
-  Mail,
   MapPin,
   MessageCircle,
-  Mountain,
-  Plane,
-  ShieldCheck,
   Sparkles,
-  Sprout,
-  Train,
-  Users,
+  Star,
+  Zap,
 } from "lucide-react";
+import { retreats, shortPrograms, teacherTrainings } from "@/data/coursesData";
+import { posts } from "@/data/blogData";
 import {
-  courses,
-  retreats,
-  shortPrograms,
-  teacherTrainings,
-} from "@/data/coursesData";
-import { facilities, faqs, galleryItems, site, teachers } from "@/data/siteData";
+  facilities,
+  faqs,
+  galleryItems,
+  heroStats,
+  reviewProfile,
+  site,
+  testimonials,
+} from "@/data/siteData";
 import {
   ButtonLink,
   Container,
-  Eyebrow,
   FinalCTA,
+  GoogleMark,
   JsonLd,
   Media,
-  PlaceholderBadge,
   ProgramCard,
   RetreatCard,
   SectionHeading,
+  ShortProgramCard,
 } from "./ui";
-import { Accordion, Gallery, HorizontalScroller } from "./Interactive";
+import { Accordion, CountUp, Gallery, WhyChooser, BlogCard } from "./Interactive";
+import AboutPreview from "./AboutPreview";
+import FounderPreview from "./FounderPreview";
+import TeachersPreview from "./TeachersPreview";
+import EnrolmentQuestions from "./EnrolmentQuestions";
 
 const whyItems = [
   {
     title: "A curriculum you can inspect",
     content:
-      "Every program page separates proposed learning areas from details that still need verification, making it easier to compare scope before applying.",
+      "Course pages explain the learning goal, suitability, subjects, teaching method, daily rhythm, stay, price checks, and the limits of each completion document.",
+    image: "/images/course-goa-yoga.png",
+    alt: "Small group studying yoga alignment in Goa",
   },
   {
-    title: "Transparent booking information",
+    title: "Information before payment",
     content:
-      "Fees, dates, accommodation, and certification are never filled with assumptions. Confirmed information can be added to one shared data source.",
+      "Dates, total price, room category, meals, teachers, inclusions, assessment, certification, and cancellation terms are confirmed in writing before a reservation is treated as complete.",
+    image: "/images/accommodation-goa.png",
+    alt: "Calm residential room representing accommodation choices in Goa",
+  },
+  {
+    title: "Practice suited to the student",
+    content:
+      "The enquiry process asks about experience, injuries, health, accessibility, dietary needs, room preference, and travel questions so suitability can be discussed early.",
+    image: "/images/hatha-yoga-class-goa.png",
+    alt: "Teacher observing a student during a Hatha yoga practice",
   },
   {
     title: "A grounded Goa setting",
     content:
-      "The content helps students plan for coastal weather, travel, rest, and residential study without turning the destination into a marketing cliché.",
-  },
-  {
-    title: "A conversation before payment",
-    content:
-      "The application flow is designed to collect suitability and accessibility details before any reservation is treated as confirmed.",
+      "Residential planning accounts for coastal weather, rest, wet-season access, transport, hydration, laundry, and quiet time instead of treating Goa as scenery alone.",
+    image: "/images/goa-coast-yoga-retreat.png",
+    alt: "Palm-fringed Goa coastline beside a quiet nature path",
   },
 ];
 
 const comparisonRows = [
-  ["Best for", ...teacherTrainings.map((course) => course.bestFor)],
-  ["Experience level", ...teacherTrainings.map((course) => course.level)],
   ["Duration", ...teacherTrainings.map((course) => course.duration)],
-  ["Outcome", ...teacherTrainings.map((course) => course.outcome)],
-  ["Certification", ...teacherTrainings.map((course) => course.certification)],
-  ["Starting fee", ...teacherTrainings.map((course) => course.price)],
+  ["Level", ...teacherTrainings.map((course) => course.level)],
+  ["Curriculum", ...teacherTrainings.map((course) => course.focus.join(", "))],
+  ["Accommodation", ...teacherTrainings.map((course) => course.room)],
+  [
+    "Completion document",
+    ...teacherTrainings.map((course) => course.certification),
+  ],
+  ["Ideal student", ...teacherTrainings.map((course) => course.bestFor)],
+  ["Shared-room price", ...teacherTrainings.map((course) => course.price)],
 ];
 
 export default function HomePage() {
@@ -82,433 +95,706 @@ export default function HomePage() {
       acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
   };
+  const stats = heroStats.map((stat) =>
+    stat.key === "programs"
+      ? {
+          ...stat,
+          value:
+            teacherTrainings.length + shortPrograms.length + retreats.length,
+        }
+      : stat,
+  );
 
   return (
     <>
       <JsonLd data={faqSchema} />
+
+      {/* ===== 1. HERO — headline, intro copy, and school stats ===== */}
       <section className="home-hero">
         <Container className="hero-grid">
           <div className="hero-copy">
-            <Eyebrow>Yoga study in Goa, India</Eyebrow>
+            <p className="eyebrow">
+              <Sparkles aria-hidden="true" size={15} />
+              Yoga study in Goa, India
+            </p>
             <h1>
-              Yoga teacher training shaped by <em>practice, place & presence.</em>
+              Yoga teacher training shaped by{" "}
+              <em>practice, place & presence.</em>
             </h1>
             <p>
-              Explore a calm, residential path to Hatha yoga study at The Hatha
-              Yogashala in Goa. Course dates, fees, faculty, and credentials remain
-              clearly marked until verified.
+              Explore residential Hatha yoga teacher training and restorative
+              yoga retreats in Goa, with clear course scope, thoughtful student
+              support, and no unsupported claims.
             </p>
             <div className="hero-actions">
               <ButtonLink href="/apply">Reserve your spot</ButtonLink>
-              <ButtonLink href="/courses" variant="secondary">Explore courses</ButtonLink>
+              <ButtonLink href="/courses" variant="secondary">
+                Explore courses
+              </ButtonLink>
             </div>
-            <p className="hero-note">Programs in preparation · Confirmed batch information coming soon</p>
+            <p className="hero-note">
+              Batch dates, fees, faculty, and room availability are confirmed in
+              writing before payment.
+            </p>
           </div>
           <div className="hero-visual">
             <div className="hero-sun" aria-hidden="true" />
             <div className="hero-image">
               <Image
                 src="/images/hero-goa-yoga.png"
-                alt="Editorial placeholder of morning meditation at a coastal yoga shala in Goa"
+                alt="Yoga practitioner meditating in a peaceful coastal setting in Goa"
                 fill
                 loading="eager"
                 fetchPriority="high"
                 sizes="(max-width: 900px) 100vw, 45vw"
               />
-              <PlaceholderBadge />
             </div>
-            <div className="hero-stats" aria-label="School details awaiting verification">
-              {[
-                ["[Add]", "Years teaching"],
-                ["[Add]", "Graduates"],
-                ["[Add]", "Countries"],
-                ["[Add]", "Verified rating"],
-              ].map(([value, label]) => (
-                <div key={label}><strong>{value}</strong><span>{label}</span></div>
+            <div className="hero-stats" aria-label="School statistics">
+              {stats.map(({ key, label, value, suffix }) => (
+                <div key={key}>
+                  <strong>
+                    {Number.isFinite(value) ? (
+                      <CountUp value={value} suffix={suffix} />
+                    ) : (
+                      "Not published"
+                    )}
+                  </strong>
+                  <span>{label}</span>
+                </div>
               ))}
             </div>
           </div>
         </Container>
       </section>
 
-      <section className="trust-strip" aria-label="Verification summary">
+      {/* ===== 2. TRUST STRIP — key booking principles at a glance ===== */}
+      <section className="trust-strip" aria-label="Booking principles">
         <Container>
           {[
-            ["[Certification Name]", "Verification link pending"],
-            ["[Review Profile]", "Verified rating pending"],
-            ["[Teaching Experience]", "Years to be confirmed"],
-            ["[Graduate Count]", "Approved figure pending"],
-            ["Goa, India", "Confirmed location"],
+            ["Goa, India", "Confirmed public location"],
+            ["Clear course scope", "Training and retreats stay distinct"],
+            ["Written fee breakdown", "No unverified discounts or urgency"],
+            [
+              "Source-backed claims",
+              "Credentials and reviews require evidence",
+            ],
           ].map(([title, text]) => (
-            <div key={title} tabIndex="0"><strong>{title}</strong><span>{text}</span></div>
+            <div key={title}>
+              <strong>{title}</strong>
+              <span>{text}</span>
+            </div>
           ))}
         </Container>
       </section>
 
-      <section className="section" id="about">
-        <Container className="split-layout">
-          <div className="image-collage">
-            <Media
-              src="/images/course-goa-yoga.png"
-              alt="Editorial placeholder of a small yoga class in Goa"
-              className="collage-main"
-            />
-            <Media
-              src="/images/accommodation-goa.png"
-              alt="Editorial placeholder for yoga school accommodation in Goa"
-              className="collage-small"
-            />
-          </div>
-          <div>
-            <SectionHeading
-              eyebrow="The school"
-              title="A quieter way to study yoga in Goa"
-              text="The Hatha Yogashala is being shaped as a clear, welcoming home for residential learning. This website deliberately separates the experience we are designing from the facts the school still needs to approve."
-            />
-            <div className="prose-compact">
-              <p>
-                Goa offers a distinctive rhythm for focused practice: warm coastal mornings,
-                layered local culture, and space to slow down between sessions. The learning
-                should be just as grounded—structured, transparent, and respectful of each student.
-              </p>
-            </div>
-            <ul className="icon-list">
-              {[
-                ["Clear course pathways", BookOpen],
-                ["Verified claims only", ShieldCheck],
-                ["Goa-specific travel guidance", Compass],
-                ["Accessible enquiry process", Heart],
-              ].map(([label, Icon]) => (
-                <li key={label}><Icon aria-hidden="true" size={19} />{label}</li>
-              ))}
-            </ul>
-            <div className="inline-links">
-              {teacherTrainings.map((course) => (
-                <Link key={course.slug} href={`/courses/${course.slug}`}>{course.hours}</Link>
-              ))}
-            </div>
-            <ButtonLink href="/about" variant="text" className="mt-6">Learn more about us</ButtonLink>
-          </div>
-        </Container>
-      </section>
+      {/* ===== 3. ABOUT PREVIEW — short intro to the school ===== */}
+      <AboutPreview />
 
+      {/* ===== 4. TEACHER TRAINING — 100/200/300-hour program cards ===== */}
       <section className="section section-peach" id="courses">
         <Container>
           <SectionHeading
             eyebrow="Teacher training"
             title="Choose the depth that fits your path"
-            text="Three course frameworks make comparison simple. Final dates, fees, teachers, and certification information remain pending school approval."
+            text="Compare level, curriculum, accommodation, completion details, and fees before choosing by hour count."
           />
-          <div className="stacked-programs">
+          <div className="grid gap-5 lg:grid-cols-3">
             {teacherTrainings.map((course) => (
-              <ProgramCard key={course.slug} course={course} horizontal />
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="partner-strip" aria-label="Credentials and partner placeholders">
-        <Container>
-          <p>Verification area</p>
-          <div className="marquee">
-            <div className="marquee-track">
-              {["[Certification]", "[Registration]", "[Review profile]", "[Travel partner]"].map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-              <div aria-hidden="true" className="contents">
-                {["[Certification]", "[Registration]", "[Review profile]", "[Travel partner]"].map((item) => (
-                  <span key={`copy-${item}`}>{item}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="section" id="retreats">
-        <Container>
-          <SectionHeading
-            eyebrow="Coastal retreats"
-            title="Make room for practice—and for rest"
-            text="Compare four retreat lengths without relying on unverified popularity, availability, or pricing claims."
-          />
-          <div className="retreat-grid">
-            {retreats.map((retreat) => <RetreatCard key={retreat.slug} retreat={retreat} />)}
-          </div>
-        </Container>
-      </section>
-
-      <section className="section section-peach" id="short-courses">
-        <Container>
-          <SectionHeading
-            eyebrow="Short programs"
-            title="Focused study for a smaller window"
-            text="Each outline is ready for an approved syllabus, duration, facilitator, and certification status."
-          />
-          <div className="short-course-grid">
-            {shortPrograms.map((course) => (
               <ProgramCard key={course.slug} course={course} />
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="section">
-        <Container className="split-layout split-reverse">
-          <Media
-            src="/images/hero-goa-yoga.png"
-            alt="Editorial placeholder showing a meditative yoga practice in Goa"
-            className="why-image"
+      {/* ===== 5. RETREATS — coastal retreat cards ===== */}
+      <section className="section" id="retreats">
+        <Container>
+          <SectionHeading
+            eyebrow="Coastal retreats"
+            title="Make room for practice—and for rest"
+            text="Each retreat is a personal-practice experience, not a teacher-training course or professional certification."
           />
-          <div>
-            <SectionHeading
-              eyebrow="A clearer choice"
-              title="What should earn your trust"
-              text="Rather than publishing claims before they are approved, the site is designed around the questions a careful student should ask."
-            />
-            <Accordion items={whyItems} />
+          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+            {retreats.map((retreat) => (
+              <RetreatCard key={retreat.slug} retreat={retreat} />
+            ))}
           </div>
         </Container>
       </section>
 
-      <section className="section section-cream">
+      {/* ===== 6. SHORT PROGRAMS — meditation, sound, Ayurveda, alignment ===== */}
+      <section className="section section-peach" id="short-courses">
+        <Container>
+          <SectionHeading
+            eyebrow="Short programs"
+            title="Focused study for a smaller window"
+            text="Explore meditation, sound, Ayurveda, or alignment only after checking the approved syllabus, facilitator, duration, and scope."
+          />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {shortPrograms.map((course) => (
+              <ShortProgramCard key={course.slug} course={course} />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ===== 7. FOUNDER PREVIEW — introduction to the founder ===== */}
+      <FounderPreview />
+
+      {/* ===== 8. TEACHERS PREVIEW — faculty cards ===== */}
+      <TeachersPreview />
+
+      {/* ===== 9. WHY CHOOSE US — trust-building reasons ===== */}
+      <section className="section">
+        <Container>
+          <WhyChooser items={whyItems}>
+            <SectionHeading
+              eyebrow="Why choose us"
+              title="What should earn your trust"
+              text="Good yoga education begins with information you can inspect and questions you are welcome to ask."
+            />
+          </WhyChooser>
+        </Container>
+      </section>
+
+      {/* ===== 10. COURSE COMPARISON — 100 vs 200 vs 300-hour table ===== */}
+      <section className="section section-cream" id="comparison">
         <Container>
           <SectionHeading
             eyebrow="Course comparison"
-            title="100, 200, or 300 hours?"
-            text="Use the learning goal first. Confirm prerequisites and credentials before applying."
+            title="100, 200, or 300 Hours Yoga Teacher Training?"
+            text="The 200-hour course is the recommended starting point for aspiring yoga teachers. Compare all pathways and find your perfect match."
           />
-          <div className="comparison">
-            <div className="comparison-desktop">
-              <div className="comparison-head">
-                <span>Compare</span>
-                {teacherTrainings.map((course) => (
-                  <div key={course.slug} data-featured={course.featured}>
-                    {course.featured && <small>Suggested starting point</small>}
-                    <strong>{course.hours}</strong>
+
+          {/* Desktop: Three standalone pop-out cards side by side */}
+          <div className="mt-10 hidden md:grid md:grid-cols-3 gap-6 items-start">
+            {teacherTrainings.map((course, ci) => {
+              const isRec = course.featured;
+              return (
+                <div
+                  key={course.slug}
+                  className={`relative flex flex-col rounded-[28px] overflow-hidden transition-all duration-300 ${
+                    isRec
+                      ? "border-[2.5px] border-[#cf5b50] shadow-[0_12px_48px_rgba(207,91,80,0.18)] -translate-y-3"
+                      : "border border-[#e8ddd6] shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.10)]"
+                  }`}
+                >
+                  {/* Card Header */}
+                  <div
+                    className={`px-5 pt-5 pb-4 ${
+                      isRec
+                        ? "bg-gradient-to-b from-[#fff0eb] to-[#fff8f5]"
+                        : "bg-[#faf7f4]"
+                    }`}
+                  >
+                    {isRec && (
+                      <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-[#cf5b50] px-2.5 py-0.5 text-[9px] font-black uppercase tracking-[0.15em] text-white shadow-sm">
+                        <Star className="size-2.5 fill-white" />
+                        Most Popular
+                      </span>
+                    )}
+                    <h3
+                      className={`text-base font-serif font-bold leading-tight ${
+                        isRec ? "text-[#cf5b50]" : "text-black/80"
+                      }`}
+                    >
+                      <Link
+                        href={`/courses/${course.slug}`}
+                        className="hover:opacity-75 transition-opacity"
+                      >
+                        {course.name}
+                      </Link>
+                    </h3>
+                    <p className="mt-0.5 text-xs text-[#9b8a7e] font-medium">
+                      {course.hours} · {course.duration}
+                    </p>
+                  </div>
+
+                  {/* Rows */}
+                  <div className="flex-1 bg-white">
+                    {comparisonRows.map((row, ri) => (
+                      <div
+                        key={row[0]}
+                        className={`flex items-start justify-between gap-3 px-5 py-3 ${
+                          ri > 0 ? "border-t border-[#f0ebe6]" : ""
+                        } ${ri % 2 === 0 ? "" : "bg-[#faf7f4]/50"}`}
+                      >
+                        <span className="text-[10px] font-bold uppercase tracking-[0.08em] text-[#9b8a7e] shrink-0 w-24 mt-0.5">
+                          {row[0]}
+                        </span>
+                        <span
+                          className={`text-xs text-right leading-snug ${
+                            isRec ? "font-medium text-black" : "text-black/70"
+                          }`}
+                        >
+                          {row[ci + 1]}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <div
+                    className={`px-5 py-4 ${
+                      isRec ? "bg-[#fff5f1]" : "bg-[#faf7f4]"
+                    }`}
+                  >
+                    <Link
+                      href={`/courses/${course.slug}`}
+                      className={`group inline-flex w-full items-center justify-center gap-2 rounded-full py-2.5 px-4 text-[10px] font-bold uppercase tracking-[0.1em] transition-all duration-200 ${
+                        isRec
+                          ? "bg-[#cf5b50] text-white shadow-md shadow-[#cf5b50]/20 hover:bg-[#b9473e] hover:shadow-lg hover:scale-[1.02]"
+                          : "border-[1.5px] border-[#c9a99a] text-[#8c5048] bg-white hover:border-[#cf5b50] hover:text-[#cf5b50] hover:bg-[#fff5f1]"
+                      }`}
+                    >
+                      <span>View {course.hours}</span>
+                      <ArrowRight className="size-3 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                    {isRec && (
+                      <p className="mt-1.5 text-center text-[10px] text-[#b9473e]/70 font-medium">
+                        Ideal first step for new teachers
+                      </p>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Mobile Comparison Cards */}
+          <div className="grid gap-5 md:hidden mt-8">
+            {teacherTrainings.map((course, ci) => {
+              const isRec = course.featured;
+              return (
+                <article
+                  key={course.slug}
+                  className={`rounded-[24px] overflow-hidden transition-all duration-300 ${
+                    isRec
+                      ? "border-[2px] border-[#cf5b50] shadow-xl shadow-[#cf5b50]/12"
+                      : "border border-[#e8ddd6] shadow-sm"
+                  }`}
+                >
+                  <div
+                    className={`px-6 pt-6 pb-4 ${
+                      isRec
+                        ? "bg-gradient-to-br from-[#fff0eb] to-[#fff8f5]"
+                        : "bg-[#faf7f4]"
+                    }`}
+                  >
+                    {isRec && (
+                      <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-[#cf5b50] px-3 py-1 text-[10px] font-black uppercase tracking-[0.15em] text-white shadow-sm">
+                        <Star className="size-3 fill-white" />
+                        Most Popular
+                      </span>
+                    )}
+                    <h3
+                      className={`text-lg font-serif font-bold ${isRec ? "text-[#cf5b50]" : "text-black/80"}`}
+                    >
+                      <Link
+                        href={`/courses/${course.slug}`}
+                        className="hover:opacity-75 transition-opacity"
+                      >
+                        {course.name}
+                      </Link>
+                    </h3>
+                    <p className="text-xs text-[#9b8a7e] mt-0.5 font-medium">
+                      {course.hours} · {course.duration}
+                    </p>
+                  </div>
+                  <div className="bg-white px-6 pb-6">
+                    <dl>
+                      {comparisonRows.map((row, ri) => (
+                        <div
+                          key={row[0]}
+                          className={`flex justify-between gap-4 py-3 ${ri > 0 ? "border-t border-[#f0ebe6]" : ""}`}
+                        >
+                          <dt className="text-[11px] font-bold uppercase tracking-[0.08em] text-[#9b8a7e] shrink-0 mt-0.5 w-24">
+                            {row[0]}
+                          </dt>
+                          <dd
+                            className={`text-sm text-right leading-snug ${isRec ? "font-medium text-black" : "text-black/70"}`}
+                          >
+                            {row[ci + 1]}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                    <div className="mt-4 pt-4 border-t border-[#f0ebe6]">
+                      <Link
+                        href={`/courses/${course.slug}`}
+                        className={`group inline-flex w-full items-center justify-center gap-2 rounded-full py-3.5 text-xs font-bold uppercase tracking-[0.1em] transition-all duration-200 ${
+                          isRec
+                            ? "bg-[#cf5b50] text-white shadow-md hover:bg-[#b9473e]"
+                            : "border-[1.5px] border-[#c9a99a] text-black bg-white hover:border-[#cf5b50] hover:bg-[#cf5b50] hover:text-white"
+                        }`}
+                      >
+                        <span>View {course.hours} Course</span>
+                        <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+
+      {/* ===== 11. DATES & SCHEDULE — course batches and booking ===== */}
+      <section className="section" id="dates">
+        <Container>
+          <SectionHeading
+            eyebrow="Dates and schedule"
+            title="Plan from confirmed batch information"
+            text="No availability, urgency, or price is invented. Use the course links or enquiry form to request the current written schedule."
+          />
+          <div className="grid gap-4">
+            {teacherTrainings.map((course, index) => (
+              <article
+                className="card grid gap-5 p-5 md:grid-cols-[1.2fr_1fr_1fr_auto] md:items-center md:p-6"
+                key={course.slug}
+              >
+                <div className="flex gap-4">
+                  <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[#fff1ef] font-bold text-[#b9473e]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3>{course.name}</h3>
+                    <p className="mt-1 text-sm text-muted">
+                      {course.duration} · {course.location}
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <small className="block uppercase tracking-[0.12em] text-muted">
+                    Dates
+                  </small>
+                  <strong>{course.date}</strong>
+                </div>
+                <div>
+                  <small className="block uppercase tracking-[0.12em] text-muted">
+                    Rooms & fees
+                  </small>
+                  <strong>
+                    {course.price} · {course.privatePrice}
+                  </strong>
+                </div>
+                <ButtonLink href={`/courses/${course.slug}#dates`}>
+                  Check course
+                </ButtonLink>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ===== 12. WHY GOA — coastal setting with photo tiles ===== */}
+      <section className="section section-peach">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left — text + benefits */}
+            <div>
+              <SectionHeading
+                eyebrow="Why Goa"
+                title="A coastal setting for residential yoga study"
+                text="Goa can support early practice, unhurried recovery, and time outdoors when weather, travel, hydration, and rest are planned responsibly."
+              />
+              <div className="mt-5 grid gap-4 text-[0.97rem] leading-7 text-black/70">
+                <p>
+                  Warm mornings and a slower coastal rhythm can make it easier
+                  to keep practice, study, meals, and rest together. The right
+                  season depends on your comfort with heat, humidity, and
+                  monsoon rain.
+                </p>
+                <p>
+                  The location also gives students options for beach time,
+                  nature, and local culture during confirmed free periods.
+                </p>
+              </div>
+              <div className="mt-7 grid grid-cols-2 gap-3">
+                {[
+                  ["Nature and coast", Leaf],
+                  ["Time to reflect", Sparkles],
+                  ["Residential rhythm", Heart],
+                  ["Travel planning", Compass],
+                ].map(([label, Icon]) => (
+                  <div
+                    key={label}
+                    className="flex items-center gap-3 rounded-2xl bg-white/80 border border-[#e8ddd6] px-4 py-3 shadow-sm"
+                  >
+                    <span className="grid size-8 place-items-center rounded-full bg-[#fff0eb] text-[#cf5b50] shrink-0">
+                      <Icon size={16} aria-hidden="true" />
+                    </span>
+                    <strong className="text-sm font-semibold text-black/80">
+                      {label}
+                    </strong>
                   </div>
                 ))}
               </div>
-              {comparisonRows.map((row) => (
-                <div className="comparison-row" key={row[0]}>
-                  {row.map((cell, index) => <div key={`${row[0]}-${index}`}>{cell}</div>)}
+              <ButtonLink
+                href="/contact#travel"
+                variant="text"
+                className="mt-7"
+              >
+                Plan your arrival
+              </ButtonLink>
+            </div>
+
+            {/* Right — two rounded photo tiles */}
+            <div className="grid grid-cols-2 gap-4 items-end">
+              {/* Tall left photo */}
+              <div
+                className="rounded-[28px] overflow-hidden shadow-xl"
+                style={{ aspectRatio: "3/4" }}
+              >
+                <Media
+                  src="/images/goa-coast-yoga-retreat.png"
+                  alt="Palm-fringed Goa coastline near a quiet nature path"
+                  className="h-full w-full"
+                />
+              </div>
+              {/* Right column: square photo + location info card */}
+              <div className="flex flex-col gap-4">
+                <div
+                  className="rounded-[28px] overflow-hidden shadow-xl"
+                  style={{ aspectRatio: "1/1" }}
+                >
+                  <Media
+                    src="/images/hero-goa-yoga.png"
+                    alt="Yoga practitioner meditating in a peaceful coastal Goa setting"
+                    className="h-full w-full"
+                  />
                 </div>
-              ))}
-            </div>
-            <div className="comparison-mobile">
-              {teacherTrainings.map((course, courseIndex) => (
-                <article className="card card-body" key={course.slug}>
-                  <h3>{course.hours}</h3>
-                  <dl>
-                    {comparisonRows.map((row) => (
-                      <div key={row[0]}><dt>{row[0]}</dt><dd>{row[courseIndex + 1]}</dd></div>
-                    ))}
-                  </dl>
-                  <ButtonLink href={`/courses/${course.slug}`} variant="text">Explore program</ButtonLink>
-                </article>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="section" id="certification">
-        <Container className="certification-grid">
-          <div>
-            <SectionHeading
-              eyebrow="Credentials"
-              title="Certification should be easy to verify"
-              text="No registration, international recognition, or teaching credential is claimed until the school provides the exact certification name and a public verification source."
-            />
-            <div className="credential-cards">
-              {["[Certification Name]", "[Registration Number]", "[Verification URL]"].map((item) => (
-                <div className="card" key={item}><ShieldCheck aria-hidden="true" /><strong>{item}</strong><span>Awaiting verification</span></div>
-              ))}
-            </div>
-            <ButtonLink href="/certification" variant="text" className="mt-7">View credentials page</ButtonLink>
-          </div>
-          <div className="certificate-placeholder">
-            <span>Certificate preview</span>
-            <strong>[Add approved certificate image]</strong>
-            <p>No sample certificate is displayed as a genuine credential.</p>
-          </div>
-        </Container>
-      </section>
-
-      <section className="section section-peach">
-        <Container className="split-layout">
-          <div>
-            <SectionHeading
-              eyebrow="Why Goa"
-              title="Coastal energy, cultural depth, practical access"
-              text="Goa can support a slower residential rhythm while still offering connections by air, rail, and road. Exact school transfer details remain to be confirmed."
-            />
-            <div className="location-benefits">
-              {[
-                ["Natural environment", Leaf],
-                ["Living local culture", Sprout],
-                ["Time for reflection", Sparkles],
-                ["Travel connections", Compass],
-              ].map(([label, Icon]) => (
-                <div key={label}><Icon aria-hidden="true" /><strong>{label}</strong></div>
-              ))}
-            </div>
-            <ButtonLink href="/contact#travel" variant="text" className="mt-7">Explore arrival planning</ButtonLink>
-          </div>
-          <div className="location-collage">
-            <Media src="/images/hero-goa-yoga.png" alt="Editorial Goa yoga placeholder" className="location-tall" />
-            <Media src="/images/accommodation-goa.png" alt="Editorial Goa stay placeholder" className="location-wide" />
-          </div>
-        </Container>
-      </section>
-
-      <section className="section">
-        <Container>
-          <div className="founder-card">
-            <Media
-              src="/images/hero-goa-yoga.png"
-              alt="Founder photograph placeholder"
-              className="founder-image"
-            />
-            <div>
-              <Eyebrow>Meet the founder</Eyebrow>
-              <h2>{teachers[0].name}</h2>
-              <p className="founder-role">{teachers[0].role} · {teachers[0].qualifications}</p>
-              <p>{teachers[0].bio}</p>
-              <blockquote>“[Add an approved teaching philosophy quote.]”</blockquote>
-              <ButtonLink href="/about#founder" variant="text">Read the full story</ButtonLink>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="section section-peach">
-        <Container>
-          <SectionHeading
-            eyebrow="Teaching team"
-            title="Learn who will guide your batch"
-            text="Teacher names, portraits, biographies, experience, and qualifications remain placeholders until approved."
-          />
-          <HorizontalScroller label="teachers">
-            {teachers.map((teacher, index) => (
-              <article className="teacher-card card" key={`${teacher.name}-${index}`}>
-                <div className="teacher-avatar"><Users aria-hidden="true" /><PlaceholderBadge /></div>
-                <div className="card-body">
-                  <h3>{teacher.name}</h3>
-                  <p className="teacher-role">{teacher.role}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {teacher.specialties.map((item, specialtyIndex) => (
-                      <span className="pill" key={`${item}-${specialtyIndex}`}>{item}</span>
-                    ))}
+                <div className="rounded-[24px] bg-white border border-[#e8ddd6] p-5 shadow-sm flex flex-col gap-1.5">
+                  <div className="flex items-center gap-2">
+                    <MapPin size={14} className="text-[#cf5b50] shrink-0" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#cf5b50]">
+                      Goa, India
+                    </span>
                   </div>
-                  <p className="mt-4 text-muted">{teacher.bio}</p>
-                  <Link href="/teachers" className="button button-text mt-4">
-                    Meet the teachers <ArrowRight aria-hidden="true" size={16} />
-                  </Link>
+                  <p className="text-[11px] text-[#9b8a7e] leading-relaxed font-medium">
+                    North Goa · Mandrem &amp; Arambol · 45 min from MOPA Airport
+                  </p>
                 </div>
-              </article>
-            ))}
-          </HorizontalScroller>
+              </div>
+            </div>
+          </div>
         </Container>
       </section>
 
+      {/* ===== 13. RESIDENTIAL EXPERIENCE — facilities and accommodation ===== */}
       <section className="section">
         <Container>
           <SectionHeading
             eyebrow="Residential experience"
             title="The spaces around the practice matter"
-            text="These editorial placeholders show the intended content categories, not the school’s current facilities."
+            text="Confirm the exact room, yoga hall, meals, facilities, and support attached to your batch before payment."
           />
           <div className="facility-grid">
             {facilities.map((facility) => (
               <article key={facility.title}>
-                <Image src={facility.image} alt="" fill sizes="(max-width: 768px) 100vw, 50vw" />
-                <div><h3>{facility.title}</h3><p>{facility.text}</p></div>
-                <PlaceholderBadge />
+                <Image
+                  src={facility.image}
+                  alt={facility.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div>
+                  <h3>{facility.title}</h3>
+                  <p>{facility.text}</p>
+                </div>
               </article>
             ))}
           </div>
-          <ButtonLink href="/accommodation" variant="text" className="mt-7">Explore accommodation</ButtonLink>
+          <ButtonLink href="/accommodation" variant="text" className="mt-7">
+            Explore accommodation
+          </ButtonLink>
         </Container>
       </section>
 
+      {/* ===== 14. REVIEWS — source-backed student testimonials ===== */}
       <section className="section section-cream">
         <Container>
           <SectionHeading
             eyebrow="Student voices"
-            title="Verified reviews will live here"
-            text="No student names, ratings, countries, quotes, or review platforms have been invented."
+            title="Reviews with a source—or no review at all"
+            text="Names, ratings, dates, excerpts, counts, and review schema are published only when an original platform source is available."
           />
-          <div className="review-grid">
-            {["[Verified review 01]", "[Verified review 02]", "[Verified review 03]"].map((item) => (
-              <article className="card card-body" key={item}>
-                <p className="eyebrow plain">Review placeholder</p>
-                <h3>{item}</h3>
-                <p>Add an approved excerpt, student name, course, country, rating, and source link.</p>
-              </article>
-            ))}
-          </div>
+          {testimonials.length ? (
+            <div className="review-grid">
+              {testimonials.map((review) => (
+                <article className="card card-body" key={review.sourceUrl}>
+                  <div className="flex items-center justify-between gap-4">
+                    <GoogleMark />
+                    <span>{review.rating}/5</span>
+                  </div>
+                  <h3 className="mt-5">{review.name}</h3>
+                  <p className="text-sm text-muted">
+                    {review.date} · {review.platform}
+                  </p>
+                  <p className="mt-4">{review.excerpt}</p>
+                  <a
+                    className="button button-text mt-4"
+                    href={review.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Read original review
+                  </a>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="card card-body flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
+              <div>
+                <GoogleMark />
+                <h3 className="mt-4">
+                  No verified public reviews are linked yet
+                </h3>
+                <p className="mt-2 text-muted">
+                  The review component is ready; it intentionally displays no
+                  rating, reviewer, excerpt, or count without a source.
+                </p>
+              </div>
+              {reviewProfile.googleBusinessUrl && (
+                <a
+                  className="button button-secondary"
+                  href={reviewProfile.googleBusinessUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open Google profile
+                </a>
+              )}
+            </div>
+          )}
         </Container>
       </section>
 
+      {/* ===== 15. GALLERY — photo preview of life in Goa ===== */}
       <section className="section">
         <Container>
           <SectionHeading
             eyebrow="A glimpse of Goa"
-            title="Moments from practice, rest, and the coast"
-            text="Generated editorial placeholders are used until original school photography is supplied."
+            title="Practice, rest, and coastal surroundings"
+            text="A deliberate mix of portrait, landscape, and detail images keeps the gallery balanced without stretching or empty tiles."
           />
-          <Gallery items={galleryItems.slice(0, 6)} filters={false} />
-          <ButtonLink href="/gallery" variant="text" className="mt-7">View full gallery</ButtonLink>
+          <Gallery items={galleryItems} filters={false} />
+          <ButtonLink href="/gallery" variant="text" className="mt-7">
+            View full gallery
+          </ButtonLink>
         </Container>
       </section>
 
-      <section className="section section-peach" id="faq">
-        <Container className="faq-layout">
-          <SectionHeading
-            eyebrow="Planning support"
-            title="Questions worth asking before you enrol"
-            text="Answers remain careful where school-specific details have not been verified."
-          />
-          <Accordion items={faqs} />
-        </Container>
-      </section>
+      <EnrolmentQuestions />
 
       <section className="section" id="location">
         <Container>
           <SectionHeading
             eyebrow="Find your way"
-            title="Planning your arrival in Goa"
-            text="The exact address, map pin, station distances, and transfer services are pending confirmation."
+            title="Goa, India"
+            text="The exact street address is not published because it has not been confirmed. The map shows Goa at regional level."
           />
-          <div className="contact-location-grid">
-            <div className="contact-card">
-              <MapPin aria-hidden="true" />
-              <div><strong>{site.name}</strong><p>{site.contact.address}</p></div>
+          <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+            <div className="card card-body flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-2 text-[#cf5b50]">
+                  <MapPin aria-hidden="true" className="size-5" />
+                  <span className="text-xs font-bold uppercase tracking-[0.14em]">
+                    Sanctuary Location
+                  </span>
+                </div>
+                <h3 className="mt-3 text-2xl font-serif">
+                  {site.name} — Goa, India
+                </h3>
+                <p className="mt-2 text-sm font-medium text-black/80">
+                  {site.contact.address}
+                </p>
+
+                <div className="mt-4 space-y-3 text-sm text-black/70 border-t border-black/10 pt-4">
+                  <p>
+                    Nestled in peaceful{" "}
+                    <strong>
+                      North Goa (Mandrem & Arambol coastal shala area)
+                    </strong>
+                    , The Hatha Yogashala is a premier residential yoga teacher
+                    training school and restorative retreat sanctuary in India.
+                  </p>
+                  <ul className="grid gap-2 text-xs font-medium text-black/80">
+                    <li className="flex items-center gap-2">
+                      <Sparkles className="size-3.5 text-[#cf5b50] shrink-0" />
+                      <span>
+                        <strong>Courses:</strong> 100-Hr, 200-Hr & 300-Hr Yoga
+                        Alliance Teacher Training
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Leaf className="size-3.5 text-[#cf5b50] shrink-0" />
+                      <span>
+                        <strong>Retreats:</strong> 3, 5, 7 & 10-Day Restorative
+                        Coastal Yoga Immersion
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Compass className="size-3.5 text-[#cf5b50] shrink-0" />
+                      <span>
+                        <strong>Airport Access:</strong> ~45 min from MOPA (GOX)
+                        & 60 min from Dabolim (GOI)
+                      </span>
+                    </li>
+                  </ul>
+                  <p className="text-xs text-muted leading-relaxed">
+                    Our tropical sanctuary provides a calm environment for
+                    intensive practice, authentic pranayama study, sattvic
+                    vegetarian nutrition, and quiet beachfront reflection.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-3 pt-4 border-t border-black/10">
+                <a
+                  className="button button-primary"
+                  href={site.contact.directionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get directions
+                </a>
+                <ButtonLink href="/contact#whatsapp" variant="secondary">
+                  <MessageCircle aria-hidden="true" size={17} />
+                  Ask on WhatsApp
+                </ButtonLink>
+              </div>
             </div>
-            <div className="contact-card" id="whatsapp">
-              <MessageCircle aria-hidden="true" />
-              <div><strong>WhatsApp</strong><p>{site.contact.whatsapp}</p></div>
-            </div>
-            <div className="contact-card">
-              <Mail aria-hidden="true" />
-              <div><strong>Email</strong><p>{site.contact.email}</p></div>
-            </div>
+            <iframe
+              className="map-frame"
+              src={site.contact.mapEmbedUrl}
+              title="Map showing Goa, India"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
-          <div className="travel-grid" id="travel">
-            {[
-              ["Air", Plane, "[Nearest airport and transfer time]"],
-              ["Train", Train, "[Nearest station and transfer time]"],
-              ["Bus", Bus, "[Recommended bus arrival point]"],
-              ["Car", Mountain, "[Road and parking information]"],
-            ].map(([label, Icon, text]) => (
-              <div className="card card-body" key={label}><Icon aria-hidden="true" /><h3>{label}</h3><p>{text}</p></div>
+        </Container>
+      </section>
+
+      {/* ===== 16. BLOG — latest journal articles ===== */}
+      <section className="section section-peach" id="journal">
+        <Container>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading
+              eyebrow="From the journal"
+              title="Guides to practise, plan & prepare"
+              text="Original, practical articles on yoga study, Goa travel, and building a sustainable home practice."
+            />
+            <ButtonLink href="/blog" variant="text" className="shrink-0">
+              View all articles
+            </ButtonLink>
+          </div>
+          <div className="blog-grid">
+            {posts.slice(0, 3).map((post) => (
+              <BlogCard post={post} key={post.slug} />
             ))}
-          </div>
-          <div className="map-placeholder">
-            <MapPin aria-hidden="true" />
-            <strong>Google Map embed pending</strong>
-            <p>Add the verified school pin before launch.</p>
           </div>
         </Container>
       </section>

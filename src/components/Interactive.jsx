@@ -6,10 +6,90 @@ import Link from "next/link";
 import {
   ArrowLeft,
   ArrowRight,
+  CalendarDays,
   ChevronDown,
+  Clock3,
   Search,
+  UserRound,
   X,
 } from "lucide-react";
+
+export function CountUp({ value, suffix = "" }) {
+  const [display, setDisplay] = useState(value);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+
+        const startedAt = performance.now();
+        const duration = 1100;
+        setDisplay(0);
+
+        function tick(now) {
+          const progress = Math.min((now - startedAt) / duration, 1);
+          setDisplay(Math.round(value * (1 - (1 - progress) ** 3)));
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+        observer.disconnect();
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [value]);
+
+  return (
+    <span ref={ref} aria-label={`${value.toLocaleString()}${suffix}`}>
+      <span aria-hidden="true">
+        {display.toLocaleString()}
+        {suffix}
+      </span>
+    </span>
+  );
+}
+
+export function Reveal({ children, className = "" }) {
+  const [visible, setVisible] = useState(true);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (
+      !node ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      node.getBoundingClientRect().top < window.innerHeight * 0.92
+    ) {
+      return;
+    }
+    setVisible(false);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setVisible(true);
+        observer.disconnect();
+      },
+      { rootMargin: "0px 0px -8%" },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className={`reveal ${className}`} data-visible={visible}>
+      {children}
+    </div>
+  );
+}
 
 export function Accordion({ items, initialOpen = 0 }) {
   const [open, setOpen] = useState(initialOpen);
@@ -32,7 +112,12 @@ export function Accordion({ items, initialOpen = 0 }) {
                 <ChevronDown aria-hidden="true" size={20} />
               </button>
             </h3>
-            <div id={id} className="accordion-panel" data-open={isOpen} hidden={!isOpen}>
+            <div
+              id={id}
+              className="accordion-panel"
+              data-open={isOpen}
+              aria-hidden={!isOpen}
+            >
               <div>
                 <p>{item.answer || item.content}</p>
               </div>
@@ -40,6 +125,76 @@ export function Accordion({ items, initialOpen = 0 }) {
           </div>
         );
       })}
+    </div>
+  );
+}
+
+export function WhyChooser({ items, children }) {
+  const [active, setActive] = useState(0);
+  const buttons = useRef([]);
+
+  function handleKeyDown(event, index) {
+    const keys = ["ArrowDown", "ArrowRight", "ArrowUp", "ArrowLeft"];
+    if (!keys.includes(event.key)) return;
+    event.preventDefault();
+    const direction = event.key === "ArrowDown" || event.key === "ArrowRight" ? 1 : -1;
+    const next = (index + direction + items.length) % items.length;
+    setActive(next);
+    buttons.current[next]?.focus();
+  }
+
+  return (
+    <div className="why-chooser">
+      <div>
+        {children}
+        <div className="accordion">
+          {items.map((item, index) => {
+            const isActive = active === index;
+            const id = `why-panel-${index}`;
+            return (
+              <div className="accordion-item" key={item.title}>
+                <h3>
+                  <button
+                    ref={(node) => {
+                      buttons.current[index] = node;
+                    }}
+                    type="button"
+                    aria-expanded={isActive}
+                    aria-controls={id}
+                    onClick={() => setActive(index)}
+                    onKeyDown={(event) => handleKeyDown(event, index)}
+                  >
+                    {item.title}
+                    <ChevronDown aria-hidden="true" size={20} />
+                  </button>
+                </h3>
+                <div
+                  id={id}
+                  className="accordion-panel"
+                  data-open={isActive}
+                  aria-hidden={!isActive}
+                >
+                  <div>
+                    <p>{item.content}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div className="why-visual" aria-live="polite">
+        {items.map((item, index) => (
+          <Image
+            key={item.image}
+            src={item.image}
+            alt={index === active ? item.alt : ""}
+            fill
+            sizes="(max-width: 820px) 100vw, 42vw"
+            data-active={index === active}
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -122,7 +277,12 @@ export function Gallery({ items, filters = true }) {
             onClick={() => setSelected(index)}
             aria-label={`Open image: ${item.caption}`}
           >
-            <Image src={item.src} alt={item.caption} fill sizes="(max-width: 768px) 50vw, 33vw" />
+            <Image
+              src={item.src}
+              alt={item.alt || item.caption}
+              fill
+              sizes="(max-width: 640px) 50vw, 33vw"
+            />
             <span>{item.caption}</span>
           </button>
         ))}
@@ -144,13 +304,13 @@ export function Gallery({ items, filters = true }) {
             <div className="lightbox-image">
               <Image
                 src={visible[selected].src}
-                alt={visible[selected].caption}
+                alt={visible[selected].alt || visible[selected].caption}
                 fill
                 sizes="90vw"
                 className="object-contain"
               />
             </div>
-            <p>{visible[selected].caption} · Editorial placeholder</p>
+            <p>{visible[selected].caption}</p>
             <div className="lightbox-controls">
               <button type="button" onClick={() => move(-1)} aria-label="Previous image">
                 <ArrowLeft aria-hidden="true" />
@@ -166,9 +326,60 @@ export function Gallery({ items, filters = true }) {
   );
 }
 
-export function BlogExplorer({ posts }) {
+export function BlogCard({ post }) {
+  const formatDate = (value) =>
+    new Intl.DateTimeFormat("en-IN", { day: "numeric", month: "short", year: "numeric" }).format(
+      new Date(value),
+    );
+  return (
+    <article className="blog-card group flex h-full flex-col overflow-hidden rounded-[24px] border border-[#e8ddd6] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#cf5b50]/40 hover:shadow-xl">
+      <Link href={`/blog/${post.slug}`} className="flex flex-1 flex-col">
+        <div className="blog-card-image relative overflow-hidden">
+          <Image
+            src={post.image}
+            alt={post.imageAlt}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-50" />
+          <span className="blog-card-category">{post.category}</span>
+        </div>
+        <div className="flex flex-1 flex-col p-6">
+          <h3 className="font-serif text-lg font-bold leading-snug text-black transition-colors group-hover:text-[#cf5b50]">
+            {post.title}
+          </h3>
+          <p className="mt-2.5 text-xs leading-relaxed text-black/70 line-clamp-3">
+            {post.excerpt}
+          </p>
+          <div className="blog-card-meta mt-4 flex flex-wrap gap-x-4 gap-y-1.5 border-t border-[#f0ebe6] pt-4 text-[11px] font-medium text-[#9b8a7e]">
+            <span className="flex items-center gap-1.5">
+              <UserRound size={13} aria-hidden="true" />
+              {post.author}
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CalendarDays size={13} aria-hidden="true" />
+              {formatDate(post.date)}
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Clock3 size={13} aria-hidden="true" />
+              {post.readingTime}
+            </span>
+          </div>
+          <span className="mt-auto flex items-center gap-1.5 pt-5 text-xs font-bold uppercase tracking-[0.1em] text-[#cf5b50]">
+            Read article
+            <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+          </span>
+        </div>
+      </Link>
+    </article>
+  );
+}
+
+export function BlogExplorer({ posts, perPage = 6 }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All");
+  const [page, setPage] = useState(1);
   const categories = ["All", ...new Set(posts.map((post) => post.category))];
   const results = useMemo(
     () =>
@@ -179,6 +390,15 @@ export function BlogExplorer({ posts }) {
       ),
     [category, posts, query],
   );
+  const totalPages = Math.max(1, Math.ceil(results.length / perPage));
+  const safePage = Math.min(page, totalPages);
+  const visible = results.slice((safePage - 1) * perPage, safePage * perPage);
+
+  function applyFilters(next) {
+    setQuery(next.query);
+    setCategory(next.category);
+    setPage(1);
+  }
 
   return (
     <>
@@ -189,7 +409,7 @@ export function BlogExplorer({ posts }) {
           <input
             type="search"
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) => applyFilters({ query: event.target.value, category })}
             placeholder="Search articles"
           />
         </label>
@@ -199,87 +419,60 @@ export function BlogExplorer({ posts }) {
               type="button"
               key={item}
               data-active={category === item}
-              onClick={() => setCategory(item)}
+              onClick={() => applyFilters({ query, category: item })}
             >
               {item}
             </button>
           ))}
         </div>
       </div>
+
+      <p className="blog-results-count" aria-live="polite">
+        {results.length} {results.length === 1 ? "article" : "articles"}
+        {query && <> matching “{query}”</>}
+      </p>
+
       <div className="blog-grid">
-        {results.map((post) => (
-          <article className="card overflow-hidden" key={post.slug}>
-            <div className="blog-card-image">
-              <Image src={post.image} alt="" fill sizes="(max-width: 768px) 100vw, 33vw" />
-              <span className="placeholder-badge">Editorial placeholder</span>
-            </div>
-            <div className="card-body">
-              <p className="eyebrow plain">{post.category} · {post.readingTime}</p>
-              <h2 className="text-2xl">{post.title}</h2>
-              <p className="mt-3 text-muted">{post.excerpt}</p>
-              <Link className="button button-text mt-5" href={`/blog/${post.slug}`}>
-                Read article <ArrowRight aria-hidden="true" size={17} />
-              </Link>
-            </div>
-          </article>
+        {visible.map((post) => (
+          <BlogCard post={post} key={post.slug} />
         ))}
       </div>
+
       {!results.length && <p className="empty-state">No articles match this search.</p>}
-    </>
-  );
-}
 
-export function PricingTabs() {
-  const [year, setYear] = useState("2026");
-  const rows = ["100-Hour Yoga Teacher Training", "200-Hour Yoga Teacher Training", "300-Hour Yoga Teacher Training"];
-
-  return (
-    <div>
-      <div className="filter-row" role="tablist" aria-label="Pricing year">
-        {["2026", "2027"].map((item) => (
+      {totalPages > 1 && (
+        <nav className="blog-pagination" aria-label="Blog pagination">
           <button
             type="button"
-            key={item}
-            role="tab"
-            aria-selected={year === item}
-            data-active={year === item}
-            onClick={() => setYear(item)}
+            onClick={() => setPage((value) => Math.max(1, value - 1))}
+            disabled={safePage === 1}
+            aria-label="Previous page"
           >
-            {item}
+            <ArrowLeft size={16} aria-hidden="true" />
           </button>
-        ))}
-      </div>
-      <div className="pricing-table-wrap">
-        <table className="pricing-table">
-          <caption className="sr-only">{year} yoga course pricing</caption>
-          <thead>
-            <tr>
-              <th>Program</th>
-              <th>Batch dates</th>
-              <th>Shared room</th>
-              <th>Private room</th>
-              <th>Schedule</th>
-              <th><span className="sr-only">Apply</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((name) => (
-              <tr key={name}>
-                <td data-label="Program">{name}</td>
-                <td data-label="Batch dates">[Add {year} dates]</td>
-                <td data-label="Shared room">[Add fee]</td>
-                <td data-label="Private room">[Add fee]</td>
-                <td data-label="Schedule">Awaiting confirmation</td>
-                <td data-label="Action"><Link className="button button-text" href="/apply">Apply</Link></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <p className="placeholder-note mt-4">
-        No discounts, availability labels, or savings are shown until verified batch data is supplied.
-      </p>
-    </div>
+          {Array.from({ length: totalPages }, (_, index) => index + 1).map((num) => (
+            <button
+              type="button"
+              key={num}
+              data-active={num === safePage}
+              onClick={() => setPage(num)}
+              aria-label={`Page ${num}`}
+              aria-current={num === safePage ? "page" : undefined}
+            >
+              {num}
+            </button>
+          ))}
+          <button
+            type="button"
+            onClick={() => setPage((value) => Math.min(totalPages, value + 1))}
+            disabled={safePage === totalPages}
+            aria-label="Next page"
+          >
+            <ArrowRight size={16} aria-hidden="true" />
+          </button>
+        </nav>
+      )}
+    </>
   );
 }
 

@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { validateEnquiry } from "../src/lib/enquiry.js";
+import { isAllowedOrigin, validateEnquiry } from "../src/lib/enquiry.js";
 
 const valid = validateEnquiry({
   name: "Asha Rao",
@@ -14,3 +14,5 @@ const valid = validateEnquiry({
 assert.equal(valid.valid, true);
 assert.equal(validateEnquiry({}).valid, false);
 assert.equal(validateEnquiry({ ...valid.data, consent: true, name: "<b>Asha</b>" }).data.name, "Asha");
+assert.equal(isAllowedOrigin("https://example.com", "example.com"), true);
+assert.equal(isAllowedOrigin("not a URL", "example.com"), false);

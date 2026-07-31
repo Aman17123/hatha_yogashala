@@ -1,16 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { BlogExplorer } from "@/components/Interactive";
-import { Container, PageHero, SectionHeading } from "@/components/ui";
+import { ArrowRight, CalendarDays, Clock3, UserRound } from "lucide-react";
+import { BlogCard, BlogExplorer } from "@/components/Interactive";
+import { Container, PageHero } from "@/components/ui";
 import { posts } from "@/data/blogData";
-import { makeMetadata } from "@/data/siteData";
+import { pageMetadata } from "@/data/siteData";
 
-export const metadata = makeMetadata(
-  "Yoga Teacher Training & Goa Blog",
-  "Practical guides to yoga teacher training, course comparison, retreat planning, and studying yoga in Goa.",
-  "/blog",
-);
+export const metadata = pageMetadata("blog");
+
+function formatDate(value) {
+  return new Intl.DateTimeFormat("en-IN", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(new Date(value));
+}
 
 export default function BlogPage() {
   const [featured, ...rest] = posts;
@@ -21,38 +25,66 @@ export default function BlogPage() {
         title="Yoga Study & Goa Guides"
         text="Original, practical articles to help students compare training, plan travel, and ask better questions before enrolment."
       />
+
       <section className="section">
         <Container>
-          <SectionHeading eyebrow="Featured guide" title={featured.title} />
-          <article className="featured-post">
-            <div className="featured-post-image">
+          <div className="section-heading section-heading--blog">
+            <p className="eyebrow plain">Featured guide</p>
+            <h2>From the journal</h2>
+          </div>
+          <article className="featured-post group">
+            <Link href={`/blog/${featured.slug}`} className="featured-post-image block">
               <Image
                 src={featured.image}
-                alt=""
+                alt={featured.imageAlt}
                 fill
                 loading="eager"
                 fetchPriority="high"
                 sizes="(max-width: 768px) 100vw, 55vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <span className="placeholder-badge">Editorial placeholder</span>
-            </div>
-            <div>
-              <p className="eyebrow plain">{featured.category} · {featured.readingTime}</p>
-              <p>{featured.excerpt}</p>
-              <Link className="button button-primary mt-6" href={`/blog/${featured.slug}`}>
-                Read the guide <ArrowRight aria-hidden="true" size={17} />
+              <span className="featured-post-category">{featured.category}</span>
+            </Link>
+            <div className="flex flex-col">
+              <span className="blog-card-meta inline-flex flex-wrap gap-x-4 gap-y-1.5 text-[11px] font-medium text-[#9b8a7e]">
+                <span className="flex items-center gap-1.5">
+                  <UserRound size={13} aria-hidden="true" />
+                  {featured.author}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <CalendarDays size={13} aria-hidden="true" />
+                  {formatDate(featured.date)}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Clock3 size={13} aria-hidden="true" />
+                  {featured.readingTime}
+                </span>
+              </span>
+              <h2 className="mt-4 font-serif text-2xl font-bold leading-snug text-black transition-colors group-hover:text-[#cf5b50] sm:text-3xl">
+                {featured.title}
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-black/70">
+                {featured.excerpt}
+              </p>
+              <Link
+                className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-[#cf5b50] px-5 py-3 text-sm font-bold text-white shadow-md shadow-[#cf5b50]/20 transition-all duration-200 hover:bg-[#b9473e] hover:shadow-lg"
+                href={`/blog/${featured.slug}`}
+              >
+                Read the guide
+                <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
           </article>
         </Container>
       </section>
+
       <section className="section section-peach">
         <Container>
-          <SectionHeading
-            eyebrow="All articles"
-            title="Explore by topic"
-            text="Search the full article library or filter by category."
-          />
+          <div className="section-heading section-heading--blog">
+            <p className="eyebrow plain">All articles</p>
+            <h2>Explore by topic</h2>
+            <p>Search the full article library or filter by category.</p>
+          </div>
           <BlogExplorer posts={[featured, ...rest]} />
         </Container>
       </section>

@@ -22,6 +22,15 @@ function clean(value, max) {
     .slice(0, max);
 }
 
+export function isAllowedOrigin(origin, host) {
+  if (!origin || !host) return true;
+  try {
+    return new URL(origin).host === host;
+  } catch {
+    return false;
+  }
+}
+
 export function validateEnquiry(input = {}) {
   const data = Object.fromEntries(
     Object.entries(limits).map(([key, max]) => [key, clean(input[key], max)]),

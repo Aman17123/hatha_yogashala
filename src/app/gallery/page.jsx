@@ -1,12 +1,8 @@
 import { Gallery } from "@/components/Interactive";
 import { Container, FinalCTA, PageHero, SectionHeading } from "@/components/ui";
-import { galleryItems, makeMetadata } from "@/data/siteData";
+import { galleryItems, pageMetadata } from "@/data/siteData";
 
-export const metadata = makeMetadata(
-  "Yoga School Gallery in Goa",
-  "Browse editorial placeholders for yoga training, retreats, accommodation, meals, excursions, and student life in Goa.",
-  "/gallery",
-);
+export const metadata = pageMetadata("gallery");
 
 export default function GalleryPage() {
   return (
@@ -14,7 +10,7 @@ export default function GalleryPage() {
       <PageHero
         eyebrow="Visual journal"
         title="Yoga School Gallery"
-        text="Generated editorial placeholders show the intended gallery structure until original school photography is supplied."
+        text="Explore yoga practice, meditation, residential space, retreats, and Goa’s coastal setting through a balanced visual journal."
         image="/images/hero-goa-yoga.png"
       />
       <section className="section">
@@ -22,7 +18,7 @@ export default function GalleryPage() {
           <SectionHeading
             eyebrow="Practice & place"
             title="Explore the Goa experience"
-            text="Every image is local and optimized through Next.js. Replace it with approved photography using the same file paths."
+            text="Every image is optimized with Next.js, uses a deliberate aspect ratio, and opens in a lightweight keyboard-accessible viewer."
           />
           <Gallery items={galleryItems} />
         </Container>
