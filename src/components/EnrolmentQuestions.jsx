@@ -34,16 +34,16 @@ export default function EnrolmentQuestions({
                 <Sparkles aria-hidden="true" size={15} />
                 {eyebrow}
               </p>
-              <h2 className="text-3xl xl:text-4xl font-serif font-bold text-[#2c1a0e] leading-tight">
+              <h2 className="text-3xl xl:text-4xl font-serif font-bold text-[var(--brown)] leading-tight">
                 {title}
               </h2>
-              <p className="text-sm text-[#746d69] leading-relaxed">
+              <p className="text-sm text-[var(--muted)] leading-relaxed">
                 {text}
               </p>
             </div>
 
             {/* Active Visual / Image Box with Smooth Transition */}
-            <div className="relative rounded-[28px] overflow-hidden bg-[#fdf0e7] border border-[#f0d9cf] shadow-md aspect-[4/3] group">
+            <div className="home-enq-media relative rounded-[28px] overflow-hidden bg-[var(--cream)] border border-[var(--border)] shadow-md aspect-[4/3] group">
               {questions.map((q, idx) => {
                 const isActive = idx === activeIndex;
                 return (
@@ -66,11 +66,11 @@ export default function EnrolmentQuestions({
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                     
                     {/* Floating Overlay Badge on Active Image */}
-                    <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/50 text-[#2c1a0e] shadow-lg">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-[#cf5b50]">
+                    <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/50 text-[var(--brown)] shadow-lg">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--terracotta)]">
                         Topic {q.number} of {String(questions.length).padStart(2, "0")}
                       </span>
-                      <p className="text-xs font-semibold mt-0.5 line-clamp-1 text-[#2c1a0e]">
+                      <p className="text-xs font-semibold mt-0.5 line-clamp-1 text-[var(--brown)]">
                         {q.shortSummary}
                       </p>
                     </div>
@@ -80,13 +80,13 @@ export default function EnrolmentQuestions({
             </div>
 
             {/* Progress & CTA Panel */}
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-[#f0d9cf]">
+            <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-[var(--border)]">
               {/* Active Counter Indicator */}
               <div className="flex items-center gap-2">
-                <span className="text-2xl font-serif font-bold text-[#cf5b50]">
+                <span className="text-2xl font-serif font-bold text-[var(--terracotta)]">
                   {String(activeIndex + 1).padStart(2, "0")}
                 </span>
-                <span className="text-xs text-[#746d69] font-medium">
+                <span className="text-xs text-[var(--muted)] font-medium">
                   / {String(questions.length).padStart(2, "0")} Questions
                 </span>
                 <div className="ml-2 flex items-center gap-1">
@@ -94,7 +94,7 @@ export default function EnrolmentQuestions({
                     <span
                       key={i}
                       className={`h-1.5 rounded-full transition-all duration-300 ${
-                        i === activeIndex ? "w-6 bg-[#cf5b50]" : "w-1.5 bg-[#f0d9cf]"
+                        i === activeIndex ? "w-6 bg-[var(--terracotta)]" : "w-1.5 bg-[var(--border)]"
                       }`}
                     />
                   ))}
@@ -119,8 +119,8 @@ export default function EnrolmentQuestions({
                   key={q.id}
                   className={`rounded-[22px] border p-4 transition-all duration-300 lg:p-5 ${
                     isActive
-                      ? "border-[#cf5b50] bg-white shadow-lg shadow-[#cf5b50]/10"
-                      : "bg-white/70 border-[#f0d9cf] hover:bg-white hover:border-[#cf5b50]/40 opacity-85 hover:opacity-100"
+                      ? "border-[var(--terracotta)] bg-white shadow-lg shadow-[var(--terracotta)]/10"
+                      : "bg-white/70 border-[var(--border)] hover:bg-white hover:border-[var(--terracotta)]/40 opacity-85 hover:opacity-100"
                   }`}
                 >
                   <button
@@ -133,8 +133,8 @@ export default function EnrolmentQuestions({
                     <span
                       className={`grid size-9 shrink-0 place-items-center rounded-full font-serif text-xs font-bold transition-colors duration-300 ${
                         isActive
-                          ? "bg-[#cf5b50] text-white shadow-md shadow-[#cf5b50]/20"
-                          : "bg-[#fff0eb] text-[#cf5b50]"
+                          ? "bg-[var(--terracotta)] text-white shadow-md shadow-[var(--terracotta)]/20"
+                          : "bg-[var(--cream)] text-[var(--terracotta)]"
                       }`}
                     >
                       {q.number}
@@ -142,7 +142,7 @@ export default function EnrolmentQuestions({
 
                     <h3
                       className={`min-w-0 flex-1 font-serif text-base font-bold leading-snug transition-colors duration-300 lg:text-lg ${
-                        isActive ? "text-[#cf5b50]" : "text-[#2c1a0e]"
+                        isActive ? "text-[var(--terracotta)]" : "text-[var(--brown)]"
                       }`}
                     >
                       {q.question}
@@ -150,14 +150,14 @@ export default function EnrolmentQuestions({
                   </button>
                   {isActive && (
                     <div className="ml-[52px]">
-                      <p className="mt-2 text-sm leading-relaxed text-[#746d69]">
+                      <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
                         {q.description}
                       </p>
                       {q.bullets?.length > 0 && (
-                        <ul className="mt-3 space-y-1.5 border-t border-[#f0d9cf]/60 pt-3">
+                        <ul className="mt-3 space-y-1.5 border-t border-[var(--border)]/60 pt-3">
                           {q.bullets.map((bullet, bIdx) => (
-                            <li key={bIdx} className="flex items-start gap-2.5 text-xs font-medium leading-normal text-[#4e4946]">
-                              <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-[#cf5b50]" />
+                            <li key={bIdx} className="flex items-start gap-2.5 text-xs font-medium leading-normal text-[var(--text)]">
+                              <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-[var(--terracotta)]" />
                               <span>{bullet}</span>
                             </li>
                           ))}

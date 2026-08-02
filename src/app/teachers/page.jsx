@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight, Award, BookOpen, CheckCircle2, ShieldCheck, Sparkles, Users } from "lucide-react";
 import { teachersData } from "@/data/siteContentData";
 import { pageMetadata } from "@/data/siteData";
-import TeacherCard from "@/components/TeacherCard";
 import {
   ButtonLink,
   Container,
@@ -37,11 +36,11 @@ export default function TeachersPage() {
         eyebrow="Expert Faculty"
         title="Our Yoga Teachers in Goa"
         text="Meet the dedicated masters and subject specialists guiding traditional Hatha yoga, functional anatomy, pranayama, and teaching methodology."
-        image="/images/course-goa-yoga.png"
+        image="/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-portrait.webp"
       />
 
       {/* Intro Section */}
-      <section className="section bg-[#fffcf8]">
+      <section className="section bg-[var(--cream)]">
         <Container>
           <SectionHeading
             eyebrow="Faculty & Guidance"
@@ -55,10 +54,10 @@ export default function TeachersPage() {
               <article
                 id={teacher.id}
                 key={teacher.id}
-                className="rounded-[28px] bg-white border border-[#f0d9cf] p-6 sm:p-8 shadow-sm space-y-6 scroll-mt-28 hover:shadow-xl transition-all"
+                className="rounded-[28px] bg-white border border-[var(--border)] p-6 sm:p-8 shadow-sm space-y-6 scroll-mt-28 hover:shadow-xl transition-all"
               >
                 <div className="flex flex-col sm:flex-row gap-6 items-start">
-                  <div className="relative aspect-[4/5] w-full sm:w-44 shrink-0 rounded-2xl overflow-hidden bg-[#fdf0e7]">
+                  <div className="relative aspect-[4/5] w-full sm:w-44 shrink-0 rounded-2xl overflow-hidden bg-[var(--cream)]">
                     <Image
                       src={teacher.image}
                       alt={teacher.imageAlt || teacher.name}
@@ -69,44 +68,44 @@ export default function TeachersPage() {
                   </div>
 
                   <div className="space-y-3 flex-1">
-                    <span className="inline-block rounded-full bg-[#fff0eb] border border-[#f0d9cf] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#cf5b50]">
+                    <span className="inline-block rounded-full bg-[var(--cream)] border border-[var(--border)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--terracotta)]">
                       {teacher.specialty}
                     </span>
-                    <h2 className="text-2xl font-serif font-bold text-[#2c1a0e]">
+                    <h2 className="text-2xl font-serif font-bold text-[var(--brown)]">
                       {teacher.name}
                     </h2>
-                    <p className="text-xs font-semibold text-[#cf5b50]">
+                    <p className="text-xs font-semibold text-[var(--terracotta)]">
                       {teacher.role}
                     </p>
 
-                    <div className="flex flex-wrap gap-4 text-xs text-[#746d69] pt-1">
+                    <div className="flex flex-wrap gap-4 text-xs text-[var(--muted)] pt-1">
                       <span className="flex items-center gap-1.5">
-                        <Award size={14} className="text-[#cf5b50]" />
+                        <Award size={14} className="text-[var(--terracotta)]" />
                         <strong>Qual:</strong> {teacher.qualifications}
                       </span>
                       <span className="flex items-center gap-1.5">
-                        <Users size={14} className="text-[#cf5b50]" />
+                        <Users size={14} className="text-[var(--terracotta)]" />
                         <strong>Exp:</strong> {teacher.experience}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <p className="text-sm text-[#4e4946] leading-relaxed border-t border-[#f0d9cf]/60 pt-4">
+                <p className="text-sm text-[var(--text)] leading-relaxed border-t border-[var(--border)]/60 pt-4">
                   {teacher.bio}
                 </p>
 
                 {/* Courses Taught by Teacher */}
                 {teacher.coursesTaught && teacher.coursesTaught.length > 0 && (
-                  <div className="bg-[#fff0eb]/50 rounded-2xl p-4 space-y-2">
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-[#2c1a0e]">
+                  <div className="bg-[var(--cream)]/50 rounded-2xl p-4 space-y-2">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--brown)]">
                       Courses Taught:
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {teacher.coursesTaught.map((courseName) => (
                         <span
                           key={courseName}
-                          className="rounded-lg bg-white border border-[#f0d9cf] px-3 py-1 text-xs text-[#2c1a0e] font-medium"
+                          className="rounded-lg bg-white border border-[var(--border)] px-3 py-1 text-xs text-[var(--brown)] font-medium"
                         >
                           {courseName}
                         </span>
@@ -136,9 +135,9 @@ export default function TeachersPage() {
               "Relevant teaching experience in years",
               "Confirmed batch availability in writing",
             ].map((item) => (
-              <div key={item} className="flex items-start gap-3 rounded-2xl bg-white border border-[#f0d9cf] p-5 shadow-sm">
-                <ShieldCheck size={20} className="text-[#cf5b50] shrink-0 mt-0.5" />
-                <h3 className="text-sm font-semibold text-[#2c1a0e] leading-snug">{item}</h3>
+              <div key={item} className="flex items-start gap-3 rounded-2xl bg-white border border-[var(--border)] p-5 shadow-sm">
+                <ShieldCheck size={20} className="text-[var(--terracotta)] shrink-0 mt-0.5" />
+                <h3 className="text-sm font-semibold text-[var(--brown)] leading-snug">{item}</h3>
               </div>
             ))}
           </div>

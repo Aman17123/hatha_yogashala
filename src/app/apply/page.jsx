@@ -12,7 +12,7 @@ export default function ApplyPage() {
         eyebrow="Application"
         title="Reserve Your Spot"
         text="Share your preferred program, batch, room, experience, and support needs. Submission is an enquiry—not a confirmed booking."
-        image="/images/hero-goa-yoga.png"
+        image="/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp"
       />
       <section className="section">
         <Container className="apply-grid">

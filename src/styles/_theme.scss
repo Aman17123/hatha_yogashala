@@ -1,0 +1,210 @@
+// ─────────────────────────────────────────────────────────────
+// theme.scss — design tokens as CSS custom properties + dark
+// theme scoped fixes. Lives in @layer base so Tailwind's own
+// theme/base layers keep their precedence.
+//
+// The --*-ch helpers hold bare RGB channel triplets so that
+// `rgb(var(--coral-ch) / 24%)` stays themeable while producing
+// byte-identical output (the verification script resolves them).
+// ─────────────────────────────────────────────────────────────
+
+@layer base {
+  :root {
+    --background: #f7f3ea;
+    --surface: #e5f2ef;
+    --cream: #fbf8f1;
+    --coral: #2f4f3e;
+    --coral-dark: #24402f;
+    --terracotta: #b5623a;
+    --gold: #c9a961;
+    --brown: #2a2a22;
+    --text: #2a2a22;
+    --muted: #6f7066;
+    --border: #e4dccb;
+    --success: #4a7c5f;
+    --white: #ffffff;
+    --ink: #2a2a22;
+    --on-accent: #ffffff;
+    --footer: #22271f;
+    --shadow: 0 18px 50px rgb(var(--shadow-ch) / 10%);
+    --shadow-soft: 0 8px 30px rgb(var(--shadow-ch) / 7%);
+    --header-bg: rgb(var(--header-ch) / 93%);
+    --hero-sun: #c9a961;
+    --peach: #e5f2ef;
+    --sage: #7c9472;
+
+    // RGB channel helpers (used via `rgb(var(--x-ch) / alpha)`).
+    // Not part of the public design API — refactor affordances.
+    --white-ch: 255 255 255;
+    --coral-ch: 47 79 62;
+    --coral-dark-ch: 36 64 47;
+    --rose-ch: 207 91 80;
+    --wa-ch: 37 211 102;
+    --mint-ch: 95 206 150;
+    --shadow-ch: 61 58 44;
+    --deep-ch: 44 26 14;
+    --terracotta-ch: 181 98 58;
+    --ink-ch: 16 11 8;
+    --cream-ch: 255 252 248;
+    --stats-ch: 30 22 16;
+    --overlay-ch: 32 20 13;
+    --badge-ch: 28 21 16;
+    --header-ch: 251 248 241;
+    --sage-ch: 124 148 114;
+  }
+
+  // ─────────────────────────────────────────────
+  // THEMES
+  // Add the class `theme-dark` (or set the
+  // attribute `data-theme="dark"`) on <html> or
+  // <body> to switch the whole site to the dark
+  // palette. Edit any variable below to build a
+  // custom theme of your own.
+  //
+  // Examples:
+  //   <html class="theme-dark">          dark mode
+  //   <body data-theme="light">          light mode
+  //   <body data-theme="midnight">       your custom palette
+  // ─────────────────────────────────────────────
+
+  :root,
+  [data-theme="light"],
+  .theme-light {
+    --background: #f7f3ea;
+    --surface: #e5f2ef;
+    --cream: #fbf8f1;
+    --coral: #2f4f3e;
+    --coral-dark: #24402f;
+    --terracotta: #b5623a;
+    --gold: #c9a961;
+    --brown: #2a2a22;
+    --text: #2a2a22;
+    --muted: #6f7066;
+    --border: #e4dccb;
+    --success: #4a7c5f;
+    --white: #ffffff;
+    --ink: #2a2a22;
+    --on-accent: #ffffff;
+    --footer: #22271f;
+    --shadow: 0 18px 50px rgb(61 58 44 / 10%);
+    --shadow-soft: 0 8px 30px rgb(61 58 44 / 7%);
+    --header-bg: rgb(251 248 241 / 93%);
+    --hero-sun: #c9a961;
+    --peach: #e5f2ef;
+    --sage: #7c9472;
+  }
+
+  [data-theme="dark"],
+  .theme-dark {
+    --background: #161812;
+    --surface: #232920;
+    --cream: #1c2019;
+    --coral: #7c9b7f;
+    --coral-dark: #8fae92;
+    --terracotta: #d09a70;
+    --gold: #d6bd7d;
+    --brown: #ede7da;
+    --text: #d5d2c8;
+    --muted: #a39f92;
+    --border: #3a4237;
+    --success: #6fae8b;
+    --white: #242a22;
+    --ink: #ede7da;
+    --on-accent: #1a1c16;
+    --footer: #0f110d;
+    --shadow: 0 18px 50px rgb(0 0 0 / 45%);
+    --shadow-soft: 0 8px 30px rgb(0 0 0 / 38%);
+    --header-bg: rgb(22 24 18 / 88%);
+    --hero-sun: #8a743f;
+    --peach: #232920;
+    --sage: #6f8f78;
+
+    color-scheme: dark;
+  }
+
+  // Scoped fixes for the few hard-coded light
+  // surfaces that remain inside the shared styles.
+  [data-theme="dark"] .site-header {
+    background: var(--header-bg);
+  }
+
+  [data-theme="dark"] .hero-stats {
+    background: rgb(30 22 16 / 92%);
+  }
+
+  [data-theme="dark"] .trust-strip {
+    background: linear-gradient(
+      90deg,
+      var(--cream),
+      #221a13 15%,
+      #221a13 85%,
+      var(--cream)
+    );
+  }
+
+  [data-theme="dark"] .trust-badge {
+    background: rgb(30 22 16 / 80%);
+  }
+
+  [data-theme="dark"] .feature-icon {
+    background: var(--surface);
+  }
+
+  [data-theme="dark"] .notice {
+    border-color: rgb(47 79 62 / 35%);
+    background: rgb(47 79 62 / 10%);
+  }
+
+  [data-theme="dark"] .availability-tag.filling {
+    background: rgb(47 79 62 / 14%);
+    border-color: rgb(47 79 62 / 35%);
+  }
+
+  [data-theme="dark"] .availability-tag.open {
+    background: rgb(95 206 150 / 14%);
+    border-color: rgb(95 206 150 / 35%);
+  }
+
+  [data-theme="dark"] .retreat-trust-badges {
+    background: rgb(28 21 16 / 94%);
+  }
+
+  [data-theme="dark"] .retreat-schedule-day header {
+    background: linear-gradient(120deg, var(--surface), var(--cream));
+  }
+
+  [data-theme="dark"] .retreat-meal-philosophy,
+  [data-theme="dark"] .retreat-include-card {
+    border-color: rgb(95 206 150 / 30%);
+    background: rgb(95 206 150 / 9%);
+  }
+
+  [data-theme="dark"] .retreat-include-card h3 {
+    color: var(--brown);
+  }
+
+  [data-theme="dark"] .retreat-meal-philosophy h3 {
+    color: var(--success);
+  }
+
+  [data-theme="dark"] .retreat-meal-philosophy li {
+    color: var(--text);
+  }
+
+  [data-theme="dark"] .retreat-exclude-card {
+    background: var(--cream);
+  }
+
+  [data-theme="dark"] .booking-rooms-featured {
+    background: rgb(47 79 62 / 12%) !important;
+  }
+
+  [data-theme="dark"] .retreat-price-card-featured {
+    background: linear-gradient(180deg, rgb(47 79 62 / 14%), var(--white));
+  }
+
+  [data-theme="dark"] .blog-card-category,
+  [data-theme="dark"] .featured-post-category {
+    background: rgb(28 21 16 / 92%);
+  }
+}

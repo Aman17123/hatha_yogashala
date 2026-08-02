@@ -2,17 +2,22 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  Check,
+  Award,
+  BadgeCheck,
   Compass,
+  Globe,
+  GraduationCap,
   Heart,
   Leaf,
   MapPin,
+  ShieldCheck,
   Sparkles,
   Star,
-  Zap,
 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
-import { retreats, shortPrograms, teacherTrainings } from "@/data/coursesData";
+import { GiTeacher } from "react-icons/gi";
+import { PiGraduationCapFill } from "react-icons/pi";
+import { retreats, teacherTrainings } from "@/data/coursesData";
 import { posts } from "@/data/blogData";
 import {
   facilities,
@@ -22,20 +27,27 @@ import {
   reviewProfile,
   site,
   testimonials,
+  tripadvisorProfile,
+  tripadvisorTestimonials,
 } from "@/data/siteData";
 import {
   ButtonLink,
   Container,
   FinalCTA,
-  GoogleMark,
   JsonLd,
   Media,
   ProgramCard,
   RetreatCard,
   SectionHeading,
-  ShortProgramCard,
 } from "./ui";
-import { Accordion, CountUp, Gallery, WhyChooser, BlogCard } from "./Interactive";
+import ReviewsSection from "./GoogleReviews";
+import {
+  Accordion,
+  CountUp,
+  Gallery,
+  WhyChooser,
+  BlogCard,
+} from "./Interactive";
 import AboutPreview from "./AboutPreview";
 import FounderPreview from "./FounderPreview";
 import TeachersPreview from "./TeachersPreview";
@@ -46,29 +58,33 @@ const whyItems = [
     title: "A curriculum you can inspect",
     content:
       "Course pages explain the learning goal, suitability, subjects, teaching method, daily rhythm, stay, price checks, and the limits of each completion document.",
-    image: "/images/course-goa-yoga.png",
-    alt: "Small group studying yoga alignment in Goa",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-philosophy-class.jpg",
+    alt: "Students studying yoga philosophy in class at Hatha Yogashala in Goa",
   },
   {
     title: "Information before payment",
     content:
       "Dates, total price, room category, meals, teachers, inclusions, assessment, certification, and cancellation terms are confirmed in writing before a reservation is treated as complete.",
-    image: "/images/accommodation-goa.png",
-    alt: "Calm residential room representing accommodation choices in Goa",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
+    alt: "Residential campus view of Hatha Yogashala in North Goa",
   },
   {
     title: "Practice suited to the student",
     content:
       "The enquiry process asks about experience, injuries, health, accessibility, dietary needs, room preference, and travel questions so suitability can be discussed early.",
-    image: "/images/hatha-yoga-class-goa.png",
-    alt: "Teacher observing a student during a Hatha yoga practice",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg",
+    alt: "Teacher observing students during a Hatha yoga teacher training session",
   },
   {
     title: "A grounded Goa setting",
     content:
       "Residential planning accounts for coastal weather, rest, wet-season access, transport, hydration, laundry, and quiet time instead of treating Goa as scenery alone.",
-    image: "/images/goa-coast-yoga-retreat.png",
-    alt: "Palm-fringed Goa coastline beside a quiet nature path",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-retreat-2025-session.avif",
+    alt: "Coastal yoga retreat session at Hatha Yogashala in Goa",
   },
 ];
 
@@ -85,6 +101,69 @@ const comparisonRows = [
   ["Shared-room price", ...teacherTrainings.map((course) => course.price)],
 ];
 
+function GoogleLogo({ size = 21 }) {
+  return (
+    <svg
+      viewBox="0 0 18 18"
+      width={size}
+      height={size}
+      role="img"
+      aria-hidden="true"
+    >
+      <path
+        fill="#4285F4"
+        d="M17.64 9.205c0-.64-.057-1.255-.164-1.846H9v3.492h4.844a4.14 4.14 0 0 1-1.796 2.716v2.266h2.909c1.703-1.568 2.683-3.88 2.683-6.628Z"
+      />
+      <path
+        fill="#34A853"
+        d="M9 18c2.43 0 4.468-.806 5.957-2.18l-2.909-2.265c-.806.54-1.836.86-3.048.86-2.344 0-4.328-1.585-5.036-3.714H.957v2.336A9 9 0 0 0 9 18Z"
+      />
+      <path
+        fill="#FBBC05"
+        d="M3.964 10.7A5.41 5.41 0 0 1 3.682 9c0-.59.101-1.164.282-1.7V4.964H.957A9 9 0 0 0 0 9c0 1.45.347 2.822.957 4.036L3.964 10.7Z"
+      />
+      <path
+        fill="#EA4335"
+        d="M9 3.58c1.322 0 2.51.454 3.445 1.345l2.581-2.582C13.464.891 11.426 0 9 0A9 9 0 0 0 .957 4.964L3.964 7.3C4.672 5.17 6.656 3.58 9 3.58Z"
+      />
+    </svg>
+  );
+}
+
+const trustItems = [
+  {
+    key: "yoga-alliance",
+    type: "logo",
+    src: "/images/yoga-alliance-logo.webp",
+    alt: "Yoga Alliance",
+    width: 879,
+    height: 284,
+  },
+  {
+    key: "ayush",
+    type: "logo",
+    src: "/images/ayush-logo.jpg",
+    alt: "Ministry of AYUSH",
+    width: 750,
+    height: 400,
+  },
+  { key: "google", type: "google", rating: "5.0" },
+  {
+    key: "teaching",
+    type: "stat",
+    icon: GiTeacher,
+    value: "50,000+ Hrs",
+    label: "Teaching Legacy",
+  },
+  {
+    key: "graduates",
+    type: "stat",
+    icon: PiGraduationCapFill,
+    value: "947 Graduates",
+    label: "From 77 Countries",
+  },
+];
+
 export default function HomePage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -99,14 +178,13 @@ export default function HomePage() {
     stat.key === "programs"
       ? {
           ...stat,
-          value:
-            teacherTrainings.length + shortPrograms.length + retreats.length,
+          value: teacherTrainings.length + retreats.length,
         }
       : stat,
   );
 
   return (
-    <>
+    <div className="home-page">
       <JsonLd data={faqSchema} />
 
       {/* ===== 1. HERO — headline, intro copy, and school stats ===== */}
@@ -145,8 +223,8 @@ export default function HomePage() {
             <div className="hero-sun" aria-hidden="true" />
             <div className="hero-image">
               <Image
-                src="/images/hero-goa-yoga.png"
-                alt="Yoga practitioner meditating in a peaceful coastal setting in Goa"
+                src="/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp"
+                alt="A yoga practitioner meditating at sunset in a peaceful coastal setting in Goa"
                 fill
                 loading="eager"
                 fetchPriority="high"
@@ -160,7 +238,7 @@ export default function HomePage() {
                     {Number.isFinite(value) ? (
                       <CountUp value={value} suffix={suffix} />
                     ) : (
-                      "Not published"
+                      "—"
                     )}
                   </strong>
                   <span>{label}</span>
@@ -171,24 +249,46 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ===== 2. TRUST STRIP — key booking principles at a glance ===== */}
-      <section className="trust-strip" aria-label="Booking principles">
-        <Container>
-          {[
-            ["Goa, India", "Confirmed public location"],
-            ["Clear course scope", "Training and retreats stay distinct"],
-            ["Written fee breakdown", "No unverified discounts or urgency"],
-            [
-              "Source-backed claims",
-              "Credentials and reviews require evidence",
-            ],
-          ].map(([title, text]) => (
-            <div key={title}>
-              <strong>{title}</strong>
-              <span>{text}</span>
+      {/* ===== 2. TRUST STRIP — recognition marquee ===== */}
+      <section className="trust-strip" aria-label="Recognition and trust">
+        <div className="trust-bar">
+          {trustItems.map((item) => (
+            <div className="trust-item" key={item.key}>
+              {item.type === "logo" && (
+                <Image
+                  className="trust-logo"
+                  src={item.src}
+                  alt={item.alt}
+                  width={item.width}
+                  height={item.height}
+                  unoptimized
+                />
+              )}
+
+              {item.type === "google" && (
+                <div className="trust-google">
+                  <GoogleLogo aria-hidden="true" />
+                  <span className="trust-rating">{item.rating}</span>
+                  <span className="trust-stars" aria-hidden="true">
+                    ★★★★★
+                  </span>
+                </div>
+              )}
+
+              {item.type === "stat" && (
+                <div className="trust-stat">
+                  <span className="trust-stat-icon">
+                    <item.icon aria-hidden="true" />
+                  </span>
+                  <div>
+                    <strong>{item.value}</strong>
+                    <span className="trust-stat-sub">{item.label}</span>
+                  </div>
+                </div>
+              )}
             </div>
           ))}
-        </Container>
+        </div>
       </section>
 
       {/* ===== 3. ABOUT PREVIEW — short intro to the school ===== */}
@@ -201,6 +301,7 @@ export default function HomePage() {
             eyebrow="Teacher training"
             title="Choose the depth that fits your path"
             text="Compare level, curriculum, accommodation, completion details, and fees before choosing by hour count."
+            align="center"
           />
           <div className="grid gap-5 lg:grid-cols-3">
             {teacherTrainings.map((course) => (
@@ -217,6 +318,7 @@ export default function HomePage() {
             eyebrow="Coastal retreats"
             title="Make room for practice—and for rest"
             text="Each retreat is a personal-practice experience, not a teacher-training course or professional certification."
+            align="center"
           />
           <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {retreats.map((retreat) => (
@@ -226,29 +328,13 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ===== 6. SHORT PROGRAMS — meditation, sound, Ayurveda, alignment ===== */}
-      <section className="section section-peach" id="short-courses">
-        <Container>
-          <SectionHeading
-            eyebrow="Short programs"
-            title="Focused study for a smaller window"
-            text="Explore meditation, sound, Ayurveda, or alignment only after checking the approved syllabus, facilitator, duration, and scope."
-          />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {shortPrograms.map((course) => (
-              <ShortProgramCard key={course.slug} course={course} />
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ===== 7. FOUNDER PREVIEW — introduction to the founder ===== */}
+      {/* ===== 6. FOUNDER PREVIEW — introduction to the founder ===== */}
       <FounderPreview />
 
-      {/* ===== 8. TEACHERS PREVIEW — faculty cards ===== */}
+      {/* ===== 7. TEACHERS PREVIEW — faculty cards ===== */}
       <TeachersPreview />
 
-      {/* ===== 9. WHY CHOOSE US — trust-building reasons ===== */}
+      {/* ===== 8. WHY CHOOSE US — trust-building reasons ===== */}
       <section className="section">
         <Container>
           <WhyChooser items={whyItems}>
@@ -268,6 +354,7 @@ export default function HomePage() {
             eyebrow="Course comparison"
             title="100, 200, or 300 Hours Yoga Teacher Training?"
             text="The 200-hour course is the recommended starting point for aspiring yoga teachers. Compare all pathways and find your perfect match."
+            align="center"
           />
 
           {/* Desktop: Three standalone pop-out cards side by side */}
@@ -279,27 +366,27 @@ export default function HomePage() {
                   key={course.slug}
                   className={`relative flex flex-col rounded-[28px] overflow-hidden transition-all duration-300 ${
                     isRec
-                      ? "border-[2.5px] border-[#cf5b50] shadow-[0_12px_48px_rgba(207,91,80,0.18)] -translate-y-3"
-                      : "border border-[#e8ddd6] shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.10)]"
+                      ? "border-[2.5px] border-[var(--terracotta)] shadow-[0_12px_48px_rgba(207,91,80,0.18)] -translate-y-3"
+                      : "border border-[var(--border)] shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.10)]"
                   }`}
                 >
                   {/* Card Header */}
                   <div
-                    className={`px-5 pt-5 pb-4 ${
+                    className={`cmp-head px-5 pt-5 pb-4 ${
                       isRec
-                        ? "bg-gradient-to-b from-[#fff0eb] to-[#fff8f5]"
-                        : "bg-[#faf7f4]"
+                        ? "bg-gradient-to-b from-[var(--cream)] to-[#fff8f5]"
+                        : "bg-[var(--cream)]"
                     }`}
                   >
                     {isRec && (
-                      <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-[#cf5b50] px-2.5 py-0.5 text-[9px] font-black uppercase tracking-[0.15em] text-white shadow-sm">
+                      <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-[var(--terracotta)] px-2.5 py-0.5 text-[9px] font-black uppercase tracking-[0.15em] text-white shadow-sm">
                         <Star className="size-2.5 fill-white" />
                         Most Popular
                       </span>
                     )}
                     <h3
                       className={`text-base font-serif font-bold leading-tight ${
-                        isRec ? "text-[#cf5b50]" : "text-black/80"
+                        isRec ? "text-[var(--terracotta)]" : "text-black/80"
                       }`}
                     >
                       <Link
@@ -309,7 +396,7 @@ export default function HomePage() {
                         {course.name}
                       </Link>
                     </h3>
-                    <p className="mt-0.5 text-xs text-[#9b8a7e] font-medium">
+                    <p className="mt-0.5 text-xs text-[var(--muted)] font-medium">
                       {course.hours} · {course.duration}
                     </p>
                   </div>
@@ -319,15 +406,15 @@ export default function HomePage() {
                     {comparisonRows.map((row, ri) => (
                       <div
                         key={row[0]}
-                        className={`flex items-start justify-between gap-3 px-5 py-3 ${
-                          ri > 0 ? "border-t border-[#f0ebe6]" : ""
-                        } ${ri % 2 === 0 ? "" : "bg-[#faf7f4]/50"}`}
+                        className={`cmp-row flex items-start justify-between gap-3 px-5 py-3 ${
+                          ri > 0 ? "border-t border-[var(--border)]" : ""
+                        } ${ri % 2 === 0 ? "" : "bg-[var(--cream)]/50"}`}
                       >
-                        <span className="text-[10px] font-bold uppercase tracking-[0.08em] text-[#9b8a7e] shrink-0 w-24 mt-0.5">
+                        <span className="cmp-row-label text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--muted)] shrink-0 w-24 mt-0.5">
                           {row[0]}
                         </span>
                         <span
-                          className={`text-xs text-right leading-snug ${
+                          className={`cmp-row-value text-xs text-right leading-snug ${
                             isRec ? "font-medium text-black" : "text-black/70"
                           }`}
                         >
@@ -339,23 +426,23 @@ export default function HomePage() {
 
                   {/* CTA */}
                   <div
-                    className={`px-5 py-4 ${
-                      isRec ? "bg-[#fff5f1]" : "bg-[#faf7f4]"
+                    className={`cmp-foot px-5 py-4 ${
+                      isRec ? "bg-[var(--cream)]" : "bg-[var(--cream)]"
                     }`}
                   >
                     <Link
                       href={`/courses/${course.slug}`}
-                      className={`group inline-flex w-full items-center justify-center gap-2 rounded-full py-2.5 px-4 text-[10px] font-bold uppercase tracking-[0.1em] transition-all duration-200 ${
+                      className={`cmp-cta group inline-flex w-full items-center justify-center gap-2 rounded-full py-2.5 px-4 text-[10px] font-bold uppercase tracking-[0.1em] transition-all duration-200 ${
                         isRec
-                          ? "bg-[#cf5b50] text-white shadow-md shadow-[#cf5b50]/20 hover:bg-[#b9473e] hover:shadow-lg hover:scale-[1.02]"
-                          : "border-[1.5px] border-[#c9a99a] text-[#8c5048] bg-white hover:border-[#cf5b50] hover:text-[#cf5b50] hover:bg-[#fff5f1]"
+                          ? "bg-[var(--terracotta)] text-white shadow-md shadow-[var(--terracotta)]/20 hover:bg-[var(--terracotta)] hover:shadow-lg hover:scale-[1.02]"
+                          : "border-[1.5px] border-[var(--border)] text-[var(--terracotta)] bg-white hover:border-[var(--terracotta)] hover:text-[var(--terracotta)] hover:bg-[var(--cream)]"
                       }`}
                     >
                       <span>View {course.hours}</span>
                       <ArrowRight className="size-3 group-hover:translate-x-1 transition-transform" />
                     </Link>
                     {isRec && (
-                      <p className="mt-1.5 text-center text-[10px] text-[#b9473e]/70 font-medium">
+                      <p className="mt-1.5 text-center text-[10px] text-[var(--terracotta)]/70 font-medium">
                         Ideal first step for new teachers
                       </p>
                     )}
@@ -374,25 +461,25 @@ export default function HomePage() {
                   key={course.slug}
                   className={`rounded-[24px] overflow-hidden transition-all duration-300 ${
                     isRec
-                      ? "border-[2px] border-[#cf5b50] shadow-xl shadow-[#cf5b50]/12"
-                      : "border border-[#e8ddd6] shadow-sm"
+                      ? "border-[2px] border-[var(--terracotta)] shadow-xl shadow-[var(--terracotta)]/12"
+                      : "border border-[var(--border)] shadow-sm"
                   }`}
                 >
                   <div
                     className={`px-6 pt-6 pb-4 ${
                       isRec
-                        ? "bg-gradient-to-br from-[#fff0eb] to-[#fff8f5]"
-                        : "bg-[#faf7f4]"
+                        ? "bg-gradient-to-br from-[var(--cream)] to-[#fff8f5]"
+                        : "bg-[var(--cream)]"
                     }`}
                   >
                     {isRec && (
-                      <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-[#cf5b50] px-3 py-1 text-[10px] font-black uppercase tracking-[0.15em] text-white shadow-sm">
+                      <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-[var(--terracotta)] px-3 py-1 text-[10px] font-black uppercase tracking-[0.15em] text-white shadow-sm">
                         <Star className="size-3 fill-white" />
                         Most Popular
                       </span>
                     )}
                     <h3
-                      className={`text-lg font-serif font-bold ${isRec ? "text-[#cf5b50]" : "text-black/80"}`}
+                      className={`text-lg font-serif font-bold ${isRec ? "text-[var(--terracotta)]" : "text-black/80"}`}
                     >
                       <Link
                         href={`/courses/${course.slug}`}
@@ -401,7 +488,7 @@ export default function HomePage() {
                         {course.name}
                       </Link>
                     </h3>
-                    <p className="text-xs text-[#9b8a7e] mt-0.5 font-medium">
+                    <p className="text-xs text-[var(--muted)] mt-0.5 font-medium">
                       {course.hours} · {course.duration}
                     </p>
                   </div>
@@ -410,9 +497,9 @@ export default function HomePage() {
                       {comparisonRows.map((row, ri) => (
                         <div
                           key={row[0]}
-                          className={`flex justify-between gap-4 py-3 ${ri > 0 ? "border-t border-[#f0ebe6]" : ""}`}
+                          className={`flex justify-between gap-4 py-3 ${ri > 0 ? "border-t border-[var(--border)]" : ""}`}
                         >
-                          <dt className="text-[11px] font-bold uppercase tracking-[0.08em] text-[#9b8a7e] shrink-0 mt-0.5 w-24">
+                          <dt className="text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--muted)] shrink-0 mt-0.5 w-24">
                             {row[0]}
                           </dt>
                           <dd
@@ -423,13 +510,13 @@ export default function HomePage() {
                         </div>
                       ))}
                     </dl>
-                    <div className="mt-4 pt-4 border-t border-[#f0ebe6]">
+                    <div className="mt-4 pt-4 border-t border-[var(--border)]">
                       <Link
                         href={`/courses/${course.slug}`}
                         className={`group inline-flex w-full items-center justify-center gap-2 rounded-full py-3.5 text-xs font-bold uppercase tracking-[0.1em] transition-all duration-200 ${
                           isRec
-                            ? "bg-[#cf5b50] text-white shadow-md hover:bg-[#b9473e]"
-                            : "border-[1.5px] border-[#c9a99a] text-black bg-white hover:border-[#cf5b50] hover:bg-[#cf5b50] hover:text-white"
+                            ? "bg-[var(--terracotta)] text-white shadow-md hover:bg-[var(--terracotta)]"
+                            : "border-[1.5px] border-[var(--border)] text-black bg-white hover:border-[var(--terracotta)] hover:bg-[var(--terracotta)] hover:text-white"
                         }`}
                       >
                         <span>View {course.hours} Course</span>
@@ -451,6 +538,7 @@ export default function HomePage() {
             eyebrow="Dates and schedule"
             title="Plan from confirmed batch information"
             text="No availability, urgency, or price is invented. Use the course links or enquiry form to request the current written schedule."
+            align="center"
           />
           <div className="grid gap-4">
             {teacherTrainings.map((course, index) => (
@@ -459,7 +547,7 @@ export default function HomePage() {
                 key={course.slug}
               >
                 <div className="flex gap-4">
-                  <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[#fff1ef] font-bold text-[#b9473e]">
+                  <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[var(--cream)] font-bold text-[var(--terracotta)]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div>
@@ -503,7 +591,7 @@ export default function HomePage() {
                 title="A coastal setting for residential yoga study"
                 text="Goa can support early practice, unhurried recovery, and time outdoors when weather, travel, hydration, and rest are planned responsibly."
               />
-              <div className="mt-5 grid gap-4 text-[0.97rem] leading-7 text-black/70">
+              <div className="mt-5 grid gap-4 text-[15.5px] leading-7 text-black/70">
                 <p>
                   Warm mornings and a slower coastal rhythm can make it easier
                   to keep practice, study, meals, and rest together. The right
@@ -524,9 +612,9 @@ export default function HomePage() {
                 ].map(([label, Icon]) => (
                   <div
                     key={label}
-                    className="flex items-center gap-3 rounded-2xl bg-white/80 border border-[#e8ddd6] px-4 py-3 shadow-sm"
+                    className="flex items-center gap-3 rounded-2xl bg-white/80 border border-[var(--border)] px-4 py-3 shadow-sm"
                   >
-                    <span className="grid size-8 place-items-center rounded-full bg-[#fff0eb] text-[#cf5b50] shrink-0">
+                    <span className="grid size-8 place-items-center rounded-full bg-[var(--cream)] text-[var(--terracotta)] shrink-0">
                       <Icon size={16} aria-hidden="true" />
                     </span>
                     <strong className="text-sm font-semibold text-black/80">
@@ -548,35 +636,38 @@ export default function HomePage() {
             <div className="grid grid-cols-2 gap-4 items-end">
               {/* Tall left photo */}
               <div
-                className="rounded-[28px] overflow-hidden shadow-xl"
+                className="home-whygoa-tall rounded-[28px] overflow-hidden shadow-xl"
                 style={{ aspectRatio: "3/4" }}
               >
                 <Media
-                  src="/images/goa-coast-yoga-retreat.png"
-                  alt="Palm-fringed Goa coastline near a quiet nature path"
+                  src="/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp"
+                  alt="Yoga students practising on a Goa beach beside the coastal path"
                   className="h-full w-full"
                 />
               </div>
               {/* Right column: square photo + location info card */}
               <div className="flex flex-col gap-4">
                 <div
-                  className="rounded-[28px] overflow-hidden shadow-xl"
+                  className="home-whygoa-square rounded-[28px] overflow-hidden shadow-xl"
                   style={{ aspectRatio: "1/1" }}
                 >
                   <Media
-                    src="/images/hero-goa-yoga.png"
-                    alt="Yoga practitioner meditating in a peaceful coastal Goa setting"
+                    src="/images/tha_hatha/the-hatha-yogashala-goa-meditation-pranayama-session.webp"
+                    alt="Yoga students in a quiet meditation and pranayama session in Goa"
                     className="h-full w-full"
                   />
                 </div>
-                <div className="rounded-[24px] bg-white border border-[#e8ddd6] p-5 shadow-sm flex flex-col gap-1.5">
+                <div className="rounded-[24px] bg-white border border-[var(--border)] p-5 shadow-sm flex flex-col gap-1.5">
                   <div className="flex items-center gap-2">
-                    <MapPin size={14} className="text-[#cf5b50] shrink-0" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#cf5b50]">
+                    <MapPin
+                      size={14}
+                      className="text-[var(--terracotta)] shrink-0"
+                    />
+                    <span className="text-xs font-bold uppercase tracking-wider text-[var(--terracotta)]">
                       Goa, India
                     </span>
                   </div>
-                  <p className="text-[11px] text-[#9b8a7e] leading-relaxed font-medium">
+                  <p className="text-[11px] text-[var(--muted)] leading-relaxed font-medium">
                     Querim, North Goa · near Arambol · ~30 min from MOPA Airport
                   </p>
                 </div>
@@ -587,93 +678,82 @@ export default function HomePage() {
       </section>
 
       {/* ===== 13. RESIDENTIAL EXPERIENCE — facilities and accommodation ===== */}
-      <section className="section">
+      <section
+        className="section section-cream"
+        id="residential-experience"
+        aria-labelledby="residential-experience-title"
+      >
         <Container>
-          <SectionHeading
-            eyebrow="Residential experience"
-            title="The spaces around the practice matter"
-            text="Confirm the exact room, yoga hall, meals, facilities, and support attached to your batch before payment."
-          />
-          <div className="facility-grid">
-            {facilities.map((facility) => (
-              <article key={facility.title}>
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+            {/* Left — sticky editorial intro */}
+            <div className="lg:sticky lg:top-24">
+              <SectionHeading
+                eyebrow="Residential experience"
+                title="The spaces around the practice matter"
+                text="Confirm the exact room, yoga hall, meals, facilities, and support attached to your batch before payment."
+              />
+              <p className="mt-5 max-w-md text-sm leading-7 text-black/60">
+                Your stay is part of the practice. Rooms, shalas, meals, and
+                student support are confirmed in writing before any reservation
+                is treated as complete.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <ButtonLink href="/accommodation" variant="secondary">
+                  Explore accommodation
+                </ButtonLink>
+              </div>
+            </div>
+
+            {/* Right — featured image + minimal facility list */}
+            <div>
+              <div className="home-res-media relative aspect-[16/10] overflow-hidden rounded-[28px] shadow-xl">
                 <Image
-                  src={facility.image}
-                  alt={facility.alt}
+                  src="/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp"
+                  alt="Residential campus and yoga school at Hatha Yogashala in Querim, North Goa"
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  className="object-cover"
                 />
-                <div>
-                  <h3>{facility.title}</h3>
-                  <p>{facility.text}</p>
+                <div className="absolute bottom-4 left-4 rounded-2xl border border-white/60 bg-white/90 px-4 py-3 shadow-sm backdrop-blur-md">
+                  <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--terracotta)]">
+                    Querim, North Goa
+                  </p>
+                  <p className="text-sm font-semibold text-black/80">
+                    A short walk from the beach
+                  </p>
                 </div>
-              </article>
-            ))}
+              </div>
+
+              <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                {facilities.map((facility, index) => (
+                  <li
+                    key={facility.title}
+                    className="facility-card rounded-2xl border border-[var(--border)] bg-white/80 p-5 shadow-sm transition-shadow hover:shadow-md"
+                  >
+                    <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[var(--terracotta)]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="mt-2 font-serif text-lg font-bold leading-snug text-black/80">
+                      {facility.title}
+                    </h3>
+                    <p className="mt-1.5 text-xs leading-relaxed text-black/60">
+                      {facility.text}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <ButtonLink href="/accommodation" variant="text" className="mt-7">
-            Explore accommodation
-          </ButtonLink>
         </Container>
       </section>
 
-      {/* ===== 14. REVIEWS — source-backed student testimonials ===== */}
-      <section className="section section-cream">
-        <Container>
-          <SectionHeading
-            eyebrow="Student voices"
-            title="Reviews with a source—or no review at all"
-            text="Names, ratings, dates, excerpts, counts, and review schema are published only when an original platform source is available."
-          />
-          {testimonials.length ? (
-            <div className="review-grid">
-              {testimonials.map((review) => (
-                <article className="card card-body" key={review.sourceUrl}>
-                  <div className="flex items-center justify-between gap-4">
-                    <GoogleMark />
-                    <span>{review.rating}/5</span>
-                  </div>
-                  <h3 className="mt-5">{review.name}</h3>
-                  <p className="text-sm text-muted">
-                    {review.date} · {review.platform}
-                  </p>
-                  <p className="mt-4">{review.excerpt}</p>
-                  <a
-                    className="button button-text mt-4"
-                    href={review.sourceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Read original review
-                  </a>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <div className="card card-body flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
-              <div>
-                <GoogleMark />
-                <h3 className="mt-4">
-                  No verified public reviews are linked yet
-                </h3>
-                <p className="mt-2 text-muted">
-                  The review component is ready; it intentionally displays no
-                  rating, reviewer, excerpt, or count without a source.
-                </p>
-              </div>
-              {reviewProfile.googleBusinessUrl && (
-                <a
-                  className="button button-secondary"
-                  href={reviewProfile.googleBusinessUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Open Google profile
-                </a>
-              )}
-            </div>
-          )}
-        </Container>
-      </section>
+      {/* ===== 14. REVIEWS — Google student reviews ===== */}
+      <ReviewsSection
+        testimonials={testimonials}
+        reviewProfile={reviewProfile}
+        tripadvisorTestimonials={tripadvisorTestimonials}
+        tripadvisorProfile={tripadvisorProfile}
+      />
 
       {/* ===== 15. GALLERY — photo preview of life in Goa ===== */}
       <section className="section">
@@ -682,6 +762,7 @@ export default function HomePage() {
             eyebrow="A glimpse of Goa"
             title="Practice, rest, and coastal surroundings"
             text="A deliberate mix of portrait, landscape, and detail images keeps the gallery balanced without stretching or empty tiles."
+            align="center"
           />
           <Gallery items={galleryItems} filters={false} />
           <ButtonLink href="/gallery" variant="text" className="mt-7">
@@ -702,7 +783,7 @@ export default function HomePage() {
           <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
             <div className="card card-body flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-2 text-[#cf5b50]">
+                <div className="flex items-center gap-2 text-[var(--terracotta)]">
                   <MapPin aria-hidden="true" className="size-5" />
                   <span className="text-xs font-bold uppercase tracking-[0.14em]">
                     Sanctuary Location
@@ -718,38 +799,33 @@ export default function HomePage() {
                 <div className="mt-4 space-y-3 text-sm text-black/70 border-t border-black/10 pt-4">
                   <p>
                     Nestled in peaceful{" "}
-                    <strong>Querim, Pernem, North Goa</strong>
-                    , Hatha Yogashala is a premier residential yoga teacher
-                    training school and restorative retreat sanctuary in India.
+                    <strong>Querim, Pernem, North Goa</strong>, Hatha Yogashala
+                    is a premier residential yoga teacher training school and
+                    restorative retreat sanctuary in India.
                   </p>
                   <ul className="grid gap-2 text-xs font-medium text-black/80">
                     <li className="flex items-center gap-2">
-                      <Sparkles className="size-3.5 text-[#cf5b50] shrink-0" />
+                      <Sparkles className="size-3.5 text-[var(--terracotta)] shrink-0" />
                       <span>
                         <strong>Courses:</strong> 100-Hr, 200-Hr & 300-Hr Yoga
                         Alliance Teacher Training
                       </span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <Leaf className="size-3.5 text-[#cf5b50] shrink-0" />
+                      <Leaf className="size-3.5 text-[var(--terracotta)] shrink-0" />
                       <span>
                         <strong>Retreats:</strong> 3, 5, 7 & 10-Day Restorative
                         Coastal Yoga Immersion
                       </span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <Compass className="size-3.5 text-[#cf5b50] shrink-0" />
+                      <Compass className="size-3.5 text-[var(--terracotta)] shrink-0" />
                       <span>
                         <strong>Airport Access:</strong> ~30 min from MOPA (GOX)
                         & 60 min from Dabolim (GOI)
                       </span>
                     </li>
                   </ul>
-                  <p className="text-xs text-muted leading-relaxed">
-                    Our tropical sanctuary provides a calm environment for
-                    intensive practice, authentic pranayama study, sattvic
-                    vegetarian nutrition, and quiet beachfront reflection.
-                  </p>
                 </div>
               </div>
 
@@ -802,6 +878,6 @@ export default function HomePage() {
       </section>
 
       <FinalCTA />
-    </>
+    </div>
   );
 }

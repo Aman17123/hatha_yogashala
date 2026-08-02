@@ -32,7 +32,7 @@ const sharedDefaults = {
   price: "Fee to be confirmed",
   privatePrice: "Fee to be confirmed",
   certification: "Yoga Alliance-approved certificate",
-  image: "/images/course-goa-yoga.png",
+  image: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
   date: "Monthly course start dates year-round",
   bookingStatus: "Seats Available",
   format: "Residential",
@@ -319,9 +319,9 @@ const hundredHour = {
     food:
       "Meals are healthy, vegetarian, and prepared fresh daily to support your practice and recovery — three meals per day, Monday to Saturday morning.",
     images: [
-      { src: "/images/accommodation-goa.png", alt: "Clean residential room at Hatha Yogashala Goa", caption: "Residential stay" },
-      { src: "/images/course-goa-yoga.png", alt: "Open-air practice hall at Hatha Yogashala Goa", caption: "Open-air shala" },
-      { src: "/images/hero-goa-yoga.png", alt: "Yoga practice near the beach at Hatha Yogashala Goa", caption: "Beach practice" },
+      { src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp", alt: "Residential campus and stay at Hatha Yogashala Goa", caption: "Residential stay" },
+      { src: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg", alt: "Open-air practice hall at Hatha Yogashala Goa", caption: "Open-air shala" },
+      { src: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp", alt: "Yoga practice near the beach at Hatha Yogashala Goa", caption: "Beach practice" },
     ],
   },
   includedActivities: [
@@ -726,9 +726,9 @@ const twoHundredHour = {
     food:
       "Three healthy vegetarian meals daily (Monday to Saturday morning), prepared fresh to support your practice and recovery.",
     images: [
-      { src: "/images/accommodation-goa.png", alt: "Clean residential room at Hatha Yogashala Goa", caption: "Residential stay" },
-      { src: "/images/course-goa-yoga.png", alt: "Open-air practice hall at Hatha Yogashala Goa", caption: "Open-air shala" },
-      { src: "/images/hero-goa-yoga.png", alt: "Yoga practice near the beach at Hatha Yogashala Goa", caption: "Beach practice" },
+      { src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp", alt: "Residential campus and stay at Hatha Yogashala Goa", caption: "Residential stay" },
+      { src: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg", alt: "Open-air practice hall at Hatha Yogashala Goa", caption: "Open-air shala" },
+      { src: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp", alt: "Yoga practice near the beach at Hatha Yogashala Goa", caption: "Beach practice" },
     ],
   },
   includedActivities: [
@@ -1131,9 +1131,9 @@ const threeHundredHour = {
     food:
       "Three healthy vegetarian meals per day (Monday to Saturday morning), prepared fresh to support your practice and recovery.",
     images: [
-      { src: "/images/accommodation-goa.png", alt: "Clean residential room at Hatha Yogashala Goa", caption: "Residential stay" },
-      { src: "/images/course-goa-yoga.png", alt: "Open-air practice hall at Hatha Yogashala Goa", caption: "Open-air shala" },
-      { src: "/images/hero-goa-yoga.png", alt: "Yoga practice near the beach at Hatha Yogashala Goa", caption: "Beach practice" },
+      { src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp", alt: "Residential campus and stay at Hatha Yogashala Goa", caption: "Residential stay" },
+      { src: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg", alt: "Open-air practice hall at Hatha Yogashala Goa", caption: "Open-air shala" },
+      { src: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp", alt: "Yoga practice near the beach at Hatha Yogashala Goa", caption: "Beach practice" },
     ],
   },
   includedActivities: [
@@ -1285,89 +1285,34 @@ export const mainCourses = [hundredHour, twoHundredHour, threeHundredHour];
 // `published: false` should be checked in generateStaticParams so these
 // slugs return 404 rather than a thin/placeholder page going live.
 // ---------------------------------------------------------------------
-export const shortCourses = [
-  {
-    slug: "meditation-course-goa",
-    hours: "Short course",
-    name: "Meditation Course in Goa",
-    published: false,
-    level: "All levels",
-    duration: "[Add duration]",
-    bestFor: "Students developing a steady personal meditation practice",
-    outcome: "[Add verified outcome]",
-    description:
-      "A practical introduction to attention, breath, and sustainable meditation routines.",
-    focus: ["Breath awareness", "Concentration", "Reflection"],
-  },
-  {
-    slug: "sound-healing-course-goa",
-    hours: "Short course",
-    name: "Sound Healing Course in Goa",
-    published: false,
-    level: "[Add level]",
-    duration: "[Add duration]",
-    bestFor: "[Add suitability]",
-    outcome: "[Add verified outcome]",
-    description:
-      "Course scope, facilitator credentials, instruments, and certification status pending.",
-    focus: ["[Add module]", "[Add module]", "[Add module]"],
-  },
-  {
-    slug: "ayurveda-course-goa",
-    hours: "Short course",
-    name: "Ayurveda Course in Goa",
-    published: false,
-    level: "[Add level]",
-    duration: "[Add duration]",
-    bestFor: "[Add suitability]",
-    outcome: "[Add verified outcome]",
-    description:
-      "Placeholder course outline awaiting an approved syllabus and facilitator details.",
-    focus: ["[Add module]", "[Add module]", "[Add module]"],
-  },
-  {
-    slug: "adjustment-alignment-course-goa",
-    hours: "Short course",
-    name: "Adjustment & Alignment Course in Goa",
-    published: false,
-    level: "[Add level]",
-    duration: "[Add duration]",
-    bestFor: "[Add suitability]",
-    outcome: "[Add verified outcome]",
-    description:
-      "A skills course. Final scope, consent practices, and teacher credentials require approval.",
-    focus: ["Observation", "Consent-led assists", "Clear cueing"],
-  },
-];
-
 const retreatGallery = [
   {
-    src: "/images/hero-goa-yoga.png",
+    src: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
     alt: "Yoga practitioner meditating in a peaceful coastal Goa setting",
     caption: "Morning practice by the coast",
   },
   {
-    src: "/images/course-goa-yoga.png",
+    src: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg",
     alt: "Small group studying yoga alignment in Goa",
     caption: "Guided Hatha practice",
   },
   {
-    src: "/images/accommodation-goa.png",
-    alt: "Calm residential room representing accommodation choices in Goa",
+    src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
+    alt: "Calm residential campus representing accommodation choices in Goa",
     caption: "Residential stay",
   },
   {
-    src: "/images/goa-coast-yoga-retreat.png",
-    alt: "Palm-fringed Goa coastline beside a quiet nature path",
+    src: "/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp",
+    alt: "Beachfront yoga practice beside the Goa coast",
     caption: "Time to rest and explore",
   },
   {
-    src: "/images/pranayama-meditation-goa.png",
+    src: "/images/tha_hatha/the-hatha-yogashala-goa-meditation-pranayama-session.webp",
     alt: "Pranayama and breathwork practice in a peaceful tropical shala",
     caption: "Breath and meditation",
   },
   {
-    src: "/images/hatha-yoga-class-goa.png",
+    src: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-asana-practice-3.webp",
     alt: "Teacher observing a student during a Hatha yoga practice",
     caption: "Personal guidance",
   },
@@ -1376,9 +1321,8 @@ const retreatGallery = [
 // All exported course arrays share the same business defaults, so every
 // consumer (homepage, course index, related-courses, pricing) can rely on
 // `image`, `price`, `date`, etc. being present.
-export const courses = [...mainCourses, ...shortCourses].map(withDefaults);
+export const courses = mainCourses.map(withDefaults);
 export const teacherTrainings = mainCourses.map(withDefaults);
-export const shortPrograms = shortCourses.map(withDefaults);
 
 // ---------------------------------------------------------------------
 // RETREATS — day-count still drives the template, but with genuinely
@@ -1519,7 +1463,9 @@ export const retreats = [3, 5, 7, 10].map((days) => {
     benefits: benefitsByDays[days],
     price: { 3: "€199", 5: "€299", 7: "€449", 10: "Fee to be confirmed" }[days],
     image:
-      days % 2 ? "/images/hero-goa-yoga.png" : "/images/course-goa-yoga.png",
+      days % 2
+        ? "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp"
+        : "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
     date: "Monthly retreat start dates year-round",
     availability: "Book Now",
     duration: `${days} days`,
@@ -1573,7 +1519,7 @@ export function getRetreat(slug) {
  *     return courses.filter((c) => c.published !== false).map((c) => ({ slug: c.slug }));
  *   }
  *
- * This keeps the 4 short courses (still full of "[Add ...]" placeholders)
- * out of the sitemap and out of Google's index until real content lands —
- * the single highest-leverage SEO fix available right now.
+ * This keeps placeholder-only courses out of the sitemap and out of
+ * Google's index until real content lands — the single highest-leverage
+ * SEO fix available right now.
  */

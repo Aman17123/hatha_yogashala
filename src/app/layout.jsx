@@ -1,20 +1,28 @@
 import Link from "next/link";
-import { Bricolage_Grotesque, Manrope } from "next/font/google";
+import { Gotu, Manrope, Quicksand } from "next/font/google";
 import { SiWhatsapp } from "react-icons/si";
 import "./globals.css";
+import "../styles/main.scss";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { JsonLd } from "@/components/ui";
 import { absoluteUrl, pageSeo, site } from "@/data/siteData";
 
-const heading = Bricolage_Grotesque({
+const heading = Gotu({
   variable: "--font-heading",
   subsets: ["latin"],
+  weight: "400",
 });
 
 const body = Manrope({
   variable: "--font-body",
   subsets: ["latin"],
+});
+
+const quicksand = Quicksand({
+  variable: "--font-quicksand",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -39,8 +47,8 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/images/course-goa-yoga.png",
-        alt: "Yoga practice at Hatha Yogashala in Goa",
+        url: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
+        alt: "Hatha Yogashala yoga school campus in Goa",
       },
     ],
   },
@@ -48,7 +56,7 @@ export const metadata = {
     card: "summary_large_image",
     title: pageSeo.home.title,
     description: pageSeo.home.description,
-    images: ["/images/course-goa-yoga.png"],
+    images: ["/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp"],
   },
   robots: site.hasProductionUrl
     ? { index: true, follow: true }
@@ -83,7 +91,7 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="en-IN" className={`${heading.variable} ${body.variable}`}>
+    <html lang="en-IN" className={`${heading.variable} ${body.variable} ${quicksand.variable}`}>
       <body id="top">
         <JsonLd data={organization} />
         <JsonLd data={website} />

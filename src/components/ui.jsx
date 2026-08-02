@@ -6,12 +6,10 @@ import {
   CalendarDays,
   Check,
   Clock3,
-  GraduationCap,
   MapPin,
   Sparkles,
   Star,
   Timer,
-  Users,
 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { publicValue, whatsappLink } from "@/data/siteData";
@@ -53,7 +51,9 @@ export function SectionHeading({
 }) {
   const Heading = as;
   return (
-    <div className={`section-heading ${align === "center" ? "text-center" : ""}`}>
+    <div
+      className={`section-heading ${align === "center" ? "text-center" : ""}`}
+    >
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
       <Heading>{title}</Heading>
       {text && <p>{text}</p>}
@@ -65,7 +65,7 @@ export function Media({
   src,
   alt,
   className = "",
-  priority = false,
+  preload = false,
   sizes = "(max-width: 768px) 100vw, 50vw",
 }) {
   return (
@@ -74,7 +74,7 @@ export function Media({
         src={src}
         alt={alt}
         fill
-        priority={priority}
+        preload={preload}
         sizes={sizes}
         className="object-cover"
       />
@@ -88,7 +88,11 @@ export function Breadcrumbs({ items }) {
       <ol className="breadcrumbs">
         {items.map((item, index) => (
           <li key={item.label}>
-            {item.href ? <Link href={item.href}>{item.label}</Link> : <span>{item.label}</span>}
+            {item.href ? (
+              <Link href={item.href}>{item.label}</Link>
+            ) : (
+              <span>{item.label}</span>
+            )}
             {index < items.length - 1 && <span aria-hidden="true">/</span>}
           </li>
         ))}
@@ -101,7 +105,7 @@ export function PageHero({
   eyebrow,
   title,
   text,
-  image = "/images/course-goa-yoga.png",
+  image = "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
   breadcrumbs = [{ label: "Home", href: "/" }, { label: title }],
   actions = [],
   facts = [],
@@ -164,7 +168,9 @@ export function PriceRow({ label, price, currency }) {
     return (
       <div className="program-price">
         <span className="program-price-label">{label}</span>
-        <span className="program-price-values"><strong>{price}</strong></span>
+        <span className="program-price-values">
+          <strong>{price}</strong>
+        </span>
       </div>
     );
   }
@@ -178,8 +184,16 @@ export function PriceRow({ label, price, currency }) {
     <div className="program-price">
       <span className="program-price-label">{label}</span>
       <span className="program-price-values">
-        {original > 0 && <del>{currency}{formatPrice(original)}</del>}
-        <strong>{currency}{formatPrice(current)}</strong>
+        {original > 0 && (
+          <del>
+            {currency}
+            {formatPrice(original)}
+          </del>
+        )}
+        <strong>
+          {currency}
+          {formatPrice(current)}
+        </strong>
       </span>
       {save > 0 && <span className="program-save">Save {save}%</span>}
     </div>
@@ -187,7 +201,7 @@ export function PriceRow({ label, price, currency }) {
 }
 
 export function ProgramCard({ course, horizontal = false }) {
-  const image = course.image || "/images/course-goa-yoga.png";
+  const image = course.image || "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp";
   const stats = course.cardStats || {};
   const pricing = course.pricing || null;
   const currency = pricing?.currency || "$";
@@ -218,37 +232,35 @@ export function ProgramCard({ course, horizontal = false }) {
         )}
       </div>
       <div className="card-body program-body">
-        <p className="program-kicker">
-          {course.hours} YTTC · {course.location}
-        </p>
         <h3 className="program-title">{course.name}</h3>
-        <p className="program-description">
-          {course.cardSummary || course.description || course.bestFor}
-        </p>
 
         <dl className="program-stats">
           <div>
-            <dt><Timer aria-hidden="true" size={13} /> Duration</dt>
+            <dt>
+              <Timer aria-hidden="true" size={14} /> Duration
+            </dt>
             <dd>{publicValue(stats.duration)}</dd>
           </div>
           <div>
-            <dt><GraduationCap aria-hidden="true" size={13} /> Level</dt>
-            <dd>{publicValue(stats.level)}</dd>
-          </div>
-          <div>
-            <dt><BadgeCheck aria-hidden="true" size={13} /> Certification</dt>
+            <dt>
+              <BadgeCheck aria-hidden="true" size={14} /> Certification
+            </dt>
             <dd>{publicValue(stats.certification)}</dd>
-          </div>
-          <div>
-            <dt><Users aria-hidden="true" size={13} /> Batch size</dt>
-            <dd>{publicValue(stats.batchSize)}</dd>
           </div>
         </dl>
 
         {pricing && (
           <div className="program-pricing">
-            <PriceRow label="Shared room" price={pricing.shared} currency={currency} />
-            <PriceRow label="Private room" price={pricing.private} currency={currency} />
+            <PriceRow
+              label="Shared room"
+              price={pricing.shared}
+              currency={currency}
+            />
+            <PriceRow
+              label="Private room"
+              price={pricing.private}
+              currency={currency}
+            />
           </div>
         )}
 
@@ -280,7 +292,9 @@ export function ProgramCard({ course, horizontal = false }) {
               </span>
             )}
             {hasRating && hasGraduates && (
-              <span className="program-dot" aria-hidden="true">·</span>
+              <span className="program-dot" aria-hidden="true">
+                ·
+              </span>
             )}
             {hasGraduates && (
               <span>{course.graduates.toLocaleString("en-US")}+ Graduates</span>
@@ -292,99 +306,21 @@ export function ProgramCard({ course, horizontal = false }) {
   );
 }
 
-export function ShortProgramCard({ course }) {
-  const duration = publicValue(course.duration);
-  const date = publicValue(course.date, "Dates to be announced");
-  const price = publicValue(course.price, "Fee to be confirmed");
-  const certification = publicValue(
-    course.certification,
-    "Completion details pending",
-  );
-  const room = publicValue(course.room, "Room options confirmed in writing");
-
-  return (
-    <article className="group flex flex-col h-full overflow-hidden rounded-[24px] border border-[#e8ddd6] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#cf5b50]/40">
-      {/* Image Header */}
-      <div className="relative overflow-hidden aspect-[16/10]">
-        <Media
-          src={course.image}
-          alt={`Students taking part in ${course.name}`}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
-        
-        {/* Floating Badges */}
-        <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-          <span className="inline-flex items-center rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#cf5b50] shadow-sm">
-            {course.hours} Focus
-          </span>
-          <span className="inline-flex items-center rounded-full bg-black/50 backdrop-blur-md px-3 py-1 text-[11px] font-medium text-white">
-            {course.level}
-          </span>
-        </div>
-      </div>
-
-      {/* Card Body */}
-      <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-serif text-xl font-bold text-black group-hover:text-[#cf5b50] transition-colors leading-snug">
-          <Link href={`/courses/${course.slug}`}>
-            {course.name}
-          </Link>
-        </h3>
-
-        <p className="mt-2 text-xs text-black/70 leading-relaxed line-clamp-2">
-          {course.description}
-        </p>
-
-        {/* Specs Grid */}
-        <dl className="mt-4 grid grid-cols-2 gap-2 text-[11px] bg-[#faf7f4] p-3 rounded-xl border border-[#e8ddd6]/60">
-          <div>
-            <dt className="font-bold text-[#9b8a7e] uppercase tracking-wider text-[9px]">Duration</dt>
-            <dd className="font-semibold text-black/80 truncate">{duration}</dd>
-          </div>
-          <div>
-            <dt className="font-bold text-[#9b8a7e] uppercase tracking-wider text-[9px]">Next Start</dt>
-            <dd className="font-semibold text-black/80 truncate">{date}</dd>
-          </div>
-          <div>
-            <dt className="font-bold text-[#9b8a7e] uppercase tracking-wider text-[9px]">Stay</dt>
-            <dd className="font-semibold text-black/80 truncate">{room}</dd>
-          </div>
-          <div>
-            <dt className="font-bold text-[#9b8a7e] uppercase tracking-wider text-[9px]">Certificate</dt>
-            <dd className="font-semibold text-black/80 truncate">{certification}</dd>
-          </div>
-        </dl>
-
-        {/* Card Footer */}
-        <div className="mt-auto pt-5 flex items-center justify-between gap-3 border-t border-[#f0ebe6] mt-5">
-          <div>
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-[#9b8a7e]">Program Fee</span>
-            <strong className="text-lg font-bold text-[#cf5b50]">{price}</strong>
-          </div>
-          <ButtonLink href={`/courses/${course.slug}`} className="!py-2.5 !px-4 !text-xs">
-            View Program
-          </ButtonLink>
-        </div>
-      </div>
-    </article>
-  );
-}
-
 export function RetreatCard({ retreat }) {
   const page = getRetreatPageData(retreat.days);
   const date = page.dates[0]?.label || "Dates to be announced";
   const numericPrice = page.pricing.shared.price;
-  const price = typeof numericPrice === "number"
-    ? `${page.pricing.shared.currency === "EUR" ? "€" : "$"}${numericPrice}`
-    : retreat.price ?? "On enquiry";
+  const price =
+    typeof numericPrice === "number"
+      ? `${page.pricing.shared.currency === "EUR" ? "€" : "$"}${numericPrice}`
+      : (retreat.price ?? "On enquiry");
   const room = publicValue(retreat.room, "Room confirmed in writing");
   const meals = publicValue(retreat.meals, "Meal plan confirmed in writing");
 
   return (
-    <article className="group flex flex-col h-full overflow-hidden rounded-[24px] border border-[#e8ddd6] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#cf5b50]/40">
+    <article className="group flex flex-col h-full overflow-hidden rounded-[24px] border border-[var(--border)] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[var(--terracotta)]/40">
       {/* Card Image */}
-      <div className="relative overflow-hidden aspect-[4/3]">
+      <div className="home-retreat-media relative overflow-hidden aspect-[4/3]">
         <Media
           src={retreat.image}
           alt={`Yoga and meditation during ${retreat.name}`}
@@ -394,11 +330,14 @@ export function RetreatCard({ retreat }) {
 
         {/* Floating Badges */}
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-          <span className="inline-flex items-center rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#cf5b50] shadow-sm">
+          <span className="inline-flex items-center rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[var(--terracotta)] shadow-sm">
             {retreat.days} Days
           </span>
           <span className="inline-flex items-center gap-1 rounded-full bg-black/50 backdrop-blur-md px-3 py-1 text-[11px] font-medium text-white">
-            <Star className="size-3 fill-[#f5a623] text-[#f5a623]" aria-hidden="true" />
+            <Star
+              className="size-3 fill-[var(--gold)] text-[var(--gold)]"
+              aria-hidden="true"
+            />
             {page.rating}
           </span>
         </div>
@@ -406,47 +345,28 @@ export function RetreatCard({ retreat }) {
 
       {/* Card Body */}
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-serif text-xl font-bold text-black group-hover:text-[#cf5b50] transition-colors leading-snug">
-          <Link href={`/retreats/${retreat.slug}`}>
-            {retreat.name}
-          </Link>
+        <h3 className="font-serif text-xl font-bold text-black group-hover:text-[var(--terracotta)] transition-colors leading-snug">
+          <Link href={`/retreats/${retreat.slug}`}>{retreat.name}</Link>
         </h3>
 
-        <p className="mt-2.5 text-xs text-black/70 leading-relaxed line-clamp-2">
+        <p className="mt-2.5 text-sm text-black/70 leading-relaxed line-clamp-2">
           {retreat.description}
         </p>
 
-        {/* Benefits Checklist */}
-        {retreat.benefits?.length > 0 && (
-          <ul className="mt-4 space-y-2 border-t border-[#f0ebe6] pt-4">
-            {retreat.benefits.slice(0, 2).map((benefit) => (
-              <li key={benefit} className="flex items-center gap-2 text-xs font-medium text-black/80">
-                <Check className="size-4 shrink-0 text-[#cf5b50]" />
-                <span>{benefit}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {/* Key Specs */}
-        <div className="mt-4 grid grid-cols-2 gap-2 text-[11px] bg-[#faf7f4] p-3 rounded-xl border border-[#e8ddd6]/60">
-          <div>
-            <span className="block font-bold text-[#9b8a7e] uppercase tracking-wider text-[9px]">Next Dates</span>
-            <span className="font-semibold text-black/80 truncate block">{date}</span>
-          </div>
-          <div>
-            <span className="block font-bold text-[#9b8a7e] uppercase tracking-wider text-[9px]">Accommodation</span>
-            <span className="font-semibold text-black/80 truncate block">{room}</span>
-          </div>
-        </div>
-
         {/* Card Footer */}
-        <div className="mt-auto pt-5 flex items-center justify-between gap-3 border-t border-[#f0ebe6] mt-5">
+        <div className="mt-auto pt-5 flex items-center justify-between gap-3 border-t border-[var(--border)] mt-5">
           <div>
-            <span className="block text-[10px] font-bold uppercase tracking-wider text-[#9b8a7e]">From / person</span>
-            <strong className="text-lg font-bold text-[#cf5b50]">{price}</strong>
+            <span className="block text-[11px] font-bold uppercase tracking-wider text-[var(--muted)]">
+              From / person
+            </span>
+            <strong className="text-lg font-bold text-[var(--terracotta)]">
+              {price}
+            </strong>
           </div>
-          <ButtonLink href={`/retreats/${retreat.slug}`} className="!py-2.5 !px-4 !text-xs">
+          <ButtonLink
+            href={`/retreats/${retreat.slug}`}
+            className="home-retreat-cta"
+          >
             View Retreat
           </ButtonLink>
         </div>
@@ -455,15 +375,26 @@ export function RetreatCard({ retreat }) {
   );
 }
 
-
 export function GoogleMark({ className = "" }) {
   return (
     <span className={`google-mark ${className}`} aria-label="Google">
       <svg viewBox="0 0 18 18" role="img" aria-hidden="true">
-        <path fill="#4285F4" d="M17.64 9.205c0-.64-.057-1.255-.164-1.846H9v3.492h4.844a4.14 4.14 0 0 1-1.796 2.716v2.266h2.909c1.703-1.568 2.683-3.88 2.683-6.628Z" />
-        <path fill="#34A853" d="M9 18c2.43 0 4.468-.806 5.957-2.18l-2.909-2.265c-.806.54-1.836.86-3.048.86-2.344 0-4.328-1.585-5.036-3.714H.957v2.336A9 9 0 0 0 9 18Z" />
-        <path fill="#FBBC05" d="M3.964 10.7A5.41 5.41 0 0 1 3.682 9c0-.59.101-1.164.282-1.7V4.964H.957A9 9 0 0 0 0 9c0 1.45.347 2.822.957 4.036L3.964 10.7Z" />
-        <path fill="#EA4335" d="M9 3.58c1.322 0 2.51.454 3.445 1.345l2.581-2.582C13.464.891 11.426 0 9 0A9 9 0 0 0 .957 4.964L3.964 7.3C4.672 5.17 6.656 3.58 9 3.58Z" />
+        <path
+          fill="#4285F4"
+          d="M17.64 9.205c0-.64-.057-1.255-.164-1.846H9v3.492h4.844a4.14 4.14 0 0 1-1.796 2.716v2.266h2.909c1.703-1.568 2.683-3.88 2.683-6.628Z"
+        />
+        <path
+          fill="#34A853"
+          d="M9 18c2.43 0 4.468-.806 5.957-2.18l-2.909-2.265c-.806.54-1.836.86-3.048.86-2.344 0-4.328-1.585-5.036-3.714H.957v2.336A9 9 0 0 0 9 18Z"
+        />
+        <path
+          fill="#FBBC05"
+          d="M3.964 10.7A5.41 5.41 0 0 1 3.682 9c0-.59.101-1.164.282-1.7V4.964H.957A9 9 0 0 0 0 9c0 1.45.347 2.822.957 4.036L3.964 10.7Z"
+        />
+        <path
+          fill="#EA4335"
+          d="M9 3.58c1.322 0 2.51.454 3.445 1.345l2.581-2.582C13.464.891 11.426 0 9 0A9 9 0 0 0 .957 4.964L3.964 7.3C4.672 5.17 6.656 3.58 9 3.58Z"
+        />
       </svg>
       <strong>Google</strong>
     </span>
@@ -506,21 +437,17 @@ export function FinalCTA({
   text = "Tell us what you want to study. The school can confirm suitability, dates, fees, and availability before you make travel plans.",
 }) {
   return (
-    <section className="section">
+    <section className="final-cta-section" aria-labelledby="final-cta-title">
       <Container>
-        <div className="final-cta">
-          <div>
-            <Eyebrow>Begin with a conversation</Eyebrow>
-            <h2>{title}</h2>
-            <p>{text}</p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <ButtonLink href="/apply">Reserve your spot</ButtonLink>
-            <ButtonLink href="/contact#whatsapp" variant="light">
-              <SiWhatsapp aria-hidden="true" size={17} />
-              Ask on WhatsApp
-            </ButtonLink>
-          </div>
+        <Eyebrow>Begin with a conversation</Eyebrow>
+        <h2 id="final-cta-title">{title}</h2>
+        <p>{text}</p>
+        <div className="final-cta-actions">
+          <ButtonLink href="/apply">Reserve your spot</ButtonLink>
+          <ButtonLink href="/contact#whatsapp" variant="light">
+            <SiWhatsapp aria-hidden="true" size={17} />
+            Ask on WhatsApp
+          </ButtonLink>
         </div>
       </Container>
     </section>

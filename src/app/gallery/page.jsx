@@ -11,7 +11,7 @@ export default function GalleryPage() {
         eyebrow="Visual journal"
         title="Yoga School Gallery"
         text="Explore yoga practice, meditation, residential space, retreats, and Goa’s coastal setting through a balanced visual journal."
-        image="/images/hero-goa-yoga.png"
+        image="/images/tha_hatha/the-hatha-yogashala-goa-yoga-students-group-photo.jpg"
       />
       <section className="section">
         <Container>

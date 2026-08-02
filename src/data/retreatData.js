@@ -12,12 +12,12 @@
  */
 
 const IMAGES = {
-  hero: "/images/hero-goa-yoga.png",
-  class: "/images/course-goa-yoga.png",
-  coast: "/images/goa-coast-yoga-retreat.png",
-  accommodation: "/images/accommodation-goa.png",
-  pranayama: "/images/pranayama-meditation-goa.png",
-  hatha: "/images/hatha-yoga-class-goa.png",
+  hero: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
+  class: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
+  coast: "/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp",
+  accommodation: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
+  pranayama: "/images/tha_hatha/the-hatha-yogashala-goa-meditation-pranayama-session.webp",
+  hatha: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg",
 };
 
 export const retreatPricingByDays = {

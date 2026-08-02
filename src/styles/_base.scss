@@ -1,0 +1,184 @@
+// ─────────────────────────────────────────────────────────────
+// base.scss — global reset & element defaults in @layer base.
+// Element selectors stay scoped/grouped as in the original file.
+// ─────────────────────────────────────────────────────────────
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--background);
+    color: var(--text);
+    font-family: var(--font-body), sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    text-rendering: optimizeLegibility;
+  }
+
+  body,
+  button,
+  input,
+  select,
+  textarea {
+    font-family: var(--font-body), sans-serif;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  // ── Global Text Content ───────────────────────
+  // Paragraphs, list items, descriptions, card
+  // content, course/retreat details and testimonial
+  // text use the Quicksand family and never render
+  // smaller than 14px.
+  p,
+  li,
+  dt,
+  dd,
+  figcaption,
+  blockquote {
+    font-family: var(--font-quicksand), "Quicksand", sans-serif;
+  }
+
+  // ── Global Type Scale ─────────────────────────
+  // Gotu is applied to every heading site-wide. Body
+  // copy keeps its own sans-serif. All sizes are px.
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    color: var(--brown);
+    font-family: var(--font-heading), "Gotu", sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  h2 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  h3 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  h4 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  h5 {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  h6 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  p {
+    margin-block: 0;
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  li {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 40px;
+      line-height: 48px;
+    }
+
+    h2 {
+      font-size: 30px;
+      line-height: 38px;
+    }
+
+    h3 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    h4 {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    h5 {
+      font-size: 17px;
+      line-height: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    h2 {
+      font-size: 26px;
+      line-height: 34px;
+    }
+
+    h3 {
+      font-size: 22px;
+      line-height: 30px;
+    }
+
+    h4 {
+      font-size: 19px;
+      line-height: 27px;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  button {
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--coral);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--coral);
+    color: var(--on-accent);
+  }
+}

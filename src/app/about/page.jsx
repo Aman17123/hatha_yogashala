@@ -20,12 +20,12 @@ export default function AboutPage() {
         eyebrow="Our story"
         title="About Hatha Yogashala"
         text="A yoga school identity built around clear teaching, traditional Hatha practice, honest information, and a grounded relationship with Goa."
-        image="/images/hero-goa-yoga.png"
+        image="/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp"
       />
       <section className="section">
         <Container className="split-layout">
           <Media
-            src="/images/course-goa-yoga.png"
+            src="/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg"
             alt="Students learning Hatha yoga in a small group in Goa"
             className="course-overview-image"
           />
@@ -84,7 +84,7 @@ export default function AboutPage() {
               ))}
             </ul>
           </div>
-          <Media src="/images/accommodation-goa.png" alt="Residential study environment for yoga training in Goa" className="course-overview-image" />
+          <Media src="/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp" alt="Residential study environment for yoga training in Goa" className="course-overview-image" />
         </Container>
       </section>
 

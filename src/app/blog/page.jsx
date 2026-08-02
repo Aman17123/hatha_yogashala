@@ -46,7 +46,7 @@ export default function BlogPage() {
               <span className="featured-post-category">{featured.category}</span>
             </Link>
             <div className="flex flex-col">
-              <span className="blog-card-meta inline-flex flex-wrap gap-x-4 gap-y-1.5 text-[11px] font-medium text-[#9b8a7e]">
+              <span className="blog-card-meta inline-flex flex-wrap gap-x-4 gap-y-1.5 text-[11px] font-medium text-[var(--muted)]">
                 <span className="flex items-center gap-1.5">
                   <UserRound size={13} aria-hidden="true" />
                   {featured.author}
@@ -60,14 +60,14 @@ export default function BlogPage() {
                   {featured.readingTime}
                 </span>
               </span>
-              <h2 className="mt-4 font-serif text-2xl font-bold leading-snug text-black transition-colors group-hover:text-[#cf5b50] sm:text-3xl">
+              <h2 className="mt-4 font-serif text-2xl font-bold leading-snug text-black transition-colors group-hover:text-[var(--terracotta)] sm:text-3xl">
                 {featured.title}
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-black/70">
                 {featured.excerpt}
               </p>
               <Link
-                className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-[#cf5b50] px-5 py-3 text-sm font-bold text-white shadow-md shadow-[#cf5b50]/20 transition-all duration-200 hover:bg-[#b9473e] hover:shadow-lg"
+                className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-[var(--terracotta)] px-5 py-3 text-sm font-bold text-white shadow-md shadow-[var(--terracotta)]/20 transition-all duration-200 hover:bg-[var(--terracotta)] hover:shadow-lg"
                 href={`/blog/${featured.slug}`}
               >
                 Read the guide

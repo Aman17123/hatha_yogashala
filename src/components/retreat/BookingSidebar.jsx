@@ -44,7 +44,7 @@ export default function BookingSidebar({ page, retreat }) {
               {Array.from({ length: 5 }, (_, i) => (
                 <Star
                   key={i}
-                  className={`size-3.5 ${i < Math.round(page.rating) ? "fill-[#f5a623] text-[#f5a623]" : "text-[#e8ddd6]"}`}
+                  className={`size-3.5 ${i < Math.round(page.rating) ? "fill-[var(--gold)] text-[var(--gold)]" : "text-[var(--border)]"}`}
                   aria-hidden="true"
                 />
               ))}

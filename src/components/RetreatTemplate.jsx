@@ -60,7 +60,7 @@ const freeTimeIcons = {
 
 function RetreatEyebrow({ children }) {
   return (
-    <p className="mb-2 flex items-center gap-2 text-[0.7rem] font-extrabold uppercase tracking-[0.16em] text-[#b9473e]">
+    <p className="mb-2 flex items-center gap-2 text-[11.2px] font-extrabold uppercase tracking-[0.16em] text-[var(--terracotta)]">
       <Sparkles size={14} aria-hidden="true" />
       {children}
     </p>
@@ -197,8 +197,7 @@ export default function RetreatTemplate({ retreat, page }) {
           src={retreat.image}
           alt={`${retreat.name} on the Goan coast`}
           fill
-          priority
-          fetchPriority="high"
+          preload
           sizes="100vw"
           className="object-cover"
         />
@@ -234,7 +233,7 @@ export default function RetreatTemplate({ retreat, page }) {
             <div>
               <span className="hero-stars" aria-hidden="true">
                 {Array.from({ length: 5 }, (_, i) => (
-                  <Star key={i} className={`size-3.5 ${i < Math.round(p.rating) ? "fill-[#f5a623] text-[#f5a623]" : "fill-white/30 text-white/40"}`} />
+                  <Star key={i} className={`size-3.5 ${i < Math.round(p.rating) ? "fill-[var(--gold)] text-[var(--gold)]" : "fill-white/30 text-white/40"}`} />
                 ))}
               </span>
               <span><strong>{p.rating}/5</strong>{p.ratingCount} verified reviews</span>
@@ -295,7 +294,7 @@ export default function RetreatTemplate({ retreat, page }) {
                   {retreat.whatIs.points.map((point) => (
                     <StaggerItem key={point}>
                       <div className="retreat-highlight-card">
-                        <CheckCircle2 size={19} className="text-[#b9473e]" aria-hidden="true" />
+                        <CheckCircle2 size={19} className="text-[var(--terracotta)]" aria-hidden="true" />
                         <span>{point}</span>
                       </div>
                     </StaggerItem>
@@ -381,7 +380,7 @@ export default function RetreatTemplate({ retreat, page }) {
               {p.highlights.map((highlight) => (
                 <StaggerItem key={highlight}>
                   <div className="retreat-highlight-card">
-                    <CheckCircle2 size={19} className="text-[#b9473e]" aria-hidden="true" />
+                    <CheckCircle2 size={19} className="text-[var(--terracotta)]" aria-hidden="true" />
                     <span>{highlight}</span>
                   </div>
                 </StaggerItem>
@@ -450,7 +449,7 @@ export default function RetreatTemplate({ retreat, page }) {
                 return (
                   <StaggerItem key={idea.title}>
                     <div className="retreat-freetime-card">
-                      <Icon size={18} className="text-[#b9473e]" aria-hidden="true" />
+                      <Icon size={18} className="text-[var(--terracotta)]" aria-hidden="true" />
                       <div>
                         <h3>{idea.title}</h3>
                         <p>{idea.text}</p>
@@ -498,7 +497,7 @@ export default function RetreatTemplate({ retreat, page }) {
               <ul>
                 {p.accommodation.facilities.map((facility) => (
                   <li key={facility.label}>
-                    <Check size={15} className="text-[#b9473e]" aria-hidden="true" />
+                    <Check size={15} className="text-[var(--terracotta)]" aria-hidden="true" />
                     {facility.label}
                   </li>
                 ))}
@@ -530,13 +529,13 @@ export default function RetreatTemplate({ retreat, page }) {
               ))}
             </Stagger>
             <div className="retreat-meal-philosophy">
-              <Leaf size={22} className="text-[#2f7d52]" aria-hidden="true" />
+              <Leaf size={22} className="text-[var(--coral)]" aria-hidden="true" />
               <div>
                 <h3>{p.mealPhilosophy.title}</h3>
                 <ul>
                   {p.mealPhilosophy.points.map((point) => (
                     <li key={point}>
-                      <Check size={14} className="text-[#2f7d52]" aria-hidden="true" />
+                      <Check size={14} className="text-[var(--coral)]" aria-hidden="true" />
                       {point}
                     </li>
                   ))}
@@ -567,7 +566,7 @@ export default function RetreatTemplate({ retreat, page }) {
                 <ul>
                   {p.included.map((item) => (
                     <li key={item}>
-                      <Check size={15} className="text-[#2f7d52]" aria-hidden="true" />
+                      <Check size={15} className="text-[var(--coral)]" aria-hidden="true" />
                       {item}
                     </li>
                   ))}
@@ -580,7 +579,7 @@ export default function RetreatTemplate({ retreat, page }) {
                 <ul>
                   {p.notIncluded.map((item) => (
                     <li key={item}>
-                      <XCircle size={15} className="text-[#b9473e]/60" aria-hidden="true" />
+                      <XCircle size={15} className="text-[var(--terracotta)]/60" aria-hidden="true" />
                       {item}
                     </li>
                   ))}
@@ -625,10 +624,10 @@ export default function RetreatTemplate({ retreat, page }) {
                     <span className="retreat-price-per">/ person</span>
                   </div>
                   <ul>
-                    <li><Check size={15} className="text-[#2f7d52]" aria-hidden="true" />Shared twin room</li>
-                    <li><Check size={15} className="text-[#2f7d52]" aria-hidden="true" />Three daily meals</li>
-                    <li><Check size={15} className="text-[#2f7d52]" aria-hidden="true" />Full retreat access</li>
-                    <li><Check size={15} className="text-[#2f7d52]" aria-hidden="true" />Community experience</li>
+                    <li><Check size={15} className="text-[var(--coral)]" aria-hidden="true" />Shared twin room</li>
+                    <li><Check size={15} className="text-[var(--coral)]" aria-hidden="true" />Three daily meals</li>
+                    <li><Check size={15} className="text-[var(--coral)]" aria-hidden="true" />Full retreat access</li>
+                    <li><Check size={15} className="text-[var(--coral)]" aria-hidden="true" />Community experience</li>
                   </ul>
                 </article>
               </FadeIn>
@@ -643,17 +642,17 @@ export default function RetreatTemplate({ retreat, page }) {
                     <span className="retreat-price-per">/ person</span>
                   </div>
                   <ul>
-                    <li><Check size={15} className="text-[#b9473e]" aria-hidden="true" />Private room</li>
-                    <li><Check size={15} className="text-[#b9473e]" aria-hidden="true" />Attached bathroom</li>
-                    <li><Check size={15} className="text-[#b9473e]" aria-hidden="true" />Extra privacy</li>
-                    <li><Check size={15} className="text-[#b9473e]" aria-hidden="true" />Full retreat access</li>
+                    <li><Check size={15} className="text-[var(--terracotta)]" aria-hidden="true" />Private room</li>
+                    <li><Check size={15} className="text-[var(--terracotta)]" aria-hidden="true" />Attached bathroom</li>
+                    <li><Check size={15} className="text-[var(--terracotta)]" aria-hidden="true" />Extra privacy</li>
+                    <li><Check size={15} className="text-[var(--terracotta)]" aria-hidden="true" />Full retreat access</li>
                   </ul>
                 </article>
               </FadeIn>
             </div>
 
             <div className="retreat-dates-strip" aria-label="Upcoming dates">
-              <CalendarDays size={16} className="text-[#b9473e] shrink-0" aria-hidden="true" />
+              <CalendarDays size={16} className="text-[var(--terracotta)] shrink-0" aria-hidden="true" />
               <div>
                 <strong>Upcoming start dates</strong>
                 <ul>

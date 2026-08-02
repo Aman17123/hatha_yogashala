@@ -36,7 +36,7 @@ import {
   Wind,
 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
-import { courses, teacherTrainings } from "@/data/coursesData";
+import { teacherTrainings } from "@/data/coursesData";
 import {
   absoluteUrl,
   galleryItems,
@@ -223,8 +223,7 @@ export default function CourseTemplate({ course }) {
       },
     ],
   };
-  const relatedPool = isTeacherTraining ? teacherTrainings : courses;
-  const related = relatedPool
+  const related = teacherTrainings
     .filter((item) => item.slug !== course.slug)
     .slice(0, 3);
   const tocItems = toc.filter(
@@ -518,7 +517,7 @@ export default function CourseTemplate({ course }) {
                 <article className="card overflow-hidden" key={teacher.name}>
                   <div className="course-teacher-media">
                     <Media
-                      src={teacher.image || "/images/course-goa-yoga.png"}
+                      src={teacher.image || "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-portrait.webp"}
                       alt={teacher.name}
                       className="h-full w-full"
                     />
@@ -848,7 +847,7 @@ export default function CourseTemplate({ course }) {
           {testimonials.length ? (
             <div className="review-grid">
               {testimonials.map((review) => (
-                <article className="card card-body" key={review.sourceUrl}>
+                <article className="card card-body" key={review.name}>
                   <GoogleMark />
                   <h3 className="mt-4">{review.name}</h3>
                   <p>{review.rating}/5 · {review.date} · {review.platform}</p>
@@ -931,7 +930,7 @@ export default function CourseTemplate({ course }) {
             eyebrow="Related study"
             title="Compare another pathway"
           />
-          <div className="short-course-grid">
+          <div className="related-grid">
             {related.map((item) => (
               <ProgramCard course={item} key={item.slug} />
             ))}

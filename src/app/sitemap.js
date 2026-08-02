@@ -27,10 +27,10 @@ export default function sitemap() {
       ...(path === "" || path === "/gallery"
         ? {
             images: [
-              absoluteUrl("/images/hero-goa-yoga.png"),
-              absoluteUrl("/images/hatha-yoga-class-goa.png"),
-              absoluteUrl("/images/pranayama-meditation-goa.png"),
-              absoluteUrl("/images/goa-coast-yoga-retreat.png"),
+              absoluteUrl("/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg"),
+              absoluteUrl("/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-portrait.webp"),
+              absoluteUrl("/images/tha_hatha/the-hatha-yogashala-goa-meditation-pranayama-session.webp"),
+              absoluteUrl("/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp"),
             ],
           }
         : {}),

@@ -9,8 +9,8 @@ export const posts = [
     readingTime: "6 min read",
     excerpt:
       "A practical checklist for comparing curriculum, teachers, accommodation, fees, and certification without relying on marketing claims.",
-    image: "/images/course-goa-yoga.png",
-    imageAlt: "Yoga students learning together during teacher training",
+    image: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
+    imageAlt: "Students learning together during yoga teacher training at Hatha Yogashala in Goa",
     sections: [
       {
         heading: "Start with the learning outcome",
@@ -44,8 +44,8 @@ export const posts = [
     readingTime: "5 min read",
     excerpt:
       "Understand what each training length is commonly designed to support before you compare dates and fees.",
-    image: "/images/hero-goa-yoga.png",
-    imageAlt: "Student meditating in a quiet yoga space in Goa",
+    image: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
+    imageAlt: "Student meditating at sunset in a quiet yoga space in Goa",
     sections: [
       {
         heading: "100-hour: focused foundations",
@@ -74,8 +74,8 @@ export const posts = [
     readingTime: "4 min read",
     excerpt:
       "Choose a season, location, and retreat rhythm that leave enough room for both practice and recovery.",
-    image: "/images/accommodation-goa.png",
-    imageAlt: "Calm accommodation prepared for a yoga retreat in Goa",
+    image: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
+    imageAlt: "Calm residential campus prepared for a yoga retreat in Goa",
     sections: [
       {
         heading: "Choose the season deliberately",
@@ -105,8 +105,8 @@ export const posts = [
     readingTime: "6 min read",
     excerpt:
       "A practical packing list for practice, study, tropical weather, personal health, and residential life in Goa.",
-    image: "/images/accommodation-goa.png",
-    imageAlt: "Residential room in Goa ready for a yoga student",
+    image: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
+    imageAlt: "Residential campus in Goa ready for a yoga student",
     sections: [
       {
         heading: "Pack for movement and laundry",
@@ -141,8 +141,8 @@ export const posts = [
     readingTime: "5 min read",
     excerpt:
       "Compare Goa’s drier, hotter, and monsoon periods by comfort, facilities, travel style, and the rhythm you want from your stay.",
-    image: "/images/hero-goa-yoga.png",
-    imageAlt: "Tropical coastal view from a peaceful yoga space in Goa",
+    image: "/images/tha_hatha/the-hatha-yogashala-goa-meditation-pranayama-session.webp",
+    imageAlt: "Peaceful meditation session in a tropical yoga space in Goa",
     sections: [
       {
         heading: "The drier months suit outdoor plans",
@@ -177,7 +177,7 @@ export const posts = [
     readingTime: "6 min read",
     excerpt:
       "Understand how a beginner Hatha practice uses posture, breath, attention, rest, and patient progression.",
-    image: "/images/course-goa-yoga.png",
+    image: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-asana-practice-4.webp",
     imageAlt: "Beginner-friendly Hatha yoga practice in a naturally lit hall",
     sections: [
       {
@@ -212,8 +212,8 @@ export const posts = [
     readingTime: "5 min read",
     excerpt:
       "Start pranayama with posture, natural breath observation, simple techniques, and clear safety boundaries.",
-    image: "/images/hero-goa-yoga.png",
-    imageAlt: "Yoga student seated for a quiet breath-awareness practice",
+    image: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-students-relaxation.webp",
+    imageAlt: "Yoga student resting in a quiet breath-awareness practice",
     sections: [
       {
         heading: "Begin by observing the breath",
@@ -248,7 +248,7 @@ export const posts = [
     readingTime: "6 min read",
     excerpt:
       "See how practice, lectures, teaching labs, meals, rest, study, and reflection can fit into a residential training day.",
-    image: "/images/course-goa-yoga.png",
+    image: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg",
     imageAlt: "Yoga teacher-training students practising and learning together",
     sections: [
       {

@@ -18,9 +18,9 @@ export const enrolmentQuestionsData = [
       "Clear explanation of Yoga Alliance registration status and graduate registration eligibility.",
       "Direct verification links and sample certificates provided upon request.",
     ],
-    image: "/images/course-goa-yoga.png",
-    imageAlt:
-      "Students receiving posture alignment guidance in a Hatha yoga teacher training class in Goa",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-alliance-certification.jpg",
+    imageAlt: "Yoga Alliance certification ceremony at Hatha Yogashala in Goa",
   },
   {
     id: "teachers",
@@ -35,7 +35,8 @@ export const enrolmentQuestionsData = [
       "Verified qualifications and teaching experience published transparently.",
       "Small faculty-to-student ratio ensuring personal feedback during daily practicums.",
     ],
-    image: "/images/pranayama-meditation-goa.png",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-meditation-pranayama-session.webp",
     imageAlt:
       "Yoga teacher guiding pranayama and breathwork practice in a peaceful tropical shala in Goa",
   },
@@ -52,7 +53,8 @@ export const enrolmentQuestionsData = [
       "Dedicated time for individual teaching practicums and peer feedback.",
       "Supportive group dynamic where teachers remember your name, goals, and physical needs.",
     ],
-    image: "/images/hatha-yoga-class-goa.png",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg",
     imageAlt:
       "Small group of yoga teacher training students practising Hatha postures together",
   },
@@ -69,9 +71,10 @@ export const enrolmentQuestionsData = [
       "Sattvic vegetarian meal plan and drinking water details confirmed upfront.",
       "Transparent refund, transfer, and cancellation policies provided in writing.",
     ],
-    image: "/images/accommodation-goa.png",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
     imageAlt:
-      "Clean, peaceful residential room for students at Hatha Yogashala in Goa",
+      "Residential campus of Hatha Yogashala with student accommodation in Goa",
   },
   {
     id: "practical-teaching",
@@ -86,9 +89,10 @@ export const enrolmentQuestionsData = [
       "Hands-on and verbal adjustment techniques taught with consent and physical safety.",
       "Sequencing design workshops tailored to real-world studio and online classes.",
     ],
-    image: "/images/hero-goa-yoga.png",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-group-yoga-class-sequence-1.webp",
     imageAlt:
-      "Yoga practitioner demonstrating focused alignment during a practical teaching session",
+      "Yoga students in a supervised teaching practice during teacher training",
   },
   {
     id: "post-graduation",
@@ -103,9 +107,9 @@ export const enrolmentQuestionsData = [
       "Direct email and message access to faculty for career advice and sequencing reviews.",
       "Alumni discounts on continuing education, specialized modules, and annual retreats.",
     ],
-    image: "/images/goa-coast-yoga-retreat.png",
+    image: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
     imageAlt:
-      "Serene Goa coastal nature path representing lifelong yoga reflection and community",
+      "Serene sunset yoga session on the Goa coast representing lifelong reflection",
   },
 ];
 
@@ -122,7 +126,7 @@ export const founderData = {
     "Yoga is not a performance of difficult shapes; it is a steady, conscious inquiry into breath, body alignment, and mental quietude. We teach Hatha Yoga as a lived discipline that restores harmony to everyday life.",
   quote:
     "Yoga is a path of self-inquiry. I teach from the breath outward, guiding students to find alignment, steadiness, and ease — on the mat and in life.",
-  image: "/images/hero-goa-yoga.png",
+  image: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-portrait.webp",
   imageAlt: "Lead Teacher of Hatha Yogashala in Goa",
   lineage: "Classical Hatha Yoga & Ashtanga Vinyasa (India)",
   areasOfExpertise: [
@@ -148,8 +152,10 @@ export const teachersData = [
     bio: "Leads the teacher-training curriculum, pranayama, and classical text studies. With more than 15 years of experience and E-RYT 500 certification, has mentored over 1,500 certified teachers worldwide.",
     qualifications: "E-RYT 500 (Yoga Alliance)",
     experience: "15+ Years",
-    image: "/images/hatha-yoga-class-goa.png",
-    imageAlt: "Lead teacher guiding a Hatha yoga class at Hatha Yogashala in Goa",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-portrait.webp",
+    imageAlt:
+      "Portrait of the lead Hatha yoga teacher at Hatha Yogashala in Goa",
     coursesTaught: [
       "100-Hour Yoga Teacher Training",
       "200-Hour Yoga Teacher Training",
@@ -164,7 +170,8 @@ export const teachersData = [
     bio: "Certified Ashtanga Vinyasa teacher (under Paramaguru Sharath Jois, Mysore) with 10+ years of experience. Leads Mysore-style practice, sequencing, and teaching methodology.",
     qualifications: "Certified Ashtanga (Mysore) Teacher",
     experience: "10+ Years",
-    image: "/images/course-goa-yoga.png",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-asana-practice-1.webp",
     imageAlt: "Senior Ashtanga teacher demonstrating alignment in Goa",
     coursesTaught: [
       "200-Hour Yoga Teacher Training",
@@ -179,9 +186,14 @@ export const teachersData = [
     bio: "Guides daily meditation, philosophy, Sanskrit, and chanting studies — deepening students' understanding of the traditions behind the practice.",
     qualifications: "Traditional Hatha & Philosophy Scholar",
     experience: "10+ Years",
-    image: "/images/pranayama-meditation-goa.png",
-    imageAlt: "Hatha and philosophy teacher leading meditation at Hatha Yogashala",
-    coursesTaught: ["100-Hour Yoga Teacher Training", "Meditation & Yoga Nidra"],
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-philosophy-class.jpg",
+    imageAlt:
+      "Philosophy and meditation class led by the Hatha philosophy teacher",
+    coursesTaught: [
+      "100-Hour Yoga Teacher Training",
+      "Meditation & Yoga Nidra",
+    ],
   },
   {
     id: "anatomy-alignment-teacher",
@@ -191,7 +203,8 @@ export const teachersData = [
     bio: "Combines modern movement science with traditional alignment to ensure safe, injury-free practice for all student body types.",
     qualifications: "M.Sc. Anatomy & Kinesiology",
     experience: "8+ Years",
-    image: "/images/accommodation-goa.png",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-asana-practice-2.webp",
     imageAlt: "Anatomy and alignment teacher explaining yogic alignment",
     coursesTaught: [
       "200-Hour Yoga Teacher Training",
@@ -207,7 +220,8 @@ export const teachersData = [
     bio: "Teaches practical Ayurvedic nutrition, dosha balancing, and daily sattvic routines for residential students.",
     qualifications: "B.A.M.S. (Ayurvedic Physician)",
     experience: "8+ Years",
-    image: "/images/goa-coast-yoga-retreat.png",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-students-relaxation.webp",
     imageAlt: "Ayurveda teacher sharing wellness principles at Hatha Yogashala",
     coursesTaught: ["Ayurveda Course", "Goa Yoga Retreats"],
   },
@@ -221,7 +235,7 @@ export const aboutSectionData = {
   paragraph1:
     "Hatha Yogashala is a Yoga Alliance-registered yoga school in North Goa, offering authentic 100, 200, and 300-hour teacher training led by internationally certified teachers with 15+ years of experience. Students have trained here from all over the world, and our graduates now teach across Europe, Russia, and the Americas.",
   paragraph2:
-    "Our residential school sits a short walk from Querim beach, blending daily Hatha yoga and meditation, breathwork, and philosophy with the warmth of a true Indian ashram. The curriculum includes functional anatomy, alignment, teaching methodology, and the art of making yoga safe, accessible, and transformative for every body.",
+    "Our residential school sits a short walk from Querim beach, blending daily Hatha yoga and meditation, breathwork, and philosophy with the warmth of a true Indian ashram.",
   trustPoints: [
     {
       title: "Yoga Alliance Registered",
@@ -229,15 +243,18 @@ export const aboutSectionData = {
     },
     {
       title: "Small-Group Ratio",
-      description: "Intimate batches so every student receives personal attention.",
+      description:
+        "Intimate batches so every student receives personal attention.",
     },
     {
       title: "Experienced Faculty",
-      description: "E-RYT 500 lead teacher with 15+ years of teaching experience.",
+      description:
+        "E-RYT 500 lead teacher with 15+ years of teaching experience.",
     },
     {
       title: "Beachside Querim Setting",
-      description: "Peaceful residential ashram near North Goa's cleanest beaches.",
+      description:
+        "Peaceful residential ashram near North Goa's cleanest beaches.",
     },
   ],
 };

@@ -3,20 +3,183 @@
 /* ── Design Tokens ─────────────────────────── */
 
 :root {
-  --background: #fff8f3;
-  --surface: #fdf0e7;
-  --cream: #fffcf8;
-  --coral: #f88778;
-  --coral-dark: #e97467;
-  --brown: #2c1a0e;
-  --text: #4e4946;
-  --muted: #746d69;
-  --border: #f0d9cf;
-  --success: #2f8a5b;
+  --background: #f7f3ea;
+  --surface: #e5f2ef;
+  --cream: #fbf8f1;
+  --coral: #2f4f3e;
+  --coral-dark: #24402f;
+  --terracotta: #b5623a;
+  --gold: #c9a961;
+  --brown: #2a2a22;
+  --text: #2a2a22;
+  --muted: #6f7066;
+  --border: #e4dccb;
+  --success: #4a7c5f;
   --white: #ffffff;
-  --footer: #252423;
-  --shadow: 0 18px 50px rgb(83 45 25 / 8%);
-  --shadow-soft: 0 8px 30px rgb(83 45 25 / 6%);
+  --ink: #2a2a22;
+  --on-accent: #ffffff;
+  --footer: #22271f;
+  --shadow: 0 18px 50px rgb(61 58 44 / 10%);
+  --shadow-soft: 0 8px 30px rgb(61 58 44 / 7%);
+  --header-bg: rgb(251 248 241 / 93%);
+  --hero-sun: #24402f;
+  --peach: #e5f2ef;
+  --sage: #7c9472;
+}
+
+/* ─────────────────────────────────────────────
+   THEMES
+   Add the class `theme-dark` (or set the
+   attribute `data-theme="dark"`) on <html> or
+   <body> to switch the whole site to the dark
+   palette. Edit any variable below to build a
+   custom theme of your own.
+
+   Examples:
+     <html class="theme-dark">          dark mode
+     <body data-theme="light">          light mode
+     <body data-theme="midnight">       your custom palette
+   ───────────────────────────────────────────── */
+
+:root,
+[data-theme="light"],
+.theme-light {
+  --background: #ffffff;
+  --surface: #e6f2f0;
+  --cream: #ffffff;
+  --coral: #2e8378;
+  --coral-dark: #1f5f56;
+  --terracotta: #b5623a;
+  --gold: #c9a961;
+  --brown: #2a2a22;
+  --text: #2a2a22;
+  --muted: #6f7066;
+  --border: #dce8e5;
+  --success: #2e8378;
+  --white: #ffffff;
+  --ink: #2a2a22;
+  --on-accent: #ffffff;
+  --footer: #1c2b28;
+  --shadow: 0 18px 50px rgb(46 131 120 / 10%);
+  --shadow-soft: 0 8px 30px rgb(46 131 120 / 7%);
+  --header-bg: rgb(251 248 241 / 93%);
+  --hero-sun: hsl(38, 100%, 65%);
+  --peach: #e6f2f0;
+  --sage: #6ba396;
+}
+
+[data-theme="dark"],
+.theme-dark {
+  --background: #161812;
+  --surface: #232920;
+  --cream: #1c2019;
+  --coral: #7c9b7f;
+  --coral-dark: #8fae92;
+  --terracotta: #d09a70;
+  --gold: #d6bd7d;
+  --brown: #ede7da;
+  --text: #d5d2c8;
+  --muted: #a39f92;
+  --border: #3a4237;
+  --success: #6fae8b;
+  --white: #242a22;
+  --ink: #ede7da;
+  --on-accent: #1a1c16;
+  --footer: #0f110d;
+  --shadow: 0 18px 50px rgb(0 0 0 / 45%);
+  --shadow-soft: 0 8px 30px rgb(0 0 0 / 38%);
+  --header-bg: rgb(22 24 18 / 88%);
+  --hero-sun: #8a743f;
+  --peach: #232920;
+  --sage: #6f8f78;
+
+  color-scheme: dark;
+}
+
+/* Scoped fixes for the few hard-coded light
+   surfaces that remain inside the shared styles. */
+[data-theme="dark"] .site-header {
+  background: var(--header-bg);
+}
+
+[data-theme="dark"] .hero-stats {
+  background: rgb(30 22 16 / 92%);
+}
+
+[data-theme="dark"] .trust-strip {
+  background: linear-gradient(
+    90deg,
+    var(--cream),
+    #221a13 15%,
+    #221a13 85%,
+    var(--cream)
+  );
+}
+
+[data-theme="dark"] .trust-badge {
+  background: rgb(30 22 16 / 80%);
+}
+
+[data-theme="dark"] .feature-icon {
+  background: var(--surface);
+}
+
+[data-theme="dark"] .notice {
+  border-color: rgb(47 79 62 / 35%);
+  background: rgb(47 79 62 / 10%);
+}
+
+[data-theme="dark"] .availability-tag.filling {
+  background: rgb(47 79 62 / 14%);
+  border-color: rgb(47 79 62 / 35%);
+}
+
+[data-theme="dark"] .availability-tag.open {
+  background: rgb(95 206 150 / 14%);
+  border-color: rgb(95 206 150 / 35%);
+}
+
+[data-theme="dark"] .retreat-trust-badges {
+  background: rgb(28 21 16 / 94%);
+}
+
+[data-theme="dark"] .retreat-schedule-day header {
+  background: linear-gradient(120deg, var(--surface), var(--cream));
+}
+
+[data-theme="dark"] .retreat-meal-philosophy,
+[data-theme="dark"] .retreat-include-card {
+  border-color: rgb(95 206 150 / 30%);
+  background: rgb(95 206 150 / 9%);
+}
+
+[data-theme="dark"] .retreat-include-card h3 {
+  color: var(--brown);
+}
+
+[data-theme="dark"] .retreat-meal-philosophy h3 {
+  color: var(--success);
+}
+
+[data-theme="dark"] .retreat-meal-philosophy li {
+  color: var(--text);
+}
+
+[data-theme="dark"] .retreat-exclude-card {
+  background: var(--cream);
+}
+
+[data-theme="dark"] .booking-rooms-featured {
+  background: rgb(47 79 62 / 12%) !important;
+}
+
+[data-theme="dark"] .retreat-price-card-featured {
+  background: linear-gradient(180deg, rgb(47 79 62 / 14%), var(--white));
+}
+
+[data-theme="dark"] .blog-card-category,
+[data-theme="dark"] .featured-post-category {
+  background: rgb(28 21 16 / 92%);
 }
 
 @theme inline {
@@ -25,6 +188,8 @@
   --color-cream: var(--cream);
   --color-coral: var(--coral);
   --color-coral-dark: var(--coral-dark);
+  --color-terracotta: var(--terracotta);
+  --color-gold: var(--gold);
   --color-brown: var(--brown);
   --color-text: var(--text);
   --color-muted: var(--muted);
@@ -33,6 +198,34 @@
   --color-footer: var(--footer);
   --font-sans: var(--font-body);
   --font-heading: var(--font-heading);
+  --font-serif: var(--font-heading);
+
+  --text-xs: 12px;
+  --text-xs--line-height: 16px;
+  --text-sm: 14px;
+  --text-sm--line-height: 20px;
+  --text-base: 16px;
+  --text-base--line-height: 26px;
+  --text-lg: 18px;
+  --text-lg--line-height: 28px;
+  --text-xl: 20px;
+  --text-xl--line-height: 28px;
+  --text-2xl: 24px;
+  --text-2xl--line-height: 32px;
+  --text-3xl: 30px;
+  --text-3xl--line-height: 38px;
+  --text-4xl: 36px;
+  --text-4xl--line-height: 44px;
+  --text-5xl: 48px;
+  --text-5xl--line-height: 56px;
+  --text-6xl: 60px;
+  --text-6xl--line-height: 68px;
+  --text-7xl: 72px;
+  --text-7xl--line-height: 80px;
+  --text-8xl: 96px;
+  --text-8xl--line-height: 104px;
+  --text-9xl: 128px;
+  --text-9xl--line-height: 136px;
 }
 
 /* ── Reset & Base ──────────────────────────── */
@@ -69,31 +262,127 @@ button,
 input,
 select,
 textarea {
-  font-size: 1rem;
+  font-size: 16px;
 }
 
+/* ── Global Text Content ───────────────────────
+   Paragraphs, list items, descriptions, card
+   content, course/retreat details and testimonial
+   text use the Quicksand family and never render
+   smaller than 14px. */
+p,
+li,
+dt,
+dd,
+figcaption,
+blockquote {
+  font-family: var(--font-quicksand), "Quicksand", sans-serif;
+}
+
+/* ── Global Type Scale ─────────────────────────
+   Gotu is applied to every heading site-wide. Body
+   copy keeps its own sans-serif. All sizes are px. */
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
   margin: 0;
   color: var(--brown);
-  font-family: var(--font-heading), sans-serif;
-  font-weight: 650;
-  letter-spacing: -0.035em;
-  line-height: 1.08;
+  font-family: var(--font-heading), "Gotu", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 56px;
 }
 
 h2 {
-  font-size: clamp(2.2rem, 4.4vw, 4.5rem);
+  font-size: 36px;
+  line-height: 44px;
 }
 
 h3 {
-  font-size: 1.35rem;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+h4 {
+  font-size: 22px;
+  line-height: 30px;
+}
+
+h5 {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+h6 {
+  font-size: 16px;
+  line-height: 24px;
 }
 
 p {
   margin-block: 0;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+li {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  h2 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  h4 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  h5 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  h2 {
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  h3 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  h4 {
+    font-size: 19px;
+    line-height: 27px;
+  }
 }
 
 @layer base {
@@ -118,7 +407,7 @@ button {
 
 ::selection {
   background: var(--coral);
-  color: var(--white);
+  color: var(--on-accent);
 }
 
 /* ── Utilities ─────────────────────────────── */
@@ -131,7 +420,7 @@ button {
   transform: translateY(-150%);
   border-radius: 999px;
   background: var(--brown);
-  color: var(--white);
+  color: var(--on-accent);
   padding: 0.65rem 1rem;
   transition: transform 160ms ease;
 }
@@ -146,20 +435,20 @@ button {
 }
 
 .section {
-  padding-block: clamp(3.6rem, 8vw, 6.5rem);
+  padding-block: clamp(80px, 8vw, 120px);
 }
 
 .section-tight {
-  padding-block: clamp(2rem, 4vw, 3rem);
+  padding-block: clamp(48px, 4vw, 72px);
 }
 
 @media (min-width: 1025px) and (max-width: 1600px) {
   .section {
-    padding-block: clamp(3rem, 6vw, 5rem);
+    padding-block: clamp(72px, 6vw, 104px);
   }
 
   .section-tight {
-    padding-block: clamp(1.6rem, 3vw, 2.4rem);
+    padding-block: clamp(40px, 3vw, 56px);
   }
 }
 
@@ -186,7 +475,7 @@ button {
   border: 1px solid transparent;
   border-radius: 999px;
   padding: 0.72rem 1.35rem;
-  font-size: 0.91rem;
+  font-size: 14.6px;
   font-weight: 750;
   line-height: 1.2;
   transition:
@@ -202,13 +491,13 @@ button {
 
 .button-primary {
   background: var(--coral);
-  color: var(--white);
-  box-shadow: 0 10px 24px rgb(248 135 120 / 23%);
+  color: var(--on-accent);
+  box-shadow: 0 10px 24px rgb(47 79 62 / 24%);
 }
 
 .button-primary:hover {
   background: var(--coral-dark);
-  box-shadow: 0 13px 30px rgb(233 116 103 / 28%);
+  box-shadow: 0 13px 30px rgb(36 64 47 / 30%);
 }
 
 .button-secondary {
@@ -328,7 +617,7 @@ button {
 .brand strong,
 .footer-logo strong {
   font-family: var(--font-heading), sans-serif;
-  font-size: 1.04rem;
+  font-size: 16.6px;
   letter-spacing: -0.02em;
 }
 
@@ -336,7 +625,7 @@ button {
 .footer-logo small {
   margin-top: 0.25rem;
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 10.9px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -357,7 +646,7 @@ button {
   border: 0;
   background: transparent;
   color: var(--brown);
-  font-size: 0.78rem;
+  font-size: 12.5px;
   font-weight: 750;
   white-space: nowrap;
 }
@@ -401,7 +690,7 @@ button {
   border-radius: 12px;
   padding: 0.72rem 0.85rem;
   color: var(--text);
-  font-size: 0.82rem;
+  font-size: 13.1px;
   line-height: 1.35;
 }
 
@@ -508,7 +797,7 @@ button {
   min-height: 44px;
   padding: 0.65rem 0.85rem;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: 14.1px;
 }
 
 /* ── Home: Hero ────────────────────────────── */
@@ -522,7 +811,7 @@ button {
   background:
     radial-gradient(
         circle at 10% 10%,
-        rgb(248 135 120 / 9%) 0 1px,
+        rgb(124 148 114 / 10%) 0 1px,
         transparent 1.5px
       )
       0 0 / 20px 20px,
@@ -545,7 +834,7 @@ button {
   gap: 0.5rem;
   margin-bottom: 0.5rem;
   color: var(--coral-dark);
-  font-size: 0.7rem;
+  font-size: 11.2px;
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -560,6 +849,18 @@ button {
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 
+/* Unified homepage section headings — every major
+   section shares the same size, weight, spacing and
+   alignment. Mobile: text-3xl, Desktop: text-4xl/5xl. */
+.section-heading h2,
+.section-title {
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(30px, 4.2vw, 48px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.12;
+}
+
 .section-tight .section-heading {
   margin-bottom: 1.2rem;
 }
@@ -571,24 +872,28 @@ button {
 .section-heading > p:last-child {
   max-width: 720px;
   margin-top: 1.25rem;
-  color: var(--muted);
-  font-size: clamp(1rem, 1.5vw, 1.13rem);
+  color: var(--ink);
+  font-size: clamp(16px, 1.5vw, 18.1px);
 }
 
 .section-heading.text-center > p:last-child {
   margin-inline: auto;
 }
 
+.section-heading.text-center .eyebrow {
+  justify-content: center;
+}
+
 .hero-copy h1 {
   max-width: 780px;
-  font-size: clamp(1.9rem, 3.4vw, 3.5rem);
+  font-size: clamp(30.4px, 3.4vw, 56px);
 }
 
 .hero-copy h1 em {
   display: block;
   color: var(--coral);
-  font-family: Georgia, serif;
-  font-weight: 500;
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 400;
   letter-spacing: -0.045em;
 }
 
@@ -596,22 +901,22 @@ button {
   max-width: 650px;
   margin-top: 0.75rem;
   color: var(--ink);
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-size: clamp(16px, 1.5vw, 19.2px);
   font-weight: 600;
 }
 
 .hero-copy .hero-tagline em {
   color: var(--coral-dark);
-  font-family: Georgia, serif;
-  font-weight: 500;
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 400;
   letter-spacing: -0.02em;
 }
 
 .hero-copy > p:not(.eyebrow, .hero-note, .hero-tagline) {
   max-width: 650px;
   margin-top: 0.75rem;
-  color: var(--muted);
-  font-size: clamp(0.88rem, 1.3vw, 1rem);
+  color: var(--ink);
+  font-size: clamp(14.1px, 1.3vw, 16px);
 }
 
 .hero-actions {
@@ -624,7 +929,7 @@ button {
 .hero-note {
   margin-top: 0.6rem;
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 11.5px;
 }
 
 .hero-visual {
@@ -652,26 +957,27 @@ button {
   width: 190px;
   height: 190px;
   border-radius: 50%;
-  background: #f4bd70;
+  background: var(--hero-sun);
 }
 
 .hero-stats {
   position: absolute;
   right: 0;
-  bottom: 2rem;
+  bottom: 1.5rem;
   display: grid;
-  width: 185px;
+  width: min(200px, 100%);
   overflow: hidden;
   border: 1px solid var(--border);
-  border-radius: 24px;
+  border-radius: 8px;
   background: rgb(255 255 255 / 94%);
   box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(6px);
 }
 
 .hero-stats div {
   display: grid;
-  gap: 0.1rem;
-  padding: 0.8rem 1rem;
+  gap: 0.2rem;
+  padding: 0.85rem 1.1rem;
 }
 
 .hero-stats div + div {
@@ -681,17 +987,21 @@ button {
 .hero-stats strong {
   color: var(--brown);
   font-family: var(--font-heading), sans-serif;
-  font-size: 1.95rem;
-  line-height: 1.1;
-  font-weight: 1900;
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.02em;
 }
 
 .hero-stats span {
   color: var(--muted);
-  font-size: 0.62rem;
+  font-size: 10.9px;
   font-weight: 800;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+.hero-stats strong.stat-number {
+  font-size: 28px !important;
 }
 
 .placeholder-badge {
@@ -702,113 +1012,147 @@ button {
   border: 1px solid rgb(255 255 255 / 45%);
   border-radius: 999px;
   background: rgb(44 26 14 / 78%);
-  color: var(--white);
+  color: var(--on-accent);
   padding: 0.32rem 0.58rem;
-  font-size: 0.58rem;
+  font-size: 9.3px;
   font-weight: 800;
   letter-spacing: 0.09em;
   line-height: 1;
   text-transform: uppercase;
 }
-/* ── Trust Strip ──────────────────────────── */
+/* ── Trust Strip / Recognition Marquee ─────── */
 
 .trust-strip {
-  border-block: 1px solid var(--border);
-  background: var(--cream);
-}
-
-.trust-strip .container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0;
+  padding: 0 1.5rem;
+  margin-top: 1.8rem;
+  margin-bottom: 1.8rem;
+  position: relative;
+  z-index: 5;
+}
+
+.trust-bar {
+  display: flex;
+  align-items: center;
+  width: min(1200px, 100%);
+  background: rgb(255 255 255 / 85%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgb(255 255 255 / 60%);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgb(0 0 0 / 6%);
   overflow-x: auto;
-  scrollbar-width: none;
-  scroll-snap-type: x proximity;
-  min-height: 72px;
-  padding-block: 0;
 }
 
-.trust-strip .container::-webkit-scrollbar {
-  display: none;
-}
-
-.trust-badge {
-  display: flex;
+.trust-item {
   flex: 1;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  padding: 0.9rem 1.4rem;
-  scroll-snap-align: start;
+  padding: 1.1rem 1.5rem;
+  position: relative;
   white-space: nowrap;
 }
 
-.trust-badge svg {
-  flex: 0 0 auto;
+.trust-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 34px;
+  width: 1px;
+  background: var(--border, #e5ddd4);
 }
 
-.trust-badge > div {
-  display: flex;
-  flex-direction: column;
-  gap: 0.05rem;
+/* Plain logo items */
+.trust-logo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
 }
 
-.trust-badge strong {
-  display: block;
-  color: var(--brown);
-  font-family: var(--font-heading), sans-serif;
-  font-size: 0.88rem;
-  font-weight: 750;
-  letter-spacing: -0.01em;
-  line-height: 1.15;
-}
-
-.trust-badge-eyebrow {
-  display: block;
-  color: var(--muted);
-  font-size: 0.52rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  line-height: 1.2;
-}
-
-.trust-badge-sub {
-  display: block;
-  color: var(--muted);
-  font-size: 0.55rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
+/* Google rating pill */
 .trust-google {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  background: #fdf6d8;
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
 }
 
-.trust-google strong {
-  font-size: 1.1rem;
+.trust-google svg {
+  width: 18px;
+  height: 18px;
+}
+
+.trust-rating {
   font-weight: 800;
-  color: var(--brown);
+  font-size: 15.2px;
+  color: #2b2118;
 }
 
 .trust-stars {
-  color: #f5a623;
-  font-size: 0.82rem;
-  letter-spacing: 0.04em;
+  color: var(--gold);
+  font-size: 13.6px;
+  letter-spacing: 1px;
 }
 
-.trust-divider {
-  flex: 0 0 1px;
-  width: 1px;
-  height: 44px;
-  background: var(--border);
-  align-self: center;
+/* Stat items (teaching hrs, graduates) */
+.trust-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
 }
 
+.trust-stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--surface);
+  flex-shrink: 0;
+}
+
+.trust-stat-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.trust-stat div {
+  display: grid;
+  gap: 0.1rem;
+  text-align: left;
+}
+
+.trust-stat strong {
+  font-family: var(--font-heading), sans-serif;
+  font-size: 14.4px;
+  font-weight: 800;
+  color: #2b2118;
+  line-height: 1.1;
+}
+
+.trust-stat-sub {
+  font-size: 9.6px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted, #8a7d6f);
+}
+
+@media (max-width: 768px) {
+  .trust-bar {
+    justify-content: flex-start;
+  }
+  .trust-item {
+    flex: 0 0 auto;
+  }
+}
 /* ── Split / Collage ────────────────────────── */
 
 .split-layout {
@@ -831,7 +1175,7 @@ button {
 .media {
   position: relative;
   overflow: hidden;
-  background: #e7cbbb;
+  background: var(--surface);
 }
 
 .media img,
@@ -868,7 +1212,7 @@ button {
 
 .prose-sm {
   gap: 0.75rem;
-  font-size: 0.88rem;
+  font-size: 14.1px;
   line-height: 1.65;
 }
 
@@ -892,7 +1236,7 @@ button {
   align-items: center;
   gap: 0.65rem;
   color: var(--brown);
-  font-size: 0.9rem;
+  font-size: 14.4px;
   font-weight: 700;
 }
 
@@ -912,7 +1256,7 @@ button {
   background: var(--cream);
   color: var(--brown);
   padding: 0.34rem 0.66rem;
-  font-size: 0.68rem;
+  font-size: 10.9px;
   font-weight: 800;
 }
 
@@ -996,7 +1340,7 @@ button {
 
 .meta-grid dt {
   color: var(--muted);
-  font-size: 0.65rem;
+  font-size: 10.4px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1019,7 +1363,7 @@ button {
 .partner-strip p {
   flex: 0 0 auto;
   color: var(--muted);
-  font-size: 0.7rem;
+  font-size: 11.2px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1045,7 +1389,7 @@ button {
 /* ── Grid Layouts ──────────────────────────── */
 
 .retreat-grid,
-.short-course-grid,
+.related-grid,
 .review-grid,
 .room-grid,
 .teacher-grid,
@@ -1079,7 +1423,7 @@ button {
   align-items: flex-start;
   gap: 0.55rem;
   color: var(--text);
-  font-size: 0.9rem;
+  font-size: 14.4px;
 }
 
 .why-image,
@@ -1170,7 +1514,7 @@ button {
 
 .comparison-head {
   background: var(--brown);
-  color: var(--white);
+  color: var(--on-accent);
 }
 
 .comparison-head > * {
@@ -1185,7 +1529,7 @@ button {
 .comparison-head > span {
   border-left: 0;
   color: #d7d0cc;
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1193,19 +1537,19 @@ button {
 
 .comparison-head strong {
   font-family: var(--font-heading), sans-serif;
-  font-size: 1.35rem;
+  font-size: 21.6px;
 }
 
 .comparison-head small {
   color: var(--coral);
-  font-size: 0.62rem;
+  font-size: 9.9px;
   font-weight: 800;
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
 .comparison-head [data-featured="true"] {
-  background: rgb(248 135 120 / 12%);
+  background: rgb(47 79 62 / 12%);
 }
 
 .comparison-row > div {
@@ -1213,7 +1557,7 @@ button {
   border-top: 1px solid var(--border);
   border-left: 1px solid var(--border);
   padding: 1rem 1.2rem;
-  font-size: 0.82rem;
+  font-size: 13.1px;
 }
 
 .comparison-row > div:first-child {
@@ -1249,12 +1593,12 @@ button {
 
 .credential-cards strong {
   color: var(--brown);
-  font-size: 0.85rem;
+  font-size: 13.6px;
 }
 
 .credential-cards span {
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 11.5px;
 }
 
 .certificate-placeholder {
@@ -1270,7 +1614,7 @@ button {
     linear-gradient(
       135deg,
       transparent 48%,
-      rgb(248 135 120 / 12%) 48% 52%,
+      rgb(47 79 62 / 12%) 48% 52%,
       transparent 52%
     ),
     var(--cream);
@@ -1281,7 +1625,7 @@ button {
 
 .certificate-placeholder span {
   color: var(--coral-dark);
-  font-size: 0.7rem;
+  font-size: 11.2px;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1291,7 +1635,7 @@ button {
   margin-top: 1rem;
   color: var(--brown);
   font-family: var(--font-heading), sans-serif;
-  font-size: 1.5rem;
+  font-size: 24px;
 }
 
 .certificate-placeholder p {
@@ -1370,7 +1714,7 @@ button {
 .founder-role,
 .teacher-role {
   color: var(--coral-dark) !important;
-  font-size: 0.78rem;
+  font-size: 12.5px;
   font-weight: 800;
 }
 
@@ -1379,8 +1723,8 @@ blockquote {
   border-left: 3px solid var(--coral);
   color: var(--brown);
   padding-left: 1.2rem;
-  font-family: Georgia, serif;
-  font-size: 1.12rem;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 17.9px;
 }
 /* ── Horizontal Scroller ────────────────────── */
 
@@ -1426,7 +1770,7 @@ blockquote {
   place-items: center;
   background:
     radial-gradient(circle at 50% 30%, rgb(255 255 255 / 60%), transparent 30%),
-    linear-gradient(135deg, #e6c7b4, #f7ded0);
+    linear-gradient(135deg, var(--surface), var(--cream));
   color: var(--coral-dark);
 }
 
@@ -1472,12 +1816,12 @@ blockquote {
   bottom: 0;
   left: 0;
   padding: 1.7rem;
-  color: var(--white);
+  color: var(--on-accent);
 }
 
 .facility-grid h3 {
-  color: var(--white);
-  font-size: 1.8rem;
+  color: var(--on-accent);
+  font-size: 28.8px;
 }
 
 .facility-grid p {
@@ -1492,6 +1836,28 @@ blockquote {
 }
 
 .review-grid h3 {
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 9999px;
 }
 /* ── Gallery ─────────────────────────────────── */
 
@@ -1511,9 +1877,11 @@ blockquote {
   overflow: hidden;
   border: 0;
   border-radius: 20px;
-  background: #e9d0c2;
+  background: var(--surface);
   cursor: zoom-in;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease;
 }
 
 .gallery-item:nth-child(3n + 2) {
@@ -1552,8 +1920,8 @@ blockquote {
   right: 1.2rem;
   bottom: 1rem;
   left: 1.2rem;
-  color: var(--white);
-  font-size: 0.85rem;
+  color: var(--on-accent);
+  font-size: 13.6px;
   font-weight: 700;
   letter-spacing: 0.02em;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
@@ -1581,7 +1949,7 @@ blockquote {
   background: var(--white);
   padding: 0.55rem 0.95rem;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 12.5px;
   font-weight: 760;
 }
 
@@ -1593,7 +1961,7 @@ blockquote {
 
 .lightbox {
   background: rgb(28 25 23 / 96%);
-  color: var(--white);
+  color: var(--on-accent);
 }
 
 .lightbox > div {
@@ -1671,14 +2039,14 @@ blockquote {
 .contact-card strong,
 .travel-grid h2 {
   color: var(--brown);
-  font-size: 0.9rem;
+  font-size: 14.4px;
 }
 
 .contact-card p,
 .travel-grid p {
   margin-top: 0.3rem;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 12.5px;
 }
 
 .travel-grid {
@@ -1699,7 +2067,7 @@ blockquote {
     linear-gradient(
       35deg,
       transparent 45%,
-      rgb(248 135 120 / 10%) 45% 47%,
+      rgb(47 79 62 / 10%) 45% 47%,
       transparent 47%
     ),
     linear-gradient(
@@ -1727,37 +2095,77 @@ blockquote {
 .map-placeholder p {
   color: var(--muted);
 }
-/* ── Final CTA ────────────────────────────────── */
+/* ── Final CTA — fixed full-bleed background ─── */
 
-.final-cta {
+.final-cta-section {
   position: relative;
-  display: flex;
-  min-height: 350px;
+  display: grid;
+  place-items: center;
   overflow: hidden;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  border-radius: 34px;
-  background:
-    linear-gradient(90deg, rgb(39 28 20 / 92%), rgb(39 28 20 / 70%)),
-    url("/images/course-goa-yoga.png") center / cover;
-  padding: clamp(2rem, 6vw, 5rem);
-  color: var(--white);
-  box-shadow: var(--shadow);
+  padding-block: clamp(40px, 4vw, 60px);
+  text-align: center;
+  color: var(--on-accent);
+  background-image: url("/images/tha_hatha/the-hatha-yogashala-goa-group-yoga-class-warrior-pose.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.final-cta > div:first-child {
-  max-width: 720px;
+.final-cta-section::before {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  content: "";
 }
 
-.final-cta h2 {
-  color: var(--white);
-  font-size: clamp(2.3rem, 5vw, 4.8rem);
+.final-cta-section .container {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
 }
 
-.final-cta p:not(.eyebrow) {
+.final-cta-section .eyebrow {
+  justify-content: center;
+  color: #e2c68f;
+}
+
+.final-cta-section h2 {
+  max-width: 780px;
+  color: var(--on-accent);
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.15;
+}
+
+.final-cta-section p:not(.eyebrow) {
   max-width: 620px;
-  margin-top: 1rem;
+  margin-top: 0;
+  color: rgb(255 255 255 / 88%);
+}
+
+.final-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .final-cta-section {
+    background-attachment: scroll;
+    padding-block: 40px 48px;
+  }
+
+  .final-cta-actions {
+    display: grid;
+    width: 100%;
+  }
+
+  .final-cta-actions .button {
+    width: 100%;
+  }
 }
 /* ── Footer ───────────────────────────────────── */
 
@@ -1775,7 +2183,7 @@ blockquote {
 }
 
 .footer-logo {
-  color: var(--white);
+  color: var(--on-accent);
 }
 
 .footer-logo small {
@@ -1785,14 +2193,14 @@ blockquote {
 .footer-intro p {
   max-width: 360px;
   margin-top: 1.2rem;
-  font-size: 0.85rem;
+  font-size: 13.6px;
 }
 
 .footer h2 {
   margin-bottom: 1rem;
-  color: var(--white);
+  color: var(--on-accent);
   font-family: var(--font-body), sans-serif;
-  font-size: 0.76rem;
+  font-size: 12.2px;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1808,7 +2216,7 @@ blockquote {
 
 .footer li,
 .footer a {
-  font-size: 0.8rem;
+  font-size: 12.8px;
 }
 
 .footer a:hover {
@@ -1828,7 +2236,7 @@ blockquote {
 
 .placeholder-note {
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 11.5px;
 }
 
 .footer .placeholder-note {
@@ -1840,8 +2248,8 @@ blockquote {
   overflow: hidden;
   margin-top: clamp(3rem, 8vw, 7rem);
   color: rgb(255 255 255 / 7%);
-  font-family: serif;
-  font-size: clamp(5rem, 14vw, 12rem);
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(80px, 14vw, 192px);
   line-height: 0.9;
   text-align: center;
   white-space: nowrap;
@@ -1859,7 +2267,7 @@ blockquote {
 
 .footer-bottom p,
 .footer-bottom a {
-  font-size: 0.68rem;
+  font-size: 10.9px;
 }
 
 /* ── Floating Actions ────────────────────────── */
@@ -1884,7 +2292,7 @@ blockquote {
   gap: 0.5rem;
   border-radius: 999px;
   padding: 0.72rem 1.2rem;
-  font-size: 0.74rem;
+  font-size: 11.8px;
   font-weight: 800;
   pointer-events: auto;
   text-decoration: none;
@@ -1895,13 +2303,13 @@ blockquote {
 
 .floating-actions a:first-child {
   background: var(--coral);
-  color: var(--white);
-  box-shadow: 0 10px 30px rgb(248 135 120 / 23%);
+  color: var(--on-accent);
+  box-shadow: 0 10px 30px rgb(47 79 62 / 23%);
 }
 
 .floating-actions a:last-child {
   background: #25d366;
-  color: var(--white);
+  color: var(--on-accent);
   box-shadow: 0 10px 30px rgb(37 211 102 / 25%);
 }
 
@@ -1913,7 +2321,7 @@ blockquote {
   min-height: clamp(430px, 56vw, 590px);
   overflow: hidden;
   align-items: end;
-  color: var(--white);
+  color: var(--on-accent);
   padding-block: 5rem 4rem;
 }
 
@@ -1925,14 +2333,14 @@ blockquote {
 
 .page-hero h1 {
   max-width: 950px;
-  color: var(--white);
-  font-size: clamp(3rem, 7vw, 6.5rem);
+  color: var(--on-accent);
+  font-size: clamp(48px, 7vw, 104px);
 }
 
 .page-hero-eyebrow {
   margin-bottom: 0.8rem;
-  color: #ffd2c9;
-  font-size: 0.72rem;
+  color: var(--gold);
+  font-size: 11.5px;
   font-weight: 800;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1942,7 +2350,7 @@ blockquote {
   max-width: 760px;
   margin-top: 1.1rem;
   color: #efe9e5;
-  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  font-size: clamp(15.2px, 1.5vw, 17.6px);
 }
 
 .breadcrumbs {
@@ -1959,7 +2367,7 @@ blockquote {
   align-items: center;
   gap: 0.45rem;
   color: rgb(255 255 255 / 75%);
-  font-size: 0.72rem;
+  font-size: 11.5px;
 }
 
 /* ── Snapshot ─────────────────────────────────── */
@@ -1992,7 +2400,7 @@ blockquote {
 
 .snapshot dt {
   color: var(--muted);
-  font-size: 0.66rem;
+  font-size: 10.6px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -2001,7 +2409,7 @@ blockquote {
 .snapshot dd {
   margin: 0.18rem 0 0;
   color: var(--brown);
-  font-size: 0.83rem;
+  font-size: 13.3px;
 }
 /* ── Notice ────────────────────────────────────── */
 
@@ -2009,9 +2417,9 @@ blockquote {
   display: flex;
   align-items: flex-start;
   gap: 0.8rem;
-  border: 1px solid #f0cfc4;
+  border: 1px solid rgb(181 98 58 / 30%);
   border-radius: 16px;
-  background: #fff3ed;
+  background: rgb(181 98 58 / 8%);
   padding: 1rem 1.2rem;
 }
 
@@ -2032,9 +2440,9 @@ blockquote {
   border: 0;
   border-radius: 0 14px 14px 0;
   background: var(--coral);
-  color: var(--white);
+  color: var(--on-accent);
   padding: 0.75rem 0.45rem;
-  font-size: 0.68rem;
+  font-size: 10.9px;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2067,7 +2475,7 @@ blockquote {
 }
 
 .contents-top h2 {
-  font-size: 1.5rem;
+  font-size: 24px;
 }
 
 .contents-dialog nav {
@@ -2081,7 +2489,7 @@ blockquote {
   border-top: 1px solid var(--border);
   padding: 0.65rem 0.35rem;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 13.1px;
 }
 
 /* ── Detail Grid ─────────────────────────────── */
@@ -2118,7 +2526,7 @@ blockquote {
 
 .methodology-grid span {
   color: var(--coral);
-  font-size: 0.72rem;
+  font-size: 11.5px;
   font-weight: 850;
 }
 
@@ -2174,7 +2582,7 @@ blockquote {
 
 .teacher-facts dt {
   color: var(--brown);
-  font-size: 0.72rem;
+  font-size: 11.5px;
   font-weight: 800;
 }
 
@@ -2203,7 +2611,7 @@ blockquote {
 
 .pricing-summary span {
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 10.9px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -2227,12 +2635,12 @@ blockquote {
 .policy-grid h2,
 .policy-grid h3 {
   margin-bottom: 0.6rem;
-  font-size: 1.15rem;
+  font-size: 18.4px;
 }
 
 .policy-grid p {
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 13.1px;
 }
 
 /* ── Empty State ─────────────────────────────── */
@@ -2298,7 +2706,7 @@ blockquote {
   display: grid;
   gap: 0.35rem;
   color: var(--brown);
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: 750;
 }
 
@@ -2336,7 +2744,7 @@ blockquote {
   gap: 0.7rem;
   margin-top: 1.2rem;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 12.5px;
 }
 
 .consent-field input {
@@ -2366,7 +2774,7 @@ blockquote {
 .form-status {
   min-height: 24px;
   margin-top: 0.8rem;
-  font-size: 0.78rem;
+  font-size: 12.5px;
 }
 
 .form-status[data-state="error"] {
@@ -2404,14 +2812,14 @@ blockquote {
   min-width: 135px;
   border-bottom: 1px solid var(--border);
   padding: 1rem;
-  font-size: 0.78rem;
+  font-size: 12.5px;
   vertical-align: top;
 }
 
 .pricing-table th {
   background: var(--brown);
-  color: var(--white);
-  font-size: 0.66rem;
+  color: var(--on-accent);
+  font-size: 10.6px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -2486,7 +2894,7 @@ blockquote {
 
 .article-header {
   background: var(--brown);
-  color: var(--white);
+  color: var(--on-accent);
   padding-block: clamp(4rem, 9vw, 7rem);
 }
 
@@ -2496,15 +2904,15 @@ blockquote {
 
 .article-header h1 {
   max-width: 980px;
-  color: var(--white);
-  font-size: clamp(3rem, 7vw, 6.3rem);
+  color: var(--on-accent);
+  font-size: clamp(48px, 7vw, 100.8px);
 }
 
 .article-deck {
   max-width: 780px;
   margin-top: 1.4rem;
   color: #d8d0ca;
-  font-size: clamp(1rem, 1.6vw, 1.16rem);
+  font-size: clamp(16px, 1.6vw, 18.6px);
 }
 
 .article-meta {
@@ -2519,7 +2927,7 @@ blockquote {
   align-items: center;
   gap: 0.45rem;
   color: #c5bdb7;
-  font-size: 0.72rem;
+  font-size: 11.5px;
 }
 
 .article-meta svg {
@@ -2557,7 +2965,7 @@ blockquote {
 
 .article-toc strong {
   color: var(--brown);
-  font-size: 0.78rem;
+  font-size: 12.5px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -2570,7 +2978,7 @@ blockquote {
   border-left: 1px solid var(--border);
   color: var(--muted);
   padding: 0.45rem 0.8rem;
-  font-size: 0.74rem;
+  font-size: 11.8px;
   line-height: 1.5;
 }
 
@@ -2580,13 +2988,13 @@ blockquote {
 }
 
 .article-content {
-  font-size: 1.03rem;
+  font-size: 16.5px;
   line-height: 1.9;
 }
 
 .article-updated {
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 11.5px;
 }
 
 .article-content section {
@@ -2595,7 +3003,7 @@ blockquote {
 
 .article-content h2 {
   margin-bottom: 1rem;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(32px, 4vw, 48px);
 }
 
 .article-content p {
@@ -2620,7 +3028,7 @@ blockquote {
   place-items: center;
   border-radius: 50%;
   background: var(--coral);
-  color: var(--white);
+  color: var(--on-accent);
   font-weight: 850;
 }
 
@@ -2631,7 +3039,7 @@ blockquote {
 .author-card p {
   margin-top: 0.3rem;
   color: var(--muted);
-  font-size: 0.76rem;
+  font-size: 12.2px;
   line-height: 1.6;
 }
 
@@ -2649,7 +3057,7 @@ blockquote {
 
 .policy-page h2 {
   margin-bottom: 0.8rem;
-  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  font-size: clamp(28.8px, 4vw, 43.2px);
 }
 
 .policy-page p {
@@ -2678,7 +3086,7 @@ blockquote {
 }
 
 .not-found h1 {
-  font-size: clamp(3rem, 7vw, 6rem);
+  font-size: clamp(48px, 7vw, 96px);
 }
 
 .not-found > div > p:not(.eyebrow) {
@@ -2721,7 +3129,7 @@ blockquote {
     display: inline-grid;
   }
 
-  .short-course-grid {
+  .related-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -2854,7 +3262,7 @@ blockquote {
 
   .comparison-mobile h3 {
     margin-bottom: 1rem;
-    font-size: 1.8rem;
+    font-size: 28.8px;
   }
 
   .comparison-mobile dl {
@@ -2872,14 +3280,14 @@ blockquote {
 
   .comparison-mobile dt {
     color: var(--brown);
-    font-size: 0.72rem;
+    font-size: 11.5px;
     font-weight: 800;
   }
 
   .comparison-mobile dd {
     margin: 0;
     color: var(--muted);
-    font-size: 0.75rem;
+    font-size: 12px;
   }
 
   .founder-image {
@@ -2980,15 +3388,15 @@ blockquote {
   }
 
   .brand strong {
-    font-size: 0.95rem;
+    font-size: 15.2px;
   }
 
   .brand small {
-    font-size: 0.6rem;
+    font-size: 9.6px;
   }
 
   .hero-copy h1 {
-    font-size: clamp(2.2rem, 11vw, 3.9rem);
+    font-size: clamp(35.2px, 11vw, 62.4px);
   }
 
   .hero-actions .button {
@@ -3044,7 +3452,7 @@ blockquote {
 
   .icon-list,
   .retreat-grid,
-  .short-course-grid,
+  .related-grid,
   .review-grid,
   .values-grid,
   .detail-grid,
@@ -3114,17 +3522,6 @@ blockquote {
     grid-template-columns: 1fr;
   }
 
-  .final-cta {
-    min-height: 480px;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-  }
-
-  .final-cta .button {
-    width: 100%;
-  }
-
   .footer-grid {
     grid-template-columns: 1fr;
   }
@@ -3135,7 +3532,7 @@ blockquote {
   }
 
   .footer-wordmark {
-    font-size: 4.4rem;
+    font-size: 70.4px;
   }
 
   .floating-actions {
@@ -3171,7 +3568,7 @@ blockquote {
   }
 
   .page-hero h1 {
-    font-size: clamp(2.7rem, 13vw, 4.7rem);
+    font-size: clamp(43.2px, 13vw, 75.2px);
   }
 
   .why-image,
@@ -3256,7 +3653,7 @@ blockquote {
   .pricing-table td::before {
     content: attr(data-label);
     color: var(--muted);
-    font-size: 0.62rem;
+    font-size: 9.9px;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -3319,7 +3716,6 @@ blockquote {
     grid-template-columns: 1fr;
   }
 
-
   .comparison-mobile dl > div {
     grid-template-columns: 105px 1fr;
   }
@@ -3346,7 +3742,7 @@ blockquote {
 
 .page-hero-facts dt {
   color: rgb(255 255 255 / 68%);
-  font-size: 0.62rem;
+  font-size: 9.9px;
   font-weight: 800;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -3354,8 +3750,8 @@ blockquote {
 
 .page-hero-facts dd {
   margin: 0.2rem 0 0;
-  color: var(--white);
-  font-size: 0.78rem;
+  color: var(--on-accent);
+  font-size: 12.5px;
   font-weight: 700;
 }
 
@@ -3378,8 +3774,8 @@ blockquote {
 }
 
 .program-card-featured {
-  border-color: rgb(233 116 103 / 55%);
-  box-shadow: 0 20px 50px rgb(233 116 103 / 14%);
+  border-color: rgb(36 64 47 / 55%);
+  box-shadow: 0 20px 50px rgb(36 64 47 / 14%);
 }
 
 .program-media {
@@ -3399,9 +3795,9 @@ blockquote {
   left: 0.9rem;
   border-radius: 999px;
   background: var(--coral);
-  color: var(--white);
+  color: var(--on-accent);
   padding: 0.42rem 0.85rem;
-  font-size: 0.64rem;
+  font-size: 10.2px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -3426,7 +3822,7 @@ blockquote {
 .program-kicker {
   margin-bottom: 0.4rem;
   color: var(--coral-dark);
-  font-size: 0.62rem;
+  font-size: 9.9px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -3434,7 +3830,7 @@ blockquote {
 
 .program-title,
 .program-card h3 {
-  font-size: 1.4rem;
+  font-size: 22.4px;
   line-height: 1.15;
 }
 
@@ -3446,34 +3842,35 @@ blockquote {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 13.1px;
   line-height: 1.6;
 }
 
 .program-stats {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.7rem;
-  margin-top: 1rem;
+  gap: 0.75rem;
+  margin-top: 1.1rem;
   padding: 0;
   list-style: none;
 }
 
 .program-stats > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
   min-width: 0;
-  padding-top: 0.6rem;
-  border-top: 1px solid var(--border);
 }
 
 .program-stats dt {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
   color: var(--muted);
-  font-size: 0.58rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 14.1px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: none;
 }
 
 .program-stats dt svg {
@@ -3481,10 +3878,11 @@ blockquote {
 }
 
 .program-stats dd {
-  margin: 0.2rem 0 0;
+  margin: 0;
   color: var(--brown);
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 15.2px;
+  font-weight: 800;
+  text-align: right;
 }
 
 .program-pricing {
@@ -3505,7 +3903,7 @@ blockquote {
 .program-price-label {
   display: block;
   color: var(--muted);
-  font-size: 0.58rem;
+  font-size: 9.3px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -3520,12 +3918,12 @@ blockquote {
 
 .program-price-values del {
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 11.5px;
 }
 
 .program-price-values strong {
   color: var(--brown);
-  font-size: 1.05rem;
+  font-size: 16.8px;
   font-weight: 800;
 }
 
@@ -3535,9 +3933,9 @@ blockquote {
   right: 0.6rem;
   border-radius: 999px;
   background: var(--success);
-  color: var(--white);
+  color: var(--on-accent);
   padding: 0.16rem 0.5rem;
-  font-size: 0.56rem;
+  font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.04em;
 }
@@ -3557,7 +3955,7 @@ blockquote {
   justify-content: center;
   border-radius: 999px;
   background: #25d366;
-  color: var(--white);
+  color: var(--on-accent);
   box-shadow: 0 10px 24px rgb(37 211 102 / 28%);
   transition:
     transform 180ms ease,
@@ -3577,7 +3975,7 @@ blockquote {
   gap: 0.5rem;
   margin-top: 1rem;
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 11.5px;
   font-weight: 700;
 }
 
@@ -3590,8 +3988,8 @@ blockquote {
 }
 
 .program-star {
-  fill: #f5a623;
-  color: #f5a623;
+  fill: var(--gold);
+  color: var(--gold);
 }
 
 .program-dot {
@@ -3625,17 +4023,17 @@ blockquote {
   flex: 0 0 auto;
   place-items: center;
   border-radius: 14px;
-  background: #fff0eb;
+  background: var(--cream);
   color: var(--coral-dark);
 }
 
 .feature-card h3 {
-  font-size: 1.08rem;
+  font-size: 17.3px;
 }
 
 .feature-card p {
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 13.6px;
   line-height: 1.6;
 }
 
@@ -3667,19 +4065,19 @@ blockquote {
   background: var(--cream);
   padding: 0.28rem 0.6rem;
   color: var(--brown);
-  font-size: 0.62rem;
+  font-size: 9.9px;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .day-card h3 {
-  font-size: 1.05rem;
+  font-size: 16.8px;
 }
 
 .day-card p {
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 13.1px;
   line-height: 1.6;
 }
 
@@ -3709,9 +4107,9 @@ blockquote {
   bottom: 0.9rem;
   border-radius: 999px;
   background: var(--brown);
-  color: var(--white);
+  color: var(--on-accent);
   padding: 0.36rem 0.8rem;
-  font-size: 0.64rem;
+  font-size: 10.2px;
   font-weight: 800;
   letter-spacing: 0.06em;
   box-shadow: 0 8px 22px rgb(44 26 14 / 24%);
@@ -3730,7 +4128,7 @@ blockquote {
   background: var(--cream);
   padding: 0.24rem 0.6rem;
   color: var(--brown);
-  font-size: 0.6rem;
+  font-size: 9.6px;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -3759,30 +4157,30 @@ blockquote {
 }
 
 .batch-card-head h3 {
-  font-size: 1.05rem;
+  font-size: 16.8px;
   line-height: 1.2;
 }
 
 .batch-dates {
   margin-top: 0.2rem;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 12px;
 }
 
 .availability-tag {
   flex: 0 0 auto;
   border-radius: 999px;
   padding: 0.3rem 0.7rem;
-  font-size: 0.6rem;
+  font-size: 9.6px;
   font-weight: 800;
   letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
 .availability-tag.filling {
-  background: #fff0eb;
+  background: var(--cream);
   color: var(--coral-dark);
-  border: 1px solid #f0cfc4;
+  border: 1px solid var(--border);
 }
 
 .availability-tag.open {
@@ -3865,11 +4263,11 @@ blockquote {
   width: 3rem;
   height: 3rem;
   place-items: center;
-  border: 1px solid rgb(233 116 103 / 30%);
+  border: 1px solid rgb(36 64 47 / 30%);
   border-radius: 50%;
   background: var(--white);
   color: var(--coral-dark);
-  font-size: 0.78rem;
+  font-size: 12.5px;
   font-weight: 800;
   box-shadow: 0 6px 18px rgb(89 56 43 / 9%);
 }
@@ -3890,7 +4288,7 @@ blockquote {
   gap: 0.5rem;
   color: #3c4043;
   font-family: Arial, sans-serif;
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 .google-mark svg {
@@ -3942,7 +4340,7 @@ blockquote {
   }
 
   .page-hero h1 {
-    font-size: clamp(2.7rem, 10vw, 4.8rem);
+    font-size: clamp(43.2px, 10vw, 76.8px);
   }
 }
 
@@ -4010,6 +4408,17 @@ blockquote {
   .marquee-track [aria-hidden="true"] {
     display: none;
   }
+
+  .trust-marquee-track {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: none;
+  }
+
+  .trust-marquee-track [aria-hidden="true"] {
+    display: none;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -4023,7 +4432,7 @@ blockquote {
   min-height: clamp(620px, 92svh, 840px);
   overflow: hidden;
   align-items: end;
-  color: var(--white);
+  color: var(--on-accent);
 }
 
 .retreat-hero-overlay {
@@ -4051,11 +4460,11 @@ blockquote {
   gap: 0.5rem;
   list-style: none;
   color: rgb(255 255 255 / 72%);
-  font-size: 0.74rem;
+  font-size: 11.8px;
 }
 
 .retreat-hero-breadcrumbs a:hover {
-  color: var(--white);
+  color: var(--on-accent);
 }
 
 .retreat-hero-pills {
@@ -4071,7 +4480,7 @@ blockquote {
   background: rgb(255 255 255 / 12%);
   backdrop-filter: blur(8px);
   padding: 0.38rem 0.9rem;
-  font-size: 0.7rem;
+  font-size: 11.2px;
   font-weight: 800;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -4079,15 +4488,15 @@ blockquote {
 
 .retreat-hero h1 {
   max-width: 940px;
-  color: var(--white);
-  font-size: clamp(2.9rem, 7vw, 6rem);
+  color: var(--on-accent);
+  font-size: clamp(46.4px, 7vw, 96px);
 }
 
 .retreat-hero-tagline {
   max-width: 740px;
   margin-top: 1.1rem;
   color: #f4ece6;
-  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  font-size: clamp(16px, 1.7vw, 19.2px);
 }
 
 .retreat-hero-meta {
@@ -4111,19 +4520,19 @@ blockquote {
 
 .retreat-hero-meta > div > svg {
   flex: 0 0 auto;
-  color: #ffd2c9;
+  color: var(--gold);
 }
 
 .retreat-hero-meta span {
   color: rgb(255 255 255 / 78%);
-  font-size: 0.72rem;
+  font-size: 11.5px;
   line-height: 1.35;
 }
 
 .retreat-hero-meta strong {
   display: block;
-  color: var(--white);
-  font-size: 0.82rem;
+  color: var(--on-accent);
+  font-size: 13.1px;
   font-weight: 800;
 }
 
@@ -4140,13 +4549,13 @@ blockquote {
 }
 
 .retreat-hero-actions .retreat-hero-cta.button {
-  box-shadow: 0 16px 42px rgb(248 135 120 / 38%);
+  box-shadow: 0 16px 42px rgb(47 79 62 / 38%);
 }
 
 .retreat-whatsapp.button {
   border-color: transparent;
   background: #25d366;
-  color: var(--white);
+  color: var(--on-accent);
   box-shadow: 0 12px 30px rgb(37 211 102 / 30%);
 }
 
@@ -4179,7 +4588,7 @@ blockquote {
   align-items: center;
   gap: 0.45rem;
   color: var(--brown);
-  font-size: 0.72rem;
+  font-size: 11.5px;
   font-weight: 800;
 }
 
@@ -4218,7 +4627,7 @@ blockquote {
 
 .retreat-section-title {
   margin-bottom: 1rem;
-  font-size: clamp(1.85rem, 3.2vw, 2.7rem);
+  font-size: clamp(29.6px, 3.2vw, 43.2px);
 }
 
 .retreat-section-lead {
@@ -4236,7 +4645,7 @@ blockquote {
 
 .retreat-overview p:first-child {
   color: var(--brown);
-  font-size: clamp(1.08rem, 1.8vw, 1.22rem);
+  font-size: clamp(17.3px, 1.8vw, 19.5px);
   line-height: 1.65;
 }
 
@@ -4253,7 +4662,7 @@ blockquote {
   background: var(--cream);
   padding: 0.4rem 0.9rem;
   color: var(--brown);
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -4295,13 +4704,13 @@ blockquote {
 
 .retreat-why-card h3 {
   margin-top: 0.9rem;
-  font-size: 1.1rem;
+  font-size: 17.6px;
 }
 
 .retreat-why-card p {
   margin-top: 0.4rem;
   color: var(--muted);
-  font-size: 0.86rem;
+  font-size: 13.8px;
 }
 
 /* ── Teachers ─────────────────────────────────── */
@@ -4331,7 +4740,7 @@ blockquote {
 
 .retreat-teacher-role {
   color: var(--coral-dark);
-  font-size: 0.68rem;
+  font-size: 10.9px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -4339,26 +4748,26 @@ blockquote {
 
 .retreat-teacher-body h3 {
   margin: 0.3rem 0 0.15rem;
-  font-size: 1.12rem;
+  font-size: 17.9px;
 }
 
 .retreat-teacher-exp {
   color: var(--brown);
-  font-size: 0.72rem;
+  font-size: 11.5px;
   font-weight: 700;
 }
 
 .retreat-teacher-spec {
   margin-top: 0.2rem;
   color: var(--coral-dark);
-  font-size: 0.74rem;
+  font-size: 11.8px;
   font-weight: 700;
 }
 
 .retreat-teacher-bio {
   margin-top: 0.55rem;
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 12.8px;
   line-height: 1.6;
 }
 
@@ -4368,7 +4777,7 @@ blockquote {
   align-items: flex-start;
   gap: 0.45rem;
   color: var(--success);
-  font-size: 0.7rem;
+  font-size: 11.2px;
   font-weight: 700;
 }
 
@@ -4393,7 +4802,7 @@ blockquote {
   background: var(--white);
   padding: 0.9rem 1.05rem;
   color: var(--brown);
-  font-size: 0.92rem;
+  font-size: 14.7px;
   font-weight: 700;
   transition:
     transform 180ms ease,
@@ -4420,7 +4829,7 @@ blockquote {
 
 .retreat-schedule-day header {
   padding: 1.5rem 1.6rem 1.2rem;
-  background: linear-gradient(120deg, var(--surface), #fff6f1);
+  background: linear-gradient(120deg, var(--surface), var(--cream));
   border-bottom: 1px solid var(--border);
 }
 
@@ -4428,9 +4837,9 @@ blockquote {
   display: inline-block;
   border-radius: 999px;
   background: var(--coral);
-  color: var(--white);
+  color: var(--on-accent);
   padding: 0.3rem 0.85rem;
-  font-size: 0.66rem;
+  font-size: 10.6px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -4438,13 +4847,13 @@ blockquote {
 
 .retreat-schedule-day header h3 {
   margin-top: 0.8rem;
-  font-size: 1.45rem;
+  font-size: 23.2px;
 }
 
 .retreat-schedule-day header p {
   margin-top: 0.35rem;
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 13.6px;
 }
 
 .retreat-schedule-timeline {
@@ -4475,7 +4884,7 @@ blockquote {
 
 .retreat-schedule-entry time {
   color: var(--coral-dark);
-  font-size: 0.8rem;
+  font-size: 12.8px;
   font-weight: 800;
   white-space: nowrap;
 }
@@ -4492,7 +4901,7 @@ blockquote {
 
 .retreat-schedule-entry strong {
   color: var(--brown);
-  font-size: 0.95rem;
+  font-size: 15.2px;
   font-weight: 700;
 }
 
@@ -4529,7 +4938,7 @@ blockquote {
   background: var(--surface);
   color: var(--coral-dark);
   padding: 0.25rem 0.6rem;
-  font-size: 0.6rem;
+  font-size: 9.6px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -4537,13 +4946,13 @@ blockquote {
 
 .retreat-experience-card h3 {
   max-width: calc(100% - 6rem);
-  font-size: 1.05rem;
+  font-size: 16.8px;
 }
 
 .retreat-experience-card p {
   margin-top: 0.45rem;
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 12.8px;
 }
 
 /* ── Free time ────────────────────────────────── */
@@ -4571,13 +4980,13 @@ blockquote {
 }
 
 .retreat-freetime-card h3 {
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 .retreat-freetime-card p {
   margin-top: 0.25rem;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 12.5px;
 }
 
 /* ── Accommodation ────────────────────────────── */
@@ -4596,13 +5005,13 @@ blockquote {
 }
 
 .retreat-room-block h3 {
-  font-size: 1.3rem;
+  font-size: 20.8px;
 }
 
 .retreat-room-block > p {
   margin: 0.4rem 0 1rem;
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 13.6px;
 }
 
 .retreat-room-gallery {
@@ -4625,7 +5034,7 @@ blockquote {
 
 .retreat-facilities h3 {
   margin-bottom: 0.8rem;
-  font-size: 1.1rem;
+  font-size: 17.6px;
 }
 
 .retreat-facilities ul {
@@ -4642,7 +5051,7 @@ blockquote {
   align-items: center;
   gap: 0.5rem;
   color: var(--brown);
-  font-size: 0.85rem;
+  font-size: 13.6px;
   font-weight: 700;
 }
 
@@ -4673,18 +5082,18 @@ blockquote {
   align-items: center;
   gap: 0.35rem;
   color: var(--coral-dark);
-  font-size: 0.7rem;
+  font-size: 11.2px;
   font-weight: 800;
 }
 
 .retreat-meal-body h3 {
   margin: 0.4rem 0;
-  font-size: 1.1rem;
+  font-size: 17.6px;
 }
 
 .retreat-meal-body p {
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 12.8px;
 }
 
 .retreat-meal-philosophy {
@@ -4705,7 +5114,7 @@ blockquote {
 
 .retreat-meal-philosophy h3 {
   color: #1f5538;
-  font-size: 1.1rem;
+  font-size: 17.6px;
 }
 
 .retreat-meal-philosophy ul {
@@ -4721,7 +5130,7 @@ blockquote {
   align-items: flex-start;
   gap: 0.5rem;
   color: #33503f;
-  font-size: 0.85rem;
+  font-size: 13.6px;
 }
 
 /* ── Inclusion ────────────────────────────────── */
@@ -4750,7 +5159,7 @@ blockquote {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-size: 1.15rem;
+  font-size: 18.4px;
 }
 
 .retreat-include-card ul,
@@ -4768,7 +5177,7 @@ blockquote {
   align-items: center;
   gap: 0.55rem;
   color: var(--text);
-  font-size: 0.88rem;
+  font-size: 14.1px;
 }
 
 /* ── Testimonials ─────────────────────────────── */
@@ -4811,7 +5220,7 @@ blockquote {
   padding: 0;
   color: var(--text);
   font-family: var(--font-body), sans-serif;
-  font-size: clamp(1rem, 2vw, 1.18rem);
+  font-size: clamp(16px, 2vw, 18.9px);
   line-height: 1.7;
 }
 
@@ -4835,13 +5244,13 @@ blockquote {
 .testimonial-slide figcaption strong {
   display: block;
   color: var(--brown);
-  font-size: 0.95rem;
+  font-size: 15.2px;
 }
 
 .testimonial-slide figcaption small {
   display: block;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 12px;
 }
 
 .testimonial-controls {
@@ -4882,7 +5291,9 @@ blockquote {
   background: var(--border);
   padding: 0;
   cursor: pointer;
-  transition: width 200ms ease, background 200ms ease;
+  transition:
+    width 200ms ease,
+    background 200ms ease;
 }
 
 .testimonial-dots button[data-active="true"] {
@@ -4896,7 +5307,7 @@ blockquote {
 
 .retreat-video-testimonials h3 {
   margin-bottom: 1rem;
-  font-size: 1.15rem;
+  font-size: 18.4px;
 }
 
 .video-testimonial-grid {
@@ -4942,7 +5353,7 @@ blockquote {
   position: absolute;
   bottom: 1rem;
   left: 1rem;
-  color: var(--white);
+  color: var(--on-accent);
   text-align: left;
 }
 
@@ -4953,7 +5364,7 @@ blockquote {
 
 .video-caption small {
   color: rgb(255 255 255 / 78%);
-  font-size: 0.72rem;
+  font-size: 11.5px;
 }
 
 /* ── Pricing / registration ───────────────────── */
@@ -4984,7 +5395,7 @@ blockquote {
   background: var(--surface);
   color: var(--coral-dark);
   padding: 0.35rem 0.9rem;
-  font-size: 0.68rem;
+  font-size: 10.9px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -4995,7 +5406,7 @@ blockquote {
   align-items: center;
   gap: 0.35rem;
   background: var(--coral);
-  color: var(--white);
+  color: var(--on-accent);
 }
 
 .retreat-price-value {
@@ -5007,20 +5418,20 @@ blockquote {
 
 .retreat-price-currency {
   color: var(--brown);
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: 800;
 }
 
 .retreat-price-value strong {
   color: var(--brown);
   font-family: var(--font-heading), sans-serif;
-  font-size: 3.4rem;
+  font-size: 54.4px;
   line-height: 1;
 }
 
 .retreat-price-per {
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 13.6px;
 }
 
 .retreat-price-card ul {
@@ -5036,7 +5447,7 @@ blockquote {
   align-items: center;
   gap: 0.55rem;
   color: var(--text);
-  font-size: 0.9rem;
+  font-size: 14.4px;
   font-weight: 600;
 }
 
@@ -5054,7 +5465,7 @@ blockquote {
 .retreat-dates-strip strong {
   display: block;
   color: var(--brown);
-  font-size: 0.88rem;
+  font-size: 14.1px;
 }
 
 .retreat-dates-strip ul {
@@ -5076,14 +5487,14 @@ blockquote {
   background: var(--white);
   padding: 0.55rem 0.85rem;
   color: var(--brown);
-  font-size: 0.8rem;
+  font-size: 12.8px;
   font-weight: 600;
 }
 
 .retreat-dates-strip li small {
   flex: 0 0 auto;
   color: var(--coral-dark);
-  font-size: 0.68rem;
+  font-size: 10.9px;
   font-weight: 800;
 }
 
@@ -5098,7 +5509,7 @@ blockquote {
 
 .retreat-booking-form > h3 {
   margin-bottom: 1.2rem;
-  font-size: 1.4rem;
+  font-size: 22.4px;
 }
 
 .retreat-booking-trust {
@@ -5115,7 +5526,7 @@ blockquote {
   align-items: center;
   gap: 0.45rem;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -5140,7 +5551,7 @@ blockquote {
 
 .booking-price-from {
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 10.9px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -5149,13 +5560,13 @@ blockquote {
 .booking-price strong {
   color: var(--brown);
   font-family: var(--font-heading), sans-serif;
-  font-size: 2.1rem;
+  font-size: 33.6px;
   line-height: 1;
 }
 
 .booking-price small {
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 13.1px;
 }
 
 .booking-rating {
@@ -5167,12 +5578,12 @@ blockquote {
 
 .booking-rating strong {
   color: var(--brown);
-  font-size: 0.8rem;
+  font-size: 12.8px;
 }
 
 .booking-rating small {
   color: var(--muted);
-  font-size: 0.7rem;
+  font-size: 11.2px;
 }
 
 .booking-facts {
@@ -5195,7 +5606,7 @@ blockquote {
   align-items: center;
   gap: 0.45rem;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -5206,7 +5617,7 @@ blockquote {
 .booking-facts dd {
   margin: 0;
   color: var(--brown);
-  font-size: 0.8rem;
+  font-size: 12.8px;
   font-weight: 700;
   text-align: right;
 }
@@ -5235,7 +5646,7 @@ blockquote {
 .booking-rooms span {
   flex: 1;
   color: var(--brown);
-  font-size: 0.8rem;
+  font-size: 12.8px;
   font-weight: 700;
 }
 
@@ -5247,12 +5658,12 @@ blockquote {
 
 .booking-rooms strong {
   color: var(--brown);
-  font-size: 1.25rem;
+  font-size: 20px;
 }
 
 .booking-rooms small {
   color: var(--muted);
-  font-size: 0.7rem;
+  font-size: 11.2px;
 }
 
 .booking-actions {
@@ -5278,7 +5689,7 @@ blockquote {
 .booking-whatsapp.button {
   border-color: #25d366;
   background: #25d366;
-  color: var(--white);
+  color: var(--on-accent);
 }
 
 .booking-whatsapp.button:hover {
@@ -5319,7 +5730,7 @@ blockquote {
   align-items: center;
   gap: 0.5rem;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: 600;
 }
 
@@ -5340,10 +5751,12 @@ blockquote {
   background: var(--white);
   padding: 0.65rem 0.8rem;
   color: var(--brown);
-  font-size: 0.72rem;
+  font-size: 11.5px;
   font-weight: 700;
   text-align: center;
-  transition: border-color 180ms ease, color 180ms ease;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease;
 }
 
 .booking-mininav a:hover {
@@ -5360,7 +5773,7 @@ blockquote {
 
 .booking-payments > span {
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 10.9px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -5381,7 +5794,7 @@ blockquote {
   background: var(--cream);
   padding: 0.3rem 0.7rem;
   color: var(--brown);
-  font-size: 0.72rem;
+  font-size: 11.5px;
   font-weight: 700;
 }
 
@@ -5390,7 +5803,7 @@ blockquote {
   align-items: center;
   gap: 0.4rem;
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 10.9px;
 }
 
 .booking-success-note {
@@ -5399,7 +5812,7 @@ blockquote {
   align-items: center;
   gap: 0.5rem;
   color: var(--success);
-  font-size: 0.78rem;
+  font-size: 12.5px;
   font-weight: 700;
 }
 
@@ -5433,7 +5846,7 @@ blockquote {
 .month-name {
   color: var(--brown);
   font-family: var(--font-heading), sans-serif;
-  font-size: 1.02rem;
+  font-size: 16.3px;
   font-weight: 750;
   letter-spacing: -0.02em;
 }
@@ -5456,7 +5869,7 @@ blockquote {
   justify-self: start;
   border-radius: 999px;
   padding: 0.25rem 0.65rem;
-  font-size: 0.62rem;
+  font-size: 9.9px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -5466,7 +5879,7 @@ blockquote {
   grid-column: 1 / -1;
   grid-row: 3;
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 12.8px;
   line-height: 1.5;
 }
 
@@ -5483,7 +5896,7 @@ blockquote {
   align-items: flex-start;
   gap: 0.6rem;
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 12.8px;
 }
 
 .month-details li svg {
@@ -5495,7 +5908,7 @@ blockquote {
 .month-details li strong {
   display: block;
   color: var(--brown);
-  font-size: 0.66rem;
+  font-size: 10.6px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -5505,10 +5918,10 @@ blockquote {
 .retreat-final-cta {
   position: relative;
   overflow: hidden;
-  color: var(--white);
+  color: var(--on-accent);
   background:
-    radial-gradient(80% 120% at 50% 0%, rgb(207 91 80 / 22%), transparent 60%),
-    linear-gradient(120deg, #22160f, #3a241a);
+    radial-gradient(80% 120% at 50% 0%, rgb(181 98 58 / 24%), transparent 60%),
+    linear-gradient(120deg, #16211b, #2f4f3e);
 }
 
 .retreat-final-cta-inner {
@@ -5520,8 +5933,8 @@ blockquote {
 }
 
 .retreat-final-cta h2 {
-  color: var(--white);
-  font-size: clamp(2.6rem, 6vw, 5rem);
+  color: var(--on-accent);
+  font-size: clamp(41.6px, 6vw, 80px);
 }
 
 .retreat-final-cta p {
@@ -5549,7 +5962,7 @@ blockquote {
   backdrop-filter: blur(6px);
   color: var(--coral-dark);
   padding: 0.35rem 0.75rem;
-  font-size: 0.68rem;
+  font-size: 10.9px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -5563,7 +5976,7 @@ blockquote {
 .blog-results-count {
   margin: 0 0 1.2rem;
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 12.8px;
 }
 
 .blog-pagination {
@@ -5583,13 +5996,16 @@ blockquote {
   color: var(--muted);
   font-weight: 700;
   cursor: pointer;
-  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
 }
 
 .blog-pagination button[data-active="true"] {
   border-color: var(--brown);
   background: var(--brown);
-  color: var(--white);
+  color: var(--on-accent);
 }
 
 .blog-pagination button:disabled {
@@ -5598,7 +6014,7 @@ blockquote {
 }
 
 .section-heading--blog h2 {
-  font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+  font-size: clamp(30.4px, 3.2vw, 43.2px);
 }
 
 /* ── Responsive ───────────────────────────────── */
@@ -5648,7 +6064,7 @@ blockquote {
 
 @media (max-width: 640px) {
   .retreat-hero h1 {
-    font-size: clamp(2.6rem, 12vw, 4.2rem);
+    font-size: clamp(41.6px, 12vw, 67.2px);
   }
 
   .retreat-hero-meta {

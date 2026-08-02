@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Sun, Thermometer, Users, Compass } from "lucide-react";
 
 const seasonStyles = {
-  high: { label: "High season", className: "bg-[#fff1ef] text-[#b9473e]" },
-  shoulder: { label: "Shoulder season", className: "bg-[#fff7e8] text-[#a07c1a]" },
-  monsoon: { label: "Monsoon", className: "bg-[#eef3fb] text-[#3a6cb0]" },
+  high: { label: "High season", className: "bg-[var(--cream)] text-[var(--terracotta)]" },
+  shoulder: { label: "Shoulder season", className: "bg-[var(--cream)] text-[var(--gold)]" },
+  monsoon: { label: "Monsoon", className: "bg-[var(--cream)] text-[#3a6cb0]" },
 };
 
 export default function MonthGuide({ months }) {

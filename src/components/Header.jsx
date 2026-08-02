@@ -84,30 +84,6 @@ const yogaTtcColumns = [
       },
     ],
   },
-  {
-    title: "Short Courses",
-    links: [
-      {
-        label: "Sound Healing Course",
-        href: "/courses/sound-healing-course-goa",
-      },
-      {
-        label: "Meditation Yoga Course",
-        href: "/courses/meditation-course-goa",
-      },
-      {
-        label: "Ayurveda Yoga Course",
-        href: "/courses/ayurveda-course-goa",
-      },
-      {
-        label: "Adjustment & Alignment",
-        href: findHref(
-          ["Adjustment & Alignment", "Adjustment and Alignment"],
-          "/adjustment-alignment",
-        ),
-      },
-    ],
-  },
 ];
 
 const hiddenMainItems = new Set([
@@ -119,7 +95,6 @@ const hiddenMainItems = new Set([
   "yogateachertraining",
   "yogateachertrainingcourse",
   "yogateachertrainingcourses",
-  "shortcourses",
   "gallery",
   "contact",
   "contactus",
@@ -195,12 +170,12 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-50 border-b transition-all duration-300 ${
         scrolled
-          ? "border-[#294936]/10 bg-[#fbfaf5]/95 shadow-[0_8px_30px_rgba(41,73,54,0.08)] backdrop-blur-xl"
-          : "border-transparent bg-[#fbfaf5]"
+          ? "border-[var(--coral-dark)]/10 bg-[var(--cream)]/95 shadow-[0_8px_30px_rgba(41,73,54,0.08)] backdrop-blur-xl"
+          : "border-transparent bg-[var(--cream)]"
       }`}
     >
       <a
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:border focus:border-[#33362f]/20 focus:bg-[#f6f5ef] focus:px-4 focus:py-2 focus:text-sm focus:text-[#262920]"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:border focus:border-[var(--brown)]/20 focus:bg-[var(--cream)] focus:px-4 focus:py-2 focus:text-sm focus:text-[var(--brown)]"
         href="#main-content"
       >
         Skip to content
@@ -212,7 +187,7 @@ export default function Navbar() {
           className="flex h-16 items-center justify-between gap-6 md:h-[76px] xl:gap-10"
         >
           <Link
-            className="inline-flex shrink-0 items-center rounded-xl xl:mr-6 2xl:mr-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E97467]/35"
+            className="inline-flex shrink-0 items-center rounded-xl xl:mr-6 2xl:mr-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--terracotta)]/35"
             href="/"
             aria-label={`${site.name} home`}
           >
@@ -221,7 +196,7 @@ export default function Navbar() {
               alt={`${site.name} logo`}
               width={150}
               height={60}
-              priority
+              preload
               unoptimized
               className="h-12 w-auto object-contain md:h-14"
             />
@@ -252,7 +227,7 @@ export default function Navbar() {
                     onClick={() =>
                       setOpenGroup(openGroup === item.label ? null : item.label)
                     }
-                    className="relative inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2.5 text-sm font-medium text-[#344c3b]/75 transition duration-200 after:absolute after:bottom-1.5 after:left-3 after:right-3 after:h-px after:origin-left after:scale-x-0 after:bg-[#7b9365] after:transition-transform after:duration-200 hover:bg-[#edf1e7] hover:text-[#263b2d] hover:after:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7b9365]/40"
+                    className="relative inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2.5 text-sm font-medium text-[var(--coral-dark)]/75 transition duration-200 after:absolute after:bottom-1.5 after:left-3 after:right-3 after:h-px after:origin-left after:scale-x-0 after:bg-[var(--sage)] after:transition-transform after:duration-200 hover:bg-[var(--cream)] hover:text-[var(--coral-dark)] hover:after:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--sage)]/40"
                   >
                     {item.label}
                     <ChevronDown
@@ -265,17 +240,23 @@ export default function Navbar() {
                   </button>
                   <div
                     id={`menu-${item.label.replaceAll(" ", "-")}`}
-                    className={`absolute left-1/2 top-full z-50 mt-1 -translate-x-1/2 origin-top rounded-2xl border border-[#294936]/10 bg-white p-7 shadow-[0_18px_45px_rgba(37,57,44,0.14)] transition-[opacity,transform,visibility] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] before:absolute before:-top-2 before:left-0 before:h-3 before:w-full motion-reduce:transition-none ${
+                    className={`absolute left-1/2 top-full z-50 mt-1 -translate-x-1/2 origin-top rounded-2xl border border-[var(--coral-dark)]/10 bg-white p-7 shadow-[0_18px_45px_rgba(37,57,44,0.14)] transition-[opacity,transform,visibility] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] before:absolute before:-top-2 before:left-0 before:h-3 before:w-full motion-reduce:transition-none ${
                       openGroup === item.label
                         ? "visible pointer-events-auto translate-y-0 scale-100 opacity-100"
                         : "invisible pointer-events-none translate-y-2 scale-[0.98] opacity-0"
                     }`}
                   >
                     {item.columns ? (
-                      <div className="grid min-w-[560px] grid-cols-2 gap-x-14">
+                      <div
+                        className={`grid ${
+                          item.columns.length > 1
+                            ? "min-w-[560px] grid-cols-2 gap-x-14"
+                            : "min-w-[280px] grid-cols-1"
+                        }`}
+                      >
                         {item.columns.map((column) => (
                           <div key={column.title}>
-                            <p className="mb-3 whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.16em] text-[#a5a5a0]">
+                            <p className="mb-3 whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
                               {column.title}
                             </p>
                             <div className="space-y-0.5">
@@ -284,10 +265,14 @@ export default function Navbar() {
                                   key={child.href}
                                   href={child.href}
                                   onClick={() => setOpenGroup(null)}
-                                  className="group/link flex items-center gap-2 whitespace-nowrap rounded-lg px-2 py-2 text-[15px] text-[#666862] transition-[color,background-color,transform] duration-300 ease-out hover:translate-x-1 hover:bg-[#fff1ef] hover:text-[#E97467] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E97467]/30 motion-reduce:transform-none"
+                                  className="group/link flex items-center gap-2 whitespace-nowrap rounded-lg px-2 py-2 text-[15px] text-[var(--muted)] transition-[color,background-color,transform] duration-300 ease-out hover:translate-x-1 hover:bg-[var(--cream)] hover:text-[var(--terracotta)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--terracotta)]/30 motion-reduce:transform-none"
                                 >
                                   <span
-                                    className="h-px w-0 bg-[#E97467] transition-[width] duration-300 ease-out group-hover/link:w-3"
+                                    aria-hidden="true"
+                                    className="size-1.5 shrink-0 rounded-full bg-[var(--muted)]/40 transition-all duration-300 ease-out group-hover/link:scale-0 group-hover/link:opacity-0"
+                                  />
+                                  <span
+                                    className="h-px w-0 bg-[var(--terracotta)] transition-[width] duration-300 ease-out group-hover/link:w-3"
                                     aria-hidden="true"
                                   />
                                   {child.label}
@@ -304,10 +289,14 @@ export default function Navbar() {
                             key={child.href}
                             href={child.href}
                             onClick={() => setOpenGroup(null)}
-                            className="group/link flex items-center gap-2 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm text-[#666862] transition-[color,background-color,transform] duration-300 ease-out hover:translate-x-1 hover:bg-[#fff1ef] hover:text-[#E97467] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E97467]/30 motion-reduce:transform-none"
+                            className="group/link flex items-center gap-2 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm text-[var(--muted)] transition-[color,background-color,transform] duration-300 ease-out hover:translate-x-1 hover:bg-[var(--cream)] hover:text-[var(--terracotta)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--terracotta)]/30 motion-reduce:transform-none"
                           >
                             <span
-                              className="h-px w-0 bg-[#E97467] transition-[width] duration-300 ease-out group-hover/link:w-3"
+                              aria-hidden="true"
+                              className="size-1.5 shrink-0 rounded-full bg-[var(--muted)]/40 transition-all duration-300 ease-out group-hover/link:scale-0 group-hover/link:opacity-0"
+                            />
+                            <span
+                              className="h-px w-0 bg-[var(--terracotta)] transition-[width] duration-300 ease-out group-hover/link:w-3"
                               aria-hidden="true"
                             />
                             {child.label}
@@ -321,7 +310,7 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="relative whitespace-nowrap rounded-full px-3 py-2.5 text-sm font-medium text-[#344c3b]/75 transition duration-200 after:absolute after:bottom-1.5 after:left-3 after:right-3 after:h-px after:origin-left after:scale-x-0 after:bg-[#7b9365] after:transition-transform after:duration-200 hover:bg-[#edf1e7] hover:text-[#263b2d] hover:after:scale-x-100"
+                  className="relative whitespace-nowrap rounded-full px-3 py-2.5 text-sm font-medium text-[var(--coral-dark)]/75 transition duration-200 after:absolute after:bottom-1.5 after:left-3 after:right-3 after:h-px after:origin-left after:scale-x-0 after:bg-[var(--sage)] after:transition-transform after:duration-200 hover:bg-[var(--cream)] hover:text-[var(--coral-dark)] hover:after:scale-x-100"
                 >
                   {item.label}
                 </Link>
@@ -332,14 +321,14 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href={contactHref}
-              className="relative isolate hidden items-center justify-center overflow-hidden whitespace-nowrap rounded-full border border-[#c95449] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#b9473e] transition-[color,border-color,transform] duration-300 before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:bg-[#cf5b50] before:transition-transform before:duration-300 before:ease-out hover:-translate-y-0.5 hover:border-[#cf5b50] hover:text-white hover:before:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E97467]/30 motion-reduce:transform-none xl:inline-flex"
+              className="relative isolate hidden items-center justify-center overflow-hidden whitespace-nowrap rounded-full border border-[var(--terracotta)] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--terracotta)] transition-[color,border-color,transform] duration-300 before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:bg-[var(--terracotta)] before:transition-transform before:duration-300 before:ease-out hover:-translate-y-0.5 hover:border-[var(--terracotta)] hover:text-white hover:before:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--terracotta)]/30 motion-reduce:transform-none xl:inline-flex"
             >
               Contact
             </Link>
             <Link
               href="/apply"
               aria-label="Reserve your spot"
-              className="group relative isolate hidden items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full border border-[#cf5b50] bg-[#cf5b50] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] !text-white shadow-[0_8px_20px_rgba(207,91,80,0.24)] transition-all duration-300 ease-out before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:rounded-full before:bg-white before:transition-transform before:duration-300 before:ease-out hover:-translate-y-0.5 hover:!text-black hover:border-white hover:shadow-[0_12px_26px_rgba(0,0,0,0.18)] hover:before:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E97467]/40 focus-visible:ring-offset-2 xl:inline-flex"
+              className="group relative isolate hidden items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full border border-[var(--coral)] bg-[var(--coral)] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] !text-white shadow-[0_8px_20px_rgba(47,79,62,0.24)] transition-all duration-300 ease-out before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:rounded-full before:bg-white before:transition-transform before:duration-300 before:ease-out hover:-translate-y-0.5 hover:!text-black hover:border-white hover:shadow-[0_12px_26px_rgba(0,0,0,0.18)] hover:before:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral)]/40 focus-visible:ring-offset-2 xl:inline-flex"
             >
               <ClipboardList
                 aria-hidden="true"
@@ -353,7 +342,7 @@ export default function Navbar() {
             </Link>
             <button
               type="button"
-              className="grid size-10 place-items-center rounded-full border border-[#294936]/15 bg-[#f3f4ed] text-[#344c3b] transition duration-200 hover:border-[#5f7350] hover:bg-[#e9eee2] hover:text-[#5f7350] xl:hidden"
+              className="grid size-10 place-items-center rounded-full border border-[var(--coral-dark)]/15 bg-[var(--cream)] text-[var(--coral-dark)] transition duration-200 hover:border-[var(--sage)] hover:bg-[var(--cream)] hover:text-[var(--sage)] xl:hidden"
               aria-label="Open navigation"
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen(true)}
@@ -366,15 +355,15 @@ export default function Navbar() {
 
       <dialog
         ref={dialogRef}
-        className="m-0 h-dvh max-h-none w-full max-w-none bg-transparent p-0 backdrop:bg-[#262920]/30 backdrop:backdrop-blur-sm open:animate-none"
+        className="m-0 h-dvh max-h-none w-full max-w-none bg-transparent p-0 backdrop:bg-[var(--brown)]/30 backdrop:backdrop-blur-sm open:animate-none"
         onClose={closeMobile}
         onCancel={(event) => {
           event.preventDefault();
           closeMobile();
         }}
       >
-        <div className="flex h-dvh flex-col bg-[#f6f5ef] text-[#33362f]">
-          <div className="flex items-center justify-between border-b border-[#33362f]/10 px-5 py-4">
+        <div className="flex h-dvh flex-col bg-[var(--cream)] text-[var(--brown)]">
+          <div className="flex items-center justify-between border-b border-[var(--brown)]/10 px-5 py-4">
             <Image
               src="/images/logo.png"
               alt={`${site.name} logo`}
@@ -387,7 +376,7 @@ export default function Navbar() {
               type="button"
               aria-label="Close navigation"
               onClick={closeMobile}
-              className="grid size-9 place-items-center rounded-md border border-[#33362f]/15 text-[#33362f]/70 transition duration-150 hover:border-[#5f7350] hover:text-[#5f7350]"
+              className="grid size-9 place-items-center rounded-md border border-[var(--brown)]/15 text-[var(--brown)]/70 transition duration-150 hover:border-[var(--sage)] hover:text-[var(--sage)]"
             >
               <X className="size-4.5" />
             </button>
@@ -408,7 +397,7 @@ export default function Navbar() {
                         mobileGroup === item.label ? null : item.label,
                       )
                     }
-                    className="flex w-full items-center justify-between whitespace-nowrap rounded-xl px-3 py-3 text-left text-[15px] text-[#262920] transition hover:bg-[#edf1e7]"
+                    className="flex w-full items-center justify-between whitespace-nowrap rounded-xl px-3 py-3 text-left text-[15px] text-[var(--brown)] transition hover:bg-[var(--cream)]"
                   >
                     {item.label}
                     <ChevronDown
@@ -419,20 +408,28 @@ export default function Navbar() {
                     />
                   </button>
                   {mobileGroup === item.label && (
-                    <div className="ml-3 border-l border-[#E97467]/20 py-1 pl-3">
+                    <div className="ml-3 border-l border-[var(--terracotta)]/20 py-1 pl-3">
                       {item.columns
                         ? item.columns.map((column) => (
                             <div className="mb-3" key={column.title}>
-                              <p className="px-3 pb-1 pt-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#a5a5a0]">
+                              <p className="px-3 pb-1 pt-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
                                 {column.title}
                               </p>
                               {column.links.map((child) => (
                                 <Link
-                                  href={child.href}
                                   key={child.href}
-                                  onClick={closeMobile}
-                                  className="block whitespace-nowrap rounded-lg px-3 py-2.5 text-sm text-[#33362f]/70 transition duration-150 hover:bg-[#fff1ef] hover:text-[#E97467]"
+                                  href={child.href}
+                                  onClick={() => setOpenGroup(null)}
+                                  className="group/link flex items-center gap-2 whitespace-nowrap rounded-lg px-2 py-2 text-[15px] text-[var(--muted)] transition-[color,background-color,transform] duration-300 ease-out hover:translate-x-1 hover:bg-[var(--cream)] hover:text-[var(--terracotta)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--terracotta)]/30 motion-reduce:transform-none"
                                 >
+                                  <span
+                                    aria-hidden="true"
+                                    className="size-1.5 shrink-0 rounded-full bg-[var(--muted)]/40 transition-all duration-300 ease-out group-hover/link:scale-0 group-hover/link:opacity-0"
+                                  />
+                                  <span
+                                    className="h-px w-0 bg-[var(--terracotta)] transition-[width] duration-300 ease-out group-hover/link:w-3"
+                                    aria-hidden="true"
+                                  />
                                   {child.label}
                                 </Link>
                               ))}
@@ -443,7 +440,7 @@ export default function Navbar() {
                               href={child.href}
                               key={child.href}
                               onClick={closeMobile}
-                              className="block whitespace-nowrap rounded-lg px-3 py-2.5 text-sm text-[#33362f]/70 transition duration-150 hover:bg-[#fff1ef] hover:text-[#E97467]"
+                              className="block whitespace-nowrap rounded-lg px-3 py-2.5 text-sm text-[var(--brown)]/70 transition duration-150 hover:bg-[var(--cream)] hover:text-[var(--terracotta)]"
                             >
                               {child.label}
                             </Link>
@@ -456,7 +453,7 @@ export default function Navbar() {
                   href={item.href}
                   key={item.href}
                   onClick={closeMobile}
-                  className="block whitespace-nowrap rounded-xl px-3 py-3 text-[15px] text-[#262920] transition hover:bg-[#edf1e7]"
+                  className="block whitespace-nowrap rounded-xl px-3 py-3 text-[15px] text-[var(--brown)] transition hover:bg-[var(--cream)]"
                 >
                   {item.label}
                 </Link>
@@ -464,16 +461,16 @@ export default function Navbar() {
             )}
           </nav>
 
-          <div className="flex flex-col gap-2.5 border-t border-[#33362f]/10 p-4">
+          <div className="flex flex-col gap-2.5 border-t border-[var(--brown)]/10 p-4">
             <Link
-              className="inline-flex items-center justify-center rounded-full border border-[#c95449] px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-[#b9473e] transition duration-200 hover:border-[#cf5b50] hover:bg-[#fff1ef]"
+              className="inline-flex items-center justify-center rounded-full border border-[var(--terracotta)] px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--terracotta)] transition duration-200 hover:border-[var(--terracotta)] hover:bg-[var(--cream)]"
               href={contactHref}
               onClick={closeMobile}
             >
               Contact
             </Link>
             <Link
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#cf5b50] px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white transition duration-200 hover:bg-[#b9473e] hover:text-black"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--coral)] px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white transition duration-200 hover:bg-[var(--coral-dark)] hover:text-black"
               href="/apply"
               onClick={closeMobile}
             >

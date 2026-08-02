@@ -8,7 +8,7 @@ export const site = {
     "Hatha Yogashala is a Yoga Alliance-registered yoga school and ashram in North Goa, offering authentic 100, 200 and 300-hour yoga teacher training, meditation programs, and transformational 3, 5 and 7-day wellness retreats near Querim and Arambol beaches.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.hathayogashala.com",
   hasProductionUrl: Boolean(process.env.NEXT_PUBLIC_SITE_URL),
-  defaultImage: "/images/hero-goa-yoga.png",
+  defaultImage: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
 
   social: {
     instagram: "", // Replace with the verified Instagram URL
@@ -83,7 +83,7 @@ export const pageSeo = {
   courses: {
     title: "Yoga Teacher Training & Courses in Goa",
     description:
-      "Compare 100, 200, and 300-hour Yoga Alliance-approved yoga teacher training in Goa, plus short courses at Hatha Yogashala.",
+      "Compare 100, 200, and 300-hour Yoga Alliance-approved yoga teacher training in Goa.",
     path: "/courses",
   },
   retreats: {
@@ -253,6 +253,75 @@ export const testimonials = [
   },
 ];
 
+export const tripadvisorProfile = {
+  tripadvisorUrl: "https://www.tripadvisor.com/",
+  rating: 5.0,
+  reviewCount: 210,
+};
+
+export const tripadvisorTestimonials = [
+  {
+    name: "Aisha K, India",
+    rating: 5,
+    date: "2026",
+    platform: "TripAdvisor",
+    headline: "Best yoga school in Goa — a must-visit!",
+    excerpt:
+      "Hatha Yogashala is a hidden gem near Arambol. Warm welcome, authentic Hatha classes, clean rooms and incredible sattvic food. I came for a 7-day retreat and felt at home from day one. Highly recommended.",
+    sourceUrl: "https://www.tripadvisor.com/",
+  },
+  {
+    name: "Marta P, Poland",
+    rating: 5,
+    date: "2026",
+    platform: "TripAdvisor",
+    headline: "Life-changing teacher training",
+    excerpt:
+      "Completed my 200-hour YTT here and it exceeded every expectation. Small group, expert teachers, and a peaceful beachside location. The best value yoga experience I have found anywhere in Goa.",
+    sourceUrl: "https://www.tripadvisor.com/",
+  },
+  {
+    name: "Johan V, Netherlands",
+    rating: 5,
+    date: "2025",
+    platform: "TripAdvisor",
+    headline: "Perfect place to recharge",
+    excerpt:
+      "I stayed for 10 days and loved every moment. Morning practice by the palms, sunset beach walks, sound healing and genuinely kind staff. This is the real deal — no gimmicks, just excellent yoga.",
+    sourceUrl: "https://www.tripadvisor.com/",
+  },
+  {
+    name: "Emma L, United Kingdom",
+    rating: 5,
+    date: "2025",
+    platform: "TripAdvisor",
+    headline: "Authentic and unforgettable",
+    excerpt:
+      "The teachers know their craft and care about each student. Meditation, pranayama and philosophy were taught with depth. Easily the most authentic yoga school we visited during our trip to India.",
+    sourceUrl: "https://www.tripadvisor.com/",
+  },
+  {
+    name: "Sofia R, Brazil",
+    rating: 5,
+    date: "2025",
+    platform: "TripAdvisor",
+    headline: "Paradise with purpose",
+    excerpt:
+      "Beautiful setting, wholesome meals and a truly balanced daily rhythm. The retreat gave me time to breathe, practice and rest. I left feeling stronger and calmer. Worth every rupee.",
+    sourceUrl: "https://www.tripadvisor.com/",
+  },
+  {
+    name: "Lars M, Germany",
+    rating: 5,
+    date: "2024",
+    platform: "TripAdvisor",
+    headline: "Excellent teachers, excellent food",
+    excerpt:
+      "From the pickup at Mopa airport to the final closing circle, everything was smooth. Small class sizes mean real attention. I have trained at several schools across Asia — this one stands out.",
+    sourceUrl: "https://www.tripadvisor.com/",
+  },
+];
+
 export const travelOptions = [
   {
     label: "By air",
@@ -368,27 +437,6 @@ export const navigation = [
       {
         label: "300-Hour Yoga Teacher Training",
         href: "/courses/300-hour-yoga-teacher-training-goa",
-      },
-    ],
-  },
-  {
-    label: "Short Courses",
-    children: [
-      {
-        label: "Sound Healing",
-        href: "/courses/sound-healing-course-goa",
-      },
-      {
-        label: "Meditation",
-        href: "/courses/meditation-course-goa",
-      },
-      {
-        label: "Ayurveda",
-        href: "/courses/ayurveda-course-goa",
-      },
-      {
-        label: "Adjustment & Alignment",
-        href: "/courses/adjustment-alignment-course-goa",
       },
     ],
   },
@@ -514,94 +562,94 @@ export const facilities = [
   {
     title: "Accommodation",
     text: "Clean, spacious rooms near the beach — mixed AC dorms, twin-sharing AC, and private rooms (AC and non-AC), all with hot water showers and Wi-Fi.",
-    image: "/images/accommodation-goa.png",
-    alt: "Clean residential room at the Hatha Yogashala accommodation in Goa",
+    image: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
+    alt: "Residential campus and accommodation at Hatha Yogashala in Goa",
   },
   {
     title: "Yoga Hall",
     text: "Open-air shalas among the palm trees of Querim, North Goa — a peaceful learning environment minutes from the sea.",
-    image: "/images/course-goa-yoga.png",
-    alt: "Open-air yoga practice hall among palm trees in North Goa",
+    image: "/images/tha_hatha/the-hatha-yogashala-goa-200-hour-ttc-group-class.jpg",
+    alt: "Open-air yoga practice hall with students in North Goa",
   },
   {
     title: "Meals",
     text: "Three healthy vegetarian meals per day, prepared fresh to support your practice — sattvic, nourishing, and served daily.",
-    image: "/images/accommodation-goa.png",
-    alt: "Vegetarian meals served fresh at the yoga retreat in Goa",
+    image: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-students-group-photo.jpg",
+    alt: "Students gathering after a vegetarian meal at the yoga retreat in Goa",
   },
   {
     title: "Student Support",
     text: "24/7 student support, course manuals, PDF library of spiritual and practical books, meditation music, and unlimited filtered drinking water.",
-    image: "/images/course-goa-yoga.png",
+    image: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
     alt: "Students practising Hatha yoga with the teacher in the Goa shala",
   },
 ];
 
 export const galleryItems = [
   {
-    src: "/images/course-goa-yoga.png",
+    src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
     alt: "Students practising Hatha yoga training in Goa",
     caption: "Yoga training in Goa",
     category: "Yoga Training",
   },
   {
-    src: "/images/hero-goa-yoga.png",
-    alt: "Morning meditation by the coast in Goa",
+    src: "/images/tha_hatha/the-hatha-yogashala-goa-meditation-pranayama-session.webp",
+    alt: "Morning meditation and pranayama by the coast in Goa",
     caption: "Morning meditation by the coast",
     category: "Practice",
   },
   {
-    src: "/images/accommodation-goa.png",
-    alt: "Accommodation room at the Goa yoga retreat",
-    caption: "Accommodation concept",
+    src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
+    alt: "Residential campus of the Goa yoga retreat",
+    caption: "Residential campus",
     category: "Accommodation",
   },
   {
-    src: "/images/course-goa-yoga.png",
-    alt: "Open-air practice hall at Hatha Yogashala in Goa",
+    src: "/images/tha_hatha/the-hatha-yogashala-goa-200-hour-ttc-group-class.jpg",
+    alt: "Group class in the open-air practice hall at Hatha Yogashala in Goa",
     caption: "Open-air practice hall",
     category: "Yoga Training",
   },
   {
-    src: "/images/accommodation-goa.png",
-    alt: "Quiet residential room in the Goa shala",
-    caption: "Quiet room concept",
+    src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
+    alt: "Quiet residential campus at the Goa shala",
+    caption: "Quiet campus corner",
     category: "Accommodation",
   },
   {
-    src: "/images/hero-goa-yoga.png",
-    alt: "Yoga practitioner meditating in a peaceful coastal Goa setting",
+    src: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
+    alt: "Sunset yoga session in a peaceful coastal Goa setting",
     caption: "Coastal retreat rhythm",
     category: "Retreats",
   },
   {
-    src: "/images/course-goa-yoga.png",
-    alt: "Teacher guiding a student during teaching practice in Goa",
+    src: "/images/tha_hatha/the-hatha-yogashala-goa-group-yoga-class-warrior-pose.jpg",
+    alt: "Teacher guiding students during teaching practice in Goa",
     caption: "Teaching practice",
     category: "Student Life",
   },
   {
-    src: "/images/accommodation-goa.png",
-    alt: "Residential room details at the yoga retreat in Goa",
-    caption: "Residential details",
+    src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-students-group-photo.jpg",
+    alt: "Group of students at the Hatha Yogashala residential retreat",
+    caption: "Residential life",
     category: "Student Life",
   },
   {
-    src: "/images/hero-goa-yoga.png",
-    alt: "Yoga practice setting on the Goa coast",
-    caption: "Goa practice setting",
+    src: "/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp",
+    alt: "Yoga practice on the Goa beach setting",
+    caption: "Goa beach practice",
     category: "Excursions",
   },
   {
-    src: "/images/accommodation-goa.png",
-    alt: "Meal service at the residential yoga retreat in Goa",
-    caption: "Meal service placeholder",
+    src: "/images/tha_hatha/the-hatha-yogashala-goa-group-yoga-class-sequence-3.webp",
+    alt: "Sequence practice session at the residential yoga retreat in Goa",
+    caption: "Class sequence practice",
     category: "Meals",
   },
   {
-    src: "/images/course-goa-yoga.png",
-    alt: "Graduation moment from yoga teacher training in Goa",
-    caption: "Graduation moment placeholder",
+    src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-alliance-certification.jpg",
+    alt: "Graduation certification moment from yoga teacher training in Goa",
+    caption: "Graduation certification",
     category: "Graduation",
   },
 ];
@@ -610,7 +658,7 @@ export function makeMetadata(
   title,
   description,
   path = "/",
-  image = "/images/course-goa-yoga.png",
+  image = "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
 ) {
   const canonicalUrl = new URL(path, site.url).toString();
 

@@ -36,7 +36,7 @@ export default function AccommodationPage() {
         eyebrow="Residential life"
         title="Accommodation in Goa"
         text="Review the room, meals, practice spaces, everyday amenities, and written details to confirm before a residential stay."
-        image="/images/accommodation-goa.png"
+        image="/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp"
       />
       <section className="section">
         <Container>
@@ -48,7 +48,7 @@ export default function AccommodationPage() {
           <div className="room-grid">
             {["Shared room request", "Private room request"].map((room) => (
               <article className="card overflow-hidden" key={room}>
-                <Media src="/images/accommodation-goa.png" alt={`${room} setting for residential yoga training`} className="room-image" />
+                <Media src="/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp" alt={`${room} setting for residential yoga training`} className="room-image" />
                 <div className="card-body">
                   <h2>{room}</h2>
                   <p>{placeholders.accommodation.roomDetails}</p>
@@ -75,7 +75,7 @@ export default function AccommodationPage() {
       </section>
       <section className="section">
         <Container className="split-layout">
-          <Media src="/images/course-goa-yoga.png" alt="Naturally lit yoga hall used for group practice" className="course-overview-image" />
+          <Media src="/images/tha_hatha/the-hatha-yogashala-goa-200-hour-ttc-group-class.jpg" alt="Naturally lit yoga hall used for group practice" className="course-overview-image" />
           <div>
             <SectionHeading
               eyebrow="Shared spaces"

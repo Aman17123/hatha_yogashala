@@ -15,22 +15,26 @@ import {
 } from "lucide-react";
 
 export function CountUp({ value, suffix = "" }) {
-  const [display, setDisplay] = useState(value);
+  const [display, setDisplay] = useState(0);
+  const started = useRef(false);
   const ref = useRef(null);
 
   useEffect(() => {
     const node = ref.current;
-    if (!node || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
+    if (!node) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const frame = requestAnimationFrame(() => setDisplay(value));
+      return () => cancelAnimationFrame(frame);
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) return;
+        if (!entry.isIntersecting || started.current) return;
+        started.current = true;
 
         const startedAt = performance.now();
         const duration = 1100;
-        setDisplay(0);
 
         function tick(now) {
           const progress = Math.min((now - startedAt) / duration, 1);
@@ -49,9 +53,9 @@ export function CountUp({ value, suffix = "" }) {
   }, [value]);
 
   return (
-    <span ref={ref} aria-label={`${value.toLocaleString()}${suffix}`}>
+    <span ref={ref} aria-label={`${value.toLocaleString("en-IN")}${suffix}`}>
       <span aria-hidden="true">
-        {display.toLocaleString()}
+        {display.toLocaleString("en-IN")}
         {suffix}
       </span>
     </span>
@@ -93,9 +97,11 @@ export function Reveal({ children, className = "" }) {
 
 function RichText({ text }) {
   if (typeof text !== "string" || !text.includes("**")) return text;
-  return text.split("**").map((part, index) =>
-    index % 2 === 1 ? <strong key={index}>{part}</strong> : part,
-  );
+  return text
+    .split("**")
+    .map((part, index) =>
+      index % 2 === 1 ? <strong key={index}>{part}</strong> : part,
+    );
 }
 
 export function Accordion({ items, initialOpen = 0 }) {
@@ -105,7 +111,11 @@ export function Accordion({ items, initialOpen = 0 }) {
     <div className="accordion">
       {items.map((item, index) => {
         const isOpen = open === index;
-        const id = `accordion-panel-${index}-${item.question || item.title}`.replace(/\W+/g, "-");
+        const id =
+          `accordion-panel-${index}-${item.question || item.title}`.replace(
+            /\W+/g,
+            "-",
+          );
         return (
           <div className="accordion-item" key={item.question || item.title}>
             <h3>
@@ -146,7 +156,8 @@ export function WhyChooser({ items, children }) {
     const keys = ["ArrowDown", "ArrowRight", "ArrowUp", "ArrowLeft"];
     if (!keys.includes(event.key)) return;
     event.preventDefault();
-    const direction = event.key === "ArrowDown" || event.key === "ArrowRight" ? 1 : -1;
+    const direction =
+      event.key === "ArrowDown" || event.key === "ArrowRight" ? 1 : -1;
     const next = (index + direction + items.length) % items.length;
     setActive(next);
     buttons.current[next]?.focus();
@@ -221,10 +232,18 @@ export function HorizontalScroller({ children, label = "items" }) {
   return (
     <div>
       <div className="scroller-controls">
-        <button type="button" onClick={() => scroll(-1)} aria-label={`Previous ${label}`}>
+        <button
+          type="button"
+          onClick={() => scroll(-1)}
+          aria-label={`Previous ${label}`}
+        >
           <ArrowLeft aria-hidden="true" size={19} />
         </button>
-        <button type="button" onClick={() => scroll(1)} aria-label={`Next ${label}`}>
+        <button
+          type="button"
+          onClick={() => scroll(1)}
+          aria-label={`Next ${label}`}
+        >
           <ArrowRight aria-hidden="true" size={19} />
         </button>
       </div>
@@ -241,7 +260,10 @@ export function Gallery({ items, filters = true }) {
   const [selected, setSelected] = useState(null);
   const dialogRef = useRef(null);
 
-  const visible = category === "All" ? items : items.filter((item) => item.category === category);
+  const visible =
+    category === "All"
+      ? items
+      : items.filter((item) => item.category === category);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -255,7 +277,9 @@ export function Gallery({ items, filters = true }) {
   }, [selected]);
 
   function move(offset) {
-    setSelected((current) => (current + offset + visible.length) % visible.length);
+    setSelected(
+      (current) => (current + offset + visible.length) % visible.length,
+    );
   }
 
   return (
@@ -307,7 +331,12 @@ export function Gallery({ items, filters = true }) {
       >
         {selected !== null && (
           <div>
-            <button type="button" className="lightbox-close" onClick={() => setSelected(null)} aria-label="Close image">
+            <button
+              type="button"
+              className="lightbox-close"
+              onClick={() => setSelected(null)}
+              aria-label="Close image"
+            >
               <X aria-hidden="true" />
             </button>
             <div className="lightbox-image">
@@ -321,10 +350,18 @@ export function Gallery({ items, filters = true }) {
             </div>
             <p>{visible[selected].caption}</p>
             <div className="lightbox-controls">
-              <button type="button" onClick={() => move(-1)} aria-label="Previous image">
+              <button
+                type="button"
+                onClick={() => move(-1)}
+                aria-label="Previous image"
+              >
                 <ArrowLeft aria-hidden="true" />
               </button>
-              <button type="button" onClick={() => move(1)} aria-label="Next image">
+              <button
+                type="button"
+                onClick={() => move(1)}
+                aria-label="Next image"
+              >
                 <ArrowRight aria-hidden="true" />
               </button>
             </div>
@@ -337,11 +374,13 @@ export function Gallery({ items, filters = true }) {
 
 export function BlogCard({ post }) {
   const formatDate = (value) =>
-    new Intl.DateTimeFormat("en-IN", { day: "numeric", month: "short", year: "numeric" }).format(
-      new Date(value),
-    );
+    new Intl.DateTimeFormat("en-IN", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    }).format(new Date(value));
   return (
-    <article className="blog-card group flex h-full flex-col overflow-hidden rounded-[24px] border border-[#e8ddd6] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#cf5b50]/40 hover:shadow-xl">
+    <article className="blog-card group flex h-full flex-col overflow-hidden rounded-[24px] border border-[var(--border)] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[var(--terracotta)]/40 hover:shadow-xl">
       <Link href={`/blog/${post.slug}`} className="flex flex-1 flex-col">
         <div className="blog-card-image relative overflow-hidden">
           <Image
@@ -355,13 +394,13 @@ export function BlogCard({ post }) {
           <span className="blog-card-category">{post.category}</span>
         </div>
         <div className="flex flex-1 flex-col p-6">
-          <h3 className="font-serif text-lg font-bold leading-snug text-black transition-colors group-hover:text-[#cf5b50]">
+          <h3 className="font-serif text-lg font-bold leading-snug text-black transition-colors group-hover:text-[var(--terracotta)]">
             {post.title}
           </h3>
           <p className="mt-2.5 text-xs leading-relaxed text-black/70 line-clamp-3">
             {post.excerpt}
           </p>
-          <div className="blog-card-meta mt-4 flex flex-wrap gap-x-4 gap-y-1.5 border-t border-[#f0ebe6] pt-4 text-[11px] font-medium text-[#9b8a7e]">
+          <div className="blog-card-meta mt-4 flex flex-wrap gap-x-4 gap-y-1.5 border-t border-[var(--border)] pt-4 text-[11px] font-medium text-[var(--muted)]">
             <span className="flex items-center gap-1.5">
               <UserRound size={13} aria-hidden="true" />
               {post.author}
@@ -375,9 +414,13 @@ export function BlogCard({ post }) {
               {post.readingTime}
             </span>
           </div>
-          <span className="mt-auto flex items-center gap-1.5 pt-5 text-xs font-bold uppercase tracking-[0.1em] text-[#cf5b50]">
+          <span className="mt-auto flex items-center gap-1.5 pt-5 text-xs font-bold uppercase tracking-[0.1em] text-[var(--terracotta)]">
             Read article
-            <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+            <ArrowRight
+              size={14}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+              aria-hidden="true"
+            />
           </span>
         </div>
       </Link>
@@ -395,7 +438,9 @@ export function BlogExplorer({ posts, perPage = 6 }) {
       posts.filter(
         (post) =>
           (category === "All" || post.category === category) &&
-          `${post.title} ${post.excerpt}`.toLowerCase().includes(query.toLowerCase()),
+          `${post.title} ${post.excerpt}`
+            .toLowerCase()
+            .includes(query.toLowerCase()),
       ),
     [category, posts, query],
   );
@@ -418,7 +463,9 @@ export function BlogExplorer({ posts, perPage = 6 }) {
           <input
             type="search"
             value={query}
-            onChange={(event) => applyFilters({ query: event.target.value, category })}
+            onChange={(event) =>
+              applyFilters({ query: event.target.value, category })
+            }
             placeholder="Search articles"
           />
         </label>
@@ -447,7 +494,9 @@ export function BlogExplorer({ posts, perPage = 6 }) {
         ))}
       </div>
 
-      {!results.length && <p className="empty-state">No articles match this search.</p>}
+      {!results.length && (
+        <p className="empty-state">No articles match this search.</p>
+      )}
 
       {totalPages > 1 && (
         <nav className="blog-pagination" aria-label="Blog pagination">
@@ -459,18 +508,20 @@ export function BlogExplorer({ posts, perPage = 6 }) {
           >
             <ArrowLeft size={16} aria-hidden="true" />
           </button>
-          {Array.from({ length: totalPages }, (_, index) => index + 1).map((num) => (
-            <button
-              type="button"
-              key={num}
-              data-active={num === safePage}
-              onClick={() => setPage(num)}
-              aria-label={`Page ${num}`}
-              aria-current={num === safePage ? "page" : undefined}
-            >
-              {num}
-            </button>
-          ))}
+          {Array.from({ length: totalPages }, (_, index) => index + 1).map(
+            (num) => (
+              <button
+                type="button"
+                key={num}
+                data-active={num === safePage}
+                onClick={() => setPage(num)}
+                aria-label={`Page ${num}`}
+                aria-current={num === safePage ? "page" : undefined}
+              >
+                {num}
+              </button>
+            ),
+          )}
           <button
             type="button"
             onClick={() => setPage((value) => Math.min(totalPages, value + 1))}
@@ -502,7 +553,11 @@ export function CourseContents({ items }) {
 
   return (
     <>
-      <button type="button" className="contents-trigger" onClick={() => setOpen(true)}>
+      <button
+        type="button"
+        className="contents-trigger"
+        onClick={() => setOpen(true)}
+      >
         Contents
       </button>
       <dialog
@@ -517,13 +572,21 @@ export function CourseContents({ items }) {
         <div>
           <div className="contents-top">
             <h2>On this page</h2>
-            <button type="button" onClick={() => setOpen(false)} aria-label="Close contents">
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              aria-label="Close contents"
+            >
               <X aria-hidden="true" />
             </button>
           </div>
           <nav aria-label="Course page sections">
             {items.map((item) => (
-              <a href={`#${item.id}`} key={item.id} onClick={() => setOpen(false)}>
+              <a
+                href={`#${item.id}`}
+                key={item.id}
+                onClick={() => setOpen(false)}
+              >
                 {item.label}
               </a>
             ))}

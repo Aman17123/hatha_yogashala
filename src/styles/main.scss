@@ -1,0 +1,18 @@
+// ─────────────────────────────────────────────────────────────
+// main.scss — SCSS entry for all custom styles.
+// Imported from src/app/layout.jsx AFTER the Tailwind entry
+// (globals.css) so layer/order semantics stay predictable.
+//
+//   _tokens   — SCSS $vars (repeated literals)
+//   _theme    — design tokens (:root, themes) + dark fixes   [@layer base]
+//   _base     — reset & element defaults                     [@layer base]
+//   _layout   — site-wide components + responsive            [@layer components]
+//   _retreat  — retreat page + blog enhancements             [@layer components]
+// ─────────────────────────────────────────────────────────────
+
+@use "tokens" as *;
+@use "theme";
+@use "base";
+@use "layout";
+@use "retreat";
+@use "home";

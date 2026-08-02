@@ -11,7 +11,7 @@ export default function RetreatsPage() {
         eyebrow="Coastal practice"
         title="Yoga Retreats in Goa"
         text="Choose a pace that leaves space for both guided practice and genuine rest."
-        image="/images/hero-goa-yoga.png"
+        image="/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp"
       />
       <section className="section">
         <Container>

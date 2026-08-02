@@ -58,7 +58,7 @@ export default function TestimonialCarousel({ testimonials }) {
                 {Array.from({ length: 5 }, (_, i) => (
                   <Star
                     key={i}
-                    className={`size-4 ${i < item.rating ? "fill-[#f5a623] text-[#f5a623]" : "text-[#e8ddd6]"}`}
+                    className={`size-4 ${i < item.rating ? "fill-[var(--gold)] text-[var(--gold)]" : "text-[var(--border)]"}`}
                     aria-hidden="true"
                   />
                 ))}
