@@ -60,6 +60,8 @@ export const metadata = {
     images: [
       {
         url: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
+        width: 1792,
+        height: 896,
         alt: "Hatha Yogashala yoga school campus in Goa",
       },
     ],
@@ -108,6 +110,7 @@ export default function RootLayout({ children }) {
     name: site.name,
     url: site.url,
     inLanguage: "en-IN",
+    dateModified: "2026-07-20",
   };
 
   return (

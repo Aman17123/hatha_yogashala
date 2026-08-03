@@ -38,10 +38,9 @@ export function absoluteUrl(path = "/") {
 
 export const pageSeo = {
   home: {
-    title:
-      "Best Yoga School in Goa | Hatha Yogashala | Yoga Teacher Training & Retreats",
+    title: "Yoga School in Goa — Teacher Training & Retreats",
     description:
-      "Hatha Yogashala is one of the best yoga schools in Goa — Yoga Alliance-approved yoga teacher training in Goa, meditation programs and transformative wellness retreats near the beach. Book now.",
+      "Hatha Yogashala is a Yoga Alliance-registered yoga school in Goa offering 100–300-hour teacher training and 3–10 day wellness retreats near Querim beach. Book now.",
     path: "/",
   },
   about: {

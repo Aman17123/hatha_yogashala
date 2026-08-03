@@ -204,9 +204,11 @@ export default function HomePage() {
               <em>practice, place &amp; presence.</em>
             </p>
             <p>
-              Explore residential Hatha yoga teacher training and restorative
-              yoga retreats in Goa, with clear course scope, thoughtful student
-              support, and no unsupported claims.
+              Hatha Yogashala is a Yoga Alliance-registered yoga school and
+              ashram in Querim, North Goa, offering residential Hatha yoga
+              teacher training (100, 200, and 300-hour) and restorative yoga
+              retreats (3 to 10 days) with clear course scope, thoughtful
+              student support, and no unsupported claims.
             </p>
             <div className="hero-actions">
               <ButtonLink href="/apply">Reserve your spot</ButtonLink>
@@ -297,12 +299,12 @@ export default function HomePage() {
       {/* ===== 4. TEACHER TRAINING — 100/200/300-hour program cards ===== */}
       <section className="section section-peach" id="courses">
         <Container>
-          <SectionHeading
-            eyebrow="Teacher training"
-            title="Choose the depth that fits your path"
-            text="Compare level, curriculum, accommodation, completion details, and fees before choosing by hour count."
-            align="center"
-          />
+            <SectionHeading
+              eyebrow="Teacher training"
+              title="Choose the yoga teacher training depth that fits your path"
+              text="Compare level, curriculum, accommodation, completion details, and fees before choosing by hour count."
+              align="center"
+            />
           <div className="grid gap-5 lg:grid-cols-3">
             {teacherTrainings.map((course) => (
               <ProgramCard key={course.slug} course={course} />
@@ -314,12 +316,12 @@ export default function HomePage() {
       {/* ===== 5. RETREATS — coastal retreat cards ===== */}
       <section className="section" id="retreats">
         <Container>
-          <SectionHeading
-            eyebrow="Coastal retreats"
-            title="Make room for practice—and for rest"
-            text="Each retreat is a personal-practice experience, not a teacher-training course or professional certification."
-            align="center"
-          />
+            <SectionHeading
+              eyebrow="Coastal retreats"
+              title="Yoga retreats to make room for practice and rest"
+              text="Each retreat is a personal-practice experience, not a teacher-training course or professional certification."
+              align="center"
+            />
           <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {retreats.map((retreat) => (
               <RetreatCard key={retreat.slug} retreat={retreat} />
@@ -340,7 +342,7 @@ export default function HomePage() {
           <WhyChooser items={whyItems}>
             <SectionHeading
               eyebrow="Why choose us"
-              title="What should earn your trust"
+              title="What should earn your trust in a yoga school"
               text="Good yoga education begins with information you can inspect and questions you are welcome to ask."
             />
           </WhyChooser>
@@ -350,12 +352,12 @@ export default function HomePage() {
       {/* ===== 10. COURSE COMPARISON — 100 vs 200 vs 300-hour table ===== */}
       <section className="section section-cream" id="comparison">
         <Container>
-          <SectionHeading
-            eyebrow="Course comparison"
-            title="100, 200, or 300 Hours Yoga Teacher Training?"
-            text="The 200-hour course is the recommended starting point for aspiring yoga teachers. Compare all pathways and find your perfect match."
-            align="center"
-          />
+            <SectionHeading
+              eyebrow="Course comparison"
+              title="100, 200, or 300-Hour Yoga Teacher Training?"
+              text="The 200-hour course is the recommended starting point for aspiring yoga teachers. Compare all yoga teacher training pathways and find your perfect match."
+              align="center"
+            />
 
           {/* Desktop: Three standalone pop-out cards side by side */}
           <div className="mt-10 hidden md:grid md:grid-cols-3 gap-6 items-start">
@@ -588,8 +590,8 @@ export default function HomePage() {
             <div>
               <SectionHeading
                 eyebrow="Why Goa"
-                title="A coastal setting for residential yoga study"
-                text="Goa can support early practice, unhurried recovery, and time outdoors when weather, travel, hydration, and rest are planned responsibly."
+                title="A coastal setting for residential yoga study in Goa"
+                text="Goa can support early yoga practice, unhurried recovery, and time outdoors when weather, travel, hydration, and rest are planned responsibly."
               />
               <div className="mt-5 grid gap-4 text-[15.5px] leading-7 text-black/70">
                 <p>
@@ -687,11 +689,11 @@ export default function HomePage() {
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
             {/* Left — sticky editorial intro */}
             <div className="lg:sticky lg:top-24">
-              <SectionHeading
-                eyebrow="Residential experience"
-                title="The spaces around the practice matter"
-                text="Confirm the exact room, yoga hall, meals, facilities, and support attached to your batch before payment."
-              />
+            <SectionHeading
+              eyebrow="Residential experience"
+              title="Yoga accommodation and spaces around the practice"
+              text="Confirm the exact room, yoga hall, meals, facilities, and support attached to your batch before payment."
+            />
               <p className="mt-5 max-w-md text-sm leading-7 text-black/60">
                 Your stay is part of the practice. Rooms, shalas, meals, and
                 student support are confirmed in writing before any reservation
@@ -760,7 +762,7 @@ export default function HomePage() {
         <Container>
           <SectionHeading
             eyebrow="A glimpse of Goa"
-            title="Practice, rest, and coastal surroundings"
+            title="Yoga practice, rest, and coastal surroundings"
             text="A deliberate mix of portrait, landscape, and detail images keeps the gallery balanced without stretching or empty tiles."
             align="center"
           />
@@ -862,7 +864,7 @@ export default function HomePage() {
           <div className="flex flex-wrap items-end justify-between gap-6">
             <SectionHeading
               eyebrow="From the journal"
-              title="Guides to practise, plan & prepare"
+              title="Yoga guides to practise, plan and prepare"
               text="Original, practical articles on yoga study, Goa travel, and building a sustainable home practice."
             />
             <ButtonLink href="/blog" variant="text" className="shrink-0">
