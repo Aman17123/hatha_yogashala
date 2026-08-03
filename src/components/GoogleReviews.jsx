@@ -40,7 +40,8 @@ function Avatar({ name, image, gradientClass }) {
   return (
     <span
       className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-[13px] font-black text-white ${
-        gradientClass || "bg-gradient-to-br from-[var(--terracotta)] to-[#ffb38a]"
+        gradientClass ||
+        "bg-gradient-to-br from-[var(--terracotta)] to-[#ffb38a]"
       }`}
     >
       {initial}
@@ -48,7 +49,7 @@ function Avatar({ name, image, gradientClass }) {
   );
 }
 
-function GoogleG({ className = "h-6 w-6" }) {
+function GoogleG({ className = "h-16 w-16" }) {
   return (
     <svg
       viewBox="0 0 18 18"
@@ -76,7 +77,7 @@ function GoogleG({ className = "h-6 w-6" }) {
   );
 }
 
-function TripAdvisorLogo({ className = "h-7 w-7" }) {
+function TripAdvisorLogo({ className = "h-17 w-17" }) {
   return (
     <svg
       viewBox="0 0 48 48"

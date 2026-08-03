@@ -8,7 +8,8 @@ export const site = {
     "Hatha Yogashala is a Yoga Alliance-registered yoga school and ashram in North Goa, offering authentic 100, 200 and 300-hour yoga teacher training, meditation programs, and transformational 3, 5 and 7-day wellness retreats near Querim and Arambol beaches.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.hathayogashala.com",
   hasProductionUrl: Boolean(process.env.NEXT_PUBLIC_SITE_URL),
-  defaultImage: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
+  defaultImage:
+    "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
 
   social: {
     instagram: "", // Replace with the verified Instagram URL
@@ -20,10 +21,13 @@ export const site = {
     phone: "+91 9004290242",
     whatsapp: "+91 9004290242",
     email: "admin@hathayogashala.com",
-    address: "Querim–Arambol–Agarwada Rd, Dhaktebag, Pernem, North Goa 403524, India",
+    address:
+      "Querim–Arambol–Agarwada Rd, Dhaktebag, Pernem, North Goa 403524, India",
     map: "https://www.google.com/maps?q=Hatha+Yogashala+Querim+Goa",
-    directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=Hatha+Yogashala+Querim+Goa",
-    mapEmbedUrl: "https://www.google.com/maps?q=Hatha+Yogashala+Querim+Pernem+Goa+403524&output=embed",
+    directionsUrl:
+      "https://www.google.com/maps/dir/?api=1&destination=Hatha+Yogashala+Querim+Goa",
+    mapEmbedUrl:
+      "https://www.google.com/maps?q=Hatha+Yogashala+Querim+Pernem+Goa+403524&output=embed",
   },
 };
 
@@ -33,7 +37,8 @@ export function absoluteUrl(path = "/") {
 
 export const pageSeo = {
   home: {
-    title: "Best Yoga School in Goa | Hatha Yogashala | Yoga Teacher Training & Retreats",
+    title:
+      "Best Yoga School in Goa | Hatha Yogashala | Yoga Teacher Training & Retreats",
     description:
       "Hatha Yogashala is one of the best yoga schools in Goa — Yoga Alliance-approved yoga teacher training in Goa, meditation programs and transformative wellness retreats near the beach. Book now.",
     path: "/",
@@ -479,34 +484,57 @@ export const teachers = [
   {
     name: "Lead Teacher — Director of Yoga Education",
     role: "Lead Teacher · Hatha, Ashtanga Vinyasa, Pranayama, Meditation, Ayurveda",
-    specialties: ["Hatha Yoga", "Ashtanga Vinyasa", "Pranayama", "Meditation", "Ayurveda"],
+    specialties: [
+      "Hatha Yoga",
+      "Ashtanga Vinyasa",
+      "Pranayama",
+      "Meditation",
+      "Ayurveda",
+    ],
     experience: "15+ years teaching yoga teacher training",
-    qualifications: "E-RYT 500 (Yoga Alliance), Advanced Ashtanga certification, Ayurvedic wellness training",
-    bio: "\"Yoga is a path of self-inquiry. I teach from the breath outward, guiding students to find alignment, steadiness, and ease — on the mat and in life.\" Mentored 1,500+ certified teachers now teaching across Europe, Russia, and the Americas.",
+    qualifications:
+      "E-RYT 500 (Yoga Alliance), Advanced Ashtanga certification, Ayurvedic wellness training",
+    bio: '"Yoga is a path of self-inquiry. I teach from the breath outward, guiding students to find alignment, steadiness, and ease — on the mat and in life." Mentored 1,500+ certified teachers now teaching across Europe, Russia, and the Americas.',
   },
   {
     name: "Senior Ashtanga & Philosophy Teacher",
     role: "Ashtanga Primary Series · Yoga Philosophy, Sutras, Sacred Texts",
-    specialties: ["Ashtanga Primary Series", "Yoga Philosophy", "Yoga Sutras", "Sacred Texts"],
+    specialties: [
+      "Ashtanga Primary Series",
+      "Yoga Philosophy",
+      "Yoga Sutras",
+      "Sacred Texts",
+    ],
     experience: "12+ years of practice and teaching",
     qualifications: "E-RYT 500, Ashtanga Yoga certification",
-    bio: "\"Asana is the beginning, not the end. I help students connect each posture to the deeper teachings of the eight limbs.\" Guides students in mastering the A and B series with a strong foundation in Sanskrit and tradition.",
+    bio: '"Asana is the beginning, not the end. I help students connect each posture to the deeper teachings of the eight limbs." Guides students in mastering the A and B series with a strong foundation in Sanskrit and tradition.',
   },
   {
     name: "Anatomy & Adjustment Specialist",
     role: "Anatomy, Biomechanics, Trauma-Informed Teaching, Alignment",
-    specialties: ["Anatomy", "Biomechanics", "Trauma-Informed Teaching", "Alignment"],
+    specialties: [
+      "Anatomy",
+      "Biomechanics",
+      "Trauma-Informed Teaching",
+      "Alignment",
+    ],
     experience: "10+ years in yoga anatomy and hands-on adjustment",
     qualifications: "E-RYT 200 / RYT 500, Anatomy and Adjustment training",
-    bio: "\"Safe alignment changes everything. I teach with anatomical precision so every student practices without injury.\" Developed the adjustment and alignment program for our 100, 200, and 300-hour courses.",
+    bio: '"Safe alignment changes everything. I teach with anatomical precision so every student practices without injury." Developed the adjustment and alignment program for our 100, 200, and 300-hour courses.',
   },
   {
     name: "Meditation & Pranayama Teacher",
     role: "Pranayama, Vigyan Bhairav Tantra, Sound Healing, Kirtan",
-    specialties: ["Pranayama", "Vigyan Bhairav Tantra", "Sound Healing", "Kirtan"],
+    specialties: [
+      "Pranayama",
+      "Vigyan Bhairav Tantra",
+      "Sound Healing",
+      "Kirtan",
+    ],
     experience: "10+ years guiding meditation retreats",
-    qualifications: "RYT 500, Meditation teacher certification, Sound healing training",
-    bio: "\"The breath is the bridge between body and mind. My classes help students discover stillness and inner balance.\" Led 300+ meditation and kirtan sessions for retreat guests and YTT students.",
+    qualifications:
+      "RYT 500, Meditation teacher certification, Sound healing training",
+    bio: '"The breath is the bridge between body and mind. My classes help students discover stillness and inner balance." Led 300+ meditation and kirtan sessions for retreat guests and YTT students.',
   },
 ];
 
@@ -562,25 +590,29 @@ export const facilities = [
   {
     title: "Accommodation",
     text: "Clean, spacious rooms near the beach — mixed AC dorms, twin-sharing AC, and private rooms (AC and non-AC), all with hot water showers and Wi-Fi.",
-    image: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
     alt: "Residential campus and accommodation at Hatha Yogashala in Goa",
   },
   {
     title: "Yoga Hall",
     text: "Open-air shalas among the palm trees of Querim, North Goa — a peaceful learning environment minutes from the sea.",
-    image: "/images/tha_hatha/the-hatha-yogashala-goa-200-hour-ttc-group-class.jpg",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-200-hour-ttc-group-class.jpg",
     alt: "Open-air yoga practice hall with students in North Goa",
   },
   {
     title: "Meals",
     text: "Three healthy vegetarian meals per day, prepared fresh to support your practice — sattvic, nourishing, and served daily.",
-    image: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-students-group-photo.jpg",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-students-group-photo.jpg",
     alt: "Students gathering after a vegetarian meal at the yoga retreat in Goa",
   },
   {
     title: "Student Support",
     text: "24/7 student support, course manuals, PDF library of spiritual and practical books, meditation music, and unlimited filtered drinking water.",
-    image: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
     alt: "Students practising Hatha yoga with the teacher in the Goa shala",
   },
 ];

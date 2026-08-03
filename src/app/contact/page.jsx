@@ -46,7 +46,13 @@ export default function ContactPage() {
           </div>
           <aside className="contact-aside">
             {[
-              ["WhatsApp", site.contact.whatsapp, SiWhatsapp, "whatsapp", "#25D366"],
+              [
+                "WhatsApp",
+                site.contact.whatsapp,
+                SiWhatsapp,
+                "whatsapp",
+                "#25D366",
+              ],
               ["Email", site.contact.email, Mail, "email"],
               ["Phone", site.contact.phone, Phone, "phone"],
               ["Address", site.contact.address, MapPin, "address"],
@@ -57,7 +63,10 @@ export default function ContactPage() {
                   size={24}
                   style={iconColor ? { color: iconColor } : undefined}
                 />
-                <div><strong>{label}</strong><p>{value}</p></div>
+                <div>
+                  <strong>{label}</strong>
+                  <p>{value}</p>
+                </div>
               </div>
             ))}
             <p className="placeholder-note">
@@ -67,6 +76,7 @@ export default function ContactPage() {
           </aside>
         </Container>
       </section>
+
       <section className="section section-peach" id="travel">
         <Container>
           <SectionHeading
@@ -76,9 +86,20 @@ export default function ContactPage() {
           />
           <div className="travel-grid">
             {travelOptions.map(({ label, text }) => {
-              const Icon = label === "By air" ? Plane : label === "By train" ? Train : label === "By bus" ? Bus : MapPin;
+              const Icon =
+                label === "By air"
+                  ? Plane
+                  : label === "By train"
+                    ? Train
+                    : label === "By bus"
+                      ? Bus
+                      : MapPin;
               return (
-              <article className="card card-body" key={label}><Icon aria-hidden="true" /><h2>{label}</h2><p>{text}</p></article>
+                <article className="card card-body" key={label}>
+                  <Icon aria-hidden="true" />
+                  <h2>{label}</h2>
+                  <p>{text}</p>
+                </article>
               );
             })}
           </div>
@@ -112,7 +133,10 @@ export default function ContactPage() {
       </section>
       <section className="section">
         <Container className="content-narrow">
-          <SectionHeading eyebrow="Contact FAQ" title="Useful answers before you write" />
+          <SectionHeading
+            eyebrow="Contact FAQ"
+            title="Useful answers before you write"
+          />
           <Accordion items={contactFaqs} />
         </Container>
       </section>

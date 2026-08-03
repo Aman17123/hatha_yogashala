@@ -146,14 +146,13 @@ export const founderData = {
 export const teachersData = [
   {
     id: "lead-teacher",
-    name: "Lead Teacher",
+    name: "Pradeep Singh",
     role: "Founder & Director of Yoga Education",
     specialty: "Hatha Yoga, Philosophy & Teacher Training",
     bio: "Leads the teacher-training curriculum, pranayama, and classical text studies. With more than 15 years of experience and E-RYT 500 certification, has mentored over 1,500 certified teachers worldwide.",
     qualifications: "E-RYT 500 (Yoga Alliance)",
     experience: "15+ Years",
-    image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-portrait.webp",
+    image: "/images/tha_hatha/Pradeep-Singh.png",
     imageAlt:
       "Portrait of the lead Hatha yoga teacher at Hatha Yogashala in Goa",
     coursesTaught: [
@@ -164,14 +163,13 @@ export const teachersData = [
   },
   {
     id: "senior-ashtanga-teacher",
-    name: "Senior Ashtanga Teacher",
+    name: "Yogendra Nawale",
     role: "Ashtanga Vinyasa Faculty",
     specialty: "Ashtanga Vinyasa & Mysore Practice",
     bio: "Certified Ashtanga Vinyasa teacher (under Paramaguru Sharath Jois, Mysore) with 10+ years of experience. Leads Mysore-style practice, sequencing, and teaching methodology.",
     qualifications: "Certified Ashtanga (Mysore) Teacher",
     experience: "10+ Years",
-    image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-asana-practice-1.webp",
+    image: "/images/tha_hatha/pranayama-meditation-goa.png",
     imageAlt: "Senior Ashtanga teacher demonstrating alignment in Goa",
     coursesTaught: [
       "200-Hour Yoga Teacher Training",
@@ -180,14 +178,13 @@ export const teachersData = [
   },
   {
     id: "hatha-philosophy-teacher",
-    name: "Hatha & Philosophy Teacher",
+    name: "Surbhi Babhulkar",
     role: "Philosophy, Sanskrit & Meditation Faculty",
     specialty: "Yoga Philosophy, Sanskrit, Meditation",
     bio: "Guides daily meditation, philosophy, Sanskrit, and chanting studies — deepening students' understanding of the traditions behind the practice.",
     qualifications: "Traditional Hatha & Philosophy Scholar",
     experience: "10+ Years",
-    image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-philosophy-class.jpg",
+    image: "/images/tha_hatha/Surbhi-Babhulkar.png",
     imageAlt:
       "Philosophy and meditation class led by the Hatha philosophy teacher",
     coursesTaught: [

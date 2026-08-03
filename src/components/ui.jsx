@@ -201,7 +201,9 @@ export function PriceRow({ label, price, currency }) {
 }
 
 export function ProgramCard({ course, horizontal = false }) {
-  const image = course.image || "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp";
+  const image =
+    course.image ||
+    "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp";
   const stats = course.cardStats || {};
   const pricing = course.pricing || null;
   const currency = pricing?.currency || "$";
