@@ -320,7 +320,7 @@ export function RetreatCard({ retreat }) {
   const meals = publicValue(retreat.meals, "Meal plan confirmed in writing");
 
   return (
-    <article className="group flex flex-col h-full overflow-hidden rounded-[24px] border border-[var(--border)] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[var(--terracotta)]/40">
+    <article className="group flex flex-col h-full overflow-hidden rounded-[24px] border border-[var(--border)] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[var(--coral-dark)]/40">
       {/* Card Image */}
       <div className="home-retreat-media relative overflow-hidden aspect-[4/3]">
         <Media
@@ -332,7 +332,7 @@ export function RetreatCard({ retreat }) {
 
         {/* Floating Badges */}
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-          <span className="inline-flex items-center rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[var(--terracotta)] shadow-sm">
+          <span className="inline-flex items-center rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[var(--coral-dark)] shadow-sm">
             {retreat.days} Days
           </span>
           <span className="inline-flex items-center gap-1 rounded-full bg-black/50 backdrop-blur-md px-3 py-1 text-[11px] font-medium text-white">
@@ -347,7 +347,7 @@ export function RetreatCard({ retreat }) {
 
       {/* Card Body */}
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-serif text-xl font-bold text-black group-hover:text-[var(--terracotta)] transition-colors leading-snug">
+        <h3 className="font-serif text-xl font-bold text-black group-hover:text-[var(--coral-dark)] transition-colors leading-snug">
           <Link href={`/retreats/${retreat.slug}`}>{retreat.name}</Link>
         </h3>
 
@@ -361,7 +361,7 @@ export function RetreatCard({ retreat }) {
             <span className="block text-[11px] font-bold uppercase tracking-wider text-[var(--muted)]">
               From / person
             </span>
-            <strong className="text-lg font-bold text-[var(--terracotta)]">
+            <strong className="text-lg font-bold text-[var(--coral-dark)]">
               {price}
             </strong>
           </div>

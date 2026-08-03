@@ -80,7 +80,7 @@ export default function FounderPage() {
                   </div>
                   <div className="flex justify-between gap-4">
                     <dt className="text-[var(--muted)] font-medium">Qualifications</dt>
-                    <dd className="font-semibold text-[var(--terracotta)] text-right">{founderData.qualifications}</dd>
+                    <dd className="font-semibold text-[var(--coral-dark)] text-right">{founderData.qualifications}</dd>
                   </div>
                   <div className="flex justify-between gap-4">
                     <dt className="text-[var(--muted)] font-medium">Experience</dt>
@@ -96,7 +96,7 @@ export default function FounderPage() {
               {/* Editable Placeholder Banner if applicable */}
               {founderData.isPlaceholder && (
                 <div className="flex items-start gap-2.5 rounded-2xl bg-[var(--cream)] border border-[var(--border)] p-4 text-xs text-[var(--muted)]">
-                  <ShieldAlert size={16} className="text-[var(--terracotta)] shrink-0 mt-0.5" />
+                  <ShieldAlert size={16} className="text-[var(--coral-dark)] shrink-0 mt-0.5" />
                   <span>{founderData.placeholderNote}</span>
                 </div>
               )}
@@ -112,7 +112,7 @@ export default function FounderPage() {
                 <h2 className="mt-2 text-3xl sm:text-4xl font-serif font-bold text-[var(--brown)] leading-tight">
                   {founderData.name}
                 </h2>
-                <p className="text-sm font-semibold text-[var(--terracotta)] mt-1">
+                <p className="text-sm font-semibold text-[var(--coral-dark)] mt-1">
                   {founderData.role}
                 </p>
               </div>
@@ -124,12 +124,12 @@ export default function FounderPage() {
               </div>
 
               {/* Quote */}
-              <div className="relative rounded-2xl bg-[var(--cream)]/70 border-l-4 border-[var(--terracotta)] p-6 shadow-sm space-y-2">
-                <Quote className="size-6 text-[var(--terracotta)]/30 absolute top-4 right-4" />
+              <div className="relative rounded-2xl bg-[var(--cream)]/70 border-l-4 border-[var(--coral-dark)] p-6 shadow-sm space-y-2">
+                <Quote className="size-6 text-[var(--coral-dark)]/30 absolute top-4 right-4" />
                 <p className="text-base italic font-serif text-[var(--brown)] leading-relaxed">
                   &ldquo;{founderData.quote}&rdquo;
                 </p>
-                <p className="text-xs font-bold text-[var(--terracotta)] uppercase tracking-wider pt-2">
+                <p className="text-xs font-bold text-[var(--coral-dark)] uppercase tracking-wider pt-2">
                   — {founderData.name}
                 </p>
               </div>
@@ -142,7 +142,7 @@ export default function FounderPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {founderData.areasOfExpertise.map((item) => (
                     <div key={item} className="flex items-center gap-2.5 rounded-xl bg-white border border-[var(--border)] p-3 text-xs font-semibold text-[var(--brown)] shadow-sm">
-                      <CheckCircle2 size={16} className="text-[var(--terracotta)]" />
+                      <CheckCircle2 size={16} className="text-[var(--coral-dark)]" />
                       <span>{item}</span>
                     </div>
                   ))}
@@ -159,7 +159,7 @@ export default function FounderPage() {
       <section className="section section-peach">
         <Container className="max-w-4xl">
           <div className="rounded-[32px] bg-white border border-[var(--border)] p-8 sm:p-12 shadow-md space-y-6 text-center">
-            <span className="grid size-12 place-items-center mx-auto rounded-full bg-[var(--cream)] text-[var(--terracotta)]">
+            <span className="grid size-12 place-items-center mx-auto rounded-full bg-[var(--cream)] text-[var(--coral-dark)]">
               <Heart size={24} />
             </span>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[var(--brown)]">

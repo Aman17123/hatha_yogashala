@@ -187,7 +187,7 @@ export default function Navbar() {
           className="flex h-16 items-center justify-between gap-6 md:h-[76px] xl:gap-10"
         >
           <Link
-            className="inline-flex shrink-0 items-center rounded-xl xl:mr-6 2xl:mr-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--terracotta)]/35"
+            className="inline-flex shrink-0 items-center rounded-xl xl:mr-6 2xl:mr-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral-dark)]/35"
             href="/"
             aria-label={`${site.name} home`}
           >
@@ -265,14 +265,14 @@ export default function Navbar() {
                                   key={child.href}
                                   href={child.href}
                                   onClick={() => setOpenGroup(null)}
-                                  className="group/link flex items-center gap-2 whitespace-nowrap rounded-lg px-2 py-2 text-[15px] text-[var(--muted)] transition-[color,background-color,transform] duration-300 ease-out hover:translate-x-1 hover:bg-[var(--cream)] hover:text-[var(--terracotta)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--terracotta)]/30 motion-reduce:transform-none"
+                                  className="group/link flex items-center gap-2 whitespace-nowrap rounded-lg px-2 py-2 text-[15px] text-[var(--muted)] transition-[color,background-color,transform] duration-300 ease-out hover:translate-x-1 hover:bg-[var(--cream)] hover:text-[var(--coral-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral-dark)]/30 motion-reduce:transform-none"
                                 >
                                   <span
                                     aria-hidden="true"
                                     className="size-1.5 shrink-0 rounded-full bg-[var(--muted)]/40 transition-all duration-300 ease-out group-hover/link:scale-0 group-hover/link:opacity-0"
                                   />
                                   <span
-                                    className="h-px w-0 bg-[var(--terracotta)] transition-[width] duration-300 ease-out group-hover/link:w-3"
+                                    className="h-px w-0 bg-[var(--coral-dark)] transition-[width] duration-300 ease-out group-hover/link:w-3"
                                     aria-hidden="true"
                                   />
                                   {child.label}
@@ -289,14 +289,14 @@ export default function Navbar() {
                             key={child.href}
                             href={child.href}
                             onClick={() => setOpenGroup(null)}
-                            className="group/link flex items-center gap-2 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm text-[var(--muted)] transition-[color,background-color,transform] duration-300 ease-out hover:translate-x-1 hover:bg-[var(--cream)] hover:text-[var(--terracotta)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--terracotta)]/30 motion-reduce:transform-none"
+                            className="group/link flex items-center gap-2 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm text-[var(--muted)] transition-[color,background-color,transform] duration-300 ease-out hover:translate-x-1 hover:bg-[var(--cream)] hover:text-[var(--coral-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral-dark)]/30 motion-reduce:transform-none"
                           >
                             <span
                               aria-hidden="true"
                               className="size-1.5 shrink-0 rounded-full bg-[var(--muted)]/40 transition-all duration-300 ease-out group-hover/link:scale-0 group-hover/link:opacity-0"
                             />
                             <span
-                              className="h-px w-0 bg-[var(--terracotta)] transition-[width] duration-300 ease-out group-hover/link:w-3"
+                              className="h-px w-0 bg-[var(--coral-dark)] transition-[width] duration-300 ease-out group-hover/link:w-3"
                               aria-hidden="true"
                             />
                             {child.label}
@@ -321,7 +321,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href={contactHref}
-              className="relative isolate hidden items-center justify-center overflow-hidden whitespace-nowrap rounded-full border border-[var(--terracotta)] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--terracotta)] transition-[color,border-color,transform] duration-300 before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:bg-[var(--terracotta)] before:transition-transform before:duration-300 before:ease-out hover:-translate-y-0.5 hover:border-[var(--terracotta)] hover:text-white hover:before:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--terracotta)]/30 motion-reduce:transform-none xl:inline-flex"
+              className="relative isolate hidden items-center justify-center overflow-hidden whitespace-nowrap rounded-full border border-[var(--coral-dark)] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--coral-dark)] transition-[color,border-color,transform] duration-300 before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:bg-[var(--coral-dark)] before:transition-transform before:duration-300 before:ease-out hover:-translate-y-0.5 hover:border-[var(--coral-dark)] hover:text-white hover:before:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral-dark)]/30 motion-reduce:transform-none xl:inline-flex"
             >
               Contact
             </Link>
@@ -408,7 +408,7 @@ export default function Navbar() {
                     />
                   </button>
                   {mobileGroup === item.label && (
-                    <div className="ml-3 border-l border-[var(--terracotta)]/20 py-1 pl-3">
+                    <div className="ml-3 border-l border-[var(--coral-dark)]/20 py-1 pl-3">
                       {item.columns
                         ? item.columns.map((column) => (
                             <div className="mb-3" key={column.title}>
@@ -420,14 +420,14 @@ export default function Navbar() {
                                   key={child.href}
                                   href={child.href}
                                   onClick={() => setOpenGroup(null)}
-                                  className="group/link flex items-center gap-2 whitespace-nowrap rounded-lg px-2 py-2 text-[15px] text-[var(--muted)] transition-[color,background-color,transform] duration-300 ease-out hover:translate-x-1 hover:bg-[var(--cream)] hover:text-[var(--terracotta)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--terracotta)]/30 motion-reduce:transform-none"
+                                  className="group/link flex items-center gap-2 whitespace-nowrap rounded-lg px-2 py-2 text-[15px] text-[var(--muted)] transition-[color,background-color,transform] duration-300 ease-out hover:translate-x-1 hover:bg-[var(--cream)] hover:text-[var(--coral-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral-dark)]/30 motion-reduce:transform-none"
                                 >
                                   <span
                                     aria-hidden="true"
                                     className="size-1.5 shrink-0 rounded-full bg-[var(--muted)]/40 transition-all duration-300 ease-out group-hover/link:scale-0 group-hover/link:opacity-0"
                                   />
                                   <span
-                                    className="h-px w-0 bg-[var(--terracotta)] transition-[width] duration-300 ease-out group-hover/link:w-3"
+                                    className="h-px w-0 bg-[var(--coral-dark)] transition-[width] duration-300 ease-out group-hover/link:w-3"
                                     aria-hidden="true"
                                   />
                                   {child.label}
@@ -440,7 +440,7 @@ export default function Navbar() {
                               href={child.href}
                               key={child.href}
                               onClick={closeMobile}
-                              className="block whitespace-nowrap rounded-lg px-3 py-2.5 text-sm text-[var(--brown)]/70 transition duration-150 hover:bg-[var(--cream)] hover:text-[var(--terracotta)]"
+                              className="block whitespace-nowrap rounded-lg px-3 py-2.5 text-sm text-[var(--brown)]/70 transition duration-150 hover:bg-[var(--cream)] hover:text-[var(--coral-dark)]"
                             >
                               {child.label}
                             </Link>
@@ -463,7 +463,7 @@ export default function Navbar() {
 
           <div className="flex flex-col gap-2.5 border-t border-[var(--brown)]/10 p-4">
             <Link
-              className="inline-flex items-center justify-center rounded-full border border-[var(--terracotta)] px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--terracotta)] transition duration-200 hover:border-[var(--terracotta)] hover:bg-[var(--cream)]"
+              className="inline-flex items-center justify-center rounded-full border border-[var(--coral-dark)] px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--coral-dark)] transition duration-200 hover:border-[var(--coral-dark)] hover:bg-[var(--cream)]"
               href={contactHref}
               onClick={closeMobile}
             >

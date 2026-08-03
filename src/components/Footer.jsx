@@ -1,8 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUp, ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
-import { SiFacebook, SiInstagram, SiYoutube } from "react-icons/si";
-import { site } from "@/data/siteData";
+import {
+  SiFacebook,
+  SiGmail,
+  SiGooglemaps,
+  SiInstagram,
+  SiTripadvisor,
+  SiWhatsapp,
+  SiYoutube,
+} from "react-icons/si";
+import { site, whatsappLink } from "@/data/siteData";
 import { Container } from "@/components/shared/SiteUI";
 import { Reveal } from "@/components/Interactive";
 
@@ -45,6 +53,30 @@ const socialLinks = [
     href: site.social.youtube,
     Icon: SiYoutube,
     color: "#FF0000",
+  },
+  {
+    label: "Google Maps",
+    href: site.contact.map,
+    Icon: SiGooglemaps,
+    color: "#34A853",
+  },
+  {
+    label: "TripAdvisor",
+    href: site.social.tripadvisor,
+    Icon: SiTripadvisor,
+    color: "#34E0A1",
+  },
+  {
+    label: "Email",
+    href: `mailto:${site.contact.email}`,
+    Icon: SiGmail,
+    color: "#EA4335",
+  },
+  {
+    label: "WhatsApp",
+    href: whatsappLink(),
+    Icon: SiWhatsapp,
+    color: "#25D366",
   },
 ];
 
@@ -132,14 +164,16 @@ export default function Footer() {
                 />
               </Link>
 
-              <p className="max-w-xs text-[13px] leading-5 text-[var(--brown)]/55">
+              <p className="max-w-xs text-[13px] leading-5 text-[var(--brown)]">
                 Traditional Hatha yoga teacher training and mindful residential
                 retreats in Goa, India.
               </p>
 
-              <div className="mt-3 flex flex-wrap gap-2">
+              <div className="mt-3 grid w-fit grid-cols-4 gap-2">
                 {socialLinks.map(({ label, href, Icon, color }) =>
-                  typeof href === "string" && href.startsWith("https://") ? (
+                  typeof href === "string" &&
+                  (href.startsWith("https://") ||
+                    href.startsWith("mailto:")) ? (
                     <a
                       key={label}
                       href={href}
@@ -160,7 +194,7 @@ export default function Footer() {
                       key={label}
                       aria-label={`${label} link pending`}
                       title={`${label} link pending`}
-                      className="grid size-9 place-items-center rounded-md border border-[var(--brown)]/15 text-[var(--brown)]/35"
+                      className="grid size-9 place-items-center rounded-md border border-[var(--brown)]/15 text-[var(--brown)]/60"
                     >
                       <Icon className="size-4" aria-hidden="true" />
                     </span>
@@ -207,9 +241,9 @@ export default function Footer() {
           </Reveal>
 
           {/* bottom bar */}
-          <div className="flex flex-col gap-2 border-t border-[var(--brown)]/10 py-3 font-mono text-[10.4px] uppercase tracking-[0.14em] text-[var(--brown)]/70 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-2 border-t border-[var(--brown)]/10 py-3 font-mono text-[10.4px] uppercase tracking-[0.14em] text-[var(--brown)] md:flex-row md:items-center md:justify-between">
             <p>
-              {site.name} <span className="text-[var(--brown)]/45">·</span> ©{" "}
+              {site.name} <span className="text-[var(--brown)]/60">·</span> ©{" "}
               {new Date().getFullYear()}
             </p>
 
@@ -262,7 +296,7 @@ function FooterLinkList({ links }) {
         <li key={href}>
           <Link
             href={href}
-            className="group inline-flex items-center gap-2 text-[13px] leading-5 text-[var(--brown)]/58 transition duration-150 hover:text-[var(--brown)]"
+            className="group inline-flex items-center gap-2 text-[13px] leading-5 text-[var(--brown)] transition duration-150 hover:text-[var(--gold)]"
           >
             <span>{label}</span>
             <ArrowUpRight
@@ -278,7 +312,7 @@ function FooterLinkList({ links }) {
 
 function ContactItem({ Icon, children }) {
   return (
-    <li className="grid grid-cols-[1.1rem_1fr] items-start gap-3 text-[13px] leading-5 text-[var(--brown)]/58">
+    <li className="grid grid-cols-[1.1rem_1fr] items-start gap-3 text-[13px] leading-5 text-[var(--brown)]">
       <Icon
         className="mt-0.5 size-4 stroke-[1.7] text-[var(--gold)]"
         aria-hidden="true"

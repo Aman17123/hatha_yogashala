@@ -67,7 +67,7 @@ export default function EnrolmentQuestions({
                     
                     {/* Floating Overlay Badge on Active Image */}
                     <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/50 text-[var(--brown)] shadow-lg">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--terracotta)]">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--coral-dark)]">
                         Topic {q.number} of {String(questions.length).padStart(2, "0")}
                       </span>
                       <p className="text-xs font-semibold mt-0.5 line-clamp-1 text-[var(--brown)]">
@@ -83,7 +83,7 @@ export default function EnrolmentQuestions({
             <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-[var(--border)]">
               {/* Active Counter Indicator */}
               <div className="flex items-center gap-2">
-                <span className="text-2xl font-serif font-bold text-[var(--terracotta)]">
+                <span className="text-2xl font-serif font-bold text-[var(--coral-dark)]">
                   {String(activeIndex + 1).padStart(2, "0")}
                 </span>
                 <span className="text-xs text-[var(--muted)] font-medium">
@@ -94,7 +94,7 @@ export default function EnrolmentQuestions({
                     <span
                       key={i}
                       className={`h-1.5 rounded-full transition-all duration-300 ${
-                        i === activeIndex ? "w-6 bg-[var(--terracotta)]" : "w-1.5 bg-[var(--border)]"
+                        i === activeIndex ? "w-6 bg-[var(--coral-dark)]" : "w-1.5 bg-[var(--border)]"
                       }`}
                     />
                   ))}
@@ -119,8 +119,8 @@ export default function EnrolmentQuestions({
                   key={q.id}
                   className={`rounded-[22px] border p-4 transition-all duration-300 lg:p-5 ${
                     isActive
-                      ? "border-[var(--terracotta)] bg-white shadow-lg shadow-[var(--terracotta)]/10"
-                      : "bg-white/70 border-[var(--border)] hover:bg-white hover:border-[var(--terracotta)]/40 opacity-85 hover:opacity-100"
+                      ? "border-[var(--coral-dark)] bg-white shadow-lg shadow-[var(--coral-dark)]/10"
+                      : "bg-white/70 border-[var(--border)] hover:bg-white hover:border-[var(--coral-dark)]/40 opacity-85 hover:opacity-100"
                   }`}
                 >
                   <button
@@ -133,8 +133,8 @@ export default function EnrolmentQuestions({
                     <span
                       className={`grid size-9 shrink-0 place-items-center rounded-full font-serif text-xs font-bold transition-colors duration-300 ${
                         isActive
-                          ? "bg-[var(--terracotta)] text-white shadow-md shadow-[var(--terracotta)]/20"
-                          : "bg-[var(--cream)] text-[var(--terracotta)]"
+                          ? "bg-[var(--coral-dark)] text-white shadow-md shadow-[var(--coral-dark)]/20"
+                          : "bg-[var(--cream)] text-[var(--coral-dark)]"
                       }`}
                     >
                       {q.number}
@@ -142,7 +142,7 @@ export default function EnrolmentQuestions({
 
                     <h3
                       className={`min-w-0 flex-1 font-serif text-base font-bold leading-snug transition-colors duration-300 lg:text-lg ${
-                        isActive ? "text-[var(--terracotta)]" : "text-[var(--brown)]"
+                        isActive ? "text-[var(--coral-dark)]" : "text-[var(--brown)]"
                       }`}
                     >
                       {q.question}
@@ -157,7 +157,7 @@ export default function EnrolmentQuestions({
                         <ul className="mt-3 space-y-1.5 border-t border-[var(--border)]/60 pt-3">
                           {q.bullets.map((bullet, bIdx) => (
                             <li key={bIdx} className="flex items-start gap-2.5 text-xs font-medium leading-normal text-[var(--text)]">
-                              <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-[var(--terracotta)]" />
+                              <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-[var(--coral-dark)]" />
                               <span>{bullet}</span>
                             </li>
                           ))}

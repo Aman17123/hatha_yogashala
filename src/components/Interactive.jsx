@@ -380,7 +380,7 @@ export function BlogCard({ post }) {
       year: "numeric",
     }).format(new Date(value));
   return (
-    <article className="blog-card group flex h-full flex-col overflow-hidden rounded-[24px] border border-[var(--border)] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[var(--terracotta)]/40 hover:shadow-xl">
+    <article className="blog-card group flex h-full flex-col overflow-hidden rounded-[24px] border border-[var(--border)] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[var(--coral-dark)]/40 hover:shadow-xl">
       <Link href={`/blog/${post.slug}`} className="flex flex-1 flex-col">
         <div className="blog-card-image relative overflow-hidden">
           <Image
@@ -394,7 +394,7 @@ export function BlogCard({ post }) {
           <span className="blog-card-category">{post.category}</span>
         </div>
         <div className="flex flex-1 flex-col p-6">
-          <h3 className="font-serif text-lg font-bold leading-snug text-black transition-colors group-hover:text-[var(--terracotta)]">
+          <h3 className="font-serif text-lg font-bold leading-snug text-black transition-colors group-hover:text-[var(--coral-dark)]">
             {post.title}
           </h3>
           <p className="mt-2.5 text-xs leading-relaxed text-black/70 line-clamp-3">
@@ -414,7 +414,7 @@ export function BlogCard({ post }) {
               {post.readingTime}
             </span>
           </div>
-          <span className="mt-auto flex items-center gap-1.5 pt-5 text-xs font-bold uppercase tracking-[0.1em] text-[var(--terracotta)]">
+          <span className="mt-auto flex items-center gap-1.5 pt-5 text-xs font-bold uppercase tracking-[0.1em] text-[var(--coral-dark)]">
             Read article
             <ArrowRight
               size={14}

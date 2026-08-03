@@ -366,7 +366,7 @@ export default function HomePage() {
                   key={course.slug}
                   className={`relative flex flex-col rounded-[28px] overflow-hidden transition-all duration-300 ${
                     isRec
-                      ? "border-[2.5px] border-[var(--terracotta)] shadow-[0_12px_48px_rgba(207,91,80,0.18)] -translate-y-3"
+                      ? "border-[2.5px] border-[var(--coral-dark)] shadow-[0_12px_48px_rgba(47,79,62,0.18)] -translate-y-3"
                       : "border border-[var(--border)] shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.10)]"
                   }`}
                 >
@@ -374,19 +374,19 @@ export default function HomePage() {
                   <div
                     className={`cmp-head px-5 pt-5 pb-4 ${
                       isRec
-                        ? "bg-gradient-to-b from-[var(--cream)] to-[#fff8f5]"
+                        ? "bg-gradient-to-b from-[var(--cream)] to-[#f6f1e7]"
                         : "bg-[var(--cream)]"
                     }`}
                   >
                     {isRec && (
-                      <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-[var(--terracotta)] px-2.5 py-0.5 text-[9px] font-black uppercase tracking-[0.15em] text-white shadow-sm">
+                      <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-[var(--coral-dark)] px-2.5 py-0.5 text-[9px] font-black uppercase tracking-[0.15em] text-white shadow-sm">
                         <Star className="size-2.5 fill-white" />
                         Most Popular
                       </span>
                     )}
                     <h3
                       className={`text-base font-serif font-bold leading-tight ${
-                        isRec ? "text-[var(--terracotta)]" : "text-black/80"
+                        isRec ? "text-[var(--coral-dark)]" : "text-black/80"
                       }`}
                     >
                       <Link
@@ -434,15 +434,15 @@ export default function HomePage() {
                       href={`/courses/${course.slug}`}
                       className={`cmp-cta group inline-flex w-full items-center justify-center gap-2 rounded-full py-2.5 px-4 text-[10px] font-bold uppercase tracking-[0.1em] transition-all duration-200 ${
                         isRec
-                          ? "bg-[var(--terracotta)] text-white shadow-md shadow-[var(--terracotta)]/20 hover:bg-[var(--terracotta)] hover:shadow-lg hover:scale-[1.02]"
-                          : "border-[1.5px] border-[var(--border)] text-[var(--terracotta)] bg-white hover:border-[var(--terracotta)] hover:text-[var(--terracotta)] hover:bg-[var(--cream)]"
+                          ? "bg-[var(--coral-dark)] text-white shadow-md shadow-[var(--coral-dark)]/20 hover:bg-[var(--coral-dark)] hover:shadow-lg hover:scale-[1.02]"
+                          : "border-[1.5px] border-[var(--border)] text-[var(--coral-dark)] bg-white hover:border-[var(--coral-dark)] hover:text-[var(--coral-dark)] hover:bg-[var(--cream)]"
                       }`}
                     >
                       <span>View {course.hours}</span>
                       <ArrowRight className="size-3 group-hover:translate-x-1 transition-transform" />
                     </Link>
                     {isRec && (
-                      <p className="mt-1.5 text-center text-[10px] text-[var(--terracotta)]/70 font-medium">
+                      <p className="mt-1.5 text-center text-[10px] text-[var(--coral-dark)]/70 font-medium">
                         Ideal first step for new teachers
                       </p>
                     )}
@@ -461,25 +461,25 @@ export default function HomePage() {
                   key={course.slug}
                   className={`rounded-[24px] overflow-hidden transition-all duration-300 ${
                     isRec
-                      ? "border-[2px] border-[var(--terracotta)] shadow-xl shadow-[var(--terracotta)]/12"
+                      ? "border-[2px] border-[var(--coral-dark)] shadow-xl shadow-[var(--coral-dark)]/12"
                       : "border border-[var(--border)] shadow-sm"
                   }`}
                 >
                   <div
                     className={`px-6 pt-6 pb-4 ${
                       isRec
-                        ? "bg-gradient-to-br from-[var(--cream)] to-[#fff8f5]"
+                        ? "bg-gradient-to-br from-[var(--cream)] to-[#f6f1e7]"
                         : "bg-[var(--cream)]"
                     }`}
                   >
                     {isRec && (
-                      <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-[var(--terracotta)] px-3 py-1 text-[10px] font-black uppercase tracking-[0.15em] text-white shadow-sm">
+                      <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-[var(--coral-dark)] px-3 py-1 text-[10px] font-black uppercase tracking-[0.15em] text-white shadow-sm">
                         <Star className="size-3 fill-white" />
                         Most Popular
                       </span>
                     )}
                     <h3
-                      className={`text-lg font-serif font-bold ${isRec ? "text-[var(--terracotta)]" : "text-black/80"}`}
+                      className={`text-lg font-serif font-bold ${isRec ? "text-[var(--coral-dark)]" : "text-black/80"}`}
                     >
                       <Link
                         href={`/courses/${course.slug}`}
@@ -515,8 +515,8 @@ export default function HomePage() {
                         href={`/courses/${course.slug}`}
                         className={`group inline-flex w-full items-center justify-center gap-2 rounded-full py-3.5 text-xs font-bold uppercase tracking-[0.1em] transition-all duration-200 ${
                           isRec
-                            ? "bg-[var(--terracotta)] text-white shadow-md hover:bg-[var(--terracotta)]"
-                            : "border-[1.5px] border-[var(--border)] text-black bg-white hover:border-[var(--terracotta)] hover:bg-[var(--terracotta)] hover:text-white"
+                            ? "bg-[var(--coral-dark)] text-white shadow-md hover:bg-[var(--coral-dark)]"
+                            : "border-[1.5px] border-[var(--border)] text-black bg-white hover:border-[var(--coral-dark)] hover:bg-[var(--coral-dark)] hover:text-white"
                         }`}
                       >
                         <span>View {course.hours} Course</span>
@@ -547,7 +547,7 @@ export default function HomePage() {
                 key={course.slug}
               >
                 <div className="flex gap-4">
-                  <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[var(--cream)] font-bold text-[var(--terracotta)]">
+                  <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[var(--cream)] font-bold text-[var(--coral-dark)]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div>
@@ -614,7 +614,7 @@ export default function HomePage() {
                     key={label}
                     className="flex items-center gap-3 rounded-2xl bg-white/80 border border-[var(--border)] px-4 py-3 shadow-sm"
                   >
-                    <span className="grid size-8 place-items-center rounded-full bg-[var(--cream)] text-[var(--terracotta)] shrink-0">
+                    <span className="grid size-8 place-items-center rounded-full bg-[var(--cream)] text-[var(--coral-dark)] shrink-0">
                       <Icon size={16} aria-hidden="true" />
                     </span>
                     <strong className="text-sm font-semibold text-black/80">
@@ -661,9 +661,9 @@ export default function HomePage() {
                   <div className="flex items-center gap-2">
                     <MapPin
                       size={14}
-                      className="text-[var(--terracotta)] shrink-0"
+                      className="text-[var(--coral-dark)] shrink-0"
                     />
-                    <span className="text-xs font-bold uppercase tracking-wider text-[var(--terracotta)]">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[var(--coral-dark)]">
                       Goa, India
                     </span>
                   </div>
@@ -715,7 +715,7 @@ export default function HomePage() {
                   className="object-cover"
                 />
                 <div className="absolute bottom-4 left-4 rounded-2xl border border-white/60 bg-white/90 px-4 py-3 shadow-sm backdrop-blur-md">
-                  <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--terracotta)]">
+                  <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--coral-dark)]">
                     Querim, North Goa
                   </p>
                   <p className="text-sm font-semibold text-black/80">
@@ -730,7 +730,7 @@ export default function HomePage() {
                     key={facility.title}
                     className="facility-card rounded-2xl border border-[var(--border)] bg-white/80 p-5 shadow-sm transition-shadow hover:shadow-md"
                   >
-                    <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[var(--terracotta)]">
+                    <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[var(--coral-dark)]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <h3 className="mt-2 font-serif text-lg font-bold leading-snug text-black/80">
@@ -783,7 +783,7 @@ export default function HomePage() {
           <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
             <div className="card card-body flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-2 text-[var(--terracotta)]">
+                <div className="flex items-center gap-2 text-[var(--coral-dark)]">
                   <MapPin aria-hidden="true" className="size-5" />
                   <span className="text-xs font-bold uppercase tracking-[0.14em]">
                     Sanctuary Location
@@ -805,21 +805,21 @@ export default function HomePage() {
                   </p>
                   <ul className="grid gap-2 text-xs font-medium text-black/80">
                     <li className="flex items-center gap-2">
-                      <Sparkles className="size-3.5 text-[var(--terracotta)] shrink-0" />
+                      <Sparkles className="size-3.5 text-[var(--coral-dark)] shrink-0" />
                       <span>
                         <strong>Courses:</strong> 100-Hr, 200-Hr & 300-Hr Yoga
                         Alliance Teacher Training
                       </span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <Leaf className="size-3.5 text-[var(--terracotta)] shrink-0" />
+                      <Leaf className="size-3.5 text-[var(--coral-dark)] shrink-0" />
                       <span>
                         <strong>Retreats:</strong> 3, 5, 7 & 10-Day Restorative
                         Coastal Yoga Immersion
                       </span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <Compass className="size-3.5 text-[var(--terracotta)] shrink-0" />
+                      <Compass className="size-3.5 text-[var(--coral-dark)] shrink-0" />
                       <span>
                         <strong>Airport Access:</strong> ~30 min from MOPA (GOX)
                         & 60 min from Dabolim (GOI)

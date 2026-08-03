@@ -41,7 +41,7 @@ function Avatar({ name, image, gradientClass }) {
     <span
       className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-[13px] font-black text-white ${
         gradientClass ||
-        "bg-gradient-to-br from-[var(--terracotta)] to-[#ffb38a]"
+        "bg-gradient-to-br from-[var(--coral)] to-[var(--sage)]"
       }`}
     >
       {initial}
@@ -128,10 +128,10 @@ function ReviewGrid({
                   gradientClass={avatarGradientClass}
                 />
                 <div>
-                  <h3 className="text-[13px] font-black leading-tight text-gray-800">
+                  <h3 className="text-sm font-semibold leading-tight text-gray-900">
                     {review.name}
                   </h3>
-                  <span className="text-[10px] font-bold uppercase tracking-tight text-gray-400">
+                  <span className="text-[10px] font-bold uppercase tracking-tight text-gray-500">
                     {review.date}
                     {review.platform ? ` · ${review.platform}` : ""}
                   </span>
@@ -144,7 +144,7 @@ function ReviewGrid({
             <h4 className="mb-2 text-[13px] font-bold leading-snug text-gray-900">
               {review.headline || review.platform || "Review"}
             </h4>
-            <div className="custom-scroll flex-grow overflow-y-auto whitespace-pre-line pr-1 text-[12px] leading-relaxed text-gray-600">
+            <div className="custom-scroll flex-grow overflow-y-auto whitespace-pre-line pr-1 text-[13px] leading-relaxed text-gray-700">
               {review.excerpt}
             </div>
           </article>
@@ -209,15 +209,15 @@ export default function ReviewsSection({
     <>
       {/* ============ GOOGLE SECTION ============ */}
       <section
-        className="section overflow-hidden border-t border-orange-50 bg-[var(--cream)]"
+        className="section-tight overflow-hidden border-t border-[var(--border)] bg-[var(--cream)]"
         id="google-reviews"
       >
         <div className="mx-auto max-w-7xl px-4 md:px-8">
-          <div className="mb-10 text-center">
+          <div className="mb-8 text-center">
             <h2 className="mb-2 text-2xl font-black tracking-tighter text-gray-800 md:text-4xl">
-              Google — <span className="text-[var(--terracotta)]">{title}</span>
+              Google — <span className="text-[var(--coral-dark)]">{title}</span>
             </h2>
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 md:text-xs">
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 md:text-xs">
               {subtitle}
             </p>
           </div>
@@ -227,23 +227,23 @@ export default function ReviewsSection({
               visibleTestimonials={visibleTestimonials}
               trackRef={trackRef}
               scroll={scroll}
-              cardBorderClass="border-orange-50"
+              cardBorderClass="border-[var(--border)]"
               starColorClass="fill-yellow-400 text-yellow-400"
-              avatarGradientClass="bg-gradient-to-br from-[var(--terracotta)] to-[#ffb38a]"
-              arrowColorClass="text-[var(--terracotta)]"
+              avatarGradientClass="bg-gradient-to-br from-[var(--coral)] to-[var(--sage)]"
+              arrowColorClass="text-[var(--coral-dark)]"
             />
           ) : (
-            <div className="rounded-2xl border border-orange-50 bg-white p-4 text-center shadow-sm">
+            <div className="rounded-2xl border border-[var(--border)] bg-white p-4 text-center shadow-sm">
               <h3 className="text-sm font-black text-gray-800">
                 No verified public reviews are linked yet
               </h3>
-              <p className="mt-2 text-xs text-gray-500">
+              <p className="mt-2 text-xs text-gray-600">
                 Reviews populate only from approved platform sources.
               </p>
             </div>
           )}
 
-          <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-xl border border-orange-100/50 bg-white px-4 py-4 shadow-sm md:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-xl border border-[var(--border)] bg-white px-4 py-4 shadow-sm md:flex-row">
             <div className="flex items-center gap-3 text-center md:text-left">
               <GoogleG />
               <div>
@@ -283,16 +283,16 @@ export default function ReviewsSection({
 
       {/* ============ TRIPADVISOR SECTION ============ */}
       <section
-        className="section overflow-hidden border-t border-emerald-50 bg-[var(--cream)]"
+        className="section-tight overflow-hidden border-t border-[var(--border)] bg-[var(--cream)]"
         id="tripadvisor-reviews"
       >
         <div className="mx-auto max-w-7xl px-4 md:px-8">
-          <div className="mb-10 text-center">
+          <div className="mb-8 text-center">
             <h2 className="mb-2 text-2xl font-black tracking-tighter text-gray-800 md:text-4xl">
               TripAdvisor —{" "}
               <span className="text-[#00af87]">{tripadvisorTitle}</span>
             </h2>
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 md:text-xs">
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 md:text-xs">
               {tripadvisorSubtitle}
             </p>
           </div>
@@ -302,23 +302,23 @@ export default function ReviewsSection({
               visibleTestimonials={visibleTripTestimonials}
               trackRef={tripTrackRef}
               scroll={scrollTrip}
-              cardBorderClass="border-emerald-50"
+              cardBorderClass="border-[var(--border)]"
               starColorClass="fill-[#00af87] text-[#00af87]"
               avatarGradientClass="bg-gradient-to-br from-[#00af87] to-[#34e0a1]"
               arrowColorClass="text-[#00af87]"
             />
           ) : (
-            <div className="rounded-2xl border border-emerald-50 bg-white p-4 text-center shadow-sm">
+            <div className="rounded-2xl border border-[var(--border)] bg-white p-4 text-center shadow-sm">
               <h3 className="text-sm font-black text-gray-800">
                 No verified public reviews are linked yet
               </h3>
-              <p className="mt-2 text-xs text-gray-500">
+              <p className="mt-2 text-xs text-gray-600">
                 Reviews populate only from approved platform sources.
               </p>
             </div>
           )}
 
-          <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-xl border border-emerald-100/50 bg-white px-4 py-4 shadow-sm md:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-xl border border-[var(--border)] bg-white px-4 py-4 shadow-sm md:flex-row">
             <div className="flex items-center gap-3 text-center md:text-left">
               <TripAdvisorLogo />
               <div>

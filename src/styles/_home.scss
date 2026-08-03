@@ -27,14 +27,30 @@
       justify-content: center !important;
     }
 
-    .home-page > section:not(.home-hero):not(.trust-strip) {
+    .home-page > section:not(.home-hero):not(.trust-strip):not(#google-reviews):not(#tripadvisor-reviews) {
       min-height: 100vh !important;
     }
 
     // Final CTA stays compact rather than a full viewport
     .home-page .final-cta-section {
       min-height: 0 !important;
-      padding-block: 56px !important;
+      padding-block: 20px !important;
+    }
+
+    // Reviews are compact two-row sections, not full-viewport
+    .home-page #google-reviews,
+    .home-page #tripadvisor-reviews {
+      min-height: 0 !important;
+    }
+
+    .home-page #google-reviews .gap-4,
+    .home-page #tripadvisor-reviews .gap-4 {
+      gap: 0.9rem !important;
+    }
+
+    .home-page #google-reviews .review-card h3,
+    .home-page #tripadvisor-reviews .review-card h3 {
+      font-size: 14px !important;
     }
 
     .home-page .section {
@@ -452,7 +468,7 @@
     }
 
     .home-page .final-cta-section {
-      padding-block: 36px !important;
+      padding-block: 20px !important;
     }
 
     // Gallery — four columns so the masonry fits one screen
@@ -591,7 +607,7 @@
 
     // Final CTA
     .home-page .final-cta-section h2 {
-      font-size: 40px !important;
+      font-size: 32px !important;
     }
   }
 
@@ -892,7 +908,7 @@
     }
 
     .home-page .final-cta-section {
-      padding-block: 30px !important;
+      padding-block: 16px !important;
     }
 
     // Gallery — four columns so the masonry fits one screen (tier 2)
@@ -1045,7 +1061,7 @@
 
     // Final CTA
     .home-page .final-cta-section h2 {
-      font-size: 36px !important;
+      font-size: 30px !important;
     }
   }
 }

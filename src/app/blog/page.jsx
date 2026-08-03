@@ -60,14 +60,14 @@ export default function BlogPage() {
                   {featured.readingTime}
                 </span>
               </span>
-              <h2 className="mt-4 font-serif text-2xl font-bold leading-snug text-black transition-colors group-hover:text-[var(--terracotta)] sm:text-3xl">
+              <h2 className="mt-4 font-serif text-2xl font-bold leading-snug text-black transition-colors group-hover:text-[var(--coral-dark)] sm:text-3xl">
                 {featured.title}
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-black/70">
                 {featured.excerpt}
               </p>
               <Link
-                className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-[var(--terracotta)] px-5 py-3 text-sm font-bold text-white shadow-md shadow-[var(--terracotta)]/20 transition-all duration-200 hover:bg-[var(--terracotta)] hover:shadow-lg"
+                className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-[var(--coral-dark)] px-5 py-3 text-sm font-bold text-white shadow-md shadow-[var(--coral-dark)]/20 transition-all duration-200 hover:bg-[var(--coral-dark)] hover:shadow-lg"
                 href={`/blog/${featured.slug}`}
               >
                 Read the guide

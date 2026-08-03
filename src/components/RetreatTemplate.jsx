@@ -60,7 +60,7 @@ const freeTimeIcons = {
 
 function RetreatEyebrow({ children }) {
   return (
-    <p className="mb-2 flex items-center gap-2 text-[11.2px] font-extrabold uppercase tracking-[0.16em] text-[var(--terracotta)]">
+    <p className="mb-2 flex items-center gap-2 text-[11.2px] font-extrabold uppercase tracking-[0.16em] text-[var(--coral-dark)]">
       <Sparkles size={14} aria-hidden="true" />
       {children}
     </p>
@@ -294,7 +294,7 @@ export default function RetreatTemplate({ retreat, page }) {
                   {retreat.whatIs.points.map((point) => (
                     <StaggerItem key={point}>
                       <div className="retreat-highlight-card">
-                        <CheckCircle2 size={19} className="text-[var(--terracotta)]" aria-hidden="true" />
+                        <CheckCircle2 size={19} className="text-[var(--coral-dark)]" aria-hidden="true" />
                         <span>{point}</span>
                       </div>
                     </StaggerItem>
@@ -380,7 +380,7 @@ export default function RetreatTemplate({ retreat, page }) {
               {p.highlights.map((highlight) => (
                 <StaggerItem key={highlight}>
                   <div className="retreat-highlight-card">
-                    <CheckCircle2 size={19} className="text-[var(--terracotta)]" aria-hidden="true" />
+                    <CheckCircle2 size={19} className="text-[var(--coral-dark)]" aria-hidden="true" />
                     <span>{highlight}</span>
                   </div>
                 </StaggerItem>
@@ -449,7 +449,7 @@ export default function RetreatTemplate({ retreat, page }) {
                 return (
                   <StaggerItem key={idea.title}>
                     <div className="retreat-freetime-card">
-                      <Icon size={18} className="text-[var(--terracotta)]" aria-hidden="true" />
+                      <Icon size={18} className="text-[var(--coral-dark)]" aria-hidden="true" />
                       <div>
                         <h3>{idea.title}</h3>
                         <p>{idea.text}</p>
@@ -497,7 +497,7 @@ export default function RetreatTemplate({ retreat, page }) {
               <ul>
                 {p.accommodation.facilities.map((facility) => (
                   <li key={facility.label}>
-                    <Check size={15} className="text-[var(--terracotta)]" aria-hidden="true" />
+                    <Check size={15} className="text-[var(--coral-dark)]" aria-hidden="true" />
                     {facility.label}
                   </li>
                 ))}
@@ -579,7 +579,7 @@ export default function RetreatTemplate({ retreat, page }) {
                 <ul>
                   {p.notIncluded.map((item) => (
                     <li key={item}>
-                      <XCircle size={15} className="text-[var(--terracotta)]/60" aria-hidden="true" />
+                      <XCircle size={15} className="text-[var(--coral-dark)]/60" aria-hidden="true" />
                       {item}
                     </li>
                   ))}
@@ -642,17 +642,17 @@ export default function RetreatTemplate({ retreat, page }) {
                     <span className="retreat-price-per">/ person</span>
                   </div>
                   <ul>
-                    <li><Check size={15} className="text-[var(--terracotta)]" aria-hidden="true" />Private room</li>
-                    <li><Check size={15} className="text-[var(--terracotta)]" aria-hidden="true" />Attached bathroom</li>
-                    <li><Check size={15} className="text-[var(--terracotta)]" aria-hidden="true" />Extra privacy</li>
-                    <li><Check size={15} className="text-[var(--terracotta)]" aria-hidden="true" />Full retreat access</li>
+                    <li><Check size={15} className="text-[var(--coral-dark)]" aria-hidden="true" />Private room</li>
+                    <li><Check size={15} className="text-[var(--coral-dark)]" aria-hidden="true" />Attached bathroom</li>
+                    <li><Check size={15} className="text-[var(--coral-dark)]" aria-hidden="true" />Extra privacy</li>
+                    <li><Check size={15} className="text-[var(--coral-dark)]" aria-hidden="true" />Full retreat access</li>
                   </ul>
                 </article>
               </FadeIn>
             </div>
 
             <div className="retreat-dates-strip" aria-label="Upcoming dates">
-              <CalendarDays size={16} className="text-[var(--terracotta)] shrink-0" aria-hidden="true" />
+              <CalendarDays size={16} className="text-[var(--coral-dark)] shrink-0" aria-hidden="true" />
               <div>
                 <strong>Upcoming start dates</strong>
                 <ul>

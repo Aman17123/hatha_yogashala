@@ -15,6 +15,7 @@ export const site = {
     instagram: "", // Replace with the verified Instagram URL
     facebook: "", // Replace with the verified Facebook URL
     youtube: "", // Replace with the verified YouTube URL
+    tripadvisor: "", // Replace with the verified TripAdvisor URL
   },
 
   contact: {

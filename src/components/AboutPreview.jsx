@@ -58,7 +58,7 @@ export default function AboutPreview({ data = aboutSectionData }) {
 
             {/* Decorative Floating Trust Badge */}
             <div className="absolute -bottom-6 -right-2 md:right-4 z-10 hidden sm:flex items-center gap-3 rounded-2xl bg-white p-4 shadow-xl border border-[var(--border)] max-w-xs">
-              <div className="grid size-11 place-items-center rounded-xl bg-[var(--cream)] text-[var(--terracotta)] shrink-0">
+              <div className="grid size-11 place-items-center rounded-xl bg-[var(--cream)] text-[var(--coral-dark)] shrink-0">
                 <Sparkles size={20} aria-hidden="true" />
               </div>
               <div>
@@ -99,7 +99,7 @@ export default function AboutPreview({ data = aboutSectionData }) {
                     key={point.title}
                     className="flex items-start gap-2 rounded-2xl bg-[var(--cream)]/50 border border-[var(--border)]/70 p-2 transition-colors hover:bg-[var(--cream)]"
                   >
-                    <span className="grid size-8 place-items-center rounded-lg bg-[var(--terracotta)] text-white shrink-0 mt-0.5 shadow-sm">
+                    <span className="grid size-8 place-items-center rounded-lg bg-[var(--coral-dark)] text-white shrink-0 mt-0.5 shadow-sm">
                       <IconComponent size={16} aria-hidden="true" />
                     </span>
                     <div>

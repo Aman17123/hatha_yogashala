@@ -6,7 +6,7 @@ import "../styles/main.scss";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { JsonLd } from "@/components/ui";
-import { absoluteUrl, pageSeo, site } from "@/data/siteData";
+import { absoluteUrl, pageSeo, reviewProfile, site } from "@/data/siteData";
 
 const heading = Gotu({
   variable: "--font-heading",
@@ -38,6 +38,18 @@ export const metadata = {
   publisher: site.name,
   category: "Yoga education",
   alternates: { canonical: site.url },
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   openGraph: {
     title: pageSeo.home.title,
     description: pageSeo.home.description,
@@ -72,11 +84,19 @@ export default function RootLayout({ children }) {
     logo: absoluteUrl("/images/logo.png"),
     image: absoluteUrl(site.defaultImage),
     description: site.description,
+    telephone: site.contact.phone,
+    email: site.contact.email,
     areaServed: { "@type": "AdministrativeArea", name: "Goa" },
     address: {
       "@type": "PostalAddress",
       addressRegion: "Goa",
       addressCountry: "IN",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: reviewProfile.rating,
+      reviewCount: reviewProfile.reviewCount,
+      bestRating: 5,
     },
     sameAs: Object.values(site.social).filter(
       (url) => typeof url === "string" && url.startsWith("https://"),

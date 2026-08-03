@@ -17,7 +17,7 @@ export default function TeacherCard({ teacher }) {
         {teacher.name}
       </h3>
 
-      <p className="mt-1.5 text-[13px] font-semibold leading-[20px] text-[var(--terracotta)]">
+      <p className="mt-1.5 text-[13px] font-semibold leading-[20px] text-[var(--coral-dark)]">
         {teacher.specialty}
       </p>
 

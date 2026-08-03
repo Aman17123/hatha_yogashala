@@ -15,7 +15,7 @@
   .retreat-hero {
     position: relative;
     display: grid;
-    min-height: clamp(620px, 92svh, 840px);
+    min-height: min(70svh, 700px);
     overflow: hidden;
     align-items: end;
     color: var(--on-accent);
@@ -35,7 +35,7 @@
   .retreat-hero-inner {
     position: relative;
     z-index: 2;
-    padding-block: 2rem 7rem;
+    padding-block: 2rem 4.5rem;
   }
 
   .retreat-hero-breadcrumbs {
@@ -1514,7 +1514,7 @@
     overflow: hidden;
     color: var(--on-accent);
     background:
-      radial-gradient(80% 120% at 50% 0%, rgb(var(--terracotta-ch) / 24%), transparent 60%),
+      radial-gradient(80% 120% at 50% 0%, rgb(var(--coral-ch) / 24%), transparent 60%),
       linear-gradient(120deg, #16211b, #2f4f3e);
   }
 

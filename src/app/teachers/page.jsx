@@ -68,23 +68,23 @@ export default function TeachersPage() {
                   </div>
 
                   <div className="space-y-3 flex-1">
-                    <span className="inline-block rounded-full bg-[var(--cream)] border border-[var(--border)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--terracotta)]">
+                    <span className="inline-block rounded-full bg-[var(--cream)] border border-[var(--border)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--coral-dark)]">
                       {teacher.specialty}
                     </span>
                     <h2 className="text-2xl font-serif font-bold text-[var(--brown)]">
                       {teacher.name}
                     </h2>
-                    <p className="text-xs font-semibold text-[var(--terracotta)]">
+                    <p className="text-xs font-semibold text-[var(--coral-dark)]">
                       {teacher.role}
                     </p>
 
                     <div className="flex flex-wrap gap-4 text-xs text-[var(--muted)] pt-1">
                       <span className="flex items-center gap-1.5">
-                        <Award size={14} className="text-[var(--terracotta)]" />
+                        <Award size={14} className="text-[var(--coral-dark)]" />
                         <strong>Qual:</strong> {teacher.qualifications}
                       </span>
                       <span className="flex items-center gap-1.5">
-                        <Users size={14} className="text-[var(--terracotta)]" />
+                        <Users size={14} className="text-[var(--coral-dark)]" />
                         <strong>Exp:</strong> {teacher.experience}
                       </span>
                     </div>
@@ -136,7 +136,7 @@ export default function TeachersPage() {
               "Confirmed batch availability in writing",
             ].map((item) => (
               <div key={item} className="flex items-start gap-3 rounded-2xl bg-white border border-[var(--border)] p-5 shadow-sm">
-                <ShieldCheck size={20} className="text-[var(--terracotta)] shrink-0 mt-0.5" />
+                <ShieldCheck size={20} className="text-[var(--coral-dark)] shrink-0 mt-0.5" />
                 <h3 className="text-sm font-semibold text-[var(--brown)] leading-snug">{item}</h3>
               </div>
             ))}

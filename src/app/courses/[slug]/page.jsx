@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import CourseTemplate from "@/components/CourseTemplate";
+import YTTCPage from "@/components/YTTCPage";
 import { courses, getCourse } from "@/data/coursesData";
 import { makeMetadata } from "@/data/siteData";
 import { courseSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
@@ -52,7 +52,7 @@ export default async function CoursePage({ params }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }}
         />
       )}
-      <CourseTemplate course={course} />
+      <YTTCPage course={course} />
     </>
   );
 }
