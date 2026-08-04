@@ -203,7 +203,7 @@ export const testimonials = [
     sourceUrl: "https://www.google.com/maps?q=Hatha+Yogashala+Querim+Goa",
   },
   {
-    name: "Sarah, United Kingdom",
+    name: "Sarah, UK",
     rating: 5,
     date: "2026",
     platform: "200-Hour YTT",
@@ -286,7 +286,7 @@ export const tripadvisorTestimonials = [
     sourceUrl: "https://www.tripadvisor.com/",
   },
   {
-    name: "Johan V, Netherlands",
+    name: "John ,Netherlands",
     rating: 5,
     date: "2025",
     platform: "TripAdvisor",
@@ -296,7 +296,7 @@ export const tripadvisorTestimonials = [
     sourceUrl: "https://www.tripadvisor.com/",
   },
   {
-    name: "Emma L, United Kingdom",
+    name: "Emma L, UK",
     rating: 5,
     date: "2025",
     platform: "TripAdvisor",

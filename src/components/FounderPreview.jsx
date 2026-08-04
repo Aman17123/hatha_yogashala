@@ -25,16 +25,14 @@ export default function FounderPreview({ founder = founderData }) {
               <Image
                 src={founder.image}
                 alt={founder.imageAlt || founder.name}
-                fill
-                sizes="(max-width: 1024px) 90vw, 35vw"
+                width={500}
+                height={500}
+                sizes="3/4"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
 
               {/* Solid dark scrim bar — guaranteed contrast, no gradient/opacity guessing */}
               <div className="absolute bottom-0 left-0 right-0 bg-[var(--brown)] px-6 py-5 space-y-1">
-                <span className="inline-block rounded-full bg-[var(--coral-dark)] px-3 py-0.5 text-[11px] font-bold uppercase tracking-widest text-white shadow-sm">
-                  {founder.qualifications}
-                </span>
                 <h3
                   style={{ color: "#ffffff" }}
                   className="text-xl font-serif font-bold"
@@ -73,10 +71,6 @@ export default function FounderPreview({ founder = founderData }) {
 
             <div className="flex flex-wrap gap-3 py-2">
               <div className="flex items-center gap-2 rounded-full bg-white border border-[var(--border)] px-4 py-2 text-xs font-semibold text-[var(--brown)] shadow-sm">
-                <Award size={15} className="text-[var(--coral-dark)]" />
-                <span>{founder.qualifications}</span>
-              </div>
-              <div className="flex items-center gap-2 rounded-full bg-white border border-[var(--border)] px-4 py-2 text-xs font-semibold text-[var(--brown)] shadow-sm">
                 <UserCheck size={15} className="text-[var(--coral-dark)]" />
                 <span>{founder.experience}</span>
               </div>
@@ -101,14 +95,6 @@ export default function FounderPreview({ founder = founderData }) {
                 </span>
               </div>
             </div>
-
-            {founder.isPlaceholder && (
-              <div className="flex items-center gap-2 text-[11px] text-[var(--muted)] bg-white/60 rounded-xl p-3 border border-[var(--border)]">
-                <ShieldAlert size={14} className="text-[var(--coral-dark)] shrink-0" />
-                <span>{founder.placeholderNote}</span>
-              </div>
-            )}
-
             <div className="pt-2">
               <ButtonLink href="/founder" variant="primary">
                 <span>Meet Our Founder</span>

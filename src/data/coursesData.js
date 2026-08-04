@@ -32,7 +32,8 @@ const sharedDefaults = {
   price: "Fee to be confirmed",
   privatePrice: "Fee to be confirmed",
   certification: "Yoga Alliance-approved certificate",
-  image: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
+  image:
+    "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
   date: "Monthly course start dates year-round",
   bookingStatus: "Seats Available",
   format: "Residential",
@@ -61,7 +62,7 @@ const hundredHour = {
   hours: "100-hour",
   name: "100-Hour Yoga Teacher Training in Goa",
   level: "Foundation",
-  cardBadge: "Booking Open 2026",
+  cardBadge: "BEGGINER",
   cardSummary:
     "A two-week, beginner-friendly foundation course at one of the best yoga schools in Goa — Yoga Alliance-approved, with accommodation, meals, and certification included.",
   cardStats: {
@@ -316,12 +317,23 @@ const hundredHour = {
   accommodation: {
     overview:
       "Choose from our clean, comfortable rooms — mixed AC dorms, twin-sharing AC, and private rooms (AC and non-AC) — all within walking distance of the beach in North Goa.",
-    food:
-      "Meals are healthy, vegetarian, and prepared fresh daily to support your practice and recovery — three meals per day, Monday to Saturday morning.",
+    food: "Meals are healthy, vegetarian, and prepared fresh daily to support your practice and recovery — three meals per day, Monday to Saturday morning.",
     images: [
-      { src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp", alt: "Residential campus and stay at Hatha Yogashala Goa", caption: "Residential stay" },
-      { src: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg", alt: "Open-air practice hall at Hatha Yogashala Goa", caption: "Open-air shala" },
-      { src: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp", alt: "Yoga practice near the beach at Hatha Yogashala Goa", caption: "Beach practice" },
+      {
+        src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
+        alt: "Residential campus and stay at Hatha Yogashala Goa",
+        caption: "Residential stay",
+      },
+      {
+        src: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg",
+        alt: "Open-air practice hall at Hatha Yogashala Goa",
+        caption: "Open-air shala",
+      },
+      {
+        src: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
+        alt: "Yoga practice near the beach at Hatha Yogashala Goa",
+        caption: "Beach practice",
+      },
     ],
   },
   includedActivities: [
@@ -433,7 +445,8 @@ const hundredHour = {
   ],
   faq: [
     {
-      question: "Do I need experience to join the 100-hour yoga teacher training?",
+      question:
+        "Do I need experience to join the 100-hour yoga teacher training?",
       answer:
         "No. This is a beginner yoga course in Goa designed for those new to yoga. No prior experience is required.",
     },
@@ -475,7 +488,7 @@ const hundredHour = {
 const twoHundredHour = {
   slug: "200-hour-yoga-teacher-training-goa",
   hours: "200-hour",
-  name: "200-Hour Yoga Teacher Training in Goa",
+  name: "200-Hour Yoga TTC in Goa",
   level: "Foundational teacher training (certifying)",
   featured: true,
   cardBadge: "Most Popular",
@@ -492,7 +505,7 @@ const twoHundredHour = {
     shared: "€799",
     private: "€1,199",
   },
-  rating: 4.9,
+  rating: 5.0,
   graduates: 3500,
   whatsappMessage:
     "Hi Hatha Yogashala, I'm interested in the 200-Hour Yoga Teacher Training in Goa. Could you share the upcoming dates, availability, and the full fee breakdown?",
@@ -723,12 +736,23 @@ const twoHundredHour = {
   accommodation: {
     overview:
       "Choose from mixed AC dorms, twin-sharing AC, or private rooms (AC and non-AC) near the beach in North Goa — all with hot water showers and Wi-Fi.",
-    food:
-      "Three healthy vegetarian meals daily (Monday to Saturday morning), prepared fresh to support your practice and recovery.",
+    food: "Three healthy vegetarian meals daily (Monday to Saturday morning), prepared fresh to support your practice and recovery.",
     images: [
-      { src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp", alt: "Residential campus and stay at Hatha Yogashala Goa", caption: "Residential stay" },
-      { src: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg", alt: "Open-air practice hall at Hatha Yogashala Goa", caption: "Open-air shala" },
-      { src: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp", alt: "Yoga practice near the beach at Hatha Yogashala Goa", caption: "Beach practice" },
+      {
+        src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
+        alt: "Residential campus and stay at Hatha Yogashala Goa",
+        caption: "Residential stay",
+      },
+      {
+        src: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg",
+        alt: "Open-air practice hall at Hatha Yogashala Goa",
+        caption: "Open-air shala",
+      },
+      {
+        src: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
+        alt: "Yoga practice near the beach at Hatha Yogashala Goa",
+        caption: "Beach practice",
+      },
     ],
   },
   includedActivities: [
@@ -882,9 +906,9 @@ const twoHundredHour = {
 const threeHundredHour = {
   slug: "300-hour-yoga-teacher-training-goa",
   hours: "300-hour",
-  name: "300-Hour Yoga Teacher Training in Goa",
+  name: "300-Hour Yoga TTC in Goa",
   level: "Advanced study (for certified 200-hour teachers)",
-  cardBadge: "Booking Open 2026",
+  cardBadge: "ADVANCED",
   cardSummary:
     "Advanced study for certified teachers — deepen anatomy, Ayurveda, philosophy & trauma-informed teaching over 27 days at a leading advanced yoga teacher training school in Goa.",
   cardStats: {
@@ -1128,12 +1152,23 @@ const threeHundredHour = {
   accommodation: {
     overview:
       "Choose from mixed AC dorms, twin-sharing AC, or private rooms (AC and non-AC) near the beach in North Goa — with shops and restaurants nearby.",
-    food:
-      "Three healthy vegetarian meals per day (Monday to Saturday morning), prepared fresh to support your practice and recovery.",
+    food: "Three healthy vegetarian meals per day (Monday to Saturday morning), prepared fresh to support your practice and recovery.",
     images: [
-      { src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp", alt: "Residential campus and stay at Hatha Yogashala Goa", caption: "Residential stay" },
-      { src: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg", alt: "Open-air practice hall at Hatha Yogashala Goa", caption: "Open-air shala" },
-      { src: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp", alt: "Yoga practice near the beach at Hatha Yogashala Goa", caption: "Beach practice" },
+      {
+        src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
+        alt: "Residential campus and stay at Hatha Yogashala Goa",
+        caption: "Residential stay",
+      },
+      {
+        src: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg",
+        alt: "Open-air practice hall at Hatha Yogashala Goa",
+        caption: "Open-air shala",
+      },
+      {
+        src: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
+        alt: "Yoga practice near the beach at Hatha Yogashala Goa",
+        caption: "Beach practice",
+      },
     ],
   },
   includedActivities: [
@@ -1265,7 +1300,8 @@ const threeHundredHour = {
         "Choose from mixed AC dorms, twin-sharing AC, or private rooms near the beach, with vegetarian meals, Wi-Fi, and hot water included.",
     },
     {
-      question: "Can I combine the 100-hour and 200-hour courses into the 300-hour track?",
+      question:
+        "Can I combine the 100-hour and 200-hour courses into the 300-hour track?",
       answer:
         "Please contact us to plan a continuous certification pathway at Hatha Yogashala.",
     },

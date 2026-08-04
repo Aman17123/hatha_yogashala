@@ -1,18 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUp, ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
-import {
-  SiFacebook,
-  SiGmail,
-  SiGooglemaps,
-  SiInstagram,
-  SiTripadvisor,
-  SiWhatsapp,
-  SiYoutube,
-} from "react-icons/si";
 import { site, whatsappLink } from "@/data/siteData";
 import { Container } from "@/components/shared/SiteUI";
 import { Reveal } from "@/components/Interactive";
+import BrandLogo from "@/components/BrandLogos";
 
 const quickLinks = [
   ["Home", "/"],
@@ -38,45 +30,38 @@ const courseLinks = [
 const socialLinks = [
   {
     label: "Instagram",
+    name: "instagram",
     href: site.social.instagram,
-    Icon: SiInstagram,
-    color: "#E4405F",
   },
   {
     label: "Facebook",
+    name: "facebook",
     href: site.social.facebook,
-    Icon: SiFacebook,
-    color: "#1877F2",
   },
   {
     label: "YouTube",
+    name: "youtube",
     href: site.social.youtube,
-    Icon: SiYoutube,
-    color: "#FF0000",
   },
   {
     label: "Google Maps",
+    name: "google-maps",
     href: site.contact.map,
-    Icon: SiGooglemaps,
-    color: "#34A853",
   },
   {
     label: "TripAdvisor",
+    name: "tripadvisor",
     href: site.social.tripadvisor,
-    Icon: SiTripadvisor,
-    color: "#34E0A1",
   },
   {
     label: "Email",
+    name: "gmail",
     href: `mailto:${site.contact.email}`,
-    Icon: SiGmail,
-    color: "#EA4335",
   },
   {
     label: "WhatsApp",
+    name: "whatsapp",
     href: whatsappLink(),
-    Icon: SiWhatsapp,
-    color: "#25D366",
   },
 ];
 
@@ -121,14 +106,6 @@ export default function Footer() {
             </h2>
 
             <div className="mt-1 flex flex-col items-center gap-3">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[var(--brown)]/15 bg-[var(--brown)]/[0.03] px-3.5 py-1.5 font-mono text-[10.4px] uppercase tracking-[0.2em] text-[var(--brown)]/70">
-                <span className="relative flex size-1.5">
-                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#1f9d55] opacity-60" />
-                  <span className="relative inline-flex size-1.5 rounded-full bg-[#1f9d55]" />
-                </span>
-                Confirm dates & availability · Goa, IN
-              </span>
-
               <Link
                 href="/pricing"
                 className="group inline-flex min-h-11 items-center justify-center gap-2.5 rounded-md border border-[var(--brown)]/20 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--brown)] transition duration-200 hover:border-[var(--gold)] hover:bg-[var(--gold)]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--cream)]"
@@ -145,13 +122,13 @@ export default function Footer() {
       </section>
 
       {/* link columns */}
-      <section className="relative z-10">
+      <section className="relative z-10 -mt-10">
         <Container>
-          <Reveal className="grid gap-6 py-6 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1.2fr] lg:gap-6">
+          <Reveal className="grid gap-6 py-6 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-[1.2fr_1fr_1fr_1.2fr] lg:gap-6">
             <FooterColumn>
               <Link
                 href="/"
-                className="mb-4 inline-flex items-center"
+                className="mb-4 inline-flex items-center justify-center sm:justify-start"
                 aria-label={`${site.name} home`}
               >
                 <Image
@@ -164,13 +141,13 @@ export default function Footer() {
                 />
               </Link>
 
-              <p className="max-w-xs text-[13px] leading-5 text-[var(--brown)]">
+              <p className="mx-auto max-w-xs text-[13px] leading-5 text-[var(--brown)] sm:mx-0">
                 Traditional Hatha yoga teacher training and mindful residential
                 retreats in Goa, India.
               </p>
 
-              <div className="mt-3 grid w-fit grid-cols-4 gap-2">
-                {socialLinks.map(({ label, href, Icon, color }) =>
+              <div className="mx-auto mt-3 grid w-fit grid-cols-4 gap-2 sm:mx-0">
+                {socialLinks.map(({ label, name, href }) =>
                   typeof href === "string" &&
                   (href.startsWith("https://") ||
                     href.startsWith("mailto:")) ? (
@@ -181,13 +158,9 @@ export default function Footer() {
                       rel="noopener noreferrer"
                       aria-label={label}
                       title={label}
-                      className="grid size-9 place-items-center rounded-md border border-[var(--brown)]/15 transition duration-200 hover:border-[var(--brown)]/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]"
+                      className="grid size-9 place-items-center rounded-md border border-[var(--brown)]/15 bg-white transition duration-200 hover:border-[var(--brown)]/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]"
                     >
-                      <Icon
-                        className="size-4"
-                        color={color}
-                        aria-hidden="true"
-                      />
+                      <BrandLogo name={name} alt={label} className="size-5" />
                     </a>
                   ) : (
                     <span
@@ -196,7 +169,7 @@ export default function Footer() {
                       title={`${label} link pending`}
                       className="grid size-9 place-items-center rounded-md border border-[var(--brown)]/15 text-[var(--brown)]/60"
                     >
-                      <Icon className="size-4" aria-hidden="true" />
+                      <BrandLogo name={name} className="size-5 opacity-40" />
                     </span>
                   ),
                 )}
@@ -241,14 +214,14 @@ export default function Footer() {
           </Reveal>
 
           {/* bottom bar */}
-          <div className="flex flex-col gap-2 border-t border-[var(--brown)]/10 py-3 font-mono text-[10.4px] uppercase tracking-[0.14em] text-[var(--brown)] md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col items-center gap-2 border-t border-[var(--brown)]/10 py-3 text-center font-mono text-[10.4px] uppercase tracking-[0.14em] text-[var(--brown)] md:flex-row md:items-center md:justify-between md:text-left">
             <p>
               {site.name} <span className="text-[var(--brown)]/60">·</span> ©{" "}
               {new Date().getFullYear()}
             </p>
 
             <nav
-              className="flex flex-wrap gap-x-5 gap-y-2"
+              className="flex flex-wrap justify-center gap-x-5 gap-y-2 md:justify-start"
               aria-label="Legal links"
             >
               <FooterPolicyLink href="/privacy-policy">
@@ -278,14 +251,17 @@ export default function Footer() {
 }
 
 function FooterColumn({ children }) {
-  return <div>{children}</div>;
+  return (
+    <div className="flex flex-col items-center sm:items-start">{children}</div>
+  );
 }
 
 function FooterHeading({ children }) {
   return (
-    <h3 className="mb-2 font-mono text-[10.9px] uppercase tracking-[0.2em] text-[var(--gold)]">
-      {children}
-    </h3>
+    <div className="mb-3 flex flex-col items-center sm:items-start">
+      <h3 className=" font-mono text-[25px] uppercase  ">{children}</h3>
+      <span aria-hidden="true" className="block h-px w-[80%] bg-[#2A2A22]" />
+    </div>
   );
 }
 
@@ -296,7 +272,7 @@ function FooterLinkList({ links }) {
         <li key={href}>
           <Link
             href={href}
-            className="group inline-flex items-center gap-2 text-[13px] leading-5 text-[var(--brown)] transition duration-150 hover:text-[var(--gold)]"
+            className="group inline-flex items-center gap-2 font-medium text-[13px] leading-5 text-[#2A2A22] transition duration-150 hover:text-[#2C7F74]"
           >
             <span>{label}</span>
             <ArrowUpRight
@@ -312,9 +288,9 @@ function FooterLinkList({ links }) {
 
 function ContactItem({ Icon, children }) {
   return (
-    <li className="grid grid-cols-[1.1rem_1fr] items-start gap-3 text-[13px] leading-5 text-[var(--brown)]">
+    <li className="grid grid-cols-[1.1rem_1fr] items-start gap-3 text-left text-[13px] leading-5 text-[#2A2A22]">
       <Icon
-        className="mt-0.5 size-4 stroke-[1.7] text-[var(--gold)]"
+        className="mt-0.5 size-4 stroke-[1.7] text-[#2C7F74]"
         aria-hidden="true"
       />
       {children}
@@ -324,7 +300,7 @@ function ContactItem({ Icon, children }) {
 
 function FooterPolicyLink({ href, children }) {
   return (
-    <Link href={href} className="transition hover:text-[var(--brown)]">
+    <Link href={href} className="transition hover:text-[#2C7F74]">
       {children}
     </Link>
   );

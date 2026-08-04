@@ -56,6 +56,7 @@ import {
   Wind,
 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
+import BrandLogo from "@/components/BrandLogos";
 import { yttcContent } from "@/data/yttcContent";
 import {
   reviewProfile,
@@ -230,7 +231,7 @@ function Stars({ value, size = 13 }) {
 function TripAdvisorMark() {
   return (
     <span className="inline-flex items-center gap-1.5 text-[15px] font-bold text-[#00aa6c]">
-      <span className="grid size-6 place-items-center rounded-full bg-[#00aa6c] text-[10px] font-black text-white">TA</span>
+      <BrandLogo name="tripadvisor" alt="TripAdvisor" className="size-6" />
       TripAdvisor
     </span>
   );
@@ -1190,7 +1191,7 @@ function Reviews({ c }) {
         </div>
         {review.headline && <p className="mt-2.5 font-serif text-[14px] font-semibold text-[var(--brown)]">{review.headline}</p>}
         <div className="mt-1"><Stars value={review.rating} size={11} /></div>
-        <blockquote className="mt-2.5 flex-1 text-[13px] leading-relaxed text-[var(--muted)]">"{review.excerpt}"</blockquote>
+        <blockquote className="mt-2.5 flex-1 text-[13px] leading-relaxed text-[var(--muted)]">&ldquo;{review.excerpt}&rdquo;</blockquote>
         <a href={review.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-2 text-[11px] font-bold text-[var(--coral-dark)] transition hover:underline">Read Full Review →</a>
       </article>
     );

@@ -114,19 +114,19 @@ export const enrolmentQuestionsData = [
 ];
 
 export const founderData = {
-  name: "Lead Teacher — Director of Yoga Education",
-  role: "Founder & Lead Hatha Yoga Master",
+  name: "Yogi Kalpendra Chauhan",
+  role: "Philosophy, Pranayama & Meditationr",
   shortBio:
-    "Grounded in traditional Hatha Yoga and Ashtanga Vinyasa lineages, our lead teacher founded Hatha Yogashala in Goa to offer an authentic, disciplined, and accessible sanctuary for yoga education — Yoga Alliance-registered and built on more than 15 years of teaching experience.",
+    "Kalpendra Chauhan Ji who has been on the path of Yoga and spirituality from an early age of 19 born and brought up in Rishikesh traditional north Indian Spiritual family . His expertise lies in understanding the science behind yoga, breathing, meditation, and relaxation practices to help people find the balance between mind, body, and soul. ",
   fullBio:
-    "Our lead teacher has spent over 15 years immersed in classical Hatha Yoga, Ashtanga Vinyasa, pranayama, meditation, and Ayurveda, teaching yoga teacher training in India and internationally. With E-RYT 500 certification and advanced Ashtanga training, they have mentored more than 1,500 certified teachers now teaching across Europe, Russia, and the Americas. The teaching integrates traditional sequencing, breath retention (Kumbhaka), and anatomical precision, ensuring students build a personal practice rooted in clarity, mental stillness, and bodily safety.",
+    "Kalpendra Chauhan Ji who has been on the path of Yoga and spirituality from an early age of 19 born and brought up in Rishikesh traditional north Indian Spiritual family . His expertise lies in understanding the science behind yoga, breathing, meditation, and relaxation practices to help people find the balance between mind, body, and soul. He has obtained Masters degree in Yoga science from Uttarakhand Sanskrit Universityi, Haridwar in 2008. He also has earned a post-graduate Diploma in Yoga and Holistic Health from HNB Garhwal University in 2005 and Certfied Yoga teacher (ERYT 500 from Yoga Alliance USA),He has been teaching Yoga Philosophy, Pranayam , Yoga Nidra and Meditation for over 16 years now. His simplicity transcends into his teaching philosophy.",
   qualifications: "E-RYT 500 (Yoga Alliance), Advanced Ashtanga",
   experience: "15+ Years Teaching Yoga Teacher Training",
   philosophy:
-    "Yoga is not a performance of difficult shapes; it is a steady, conscious inquiry into breath, body alignment, and mental quietude. We teach Hatha Yoga as a lived discipline that restores harmony to everyday life.",
+    "The true purpose of yoga is to quiet the fluctuations of the mind. When the mind is steady and calm, truth is revealed. My teaching aims to guide students toward this inner stillness, using breath, alignment, and awareness as the primary tools for transformation.",
   quote:
     "Yoga is a path of self-inquiry. I teach from the breath outward, guiding students to find alignment, steadiness, and ease — on the mat and in life.",
-  image: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-portrait.webp",
+  image: "/images/tha_hatha/The_Hatha_Yogashala-founder-Goa.webp",
   imageAlt: "Lead Teacher of Hatha Yogashala in Goa",
   lineage: "Classical Hatha Yoga & Ashtanga Vinyasa (India)",
   areasOfExpertise: [

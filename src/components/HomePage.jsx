@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  Award,
   BadgeCheck,
   Compass,
   Globe,
@@ -97,7 +96,6 @@ const comparisonRows = [
     "Completion document",
     ...teacherTrainings.map((course) => course.certification),
   ],
-  ["Ideal student", ...teacherTrainings.map((course) => course.bestFor)],
   ["Shared-room price", ...teacherTrainings.map((course) => course.price)],
 ];
 
@@ -161,6 +159,21 @@ const trustItems = [
     icon: PiGraduationCapFill,
     value: "947 Graduates",
     label: "From 77 Countries",
+  },
+];
+
+const certificationBadges = [
+  {
+    icon: "/images/tha_hatha/The-hatha-yogashala-certifiacte-rs-200.webp",
+    caption: "200-Hour Yoga Teacher Training\n(YTTC) – Rishikesh",
+  },
+  {
+    icon: "/images/tha_hatha/The-hatha-yogashala-yoga-alliance.png",
+    caption: "Registered Yoga School",
+  },
+  {
+    icon: "/images/tha_hatha/The-hatha-yogashala-certifiacte-rs-300.webp",
+    caption: "300-Hour Yoga Teacher Training\n(YTTC) – Rishikesh",
   },
 ];
 
@@ -233,20 +246,6 @@ export default function HomePage() {
                 sizes="(max-width: 900px) 100vw, 45vw"
               />
             </div>
-            <div className="hero-stats" aria-label="School statistics">
-              {stats.map(({ key, label, value, suffix }) => (
-                <div key={key}>
-                  <strong>
-                    {Number.isFinite(value) ? (
-                      <CountUp value={value} suffix={suffix} />
-                    ) : (
-                      "—"
-                    )}
-                  </strong>
-                  <span>{label}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </Container>
       </section>
@@ -299,12 +298,12 @@ export default function HomePage() {
       {/* ===== 4. TEACHER TRAINING — 100/200/300-hour program cards ===== */}
       <section className="section section-peach" id="courses">
         <Container>
-            <SectionHeading
-              eyebrow="Teacher training"
-              title="Choose the yoga teacher training depth that fits your path"
-              text="Compare level, curriculum, accommodation, completion details, and fees before choosing by hour count."
-              align="center"
-            />
+          <SectionHeading
+            eyebrow="Teacher training"
+            title="Choose the yoga teacher training depth that fits your path"
+            text="Compare level, curriculum, accommodation, completion details, and fees before choosing by hour count."
+            align="center"
+          />
           <div className="grid gap-5 lg:grid-cols-3">
             {teacherTrainings.map((course) => (
               <ProgramCard key={course.slug} course={course} />
@@ -316,12 +315,12 @@ export default function HomePage() {
       {/* ===== 5. RETREATS — coastal retreat cards ===== */}
       <section className="section" id="retreats">
         <Container>
-            <SectionHeading
-              eyebrow="Coastal retreats"
-              title="Yoga retreats to make room for practice and rest"
-              text="Each retreat is a personal-practice experience, not a teacher-training course or professional certification."
-              align="center"
-            />
+          <SectionHeading
+            eyebrow="Coastal retreats"
+            title="Yoga retreats to make room for practice and rest"
+            text="Each retreat is a personal-practice experience, not a teacher-training course or professional certification."
+            align="center"
+          />
           <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {retreats.map((retreat) => (
               <RetreatCard key={retreat.slug} retreat={retreat} />
@@ -351,27 +350,38 @@ export default function HomePage() {
 
       {/* ===== 10. COURSE COMPARISON — 100 vs 200 vs 300-hour table ===== */}
       <section className="section section-cream" id="comparison">
+        class
         <Container>
-            <SectionHeading
-              eyebrow="Course comparison"
-              title="100, 200, or 300-Hour Yoga Teacher Training?"
-              text="The 200-hour course is the recommended starting point for aspiring yoga teachers. Compare all yoga teacher training pathways and find your perfect match."
-              align="center"
-            />
+          <SectionHeading
+            eyebrow="Course comparison"
+            title="100, 200, or 300-Hour Yoga Teacher Training?"
+            text="The 200-hour course is the recommended starting point for aspiring yoga teachers. Compare all yoga teacher training pathways and find your perfect match."
+            align="center"
+          />
 
           {/* Desktop: Three standalone pop-out cards side by side */}
           <div className="mt-10 hidden md:grid md:grid-cols-3 gap-6 items-start">
             {teacherTrainings.map((course, ci) => {
               const isRec = course.featured;
+              const badgeLabel = isRec
+                ? "Most Popular"
+                : ci === 0
+                  ? "Beginner"
+                  : "Advanced";
+
               return (
                 <div
                   key={course.slug}
-                  className={`relative flex flex-col rounded-[28px] overflow-hidden transition-all duration-300 ${
+                  className={`relative flex flex-col rounded-[28px] overflow-hidden border-[2.5px] transition-all duration-300 ${
                     isRec
-                      ? "border-[2.5px] border-[var(--coral-dark)] shadow-[0_12px_48px_rgba(47,79,62,0.18)] -translate-y-3"
-                      : "border border-[var(--border)] shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.10)]"
+                      ? "z-10 border-[var(--coral-dark)] bg-white shadow-[0_18px_60px_rgba(36,64,47,0.26)] lg:scale-[1.05] lg:-translate-y-2"
+                      : "border-[var(--border)] bg-white shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.10)] hover:border-[var(--coral-dark)]/40"
                   }`}
                 >
+                  {/* Featured top accent bar */}
+                  {isRec && (
+                    <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-1.5 bg-gradient-to-r from-[var(--coral)] via-[var(--gold)] to-[var(--coral)]" />
+                  )}
                   {/* Card Header */}
                   <div
                     className={`cmp-head px-5 pt-5 pb-4 ${
@@ -380,12 +390,10 @@ export default function HomePage() {
                         : "bg-[var(--cream)]"
                     }`}
                   >
-                    {isRec && (
-                      <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-[var(--coral-dark)] px-2.5 py-0.5 text-[9px] font-black uppercase tracking-[0.15em] text-white shadow-sm">
-                        <Star className="size-2.5 fill-white" />
-                        Most Popular
-                      </span>
-                    )}
+                    <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-[var(--coral-dark)] px-2.5 py-0.5 text-[9px] font-black uppercase tracking-[0.15em] text-white shadow-sm">
+                      {isRec && <Star className="size-2.5 fill-white" />}
+                      {badgeLabel}
+                    </span>
                     <h3
                       className={`text-base font-serif font-bold leading-tight ${
                         isRec ? "text-[var(--coral-dark)]" : "text-black/80"
@@ -408,15 +416,15 @@ export default function HomePage() {
                     {comparisonRows.map((row, ri) => (
                       <div
                         key={row[0]}
-                        className={`cmp-row flex items-start justify-between gap-3 px-5 py-3 ${
+                        className={`cmp-row flex flex-col gap-1 px-5 py-3 ${
                           ri > 0 ? "border-t border-[var(--border)]" : ""
                         } ${ri % 2 === 0 ? "" : "bg-[var(--cream)]/50"}`}
                       >
-                        <span className="cmp-row-label text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--muted)] shrink-0 w-24 mt-0.5">
+                        <span className="cmp-row-label text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--muted)]">
                           {row[0]}
                         </span>
                         <span
-                          className={`cmp-row-value text-xs text-right leading-snug ${
+                          className={`cmp-row-value text-xs leading-snug ${
                             isRec ? "font-medium text-black" : "text-black/70"
                           }`}
                         >
@@ -427,11 +435,7 @@ export default function HomePage() {
                   </div>
 
                   {/* CTA */}
-                  <div
-                    className={`cmp-foot px-5 py-4 ${
-                      isRec ? "bg-[var(--cream)]" : "bg-[var(--cream)]"
-                    }`}
-                  >
+                  <div className="cmp-foot px-5 py-4 bg-[var(--cream)]">
                     <Link
                       href={`/courses/${course.slug}`}
                       className={`cmp-cta group inline-flex w-full items-center justify-center gap-2 rounded-full py-2.5 px-4 text-[10px] font-bold uppercase tracking-[0.1em] transition-all duration-200 ${
@@ -443,11 +447,6 @@ export default function HomePage() {
                       <span>View {course.hours}</span>
                       <ArrowRight className="size-3 group-hover:translate-x-1 transition-transform" />
                     </Link>
-                    {isRec && (
-                      <p className="mt-1.5 text-center text-[10px] text-[var(--coral-dark)]/70 font-medium">
-                        Ideal first step for new teachers
-                      </p>
-                    )}
                   </div>
                 </div>
               );
@@ -458,15 +457,25 @@ export default function HomePage() {
           <div className="grid gap-5 md:hidden mt-8">
             {teacherTrainings.map((course, ci) => {
               const isRec = course.featured;
+              const badgeLabel = isRec
+                ? "Most Popular"
+                : ci === 0
+                  ? "Beginner"
+                  : "Advanced";
+
               return (
                 <article
                   key={course.slug}
-                  className={`rounded-[24px] overflow-hidden transition-all duration-300 ${
+                  className={`relative rounded-[24px] overflow-hidden border-[2px] transition-all duration-300 ${
                     isRec
-                      ? "border-[2px] border-[var(--coral-dark)] shadow-xl shadow-[var(--coral-dark)]/12"
-                      : "border border-[var(--border)] shadow-sm"
+                      ? "border-[var(--coral-dark)] shadow-xl shadow-[var(--coral-dark)]/15"
+                      : "border-[var(--border)] shadow-sm"
                   }`}
                 >
+                  {/* Featured top accent bar */}
+                  {isRec && (
+                    <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-1.5 bg-gradient-to-r from-[var(--coral)] via-[var(--gold)] to-[var(--coral)]" />
+                  )}
                   <div
                     className={`px-6 pt-6 pb-4 ${
                       isRec
@@ -474,12 +483,10 @@ export default function HomePage() {
                         : "bg-[var(--cream)]"
                     }`}
                   >
-                    {isRec && (
-                      <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-[var(--coral-dark)] px-3 py-1 text-[10px] font-black uppercase tracking-[0.15em] text-white shadow-sm">
-                        <Star className="size-3 fill-white" />
-                        Most Popular
-                      </span>
-                    )}
+                    <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-[var(--coral-dark)] px-3 py-1 text-[10px] font-black uppercase tracking-[0.15em] text-white shadow-sm">
+                      {isRec && <Star className="size-3 fill-white" />}
+                      {badgeLabel}
+                    </span>
                     <h3
                       className={`text-lg font-serif font-bold ${isRec ? "text-[var(--coral-dark)]" : "text-black/80"}`}
                     >
@@ -499,13 +506,13 @@ export default function HomePage() {
                       {comparisonRows.map((row, ri) => (
                         <div
                           key={row[0]}
-                          className={`flex justify-between gap-4 py-3 ${ri > 0 ? "border-t border-[var(--border)]" : ""}`}
+                          className={`flex flex-col gap-1 py-3 ${ri > 0 ? "border-t border-[var(--border)]" : ""}`}
                         >
-                          <dt className="text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--muted)] shrink-0 mt-0.5 w-24">
+                          <dt className="text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--muted)]">
                             {row[0]}
                           </dt>
                           <dd
-                            className={`text-sm text-right leading-snug ${isRec ? "font-medium text-black" : "text-black/70"}`}
+                            className={`text-sm leading-snug ${isRec ? "font-medium text-black" : "text-black/70"}`}
                           >
                             {row[ci + 1]}
                           </dd>
@@ -533,51 +540,95 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ===== 11. DATES & SCHEDULE — course batches and booking ===== */}
-      <section className="section" id="dates">
+      {/* ===== 11 CERTIFICATION — Yoga Alliance accreditation ===== */}
+      <section className="section" id="certification">
         <Container>
-          <SectionHeading
-            eyebrow="Dates and schedule"
-            title="Plan from confirmed batch information"
-            text="No availability, urgency, or price is invented. Use the course links or enquiry form to request the current written schedule."
-            align="center"
-          />
-          <div className="grid gap-4">
-            {teacherTrainings.map((course, index) => (
-              <article
-                className="card grid gap-5 p-5 md:grid-cols-[1.2fr_1fr_1fr_auto] md:items-center md:p-6"
-                key={course.slug}
-              >
-                <div className="flex gap-4">
-                  <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[var(--cream)] font-bold text-[var(--coral-dark)]">
-                    {String(index + 1).padStart(2, "0")}
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div>
+              <SectionHeading
+                eyebrow="Global recognition"
+                title={
+                  <>
+                    Internationally recognized{" "}
+                    <span className="text-[var(--coral-dark)]">
+                      Yoga Alliance
+                    </span>{" "}
+                    <span className="text-[var(--coral-dark)]">
+                      certification
+                    </span>
+                  </>
+                }
+                text={
+                  <>
+                    <strong>The Hatha Yogashala in Goa</strong> offers{" "}
+                    <strong>Yoga Alliance USA certified courses</strong>. These
+                    programs help you become a{" "}
+                    <strong>professional yoga teacher in Goa</strong>. Your
+                    certificate is <strong>accepted worldwide</strong>.
+                  </>
+                }
+              />
+
+              <div className="grid grid-cols-3 gap-4">
+                {certificationBadges.map((badge) => (
+                  <div
+                    className="card flex flex-col items-center gap-3 p-4 text-center"
+                    key={badge.icon}
+                  >
+                    <span className="relative grid size-16 shrink-0 place-items-center rounded-full border-2 border-[var(--teal-dark)] p-2">
+                      <Image
+                        src={badge.icon}
+                        alt={badge.caption}
+                        fill
+                        className="object-contain p-2"
+                        sizes="64px"
+                      />
+                    </span>
+                    <p className="text-xs font-semibold leading-snug text-[var(--teal-dark)]">
+                      {badge.caption}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 flex flex-col items-start justify-between gap-4 rounded-2xl bg-[var(--cream)] p-5 sm:flex-row sm:items-center sm:p-6">
+                <div className="flex items-center gap-3">
+                  <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[var(--coral-dark)]">
+                    <Globe className="size-5 text-white" />
                   </span>
                   <div>
-                    <h3>{course.name}</h3>
-                    <p className="mt-1 text-sm text-muted">
-                      {course.duration} · {course.location}
+                    <strong className="block">
+                      Looking for full accreditation details?
+                    </strong>
+                    <p className="text-sm text-muted">
+                      Learn about our certification.
                     </p>
                   </div>
                 </div>
-                <div>
-                  <small className="block uppercase tracking-[0.12em] text-muted">
-                    Dates
-                  </small>
-                  <strong>{course.date}</strong>
-                </div>
-                <div>
-                  <small className="block uppercase tracking-[0.12em] text-muted">
-                    Rooms & fees
-                  </small>
-                  <strong>
-                    {course.price} · {course.privatePrice}
-                  </strong>
-                </div>
-                <ButtonLink href={`/courses/${course.slug}#dates`}>
-                  Check course
-                </ButtonLink>
-              </article>
-            ))}
+                <ButtonLink href="/certification">View credentials</ButtonLink>
+              </div>
+            </div>
+
+            <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+              <div className="relative h-[420px] w-full overflow-hidden rounded-3xl">
+                <Image
+                  src="/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp"
+                  alt="Yoga teacher training certification ceremony at Sukha Yogashala"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 40vw, 90vw"
+                />
+              </div>
+              <div className="absolute -bottom-6 -left-6 w-56 overflow-hidden rounded-xl border-4 border-white shadow-xl sm:w-64">
+                <Image
+                  src="/images/tha_hatha/The-hatha-yogashala--Certificate.webp"
+                  alt="Yoga Alliance 200-hour certificate of registration"
+                  width={400}
+                  height={300}
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </Container>
       </section>
@@ -678,7 +729,6 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
-
       {/* ===== 13. RESIDENTIAL EXPERIENCE — facilities and accommodation ===== */}
       <section
         className="section section-cream"
@@ -689,16 +739,32 @@ export default function HomePage() {
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
             {/* Left — sticky editorial intro */}
             <div className="lg:sticky lg:top-24">
-            <SectionHeading
-              eyebrow="Residential experience"
-              title="Yoga accommodation and spaces around the practice"
-              text="Confirm the exact room, yoga hall, meals, facilities, and support attached to your batch before payment."
-            />
-              <p className="mt-5 max-w-md text-sm leading-7 text-black/60">
-                Your stay is part of the practice. Rooms, shalas, meals, and
-                student support are confirmed in writing before any reservation
-                is treated as complete.
-              </p>
+              <SectionHeading
+                eyebrow="Residential experience"
+                title="Yoga accommodation and spaces around the practice"
+                text="Confirm the exact room, yoga hall, meals, facilities, and support attached to your batch before payment."
+              />
+              <div className="mt-5 max-w-md space-y-4 text-[15px] leading-7 text-black/80">
+                <p>
+                  Living on campus means your practice continues beyond the mat.
+                  Mornings begin in the open-air shala, days unfold between
+                  study, asana, and meals, and evenings close with reflection
+                  and rest — a daily rhythm designed around the training itself.
+                </p>
+                <p>
+                  Guests stay in clean, beach-near rooms — from mixed AC dorms
+                  to twin-sharing and private rooms — with three fresh
+                  vegetarian meals a day, quiet study spaces, and 24/7 student
+                  support. What makes the experience unique is that everything
+                  you need is in one place, so your energy stays with your
+                  practice.
+                </p>
+                <p>
+                  What to expect: your exact room, yoga hall, meal plan, and
+                  student support are confirmed in writing before any
+                  reservation is treated as complete.
+                </p>
+              </div>
               <div className="mt-8 flex flex-wrap gap-3">
                 <ButtonLink href="/accommodation" variant="secondary">
                   Explore accommodation
@@ -727,18 +793,15 @@ export default function HomePage() {
               </div>
 
               <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                {facilities.map((facility, index) => (
+                {facilities.map((facility) => (
                   <li
                     key={facility.title}
-                    className="facility-card rounded-2xl border border-[var(--border)] bg-white/80 p-5 shadow-sm transition-shadow hover:shadow-md"
+                    className="facility-card rounded-2xl border border-[var(--border)] bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
                   >
-                    <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[var(--coral-dark)]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="mt-2 font-serif text-lg font-bold leading-snug text-black/80">
+                    <h3 className="font-serif text-xl font-bold leading-snug text-black">
                       {facility.title}
                     </h3>
-                    <p className="mt-1.5 text-xs leading-relaxed text-black/60">
+                    <p className="mt-2 text-[15px] leading-relaxed text-black">
                       {facility.text}
                     </p>
                   </li>
@@ -879,7 +942,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <FinalCTA />
+      <FinalCTA height="45vh" className="h-[40vh]" />
     </div>
   );
 }

@@ -437,9 +437,15 @@ export function JsonLd({ data }) {
 export function FinalCTA({
   title = "Ready to plan your practice in Goa?",
   text = "Tell us what you want to study. The school can confirm suitability, dates, fees, and availability before you make travel plans.",
+  className = "",
+  height, // e.g. "45vh"
 }) {
   return (
-    <section className="final-cta-section" aria-labelledby="final-cta-title">
+    <section
+      className={`final-cta-section ${className}`}
+      style={height ? { "--final-cta-height": height } : undefined}
+      aria-labelledby="final-cta-title"
+    >
       <Container>
         <Eyebrow>Begin with a conversation</Eyebrow>
         <h2 id="final-cta-title">{title}</h2>
