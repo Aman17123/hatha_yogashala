@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ChevronDown, ClipboardList, Menu, X } from "lucide-react";
 import { navigation, site } from "@/data/siteData";
 import { Container } from "@/components/shared/SiteUI";
@@ -120,7 +121,52 @@ const childLinkClass = (label) =>
       : "text-[15px] text-[var(--muted)]"
   }`;
 
+// Renders a dropdown child as a <button> when it's the Blogs entry,
+// and as a normal <Link> (anchor) for everything else. Navigation for
+// the button is handled with router.push since a <button> has no href.
+function ChildLink({ child, onNavigate, router }) {
+  const className = childLinkClass(child.label);
+  const dot = (
+    <span
+      aria-hidden="true"
+      className="size-1.5 shrink-0 rounded-full bg-[var(--muted)]/40 transition-all duration-300 ease-out group-hover/link:scale-0 group-hover/link:opacity-0"
+    />
+  );
+  const underline = (
+    <span
+      className="h-px w-0 bg-[var(--coral-dark)] transition-[width] duration-300 ease-out group-hover/link:w-3"
+      aria-hidden="true"
+    />
+  );
+
+  if (child.label === "Blogs") {
+    return (
+      <button
+        type="button"
+        onClick={() => {
+          onNavigate?.();
+          router.push(child.href);
+        }}
+        className={`w-full text-left ${className}`}
+      >
+        {dot}
+        {underline}
+        {child.label}
+      </button>
+    );
+  }
+
+  return (
+    <Link href={child.href} onClick={onNavigate} className={className}>
+      {dot}
+      {underline}
+      {child.label}
+    </Link>
+  );
+}
+
 export default function Navbar() {
+  const router = useRouter();
   const [openGroup, setOpenGroup] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileGroup, setMobileGroup] = useState(null);
@@ -274,22 +320,12 @@ export default function Navbar() {
                               </p>
                               <div className="space-y-0.5">
                                 {column.links.map((child) => (
-                                  <Link
+                                  <ChildLink
                                     key={child.href}
-                                    href={child.href}
-                                    onClick={() => setOpenGroup(null)}
-                                    className={childLinkClass(child.label)}
-                                  >
-                                    <span
-                                      aria-hidden="true"
-                                      className="size-1.5 shrink-0 rounded-full bg-[var(--muted)]/40 transition-all duration-300 ease-out group-hover/link:scale-0 group-hover/link:opacity-0"
-                                    />
-                                    <span
-                                      className="h-px w-0 bg-[var(--coral-dark)] transition-[width] duration-300 ease-out group-hover/link:w-3"
-                                      aria-hidden="true"
-                                    />
-                                    {child.label}
-                                  </Link>
+                                    child={child}
+                                    router={router}
+                                    onNavigate={() => setOpenGroup(null)}
+                                  />
                                 ))}
                               </div>
                             </div>
@@ -323,7 +359,7 @@ export default function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="relative whitespace-nowrap rounded-full px-3 py-2.5 font-sans text-sm font-medium leading-none text-black/85 transition duration-200 after:absolute after:bottom-1.5 after:left-3 after:right-3 after:h-px after:origin-left after:scale-x-0 after:bg-[var(--sage)] after:transition-transform after:duration-200 hover:bg-[var(--cream)] hover:text-black hover:after:scale-x-100"
+                    className="relative whitespace-nowrap rounded-full px-3 py-2.5 font-sans text-[16px] font-medium leading-none text-black/85 transition duration-200 after:absolute after:bottom-1.5 after:left-3 after:right-3 after:h-px after:origin-left after:scale-x-0 after:bg-[var(--sage)] after:transition-transform after:duration-200 hover:bg-[var(--cream)] hover:text-black hover:after:scale-x-100"
                   >
                     {item.label}
                   </Link>
@@ -429,22 +465,12 @@ export default function Navbar() {
                                   {column.title}
                                 </p>
                                 {column.links.map((child) => (
-                                  <Link
+                                  <ChildLink
                                     key={child.href}
-                                    href={child.href}
-                                    onClick={() => setOpenGroup(null)}
-                                    className={childLinkClass(child.label)}
-                                  >
-                                    <span
-                                      aria-hidden="true"
-                                      className="size-1.5 shrink-0 rounded-full bg-[var(--muted)]/40 transition-all duration-300 ease-out group-hover/link:scale-0 group-hover/link:opacity-0"
-                                    />
-                                    <span
-                                      className="h-px w-0 bg-[var(--coral-dark)] transition-[width] duration-300 ease-out group-hover/link:w-3"
-                                      aria-hidden="true"
-                                    />
-                                    {child.label}
-                                  </Link>
+                                    child={child}
+                                    router={router}
+                                    onNavigate={closeMobile}
+                                  />
                                 ))}
                               </div>
                             ))

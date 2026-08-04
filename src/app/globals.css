@@ -278,7 +278,6 @@ blockquote {
 /* ── Global Type Scale ─────────────────────────
    Gotu is applied to every heading site-wide. Body
    copy keeps its own sans-serif. All sizes are px. */
-
 @layer base {
   a {
     color: inherit;
