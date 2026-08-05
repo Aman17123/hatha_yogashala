@@ -26,7 +26,7 @@ import {
 import { retreats } from "@/data/coursesData";
 import { absoluteUrl, site } from "@/data/siteData";
 import { Accordion } from "./Interactive";
-import { Container, ButtonLink, JsonLd, Media, RetreatCard, SectionHeading } from "./ui";
+import { Container, ButtonLink, JsonLd, Media, MobileStickyBar, RetreatCard, SectionHeading } from "./ui";
 import BookingSidebar from "./retreat/BookingSidebar";
 import BookingForm from "./retreat/BookingForm";
 import TestimonialCarousel, { VideoTestimonials } from "./retreat/TestimonialCarousel";
@@ -270,6 +270,22 @@ export default function RetreatTemplate({ retreat, page }) {
       <div className="container retreat-layout">
         {/* Sticky booking sidebar */}
         <BookingSidebar page={p} retreat={retreat} />
+        <MobileStickyBar
+          left={
+            <p className="text-[13px] font-black leading-tight text-[var(--brown)]">
+              From <span className="text-[var(--coral-dark)]">{typeof p.pricing.shared.price === "number" ? `${currencySymbol}${p.pricing.shared.price}` : "On enquiry"}</span>
+              <span className="text-[11px] font-semibold text-[var(--muted)]"> /person</span>
+            </p>
+          }
+          right={
+            <>
+              <a href="#book" className="button button-primary !px-4 !py-2.5 !text-xs">Book Your Retreat</a>
+              <a href={whatsappHref} className="button booking-whatsapp !px-3 !py-2.5 !text-xs" aria-label="WhatsApp inquiry">
+                <SiWhatsapp size={15} aria-hidden="true" />
+              </a>
+            </>
+          }
+        />
 
         <div className="retreat-content" id="overview">
 

@@ -3512,6 +3512,7 @@ body:has(.yttc-page) .floating-actions {
 
   .page-hero h1 {
     font-size: 48px;
+    line-height: 56px;
   }
 
   .why-image,
@@ -4285,6 +4286,7 @@ body:has(.yttc-page) .floating-actions {
 
   .page-hero h1 {
     font-size: 48px;
+    line-height: 56px;
   }
 }
 
@@ -6009,6 +6011,7 @@ body:has(.yttc-page) .floating-actions {
 @media (max-width: 640px) {
   .retreat-hero h1 {
     font-size: 48px;
+    line-height: 56px;
   }
 
   .retreat-hero-meta {
@@ -6432,9 +6435,9 @@ body:has(.yttc-page) .floating-actions {
   .page-hero h1,
   .article-header h1,
   .not-found h1,
-  .retreat-hero h1 { font-size: 64px; }
-  .retreat-final-cta h2 { font-size: 56px; }
-  .article-content h2 { font-size: 40px; }
+  .retreat-hero h1 { font-size: 60px; line-height: 68px; }
+  .retreat-final-cta h2 { font-size: 54px; line-height: 62px; }
+  .article-content h2 { font-size: 40px; line-height: 48px; }
   .policy-page h2,
   .retreat-section-title,
   .section-heading--blog h2 { font-size: 36px; }
@@ -6447,9 +6450,9 @@ body:has(.yttc-page) .floating-actions {
   .page-hero h1,
   .article-header h1,
   .not-found h1,
-  .retreat-hero h1 { font-size: 84px; }
-  .retreat-final-cta h2 { font-size: 70px; }
-  .article-content h2 { font-size: 48px; }
+  .retreat-hero h1 { font-size: 80px; line-height: 90px; }
+  .retreat-final-cta h2 { font-size: 66px; line-height: 76px; }
+  .article-content h2 { font-size: 48px; line-height: 58px; }
   .policy-page h2,
   .retreat-section-title,
   .section-heading--blog h2 { font-size: 43px; }
@@ -6459,11 +6462,11 @@ body:has(.yttc-page) .floating-actions {
 }
 
 @media (min-width: 1536px) {
-  .page-hero h1 { font-size: 104px; }
-  .article-header h1 { font-size: 101px; }
+  .page-hero h1 { font-size: 96px; line-height: 108px; }
+  .article-header h1 { font-size: 92px; line-height: 104px; }
   .not-found h1,
-  .retreat-hero h1 { font-size: 96px; }
-  .retreat-final-cta h2 { font-size: 80px; }
+  .retreat-hero h1 { font-size: 88px; line-height: 100px; }
+  .retreat-final-cta h2 { font-size: 74px; line-height: 84px; }
   .footer-wordmark { font-size: 192px; }
 }
 

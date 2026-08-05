@@ -32,6 +32,19 @@ export function ButtonLink({
   );
 }
 
+export function MobileStickyBar({ left, right, className = "" }) {
+  return (
+    <div className={`sticky top-16 z-30 md:top-[76px] lg:hidden ${className}`}>
+      <div className="flex items-center gap-3 border-b border-[var(--border)] bg-white/95 px-4 py-2.5 shadow-[0_8px_24px_rgba(41,73,54,0.08)] backdrop-blur-xl">
+        <div className="min-w-0 flex-1">{left}</div>
+        {right && (
+          <div className="flex shrink-0 items-center gap-2">{right}</div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export function Eyebrow({ children }) {
   return (
     <p className="eyebrow">

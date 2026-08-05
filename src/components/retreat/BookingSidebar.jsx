@@ -25,7 +25,7 @@ export default function BookingSidebar({ page, retreat }) {
       : null;
 
   return (
-    <aside className="retreat-sidebar" aria-label="Retreat booking summary">
+    <aside className="retreat-sidebar scroll-mt-[110px]" id="book" aria-label="Retreat booking summary">
       <div className="booking-card">
         {/* Price block */}
         <div className="booking-card-head">

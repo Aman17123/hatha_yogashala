@@ -1323,8 +1323,12 @@ function Location({ c }) {
 function MobileBottomBar({ course }) {
   const whatsappHref = whatsappLink(course.whatsappMessage);
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[800] border-t border-[var(--border)] bg-white/90 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur-xl lg:hidden">
-      <div className="flex gap-2.5">
+    <div className="fixed inset-x-0 bottom-0 z-[800] border-t border-[var(--border)] bg-white/90 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-2.5 backdrop-blur-xl lg:hidden">
+      <div className="flex items-center gap-2.5">
+        <div className="min-w-0 shrink-0">
+          <p className="text-[9px] font-black uppercase tracking-widest text-[var(--coral-dark)]">From</p>
+          <p className="truncate text-[15px] font-black leading-tight text-[var(--brown)]">{course.price}</p>
+        </div>
         <PillButton href="/apply" className="min-h-[0] flex-1 py-3">Reserve Spot</PillButton>
         <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="flex flex-1 items-center justify-center gap-2 rounded-full bg-[#25D366] py-3 text-[11px] font-bold uppercase tracking-[0.12em] text-white shadow-md transition hover:brightness-105">
           <SiWhatsapp size={15} aria-hidden="true" /> WhatsApp Chat
@@ -1395,7 +1399,7 @@ export default function YTTCPage({ course }) {
 
             {/* RIGHT — Sticky sidebar (4 cols) — Sukha style */}
             <aside className="order-first lg:order-last lg:col-span-4">
-              <div className="sticky top-24 space-y-5 lg:top-32">
+              <div className="space-y-5 lg:sticky lg:top-32">
                 <CourseSidebar c={c} course={course} />
               </div>
             </aside>

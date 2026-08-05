@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { CheckCircle2, Sparkles } from "lucide-react";
 import { faqData } from "@/data/faqData";
-import { ButtonLink, Container, SectionHeading } from "@/components/ui";
+import { ButtonLink, Container, MobileStickyBar, SectionHeading } from "@/components/ui";
 
 export default function FAQ({
   questions = faqData,
@@ -16,7 +16,7 @@ export default function FAQ({
 
   return (
     <section
-      className="section section-cream relative overflow-hidden"
+      className="section section-cream relative"
       id="faq"
     >
       <Container>
@@ -118,6 +118,27 @@ export default function FAQ({
 
           {/* Right Column — Scrollable Questions */}
           <div className="space-y-3">
+            <MobileStickyBar
+              left={
+                <div className="flex items-baseline gap-2">
+                  <span className="font-serif text-xl font-bold leading-none text-[var(--coral-dark)]">
+                    {String(activeIndex + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--muted)]">
+                    / {String(questions.length).padStart(2, "0")} FAQs
+                  </span>
+                </div>
+              }
+              right={
+                <ButtonLink
+                  href="/contact"
+                  variant="primary"
+                  className="!px-4 !py-2.5 text-xs"
+                >
+                  <span>Ask Us</span>
+                </ButtonLink>
+              }
+            />
             {questions.map((q, index) => {
               const isActive = index === activeIndex;
 

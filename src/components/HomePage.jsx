@@ -34,6 +34,7 @@ import {
   FinalCTA,
   JsonLd,
   Media,
+  MobileStickyBar,
   ProgramCard,
   RetreatCard,
   SectionHeading,
@@ -626,6 +627,22 @@ export default function HomePage() {
       >
         <Container>
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+            <MobileStickyBar
+              left={
+                <p className="text-[11px] font-black uppercase tracking-widest text-[var(--coral-dark)]">
+                  Residential Experience
+                </p>
+              }
+              right={
+                <ButtonLink
+                  href="/accommodation"
+                  variant="secondary"
+                  className="!px-4 !py-2.5 !text-xs"
+                >
+                  <span>Explore</span>
+                </ButtonLink>
+              }
+            />
             {/* Left — sticky editorial intro */}
             <div className="lg:sticky lg:top-24">
               <SectionHeading
