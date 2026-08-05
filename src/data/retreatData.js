@@ -24,7 +24,6 @@ export const retreatPricingByDays = {
   3: { shared: { price: 199 }, private: { price: 399 } },
   5: { shared: { price: 299 }, private: { price: 499 } },
   7: { shared: { price: 449 }, private: { price: 649 } },
-  10: { shared: { price: null }, private: { price: null } },
 };
 
 export const retreatPricing = {
@@ -755,167 +754,6 @@ const baseDays = {
       ],
     },
   ],
-  10: [
-    {
-      title: "Finding Your Rhythm",
-      intro:
-        "Arrive and settle in. A gentle opening practice, welcome circle, and coastal evening set the tone for a longer, deeper immersion.",
-      schedule: [
-        ["07:00", "Asana & Pranayama"],
-        ["09:00", "Breakfast"],
-        ["11:00", "Goa Sightseeing & Beach Exploration"],
-        ["13:00", "Lunch"],
-        ["14:00", "Rest"],
-        ["17:00", "Vinyasa Flow"],
-        ["18:30", "Sunset Meditation"],
-        ["20:00", "Dinner"],
-        ["22:00", "Lights Off"],
-      ],
-    },
-    {
-      title: "Going Deeper",
-      intro:
-        "Practice builds with alignment and breathwork focus, plus a guided nature walk through the surrounding landscape.",
-      schedule: [
-        ["07:00", "Asana & Pranayama"],
-        ["09:00", "Breakfast"],
-        ["11:00", "Nature Walk & Breathwork"],
-        ["13:00", "Lunch"],
-        ["14:00", "Rest"],
-        ["17:00", "Hatha Flow"],
-        ["18:30", "Yoga Nidra & Meditation"],
-        ["20:00", "Dinner"],
-        ["22:00", "Lights Off"],
-      ],
-    },
-    {
-      title: "Beach & Nature Day",
-      intro:
-        "Sunrise practice on the sand, a long coastal walk, and unhurried time beside the ocean.",
-      schedule: [
-        ["07:00", "Sunrise Beach Yoga"],
-        ["09:00", "Breakfast"],
-        ["10:30", "Beach Walk & Nature Time"],
-        ["13:00", "Lunch"],
-        ["14:00", "Free Beach Time"],
-        ["17:00", "Restorative Practice"],
-        ["18:30", "Sunset Meditation"],
-        ["20:00", "Dinner"],
-        ["22:00", "Lights Off"],
-      ],
-    },
-    {
-      title: "Exploring Goa",
-      intro:
-        "A full cultural day — spice plantation, heritage streets, and local markets under the guidance of a local host.",
-      schedule: [
-        ["07:00", "Gentle Morning Yoga"],
-        ["09:00", "Breakfast"],
-        ["10:30", "Goa Excursion & Markets"],
-        ["13:00", "Lunch on the move"],
-        ["14:00", "Free time"],
-        ["17:00", "Vinyasa Flow"],
-        ["18:30", "Sunset Practice"],
-        ["20:00", "Dinner"],
-        ["22:00", "Lights Off"],
-      ],
-    },
-    {
-      title: "Stillness & Sound",
-      intro:
-        "A quiet day of sound healing, mindfulness workshops, and journaling as insights begin to land.",
-      schedule: [
-        ["07:00", "Asana & Pranayama"],
-        ["09:00", "Breakfast"],
-        ["11:00", "Sound Healing & Mindfulness Workshop"],
-        ["13:00", "Lunch"],
-        ["14:00", "Rest & Journaling"],
-        ["17:00", "Gentle Yoga"],
-        ["18:30", "Community Circle"],
-        ["20:00", "Dinner"],
-        ["22:00", "Lights Off"],
-      ],
-    },
-    {
-      title: "Rest & Ayurveda",
-      intro:
-        "A protected rest day — no scheduled practice, an optional Ayurveda consultation, and space for complete surrender.",
-      schedule: [
-        ["08:00", "Slow Breakfast"],
-        ["10:00", "Optional Ayurveda Consultation"],
-        ["13:00", "Lunch"],
-        ["14:00", "Deep Rest & Spa Time"],
-        ["17:00", "Gentle Evening Walk"],
-        ["18:30", "Sunset Meditation"],
-        ["20:00", "Dinner"],
-        ["22:00", "Lights Off"],
-      ],
-    },
-    {
-      title: "Rebuilding Strength",
-      intro:
-        "Return to practice with renewed energy — a stronger vinyasa and breathwork session as your body responds to rest.",
-      schedule: [
-        ["07:00", "Dynamic Vinyasa & Pranayama"],
-        ["09:00", "Breakfast"],
-        ["11:00", "Strength & Balance Workshop"],
-        ["13:00", "Lunch"],
-        ["14:00", "Rest"],
-        ["17:00", "Hatha Flow"],
-        ["18:30", "Sunset Meditation"],
-        ["20:00", "Dinner"],
-        ["22:00", "Lights Off"],
-      ],
-    },
-    {
-      title: "Coastal Freedom",
-      intro:
-        "A free day to chase your own Goa — a dolphin cruise, an Ayurvedic massage, or simply a hammock and a book.",
-      schedule: [
-        ["07:00", "Sunrise Beach Yoga"],
-        ["09:00", "Breakfast"],
-        ["10:30", "Optional Activities (dolphins, massage, café hopping)"],
-        ["13:00", "Lunch"],
-        ["14:00", "Free time"],
-        ["17:00", "Gentle Practice"],
-        ["18:30", "Sunset Meditation"],
-        ["20:00", "Dinner"],
-        ["22:00", "Lights Off"],
-      ],
-    },
-    {
-      title: "Surrender & Reflection",
-      intro:
-        "A restorative, introspective day — long holds, extended rest, and guided reflection on everything the journey has revealed.",
-      schedule: [
-        ["07:00", "Restorative Yoga"],
-        ["09:00", "Breakfast"],
-        ["11:00", "Guided Reflection & Journaling"],
-        ["13:00", "Lunch"],
-        ["14:00", "Extended Rest"],
-        ["17:00", "Gentle Practice"],
-        ["18:30", "Community Circle"],
-        ["20:00", "Dinner"],
-        ["22:00", "Lights Off"],
-      ],
-    },
-    {
-      title: "Taking It Home",
-      intro:
-        "The final day weaves everything together — a closing meditation, honest integration, and a farewell dinner under the stars.",
-      schedule: [
-        ["07:00", "Asana & Pranayama"],
-        ["09:00", "Breakfast"],
-        ["11:00", "Reflection & Integration Session"],
-        ["13:00", "Lunch"],
-        ["14:00", "Rest"],
-        ["17:00", "Gentle Yoga"],
-        ["18:30", "Closing Meditation"],
-        ["20:00", "Farewell Dinner"],
-        ["22:00", "Lights Off"],
-      ],
-    },
-  ],
 };
 
 // ---------------------------------------------------------------------
@@ -949,7 +787,6 @@ function sampleDates(days) {
     3: ["2026-08-01", "2026-08-15", "2026-09-05", "2026-09-19"],
     5: ["2026-08-03", "2026-08-17", "2026-09-07", "2026-09-21"],
     7: ["2026-08-02", "2026-08-16", "2026-09-06", "2026-09-20"],
-    10: ["2026-08-05", "2026-08-19", "2026-09-09", "2026-09-23"],
   };
   const list = starts[days] || starts[3];
   const toDate = (value) =>

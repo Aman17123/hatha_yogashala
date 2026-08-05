@@ -1,15 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
 import {
-  Award,
   BookOpen,
   Quote,
-  ShieldAlert,
   Sparkles,
   UserCheck,
 } from "lucide-react";
 import { founderData } from "@/data/siteContentData";
-import { ButtonLink, Container, SectionHeading } from "@/components/ui";
+import { ButtonLink, Container } from "@/components/ui";
 
 export default function FounderPreview({ founder = founderData }) {
   return (

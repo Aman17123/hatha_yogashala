@@ -40,7 +40,7 @@ export const pageSeo = {
   home: {
     title: "Yoga School in Goa — Teacher Training & Retreats",
     description:
-      "Hatha Yogashala is a Yoga Alliance-registered yoga school in Goa offering 100–300-hour teacher training and 3–10 day wellness retreats near Querim beach. Book now.",
+      "Hatha Yogashala is a Yoga Alliance-registered yoga school in Goa offering 100–300-hour teacher training and 3–7 day wellness retreats near Querim beach. Book now.",
     path: "/",
   },
   about: {
@@ -165,27 +165,6 @@ export function whatsappLink(message = "") {
   return `https://wa.me/${digits}${text ? `?text=${text}` : ""}`;
 }
 
-export const heroStats = [
-  {
-    key: "programs",
-    label: "Yoga programs & retreats",
-    value: 0,
-    suffix: "+",
-  },
-  {
-    key: "students",
-    label: "Students trained from 45+ countries",
-    value: 3500,
-    suffix: "+",
-  },
-  {
-    key: "experience",
-    label: "Years of combined teaching experience",
-    value: 25,
-    suffix: "+",
-  },
-];
-
 export const reviewProfile = {
   googleBusinessUrl: "",
   rating: 4.9,
@@ -292,7 +271,7 @@ export const tripadvisorTestimonials = [
     platform: "TripAdvisor",
     headline: "Perfect place to recharge",
     excerpt:
-      "I stayed for 10 days and loved every moment. Morning practice by the palms, sunset beach walks, sound healing and genuinely kind staff. This is the real deal — no gimmicks, just excellent yoga.",
+      "I stayed for a week and loved every moment. Morning practice by the palms, sunset beach walks, sound healing and genuinely kind staff. This is the real deal — no gimmicks, just excellent yoga.",
     sourceUrl: "https://www.tripadvisor.com/",
   },
   {
@@ -459,10 +438,6 @@ export const navigation = [
       {
         label: "7-Day Yoga Retreat",
         href: "/retreats/7-day-yoga-retreat-goa",
-      },
-      {
-        label: "10-Day Yoga Retreat",
-        href: "/retreats/10-day-yoga-retreat-goa",
       },
     ],
   },

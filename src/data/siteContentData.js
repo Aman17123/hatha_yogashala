@@ -4,112 +4,86 @@
  * and Interactive Enrolment Questions.
  */
 
-export const enrolmentQuestionsData = [
+export const faqData = [
   {
-    id: "certification",
+    id: "certification-faq",
     number: "01",
-    question: "Is the school’s certification verified & globally recognized?",
-    shortSummary:
-      "Transparent verification without unverified claims or false affiliations.",
+    question: "Is the certification recognized after I complete the course?",
+    shortSummary: "Globally accepted certification, verified before you enrol.",
     description:
-      "Choosing a yoga school requires certainty about the credential you earn. At Hatha Yogashala in Goa, we confirm the exact certificate, issuing body, attendance conditions, and public verification status in writing before you pay your deposit.",
+      "Yes. Every graduate receives a certificate that is verifiable in writing before you pay your deposit, so you know exactly what qualification you are working toward from day one.",
     bullets: [
-      "Written breakdown of certificate designation (100-Hr foundation vs 200-Hr / 300-Hr teaching qualification).",
-      "Clear explanation of Yoga Alliance registration status and graduate registration eligibility.",
-      "Direct verification links and sample certificates provided upon request.",
+      "Certificate designation confirmed in writing before enrolment.",
+      "Registration status and eligibility explained clearly, no vague claims.",
+      "Sample certificates and verification links available on request.",
     ],
     image:
       "/images/tha_hatha/the-hatha-yogashala-goa-yoga-alliance-certification.jpg",
-    imageAlt: "Yoga Alliance certification ceremony at Hatha Yogashala in Goa",
+    imageAlt: "Certification ceremony at the yoga school",
   },
   {
-    id: "teachers",
+    id: "experience-required",
     number: "02",
-    question: "Who will actually teach the course during your batch?",
-    shortSummary:
-      "Experienced lead faculty assigned in writing before enrolment.",
+    question: "Do I need prior yoga experience to join?",
+    shortSummary: "Open to beginners and experienced practitioners alike.",
     description:
-      "Many schools advertise famous masters who rarely appear in daily classes. We assign lead teachers, anatomy specialists, and pranayama faculty to specific batch dates in advance so you know exactly who guides your practice every day.",
+      "No prior teaching experience is required. Our courses are structured so beginners build a strong foundation, while experienced practitioners deepen their practice and refine their teaching skills.",
     bullets: [
-      "Lead Hatha teachers and subject specialists named in your course offer letter.",
-      "Verified qualifications and teaching experience published transparently.",
-      "Small faculty-to-student ratio ensuring personal feedback during daily practicums.",
-    ],
-    image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-meditation-pranayama-session.webp",
-    imageAlt:
-      "Yoga teacher guiding pranayama and breathwork practice in a peaceful tropical shala in Goa",
-  },
-  {
-    id: "batch-size",
-    number: "03",
-    question: "How large is each training batch & student group?",
-    shortSummary:
-      "Small-group focus (maximum 12-16 students) for genuine mentorship.",
-    description:
-      "Large batches of 30+ students make personalized corrections and teaching mentorship impossible. We intentionally limit batch sizes so every student receives individual posture assessments, voice coaching, and one-on-one feedback.",
-    bullets: [
-      "Strict cap on maximum student numbers per intake in our Goa campus.",
-      "Dedicated time for individual teaching practicums and peer feedback.",
-      "Supportive group dynamic where teachers remember your name, goals, and physical needs.",
+      "Beginner-friendly pacing in the first week of training.",
+      "Separate tracks for advanced postures and adjustments.",
+      "Personal assessment call before booking to set expectations.",
     ],
     image:
       "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg",
-    imageAlt:
-      "Small group of yoga teacher training students practising Hatha postures together",
+    imageAlt: "Beginner and experienced students practising together",
   },
   {
-    id: "course-fee",
-    number: "04",
-    question: "What is included in the course fee before you pay?",
-    shortSummary:
-      "No hidden charges—accommodation, sattvic meals, and materials itemised upfront.",
+    id: "accommodation-faq",
+    number: "03",
+    question: "What is included in accommodation and meals?",
+    shortSummary: "Sattvic meals and comfortable stay, fully itemised.",
     description:
-      "Unexpected costs for study manuals, tax additions, or meal surcharges ruin your experience. We provide a complete itemised written breakdown of course tuition, room category, vegetarian meal plans, manuals, and airport transfers before reservation.",
+      "Your course fee includes shared or private accommodation options, three sattvic vegetarian meals a day, and drinking water — all confirmed in writing before you book.",
     bullets: [
-      "Clear separation between course tuition and accommodation packages.",
-      "Sattvic vegetarian meal plan and drinking water details confirmed upfront.",
-      "Transparent refund, transfer, and cancellation policies provided in writing.",
+      "Choice of shared or private room categories.",
+      "Vegetarian meal plan suited to dietary needs.",
+      "No hidden charges added after booking.",
     ],
     image:
       "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
-    imageAlt:
-      "Residential campus of Hatha Yogashala with student accommodation in Goa",
+    imageAlt: "Student accommodation at the yoga school campus",
   },
   {
-    id: "practical-teaching",
-    number: "05",
-    question: "Does the curriculum include practical teaching experience?",
-    shortSummary:
-      "Supervised practicums from week one so you graduate with real confidence.",
+    id: "cancellation-policy",
+    number: "04",
+    question: "What is your refund and cancellation policy?",
+    shortSummary: "Transparent terms shared before you pay any deposit.",
     description:
-      "Reading about yoga philosophy is not enough to make you a confident teacher. Our curriculum places you in practical teaching scenarios early, refining your verbal cues, posture corrections, alignment observation, and class sequencing under teacher supervision.",
+      "We provide our full refund, transfer, and cancellation terms in writing during enrolment, so there are no surprises if your plans change before the course begins.",
     bullets: [
-      "Daily practice teaching sessions with constructive feedback from lead faculty.",
-      "Hands-on and verbal adjustment techniques taught with consent and physical safety.",
-      "Sequencing design workshops tailored to real-world studio and online classes.",
+      "Written cancellation policy shared at the time of booking.",
+      "Transfer options available for future batches.",
+      "Direct support from our team for any changes.",
     ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-group-yoga-class-sequence-1.webp",
-    imageAlt:
-      "Yoga students in a supervised teaching practice during teacher training",
+      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
+    imageAlt: "Yoga shala campus view",
   },
   {
-    id: "post-graduation",
-    number: "06",
-    question: "What support and mentorship is available after graduation?",
-    shortSummary:
-      "Lifelong graduate network, career guidance, and continuing study options.",
+    id: "batch-dates",
+    number: "05",
+    question: "How do I choose the right batch dates for me?",
+    shortSummary: "Flexible monthly batches to fit your schedule.",
     description:
-      "Your journey does not end when you leave Goa. We provide ongoing graduate community access, teaching resources, assistance with class sequencing, recommendations, and discounted alumni rates for advanced 300-hour training.",
+      "We run batches throughout the year with small group sizes. Our team can help you pick dates that align with your travel plans, work schedule, or seasonal preferences.",
     bullets: [
-      "Access to private alumni community forums and teaching opportunity listings.",
-      "Direct email and message access to faculty for career advice and sequencing reviews.",
-      "Alumni discounts on continuing education, specialized modules, and annual retreats.",
+      "Multiple batch start dates offered monthly.",
+      "Small batch sizes maintained across the year.",
+      "Personal guidance call available before booking.",
     ],
-    image: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
-    imageAlt:
-      "Serene sunset yoga session on the Goa coast representing lifelong reflection",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-retreat-2025-session.avif",
+    imageAlt: "Group yoga session during a training batch",
   },
 ];
 

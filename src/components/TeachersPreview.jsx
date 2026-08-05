@@ -19,7 +19,7 @@ export default function TeachersPreview({ teachers = teachersData }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        <div className="home-teachers-grid grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
           {teachers.slice(0, 5).map((teacher) => (
             <TeacherCard key={teacher.id} teacher={teacher} />
           ))}

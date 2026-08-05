@@ -14,54 +14,6 @@ import {
   X,
 } from "lucide-react";
 
-export function CountUp({ value, suffix = "" }) {
-  const [display, setDisplay] = useState(0);
-  const started = useRef(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      const frame = requestAnimationFrame(() => setDisplay(value));
-      return () => cancelAnimationFrame(frame);
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting || started.current) return;
-        started.current = true;
-
-        const startedAt = performance.now();
-        const duration = 1100;
-
-        function tick(now) {
-          const progress = Math.min((now - startedAt) / duration, 1);
-          setDisplay(Math.round(value * (1 - (1 - progress) ** 3)));
-          if (progress < 1) requestAnimationFrame(tick);
-        }
-
-        requestAnimationFrame(tick);
-        observer.disconnect();
-      },
-      { threshold: 0.35 },
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, [value]);
-
-  return (
-    <span ref={ref} aria-label={`${value.toLocaleString("en-IN")}${suffix}`}>
-      <span aria-hidden="true">
-        {display.toLocaleString("en-IN")}
-        {suffix}
-      </span>
-    </span>
-  );
-}
-
 export function Reveal({ children, className = "" }) {
   const [visible, setVisible] = useState(true);
   const ref = useRef(null);
@@ -205,14 +157,15 @@ export function WhyChooser({ items, children }) {
       </div>
       <div className="why-visual" aria-live="polite">
         {items.map((item, index) => (
-          <Image
-            key={item.image}
-            src={item.image}
-            alt={index === active ? item.alt : ""}
-            fill
-            sizes="(max-width: 820px) 100vw, 42vw"
-            data-active={index === active}
-          />
+          <div key={item.image} className="absolute inset-0">
+            <Image
+              src={item.image}
+              alt={index === active ? item.alt : ""}
+              fill
+              sizes="(max-width: 820px) 100vw, 42vw"
+              data-active={index === active}
+            />
+          </div>
         ))}
       </div>
     </div>

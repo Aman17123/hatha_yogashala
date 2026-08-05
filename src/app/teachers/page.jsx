@@ -1,14 +1,11 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, Award, BookOpen, CheckCircle2, ShieldCheck, Sparkles, Users } from "lucide-react";
+import { Award, ShieldCheck, Users } from "lucide-react";
 import { teachersData } from "@/data/siteContentData";
 import { pageMetadata } from "@/data/siteData";
 import {
-  ButtonLink,
   Container,
   FinalCTA,
   JsonLd,
-  Media,
   PageHero,
   SectionHeading,
 } from "@/components/ui";

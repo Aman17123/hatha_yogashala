@@ -24,7 +24,6 @@ const courseLinks = [
   ["3-Day Yoga Retreat", "/retreats/3-day-yoga-retreat-goa"],
   ["5-Day Yoga Retreat", "/retreats/5-day-yoga-retreat-goa"],
   ["7-Day Yoga Retreat", "/retreats/7-day-yoga-retreat-goa"],
-  ["10-Day Yoga Retreat", "/retreats/10-day-yoga-retreat-goa"],
 ];
 
 const socialLinks = [
@@ -101,7 +100,7 @@ export default function Footer() {
             <p className="font-mono text-[10.9px] uppercase tracking-[0.32em] text-[var(--gold)]">
               Breathe · Move · Awaken
             </p>
-            <h2 className="max-w-xl font-serif text-[clamp(22px,2.6vw,32px)] font-normal leading-[1.05] tracking-[-0.02em] text-[var(--brown)]">
+            <h2 className="max-w-xl font-serif text-[22px] md:text-[26px] lg:text-[32px] font-normal leading-[1.05] tracking-[-0.02em] text-[var(--brown)]">
               Begin your yoga journey in Goa
             </h2>
 

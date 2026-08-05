@@ -1,5 +1,5 @@
-import { BookOpen, Heart, Leaf, ShieldCheck, Users } from "lucide-react";
-import { placeholders, teachers } from "@/data/siteData";
+import { BookOpen, Heart, Leaf, ShieldCheck } from "lucide-react";
+import { placeholders } from "@/data/siteData";
 import { pageMetadata } from "@/data/siteData";
 import FounderPreview from "@/components/FounderPreview";
 import {

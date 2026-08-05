@@ -1,7 +1,4 @@
-import Link from "next/link";
 import {
-  CheckCircle2,
-  Compass,
   Heart,
   Leaf,
   ShieldCheck,
@@ -9,7 +6,7 @@ import {
   Users,
 } from "lucide-react";
 import { aboutSectionData } from "@/data/siteContentData";
-import { ButtonLink, Container, Media, SectionHeading } from "@/components/ui";
+import { ButtonLink, Container, Media } from "@/components/ui";
 
 export default function AboutPreview({ data = aboutSectionData }) {
   const icons = [Users, ShieldCheck, Heart, Leaf];

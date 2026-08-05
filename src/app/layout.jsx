@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Gotu, Manrope, Quicksand } from "next/font/google";
+import { ClipboardList } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import "./globals.css";
 import "../styles/main.scss";
@@ -123,10 +124,13 @@ export default function RootLayout({ children }) {
         <main id="main-content">{children}</main>
         <Footer />
         <div className="floating-actions" aria-label="Quick actions">
-          <Link href="/apply">Apply now</Link>
-          <Link href="/contact#whatsapp" aria-label="Ask about WhatsApp contact">
-            <SiWhatsapp aria-hidden="true" size={21} />
-            <span>WhatsApp</span>
+          <Link href="/apply">
+            <ClipboardList aria-hidden="true" size={22} />
+            <span>Apply now</span>
+          </Link>
+          <Link href="/contact#whatsapp" className="fa-wa" aria-label="Chat with us on WhatsApp">
+            <SiWhatsapp aria-hidden="true" size={34} />
+            <span className="fa-tooltip" role="tooltip">Chat with us</span>
           </Link>
         </div>
       </body>

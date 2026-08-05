@@ -1,22 +1,17 @@
 import Image from "next/image";
-import Link from "next/link";
 import {
-  ArrowRight,
   BadgeCheck,
   Compass,
   Globe,
-  GraduationCap,
   Heart,
   Leaf,
   MapPin,
-  ShieldCheck,
   Sparkles,
   Target,
   Clock,
   TrendingUp,
   Award,
   DollarSign,
-  Star,
 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { GiTeacher } from "react-icons/gi";
@@ -27,7 +22,6 @@ import {
   facilities,
   faqs,
   galleryItems,
-  heroStats,
   reviewProfile,
   site,
   testimonials,
@@ -45,17 +39,12 @@ import {
   SectionHeading,
 } from "./ui";
 import ReviewsSection from "./GoogleReviews";
-import {
-  Accordion,
-  CountUp,
-  Gallery,
-  WhyChooser,
-  BlogCard,
-} from "./Interactive";
+import { Gallery, WhyChooser, BlogCard } from "./Interactive";
 import AboutPreview from "./AboutPreview";
 import FounderPreview from "./FounderPreview";
 import TeachersPreview from "./TeachersPreview";
-import EnrolmentQuestions from "./EnrolmentQuestions";
+import FAQ from "./FAQ";
+import QuickNav from "./QuickNav";
 
 const whyItems = [
   {
@@ -91,15 +80,21 @@ const whyItems = [
     alt: "Coastal yoga retreat session at Hatha Yogashala in Goa",
   },
 ];
-const rowIcons = [Sparkles, Target, Clock, TrendingUp, Award, DollarSign];
-const tierMeta = [
-  { badge: "Beginner", tone: "teal" },
-  { badge: "Most Popular", tone: "coral" },
-  { badge: "Advanced", tone: "ink" },
+const rowIcons = [
+  Clock,
+  Target,
+  TrendingUp,
+  Sparkles,
+  Award,
+  BadgeCheck,
+  DollarSign,
 ];
 const comparisonRows = [
   ["Duration", ...teacherTrainings.map((course) => course.duration)],
   ["Level", ...teacherTrainings.map((course) => course.level)],
+  ["Outcome", ...teacherTrainings.map((course) => course.outcome)],
+  ["Perfect For", ...teacherTrainings.map((course) => course.perfectfor)],
+  ["Certification", ...teacherTrainings.map((course) => course.certification)],
   //certifiaction , outcome
   [
     "Completion document",
@@ -196,18 +191,11 @@ export default function HomePage() {
       acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
   };
-  const stats = heroStats.map((stat) =>
-    stat.key === "programs"
-      ? {
-          ...stat,
-          value: teacherTrainings.length + retreats.length,
-        }
-      : stat,
-  );
 
   return (
     <div className="home-page">
       <JsonLd data={faqSchema} />
+      <QuickNav />
 
       {/* ===== 1. HERO — headline, intro copy, and school stats ===== */}
       <section className="home-hero">
@@ -229,8 +217,8 @@ export default function HomePage() {
               Hatha Yogashala is a Yoga Alliance-registered yoga school and
               ashram in Querim, North Goa, offering residential Hatha yoga
               teacher training (100, 200, and 300-hour) and restorative yoga
-              retreats (3 to 10 days) with clear course scope, thoughtful
-              student support, and no unsupported claims.
+              retreats (3 to 7 days) with clear course scope, thoughtful student
+              support, and no unsupported claims.
             </p>
             <div className="hero-actions">
               <ButtonLink href="/apply">Reserve your spot</ButtonLink>
@@ -330,9 +318,14 @@ export default function HomePage() {
             text="Each retreat is a personal-practice experience, not a teacher-training course or professional certification."
             align="center"
           />
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="flex flex-wrap justify-center gap-5">
             {retreats.map((retreat) => (
-              <RetreatCard key={retreat.slug} retreat={retreat} />
+              <div
+                key={retreat.slug}
+                className="w-full sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.833rem)]"
+              >
+                <RetreatCard retreat={retreat} />
+              </div>
             ))}
           </div>
         </Container>
@@ -345,7 +338,7 @@ export default function HomePage() {
       <TeachersPreview />
 
       {/* ===== 8. WHY CHOOSE US — trust-building reasons ===== */}
-      <section className="section">
+      <section className="section" id="why-us">
         <Container>
           <WhyChooser items={whyItems}>
             <SectionHeading
@@ -404,7 +397,7 @@ export default function HomePage() {
                           <div key={row[0]} className="flex gap-2">
                             <Icon className="mt-0.5 size-3.5 shrink-0 text-[var(--coral-dark)]" />
                             <div>
-                              <dt className="text-[9px] font-bold uppercase tracking-[0.08em] text-muted">
+                              <dt className="text-[12px] font-bold uppercase  text-muted">
                                 {row[0]}
                               </dt>
                               <dd className="text-xs font-semibold leading-snug text-[#1b1b2e]">
@@ -463,13 +456,13 @@ export default function HomePage() {
                 }
               />
 
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-3 sm:gap-4">
                 {certificationBadges.map((badge) => (
                   <div
-                    className="card flex flex-col items-center gap-3 p-4 text-center"
+                    className="card flex flex-col items-center gap-3 p-3 text-center sm:p-4"
                     key={badge.icon}
                   >
-                    <span className="relative grid size-16 shrink-0 place-items-center rounded-full border-2 border-[var(--teal-dark)] p-2">
+                    <span className="relative grid size-14 shrink-0 place-items-center rounded-full border-2 border-[var(--teal-dark)] p-1.5 sm:size-16 sm:p-2">
                       <Image
                         src={badge.icon}
                         alt={badge.caption}
@@ -478,7 +471,7 @@ export default function HomePage() {
                         sizes="64px"
                       />
                     </span>
-                    <p className="text-xs font-semibold leading-snug text-[var(--teal-dark)]">
+                    <p className="text-[11px] font-semibold leading-snug text-[var(--teal-dark)] sm:text-xs">
                       {badge.caption}
                     </p>
                   </div>
@@ -504,7 +497,7 @@ export default function HomePage() {
             </div>
 
             <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-              <div className="relative h-[420px] w-full overflow-hidden rounded-3xl">
+              <div className="relative h-[340px] w-full overflow-hidden rounded-3xl sm:h-[420px]">
                 <Image
                   src="/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp"
                   alt="Yoga teacher training certification ceremony at Sukha Yogashala"
@@ -513,7 +506,7 @@ export default function HomePage() {
                   sizes="(min-width: 1024px) 40vw, 90vw"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 w-56 overflow-hidden rounded-xl border-4 border-white shadow-xl sm:w-64">
+              <div className="absolute -bottom-6 left-3 w-56 overflow-hidden rounded-xl border-4 border-white shadow-xl sm:-left-6 sm:w-64">
                 <Image
                   src="/images/tha_hatha/The-hatha-yogashala--Certificate.webp"
                   alt="Yoga Alliance 200-hour certificate of registration"
@@ -726,7 +719,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <EnrolmentQuestions />
+      <FAQ />
 
       <section className="section" id="location">
         <Container>
@@ -769,7 +762,7 @@ export default function HomePage() {
                     <li className="flex items-center gap-2">
                       <Leaf className="size-3.5 text-[var(--coral-dark)] shrink-0" />
                       <span>
-                        <strong>Retreats:</strong> 3, 5, 7 & 10-Day Restorative
+                        <strong>Retreats:</strong> 3, 5, 7-Day Restorative
                         Coastal Yoga Immersion
                       </span>
                     </li>

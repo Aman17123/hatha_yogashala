@@ -3,19 +3,22 @@
 import { useState } from "react";
 import Image from "next/image";
 import { CheckCircle2, Sparkles } from "lucide-react";
-import { enrolmentQuestionsData } from "@/data/siteContentData";
+import { faqData } from "@/data/faqData";
 import { ButtonLink, Container, SectionHeading } from "@/components/ui";
 
-export default function EnrolmentQuestions({
-  questions = enrolmentQuestionsData,
-  eyebrow = "Planning Support",
-  title = "Questions Worth Asking Before You Enrol",
-  text = "Evaluating a yoga teacher training school requires checking verified facts, class sizes, faculty experience, and clear fee breakdowns before making a deposit.",
+export default function FAQ({
+  questions = faqData,
+  eyebrow = "Got Questions?",
+  title = "Frequently Asked Questions",
+  text = "Everything you need to know before booking your yoga teacher training — straight answers, no vague promises.",
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="section section-cream relative overflow-hidden" id="enrolment-questions">
+    <section
+      className="section section-cream relative overflow-hidden"
+      id="faq"
+    >
       <Container>
         {/* Mobile Header (Shown on stacked mobile layout) */}
         <div className="lg:hidden mb-8">
@@ -24,10 +27,8 @@ export default function EnrolmentQuestions({
 
         {/* Two-Column Sticky Scroll Container */}
         <div className="relative grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-10">
-          
           {/* Left Column — Sticky Container (Desktop) */}
           <div className="space-y-6 lg:sticky lg:top-24 lg:self-start">
-            
             {/* Header info (Desktop) */}
             <div className="hidden lg:block space-y-3">
               <p className="eyebrow">
@@ -43,7 +44,7 @@ export default function EnrolmentQuestions({
             </div>
 
             {/* Active Visual / Image Box with Smooth Transition */}
-            <div className="home-enq-media relative rounded-[28px] overflow-hidden bg-[var(--cream)] border border-[var(--border)] shadow-md aspect-[4/3] group">
+            <div className="home-faq-media relative rounded-[28px] overflow-hidden bg-[var(--cream)] border border-[var(--border)] shadow-md aspect-[4/3] group">
               {questions.map((q, idx) => {
                 const isActive = idx === activeIndex;
                 return (
@@ -64,11 +65,12 @@ export default function EnrolmentQuestions({
                       priority={idx === 0}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                    
+
                     {/* Floating Overlay Badge on Active Image */}
                     <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/50 text-[var(--brown)] shadow-lg">
                       <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--coral-dark)]">
-                        Topic {q.number} of {String(questions.length).padStart(2, "0")}
+                        FAQ {q.number} of{" "}
+                        {String(questions.length).padStart(2, "0")}
                       </span>
                       <p className="text-xs font-semibold mt-0.5 line-clamp-1 text-[var(--brown)]">
                         {q.shortSummary}
@@ -87,26 +89,31 @@ export default function EnrolmentQuestions({
                   {String(activeIndex + 1).padStart(2, "0")}
                 </span>
                 <span className="text-xs text-[var(--muted)] font-medium">
-                  / {String(questions.length).padStart(2, "0")} Questions
+                  / {String(questions.length).padStart(2, "0")} FAQs
                 </span>
                 <div className="ml-2 flex items-center gap-1">
                   {questions.map((_, i) => (
                     <span
                       key={i}
                       className={`h-1.5 rounded-full transition-all duration-300 ${
-                        i === activeIndex ? "w-6 bg-[var(--coral-dark)]" : "w-1.5 bg-[var(--border)]"
+                        i === activeIndex
+                          ? "w-6 bg-[var(--coral-dark)]"
+                          : "w-1.5 bg-[var(--border)]"
                       }`}
                     />
                   ))}
                 </div>
               </div>
 
-              {/* Advisor CTA */}
-              <ButtonLink href="/contact" variant="primary" className="text-xs py-2.5 px-4">
-                <span>Talk to Advisor</span>
+              {/* Support CTA */}
+              <ButtonLink
+                href="/contact"
+                variant="primary"
+                className="text-xs py-2.5 px-4"
+              >
+                <span>Still Have Questions?</span>
               </ButtonLink>
             </div>
-
           </div>
 
           {/* Right Column — Scrollable Questions */}
@@ -142,7 +149,9 @@ export default function EnrolmentQuestions({
 
                     <h3
                       className={`min-w-0 flex-1 font-serif text-base font-bold leading-snug transition-colors duration-300 lg:text-lg ${
-                        isActive ? "text-[var(--coral-dark)]" : "text-[var(--brown)]"
+                        isActive
+                          ? "text-[var(--coral-dark)]"
+                          : "text-[var(--brown)]"
                       }`}
                     >
                       {q.question}
@@ -156,8 +165,14 @@ export default function EnrolmentQuestions({
                       {q.bullets?.length > 0 && (
                         <ul className="mt-3 space-y-1.5 border-t border-[var(--border)]/60 pt-3">
                           {q.bullets.map((bullet, bIdx) => (
-                            <li key={bIdx} className="flex items-start gap-2.5 text-xs font-medium leading-normal text-[var(--text)]">
-                              <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-[var(--coral-dark)]" />
+                            <li
+                              key={bIdx}
+                              className="flex items-start gap-2.5 text-xs font-medium leading-normal text-[var(--text)]"
+                            >
+                              <CheckCircle2
+                                size={15}
+                                className="mt-0.5 shrink-0 text-[var(--coral-dark)]"
+                              />
                               <span>{bullet}</span>
                             </li>
                           ))}
@@ -169,7 +184,6 @@ export default function EnrolmentQuestions({
               );
             })}
           </div>
-
         </div>
       </Container>
     </section>

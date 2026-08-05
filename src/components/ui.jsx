@@ -4,7 +4,6 @@ import {
   ArrowRight,
   BadgeCheck,
   CalendarDays,
-  Check,
   Clock3,
   MapPin,
   Sparkles,
@@ -310,14 +309,11 @@ export function ProgramCard({ course, horizontal = false }) {
 
 export function RetreatCard({ retreat }) {
   const page = getRetreatPageData(retreat.days);
-  const date = page.dates[0]?.label || "Dates to be announced";
   const numericPrice = page.pricing.shared.price;
   const price =
     typeof numericPrice === "number"
       ? `${page.pricing.shared.currency === "EUR" ? "€" : "$"}${numericPrice}`
       : (retreat.price ?? "On enquiry");
-  const room = publicValue(retreat.room, "Room confirmed in writing");
-  const meals = publicValue(retreat.meals, "Meal plan confirmed in writing");
 
   return (
     <article className="group flex flex-col h-full overflow-hidden rounded-[24px] border border-[var(--border)] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[var(--coral-dark)]/40">
@@ -369,7 +365,7 @@ export function RetreatCard({ retreat }) {
             href={`/retreats/${retreat.slug}`}
             className="home-retreat-cta"
           >
-            View Retreat
+            View Details
           </ButtonLink>
         </div>
       </div>

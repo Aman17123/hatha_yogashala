@@ -24,7 +24,7 @@ import {
   XCircle,
 } from "lucide-react";
 import { retreats } from "@/data/coursesData";
-import { absoluteUrl, placeholders, site } from "@/data/siteData";
+import { absoluteUrl, site } from "@/data/siteData";
 import { Accordion } from "./Interactive";
 import { Container, ButtonLink, JsonLd, Media, RetreatCard, SectionHeading } from "./ui";
 import BookingSidebar from "./retreat/BookingSidebar";
@@ -178,10 +178,6 @@ export default function RetreatTemplate({ retreat, page }) {
   };
   const related = retreats.filter((item) => item.slug !== retreat.slug).slice(0, 3);
   const whatsappHref = "/contact#whatsapp";
-  const formatDate = (value) =>
-    new Intl.DateTimeFormat("en-IN", { day: "numeric", month: "short", year: "numeric" }).format(
-      new Date(value),
-    );
 
   return (
     <>

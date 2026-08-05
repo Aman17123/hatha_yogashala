@@ -1,14 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import {
-  Award,
-  BookOpen,
   CheckCircle2,
   Heart,
   Quote,
   ShieldAlert,
   Sparkles,
-  UserCheck,
 } from "lucide-react";
 import { founderData } from "@/data/siteContentData";
 import { pageMetadata } from "@/data/siteData";
@@ -17,9 +13,7 @@ import {
   Container,
   FinalCTA,
   JsonLd,
-  Media,
   PageHero,
-  SectionHeading,
 } from "@/components/ui";
 
 export const metadata = pageMetadata("founder");

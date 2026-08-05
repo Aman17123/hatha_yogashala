@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import {
   Banknote,
   CheckCircle2,
@@ -44,10 +44,6 @@ export default function BookingForm({
   const [status, setStatus] = useState(initialStatus);
   const [accommodation, setAccommodation] = useState("Shared room");
   const [days, setDays] = useState("3");
-
-  const message = useMemo(() => {
-    return "";
-  }, []);
 
   async function submit(event) {
     event.preventDefault();
@@ -140,7 +136,6 @@ export default function BookingForm({
             <option value="3">3-Day Yoga Retreat</option>
             <option value="5">5-Day Yoga Retreat</option>
             <option value="7">7-Day Yoga Retreat</option>
-            <option value="10">10-Day Yoga Retreat</option>
           </select>
         </Field>
         <Field label="Accommodation" name="accommodation" required>

@@ -1,9 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CalendarDays, Clock3, UserRound } from "lucide-react";
 import { BlogCard, } from "@/components/Interactive";
-import { Breadcrumbs, ButtonLink, Container, FinalCTA, JsonLd } from "@/components/ui";
+import { Breadcrumbs, Container, FinalCTA, JsonLd } from "@/components/ui";
 import { getPost, posts } from "@/data/blogData";
 import { absoluteUrl, makeMetadata, site } from "@/data/siteData";
 

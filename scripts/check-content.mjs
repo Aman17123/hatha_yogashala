@@ -3,7 +3,7 @@ import { access } from "node:fs/promises";
 import { courses, retreats } from "../src/data/coursesData.js";
 import { facilities, galleryItems } from "../src/data/siteData.js";
 
-const expectedRetreats = [3, 5, 7, 10];
+const expectedRetreats = [3, 5, 7];
 const course = courses.find(
   ({ slug }) => slug === "100-hour-yoga-teacher-training-goa",
 );

@@ -40,7 +40,6 @@ import {
   ReceiptText,
   Salad,
   Scale,
-  ShieldCheck,
   Shirt,
   Sparkles,
   Sprout,
@@ -64,7 +63,7 @@ import {
   tripadvisorProfile,
   whatsappLink,
 } from "@/data/siteData";
-import { ButtonLink, Container, GoogleMark } from "@/components/ui";
+import { Container, GoogleMark } from "@/components/ui";
 import { Gallery } from "@/components/Interactive";
 
 /* ── Icon lookup ─────────────────────────────── */
@@ -189,12 +188,6 @@ function PillButton({ href, children, variant = "primary", className = "" }) {
       {children}
       <ArrowRight size={13} aria-hidden="true" />
     </a>
-  );
-}
-
-function Tag({ children, className = "" }) {
-  return (
-    <span className={`yt-tag ${className}`}>{children}</span>
   );
 }
 
@@ -328,7 +321,6 @@ function SectionCard({ id, className = "", children }) {
    1. HERO — Sukha-style full-width hero
    ═══════════════════════════════════════════════ */
 function Hero({ c, course }) {
-  const days = String(course.duration || "").match(/\d+/)?.[0] || "10";
   const hours = String(course.hours).replace("-hour", "");
   const whatsappHref = whatsappLink(course.whatsappMessage);
 

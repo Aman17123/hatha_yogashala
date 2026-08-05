@@ -62,6 +62,9 @@ const hundredHour = {
   hours: "100-hour",
   name: "100-Hour Yoga Teacher Training in Goa",
   level: "Foundation",
+  certification: "Yoga Alliance USA Recognized",
+  outcome: "Strong foundation, bridge to 200H",
+  perfectfor: "Complete beginners, limited time",
   cardBadge: "BEGGINER",
   cardSummary:
     "A two-week, beginner-friendly foundation course at one of the best yoga schools in Goa — Yoga Alliance-approved, with accommodation, meals, and certification included.",
@@ -490,6 +493,9 @@ const twoHundredHour = {
   hours: "200-hour",
   name: "200-Hour Yoga TTC in Goa",
   level: "Foundational teacher training (certifying)",
+  certification: "Yoga Alliance USA Recognized",
+  outcome: "Full teaching certification, RYT 200",
+  perfectfor: "Aspiring teachers, serious practitioners",
   featured: true,
   cardBadge: "Most Popular",
   cardSummary:
@@ -908,6 +914,9 @@ const threeHundredHour = {
   hours: "300-hour",
   name: "300-Hour Yoga TTC in Goa",
   level: "Advanced study (for certified 200-hour teachers)",
+  certification: "Yoga Alliance USA Recognized",
+  outcome: "Advanced mastery, RYT 500 eligible",
+  perfectfor: "Certified teachers advancing skills",
   cardBadge: "ADVANCED",
   cardSummary:
     "Advanced study for certified teachers — deepen anatomy, Ayurveda, philosophy & trauma-informed teaching over 27 days at a leading advanced yoga teacher training school in Goa.",
@@ -1363,7 +1372,7 @@ export const teacherTrainings = mainCourses.map(withDefaults);
 // ---------------------------------------------------------------------
 // RETREATS — day-count still drives the template, but with genuinely
 // different itinerary emphasis per length rather than only a category
-// label swap, so 3/5/7/10-day pages aren't near-duplicates either.
+// label swap, so 3/5/7-day pages aren't near-duplicates either.
 // ---------------------------------------------------------------------
 const retreatProfiles = {
   3: {
@@ -1393,15 +1402,6 @@ const retreatProfiles = {
     whoFor: [
       "Practitioners ready for a full-week wellness immersion",
       "Solo travellers wanting a complete reset",
-    ],
-  },
-  10: {
-    category: "Extended immersion",
-    emphasis:
-      "The longest format: includes a rest day mid-retreat, a dedicated Ayurveda/lifestyle session, and more one-on-one time with faculty.",
-    whoFor: [
-      "Practitioners wanting an in-depth personal-practice deep dive",
-      "Anyone combining retreat with an extended Goa stay",
     ],
   },
 };
@@ -1449,23 +1449,9 @@ const retreatWhatIs = {
       "Ideal for solo travelers and all levels",
     ],
   },
-  10: {
-    heading: "What is a 10-day yoga retreat?",
-    paragraphs: [
-      "A 10-day yoga retreat is an extended residential immersion for practitioners who want an in-depth personal-practice deep dive. The longer format allows for rest days, one-on-one time with faculty, and a slower, more transformative arc.",
-      "At Hatha Yogashala, the 10-day retreat is the school's longest format: twice-daily guided practice, a dedicated rest day mid-retreat, an optional Ayurveda and lifestyle session, and more individual attention. It suits practitioners ready to go deeper and anyone combining a retreat with an extended Goa stay.",
-      "All sessions adapt to every level, and the retreat remains a personal-practice experience — not a teacher-training course.",
-    ],
-    points: [
-      "The longest format, with a dedicated rest day",
-      "Optional Ayurveda and lifestyle session",
-      "More one-on-one time with faculty",
-      "A personal-practice reset, not a teacher training",
-    ],
-  },
 };
 
-export const retreats = [3, 5, 7, 10].map((days) => {
+export const retreats = [3, 5, 7].map((days) => {
   const profile = retreatProfiles[days];
   const benefitsByDays = {
     3: [
@@ -1483,11 +1469,6 @@ export const retreats = [3, 5, 7, 10].map((days) => {
       "Sound healing, sauna, ice bath & massage",
       "Temple visits & cultural excursions",
     ],
-    10: [
-      "Extended immersion with a dedicated rest day",
-      "Optional Ayurveda & lifestyle session",
-      "More one-on-one time with faculty",
-    ],
   };
   return {
     slug: `${days}-day-yoga-retreat-goa`,
@@ -1497,7 +1478,7 @@ export const retreats = [3, 5, 7, 10].map((days) => {
     description: profile.emphasis,
     whatIs: retreatWhatIs[days],
     benefits: benefitsByDays[days],
-    price: { 3: "€199", 5: "€299", 7: "€449", 10: "Fee to be confirmed" }[days],
+    price: { 3: "€199", 5: "€299", 7: "€449" }[days],
     image:
       days % 2
         ? "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp"
@@ -1519,9 +1500,7 @@ export const retreats = [3, 5, 7, 10].map((days) => {
         ? "Arrival, welcome, and an opening Hatha practice"
         : index === days - 1
           ? "Closing practice, reflection, and departure"
-          : days === 10 && index === Math.floor(days / 2)
-            ? "Rest day — no scheduled practice, optional Ayurveda consultation"
-            : "Morning Hatha, breathwork, study, and protected rest",
+          : "Morning Hatha, breathwork, study, and protected rest",
     ]),
     dailySchedule: [
       ["07:00", "Morning Hatha yoga"],

@@ -359,7 +359,7 @@ export default function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="relative whitespace-nowrap rounded-full px-3 py-2.5 font-sans text-[16px] font-medium leading-none text-black/85 transition duration-200 after:absolute after:bottom-1.5 after:left-3 after:right-3 after:h-px after:origin-left after:scale-x-0 after:bg-[var(--sage)] after:transition-transform after:duration-200 hover:bg-[var(--cream)] hover:text-black hover:after:scale-x-100"
+                    className="relative whitespace-nowrap rounded-full px-3 py-2.5 font-sans text-[16pxcls] font-medium leading-none text-black/85 transition duration-200 after:absolute after:bottom-1.5 after:left-3 after:right-3 after:h-px after:origin-left after:scale-x-0 after:bg-[var(--sage)] after:transition-transform after:duration-200 hover:bg-[var(--cream)] hover:text-black hover:after:scale-x-100"
                   >
                     {item.label}
                   </Link>

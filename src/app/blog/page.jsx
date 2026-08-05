@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, Clock3, UserRound } from "lucide-react";
-import { BlogCard, BlogExplorer } from "@/components/Interactive";
+import { BlogExplorer } from "@/components/Interactive";
 import { Container, PageHero } from "@/components/ui";
 import { posts } from "@/data/blogData";
 import { pageMetadata } from "@/data/siteData";
