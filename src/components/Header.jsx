@@ -102,6 +102,7 @@ const hiddenMainItems = new Set([
 ]);
 
 const navbarNavigation = [
+  { label: "Home", href: "/" },
   { label: "About", columns: aboutColumns },
   { label: "Yoga TTC", columns: yogaTtcColumns },
   ...navigation.filter(

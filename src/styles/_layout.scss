@@ -778,6 +778,8 @@
   @media (max-width: 768px) {
     .trust-strip {
       padding-inline: 1rem;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
     }
 
     // Stacked, non-scrollable mobile layout.
@@ -2980,6 +2982,10 @@
   @media (max-width: 820px) {
     .section {
       padding-block: 4.3rem;
+    }
+
+    .trust-strip + .section {
+      padding-top: 2rem;
     }
 
     .home-hero {

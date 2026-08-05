@@ -164,6 +164,7 @@ export default function Footer() {
                   ) : (
                     <span
                       key={label}
+                      role="img"
                       aria-label={`${label} link pending`}
                       title={`${label} link pending`}
                       className="grid size-9 place-items-center rounded-md border border-[var(--brown)]/15 text-[var(--brown)]/60"

@@ -1165,13 +1165,13 @@ function Reviews({ c }) {
   const google = c.reviews.google;
   const tripadvisor = c.reviews.tripadvisor;
   const platforms = [
-    { name: "Google", rating: reviewProfile.rating, count: reviewProfile.reviewCount, color: "#4285F4" },
+    { name: "Google", rating: reviewProfile.rating, count: reviewProfile.reviewCount, color: "#2f6de0" },
     { name: "Yoga Alliance", rating: "4.8", count: "78+", color: "#2e8378" },
-    { name: "TripAdvisor", rating: tripadvisorProfile.rating, count: tripadvisorProfile.reviewCount, color: "#00af87" },
+    { name: "TripAdvisor", rating: tripadvisorProfile.rating, count: tripadvisorProfile.reviewCount, color: "#007a5e" },
   ];
 
   function ReviewCard({ review, tone = "coral" }) {
-    const color = tone === "ta" ? "#00af87" : "var(--coral-dark)";
+    const color = tone === "ta" ? "#007a5e" : "var(--coral-dark)";
     return (
       <article className="flex h-[250px] w-[290px] shrink-0 snap-center flex-col rounded-2xl border border-[var(--border)] bg-white p-5 shadow-sm transition-shadow hover:shadow-md sm:w-[320px]">
         <div className="flex items-center gap-3">

@@ -25,7 +25,7 @@ Copy `.env.example` to `.env.local` and set:
 - `ENQUIRY_WEBHOOK_URL`: a secure endpoint that accepts the validated enquiry JSON.
 
 The form intentionally returns `503` until `ENQUIRY_WEBHOOK_URL` is configured. It never shows a fake success message and does not store failed submissions.
-Without `NEXT_PUBLIC_SITE_URL`, metadata uses the reserved `.example` fallback and robots block indexing.
+Without `NEXT_PUBLIC_SITE_URL`, metadata uses the reserved `.example` fallback as the canonical base; pages remain indexable and robots allow crawling. Set the variable before going live so the real domain is used.
 
 ## Content replacement
 

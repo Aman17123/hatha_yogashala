@@ -255,7 +255,7 @@ export default function ReviewsSection({
                 href={googleUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full rounded-full bg-[#4285F4] px-6 py-3 text-center text-[11px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#357ae8] md:w-auto"
+                className="w-full rounded-full bg-[#2f6de0] px-6 py-3 text-center text-[11px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#2758b8] md:w-auto"
               >
                 Review Us on Google
               </a>
@@ -264,7 +264,7 @@ export default function ReviewsSection({
                 href="https://www.google.com/maps?q=Hatha+Yogashala+Querim+Goa"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full rounded-full bg-[#4285F4] px-6 py-3 text-center text-[11px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#357ae8] md:w-auto"
+                className="w-full rounded-full bg-[#2f6de0] px-6 py-3 text-center text-[11px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#2758b8] md:w-auto"
               >
                 Open Google Profile
               </a>
@@ -284,7 +284,7 @@ export default function ReviewsSection({
               <TripAdvisorLogo className="h-8 w-8 md:h-10 md:w-10" />
               <h2 className="text-2xl font-black tracking-tighter text-gray-800 md:text-4xl">
                 TripAdvisor —{" "}
-                <span className="text-[#00af87]">{tripadvisorTitle}</span>
+                <span className="text-[#007a5e]">{tripadvisorTitle}</span>
               </h2>
             </div>
             <div className="mx-auto mb-2 h-1 w-24 rounded-full bg-[#00af87]" />
@@ -299,9 +299,9 @@ export default function ReviewsSection({
               trackRef={tripTrackRef}
               scroll={scrollTrip}
               cardBorderClass="border-[var(--border)]"
-              starColorClass="fill-[#00af87] text-[#00af87]"
-              avatarGradientClass="bg-gradient-to-br from-[#00af87] to-[#34e0a1]"
-              arrowColorClass="text-[#00af87]"
+              starColorClass="fill-[#007a5e] text-[#007a5e]"
+              avatarGradientClass="bg-gradient-to-br from-[#007a5e] to-[#00634b]"
+              arrowColorClass="text-[#007a5e]"
             />
           ) : (
             <div className="rounded-2xl border border-[var(--border)] bg-white p-4 text-center shadow-sm">
@@ -327,7 +327,7 @@ export default function ReviewsSection({
                   </span>
                   <Stars
                     count={Math.round(tripRating)}
-                    colorClass="fill-[#00af87] text-[#00af87]"
+                    colorClass="fill-[#007a5e] text-[#007a5e]"
                   />
                 </div>
               </div>
@@ -337,7 +337,7 @@ export default function ReviewsSection({
                 href={tripUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full rounded-full bg-[#00af87] px-6 py-3 text-center text-[11px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#008f6f] md:w-auto"
+                className="w-full rounded-full bg-[#007a5e] px-6 py-3 text-center text-[11px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#00634b] md:w-auto"
               >
                 Review Us on TripAdvisor
               </a>
@@ -346,7 +346,7 @@ export default function ReviewsSection({
                 href="https://www.tripadvisor.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full rounded-full bg-[#00af87] px-6 py-3 text-center text-[11px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#008f6f] md:w-auto"
+                className="w-full rounded-full bg-[#007a5e] px-6 py-3 text-center text-[11px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#00634b] md:w-auto"
               >
                 Open TripAdvisor Profile
               </a>

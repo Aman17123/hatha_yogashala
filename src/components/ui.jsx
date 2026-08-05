@@ -375,8 +375,8 @@ export function RetreatCard({ retreat }) {
 
 export function GoogleMark({ className = "" }) {
   return (
-    <span className={`google-mark ${className}`} aria-label="Google">
-      <svg viewBox="0 0 18 18" role="img" aria-hidden="true">
+    <span className={`google-mark ${className}`}>
+      <svg viewBox="0 0 18 18" aria-hidden="true">
         <path
           fill="#4285F4"
           d="M17.64 9.205c0-.64-.057-1.255-.164-1.846H9v3.492h4.844a4.14 4.14 0 0 1-1.796 2.716v2.266h2.909c1.703-1.568 2.683-3.88 2.683-6.628Z"
@@ -404,14 +404,16 @@ export function Snapshot({ items }) {
     <dl className="snapshot">
       {items.map(({ label, value, icon }) => (
         <div key={label}>
-          {icon === "calendar" ? (
-            <CalendarDays aria-hidden="true" size={20} />
-          ) : icon === "location" ? (
-            <MapPin aria-hidden="true" size={20} />
-          ) : (
-            <Clock3 aria-hidden="true" size={20} />
-          )}
-          <dt>{label}</dt>
+          <dt className="flex flex-col items-center">
+            {icon === "calendar" ? (
+              <CalendarDays aria-hidden="true" size={20} />
+            ) : icon === "location" ? (
+              <MapPin aria-hidden="true" size={20} />
+            ) : (
+              <Clock3 aria-hidden="true" size={20} />
+            )}
+            {label}
+          </dt>
           <dd>{publicValue(value)}</dd>
         </div>
       ))}

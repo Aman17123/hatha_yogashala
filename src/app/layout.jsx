@@ -73,9 +73,7 @@ export const metadata = {
     description: pageSeo.home.description,
     images: ["/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp"],
   },
-  robots: site.hasProductionUrl
-    ? { index: true, follow: true }
-    : { index: false, follow: false, noarchive: true },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }) {

@@ -169,7 +169,7 @@ const trustItems = [
 const certificationBadges = [
   {
     icon: "/images/tha_hatha/The-hatha-yogashala-certifiacte-rs-200.webp",
-    caption: "200-Hour Yoga Teacher Training\n(YTTC) – Rishikesh",
+    caption: "200-Hour Yoga\n(YTTC) – Rishikesh",
   },
   {
     icon: "/images/tha_hatha/The-hatha-yogashala-yoga-alliance.png",
@@ -177,7 +177,7 @@ const certificationBadges = [
   },
   {
     icon: "/images/tha_hatha/The-hatha-yogashala-certifiacte-rs-300.webp",
-    caption: "300-Hour Yoga Teacher Training\n(YTTC) – Rishikesh",
+    caption: "300-Hour Yoga \n(YTTC) – Rishikesh",
   },
 ];
 
@@ -394,16 +394,17 @@ export default function HomePage() {
                       {comparisonRows.map((row, ri) => {
                         const Icon = rowIcons[ri];
                         return (
-                          <div key={row[0]} className="flex gap-2">
-                            <Icon className="mt-0.5 size-3.5 shrink-0 text-[var(--coral-dark)]" />
-                            <div>
-                              <dt className="text-[12px] font-bold uppercase  text-muted">
-                                {row[0]}
-                              </dt>
-                              <dd className="text-xs font-semibold leading-snug text-[#1b1b2e]">
-                                {row[ci + 1]}
-                              </dd>
-                            </div>
+                          <div key={row[0]}>
+                            <dt className="flex items-center gap-2 text-[12px] font-bold uppercase  text-muted">
+                              <Icon
+                                className="size-3.5 shrink-0 text-[var(--coral-dark)]"
+                                aria-hidden="true"
+                              />
+                              {row[0]}
+                            </dt>
+                            <dd className="mt-1 text-xs font-semibold leading-snug text-[#1b1b2e]">
+                              {row[ci + 1]}
+                            </dd>
                           </div>
                         );
                       })}
