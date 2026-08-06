@@ -152,7 +152,7 @@ export default function AboutPage() {
                 className="h-auto w-full rounded-xl object-contain"
               />
             </div>
-            <p className="mt-3 text-center text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--muted)]">
+            <p className="mt-3 text-center text-[13.5px] font-bold uppercase tracking-[0.12em] text-[var(--muted)]">
               Specimen certificate · Hatha Yoga TTC in Goa
             </p>
           </div>

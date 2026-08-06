@@ -96,11 +96,6 @@ const comparisonRows = [
   ["Outcome", ...teacherTrainings.map((course) => course.outcome)],
   ["Perfect For", ...teacherTrainings.map((course) => course.perfectfor)],
   ["Certification", ...teacherTrainings.map((course) => course.certification)],
-  //certifiaction , outcome
-  [
-    "Completion document",
-    ...teacherTrainings.map((course) => course.certification),
-  ],
   ["Shared-room price", ...teacherTrainings.map((course) => course.price)],
 ];
 
@@ -377,7 +372,7 @@ export default function HomePage() {
               return (
                 <div key={course.slug} className="relative">
                   <span
-                    className={`absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-4 py-1.5 text-[10px] font-bold tracking-[0.08em] ${
+                    className={`absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-4 py-1.5 text-[13.5px] font-bold tracking-[0.08em] ${
                       isPopular
                         ? "bg-[var(--coral-dark)] text-white"
                         : "bg-[var(--cream)] text-[#1b1b2e]"
@@ -396,7 +391,7 @@ export default function HomePage() {
                     <h3 className="text-base font-extrabold text-[#1b1b2e]">
                       {course.name}
                     </h3>
-                    <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--coral-dark)]">
+                    <p className="mb-3 text-[13.5px] font-bold uppercase tracking-[0.1em] text-[var(--coral-dark)]">
                       {course.subtitle}
                     </p>
 
@@ -408,7 +403,7 @@ export default function HomePage() {
                             key={row[0]}
                             className="flex flex-col items-center"
                           >
-                            <dt className="flex items-center justify-center gap-2 text-[12px] font-bold uppercase text-muted">
+                            <dt className="flex items-center justify-center gap-2 text-[13.5px] font-bold uppercase text-muted">
                               <Icon
                                 className="size-3.5 shrink-0 text-[var(--coral-dark)]"
                                 aria-hidden="true"
@@ -419,7 +414,7 @@ export default function HomePage() {
                               className={`mt-1 font-semibold leading-snug text-[#1b1b2e] ${
                                 row[0] === "Shared-room price"
                                   ? "text-2xl font-extrabold text-[var(--coral-dark)]"
-                                  : "text-xs"
+                                  : "text-[13.5px]"
                               }`}
                             >
                               {row[ci + 1]}
@@ -431,7 +426,7 @@ export default function HomePage() {
 
                     <ButtonLink
                       href={`/courses/${course.slug}`}
-                      className={`mt-5 flex w-full items-center justify-center gap-2 rounded-full py-2.5 text-[11px] font-bold uppercase tracking-[0.08em] ${
+                      className={`mt-5 flex w-full items-center justify-center gap-2 rounded-full py-2.5 text-[13.5px] font-bold uppercase tracking-[0.08em] ${
                         isPopular
                           ? "bg-[var(--coral-dark)] text-white"
                           : "bg-[var(--cream)] text-[#1b1b2e]"
@@ -491,7 +486,7 @@ export default function HomePage() {
                         sizes="64px"
                       />
                     </span>
-                    <p className="text-[11px] font-semibold leading-snug text-[var(--teal-dark)] sm:text-xs">
+                    <p className="text-[13.5px] font-semibold leading-snug text-[var(--teal-dark)] sm:text-[13.5px]">
                       {badge.caption}
                     </p>
                   </div>
@@ -623,11 +618,11 @@ export default function HomePage() {
                       size={14}
                       className="text-[var(--coral-dark)] shrink-0"
                     />
-                    <span className="text-xs font-bold uppercase tracking-wider text-[var(--coral-dark)]">
+                    <span className="text-[13.5px] font-bold uppercase tracking-wider text-[var(--coral-dark)]">
                       Goa, India
                     </span>
                   </div>
-                  <p className="text-[11px] text-[var(--muted)] leading-relaxed font-medium">
+                  <p className="text-[13.5px] text-[var(--muted)] leading-relaxed font-medium">
                     Querim, North Goa · near Arambol · ~30 min from MOPA Airport
                   </p>
                 </div>
@@ -647,7 +642,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
             <MobileStickyBar
               left={
-                <p className="text-[11px] font-black uppercase tracking-widest text-[var(--coral-dark)]">
+                <p className="text-[13.5px] font-black uppercase tracking-widest text-[var(--coral-dark)]">
                   Residential Experience
                 </p>
               }
@@ -655,7 +650,7 @@ export default function HomePage() {
                 <ButtonLink
                   href="/accommodation"
                   variant="secondary"
-                  className="!px-4 !py-2.5 !text-xs"
+                  className="!px-4 !py-2.5 !text-[13.5px]"
                 >
                   <span>Explore</span>
                 </ButtonLink>
@@ -702,7 +697,7 @@ export default function HomePage() {
                   className="object-cover"
                 />
                 <div className="absolute bottom-4 left-4 rounded-2xl border border-white/60 bg-white/90 px-4 py-3 shadow-sm backdrop-blur-md">
-                  <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--coral-dark)]">
+                  <p className="text-[13.5px] font-bold uppercase tracking-widest text-[var(--coral-dark)]">
                     Querim, North Goa
                   </p>
                   <p className="text-sm font-semibold text-black/80">
@@ -769,7 +764,7 @@ export default function HomePage() {
               <div>
                 <div className="flex items-center gap-2 text-[var(--coral-dark)]">
                   <MapPin aria-hidden="true" className="size-5" />
-                  <span className="text-xs font-bold uppercase tracking-[0.14em]">
+                  <span className="text-[13.5px] font-bold uppercase tracking-[0.14em]">
                     Sanctuary Location
                   </span>
                 </div>
@@ -787,7 +782,7 @@ export default function HomePage() {
                     is a premier residential yoga teacher training school and
                     restorative retreat sanctuary in India.
                   </p>
-                  <ul className="grid gap-2 text-xs font-medium text-black/80">
+                  <ul className="grid gap-2 text-[13.5px] font-medium text-black/80">
                     <li className="flex items-center gap-2">
                       <Sparkles className="size-3.5 text-[var(--coral-dark)] shrink-0" />
                       <span>

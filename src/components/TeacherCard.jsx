@@ -17,11 +17,11 @@ export default function TeacherCard({ teacher }) {
         {teacher.name}
       </h3>
 
-      <p className="mt-1.5 text-[13px] font-semibold leading-[20px] text-[var(--coral-dark)]">
+      <p className="mt-1.5 text-[13.5px] font-semibold leading-[20px] text-[var(--coral-dark)]">
         {teacher.specialty}
       </p>
 
-      <p className="mt-1 text-[12.5px] leading-[18px] text-[var(--muted)]">
+      <p className="mt-1 text-[13.5px] leading-[18px] text-[var(--muted)]">
         {teacher.experience}
       </p>
     </article>

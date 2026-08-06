@@ -294,7 +294,7 @@ function MiniAccordion({ eyebrow, title, icon, children, defaultOpen = false }) 
             </span>
           )}
           <span className="flex-1">
-            {eyebrow && <span className="mb-0.5 block text-[10px] font-black uppercase tracking-[0.16em] text-[var(--coral)]">{eyebrow}</span>}
+            {eyebrow && <span className="mb-0.5 block text-[13.5px] font-black uppercase tracking-[0.16em] text-[var(--coral)]">{eyebrow}</span>}
             <span className="font-serif text-[15px] leading-snug text-[var(--brown)] sm:text-[17px] font-semibold">{title}</span>
           </span>
           {icon && <ChevronDown size={18} aria-hidden="true" className={`shrink-0 text-[var(--muted)] transition-transform duration-300 ${open ? "rotate-180 text-[var(--coral-dark)]" : ""}`} />}
@@ -330,7 +330,7 @@ function Hero({ c, course }) {
       <div className="yt-hero-overlay" />
       <Container className="relative z-10 w-full pb-14 pt-32 md:pb-20 md:pt-40">
         <nav aria-label="Breadcrumb" className="mb-8">
-          <ol className="flex flex-wrap items-center gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-white/50">
+          <ol className="flex flex-wrap items-center gap-2 text-[13.5px] font-bold uppercase tracking-[0.16em] text-white/50">
             {c.hero.breadcrumbs.map((item, index) => (
               <li key={item.label} className="flex items-center gap-2">
                 {item.href ? <Link href={item.href} className="transition hover:text-white/80">{item.label}</Link> : <span className="text-white/80">{item.label}</span>}
@@ -341,15 +341,15 @@ function Hero({ c, course }) {
         </nav>
 
         <div className="flex flex-wrap items-center gap-2.5 mb-6">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-white/80 backdrop-blur-sm ring-1 ring-white/10">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[13.5px] font-bold uppercase tracking-[0.14em] text-white/80 backdrop-blur-sm ring-1 ring-white/10">
             <Clock3 size={13} aria-hidden="true" />
             {course.duration}
           </span>
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-white/80 backdrop-blur-sm ring-1 ring-white/10">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[13.5px] font-bold uppercase tracking-[0.14em] text-white/80 backdrop-blur-sm ring-1 ring-white/10">
             <Target size={13} aria-hidden="true" />
             {course.level}
           </span>
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-white/80 backdrop-blur-sm ring-1 ring-white/10">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[13.5px] font-bold uppercase tracking-[0.14em] text-white/80 backdrop-blur-sm ring-1 ring-white/10">
             <Award size={13} aria-hidden="true" />
             Global Alliance
           </span>
@@ -393,14 +393,14 @@ function CourseSidebar({ c, course }) {
       <div className="overflow-hidden rounded-[24px] border border-[var(--border)] bg-white shadow-[0_8px_32px_rgba(47,79,62,0.1)]">
         <div className="bg-gradient-to-br from-[var(--coral-dark)] to-[var(--coral)] px-6 py-5 text-white">
           <div className="flex items-center justify-between gap-3">
-            <p className="text-[11px] font-black uppercase tracking-[0.16em]">{String(course.hours).replace("-hour", "")}H YTTC Fees</p>
-            {save > 0 && <span className="rounded-full bg-white px-2.5 py-1 text-[11px] font-black text-[var(--coral-dark)]">Save {save}%</span>}
+            <p className="text-[13.5px] font-black uppercase tracking-[0.16em]">{String(course.hours).replace("-hour", "")}H YTTC Fees</p>
+            {save > 0 && <span className="rounded-full bg-white px-2.5 py-1 text-[13.5px] font-black text-[var(--coral-dark)]">Save {save}%</span>}
           </div>
           <p className="mt-2.5 flex flex-wrap items-baseline gap-2">
             <span className="text-3xl font-black leading-none">{shared}</span>
-            <span className="text-[13px] font-bold text-white/50 line-through">{listShared}</span>
+            <span className="text-[13.5px] font-bold text-white/50 line-through">{listShared}</span>
           </p>
-          <p className="mt-1.5 text-[12px] leading-5 text-white/70">{s.pricing.note}</p>
+          <p className="mt-1.5 text-[13.5px] leading-5 text-white/70">{s.pricing.note}</p>
         </div>
 
         <div className="p-5">
@@ -410,10 +410,10 @@ function CourseSidebar({ c, course }) {
               { label: "Double Shared", value: shared, original: listShared, pct: save },
               { label: "Private Room", value: privateRoom, original: listPrivate, pct: savePrivate },
             ].map((row) => (
-              <div key={row.label} className="flex items-center justify-between text-[13px]">
+              <div key={row.label} className="flex items-center justify-between text-[13.5px]">
                 <span className="font-semibold text-[var(--muted)]">{row.label}</span>
                 <span className="font-black text-[var(--brown)]">
-                  {row.value} {row.pct > 0 && <del className="text-[11px] font-semibold text-[var(--coral)]">{row.original}</del>}
+                  {row.value} {row.pct > 0 && <del className="text-[13.5px] font-semibold text-[var(--coral)]">{row.original}</del>}
                 </span>
               </div>
             ))}
@@ -430,14 +430,14 @@ function CourseSidebar({ c, course }) {
 
           {/* View full calendar link */}
           <div className="mt-4 text-center">
-            <a href="#dates-fees" className="text-[11px] font-bold uppercase tracking-widest text-[var(--coral-dark)] transition hover:underline">View Full Batch Calendar →</a>
+            <a href="#dates-fees" className="text-[13.5px] font-bold uppercase tracking-widest text-[var(--coral-dark)] transition hover:underline">View Full Batch Calendar →</a>
           </div>
         </div>
       </div>
 
       {/* Course at a Glance card */}
       <div className="overflow-hidden rounded-[24px] border border-[var(--border)] bg-white p-5 shadow-sm">
-        <p className="mb-3 text-[10px] font-black uppercase tracking-[0.16em] text-[var(--coral)]">Course Details</p>
+        <p className="mb-3 text-[13.5px] font-black uppercase tracking-[0.16em] text-[var(--coral)]">Course Details</p>
         <div className="space-y-3">
           {s.details.map((detail) => (
             <div key={detail.label} className="flex items-center gap-3">
@@ -445,8 +445,8 @@ function CourseSidebar({ c, course }) {
                 <Icon name={detail.icon} size={15} />
               </span>
               <div className="min-w-0 flex-1">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--muted)]">{detail.label}</p>
-                <p className="truncate text-[13px] font-bold text-[var(--brown)]">{detail.value}</p>
+                <p className="text-[13.5px] font-bold uppercase tracking-widest text-[var(--muted)]">{detail.label}</p>
+                <p className="truncate text-[13.5px] font-bold text-[var(--brown)]">{detail.value}</p>
               </div>
             </div>
           ))}
@@ -466,7 +466,7 @@ function CourseSidebar({ c, course }) {
               <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-[var(--cream)] text-[var(--coral-dark)]">
                 <Icon name={b.icon} size={15} />
               </span>
-              <p className="text-[13px] font-semibold text-[var(--brown)]">{b.label}</p>
+              <p className="text-[13.5px] font-semibold text-[var(--brown)]">{b.label}</p>
             </div>
           ))}
         </div>
@@ -481,7 +481,7 @@ function CourseSidebar({ c, course }) {
             <Stars value={s.rating} size={10} />
           </div>
         </div>
-        <p className="text-right text-[10px] font-bold uppercase tracking-widest text-[var(--muted)]">
+        <p className="text-right text-[13.5px] font-bold uppercase tracking-widest text-[var(--muted)]">
           {(s.graduates || 0).toLocaleString("en-IN")}+ graduates
         </p>
       </div>
@@ -510,7 +510,7 @@ function QuickNav({ c }) {
       <div className="no-scrollbar mx-auto flex max-w-7xl items-center gap-1 overflow-x-auto px-4 py-2.5 md:justify-center md:px-8">
         {items.map((item) => (
           <a key={item.id} href={`#${item.id}`} aria-current={active === item.id ? "true" : undefined}
-            className={`whitespace-nowrap rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-[0.1em] transition-all duration-200 ${
+            className={`whitespace-nowrap rounded-full px-4 py-2 text-[13.5px] font-bold uppercase tracking-[0.1em] transition-all duration-200 ${
               active === item.id ? "bg-[var(--coral-dark)] text-white shadow-sm shadow-[var(--coral-dark)]/15" : "text-[var(--muted)] hover:bg-[var(--cream)] hover:text-[var(--brown)]"
             }`}>{item.label}</a>
         ))}
@@ -542,10 +542,10 @@ function Overview({ c, course }) {
           <BadgeCheck size={22} aria-hidden="true" />
         </span>
         <div>
-          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--coral)]">{credential.eyebrow}</p>
+          <p className="text-[13.5px] font-bold uppercase tracking-[0.14em] text-[var(--coral)]">{credential.eyebrow}</p>
           <h3 className="mt-1 font-serif text-lg font-semibold text-[var(--brown)]">{credential.title}</h3>
-          <p className="mt-1 text-[13px] leading-relaxed text-[var(--muted)]">{credential.text}</p>
-          <Link href={credential.link || "/certification"} className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-[var(--coral-dark)] transition hover:gap-2.5">
+          <p className="mt-1 text-[13.5px] leading-relaxed text-[var(--muted)]">{credential.text}</p>
+          <Link href={credential.link || "/certification"} className="mt-3 inline-flex items-center gap-1.5 text-[13.5px] font-bold uppercase tracking-widest text-[var(--coral-dark)] transition hover:gap-2.5">
             How certification works <ArrowRight size={13} aria-hidden="true" />
           </Link>
         </div>
@@ -568,7 +568,7 @@ function WhoCanJoin({ c, course }) {
             <IconTile name={item.icon || "user"} />
             <div className="min-w-0">
               <h3 className="font-serif text-[17px] font-semibold leading-snug text-[var(--brown)]">{item.title}</h3>
-              <p className="mt-1.5 text-[13px] leading-relaxed text-[var(--muted)]">{item.content || "A natural fit for this course."}</p>
+              <p className="mt-1.5 text-[13.5px] leading-relaxed text-[var(--muted)]">{item.content || "A natural fit for this course."}</p>
             </div>
           </Card>
         ))}
@@ -581,8 +581,8 @@ function WhoCanJoin({ c, course }) {
         <dl className="grid gap-px bg-[var(--border)] sm:grid-cols-2">
           {c.requirements.map((item) => (
             <div key={item.label} className="bg-white px-6 py-5">
-              <dt className="text-[10px] font-black uppercase tracking-[0.14em] text-[var(--coral)]">{item.label}</dt>
-              <dd className="mt-1 text-[13px] leading-relaxed text-[var(--muted)]">{item.value}</dd>
+              <dt className="text-[13.5px] font-black uppercase tracking-[0.14em] text-[var(--coral)]">{item.label}</dt>
+              <dd className="mt-1 text-[13.5px] leading-relaxed text-[var(--muted)]">{item.value}</dd>
             </div>
           ))}
         </dl>
@@ -607,7 +607,7 @@ function WhyChoose({ c, course }) {
           <Card key={item.title} className="group">
             <IconTile name={item.icon} className="transition-colors group-hover:bg-[var(--coral-dark)] group-hover:text-white" />
             <h3 className="mt-4 font-serif text-[17px] font-semibold text-[var(--brown)]">{item.title}</h3>
-            <p className="mt-1.5 text-[13px] leading-relaxed text-[var(--muted)]">{item.text}</p>
+            <p className="mt-1.5 text-[13.5px] leading-relaxed text-[var(--muted)]">{item.text}</p>
           </Card>
         ))}
       </div>
@@ -627,7 +627,7 @@ function WhatYouGet({ c }) {
           <Card key={item.title} className="group">
             <IconTile name={item.icon} className="transition-colors group-hover:bg-[var(--coral-dark)] group-hover:text-white" />
             <h3 className="mt-4 font-serif text-[17px] font-semibold text-[var(--brown)]">{item.title}</h3>
-            <p className="mt-1.5 text-[13px] leading-relaxed text-[var(--muted)]">{item.text}</p>
+            <p className="mt-1.5 text-[13.5px] leading-relaxed text-[var(--muted)]">{item.text}</p>
           </Card>
         ))}
       </div>
@@ -653,13 +653,13 @@ function Teachers({ c }) {
             </div>
             <div className="min-w-0">
               <h3 className="font-serif text-lg font-semibold leading-snug text-[var(--brown)]">{teacher.name}</h3>
-              <p className="mt-0.5 text-[12px] font-bold text-[var(--coral)]">{teacher.role}</p>
+              <p className="mt-0.5 text-[13.5px] font-bold text-[var(--coral)]">{teacher.role}</p>
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {(teacher.specialties || []).slice(0, 3).map((tag) => (
-                  <span key={tag} className="rounded-full bg-[var(--cream)] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--coral-dark)] ring-1 ring-[var(--border)]">{tag}</span>
+                  <span key={tag} className="rounded-full bg-[var(--cream)] px-2.5 py-1 text-[13.5px] font-bold uppercase tracking-wider text-[var(--coral-dark)] ring-1 ring-[var(--border)]">{tag}</span>
                 ))}
               </div>
-              <p className="mt-3 line-clamp-3 text-[13px] leading-relaxed text-[var(--muted)]">{teacher.bio}</p>
+              <p className="mt-3 line-clamp-3 text-[13.5px] leading-relaxed text-[var(--muted)]">{teacher.bio}</p>
             </div>
           </Card>
         ))}
@@ -681,20 +681,20 @@ function Certification({ c }) {
           <Card key={body.name} className="flex flex-col items-center justify-center gap-3 text-center">
             <div className="relative h-14 w-28"><Image src={body.src} alt={`${body.name} logo`} fill sizes="112px" className="object-contain" /></div>
             <p className="font-serif text-base font-semibold text-[var(--brown)]">{body.name}</p>
-            <p className="text-[12px] leading-5 text-[var(--muted)]">{body.note}</p>
+            <p className="text-[13.5px] leading-5 text-[var(--muted)]">{body.note}</p>
           </Card>
         ))}
         <Card className="flex flex-col items-center justify-center gap-3 text-center">
           <span className="grid size-12 place-items-center rounded-2xl bg-[var(--coral-dark)] text-white"><BadgeCheck size={22} aria-hidden="true" /></span>
           <p className="font-serif text-base font-semibold text-[var(--brown)]">Verified &amp; Registered</p>
-          <p className="text-[12px] leading-5 text-[var(--muted)]">Clear written certification pathway</p>
+          <p className="text-[13.5px] leading-5 text-[var(--muted)]">Clear written certification pathway</p>
         </Card>
       </div>
       <figure className="mt-8 overflow-hidden rounded-2xl bg-white p-1.5 shadow-sm ring-1 ring-[var(--border)]">
         <div className="relative aspect-[16/7] w-full overflow-hidden rounded-xl">
           <Image src={cert.sample.src} alt={cert.sample.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
         </div>
-        <figcaption className="px-4 py-3 text-center text-[11px] font-black uppercase tracking-widest text-[var(--coral)]">Sample completion certificate</figcaption>
+        <figcaption className="px-4 py-3 text-center text-[13.5px] font-black uppercase tracking-widest text-[var(--coral)]">Sample completion certificate</figcaption>
       </figure>
     </div>
   );
@@ -716,9 +716,9 @@ function Timeline({ c, course }) {
                 <span className="grid size-11 place-items-center rounded-2xl bg-[var(--cream)] text-[var(--coral-dark)] ring-1 ring-[var(--border)]"><Icon name={step.icon} size={20} /></span>
                 <span className="font-serif text-3xl font-semibold leading-none text-[var(--border)]">{String(index + 1).padStart(2, "0")}</span>
               </div>
-              <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--coral)]">{step.time}</p>
+              <p className="mt-3 text-[13.5px] font-bold uppercase tracking-[0.14em] text-[var(--coral)]">{step.time}</p>
               <h3 className="mt-1 font-serif text-lg font-semibold leading-snug text-[var(--brown)]">{step.label}</h3>
-              <p className="mt-1.5 text-[13px] leading-relaxed text-[var(--muted)]">{step.text}</p>
+              <p className="mt-1.5 text-[13.5px] leading-relaxed text-[var(--muted)]">{step.text}</p>
             </Card>
           ))}
         </div>
@@ -738,7 +738,7 @@ function DailySchedule({ c }) {
       <div className="mt-8 grid gap-3 sm:grid-cols-2">
         {schedule.map((item, index) => (
           <div key={`${item.time}-${index}`} className="yt-card flex items-center gap-4 !p-4">
-            <span className="shrink-0 rounded-xl bg-[var(--coral-dark)] px-3 py-2 text-[11px] font-black uppercase tracking-widest text-white shadow-sm">{item.time}</span>
+            <span className="shrink-0 rounded-xl bg-[var(--coral-dark)] px-3 py-2 text-[13.5px] font-black uppercase tracking-widest text-white shadow-sm">{item.time}</span>
             <span className="text-[14px] font-semibold leading-snug text-[var(--brown)]">{item.event}</span>
           </div>
         ))}
@@ -762,13 +762,13 @@ function Syllabus({ c, course }) {
             <div className="flex items-center justify-between gap-3">
               <IconTile name={cat.icon} />
               <p className="font-serif text-2xl font-semibold leading-none text-[var(--coral-dark)]">
-                {cat.hours}<span className="ml-1 font-sans text-[10px] font-bold uppercase tracking-wider text-[var(--muted)]">hrs</span>
+                {cat.hours}<span className="ml-1 font-sans text-[13.5px] font-bold uppercase tracking-wider text-[var(--muted)]">hrs</span>
               </p>
             </div>
             <h3 className="mt-3 font-serif text-[14px] font-semibold leading-tight text-[var(--brown)]">{cat.label}</h3>
             <div className="mt-2.5 flex flex-wrap gap-1.5">
               {(cat.sub || []).map((tag) => (
-                <span key={tag} className="rounded-full bg-[var(--cream)] px-2.5 py-1 text-[9px] font-bold uppercase tracking-wide text-[var(--coral-dark)] ring-1 ring-[var(--border)]">{tag}</span>
+                <span key={tag} className="rounded-full bg-[var(--cream)] px-2.5 py-1 text-[13.5px] font-bold uppercase tracking-wide text-[var(--coral-dark)] ring-1 ring-[var(--border)]">{tag}</span>
               ))}
             </div>
           </Card>
@@ -776,7 +776,7 @@ function Syllabus({ c, course }) {
       </div>
       <div className="mt-5 flex flex-wrap gap-2">
         {topicPills.map((pill) => (
-          <span key={pill} className="rounded-full border border-[var(--border)] bg-white px-4 py-1.5 text-[12px] font-semibold text-[var(--coral-dark)]">{pill}</span>
+          <span key={pill} className="rounded-full border border-[var(--border)] bg-white px-4 py-1.5 text-[13.5px] font-semibold text-[var(--coral-dark)]">{pill}</span>
         ))}
       </div>
       {modules.length > 0 && (
@@ -824,7 +824,7 @@ function Pathway({ c, course }) {
             <div className="flex items-center gap-4">
               <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-[var(--cream)] text-[var(--coral-dark)] ring-1 ring-[var(--border)]"><Award size={20} aria-hidden="true" /></span>
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[var(--coral)]">{labels[i] || `Step ${i + 1}`}</p>
+                <p className="text-[13.5px] font-black uppercase tracking-[0.14em] text-[var(--coral)]">{labels[i] || `Step ${i + 1}`}</p>
                 <h3 className="mt-0.5 font-serif text-lg font-semibold text-[var(--brown)]">{String(step.hours).replace("-hour", "")}-Hour TTC</h3>
               </div>
             </div>
@@ -834,7 +834,7 @@ function Pathway({ c, course }) {
           </Card>
         ))}
       </div>
-      <p className="mt-5 text-center text-[13px] font-semibold text-[var(--muted)]">{c.pathway.nextStep}</p>
+      <p className="mt-5 text-center text-[13.5px] font-semibold text-[var(--muted)]">{c.pathway.nextStep}</p>
     </div>
   );
 }
@@ -851,7 +851,7 @@ function Outcomes({ c }) {
           <Card key={outcome.title} className="group overflow-hidden !p-0">
             <div className="relative aspect-[16/9] overflow-hidden">
               <Image src={outcome.image} alt={outcome.alt} fill sizes="(max-width: 640px) 100vw, 40vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
-              <span className="absolute left-3 top-3 grid size-8 place-items-center rounded-full bg-white/90 font-serif text-xs font-semibold text-[var(--coral-dark)] shadow-sm backdrop-blur">{String(i + 1).padStart(2, "0")}</span>
+              <span className="absolute left-3 top-3 grid size-8 place-items-center rounded-full bg-white/90 font-serif text-[13.5px] font-semibold text-[var(--coral-dark)] shadow-sm backdrop-blur">{String(i + 1).padStart(2, "0")}</span>
             </div>
             <h3 className="p-5 font-serif text-[17px] font-semibold leading-snug text-[var(--brown)]">{outcome.title}</h3>
           </Card>
@@ -875,7 +875,7 @@ function Excursions({ c }) {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" aria-hidden="true" />
             <div className="absolute inset-x-0 bottom-0 p-3.5 sm:p-4">
               <h3 className="font-serif text-[14px] font-semibold leading-snug text-white sm:text-base">{item.title}</h3>
-              <p className="mt-0.5 text-[11px] leading-relaxed text-white/65 line-clamp-2">{item.text}</p>
+              <p className="mt-0.5 text-[13.5px] leading-relaxed text-white/65 line-clamp-2">{item.text}</p>
             </div>
           </article>
         ))}
@@ -899,9 +899,9 @@ function ComparisonTable({ c, course }) {
             <tr>
               <th scope="col" className="px-5 py-4 font-serif text-base text-[var(--brown)]">Compare</th>
               {steps.map((step, i) => (
-                <th scope="col" key={step.slug} className="px-5 py-4 text-[13px] font-bold text-[var(--brown)]">
+                <th scope="col" key={step.slug} className="px-5 py-4 text-[13.5px] font-bold text-[var(--brown)]">
                   <span className="font-serif">{String(step.hours).replace("-hour", "")} Hour</span>
-                  {i === 0 && <span className="mt-1.5 block w-fit rounded-full bg-[var(--coral-dark)] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">This Course</span>}
+                  {i === 0 && <span className="mt-1.5 block w-fit rounded-full bg-[var(--coral-dark)] px-2.5 py-0.5 text-[13.5px] font-bold uppercase tracking-wide text-white">This Course</span>}
                 </th>
               ))}
             </tr>
@@ -909,9 +909,9 @@ function ComparisonTable({ c, course }) {
           <tbody>
             {c.pathway.rows.map((row, ri) => (
               <tr key={row[0]} className={`transition-colors ${ri % 2 ? "bg-white" : "bg-[var(--cream)]/50"} hover:bg-[var(--surface)]/40`}>
-                <th scope="row" className="px-6 py-4 text-[13px] font-bold text-[var(--brown)]">{row[0]}</th>
+                <th scope="row" className="px-6 py-4 text-[13.5px] font-bold text-[var(--brown)]">{row[0]}</th>
                 {row.slice(1).map((cell, ci) => (
-                  <td key={ci} className={`px-5 py-4 text-[13px] leading-6 text-[var(--muted)] ${ci === 0 ? "bg-[var(--cream)] text-[var(--brown)] ring-1 ring-[var(--border)]" : ""}`}>{cell}</td>
+                  <td key={ci} className={`px-5 py-4 text-[13.5px] leading-6 text-[var(--muted)] ${ci === 0 ? "bg-[var(--cream)] text-[var(--brown)] ring-1 ring-[var(--border)]" : ""}`}>{cell}</td>
                 ))}
               </tr>
             ))}
@@ -929,8 +929,8 @@ function ComparisonTable({ c, course }) {
                 <div key={row[0]} className="flex items-start gap-2.5">
                   <span className="mt-0.5 text-[var(--coral-dark)]"><Check size={14} aria-hidden="true" /></span>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-wide text-[var(--muted)]">{row[0]}</p>
-                    <p className="text-[13px] leading-5 text-[var(--muted)]">{row[i + 1]}</p>
+                    <p className="text-[13.5px] font-bold uppercase tracking-wide text-[var(--muted)]">{row[0]}</p>
+                    <p className="text-[13.5px] leading-5 text-[var(--muted)]">{row[i + 1]}</p>
                   </div>
                 </div>
               ))}
@@ -938,7 +938,7 @@ function ComparisonTable({ c, course }) {
           </div>
         ))}
       </div>
-      <p className="mt-3 text-[11px] text-[var(--muted)]">Fees shown per person for shared rooms — all-inclusive (training, room, meals, kit, manual, certification).</p>
+      <p className="mt-3 text-[13.5px] text-[var(--muted)]">Fees shown per person for shared rooms — all-inclusive (training, room, meals, kit, manual, certification).</p>
     </div>
   );
 }
@@ -953,10 +953,10 @@ function Rules({ c }) {
       <div className="mt-8 grid gap-3 sm:grid-cols-2">
         {c.rules.map((rule, i) => (
           <Card key={rule.title} className="flex items-start gap-4">
-            <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[var(--cream)] font-serif text-[13px] font-semibold text-[var(--coral-dark)] ring-1 ring-[var(--border)]">{String(i + 1).padStart(2, "0")}</span>
+            <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[var(--cream)] font-serif text-[13.5px] font-semibold text-[var(--coral-dark)] ring-1 ring-[var(--border)]">{String(i + 1).padStart(2, "0")}</span>
             <div className="min-w-0">
               <h3 className="font-serif text-[15px] font-semibold text-[var(--brown)]">{rule.title}</h3>
-              <p className="mt-1 text-[13px] leading-relaxed text-[var(--muted)]">{rule.text}</p>
+              <p className="mt-1 text-[13.5px] leading-relaxed text-[var(--muted)]">{rule.text}</p>
             </div>
           </Card>
         ))}
@@ -981,7 +981,7 @@ function DatesBatches({ c, course }) {
         <p className="flex flex-wrap items-center justify-center gap-3 text-center text-[16px] font-semibold md:justify-start">
           <Sparkles size={18} aria-hidden="true" />
           Early Bird Offer — Save Up To 30%
-          <span className="rounded-full bg-white/15 px-3 py-1 text-[10px] font-black uppercase tracking-widest ring-1 ring-white/25">Limited Seats</span>
+          <span className="rounded-full bg-white/15 px-3 py-1 text-[13.5px] font-black uppercase tracking-widest ring-1 ring-white/25">Limited Seats</span>
         </p>
         <PillButton href="/apply" className="!bg-white !text-[var(--coral-dark)] hover:!bg-[var(--cream)]">Claim Offer</PillButton>
       </div>
@@ -993,7 +993,7 @@ function DatesBatches({ c, course }) {
           <thead>
             <tr className="border-b border-[var(--border)] bg-[var(--cream)]">
               {["Course Dates", "Double Shared", "Private Room", "Book Now"].map((l) => (
-                <th key={l} scope="col" className="px-6 py-4 text-[11px] font-black uppercase tracking-widest text-[var(--brown)]">{l}</th>
+                <th key={l} scope="col" className="px-6 py-4 text-[13.5px] font-black uppercase tracking-widest text-[var(--brown)]">{l}</th>
               ))}
             </tr>
           </thead>
@@ -1007,22 +1007,22 @@ function DatesBatches({ c, course }) {
                 <tr key={batch.id} className="group border-b border-[var(--border)] transition-colors last:border-0 hover:bg-[var(--cream)]/50">
                   <td className="px-6 py-5">
                     <h4 className="font-serif text-[15px] font-semibold text-[var(--brown)]">{range || batch.label || "Dates confirmed with the batch"}</h4>
-                    {!range && <span className="mt-0.5 block text-[12px] text-[var(--muted)]">Dates confirmed with the batch</span>}
-                    <span className={`mt-2 inline-block rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wide ${filling ? "bg-green-50 text-green-700 ring-1 ring-green-200" : "bg-[var(--cream)] text-[var(--coral-dark)] ring-1 ring-[var(--border)]"}`}>
+                    {!range && <span className="mt-0.5 block text-[13.5px] text-[var(--muted)]">Dates confirmed with the batch</span>}
+                    <span className={`mt-2 inline-block rounded-full px-3 py-1 text-[13.5px] font-bold uppercase tracking-wide ${filling ? "bg-green-50 text-green-700 ring-1 ring-green-200" : "bg-[var(--cream)] text-[var(--coral-dark)] ring-1 ring-[var(--border)]"}`}>
                       {batch.availabilityLabel || batch.availability}
                     </span>
                   </td>
                   <td className="px-6 py-5">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--muted)]">Shared</p>
-                    {saveShared > 0 && <del className="text-[12px] text-[var(--coral)]">{listShared}</del>}
+                    <p className="text-[13.5px] font-bold uppercase tracking-widest text-[var(--muted)]">Shared</p>
+                    {saveShared > 0 && <del className="text-[13.5px] text-[var(--coral)]">{listShared}</del>}
                     <p className="mt-0.5 font-serif text-xl font-semibold text-[var(--brown)]">{batch.shared}</p>
-                    {saveShared > 0 && <p className="text-[11px] font-bold uppercase tracking-wide text-[var(--coral)]">Save {saveShared}%</p>}
+                    {saveShared > 0 && <p className="text-[13.5px] font-bold uppercase tracking-wide text-[var(--coral)]">Save {saveShared}%</p>}
                   </td>
                   <td className="px-6 py-5">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--muted)]">Private</p>
-                    {savePrivate > 0 && <del className="text-[12px] text-[var(--coral)]">{listPrivate}</del>}
+                    <p className="text-[13.5px] font-bold uppercase tracking-widest text-[var(--muted)]">Private</p>
+                    {savePrivate > 0 && <del className="text-[13.5px] text-[var(--coral)]">{listPrivate}</del>}
                     <p className="mt-0.5 font-serif text-xl font-semibold text-[var(--brown)]">{batch.private}</p>
-                    {savePrivate > 0 && <p className="text-[11px] font-bold uppercase tracking-wide text-[var(--coral)]">Save {savePrivate}%</p>}
+                    {savePrivate > 0 && <p className="text-[13.5px] font-bold uppercase tracking-wide text-[var(--coral)]">Save {savePrivate}%</p>}
                   </td>
                   <td className="px-6 py-5"><PillButton href="/apply">Book Seat</PillButton></td>
                 </tr>
@@ -1032,14 +1032,14 @@ function DatesBatches({ c, course }) {
         </table>
       </div>
 
-      <p className="mt-3 text-[11px] text-[var(--muted)]">Fees shown per person, all-inclusive (training, room, meals, kit, manual and certification).</p>
+      <p className="mt-3 text-[13.5px] text-[var(--muted)]">Fees shown per person, all-inclusive (training, room, meals, kit, manual and certification).</p>
 
       <div className="mt-10">
         <h3 className="font-serif text-xl font-semibold text-[var(--brown)]">Know exactly what&apos;s included</h3>
         <div className="mt-4 flex flex-wrap gap-2">
           {c.packageTabs.map((item, i) => (
             <button key={item.id} type="button" onClick={() => setTab(i)}
-              className={`rounded-full px-5 py-2.5 text-[11px] font-bold uppercase tracking-widest transition-all ${tab === i ? "bg-[var(--coral-dark)] text-white shadow-md shadow-[var(--coral-dark)]/15" : "border border-[var(--border)] bg-white text-[var(--muted)] hover:text-[var(--coral-dark)]"}`}>
+              className={`rounded-full px-5 py-2.5 text-[13.5px] font-bold uppercase tracking-widest transition-all ${tab === i ? "bg-[var(--coral-dark)] text-white shadow-md shadow-[var(--coral-dark)]/15" : "border border-[var(--border)] bg-white text-[var(--muted)] hover:text-[var(--coral-dark)]"}`}>
               {item.title}
             </button>
           ))}
@@ -1060,7 +1060,7 @@ function DatesBatches({ c, course }) {
       {/* Free Bonus Sessions */}
       <div className="mt-10 rounded-2xl bg-gradient-to-br from-[var(--cream)] to-white p-6 ring-1 ring-[var(--border)] md:p-7">
         <h3 className="font-serif text-xl font-semibold text-[var(--brown)]">Free Bonus Sessions Included</h3>
-        <p className="mt-1 text-[13px] text-[var(--muted)]">Complimentary wellness workshops and experiences to enrich your journey.</p>
+        <p className="mt-1 text-[13.5px] text-[var(--muted)]">Complimentary wellness workshops and experiences to enrich your journey.</p>
         <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
           {[
             { icon: "flower", label: "Sound Healing" },
@@ -1070,7 +1070,7 @@ function DatesBatches({ c, course }) {
           ].map((item) => (
             <div key={item.label} className="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-white p-3.5">
               <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-[var(--cream)] text-[var(--coral-dark)]"><Icon name={item.icon} size={16} /></span>
-              <p className="text-[13px] font-bold text-[var(--brown)]">{item.label}</p>
+              <p className="text-[13.5px] font-bold text-[var(--brown)]">{item.label}</p>
             </div>
           ))}
         </div>
@@ -1092,14 +1092,14 @@ function Accommodation({ c, course }) {
         <div className="space-y-7">
           <div>
             <h3 className="font-serif text-lg font-semibold text-[var(--brown)]">Peaceful rooms near the beach</h3>
-            <p className="mt-2 text-[13px] leading-relaxed text-[var(--muted)]">{acc.overview}</p>
+            <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--muted)]">{acc.overview}</p>
             <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
               {c.stayChips.map((chip) => (
                 <li key={chip.title} className="flex items-start gap-3 rounded-2xl bg-[var(--cream)] p-3.5 ring-1 ring-[var(--border)]">
                   <IconTile name={chip.icon} className="!size-9 !rounded-xl" />
                   <div>
-                    <p className="text-[13px] font-bold text-[var(--brown)]">{chip.title}</p>
-                    <p className="text-[12px] leading-5 text-[var(--muted)]">{chip.text}</p>
+                    <p className="text-[13.5px] font-bold text-[var(--brown)]">{chip.title}</p>
+                    <p className="text-[13.5px] leading-5 text-[var(--muted)]">{chip.text}</p>
                   </div>
                 </li>
               ))}
@@ -1107,14 +1107,14 @@ function Accommodation({ c, course }) {
           </div>
           <div>
             <h3 className="font-serif text-lg font-semibold text-[var(--brown)]">Sattvic meals, cooked fresh</h3>
-            <p className="mt-2 text-[13px] leading-relaxed text-[var(--muted)]">{acc.food}</p>
+            <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--muted)]">{acc.food}</p>
             <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
               {c.foodChips.map((chip) => (
                 <li key={chip.title} className="flex items-start gap-3 rounded-2xl bg-[var(--cream)] p-3.5 ring-1 ring-[var(--border)]">
                   <IconTile name={chip.icon} className="!size-9 !rounded-xl" />
                   <div>
-                    <p className="text-[13px] font-bold text-[var(--brown)]">{chip.title}</p>
-                    <p className="text-[12px] leading-5 text-[var(--muted)]">{chip.text}</p>
+                    <p className="text-[13.5px] font-bold text-[var(--brown)]">{chip.title}</p>
+                    <p className="text-[13.5px] leading-5 text-[var(--muted)]">{chip.text}</p>
                   </div>
                 </li>
               ))}
@@ -1131,7 +1131,7 @@ function Accommodation({ c, course }) {
                 <div className="relative aspect-square overflow-hidden rounded-xl ring-1 ring-[var(--border)]">
                   <Image src={img.src} alt={img.alt} fill sizes="(max-width: 1024px) 30vw, 15vw" className="object-cover transition-transform duration-500 hover:scale-105" />
                 </div>
-                <figcaption className="mt-1.5 text-center text-[10px] font-black uppercase tracking-widest text-[var(--coral)]">{img.caption}</figcaption>
+                <figcaption className="mt-1.5 text-center text-[13.5px] font-black uppercase tracking-widest text-[var(--coral)]">{img.caption}</figcaption>
               </figure>
             ))}
           </div>
@@ -1175,16 +1175,16 @@ function Reviews({ c }) {
     return (
       <article className="flex h-[250px] w-[290px] shrink-0 snap-center flex-col rounded-2xl border border-[var(--border)] bg-white p-5 shadow-sm transition-shadow hover:shadow-md sm:w-[320px]">
         <div className="flex items-center gap-3">
-          <span className="grid size-9 shrink-0 place-items-center rounded-full text-[11px] font-black text-white" style={{ backgroundColor: color }}>{initials(review.name)}</span>
+          <span className="grid size-9 shrink-0 place-items-center rounded-full text-[13.5px] font-black text-white" style={{ backgroundColor: color }}>{initials(review.name)}</span>
           <div className="min-w-0">
-            <p className="truncate text-[13px] font-bold text-[var(--brown)]">{review.name}</p>
-            <p className="text-[11px] text-[var(--muted)]">{review.date} · {review.platform}</p>
+            <p className="truncate text-[13.5px] font-bold text-[var(--brown)]">{review.name}</p>
+            <p className="text-[13.5px] text-[var(--muted)]">{review.date} · {review.platform}</p>
           </div>
         </div>
         {review.headline && <p className="mt-2.5 font-serif text-[14px] font-semibold text-[var(--brown)]">{review.headline}</p>}
         <div className="mt-1"><Stars value={review.rating} size={11} /></div>
-        <blockquote className="mt-2.5 flex-1 text-[13px] leading-relaxed text-[var(--muted)]">&ldquo;{review.excerpt}&rdquo;</blockquote>
-        <a href={review.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-2 text-[11px] font-bold text-[var(--coral-dark)] transition hover:underline">Read Full Review →</a>
+        <blockquote className="mt-2.5 flex-1 text-[13.5px] leading-relaxed text-[var(--muted)]">&ldquo;{review.excerpt}&rdquo;</blockquote>
+        <a href={review.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-2 text-[13.5px] font-bold text-[var(--coral-dark)] transition hover:underline">Read Full Review →</a>
       </article>
     );
   }
@@ -1195,10 +1195,10 @@ function Reviews({ c }) {
       <div className="mb-8 flex flex-wrap items-center justify-center gap-3">
         {platforms.map((p) => (
           <a key={p.name} href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-2xl border border-[var(--border)] bg-white px-5 py-3 shadow-sm transition hover:shadow-md">
-            <span className="text-[13px] font-bold" style={{ color: p.color }}>{p.name}</span>
+            <span className="text-[13.5px] font-bold" style={{ color: p.color }}>{p.name}</span>
             <span className="font-serif text-xl font-semibold text-[var(--brown)]">{p.rating}</span>
             <span className="flex gap-0.5">{Array.from({ length: 5 }, (_, i) => <Star key={i} size={11} className="fill-[var(--gold)] text-[var(--gold)]" />)}</span>
-            <span className="text-[11px] text-[var(--muted)]">{p.count} reviews</span>
+            <span className="text-[13.5px] text-[var(--muted)]">{p.count} reviews</span>
           </a>
         ))}
       </div>
@@ -1210,7 +1210,7 @@ function Reviews({ c }) {
           <div>
             <p className="font-serif text-2xl font-semibold leading-none text-[var(--brown)]">{reviewProfile.rating}</p>
             <Stars value={reviewProfile.rating} size={12} />
-            <p className="mt-1 text-[11px] font-bold uppercase tracking-widest text-[var(--muted)]">{reviewProfile.reviewCount} reviews</p>
+            <p className="mt-1 text-[13.5px] font-bold uppercase tracking-widest text-[var(--muted)]">{reviewProfile.reviewCount} reviews</p>
           </div>
         </div>
       </div>
@@ -1231,7 +1231,7 @@ function Reviews({ c }) {
           <div>
             <p className="font-serif text-2xl font-semibold leading-none text-[var(--brown)]">{tripadvisorProfile.rating}</p>
             <div className="mt-1 flex gap-1">{Array.from({ length: 5 }, (_, i) => <span key={i} className="size-2.5 rounded-full bg-[#00af87]" />)}</div>
-            <p className="mt-1 text-[11px] font-bold uppercase tracking-widest text-[var(--muted)]">{tripadvisorProfile.reviewCount} reviews</p>
+            <p className="mt-1 text-[13.5px] font-bold uppercase tracking-widest text-[var(--muted)]">{tripadvisorProfile.reviewCount} reviews</p>
           </div>
         </div>
       </div>
@@ -1261,7 +1261,7 @@ function Faq({ c }) {
         <span className="text-3xl text-[var(--coral-dark)]" aria-hidden="true">ॐ</span>
         <div className="flex-1">
           <h3 className="font-serif text-lg font-semibold text-[var(--brown)]">Still have questions?</h3>
-          <p className="mt-1 text-[13px] leading-relaxed text-[var(--muted)]">Our team is available to help you choose the right path — we reply within a day.</p>
+          <p className="mt-1 text-[13.5px] leading-relaxed text-[var(--muted)]">Our team is available to help you choose the right path — we reply within a day.</p>
         </div>
         <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
           <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="yt-btn-whatsapp"><SiWhatsapp size={15} aria-hidden="true" /> Chat on WhatsApp</a>
@@ -1284,7 +1284,7 @@ function Location({ c }) {
       <div className="mt-8 grid gap-5 lg:grid-cols-2">
         <div className="rounded-2xl border border-[var(--border)] bg-white p-6 shadow-sm md:p-7">
           <h3 className="font-serif text-xl font-semibold text-[var(--brown)]">{site.name}</h3>
-          <p className="mt-2 text-[13px] leading-relaxed text-[var(--muted)]">A residential yoga school in the quiet village of Querim, North Goa — minutes from Querim and Arambol beaches.</p>
+          <p className="mt-2 text-[13.5px] leading-relaxed text-[var(--muted)]">A residential yoga school in the quiet village of Querim, North Goa — minutes from Querim and Arambol beaches.</p>
           <div className="mt-4 flex items-start gap-3">
             <span className="mt-0.5 text-[var(--coral-dark)]"><MapPin size={18} aria-hidden="true" /></span>
             <p className="text-[14px] leading-relaxed text-[var(--muted)]">{dirs.address}</p>
@@ -1294,8 +1294,8 @@ function Location({ c }) {
               <div key={opt.label} className="flex items-start gap-3">
                 <IconTile name="map" />
                 <div>
-                  <p className="text-[13px] font-bold text-[var(--brown)]">{opt.label}</p>
-                  <p className="text-[12px] leading-5 text-[var(--muted)]">{opt.text}</p>
+                  <p className="text-[13.5px] font-bold text-[var(--brown)]">{opt.label}</p>
+                  <p className="text-[13.5px] leading-5 text-[var(--muted)]">{opt.text}</p>
                 </div>
               </div>
             ))}
@@ -1309,7 +1309,7 @@ function Location({ c }) {
           <iframe src={site.contact.mapEmbedUrl} title={`Map showing the public ${site.location} location`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen className="absolute inset-0 h-full w-full border-0" />
           <span className="absolute bottom-4 left-4 flex items-center gap-2.5 rounded-full bg-white px-4 py-2.5 shadow-lg">
             <MapPin size={15} className="text-[var(--coral-dark)]" aria-hidden="true" />
-            <span className="text-[11px] font-black uppercase tracking-widest text-[var(--brown)]">Hatha Yogashala — Querim</span>
+            <span className="text-[13.5px] font-black uppercase tracking-widest text-[var(--brown)]">Hatha Yogashala — Querim</span>
           </span>
         </div>
       </div>
@@ -1326,11 +1326,11 @@ function MobileBottomBar({ course }) {
     <div className="fixed inset-x-0 bottom-0 z-[800] border-t border-[var(--border)] bg-white/90 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-2.5 backdrop-blur-xl lg:hidden">
       <div className="flex items-center gap-2.5">
         <div className="min-w-0 shrink-0">
-          <p className="text-[9px] font-black uppercase tracking-widest text-[var(--coral-dark)]">From</p>
+          <p className="text-[13.5px] font-black uppercase tracking-widest text-[var(--coral-dark)]">From</p>
           <p className="truncate text-[15px] font-black leading-tight text-[var(--brown)]">{course.price}</p>
         </div>
         <PillButton href="/apply" className="min-h-[0] flex-1 py-3">Reserve Spot</PillButton>
-        <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="flex flex-1 items-center justify-center gap-2 rounded-full bg-[#25D366] py-3 text-[11px] font-bold uppercase tracking-[0.12em] text-white shadow-md transition hover:brightness-105">
+        <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="flex flex-1 items-center justify-center gap-2 rounded-full bg-[#25D366] py-3 text-[13.5px] font-bold uppercase tracking-[0.12em] text-white shadow-md transition hover:brightness-105">
           <SiWhatsapp size={15} aria-hidden="true" /> WhatsApp Chat
         </a>
       </div>

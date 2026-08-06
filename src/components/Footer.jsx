@@ -96,7 +96,7 @@ export default function Footer() {
 
         <Container>
           <div className="relative flex flex-col items-center gap-3 py-6 text-center md:py-8">
-            <p className="font-mono text-[10.9px] uppercase tracking-[0.32em] text-[var(--gold)]">
+            <p className="font-mono text-[13.5px] uppercase tracking-[0.32em] text-[var(--gold)]">
               Breathe · Move · Awaken
             </p>
             <h2 className="max-w-xl font-serif text-[22px] md:text-[26px] lg:text-[32px] font-normal leading-[1.05] tracking-[-0.02em] text-[var(--brown)]">
@@ -106,7 +106,7 @@ export default function Footer() {
             <div className="mt-1 flex flex-col items-center gap-3">
               <Link
                 href="/courses"
-                className="group inline-flex min-h-11 items-center justify-center gap-2.5 rounded-md border border-[var(--brown)]/20 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--brown)] transition duration-200 hover:border-[var(--gold)] hover:bg-[var(--gold)]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--cream)]"
+                className="group inline-flex min-h-11 items-center justify-center gap-2.5 rounded-md border border-[var(--brown)]/20 px-5 py-2.5 text-[13.5px] font-semibold uppercase tracking-[0.14em] text-[var(--brown)] transition duration-200 hover:border-[var(--gold)] hover:bg-[var(--gold)]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--cream)]"
               >
                 Explore YTTC & retreats
                 <ArrowUpRight
@@ -139,7 +139,7 @@ export default function Footer() {
                 />
               </Link>
 
-              <p className="mx-auto max-w-xs text-[13px] leading-5 text-[var(--brown)] sm:mx-0">
+              <p className="text-body mx-auto max-w-xs sm:mx-0">
                 Traditional Hatha yoga teacher training and mindful residential
                 retreats in Goa, India.
               </p>
@@ -201,7 +201,7 @@ export default function Footer() {
 
               <Link
                 href="/contact"
-                className="group mt-3 inline-flex items-center gap-2 font-mono text-[11.2px] uppercase tracking-[0.14em] text-[var(--gold)] transition hover:text-[var(--brown)]"
+                className="group mt-3 inline-flex items-center gap-2 font-mono text-[13.5px] uppercase tracking-[0.14em] text-[var(--gold)] transition hover:text-[var(--brown)]"
               >
                 Send an enquiry
                 <ArrowUpRight
@@ -213,7 +213,7 @@ export default function Footer() {
           </Reveal>
 
           {/* bottom bar */}
-          <div className="flex flex-col items-center gap-2 border-t border-[var(--brown)]/10 py-3 text-center font-mono text-[10.4px] uppercase tracking-[0.14em] text-[var(--brown)] md:flex-row md:items-center md:justify-between md:text-left">
+          <div className="flex flex-col items-center gap-2 border-t border-[var(--brown)]/10 py-3 text-center font-mono text-[13.5px] uppercase tracking-[0.14em] text-[var(--brown)] md:flex-row md:items-center md:justify-between md:text-left">
             <p>
               {site.name} <span className="text-[var(--brown)]/60">·</span> ©{" "}
               {new Date().getFullYear()}
@@ -271,7 +271,7 @@ function FooterLinkList({ links }) {
         <li key={href}>
           <Link
             href={href}
-            className="group inline-flex items-center gap-2 font-medium text-[13px] leading-5 text-[#2A2A22] transition duration-150 hover:text-[#2C7F74]"
+            className="group inline-flex items-center gap-2 font-medium text-[13.5px] leading-5 text-[#2A2A22] transition duration-150 hover:text-[#2C7F74]"
           >
             <span>{label}</span>
             <ArrowUpRight
@@ -287,7 +287,7 @@ function FooterLinkList({ links }) {
 
 function ContactItem({ Icon, children }) {
   return (
-    <li className="grid grid-cols-[1.1rem_1fr] items-start gap-3 text-left text-[13px] leading-5 text-[#2A2A22]">
+    <li className="grid grid-cols-[1.1rem_1fr] items-start gap-3 text-left text-[13.5px] leading-5 text-[#2A2A22]">
       <Icon
         className="mt-0.5 size-4 stroke-[1.7] text-[#2C7F74]"
         aria-hidden="true"

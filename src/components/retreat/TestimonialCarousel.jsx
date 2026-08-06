@@ -3,15 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Play,
-  Quote,
-  Star,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, Play, Quote, Star } from "lucide-react";
 
-export default function TestimonialCarousel({ testimonials }) {
+export default function TestimonialCarousel({ testimonials = [] }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const timer = useRef(null);
@@ -26,9 +20,21 @@ export default function TestimonialCarousel({ testimonials }) {
     return () => clearInterval(timer.current);
   }, [paused, count]);
 
+  // Guard: nothing to render if there are no testimonials
+  if (count === 0) return null;
+
+  const prevIndex = (index - 1 + count) % count;
+  const nextIndex = (index + 1) % count;
+
   const current = testimonials[index];
-  const prev = (index - 1 + count) % count;
-  const next = (index + 1) % count;
+  const prev = testimonials[prevIndex];
+  const next = testimonials[nextIndex];
+
+  const slides = [
+    { item: prev, position: 0 },
+    { item: current, position: 1 },
+    { item: next, position: 2 },
+  ];
 
   return (
     <div
@@ -37,11 +43,11 @@ export default function TestimonialCarousel({ testimonials }) {
       onMouseLeave={() => setPaused(false)}
     >
       <div className="testimonial-stage">
-        {[prev, current, next].map((item, position) => {
+        {slides.map(({ item, position }) => {
           const isActive = position === 1;
           return (
             <motion.figure
-              key={`${item.name}-${position}`}
+              key={`${item.name}-${position}-${index}`}
               className="testimonial-slide"
               data-active={isActive}
               animate={{
@@ -54,7 +60,10 @@ export default function TestimonialCarousel({ testimonials }) {
               style={{ zIndex: isActive ? 2 : 1 }}
             >
               <Quote className="testimonial-quote-mark" aria-hidden="true" />
-              <div className="testimonial-stars" aria-label={`${item.rating} out of 5 stars`}>
+              <div
+                className="testimonial-stars"
+                aria-label={`${item.rating} out of 5 stars`}
+              >
                 {Array.from({ length: 5 }, (_, i) => (
                   <Star
                     key={i}
@@ -66,7 +75,21 @@ export default function TestimonialCarousel({ testimonials }) {
               <blockquote>{item.text}</blockquote>
               <figcaption>
                 <span className="testimonial-avatar">
-                  <Image src={item.image} alt="" fill sizes="72px" />
+                  {item.image ? (
+                    <Image
+                      src={item.image}
+                      alt={`${item.name || "Guest"} testimonial avatar`}
+                      fill
+                      sizes="72px"
+                    />
+                  ) : (
+                    <span
+                      className="testimonial-avatar-fallback"
+                      aria-hidden="true"
+                    >
+                      {item.name ? item.name.charAt(0).toUpperCase() : "?"}
+                    </span>
+                  )}
                 </span>
                 <span>
                   <strong>{item.name}</strong>
@@ -83,16 +106,20 @@ export default function TestimonialCarousel({ testimonials }) {
       <div className="testimonial-controls">
         <button
           type="button"
-          onClick={() => setIndex(prev)}
+          onClick={() => setIndex(prevIndex)}
           aria-label="Previous testimonial"
         >
           <ArrowLeft size={18} aria-hidden="true" />
         </button>
-        <div className="testimonial-dots" role="tablist" aria-label="Testimonials">
+        <div
+          className="testimonial-dots"
+          role="tablist"
+          aria-label="Testimonials"
+        >
           {testimonials.map((item, i) => (
             <button
               type="button"
-              key={item.name}
+              key={`${item.name}-${i}`}
               role="tab"
               aria-selected={i === index}
               aria-label={`Show testimonial from ${item.name}`}
@@ -103,7 +130,7 @@ export default function TestimonialCarousel({ testimonials }) {
         </div>
         <button
           type="button"
-          onClick={() => setIndex(next)}
+          onClick={() => setIndex(nextIndex)}
           aria-label="Next testimonial"
         >
           <ArrowRight size={18} aria-hidden="true" />
@@ -114,11 +141,26 @@ export default function TestimonialCarousel({ testimonials }) {
 }
 
 export function VideoTestimonials({ items = [] }) {
+  if (items.length === 0) return null;
+
   return (
     <div className="video-testimonial-grid">
-      {items.map((item) => (
-        <button type="button" className="video-testimonial" key={item.name}>
-          <Image src={item.image} alt={`Video testimonial from ${item.name}`} fill sizes="(max-width: 640px) 100vw, 33vw" />
+      {items.map((item, i) => (
+        <button
+          type="button"
+          className="video-testimonial"
+          key={`${item.name}-${i}`}
+        >
+          {item.image ? (
+            <Image
+              src={item.image}
+              alt={`Video testimonial from ${item.name}`}
+              fill
+              sizes="(max-width: 640px) 100vw, 33vw"
+            />
+          ) : (
+            <span className="video-testimonial-fallback" aria-hidden="true" />
+          )}
           <span className="video-play">
             <Play size={20} fill="currentColor" aria-hidden="true" />
           </span>

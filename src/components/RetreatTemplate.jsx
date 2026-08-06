@@ -60,7 +60,7 @@ const freeTimeIcons = {
 
 function RetreatEyebrow({ children }) {
   return (
-    <p className="mb-2 flex items-center gap-2 text-[11.2px] font-extrabold uppercase tracking-[0.16em] text-[var(--coral-dark)]">
+    <p className="mb-2 flex items-center gap-2 text-[13.5px] font-extrabold uppercase tracking-[0.16em] text-[var(--coral-dark)]">
       <Sparkles size={14} aria-hidden="true" />
       {children}
     </p>
@@ -272,15 +272,15 @@ export default function RetreatTemplate({ retreat, page }) {
         <BookingSidebar page={p} retreat={retreat} />
         <MobileStickyBar
           left={
-            <p className="text-[13px] font-black leading-tight text-[var(--brown)]">
+            <p className="text-[13.5px] font-black leading-tight text-[var(--brown)]">
               From <span className="text-[var(--coral-dark)]">{typeof p.pricing.shared.price === "number" ? `${currencySymbol}${p.pricing.shared.price}` : "On enquiry"}</span>
-              <span className="text-[11px] font-semibold text-[var(--muted)]"> /person</span>
+              <span className="text-[13.5px] font-semibold text-[var(--muted)]"> /person</span>
             </p>
           }
           right={
             <>
-              <a href="#book" className="button button-primary !px-4 !py-2.5 !text-xs">Book Your Retreat</a>
-              <a href={whatsappHref} className="button booking-whatsapp !px-3 !py-2.5 !text-xs" aria-label="WhatsApp inquiry">
+              <a href="#book" className="button button-primary !px-4 !py-2.5 !text-[13.5px]">Book Your Retreat</a>
+              <a href={whatsappHref} className="button booking-whatsapp !px-3 !py-2.5 !text-[13.5px]" aria-label="WhatsApp inquiry">
                 <SiWhatsapp size={15} aria-hidden="true" />
               </a>
             </>

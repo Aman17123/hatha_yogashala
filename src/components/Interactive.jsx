@@ -350,10 +350,10 @@ export function BlogCard({ post }) {
           <h3 className="font-serif text-lg font-bold leading-snug text-black transition-colors group-hover:text-[var(--coral-dark)]">
             {post.title}
           </h3>
-          <p className="mt-2.5 text-xs leading-relaxed text-black/70 line-clamp-3">
+          <p className="mt-2.5 text-[13.5px] leading-relaxed text-black/70 line-clamp-3">
             {post.excerpt}
           </p>
-          <div className="blog-card-meta mt-4 flex flex-wrap gap-x-4 gap-y-1.5 border-t border-[var(--border)] pt-4 text-[11px] font-medium text-[var(--muted)]">
+          <div className="blog-card-meta mt-4 flex flex-wrap gap-x-4 gap-y-1.5 border-t border-[var(--border)] pt-4 text-[13.5px] font-medium text-[var(--muted)]">
             <span className="flex items-center gap-1.5">
               <UserRound size={13} aria-hidden="true" />
               {post.author}
@@ -367,7 +367,7 @@ export function BlogCard({ post }) {
               {post.readingTime}
             </span>
           </div>
-          <span className="mt-auto flex items-center gap-1.5 pt-5 text-xs font-bold uppercase tracking-[0.1em] text-[var(--coral-dark)]">
+          <span className="mt-auto flex items-center gap-1.5 pt-5 text-[13.5px] font-bold uppercase tracking-[0.1em] text-[var(--coral-dark)]">
             Read article
             <ArrowRight
               size={14}

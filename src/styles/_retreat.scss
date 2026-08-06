@@ -47,7 +47,7 @@
       gap: 0.5rem;
       list-style: none;
       color: rgb(var(--white-ch) / 72%);
-      font-size: 11.8px;
+      font-size: 13.5px;
     }
 
     a:hover {
@@ -67,7 +67,7 @@
       background: rgb(var(--white-ch) / 12%);
       backdrop-filter: blur(8px);
       padding: 0.38rem 0.9rem;
-      font-size: 11.2px;
+      font-size: 13.5px;
       font-weight: 800;
       letter-spacing: 0.09em;
       text-transform: uppercase;
@@ -114,14 +114,14 @@
 
     span {
       color: rgb(var(--white-ch) / 78%);
-      font-size: 11.5px;
+      font-size: 13.5px;
       line-height: 1.35;
     }
 
     strong {
       display: block;
       color: var(--on-accent);
-      font-size: 13.1px;
+      font-size: 13.5px;
       font-weight: 800;
     }
   }
@@ -177,7 +177,7 @@
       align-items: center;
       gap: 0.45rem;
       color: var(--brown);
-      font-size: 11.5px;
+      font-size: 13.5px;
       font-weight: 800;
     }
 
@@ -251,7 +251,7 @@
       background: var(--cream);
       padding: 0.4rem 0.9rem;
       color: var(--brown);
-      font-size: 12px;
+      font-size: 13.5px;
       font-weight: 700;
     }
   }
@@ -330,7 +330,7 @@
 
   .retreat-teacher-role {
     color: var(--coral-dark);
-    font-size: 10.9px;
+    font-size: 13.5px;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -345,21 +345,21 @@
 
   .retreat-teacher-exp {
     color: var(--brown);
-    font-size: 11.5px;
+    font-size: 13.5px;
     font-weight: 700;
   }
 
   .retreat-teacher-spec {
     margin-top: 0.2rem;
     color: var(--coral-dark);
-    font-size: 11.8px;
+    font-size: 13.5px;
     font-weight: 700;
   }
 
   .retreat-teacher-bio {
     margin-top: 0.55rem;
     color: var(--muted);
-    font-size: 12.8px;
+    font-size: 13.5px;
     line-height: 1.6;
   }
 
@@ -369,7 +369,7 @@
     align-items: flex-start;
     gap: 0.45rem;
     color: var(--success);
-    font-size: 11.2px;
+    font-size: 13.5px;
     font-weight: 700;
 
     svg {
@@ -431,7 +431,7 @@
     background: var(--coral);
     color: var(--on-accent);
     padding: 0.3rem 0.85rem;
-    font-size: 10.6px;
+    font-size: 13.5px;
     font-weight: 800;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -476,7 +476,7 @@
 
   .retreat-schedule-entry time {
     color: var(--coral-dark);
-    font-size: 12.8px;
+    font-size: 13.5px;
     font-weight: 800;
     white-space: nowrap;
   }
@@ -530,7 +530,7 @@
     background: var(--surface);
     color: var(--coral-dark);
     padding: 0.25rem 0.6rem;
-    font-size: 9.6px;
+    font-size: 13.5px;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -544,7 +544,7 @@
   .retreat-experience-card p {
     margin-top: 0.45rem;
     color: var(--muted);
-    font-size: 12.8px;
+    font-size: 13.5px;
   }
 
   // ── Free time ──────────────────────────────────
@@ -577,7 +577,7 @@
     p {
       margin-top: 0.25rem;
       color: var(--muted);
-      font-size: 12.5px;
+      font-size: 13.5px;
     }
   }
 
@@ -674,7 +674,7 @@
     align-items: center;
     gap: 0.35rem;
     color: var(--coral-dark);
-    font-size: 11.2px;
+    font-size: 13.5px;
     font-weight: 800;
   }
 
@@ -685,7 +685,7 @@
 
   .retreat-meal-body p {
     color: var(--muted);
-    font-size: 12.8px;
+    font-size: 13.5px;
   }
 
   .retreat-meal-philosophy {
@@ -842,7 +842,7 @@
   .testimonial-slide figcaption small {
     display: block;
     color: var(--muted);
-    font-size: 12px;
+    font-size: 13.5px;
   }
 
   .testimonial-controls {
@@ -955,7 +955,7 @@
 
     small {
       color: rgb(var(--white-ch) / 78%);
-      font-size: 11.5px;
+      font-size: 13.5px;
     }
   }
 
@@ -987,7 +987,7 @@
     background: var(--surface);
     color: var(--coral-dark);
     padding: 0.35rem 0.9rem;
-    font-size: 10.9px;
+    font-size: 13.5px;
     font-weight: 800;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -1078,13 +1078,13 @@
       background: var(--white);
       padding: 0.55rem 0.85rem;
       color: var(--brown);
-      font-size: 12.8px;
+      font-size: 13.5px;
       font-weight: 600;
 
       small {
         flex: 0 0 auto;
         color: var(--coral-dark);
-        font-size: 10.9px;
+        font-size: 13.5px;
         font-weight: 800;
       }
     }
@@ -1117,7 +1117,7 @@
       align-items: center;
       gap: 0.45rem;
       color: var(--muted);
-      font-size: 12px;
+      font-size: 13.5px;
       font-weight: 700;
     }
   }
@@ -1143,7 +1143,7 @@
 
   .booking-price-from {
     color: var(--muted);
-    font-size: 10.9px;
+    font-size: 13.5px;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -1158,7 +1158,7 @@
 
   .booking-price small {
     color: var(--muted);
-    font-size: 13.1px;
+    font-size: 13.5px;
   }
 
   .booking-rating {
@@ -1169,12 +1169,12 @@
 
     strong {
       color: var(--brown);
-      font-size: 12.8px;
+      font-size: 13.5px;
     }
 
     small {
       color: var(--muted);
-      font-size: 11.2px;
+      font-size: 13.5px;
     }
   }
 
@@ -1197,7 +1197,7 @@
       align-items: center;
       gap: 0.45rem;
       color: var(--muted);
-      font-size: 12px;
+      font-size: 13.5px;
       font-weight: 700;
 
       svg {
@@ -1208,7 +1208,7 @@
     dd {
       margin: 0;
       color: var(--brown);
-      font-size: 12.8px;
+      font-size: 13.5px;
       font-weight: 700;
       text-align: right;
     }
@@ -1238,7 +1238,7 @@
   .booking-rooms span {
     flex: 1;
     color: var(--brown);
-    font-size: 12.8px;
+    font-size: 13.5px;
     font-weight: 700;
   }
 
@@ -1255,7 +1255,7 @@
 
   .booking-rooms small {
     color: var(--muted);
-    font-size: 11.2px;
+    font-size: 13.5px;
   }
 
   .booking-actions {
@@ -1321,7 +1321,7 @@
       align-items: center;
       gap: 0.5rem;
       color: var(--muted);
-      font-size: 12px;
+      font-size: 13.5px;
       font-weight: 600;
     }
 
@@ -1342,7 +1342,7 @@
       background: var(--white);
       padding: 0.65rem 0.8rem;
       color: var(--brown);
-      font-size: 11.5px;
+      font-size: 13.5px;
       font-weight: 700;
       text-align: center;
       transition:
@@ -1364,7 +1364,7 @@
 
     > span {
       color: var(--muted);
-      font-size: 10.9px;
+      font-size: 13.5px;
       font-weight: 800;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -1386,7 +1386,7 @@
     background: var(--cream);
     padding: 0.3rem 0.7rem;
     color: var(--brown);
-    font-size: 11.5px;
+    font-size: 13.5px;
     font-weight: 700;
   }
 
@@ -1395,7 +1395,7 @@
     align-items: center;
     gap: 0.4rem;
     color: var(--muted);
-    font-size: 10.9px;
+    font-size: 13.5px;
   }
 
   .booking-success-note {
@@ -1404,7 +1404,7 @@
     align-items: center;
     gap: 0.5rem;
     color: var(--success);
-    font-size: 12.5px;
+    font-size: 13.5px;
     font-weight: 700;
   }
 
@@ -1461,7 +1461,7 @@
     justify-self: start;
     border-radius: $radius-pill;
     padding: 0.25rem 0.65rem;
-    font-size: 9.9px;
+    font-size: 13.5px;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -1471,7 +1471,7 @@
     grid-column: 1 / -1;
     grid-row: 3;
     color: var(--muted);
-    font-size: 12.8px;
+    font-size: 13.5px;
     line-height: 1.5;
   }
 
@@ -1489,7 +1489,7 @@
       align-items: flex-start;
       gap: 0.6rem;
       color: var(--muted);
-      font-size: 12.8px;
+      font-size: 13.5px;
 
       svg {
         flex: 0 0 auto;
@@ -1500,7 +1500,7 @@
       strong {
         display: block;
         color: var(--brown);
-        font-size: 10.6px;
+        font-size: 13.5px;
         font-weight: 800;
         letter-spacing: 0.08em;
         text-transform: uppercase;
@@ -1556,7 +1556,7 @@
     backdrop-filter: blur(6px);
     color: var(--coral-dark);
     padding: 0.35rem 0.75rem;
-    font-size: 10.9px;
+    font-size: 13.5px;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -1570,7 +1570,7 @@
   .blog-results-count {
     margin: 0 0 1.2rem;
     color: var(--muted);
-    font-size: 12.8px;
+    font-size: 13.5px;
   }
 
   .blog-pagination {

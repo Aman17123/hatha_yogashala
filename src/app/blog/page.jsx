@@ -68,7 +68,7 @@ export default function BlogPage() {
               <span className="featured-post-category">{featured.category}</span>
             </Link>
             <div className="flex flex-col">
-              <span className="blog-card-meta inline-flex flex-wrap gap-x-4 gap-y-1.5 text-[11px] font-medium text-[var(--muted)]">
+              <span className="blog-card-meta inline-flex flex-wrap gap-x-4 gap-y-1.5 text-[13.5px] font-medium text-[var(--muted)]">
                 <span className="flex items-center gap-1.5">
                   <UserRound size={13} aria-hidden="true" />
                   {featured.author}

@@ -65,17 +65,17 @@ export default function TeachersPage() {
                   </div>
 
                   <div className="space-y-3 flex-1">
-                    <span className="inline-block rounded-full bg-[var(--cream)] border border-[var(--border)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[var(--coral-dark)]">
+                    <span className="inline-block rounded-full bg-[var(--cream)] border border-[var(--border)] px-3 py-1 text-[13.5px] font-bold uppercase tracking-wider text-[var(--coral-dark)]">
                       {teacher.specialty}
                     </span>
                     <h2 className="text-2xl font-serif font-bold text-[var(--brown)]">
                       {teacher.name}
                     </h2>
-                    <p className="text-xs font-semibold text-[var(--coral-dark)]">
+                    <p className="text-[13.5px] font-semibold text-[var(--coral-dark)]">
                       {teacher.role}
                     </p>
 
-                    <div className="flex flex-wrap gap-4 text-xs text-[var(--muted)] pt-1">
+                    <div className="flex flex-wrap gap-4 text-[13.5px] text-[var(--muted)] pt-1">
                       <span className="flex items-center gap-1.5">
                         <Award size={14} className="text-[var(--coral-dark)]" />
                         <strong>Qual:</strong> {teacher.qualifications}
@@ -95,14 +95,14 @@ export default function TeachersPage() {
                 {/* Courses Taught by Teacher */}
                 {teacher.coursesTaught && teacher.coursesTaught.length > 0 && (
                   <div className="bg-[var(--cream)]/50 rounded-2xl p-4 space-y-2">
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--brown)]">
+                    <h3 className="text-[13.5px] font-bold uppercase tracking-wider text-[var(--brown)]">
                       Courses Taught:
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {teacher.coursesTaught.map((courseName) => (
                         <span
                           key={courseName}
-                          className="rounded-lg bg-white border border-[var(--border)] px-3 py-1 text-xs text-[var(--brown)] font-medium"
+                          className="rounded-lg bg-white border border-[var(--border)] px-3 py-1 text-[13.5px] text-[var(--brown)] font-medium"
                         >
                           {courseName}
                         </span>

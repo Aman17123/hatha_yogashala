@@ -788,7 +788,7 @@ export default function CourseTemplate({ course }) {
               {stay.images.map((image, index) => (
                 <figure className={`relative h-44 overflow-hidden rounded-3xl ${index === 0 ? "sm:col-span-2 sm:h-auto sm:aspect-[16/8]" : "sm:h-auto sm:aspect-square"}`} key={image.caption}>
                   <Media src={image.src} alt={image.alt} className="absolute inset-0 h-full" />
-                  <figcaption className="absolute bottom-3 left-3 z-10 rounded-full bg-white/90 px-3 py-1 text-xs font-bold">
+                  <figcaption className="absolute bottom-3 left-3 z-10 rounded-full bg-white/90 px-3 py-1 text-[13.5px] font-bold">
                     {image.caption}
                   </figcaption>
                 </figure>

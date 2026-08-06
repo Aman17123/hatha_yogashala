@@ -67,11 +67,11 @@ export default function FounderPreview({ founder = founderData }) {
             </p>
 
             <div className="flex flex-wrap gap-3 py-2">
-              <div className="flex items-center gap-2 rounded-full bg-white border border-[var(--border)] px-4 py-2 text-xs font-semibold text-[var(--brown)] shadow-sm">
+              <div className="flex items-center gap-2 rounded-full bg-white border border-[var(--border)] px-4 py-2 text-[13.5px] font-semibold text-[var(--brown)] shadow-sm">
                 <UserCheck size={15} className="text-[var(--coral-dark)]" />
                 <span>{founder.experience}</span>
               </div>
-              <div className="flex items-center gap-2 rounded-full bg-white border border-[var(--border)] px-4 py-2 text-xs font-semibold text-[var(--brown)] shadow-sm">
+              <div className="flex items-center gap-2 rounded-full bg-white border border-[var(--border)] px-4 py-2 text-[13.5px] font-semibold text-[var(--brown)] shadow-sm">
                 <BookOpen size={15} className="text-[var(--coral-dark)]" />
                 <span>{founder.lineage}</span>
               </div>
@@ -84,7 +84,7 @@ export default function FounderPreview({ founder = founderData }) {
               </p>
 
               <div className="flex items-center justify-between pt-2 border-t border-[var(--border)]/60">
-                <span className="text-xs font-bold text-[var(--coral-dark)]">
+                <span className="text-[13.5px] font-bold text-[var(--coral-dark)]">
                   — {founder.name}
                 </span>
                 <span className="font-serif italic text-base text-[var(--muted)] tracking-wider">

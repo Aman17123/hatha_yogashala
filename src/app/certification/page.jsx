@@ -109,10 +109,10 @@ export default function CertificationPage() {
                   key={label}
                   className="flex items-center justify-between gap-3 rounded-xl border border-[var(--border)] bg-white px-4 py-3"
                 >
-                  <dt className="text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--muted)]">
+                  <dt className="text-[13.5px] font-bold uppercase tracking-[0.1em] text-[var(--muted)]">
                     {label}
                   </dt>
-                  <dd className="text-right text-[13px] font-semibold text-[var(--brown)]">
+                  <dd className="text-right text-[13.5px] font-semibold text-[var(--brown)]">
                     {value}
                   </dd>
                 </div>

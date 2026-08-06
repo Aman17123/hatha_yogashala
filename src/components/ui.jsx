@@ -126,7 +126,7 @@ export function PageHero({
     <section className="page-hero">
       <Image
         src={image}
-        alt=""
+        alt="the-hatha-ypgashala-best-yoga-school-in-Goa"
         fill
         loading="eager"
         fetchPriority="high"
@@ -341,10 +341,10 @@ export function RetreatCard({ retreat }) {
 
         {/* Floating Badges */}
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-          <span className="inline-flex items-center rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[var(--coral-dark)] shadow-sm">
+          <span className="inline-flex items-center rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[13.5px] font-extrabold uppercase tracking-wider text-[var(--coral-dark)] shadow-sm">
             {retreat.days} Days
           </span>
-          <span className="inline-flex items-center gap-1 rounded-full bg-black/50 backdrop-blur-md px-3 py-1 text-[11px] font-medium text-white">
+          <span className="inline-flex items-center gap-1 rounded-full bg-black/50 backdrop-blur-md px-3 py-1 text-[13.5px] font-medium text-white">
             <Star
               className="size-3 fill-[var(--gold)] text-[var(--gold)]"
               aria-hidden="true"
@@ -360,14 +360,12 @@ export function RetreatCard({ retreat }) {
           <Link href={`/retreats/${retreat.slug}`}>{retreat.name}</Link>
         </h3>
 
-        <p className="mt-2.5 text-sm text-black/70 leading-relaxed line-clamp-2">
-          {retreat.description}
-        </p>
+        <p className="text-body mt-2.5 line-clamp-2">{retreat.description}</p>
 
         {/* Card Footer */}
         <div className="mt-auto pt-5 flex items-center justify-between gap-3 border-t border-[var(--border)] mt-5">
           <div>
-            <span className="block text-[11px] font-bold uppercase tracking-wider text-[var(--muted)]">
+            <span className="block text-[13.5px] font-bold uppercase tracking-wider text-[var(--muted)]">
               From / person
             </span>
             <strong className="text-lg font-bold text-[var(--coral-dark)]">

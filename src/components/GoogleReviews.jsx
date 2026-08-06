@@ -115,7 +115,7 @@ function ReviewGrid({
                   <h3 className="text-[16px] font-semibold leading-tight text-gray-900">
                     {review.name}
                   </h3>
-                  <span className="text-[11px] font-bold uppercase tracking-tight text-gray-500">
+                  <span className="text-[13.5px] font-bold uppercase tracking-tight text-gray-500">
                     {review.date}
                   </span>
                 </div>
@@ -209,7 +209,7 @@ export default function ReviewsSection({
               <span className="h-full w-1/4 bg-[#FBBC05]" />
               <span className="h-full w-1/4 bg-[#34A853]" />
             </div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 md:text-xs">
+            <p className="text-[13.5px] font-bold uppercase tracking-[0.3em] text-gray-500 md:text-[13.5px]">
               {subtitle}
             </p>
           </div>
@@ -229,7 +229,7 @@ export default function ReviewsSection({
               <h3 className="text-sm font-black text-gray-800">
                 No verified public reviews are linked yet
               </h3>
-              <p className="mt-2 text-xs text-gray-600">
+              <p className="mt-2 text-[13.5px] text-gray-600">
                 Reviews populate only from approved platform sources.
               </p>
             </div>
@@ -255,7 +255,7 @@ export default function ReviewsSection({
                 href={googleUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full rounded-full bg-[#2f6de0] px-6 py-3 text-center text-[11px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#2758b8] md:w-auto"
+                className="w-full rounded-full bg-[#2f6de0] px-6 py-3 text-center text-[13.5px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#2758b8] md:w-auto"
               >
                 Review Us on Google
               </a>
@@ -264,7 +264,7 @@ export default function ReviewsSection({
                 href="https://www.google.com/maps?q=Hatha+Yogashala+Querim+Goa"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full rounded-full bg-[#2f6de0] px-6 py-3 text-center text-[11px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#2758b8] md:w-auto"
+                className="w-full rounded-full bg-[#2f6de0] px-6 py-3 text-center text-[13.5px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#2758b8] md:w-auto"
               >
                 Open Google Profile
               </a>
@@ -288,7 +288,7 @@ export default function ReviewsSection({
               </h2>
             </div>
             <div className="mx-auto mb-2 h-1 w-24 rounded-full bg-[#00af87]" />
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 md:text-xs">
+            <p className="text-[13.5px] font-bold uppercase tracking-[0.3em] text-gray-500 md:text-[13.5px]">
               {tripadvisorSubtitle}
             </p>
           </div>
@@ -308,7 +308,7 @@ export default function ReviewsSection({
               <h3 className="text-sm font-black text-gray-800">
                 No verified public reviews are linked yet
               </h3>
-              <p className="mt-2 text-xs text-gray-600">
+              <p className="mt-2 text-[13.5px] text-gray-600">
                 Reviews populate only from approved platform sources.
               </p>
             </div>
@@ -337,7 +337,7 @@ export default function ReviewsSection({
                 href={tripUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full rounded-full bg-[#007a5e] px-6 py-3 text-center text-[11px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#00634b] md:w-auto"
+                className="w-full rounded-full bg-[#007a5e] px-6 py-3 text-center text-[13.5px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#00634b] md:w-auto"
               >
                 Review Us on TripAdvisor
               </a>
@@ -346,7 +346,7 @@ export default function ReviewsSection({
                 href="https://www.tripadvisor.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full rounded-full bg-[#007a5e] px-6 py-3 text-center text-[11px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#00634b] md:w-auto"
+                className="w-full rounded-full bg-[#007a5e] px-6 py-3 text-center text-[13.5px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#00634b] md:w-auto"
               >
                 Open TripAdvisor Profile
               </a>

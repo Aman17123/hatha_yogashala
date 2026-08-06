@@ -67,7 +67,7 @@ export default function FounderPage() {
                 <h3 className="text-base font-serif font-bold text-[var(--brown)] border-b border-[var(--border)]/60 pb-3">
                   Founder Credentials
                 </h3>
-                <dl className="space-y-3 text-xs sm:text-sm">
+                <dl className="space-y-3 text-[13.5px] sm:text-sm">
                   <div className="flex justify-between gap-4">
                     <dt className="text-[var(--muted)] font-medium">Role</dt>
                     <dd className="font-semibold text-[var(--brown)] text-right">{founderData.role}</dd>
@@ -89,7 +89,7 @@ export default function FounderPage() {
 
               {/* Editable Placeholder Banner if applicable */}
               {founderData.isPlaceholder && (
-                <div className="flex items-start gap-2.5 rounded-2xl bg-[var(--cream)] border border-[var(--border)] p-4 text-xs text-[var(--muted)]">
+                <div className="flex items-start gap-2.5 rounded-2xl bg-[var(--cream)] border border-[var(--border)] p-4 text-[13.5px] text-[var(--muted)]">
                   <ShieldAlert size={16} className="text-[var(--coral-dark)] shrink-0 mt-0.5" />
                   <span>{founderData.placeholderNote}</span>
                 </div>
@@ -123,7 +123,7 @@ export default function FounderPage() {
                 <p className="text-base italic font-serif text-[var(--brown)] leading-relaxed">
                   &ldquo;{founderData.quote}&rdquo;
                 </p>
-                <p className="text-xs font-bold text-[var(--coral-dark)] uppercase tracking-wider pt-2">
+                <p className="text-[13.5px] font-bold text-[var(--coral-dark)] uppercase tracking-wider pt-2">
                   — {founderData.name}
                 </p>
               </div>
@@ -135,7 +135,7 @@ export default function FounderPage() {
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {founderData.areasOfExpertise.map((item) => (
-                    <div key={item} className="flex items-center gap-2.5 rounded-xl bg-white border border-[var(--border)] p-3 text-xs font-semibold text-[var(--brown)] shadow-sm">
+                    <div key={item} className="flex items-center gap-2.5 rounded-xl bg-white border border-[var(--border)] p-3 text-[13.5px] font-semibold text-[var(--brown)] shadow-sm">
                       <CheckCircle2 size={16} className="text-[var(--coral-dark)]" />
                       <span>{item}</span>
                     </div>

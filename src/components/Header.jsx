@@ -114,7 +114,7 @@ const contactHref = findHref(["Contact", "Contact Us"], "/contact");
 const childLinkClass = (label) =>
   `group/link flex items-center gap-2 whitespace-nowrap rounded-lg px-2 py-2 transition-[color,background-color,transform] duration-300 ease-out hover:translate-x-1 hover:bg-[var(--cream)] hover:text-[var(--coral-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral-dark)]/30 motion-reduce:transform-none ${
     label === "Blogs"
-      ? "text-sm font-medium text-[var(--coral-dark)]/75"
+      ? "text-[15px] font-medium text-[var(--coral-dark)]/75"
       : "text-[15px] text-[var(--muted)]"
   }`;
 
@@ -222,12 +222,19 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 border-b transition-all duration-300 ${
+        className={`sticky top-0 z-50 relative transition-all duration-300 ${
           scrolled
-            ? "border-[var(--coral-dark)]/10 bg-[var(--cream)]/95 shadow-[0_8px_30px_rgba(41,73,54,0.08)] backdrop-blur-xl"
-            : "border-transparent bg-[var(--cream)]"
+            ? "bg-[var(--cream)]/95 shadow-[0_2px_12px_rgba(0,0,0,0.05)] backdrop-blur-xl"
+            : "bg-[var(--cream)]"
         }`}
       >
+        {/* Thin scroll line */}
+        <span
+          aria-hidden="true"
+          className={`pointer-events-none absolute inset-x-0 bottom-0 h-px bg-[var(--coral-dark)]/15 transition-opacity duration-300 ${
+            scrolled ? "opacity-100" : "opacity-0"
+          }`}
+        />
         <a
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:border focus:border-[var(--brown)]/20 focus:bg-[var(--cream)] focus:px-4 focus:py-2 focus:text-sm focus:text-[var(--brown)]"
           href="#main-content"
@@ -283,7 +290,7 @@ export default function Navbar() {
                           openGroup === item.label ? null : item.label,
                         )
                       }
-                      className="relative inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2.5 font-sans text-sm font-medium leading-none text-black/85 transition duration-200 after:absolute after:bottom-1.5 after:left-3 after:right-3 after:h-px after:origin-left after:scale-x-0 after:bg-[var(--sage)] after:transition-transform after:duration-200 hover:bg-[var(--cream)] hover:text-black hover:after:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--sage)]/40"
+                      className="relative inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2.5 font-sans text-[15px] font-medium leading-none text-black/85 transition duration-200 after:absolute after:bottom-0.5 after:left-3 after:right-3 after:h-px after:origin-left after:scale-x-0 after:bg-[var(--sage)] after:transition-transform after:duration-200 hover:bg-[var(--cream)] hover:text-black hover:after:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--sage)]/40"
                     >
                       {item.label}
                       <ChevronDown
@@ -312,7 +319,7 @@ export default function Navbar() {
                         >
                           {item.columns.map((column) => (
                             <div key={column.title}>
-                              <p className="mb-3 whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
+                              <p className="mb-3 whitespace-nowrap text-[13.5px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
                                 {column.title}
                               </p>
                               <div className="space-y-0.5">
@@ -335,7 +342,7 @@ export default function Navbar() {
                               key={child.href}
                               href={child.href}
                               onClick={() => setOpenGroup(null)}
-                              className="group/link flex items-center gap-2 whitespace-nowrap rounded-lg px-3 py-2.5 text-sm text-[var(--muted)] transition-[color,background-color,transform] duration-300 ease-out hover:translate-x-1 hover:bg-[var(--cream)] hover:text-[var(--coral-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral-dark)]/30 motion-reduce:transform-none"
+                              className="group/link flex items-center gap-2 whitespace-nowrap rounded-lg px-3 py-2.5 text-[15px] text-[var(--muted)] transition-[color,background-color,transform] duration-300 ease-out hover:translate-x-1 hover:bg-[var(--cream)] hover:text-[var(--coral-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral-dark)]/30 motion-reduce:transform-none"
                             >
                               <span
                                 aria-hidden="true"
@@ -356,7 +363,7 @@ export default function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="relative whitespace-nowrap rounded-full px-3 py-2.5 font-sans text-[16pxcls] font-medium leading-none text-black/85 transition duration-200 after:absolute after:bottom-1.5 after:left-3 after:right-3 after:h-px after:origin-left after:scale-x-0 after:bg-[var(--sage)] after:transition-transform after:duration-200 hover:bg-[var(--cream)] hover:text-black hover:after:scale-x-100"
+                    className="relative whitespace-nowrap rounded-full px-3 py-2.5 font-sans text-[15px] font-medium leading-none text-black/85 transition duration-200 after:absolute after:bottom-0.5 after:left-3 after:right-3 after:h-px after:origin-left after:scale-x-0 after:bg-[var(--sage)] after:transition-transform after:duration-200 hover:bg-[var(--cream)] hover:text-black hover:after:scale-x-100"
                   >
                     {item.label}
                   </Link>
@@ -367,14 +374,14 @@ export default function Navbar() {
             <div className="flex items-center gap-3">
               <Link
                 href={contactHref}
-                className="relative isolate hidden items-center justify-center overflow-hidden whitespace-nowrap rounded-full border border-[var(--coral-dark)] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--coral-dark)] transition-[color,border-color,transform] duration-300 before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:bg-[var(--coral-dark)] before:transition-transform before:duration-300 before:ease-out hover:-translate-y-0.5 hover:border-[var(--coral-dark)] hover:text-white hover:before:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral-dark)]/30 motion-reduce:transform-none xl:inline-flex"
+                className="relative isolate hidden items-center justify-center overflow-hidden whitespace-nowrap rounded-full border border-[var(--coral-dark)] px-4 py-2.5 text-[13.5px] font-semibold uppercase tracking-[0.12em] text-[var(--coral-dark)] transition-[color,border-color,transform] duration-300 before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:bg-[var(--coral-dark)] before:transition-transform before:duration-300 before:ease-out hover:-translate-y-0.5 hover:border-[var(--coral-dark)] hover:text-white hover:before:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral-dark)]/30 motion-reduce:transform-none xl:inline-flex"
               >
                 Contact
               </Link>
               <Link
                 href="/apply"
                 aria-label="Reserve your spot"
-                className="group relative isolate hidden items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full border border-[var(--coral)] bg-[var(--coral)] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] !text-white shadow-[0_8px_20px_rgba(47,79,62,0.24)] transition-all duration-300 ease-out before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:rounded-full before:bg-white before:transition-transform before:duration-300 before:ease-out hover:-translate-y-0.5 hover:!text-black hover:border-white hover:shadow-[0_12px_26px_rgba(0,0,0,0.18)] hover:before:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral)]/40 focus-visible:ring-offset-2 xl:inline-flex"
+                className="group relative isolate hidden items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full border border-[var(--coral)] bg-[var(--coral)] px-5 py-2.5 text-[13.5px] font-semibold uppercase tracking-[0.12em] !text-white shadow-[0_8px_20px_rgba(47,79,62,0.24)] transition-all duration-300 ease-out before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:rounded-full before:bg-white before:transition-transform before:duration-300 before:ease-out hover:-translate-y-0.5 hover:!text-black hover:border-white hover:shadow-[0_12px_26px_rgba(0,0,0,0.18)] hover:before:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral)]/40 focus-visible:ring-offset-2 xl:inline-flex"
               >
                 <ClipboardList
                   aria-hidden="true"
@@ -458,7 +465,7 @@ export default function Navbar() {
                         {item.columns
                           ? item.columns.map((column) => (
                               <div className="mb-3" key={column.title}>
-                                <p className="px-3 pb-1 pt-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
+                                <p className="px-3 pb-1 pt-2 text-[13.5px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
                                   {column.title}
                                 </p>
                                 {column.links.map((child) => (
@@ -476,7 +483,7 @@ export default function Navbar() {
                                 href={child.href}
                                 key={child.href}
                                 onClick={closeMobile}
-                                className="block whitespace-nowrap rounded-lg px-3 py-2.5 text-sm text-[var(--brown)]/70 transition duration-150 hover:bg-[var(--cream)] hover:text-[var(--coral-dark)]"
+                                className="block whitespace-nowrap rounded-lg px-3 py-2.5 text-[15px] text-[var(--brown)]/70 transition duration-150 hover:bg-[var(--cream)] hover:text-[var(--coral-dark)]"
                               >
                                 {child.label}
                               </Link>
@@ -499,14 +506,14 @@ export default function Navbar() {
 
             <div className="flex flex-col gap-2.5 border-t border-[var(--brown)]/10 p-4">
               <Link
-                className="inline-flex items-center justify-center rounded-full border border-[var(--coral-dark)] px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--coral-dark)] transition duration-200 hover:border-[var(--coral-dark)] hover:bg-[var(--cream)]"
+                className="inline-flex items-center justify-center rounded-full border border-[var(--coral-dark)] px-4 py-3 text-[13.5px] font-semibold uppercase tracking-[0.12em] text-[var(--coral-dark)] transition duration-200 hover:border-[var(--coral-dark)] hover:bg-[var(--cream)]"
                 href={contactHref}
                 onClick={closeMobile}
               >
                 Contact
               </Link>
               <Link
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--coral)] px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white transition duration-200 hover:bg-[var(--coral-dark)] hover:text-black"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--coral)] px-4 py-3 text-[13.5px] font-semibold uppercase tracking-[0.12em] text-white transition duration-200 hover:bg-[var(--coral-dark)] hover:text-black"
                 href="/apply"
                 onClick={closeMobile}
               >

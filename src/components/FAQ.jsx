@@ -38,7 +38,7 @@ export default function FAQ({
               <h2 className="text-3xl xl:text-4xl font-serif font-bold text-[var(--brown)] leading-tight">
                 {title}
               </h2>
-              <p className="text-sm text-[var(--muted)] leading-relaxed">
+              <p className="text-body text-[var(--muted)]">
                 {text}
               </p>
             </div>
@@ -68,11 +68,11 @@ export default function FAQ({
 
                     {/* Floating Overlay Badge on Active Image */}
                     <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/50 text-[var(--brown)] shadow-lg">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--coral-dark)]">
+                      <span className="text-[13.5px] font-bold uppercase tracking-widest text-[var(--coral-dark)]">
                         FAQ {q.number} of{" "}
                         {String(questions.length).padStart(2, "0")}
                       </span>
-                      <p className="text-xs font-semibold mt-0.5 line-clamp-1 text-[var(--brown)]">
+                      <p className="text-[13.5px] font-semibold mt-0.5 line-clamp-1 text-[var(--brown)]">
                         {q.shortSummary}
                       </p>
                     </div>
@@ -88,7 +88,7 @@ export default function FAQ({
                 <span className="text-2xl font-serif font-bold text-[var(--coral-dark)]">
                   {String(activeIndex + 1).padStart(2, "0")}
                 </span>
-                <span className="text-xs text-[var(--muted)] font-medium">
+                <span className="text-[13.5px] text-[var(--muted)] font-medium">
                   / {String(questions.length).padStart(2, "0")} FAQs
                 </span>
                 <div className="ml-2 flex items-center gap-1">
@@ -109,7 +109,7 @@ export default function FAQ({
               <ButtonLink
                 href="/contact"
                 variant="primary"
-                className="text-xs py-2.5 px-4"
+                className="text-[13.5px] py-2.5 px-4"
               >
                 <span>Still Have Questions?</span>
               </ButtonLink>
@@ -124,7 +124,7 @@ export default function FAQ({
                   <span className="font-serif text-xl font-bold leading-none text-[var(--coral-dark)]">
                     {String(activeIndex + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--muted)]">
+                  <span className="text-[13.5px] font-bold uppercase tracking-widest text-[var(--muted)]">
                     / {String(questions.length).padStart(2, "0")} FAQs
                   </span>
                 </div>
@@ -133,7 +133,7 @@ export default function FAQ({
                 <ButtonLink
                   href="/contact"
                   variant="primary"
-                  className="!px-4 !py-2.5 text-xs"
+                  className="!px-4 !py-2.5 text-[13.5px]"
                 >
                   <span>Ask Us</span>
                 </ButtonLink>
@@ -159,7 +159,7 @@ export default function FAQ({
                   >
                     {/* Number Badge */}
                     <span
-                      className={`grid size-9 shrink-0 place-items-center rounded-full font-serif text-xs font-bold transition-colors duration-300 ${
+                      className={`grid size-9 shrink-0 place-items-center rounded-full font-serif text-[13.5px] font-bold transition-colors duration-300 ${
                         isActive
                           ? "bg-[var(--coral-dark)] text-white shadow-md shadow-[var(--coral-dark)]/20"
                           : "bg-[var(--cream)] text-[var(--coral-dark)]"
@@ -180,7 +180,7 @@ export default function FAQ({
                   </button>
                   {isActive && (
                     <div className="ml-[52px]">
-                      <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
+                      <p className="text-body mt-2">
                         {q.description}
                       </p>
                       {q.bullets?.length > 0 && (
@@ -188,7 +188,7 @@ export default function FAQ({
                           {q.bullets.map((bullet, bIdx) => (
                             <li
                               key={bIdx}
-                              className="flex items-start gap-2.5 text-xs font-medium leading-normal text-[var(--text)]"
+                              className="text-body flex items-start gap-2.5 font-medium leading-normal"
                             >
                               <CheckCircle2
                                 size={15}

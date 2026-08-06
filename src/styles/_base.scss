@@ -43,7 +43,7 @@
   // Paragraphs, list items, descriptions, card
   // content, course/retreat details and testimonial
   // text use the Quicksand family and never render
-  // smaller than 14px.
+  // smaller than 13.5px.
   p,
   li,
   dt,
@@ -66,96 +66,100 @@
     color: var(--brown);
     font-family: var(--font-heading), "Gotu", sans-serif;
     font-weight: 400;
-    letter-spacing: -0.01em;
+    letter-spacing: normal;
   }
 
   h1 {
     font-size: 48px;
-    line-height: 56px;
+    line-height: 1.2;
   }
 
   h2 {
-    font-size: 36px;
-    line-height: 44px;
+    font-size: 38px;
+    line-height: 1.2;
   }
 
   h3 {
-    font-size: 28px;
-    line-height: 36px;
+    font-size: 30px;
+    line-height: 1.3;
   }
 
   h4 {
-    font-size: 22px;
-    line-height: 30px;
+    font-size: 24px;
+    line-height: 1.35;
   }
 
   h5 {
-    font-size: 18px;
-    line-height: 26px;
+    font-size: 20px;
+    line-height: 1.4;
   }
 
   h6 {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 1.4;
   }
 
   p {
     margin-block: 0;
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 15px;
+    line-height: 1.7;
   }
 
   li {
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  small {
+    font-size: 13.5px;
   }
 
   @media (max-width: 768px) {
     h1 {
       font-size: 40px;
-      line-height: 48px;
+      line-height: 1.2;
     }
 
     h2 {
-      font-size: 30px;
-      line-height: 38px;
+      font-size: 32px;
+      line-height: 1.2;
     }
 
     h3 {
-      font-size: 24px;
-      line-height: 32px;
+      font-size: 26px;
+      line-height: 1.3;
     }
 
     h4 {
-      font-size: 20px;
-      line-height: 28px;
+      font-size: 22px;
+      line-height: 1.35;
     }
 
     h5 {
-      font-size: 17px;
-      line-height: 24px;
+      font-size: 18px;
+      line-height: 1.4;
     }
   }
 
   @media (max-width: 480px) {
     h1 {
-      font-size: 32px;
-      line-height: 40px;
+      font-size: 34px;
+      line-height: 1.2;
     }
 
     h2 {
-      font-size: 26px;
-      line-height: 34px;
+      font-size: 28px;
+      line-height: 1.2;
     }
 
     h3 {
-      font-size: 22px;
-      line-height: 30px;
+      font-size: 24px;
+      line-height: 1.3;
     }
 
     h4 {
-      font-size: 19px;
-      line-height: 27px;
+      font-size: 20px;
+      line-height: 1.35;
     }
   }
 

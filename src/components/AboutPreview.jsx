@@ -27,7 +27,7 @@ export default function AboutPreview({ data = aboutSectionData }) {
                   sizes="(max-width: 1024px) 100vw, 45vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                <span className="absolute bottom-4 left-4 rounded-full bg-white/90 backdrop-blur-md px-3.5 py-1 text-xs font-bold text-[var(--brown)] shadow-sm">
+                <span className="absolute bottom-4 left-4 rounded-full bg-white/90 backdrop-blur-md px-3.5 py-1 text-[13.5px] font-bold text-[var(--brown)] shadow-sm">
                   Goa Campus Shala
                 </span>
               </div>
@@ -59,10 +59,10 @@ export default function AboutPreview({ data = aboutSectionData }) {
                 <Sparkles size={20} aria-hidden="true" />
               </div>
               <div>
-                <strong className="block text-xs font-bold text-[var(--brown)]">
+                <strong className="block text-[13.5px] font-bold text-[var(--brown)]">
                   Goa Yoga Sanctuary
                 </strong>
-                <span className="text-[11px] text-[var(--muted)]">
+                <span className="text-[13.5px] text-[var(--muted)]">
                   Small-group learning & coastal calm
                 </span>
               </div>

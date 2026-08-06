@@ -132,7 +132,7 @@ export default function AccommodationPage() {
                 key={label}
                 className="rounded-2xl border border-[var(--border)] bg-white p-5 shadow-sm"
               >
-                <dt className="text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--coral-dark)]">
+                <dt className="text-[13.5px] font-bold uppercase tracking-[0.12em] text-[var(--coral-dark)]">
                   {label}
                 </dt>
                 <dd className="mt-1.5 text-[14.5px] font-semibold leading-relaxed text-[var(--brown)]">

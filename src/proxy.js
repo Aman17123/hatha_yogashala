@@ -18,5 +18,6 @@ export function proxy(request) {
 
 export const config = {
   // Ignore assets, images, API and metadata so they still load on the home page.
-  matcher: "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.*\\.(?:png|jpg|jpeg|webp|svg|css|js|woff2?)$).*)",
+  matcher:
+    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.*\\.(?:png|jpg|jpeg|webp|svg|css|js|woff2?)$).*)",
 };

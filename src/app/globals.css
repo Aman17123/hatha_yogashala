@@ -303,6 +303,130 @@ img {
   color: var(--on-accent);
 }
 
+/* ── Global Typography System ───────────────────
+   One reusable paragraph class + fixed heading
+   and body scale. Minimum visible font size is
+   13.5px. No fluid clamp() typography. */
+@layer components {
+  .text-body {
+    font-size: 15px;
+    line-height: 1.7;
+    font-weight: 400;
+    color: #000000;
+    letter-spacing: normal;
+  }
+
+  .text-large {
+    font-size: 18px;
+    line-height: 1.7;
+    font-weight: 400;
+    color: #000000;
+    letter-spacing: normal;
+  }
+
+  .text-small {
+    font-size: 13.5px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #000000;
+    letter-spacing: normal;
+  }
+
+  .text-h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    font-weight: 400;
+    color: #000000;
+    letter-spacing: normal;
+  }
+
+  .text-h2 {
+    font-size: 38px;
+    line-height: 1.2;
+    font-weight: 400;
+    color: #000000;
+    letter-spacing: normal;
+  }
+
+  .text-h3 {
+    font-size: 30px;
+    line-height: 1.3;
+    font-weight: 400;
+    color: #000000;
+    letter-spacing: normal;
+  }
+
+  .text-h4 {
+    font-size: 24px;
+    line-height: 1.35;
+    font-weight: 400;
+    color: #000000;
+    letter-spacing: normal;
+  }
+
+  .text-h5 {
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: #000000;
+    letter-spacing: normal;
+  }
+
+  .text-h6 {
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: #000000;
+    letter-spacing: normal;
+  }
+
+  [data-theme="dark"] .text-body,
+  [data-theme="dark"] .text-large,
+  [data-theme="dark"] .text-small,
+  [data-theme="dark"] .text-h1,
+  [data-theme="dark"] .text-h2,
+  [data-theme="dark"] .text-h3,
+  [data-theme="dark"] .text-h4,
+  [data-theme="dark"] .text-h5,
+  [data-theme="dark"] .text-h6 {
+    color: var(--text);
+  }
+}
+
+/* Minimum font-size floor: no visible text renders
+   smaller than 13.5px. Explicit utilities still win
+   in the utilities layer; this guards everything else. */
+@layer base {
+  p,
+  li,
+  dt,
+  dd,
+  figcaption,
+  blockquote,
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  label,
+  legend,
+  td,
+  th,
+  small {
+    font-size: 13.5px;
+  }
+
+  p,
+  li,
+  dt,
+  dd,
+  figcaption,
+  blockquote {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+
 /* ── Utilities ─────────────────────────────── */
 
 .skip-link {
@@ -442,7 +566,7 @@ img {
 
 .site-header[data-scrolled="true"] {
   border-color: var(--border);
-  box-shadow: 0 9px 30px rgb(68 38 21 / 8%);
+  box-shadow: 0 2px 12px rgb(0 0 0 / 5%);
 }
 
 .header-inner {
@@ -527,7 +651,7 @@ img {
 .footer-logo small {
   margin-top: 0.25rem;
   color: var(--muted);
-  font-size: 10.9px;
+  font-size: 13.5px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -541,21 +665,46 @@ img {
 
 .desktop-nav > a,
 .nav-group > button {
+  position: relative;
   display: inline-flex;
   min-height: 44px;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.4rem;
   border: 0;
   background: transparent;
   color: var(--brown);
-  font-size: 12.5px;
-  font-weight: 750;
+  font-size: 15px;
+  font-weight: 600;
   white-space: nowrap;
+  padding-inline: 0.35rem;
 }
 
 .desktop-nav > a:hover,
 .nav-group > button:hover {
   color: var(--coral-dark);
+}
+
+.desktop-nav > a::after,
+.nav-group > button::after {
+  content: "";
+  position: absolute;
+  bottom: 0.3rem;
+  left: 0.35rem;
+  right: 0.35rem;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--coral-dark);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease;
+}
+
+.desktop-nav > a:hover::after,
+.desktop-nav > a:focus-visible::after,
+.nav-group > button:hover::after,
+.nav-group > button[aria-expanded="true"]::after,
+.desktop-nav > a[data-active="true"]::after {
+  transform: scaleX(1);
 }
 
 .nav-group {
@@ -592,7 +741,7 @@ img {
   border-radius: 12px;
   padding: 0.72rem 0.85rem;
   color: var(--text);
-  font-size: 13.1px;
+  font-size: 15px;
   line-height: 1.35;
 }
 
@@ -699,7 +848,7 @@ img {
   min-height: 44px;
   padding: 0.65rem 0.85rem;
   color: var(--muted);
-  font-size: 14.1px;
+  font-size: 15px;
 }
 
 /* ── Home: Hero ────────────────────────────── */
@@ -736,7 +885,7 @@ img {
   gap: 0.5rem;
   margin-bottom: 0.5rem;
   color: var(--coral-dark);
-  font-size: 11.2px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -753,14 +902,28 @@ img {
 
 /* Unified homepage section headings — every major
    section shares the same size, weight, spacing and
-   alignment. Mobile: text-3xl, Desktop: text-4xl/5xl. */
+   alignment. Fixed px values from the global scale. */
 .section-heading h2,
 .section-title {
   font-family: var(--font-heading), sans-serif;
-  font-size: 30px;
+  font-size: 38px;
   font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.12;
+  letter-spacing: normal;
+  line-height: 1.2;
+}
+
+@media (max-width: 1023px) {
+  .section-heading h2,
+  .section-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-heading h2,
+  .section-title {
+    font-size: 28px;
+  }
 }
 
 .section-tight .section-heading {
@@ -774,8 +937,13 @@ img {
 .section-heading > p:last-child {
   max-width: 720px;
   margin-top: 1.25rem;
-  color: var(--ink);
-  font-size: 17px;
+  color: #000000;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+[data-theme="dark"] .section-heading > p:last-child {
+  color: var(--text);
 }
 
 .section-heading.text-center > p:last-child {
@@ -831,7 +999,7 @@ img {
 .hero-note {
   margin-top: 0.6rem;
   color: var(--muted);
-  font-size: 11.5px;
+  font-size: 13.5px;
 }
 
 .hero-visual {
@@ -872,7 +1040,7 @@ img {
   background: rgb(44 26 14 / 78%);
   color: var(--on-accent);
   padding: 0.32rem 0.58rem;
-  font-size: 9.3px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.09em;
   line-height: 1;
@@ -996,7 +1164,7 @@ img {
 }
 
 .trust-stat-sub {
-  font-size: 9.6px;
+  font-size: 13.5px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1113,13 +1281,15 @@ img {
 .prose-compact {
   display: grid;
   gap: 1rem;
-  color: var(--muted);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 .prose-sm {
   gap: 0.75rem;
-  font-size: 14.1px;
-  line-height: 1.65;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 .prose-sm p {
@@ -1162,7 +1332,7 @@ img {
   background: var(--cream);
   color: var(--brown);
   padding: 0.34rem 0.66rem;
-  font-size: 10.9px;
+  font-size: 13.5px;
   font-weight: 800;
 }
 
@@ -1246,7 +1416,7 @@ img {
 
 .meta-grid dt {
   color: var(--muted);
-  font-size: 10.4px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1269,7 +1439,7 @@ img {
 .partner-strip p {
   flex: 0 0 auto;
   color: var(--muted);
-  font-size: 11.2px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1436,7 +1606,7 @@ img {
 .comparison-head > span {
   border-left: 0;
   color: #d7d0cc;
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1449,7 +1619,7 @@ img {
 
 .comparison-head small {
   color: var(--coral);
-  font-size: 9.9px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -1464,7 +1634,7 @@ img {
   border-top: 1px solid var(--border);
   border-left: 1px solid var(--border);
   padding: 1rem 1.2rem;
-  font-size: 13.1px;
+  font-size: 13.5px;
 }
 
 .comparison-row > div:first-child {
@@ -1505,7 +1675,7 @@ img {
 
 .credential-cards span {
   color: var(--muted);
-  font-size: 11.5px;
+  font-size: 13.5px;
 }
 
 .certificate-placeholder {
@@ -1532,7 +1702,7 @@ img {
 
 .certificate-placeholder span {
   color: var(--coral-dark);
-  font-size: 11.2px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1621,7 +1791,7 @@ img {
 .founder-role,
 .teacher-role {
   color: var(--coral-dark) !important;
-  font-size: 12.5px;
+  font-size: 13.5px;
   font-weight: 800;
 }
 
@@ -1864,7 +2034,7 @@ blockquote {
   background: var(--white);
   padding: 0.55rem 0.95rem;
   color: var(--muted);
-  font-size: 12.5px;
+  font-size: 13.5px;
   font-weight: 760;
   transition:
     border-color 180ms ease,
@@ -2093,7 +2263,7 @@ blockquote {
 .final-cta-actions .button {
   min-height: 40px;
   padding: 0.55rem 1.15rem;
-  font-size: 13.2px;
+  font-size: 13.5px;
 }
 
 @media (max-width: 768px) {
@@ -2144,7 +2314,7 @@ blockquote {
   margin-bottom: 1rem;
   color: var(--on-accent);
   font-family: var(--font-body), sans-serif;
-  font-size: 12.2px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2160,7 +2330,7 @@ blockquote {
 
 .footer li,
 .footer a {
-  font-size: 12.8px;
+  font-size: 13.5px;
 }
 
 .footer a:hover {
@@ -2180,7 +2350,7 @@ blockquote {
 
 .placeholder-note {
   color: var(--muted);
-  font-size: 11.5px;
+  font-size: 13.5px;
 }
 
 .footer .placeholder-note {
@@ -2211,7 +2381,7 @@ blockquote {
 
 .footer-bottom p,
 .footer-bottom a {
-  font-size: 10.9px;
+  font-size: 13.5px;
 }
 
 /* ── Floating Actions ────────────────────────── */
@@ -2236,7 +2406,7 @@ blockquote {
   gap: 0.5rem;
   border-radius: 999px;
   padding: 0.72rem 1.2rem;
-  font-size: 11.8px;
+  font-size: 13.5px;
   font-weight: 800;
   pointer-events: auto;
   text-decoration: none;
@@ -2289,7 +2459,7 @@ body:has(.yttc-page) .floating-actions {
 .page-hero-eyebrow {
   margin-bottom: 0.8rem;
   color: var(--gold);
-  font-size: 11.5px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -2316,7 +2486,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.45rem;
   color: rgb(255 255 255 / 75%);
-  font-size: 11.5px;
+  font-size: 13.5px;
 }
 
 /* ── Snapshot ─────────────────────────────────── */
@@ -2349,7 +2519,7 @@ body:has(.yttc-page) .floating-actions {
 
 .snapshot dt {
   color: var(--muted);
-  font-size: 10.6px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -2358,7 +2528,7 @@ body:has(.yttc-page) .floating-actions {
 .snapshot dd {
   margin: 0.18rem 0 0;
   color: var(--brown);
-  font-size: 13.3px;
+  font-size: 13.5px;
 }
 /* ── Notice ────────────────────────────────────── */
 
@@ -2391,7 +2561,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--coral);
   color: var(--on-accent);
   padding: 0.75rem 0.45rem;
-  font-size: 10.9px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2438,7 +2608,7 @@ body:has(.yttc-page) .floating-actions {
   border-top: 1px solid var(--border);
   padding: 0.65rem 0.35rem;
   color: var(--muted);
-  font-size: 13.1px;
+  font-size: 13.5px;
 }
 
 /* ── Detail Grid ─────────────────────────────── */
@@ -2475,7 +2645,7 @@ body:has(.yttc-page) .floating-actions {
 
 .methodology-grid span {
   color: var(--coral);
-  font-size: 11.5px;
+  font-size: 13.5px;
   font-weight: 850;
 }
 
@@ -2531,7 +2701,7 @@ body:has(.yttc-page) .floating-actions {
 
 .teacher-facts dt {
   color: var(--brown);
-  font-size: 11.5px;
+  font-size: 13.5px;
   font-weight: 800;
 }
 
@@ -2560,7 +2730,7 @@ body:has(.yttc-page) .floating-actions {
 
 .pricing-summary span {
   color: var(--muted);
-  font-size: 10.9px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -2589,7 +2759,7 @@ body:has(.yttc-page) .floating-actions {
 
 .policy-grid p {
   color: var(--muted);
-  font-size: 13.1px;
+  font-size: 13.5px;
 }
 
 /* ── Empty State ─────────────────────────────── */
@@ -2655,7 +2825,7 @@ body:has(.yttc-page) .floating-actions {
   display: grid;
   gap: 0.35rem;
   color: var(--brown);
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 750;
 }
 
@@ -2722,7 +2892,7 @@ body:has(.yttc-page) .floating-actions {
   gap: 0.7rem;
   margin-top: 1.2rem;
   color: var(--muted);
-  font-size: 12.5px;
+  font-size: 13.5px;
 }
 
 .consent-field input {
@@ -2752,7 +2922,7 @@ body:has(.yttc-page) .floating-actions {
 .form-status {
   min-height: 24px;
   margin-top: 0.8rem;
-  font-size: 12.5px;
+  font-size: 13.5px;
 }
 
 .form-status[data-state="error"] {
@@ -2790,14 +2960,14 @@ body:has(.yttc-page) .floating-actions {
   min-width: 135px;
   border-bottom: 1px solid var(--border);
   padding: 1rem;
-  font-size: 12.5px;
+  font-size: 13.5px;
   vertical-align: top;
 }
 
 .pricing-table th {
   background: var(--brown);
   color: var(--on-accent);
-  font-size: 10.6px;
+  font-size: 13.5px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -2905,7 +3075,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.45rem;
   color: #c5bdb7;
-  font-size: 11.5px;
+  font-size: 13.5px;
 }
 
 .article-meta svg {
@@ -2943,7 +3113,7 @@ body:has(.yttc-page) .floating-actions {
 
 .article-toc strong {
   color: var(--brown);
-  font-size: 12.5px;
+  font-size: 13.5px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -2956,7 +3126,7 @@ body:has(.yttc-page) .floating-actions {
   border-left: 1px solid var(--border);
   color: var(--muted);
   padding: 0.45rem 0.8rem;
-  font-size: 11.8px;
+  font-size: 13.5px;
   line-height: 1.5;
 }
 
@@ -2972,7 +3142,7 @@ body:has(.yttc-page) .floating-actions {
 
 .article-updated {
   color: var(--muted);
-  font-size: 11.5px;
+  font-size: 13.5px;
 }
 
 .article-content section {
@@ -3017,7 +3187,7 @@ body:has(.yttc-page) .floating-actions {
 .author-card p {
   margin-top: 0.3rem;
   color: var(--muted);
-  font-size: 12.2px;
+  font-size: 13.5px;
   line-height: 1.6;
 }
 
@@ -3262,14 +3432,14 @@ body:has(.yttc-page) .floating-actions {
 
   .comparison-mobile dt {
     color: var(--brown);
-    font-size: 11.5px;
+    font-size: 13.5px;
     font-weight: 800;
   }
 
   .comparison-mobile dd {
     margin: 0;
     color: var(--muted);
-    font-size: 12px;
+    font-size: 13.5px;
   }
 
   .founder-image {
@@ -3374,7 +3544,7 @@ body:has(.yttc-page) .floating-actions {
   }
 
   .brand small {
-    font-size: 9.6px;
+    font-size: 13.5px;
   }
 
   .hero-copy h1 {
@@ -3648,7 +3818,7 @@ body:has(.yttc-page) .floating-actions {
   .pricing-table td::before {
     content: attr(data-label);
     color: var(--muted);
-    font-size: 9.9px;
+    font-size: 13.5px;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -3737,7 +3907,7 @@ body:has(.yttc-page) .floating-actions {
 
 .page-hero-facts dt {
   color: rgb(255 255 255 / 68%);
-  font-size: 9.9px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -3746,7 +3916,7 @@ body:has(.yttc-page) .floating-actions {
 .page-hero-facts dd {
   margin: 0.2rem 0 0;
   color: var(--on-accent);
-  font-size: 12.5px;
+  font-size: 13.5px;
   font-weight: 700;
 }
 
@@ -3792,7 +3962,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--coral);
   color: var(--on-accent);
   padding: 0.42rem 0.85rem;
-  font-size: 10.2px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -3817,7 +3987,7 @@ body:has(.yttc-page) .floating-actions {
 .program-kicker {
   margin-bottom: 0.4rem;
   color: var(--coral-dark);
-  font-size: 9.9px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -3837,7 +4007,7 @@ body:has(.yttc-page) .floating-actions {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   color: var(--muted);
-  font-size: 13.1px;
+  font-size: 13.5px;
   line-height: 1.6;
 }
 
@@ -3898,7 +4068,7 @@ body:has(.yttc-page) .floating-actions {
 .program-price-label {
   display: block;
   color: var(--muted);
-  font-size: 9.3px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -3913,7 +4083,7 @@ body:has(.yttc-page) .floating-actions {
 
 .program-price-values del {
   color: var(--muted);
-  font-size: 11.5px;
+  font-size: 13.5px;
 }
 
 .program-price-values strong {
@@ -3930,7 +4100,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--success);
   color: var(--on-accent);
   padding: 0.16rem 0.5rem;
-  font-size: 9px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.04em;
 }
@@ -3970,7 +4140,7 @@ body:has(.yttc-page) .floating-actions {
   gap: 0.5rem;
   margin-top: 1rem;
   color: var(--muted);
-  font-size: 11.5px;
+  font-size: 13.5px;
   font-weight: 700;
 }
 
@@ -4060,7 +4230,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--cream);
   padding: 0.28rem 0.6rem;
   color: var(--brown);
-  font-size: 9.9px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -4072,7 +4242,7 @@ body:has(.yttc-page) .floating-actions {
 
 .day-card p {
   color: var(--muted);
-  font-size: 13.1px;
+  font-size: 13.5px;
   line-height: 1.6;
 }
 
@@ -4104,7 +4274,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--brown);
   color: var(--on-accent);
   padding: 0.36rem 0.8rem;
-  font-size: 10.2px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.06em;
   box-shadow: 0 8px 22px rgb(44 26 14 / 24%);
@@ -4123,7 +4293,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--cream);
   padding: 0.24rem 0.6rem;
   color: var(--brown);
-  font-size: 9.6px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -4159,14 +4329,14 @@ body:has(.yttc-page) .floating-actions {
 .batch-dates {
   margin-top: 0.2rem;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13.5px;
 }
 
 .availability-tag {
   flex: 0 0 auto;
   border-radius: 999px;
   padding: 0.3rem 0.7rem;
-  font-size: 9.6px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -4262,7 +4432,7 @@ body:has(.yttc-page) .floating-actions {
   border-radius: 50%;
   background: var(--white);
   color: var(--coral-dark);
-  font-size: 12.5px;
+  font-size: 13.5px;
   font-weight: 800;
   box-shadow: 0 6px 18px rgb(89 56 43 / 9%);
 }
@@ -4457,7 +4627,7 @@ body:has(.yttc-page) .floating-actions {
   gap: 0.5rem;
   list-style: none;
   color: rgb(255 255 255 / 72%);
-  font-size: 11.8px;
+  font-size: 13.5px;
 }
 
 .retreat-hero-breadcrumbs a:hover {
@@ -4477,7 +4647,7 @@ body:has(.yttc-page) .floating-actions {
   background: rgb(255 255 255 / 12%);
   backdrop-filter: blur(8px);
   padding: 0.38rem 0.9rem;
-  font-size: 11.2px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -4522,14 +4692,14 @@ body:has(.yttc-page) .floating-actions {
 
 .retreat-hero-meta span {
   color: rgb(255 255 255 / 78%);
-  font-size: 11.5px;
+  font-size: 13.5px;
   line-height: 1.35;
 }
 
 .retreat-hero-meta strong {
   display: block;
   color: var(--on-accent);
-  font-size: 13.1px;
+  font-size: 13.5px;
   font-weight: 800;
 }
 
@@ -4585,7 +4755,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.45rem;
   color: var(--brown);
-  font-size: 11.5px;
+  font-size: 13.5px;
   font-weight: 800;
 }
 
@@ -4659,7 +4829,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--cream);
   padding: 0.4rem 0.9rem;
   color: var(--brown);
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 700;
 }
 
@@ -4737,7 +4907,7 @@ body:has(.yttc-page) .floating-actions {
 
 .retreat-teacher-role {
   color: var(--coral-dark);
-  font-size: 10.9px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -4750,21 +4920,21 @@ body:has(.yttc-page) .floating-actions {
 
 .retreat-teacher-exp {
   color: var(--brown);
-  font-size: 11.5px;
+  font-size: 13.5px;
   font-weight: 700;
 }
 
 .retreat-teacher-spec {
   margin-top: 0.2rem;
   color: var(--coral-dark);
-  font-size: 11.8px;
+  font-size: 13.5px;
   font-weight: 700;
 }
 
 .retreat-teacher-bio {
   margin-top: 0.55rem;
   color: var(--muted);
-  font-size: 12.8px;
+  font-size: 13.5px;
   line-height: 1.6;
 }
 
@@ -4774,7 +4944,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: flex-start;
   gap: 0.45rem;
   color: var(--success);
-  font-size: 11.2px;
+  font-size: 13.5px;
   font-weight: 700;
 }
 
@@ -4836,7 +5006,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--coral);
   color: var(--on-accent);
   padding: 0.3rem 0.85rem;
-  font-size: 10.6px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -4881,7 +5051,7 @@ body:has(.yttc-page) .floating-actions {
 
 .retreat-schedule-entry time {
   color: var(--coral-dark);
-  font-size: 12.8px;
+  font-size: 13.5px;
   font-weight: 800;
   white-space: nowrap;
 }
@@ -4935,7 +5105,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--surface);
   color: var(--coral-dark);
   padding: 0.25rem 0.6rem;
-  font-size: 9.6px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -4949,7 +5119,7 @@ body:has(.yttc-page) .floating-actions {
 .retreat-experience-card p {
   margin-top: 0.45rem;
   color: var(--muted);
-  font-size: 12.8px;
+  font-size: 13.5px;
 }
 
 /* ── Free time ────────────────────────────────── */
@@ -4983,7 +5153,7 @@ body:has(.yttc-page) .floating-actions {
 .retreat-freetime-card p {
   margin-top: 0.25rem;
   color: var(--muted);
-  font-size: 12.5px;
+  font-size: 13.5px;
 }
 
 /* ── Accommodation ────────────────────────────── */
@@ -5079,7 +5249,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.35rem;
   color: var(--coral-dark);
-  font-size: 11.2px;
+  font-size: 13.5px;
   font-weight: 800;
 }
 
@@ -5090,7 +5260,7 @@ body:has(.yttc-page) .floating-actions {
 
 .retreat-meal-body p {
   color: var(--muted);
-  font-size: 12.8px;
+  font-size: 13.5px;
 }
 
 .retreat-meal-philosophy {
@@ -5247,7 +5417,17 @@ body:has(.yttc-page) .floating-actions {
 .testimonial-slide figcaption small {
   display: block;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13.5px;
+}
+.testimonial-avatar-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: var(--border, #e5e5e5);
+  font-weight: 600;
+  border-radius: 50%;
 }
 
 .testimonial-controls {
@@ -5361,7 +5541,7 @@ body:has(.yttc-page) .floating-actions {
 
 .video-caption small {
   color: rgb(255 255 255 / 78%);
-  font-size: 11.5px;
+  font-size: 13.5px;
 }
 
 /* ── Pricing / registration ───────────────────── */
@@ -5392,7 +5572,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--surface);
   color: var(--coral-dark);
   padding: 0.35rem 0.9rem;
-  font-size: 10.9px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -5484,14 +5664,14 @@ body:has(.yttc-page) .floating-actions {
   background: var(--white);
   padding: 0.55rem 0.85rem;
   color: var(--brown);
-  font-size: 12.8px;
+  font-size: 13.5px;
   font-weight: 600;
 }
 
 .retreat-dates-strip li small {
   flex: 0 0 auto;
   color: var(--coral-dark);
-  font-size: 10.9px;
+  font-size: 13.5px;
   font-weight: 800;
 }
 
@@ -5523,7 +5703,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.45rem;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 700;
 }
 
@@ -5548,7 +5728,7 @@ body:has(.yttc-page) .floating-actions {
 
 .booking-price-from {
   color: var(--muted);
-  font-size: 10.9px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -5563,7 +5743,7 @@ body:has(.yttc-page) .floating-actions {
 
 .booking-price small {
   color: var(--muted);
-  font-size: 13.1px;
+  font-size: 13.5px;
 }
 
 .booking-rating {
@@ -5575,12 +5755,12 @@ body:has(.yttc-page) .floating-actions {
 
 .booking-rating strong {
   color: var(--brown);
-  font-size: 12.8px;
+  font-size: 13.5px;
 }
 
 .booking-rating small {
   color: var(--muted);
-  font-size: 11.2px;
+  font-size: 13.5px;
 }
 
 .booking-facts {
@@ -5603,7 +5783,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.45rem;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 700;
 }
 
@@ -5614,7 +5794,7 @@ body:has(.yttc-page) .floating-actions {
 .booking-facts dd {
   margin: 0;
   color: var(--brown);
-  font-size: 12.8px;
+  font-size: 13.5px;
   font-weight: 700;
   text-align: right;
 }
@@ -5643,7 +5823,7 @@ body:has(.yttc-page) .floating-actions {
 .booking-rooms span {
   flex: 1;
   color: var(--brown);
-  font-size: 12.8px;
+  font-size: 13.5px;
   font-weight: 700;
 }
 
@@ -5660,7 +5840,7 @@ body:has(.yttc-page) .floating-actions {
 
 .booking-rooms small {
   color: var(--muted);
-  font-size: 11.2px;
+  font-size: 13.5px;
 }
 
 .booking-actions {
@@ -5727,7 +5907,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.5rem;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 600;
 }
 
@@ -5748,7 +5928,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--white);
   padding: 0.65rem 0.8rem;
   color: var(--brown);
-  font-size: 11.5px;
+  font-size: 13.5px;
   font-weight: 700;
   text-align: center;
   transition:
@@ -5770,7 +5950,7 @@ body:has(.yttc-page) .floating-actions {
 
 .booking-payments > span {
   color: var(--muted);
-  font-size: 10.9px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -5791,7 +5971,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--cream);
   padding: 0.3rem 0.7rem;
   color: var(--brown);
-  font-size: 11.5px;
+  font-size: 13.5px;
   font-weight: 700;
 }
 
@@ -5800,7 +5980,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.4rem;
   color: var(--muted);
-  font-size: 10.9px;
+  font-size: 13.5px;
 }
 
 .booking-success-note {
@@ -5809,7 +5989,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.5rem;
   color: var(--success);
-  font-size: 12.5px;
+  font-size: 13.5px;
   font-weight: 700;
 }
 
@@ -5866,7 +6046,7 @@ body:has(.yttc-page) .floating-actions {
   justify-self: start;
   border-radius: 999px;
   padding: 0.25rem 0.65rem;
-  font-size: 9.9px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -5876,7 +6056,7 @@ body:has(.yttc-page) .floating-actions {
   grid-column: 1 / -1;
   grid-row: 3;
   color: var(--muted);
-  font-size: 12.8px;
+  font-size: 13.5px;
   line-height: 1.5;
 }
 
@@ -5893,7 +6073,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: flex-start;
   gap: 0.6rem;
   color: var(--muted);
-  font-size: 12.8px;
+  font-size: 13.5px;
 }
 
 .month-details li svg {
@@ -5905,7 +6085,7 @@ body:has(.yttc-page) .floating-actions {
 .month-details li strong {
   display: block;
   color: var(--brown);
-  font-size: 10.6px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -5959,7 +6139,7 @@ body:has(.yttc-page) .floating-actions {
   backdrop-filter: blur(6px);
   color: var(--coral-dark);
   padding: 0.35rem 0.75rem;
-  font-size: 10.9px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -5973,7 +6153,7 @@ body:has(.yttc-page) .floating-actions {
 .blog-results-count {
   margin: 0 0 1.2rem;
   color: var(--muted);
-  font-size: 12.8px;
+  font-size: 13.5px;
 }
 
 .blog-pagination {
@@ -6331,7 +6511,7 @@ body:has(.yttc-page) .floating-actions {
   border-radius: 999px;
   background: var(--coral-dark);
   color: white;
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -6358,7 +6538,7 @@ body:has(.yttc-page) .floating-actions {
   border-radius: 999px;
   background: transparent;
   color: var(--coral-dark);
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -6383,7 +6563,7 @@ body:has(.yttc-page) .floating-actions {
   border-radius: 999px;
   background: #25d366;
   color: white;
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -6404,7 +6584,7 @@ body:has(.yttc-page) .floating-actions {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 11px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -6468,7 +6648,7 @@ body:has(.yttc-page) .floating-actions {
   border-radius: 999px;
   background: var(--cream);
   border: 1px solid var(--border);
-  font-size: 10px;
+  font-size: 13.5px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
