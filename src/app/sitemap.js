@@ -41,7 +41,6 @@ export default function sitemap() {
       lastmod: SITE_LASTMOD,
       images: homepageImages,
     },
-    { path: "/pricing", lastmod: SITE_LASTMOD },
     { path: "/contact", lastmod: SITE_LASTMOD },
     { path: "/apply", lastmod: SITE_LASTMOD },
     { path: "/courses", lastmod: SITE_LASTMOD },

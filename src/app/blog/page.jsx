@@ -2,11 +2,32 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, Clock3, UserRound } from "lucide-react";
 import { BlogExplorer } from "@/components/Interactive";
-import { Container, PageHero } from "@/components/ui";
+import { Container, JsonLd, PageHero } from "@/components/ui";
 import { posts } from "@/data/blogData";
-import { pageMetadata } from "@/data/siteData";
+import { absoluteUrl, pageMetadata } from "@/data/siteData";
 
 export const metadata = pageMetadata("blog");
+
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "Hatha Yogashala Yoga Blog",
+  description:
+    "Practical yoga guides from Hatha Yogashala in Goa — choosing yoga teacher training, planning a retreat near Arambol, and building a sustainable practice.",
+  url: absoluteUrl("/blog"),
+  publisher: {
+    "@type": "Organization",
+    name: "Hatha Yogashala",
+    url: absoluteUrl("/"),
+  },
+  blogPost: posts.slice(0, 6).map((post) => ({
+    "@type": "BlogPosting",
+    headline: post.title,
+    url: absoluteUrl(`/blog/${post.slug}`),
+    datePublished: post.date,
+    author: { "@type": "Person", name: post.author },
+  })),
+};
 
 function formatDate(value) {
   return new Intl.DateTimeFormat("en-IN", {
@@ -20,10 +41,11 @@ export default function BlogPage() {
   const [featured, ...rest] = posts;
   return (
     <>
+      <JsonLd data={blogSchema} />
       <PageHero
         eyebrow="Journal"
-        title="Yoga Study & Goa Guides"
-        text="Original, practical articles to help students compare training, plan travel, and ask better questions before enrolment."
+        title="Yoga Study & Goa Travel Guides"
+        text="Practical, original articles to help students compare yoga teacher training in Goa, plan a retreat near Arambol, and build a sustainable home practice."
       />
 
       <section className="section">

@@ -13,6 +13,7 @@ export default function ApplyPage() {
         title="Reserve Your Spot"
         text="Share your preferred program, batch, room, experience, and support needs. Submission is an enquiry—not a confirmed booking."
         image="/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp"
+        loading="eager"
       />
       <section className="section">
         <Container className="apply-grid">
@@ -35,11 +36,19 @@ export default function ApplyPage() {
                   "Do not send payment details in this form",
                   "Wait for verified dates, fees, and payment instructions",
                   "Read the cancellation and payment policies",
-                ].map((item) => <li key={item}><Check aria-hidden="true" />{item}</li>)}
+                ].map((item) => (
+                  <li key={item}>
+                    <Check aria-hidden="true" />
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="notice">
-              <p><strong>Delivery status:</strong> the form returns an honest configuration message until ENQUIRY_WEBHOOK_URL is added.</p>
+              <p>
+                <strong>Delivery status:</strong> the form returns an honest
+                configuration message until ENQUIRY_WEBHOOK_URL is added.
+              </p>
             </div>
           </aside>
         </Container>

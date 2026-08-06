@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { LoaderCircle, Send } from "lucide-react";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import { courses, retreats } from "@/data/coursesData";
 
 const initialStatus = { state: "idle", message: "", errors: [] };
@@ -18,6 +20,7 @@ function Field({ label, name, children, hint, required = false }) {
 
 export default function EnquiryForm({ compact = false }) {
   const [status, setStatus] = useState(initialStatus);
+  const [phone, setPhone] = useState("");
 
   async function submit(event) {
     event.preventDefault();
@@ -26,6 +29,7 @@ export default function EnquiryForm({ compact = false }) {
     const form = event.currentTarget;
     const payload = Object.fromEntries(new FormData(form));
     payload.consent = payload.consent === "on";
+    payload.phone = phone;
 
     try {
       const response = await fetch("/api/enquiry", {
@@ -71,13 +75,30 @@ export default function EnquiryForm({ compact = false }) {
           <input id="name" name="name" autoComplete="name" maxLength="80" required />
         </Field>
         <Field label="Email" name="email" required>
-          <input id="email" name="email" type="email" autoComplete="email" maxLength="120" required />
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            maxLength="120"
+            placeholder="you@example.com"
+            pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+            title="Enter a valid email address like name@example.com"
+            required
+          />
         </Field>
-        <Field label="Country code" name="countryCode" required>
-          <input id="countryCode" name="countryCode" inputMode="tel" placeholder="+91" maxLength="8" required />
-        </Field>
-        <Field label="Phone / WhatsApp" name="phone" required>
-          <input id="phone" name="phone" type="tel" autoComplete="tel" maxLength="30" required />
+        <Field label="Phone / WhatsApp" name="phone" hint="Includes country code" required>
+          <PhoneInput
+            id="phone"
+            name="phone"
+            international
+            defaultCountry="IN"
+            autoComplete="tel"
+            inputMode="tel"
+            maxLength="16"
+            value={phone}
+            onChange={setPhone}
+          />
         </Field>
         <Field label="Country" name="country" required>
           <input id="country" name="country" autoComplete="country-name" maxLength="80" required />

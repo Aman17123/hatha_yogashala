@@ -44,9 +44,11 @@ export const pageSeo = {
     path: "/",
   },
   about: {
-    title: "About Hatha Yogashala | Best Yoga Ashram in Goa | Yoga Teachers",
+    title: "About the School – Yoga Ashram & Teacher Training in Goa",
     description:
-      "Meet the experienced yoga teachers behind Hatha Yogashala — a Yoga Alliance-registered school in North Goa. Learn about our teaching philosophy, our Goa location, and why we are one of the best yoga schools in Goa.",
+      "Hatha Yogashala is a Yoga Alliance-registered yoga school and beachside ashram in Querim, North Goa — near Arambol. Meet our teachers, philosophy, campus, and why students choose us for yoga teacher training and retreats in Goa.",
+    keywords:
+      "yoga ashram Goa, best yoga school in Goa, Hatha Yoga teacher training Goa, yoga retreat North Goa, Arambol yoga school, Querim yoga ashram, Hatha Yogashala",
     path: "/about",
   },
   teachers: {
@@ -56,27 +58,27 @@ export const pageSeo = {
     path: "/teachers",
   },
   certification: {
-    title: "Certification & Verification",
+    title: "Yoga Teacher Training Certification & Verification in Goa",
     description:
-      "Hatha Yogashala is a Yoga Alliance-registered school in Goa. Our 100, 200 and 300-hour yoga teacher training courses follow the Yoga Alliance-approved syllabus.",
+      "See the certificate graduates receive from Hatha Yogashala — a Yoga Alliance-registered school in Goa. Learn how our 100, 200 and 300-hour yoga teacher training courses are certified and verified.",
+    keywords:
+      "yoga teacher training certification Goa, Yoga Alliance certificate, 200 hour YTTC certificate, Hatha Yoga TTC certification, yoga school registration Goa",
     path: "/certification",
   },
   accommodation: {
-    title: "Accommodation in Goa",
+    title: "Accommodation at the Yoga School in North Goa",
     description:
-      "Review the rooms, meals, shared spaces, and amenities of the Hatha Yogashala beachside ashram in Querim, North Goa — near Querim and Arambol beaches.",
+      "Rooms, meals and amenities at Hatha Yogashala — a beachside yoga ashram in Querim, North Goa near Arambol. What's included in yoga course and retreat accommodation.",
+    keywords:
+      "yoga school accommodation Goa, yoga retreat stay Arambol, ashram rooms North Goa, vegetarian meals yoga retreat Goa, Hatha Yogashala rooms",
     path: "/accommodation",
   },
-  pricing: {
-    title: "Yoga Course Pricing in Goa",
-    description:
-      "Transparent dates and fees for yoga teacher training in Goa, with confirmed room categories and written fee breakdowns.",
-    path: "/pricing",
-  },
   contact: {
-    title: "Contact Hatha Yogashala",
+    title: "Contact Us – Yoga School in Querim, North Goa",
     description:
-      "Contact Hatha Yogashala in Goa to ask questions about yoga teacher training, retreats, dates, fees, and travel to Querim, North Goa.",
+      "Contact Hatha Yogashala in Querim, North Goa to ask about yoga teacher training, retreats, dates, fees, accommodation and travel to Arambol and Querim beach, North Goa, India.",
+    keywords:
+      "contact yoga school Goa, yoga teacher training enquiry Goa, Hatha Yogashala Goa contact, WhatsApp yoga Goa, yoga retreat booking North Goa, Arambol yoga contact",
     path: "/contact",
   },
   apply: {
@@ -98,15 +100,19 @@ export const pageSeo = {
     path: "/retreats",
   },
   blog: {
-    title: "Yoga Blog & Course Guides",
+    title: "Yoga Blog, Tips & Goa Retreat Guides",
     description:
-      "Practical guides to choosing yoga teacher training, planning a Goa retreat, and building a sustainable practice.",
+      "Practical yoga guides from Hatha Yogashala in Goa — how to choose yoga teacher training, plan a yoga retreat in Goa near Arambol, and build a sustainable home practice.",
+    keywords:
+      "yoga blog, yoga teacher training tips, yoga retreat Goa guide, Hatha yoga practice, beginner yoga Goa, yoga for beginners",
     path: "/blog",
   },
   gallery: {
-    title: "Gallery | Hatha Yogashala",
+    title: "Yoga School Gallery in Goa – Photos & Campus",
     description:
-      "A balanced gallery of practice, stay, and coastal surroundings at Hatha Yogashala in Goa.",
+      "Browse the Hatha Yogashala gallery in Querim, Near Arambol, North Goa — yoga teacher training classes, meditation, beach practice, campus rooms and the Goan coast.",
+    keywords:
+      "yoga school photos Goa, Hahn yoga Goa gallery, yoga teacher training pictures, yoga retreat Goa images, Arambol yoga beach, North Goa ashram photos",
     path: "/gallery",
   },
   founder: {
@@ -140,7 +146,13 @@ export function pageMetadata(key) {
   if (!seo) {
     return makeMetadata(pageSeo.home.title, pageSeo.home.description, "/");
   }
-  return makeMetadata(seo.title, seo.description, seo.path);
+  return makeMetadata(
+    seo.title,
+    seo.description,
+    seo.path,
+    site.defaultImage,
+    seo.keywords,
+  );
 }
 
 export function publicValue(value, fallback = "To be confirmed") {
@@ -400,10 +412,6 @@ export const navigation = [
       {
         label: "Accommodation",
         href: "/accommodation",
-      },
-      {
-        label: "Pricing",
-        href: "/pricing",
       },
     ],
   },
@@ -666,6 +674,7 @@ export function makeMetadata(
   description,
   path = "/",
   image = "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
+  keywords = [],
 ) {
   const canonicalUrl = new URL(path, site.url).toString();
 
@@ -676,6 +685,10 @@ export function makeMetadata(
     alternates: {
       canonical: canonicalUrl,
     },
+
+    keywords: keywords,
+    applicationCategory: "Yoga",
+    inLanguage: "en-IN",
 
     openGraph: {
       title,

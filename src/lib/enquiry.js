@@ -1,8 +1,7 @@
 const limits = {
   name: 80,
   email: 120,
-  countryCode: 8,
-  phone: 30,
+  phone: 16,
   country: 80,
   course: 120,
   batch: 80,
@@ -37,10 +36,11 @@ export function validateEnquiry(input = {}) {
   );
   const errors = {};
 
+  data.phone = data.phone.replace(/[^\d+]/g, "");
+
   if (!data.name) errors.name = "Enter your full name.";
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.email = "Enter a valid email address.";
-  if (!/^\+?[0-9 ()-]{1,8}$/.test(data.countryCode)) errors.countryCode = "Enter a valid country code.";
-  if (!/^[0-9 ()+-]{6,30}$/.test(data.phone)) errors.phone = "Enter a valid phone or WhatsApp number.";
+  if (!/^\+[0-9]{6,15}$/.test(data.phone)) errors.phone = "Enter a valid phone number with country code.";
   if (!data.country) errors.country = "Enter your country.";
   if (!data.course) errors.course = "Choose a course, retreat, or general enquiry.";
   if (input.consent !== true) errors.consent = "Consent is required before sending.";

@@ -14,7 +14,6 @@ const quickLinks = [
   ["Blog", "/blog"],
   ["Gallery", "/gallery"],
   ["Contact Us", "/contact"],
-  ["YTTC Pricing & Dates", "/pricing"],
 ];
 
 const courseLinks = [
@@ -106,7 +105,7 @@ export default function Footer() {
 
             <div className="mt-1 flex flex-col items-center gap-3">
               <Link
-                href="/pricing"
+                href="/courses"
                 className="group inline-flex min-h-11 items-center justify-center gap-2.5 rounded-md border border-[var(--brown)]/20 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--brown)] transition duration-200 hover:border-[var(--gold)] hover:bg-[var(--gold)]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--cream)]"
               >
                 Explore YTTC & retreats

@@ -59,10 +59,6 @@ const aboutColumns = [
       { label: "Gallery", href: findHref(["Gallery"], "/gallery") },
       { label: "Blogs", href: findHref(["Blog", "Blogs"], "/blog") },
       { label: "Contact & Travel", href: "/contact#travel" },
-      {
-        label: "YTTC Pricing & Dates",
-        href: findHref(["YTTC Pricing & Dates", "Pricing & Dates"], "/pricing"),
-      },
     ],
   },
 ];

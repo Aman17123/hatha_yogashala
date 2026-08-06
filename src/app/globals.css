@@ -9,13 +9,13 @@
   --coral: #2f4f3e;
   --coral-dark: #24402f;
   --gold: #c9a961;
-  --brown: #2a2a22;
-  --text: #2a2a22;
-  --muted: #6f7066;
+  --brown: #24241d;
+  --text: #202019;
+  --muted: #55564c;
   --border: #e4dccb;
   --success: #4a7c5f;
   --white: #ffffff;
-  --ink: #2a2a22;
+  --ink: #202019;
   --on-accent: #ffffff;
   --footer: #22271f;
   --shadow: 0 18px 50px rgb(61 58 44 / 10%);
@@ -49,13 +49,13 @@
   --coral: #2e8378;
   --coral-dark: #1f5f56;
   --gold: #c9a961;
-  --brown: #2a2a22;
-  --text: #2a2a22;
-  --muted: #6f7066;
+  --brown: #24241d;
+  --text: #202019;
+  --muted: #55564c;
   --border: #dce8e5;
   --success: #2e8378;
   --white: #ffffff;
-  --ink: #2a2a22;
+  --ink: #202019;
   --on-accent: #ffffff;
   --footer: #1c2b28;
   --shadow: 0 18px 50px rgb(46 131 120 / 10%);
@@ -1321,6 +1321,7 @@ img {
   margin: 0;
   padding: 0;
   gap: 0.7rem;
+  margin-top: px;
   list-style: none;
 }
 
@@ -1334,8 +1335,8 @@ img {
 
 .why-image,
 .course-overview-image {
-  min-height: 620px;
-  border-radius: 36px 120px 36px 36px;
+  min-height: 480px;
+  border-radius: 36px 36px 36px 36px;
 }
 /* ── Accordion ───────────────────────────────── */
 
@@ -1865,11 +1866,29 @@ blockquote {
   color: var(--muted);
   font-size: 12.5px;
   font-weight: 760;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.filter-row button:hover,
+.filter-row button:focus-visible {
+  border-color: var(--coral);
+  color: var(--coral-dark);
 }
 
 .filter-row button[data-active="true"] {
-  border-color: var(--brown);
-  background: var(--brown);
+  border-color: var(--coral-dark);
+  background: var(--coral-dark);
+  color: var(--on-accent);
+}
+
+.filter-row button[data-active="true"]:hover,
+.filter-row button[data-active="true"]:focus-visible {
+  border-color: var(--coral);
+  background: var(--coral);
+  color: var(--on-accent);
 }
 /* ── Lightbox ─────────────────────────────────── */
 
@@ -1952,15 +1971,18 @@ blockquote {
 
 .contact-card strong,
 .travel-grid h2 {
-  color: var(--brown);
-  font-size: 14.4px;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 750;
 }
 
 .contact-card p,
 .travel-grid p {
   margin-top: 0.3rem;
-  color: var(--muted);
-  font-size: 12.5px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 550;
+  opacity: 0.85;
 }
 
 .travel-grid {
@@ -2662,6 +2684,35 @@ body:has(.yttc-page) .floating-actions {
 
 .form-field small {
   color: var(--muted);
+}
+
+/* ── Phone input (react-phone-number-input) ─── */
+
+.form-field:has(.PhoneInput) {
+  grid-column: 1 / -1;
+}
+
+.PhoneInput {
+  min-height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: var(--cream);
+  color: var(--text);
+  padding: 0.2rem 0.85rem;
+}
+
+.PhoneInput .PhoneInputInput {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-weight: 500;
+  outline: none;
+}
+
+.PhoneInput .PhoneInputCountry {
+  align-self: center;
 }
 /* ── Consent ─────────────────────────────────── */
 
@@ -5949,9 +6000,15 @@ body:has(.yttc-page) .floating-actions {
 }
 
 .blog-pagination button[data-active="true"] {
-  border-color: var(--brown);
-  background: var(--brown);
+  border-color: var(--coral-dark);
+  background: var(--coral-dark);
   color: var(--on-accent);
+}
+
+.blog-pagination button:hover:not(:disabled):not([data-active="true"]),
+.blog-pagination button:focus-visible {
+  border-color: var(--coral);
+  color: var(--coral-dark);
 }
 
 .blog-pagination button:disabled {
@@ -6435,38 +6492,85 @@ body:has(.yttc-page) .floating-actions {
   .page-hero h1,
   .article-header h1,
   .not-found h1,
-  .retreat-hero h1 { font-size: 60px; line-height: 68px; }
-  .retreat-final-cta h2 { font-size: 54px; line-height: 62px; }
-  .article-content h2 { font-size: 40px; line-height: 48px; }
+  .retreat-hero h1 {
+    font-size: 60px;
+    line-height: 68px;
+  }
+  .retreat-final-cta h2 {
+    font-size: 54px;
+    line-height: 62px;
+  }
+  .article-content h2 {
+    font-size: 40px;
+    line-height: 48px;
+  }
   .policy-page h2,
   .retreat-section-title,
-  .section-heading--blog h2 { font-size: 36px; }
-  .yt-section-title { font-size: 35px; }
-  .final-cta-section h2 { font-size: 25px; }
-  .footer-wordmark { font-size: 120px; }
+  .section-heading--blog h2 {
+    font-size: 36px;
+  }
+  .yt-section-title {
+    font-size: 35px;
+  }
+  .final-cta-section h2 {
+    font-size: 25px;
+  }
+  .footer-wordmark {
+    font-size: 120px;
+  }
 }
 
 @media (min-width: 1280px) {
   .page-hero h1,
   .article-header h1,
   .not-found h1,
-  .retreat-hero h1 { font-size: 80px; line-height: 90px; }
-  .retreat-final-cta h2 { font-size: 66px; line-height: 76px; }
-  .article-content h2 { font-size: 48px; line-height: 58px; }
+  .retreat-hero h1 {
+    font-size: 80px;
+    line-height: 90px;
+  }
+  .retreat-final-cta h2 {
+    font-size: 66px;
+    line-height: 76px;
+  }
+  .article-content h2 {
+    font-size: 48px;
+    line-height: 58px;
+  }
   .policy-page h2,
   .retreat-section-title,
-  .section-heading--blog h2 { font-size: 43px; }
-  .yt-section-title { font-size: 42px; }
-  .final-cta-section h2 { font-size: 30px; }
-  .footer-wordmark { font-size: 160px; }
+  .section-heading--blog h2 {
+    font-size: 43px;
+  }
+  .yt-section-title {
+    font-size: 42px;
+  }
+  .final-cta-section h2 {
+    font-size: 30px;
+  }
+  .footer-wordmark {
+    font-size: 160px;
+  }
 }
 
 @media (min-width: 1536px) {
-  .page-hero h1 { font-size: 96px; line-height: 108px; }
-  .article-header h1 { font-size: 92px; line-height: 104px; }
+  .page-hero h1 {
+    font-size: 96px;
+    line-height: 108px;
+  }
+  .article-header h1 {
+    font-size: 92px;
+    line-height: 104px;
+  }
   .not-found h1,
-  .retreat-hero h1 { font-size: 88px; line-height: 100px; }
-  .retreat-final-cta h2 { font-size: 74px; line-height: 84px; }
-  .footer-wordmark { font-size: 192px; }
+  .retreat-hero h1 {
+    font-size: 88px;
+    line-height: 100px;
+  }
+  .retreat-final-cta h2 {
+    font-size: 74px;
+    line-height: 84px;
+  }
+  .footer-wordmark {
+    font-size: 192px;
+  }
 }
-

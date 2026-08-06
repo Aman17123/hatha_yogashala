@@ -4,8 +4,7 @@ import { isAllowedOrigin, validateEnquiry } from "../src/lib/enquiry.js";
 const valid = validateEnquiry({
   name: "Asha Rao",
   email: "asha@example.com",
-  countryCode: "+91",
-  phone: "98765 43210",
+  phone: "+919876543210",
   country: "India",
   course: "General enquiry",
   consent: true,

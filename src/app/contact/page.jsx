@@ -1,6 +1,13 @@
 import Link from "next/link";
-import { Bus, Mail, MapPin, Phone, Plane, Train } from "lucide-react";
-import { SiWhatsapp } from "react-icons/si";
+import {
+  Bus,
+  MapPin,
+  MapPinned,
+  Phone,
+  Plane,
+  Train,
+} from "lucide-react";
+import BrandLogo from "@/components/BrandLogos";
 import EnquiryForm from "@/components/EnquiryForm";
 import { Accordion } from "@/components/Interactive";
 import {
@@ -10,7 +17,14 @@ import {
   PageHero,
   SectionHeading,
 } from "@/components/ui";
-import { faqs, pageMetadata, site, travelOptions } from "@/data/siteData";
+import {
+  absoluteUrl,
+  faqs,
+  pageMetadata,
+  site,
+  travelOptions,
+  whatsappLink,
+} from "@/data/siteData";
 
 export const metadata = pageMetadata("contact");
 
@@ -26,13 +40,76 @@ export default function ContactPage() {
     })),
   };
 
+  const localSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: site.name,
+    description:
+      "Yoga Alliance-registered yoga school and retreat in Querim, North Goa — yoga teacher training and wellness retreats near Arambol beach.",
+    url: site.url,
+    telephone: site.contact.phone,
+    email: site.contact.email,
+    image: absoluteUrl(site.defaultImage),
+    priceRange: "€€",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Querim–Arambol–Agarwada Rd, Dhaktebag, Pernem",
+      addressLocality: "Pernem",
+      addressRegion: "North Goa",
+      postalCode: "403524",
+      addressCountry: "IN",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 15.729,
+      longitude: 73.701,
+    },
+    hasMap: site.contact.map,
+    areaServed: [
+      { "@type": "AdministrativeArea", name: "Goa" },
+      { "@type": "AdministrativeArea", name: "India" },
+    ],
+  };
+
+  const contactChannels = [
+    {
+      label: "WhatsApp",
+      value: site.contact.whatsapp,
+      href: whatsappLink(
+        "Hello Hatha Yogashala, I'd like to ask about yoga teacher training or a retreat in Goa.",
+      ),
+      brand: "whatsapp",
+      color: "#25D366",
+    },
+    {
+      label: "Email",
+      value: site.contact.email,
+      href: `mailto:${site.contact.email}`,
+      brand: "gmail",
+      color: "#EA4335",
+    },
+    {
+      label: "Google Maps",
+      value: "Querim–Arambol–Agarwada Rd, Pernem, North Goa",
+      href: site.contact.directionsUrl,
+      brand: "google-maps",
+      color: "#4285F4",
+    },
+    {
+      label: "Call us",
+      value: site.contact.phone,
+      href: `tel:${String(site.contact.phone).replace(/\s/g, "")}`,
+    },
+  ];
+
   return (
     <>
       <JsonLd data={faqSchema} />
+      <JsonLd data={localSchema} />
       <PageHero
         eyebrow="We’re here to help"
-        title="Contact Hatha Yogashala"
-        text="Ask about a course, retreat, accommodation, travel, accessibility, or the application process."
+        title="Contact the Goa Yoga School"
+        text="Ask about yoga teacher training, retreats, accommodation, travel to Querim–Arambol, or the application process at Hatha Yogashala in North Goa."
       />
       <section className="section">
         <Container className="contact-page-grid">
@@ -40,38 +117,39 @@ export default function ContactPage() {
             <SectionHeading
               eyebrow="Send an enquiry"
               title="Start with the details that matter"
-              text="The form validates your message on the server. It only confirms delivery after a real webhook endpoint accepts it."
+              text="Your message helps the school confirm suitability, dates, fees and availability for a yoga teacher training or retreat near Arambol, North Goa."
             />
             <EnquiryForm compact />
           </div>
           <aside className="contact-aside">
-            {[
-              [
-                "WhatsApp",
-                site.contact.whatsapp,
-                SiWhatsapp,
-                "whatsapp",
-                "#25D366",
-              ],
-              ["Email", site.contact.email, Mail, "email"],
-              ["Phone", site.contact.phone, Phone, "phone"],
-              ["Address", site.contact.address, MapPin, "address"],
-            ].map(([label, value, Icon, id, iconColor]) => (
-              <div className="contact-card" id={id} key={label}>
-                <Icon
-                  aria-hidden="true"
-                  size={24}
-                  style={iconColor ? { color: iconColor } : undefined}
-                />
+            {contactChannels.map(({ label, value, href, brand, color }) => (
+              <a
+                className="contact-card"
+                key={label}
+                href={href}
+                {...(href.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+              >
+                {brand ? (
+                  <BrandLogo
+                    name={brand}
+                    alt={`${label} icon`}
+                    className="mt-0.5 size-11 shrink-0"
+                  />
+                ) : (
+                  <Phone aria-hidden="true" size={44} className="shrink-0" style={{ color }} />
+                )}
                 <div>
                   <strong>{label}</strong>
                   <p>{value}</p>
                 </div>
-              </div>
+              </a>
             ))}
             <p className="placeholder-note">
-              Public contact details are shown only after the school confirms
-              them. The enquiry form remains the available contact route.
+              Public contact details are shared after the school confirms them;
+              the enquiry form remains the reliable first route to the Goa
+              campus team.
             </p>
           </aside>
         </Container>
@@ -81,8 +159,8 @@ export default function ContactPage() {
         <Container>
           <SectionHeading
             eyebrow="Travel planning"
-            title="Reaching the school in Goa"
-            text="Distances, pickup services, and routes must be confirmed against the final school address."
+            title="Reaching the yoga school in North Goa"
+            text="Hatha Yogashala sits in Querem village, Pernem — minutes from Arambol and Querim beach and a short drive from Goa’s international airports."
           />
           <div className="travel-grid">
             {travelOptions.map(({ label, text }) => {
@@ -105,11 +183,11 @@ export default function ContactPage() {
           </div>
           <div className="grid gap-6 mt-8 lg:grid-cols-[0.8fr_1.2fr]">
             <article className="card card-body">
-              <MapPin aria-hidden="true" />
+              <MapPinned aria-hidden="true" />
               <h2 className="mt-4">{site.contact.address}</h2>
               <p className="mt-3">
-                The map remains regional until the school confirms an exact
-                public pin. Request the arrival window and route before travel.
+                Request the exact arrival window and route before travel so your
+                airport pickup or bus connection is confirmed for Hatha Yogashala in Querim, North Goa.
               </p>
               <Link
                 className="button button-primary mt-6"
@@ -117,13 +195,13 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Get Directions
+                Get Directions to Querim
               </Link>
             </article>
             <iframe
               className="map-frame"
               src={site.contact.mapEmbedUrl}
-              title="Map showing Goa, India"
+              title="Map of Hatha Yogashala in Querim, North Goa, India"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen

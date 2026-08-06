@@ -1,0 +1,54 @@
+Γû▓ Next.js 16.2.12 (Turbopack)
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 18.4s
+  Running TypeScript ...
+  Finished TypeScript in 126ms ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/35) ...
+  Generating static pages using 11 workers (8/35) 
+  Generating static pages using 11 workers (17/35) 
+  Generating static pages using 11 workers (26/35) 
+Γ£ô Generating static pages using 11 workers (35/35) in 891ms
+  Finalizing page optimization ...
+
+Route (app)
+Γöî Γùï /
+Γö£ Γùï /_not-found
+Γö£ Γùï /about
+Γö£ Γùï /accommodation
+Γö£ ╞Æ /api/enquiry
+Γö£ Γùï /apply
+Γö£ Γùï /blog
+Γö£ ΓùÅ /blog/[slug]
+Γöé Γö£ /blog/how-to-choose-yoga-teacher-training-goa
+Γöé Γö£ /blog/100-vs-200-vs-300-hour-yoga-training
+Γöé Γö£ /blog/planning-a-yoga-retreat-in-goa
+Γöé Γöö [+5 more paths]
+Γö£ Γùï /certification
+Γö£ Γùï /contact
+Γö£ Γùï /courses
+Γö£ ΓùÅ /courses/[slug]
+Γöé Γö£ /courses/100-hour-yoga-teacher-training-goa
+Γöé Γö£ /courses/200-hour-yoga-teacher-training-goa
+Γöé Γöö /courses/300-hour-yoga-teacher-training-goa
+Γö£ Γùï /founder
+Γö£ Γùï /gallery
+Γö£ Γùï /icon.svg
+Γö£ Γùï /payment-policy
+Γö£ Γùï /privacy-policy
+Γö£ Γùï /retreats
+Γö£ ΓùÅ /retreats/[slug]
+Γöé Γö£ /retreats/3-day-yoga-retreat-goa
+Γöé Γö£ /retreats/5-day-yoga-retreat-goa
+Γöé Γöö /retreats/7-day-yoga-retreat-goa
+Γö£ Γùï /robots.txt
+Γö£ Γùï /sitemap.xml
+Γö£ Γùï /teachers
+Γöö Γùï /terms
+
+
+Γùï  (Static)   prerendered as static content
+ΓùÅ  (SSG)      prerendered as static HTML (uses generateStaticParams)
+╞Æ  (Dynamic)  server-rendered on demand
+
