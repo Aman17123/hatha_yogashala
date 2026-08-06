@@ -368,17 +368,26 @@ export default function HomePage() {
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {teacherTrainings.map((course, ci) => {
               const isPopular = ci === 1; // middle card only
+              const badge = isPopular
+                ? "MOST POPULAR"
+                : ci === 0
+                  ? "BEGINNER"
+                  : "ADVANCED";
 
               return (
                 <div key={course.slug} className="relative">
-                  {isPopular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[var(--coral-dark)] px-4 py-1.5 text-[10px] font-bold tracking-[0.08em] text-white">
-                      MOST POPULAR
-                    </span>
-                  )}
+                  <span
+                    className={`absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-4 py-1.5 text-[10px] font-bold tracking-[0.08em] ${
+                      isPopular
+                        ? "bg-[var(--coral-dark)] text-white"
+                        : "bg-[var(--cream)] text-[#1b1b2e]"
+                    }`}
+                  >
+                    {badge}
+                  </span>
 
                   <article
-                    className={`flex h-full flex-col rounded-2xl border bg-white p-5 ${
+                    className={`flex h-full flex-col items-center rounded-2xl border bg-white p-5 text-center ${
                       isPopular
                         ? "border-2 border-[var(--coral-dark)]"
                         : "border-[var(--border)]"
@@ -395,15 +404,24 @@ export default function HomePage() {
                       {comparisonRows.map((row, ri) => {
                         const Icon = rowIcons[ri];
                         return (
-                          <div key={row[0]}>
-                            <dt className="flex items-center gap-2 text-[12px] font-bold uppercase  text-muted">
+                          <div
+                            key={row[0]}
+                            className="flex flex-col items-center"
+                          >
+                            <dt className="flex items-center justify-center gap-2 text-[12px] font-bold uppercase text-muted">
                               <Icon
                                 className="size-3.5 shrink-0 text-[var(--coral-dark)]"
                                 aria-hidden="true"
                               />
                               {row[0]}
                             </dt>
-                            <dd className="mt-1 text-xs font-semibold leading-snug text-[#1b1b2e]">
+                            <dd
+                              className={`mt-1 font-semibold leading-snug text-[#1b1b2e] ${
+                                row[0] === "Shared-room price"
+                                  ? "text-2xl font-extrabold text-[var(--coral-dark)]"
+                                  : "text-xs"
+                              }`}
+                            >
                               {row[ci + 1]}
                             </dd>
                           </div>
