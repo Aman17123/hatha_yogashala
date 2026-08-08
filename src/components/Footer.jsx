@@ -88,7 +88,7 @@ export default function Footer() {
               src="/images/logo2.png"
               alt="The_hatha_Yogashala_logo_Best_ypgashala_Goa"
               fill
-              unoptimized
+              sizes="(max-width: 768px) 416px, 480px"
               className="object-contain opacity-[0.22]"
             />
           </div>
@@ -134,7 +134,6 @@ export default function Footer() {
                   alt="Hatha Yogashala"
                   width={180}
                   height={72}
-                  unoptimized
                   className="h-14 w-auto object-contain"
                 />
               </Link>

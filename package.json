@@ -26,5 +26,12 @@
     "eslint-config-next": "16.2.12",
     "sass": "^1.102.0",
     "tailwindcss": "^4"
-  }
+  },
+  "browserslist": [
+    "defaults and supports es6-module",
+    "last 2 versions",
+    "not dead",
+    "not ios_saf < 15",
+    "not safari < 15"
+  ]
 }

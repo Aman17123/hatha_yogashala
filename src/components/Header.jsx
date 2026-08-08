@@ -255,10 +255,9 @@ export default function Navbar() {
               <Image
                 src="/images/logo.png"
                 alt={`${site.name} logo`}
-                width={150}
-                height={60}
+                width={175}
+                height={70}
                 preload
-                unoptimized
                 className="h-12 w-auto object-contain md:h-14"
               />
             </Link>
@@ -422,7 +421,6 @@ export default function Navbar() {
                 alt={`${site.name} logo`}
                 width={130}
                 height={52}
-                unoptimized
                 className="h-11 w-auto object-contain"
               />
               <button

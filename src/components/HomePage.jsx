@@ -137,6 +137,7 @@ const trustItems = [
     alt: "Yoga Alliance",
     width: 879,
     height: 284,
+    sizes: "124px",
   },
   {
     key: "ayush",
@@ -145,6 +146,7 @@ const trustItems = [
     alt: "Ministry of AYUSH",
     width: 750,
     height: 400,
+    sizes: "64px",
   },
   { key: "google", type: "google", rating: "5.0" },
   {
@@ -197,26 +199,26 @@ export default function HomePage() {
       {/* ===== 1. HERO — headline, intro copy, and school stats ===== */}
       <section className="home-hero">
         <Container className="hero-grid">
-          <Stagger className="hero-copy" gap={0.1}>
-            <StaggerItem>
+          <Stagger className="hero-copy" gap={0.1} startVisible>
+            <StaggerItem startVisible>
               <p className="eyebrow">
                 <Sparkles aria-hidden="true" size={15} />
                 Yoga study in Goa, India
               </p>
             </StaggerItem>
-            <StaggerItem>
+            <StaggerItem startVisible>
               <h1>
                 Hatha Yogashala
                 <em>Yoga School in Goa</em>
               </h1>
             </StaggerItem>
-            <StaggerItem>
+            <StaggerItem startVisible>
               <p className="hero-tagline">
                 Yoga teacher training shaped by{" "}
                 <em>practice, place &amp; presence.</em>
               </p>
             </StaggerItem>
-            <StaggerItem>
+            <StaggerItem startVisible>
               <p>
                 Hatha Yogashala is a Yoga Alliance-registered yoga school and
                 ashram in Querim, North Goa, offering residential Hatha yoga
@@ -225,7 +227,7 @@ export default function HomePage() {
                 support, and no unsupported claims.
               </p>
             </StaggerItem>
-            <StaggerItem>
+            <StaggerItem startVisible>
               <div className="hero-actions">
                 <ButtonLink href="/apply">Reserve your spot</ButtonLink>
                 <ButtonLink href="/courses" variant="secondary">
@@ -233,14 +235,14 @@ export default function HomePage() {
                 </ButtonLink>
               </div>
             </StaggerItem>
-            <StaggerItem>
+            <StaggerItem startVisible>
               <p className="hero-note">
                 Batch dates, fees, faculty, and room availability are confirmed in
                 writing before payment.
               </p>
             </StaggerItem>
           </Stagger>
-          <FadeIn className="hero-visual">
+          <FadeIn className="hero-visual" startVisible>
             <div className="hero-sun" aria-hidden="true" />
             <div className="hero-image">
               <Image
@@ -268,7 +270,8 @@ export default function HomePage() {
                   alt={item.alt}
                   width={item.width}
                   height={item.height}
-                  unoptimized
+                  sizes={item.sizes}
+                  loading="lazy"
                 />
               )}
 
