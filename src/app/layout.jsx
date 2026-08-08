@@ -3,7 +3,6 @@ import { Gotu, Manrope, Quicksand } from "next/font/google";
 import { ClipboardList } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import "./globals.css";
-import "../styles/main.scss";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { JsonLd } from "@/components/ui";
