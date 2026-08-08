@@ -198,60 +198,76 @@ export default function RetreatTemplate({ retreat, page }) {
           className="object-cover"
         />
         <div className="retreat-hero-overlay" />
+        <span className="retreat-hero-orb" aria-hidden="true" />
         <Container className="retreat-hero-inner">
-          <nav aria-label="Breadcrumb" className="retreat-hero-breadcrumbs">
-            <ol>
-              <li><Link href="/">Home</Link></li>
-              <li aria-hidden="true">/</li>
-              <li><Link href="/retreats">Yoga Retreats</Link></li>
-              <li aria-hidden="true">/</li>
-              <li aria-current="page">{retreat.name}</li>
-            </ol>
-          </nav>
+          <Stagger gap={0.11}>
+            <StaggerItem>
+              <nav aria-label="Breadcrumb" className="retreat-hero-breadcrumbs">
+                <ol>
+                  <li><Link href="/">Home</Link></li>
+                  <li aria-hidden="true">/</li>
+                  <li><Link href="/retreats">Yoga Retreats</Link></li>
+                  <li aria-hidden="true">/</li>
+                  <li aria-current="page">{retreat.name}</li>
+                </ol>
+              </nav>
+            </StaggerItem>
 
-          <div className="retreat-hero-pills">
-            <span>{p.category}</span>
-            <span>Residential · All levels</span>
-          </div>
+            <StaggerItem>
+              <div className="retreat-hero-pills">
+                <span>{p.category}</span>
+                <span>Residential · All levels</span>
+              </div>
+            </StaggerItem>
 
-          <h1>{retreat.name}</h1>
-          <p className="retreat-hero-tagline">{p.heroTagline}</p>
+            <StaggerItem>
+              <h1>{retreat.name}</h1>
+            </StaggerItem>
 
-          <div className="retreat-hero-meta">
-            <div>
-              <Clock3 size={17} aria-hidden="true" />
-              <span><strong>Duration</strong>{p.duration}</span>
-            </div>
-            <div>
-              <MapPin size={17} aria-hidden="true" />
-              <span><strong>Location</strong>{p.location}</span>
-            </div>
-            <div>
-              <span className="hero-stars" aria-hidden="true">
-                {Array.from({ length: 5 }, (_, i) => (
-                  <Star key={i} className={`size-3.5 ${i < Math.round(p.rating) ? "fill-[var(--gold)] text-[var(--gold)]" : "fill-white/30 text-white/40"}`} />
-                ))}
-              </span>
-              <span><strong>{p.rating}/5</strong>{p.ratingCount} verified reviews</span>
-            </div>
-            <div>
-              <Users size={17} aria-hidden="true" />
-              <span><strong>{p.students}</strong>retreat guests</span>
-            </div>
-          </div>
+            <StaggerItem>
+              <p className="retreat-hero-tagline">{p.heroTagline}</p>
+            </StaggerItem>
 
-          <div className="retreat-hero-actions">
-            <ButtonLink href="#registration" className="retreat-hero-cta">
-              Book Your Retreat
-            </ButtonLink>
-            <ButtonLink href="#schedule" variant="light">
-              View Schedule
-            </ButtonLink>
-            <a href={whatsappHref} className="button retreat-whatsapp">
-              <SiWhatsapp size={17} aria-hidden="true" />
-              WhatsApp Inquiry
-            </a>
-          </div>
+            <StaggerItem>
+              <div className="retreat-hero-meta">
+                <div>
+                  <Clock3 size={17} aria-hidden="true" />
+                  <span><strong>Duration</strong>{p.duration}</span>
+                </div>
+                <div>
+                  <MapPin size={17} aria-hidden="true" />
+                  <span><strong>Location</strong>{p.location}</span>
+                </div>
+                <div>
+                  <span className="hero-stars" aria-hidden="true">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <Star key={i} className={`size-3.5 ${i < Math.round(p.rating) ? "fill-[var(--gold)] text-[var(--gold)]" : "fill-white/30 text-white/40"}`} />
+                    ))}
+                  </span>
+                  <span><strong>{p.rating}/5</strong>{p.ratingCount} verified reviews</span>
+                </div>
+                <div>
+                  <Users size={17} aria-hidden="true" />
+                  <span><strong>{p.students}</strong>retreat guests</span>
+                </div>
+              </div>
+            </StaggerItem>
+
+            <StaggerItem>
+              <div className="retreat-hero-actions">
+                <ButtonLink href="#registration" className="retreat-hero-cta">
+                  Book Your Retreat
+                </ButtonLink>
+                <ButtonLink href="#schedule" variant="light">
+                  View Schedule
+                </ButtonLink>
+                <a href={whatsappHref} className="button retreat-whatsapp">
+                  <SiWhatsapp size={17} aria-hidden="true" />
+                  WhatsApp Inquiry
+                </a>
+              </div>
+            </StaggerItem>
+          </Stagger>
         </Container>
 
         <div className="retreat-trust-badges" aria-label="Retreat trust badges">

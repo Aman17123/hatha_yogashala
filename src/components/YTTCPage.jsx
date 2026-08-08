@@ -42,6 +42,7 @@ import {
   Scale,
   Shirt,
   Sparkles,
+  ShieldCheck,
   Sprout,
   Star,
   Sun,
@@ -65,6 +66,7 @@ import {
 } from "@/data/siteData";
 import { Container, GoogleMark } from "@/components/ui";
 import { Gallery } from "@/components/Interactive";
+import { Stagger, StaggerItem } from "./retreat/Motion";
 
 /* ── Icon lookup ─────────────────────────────── */
 const ICONS = {
@@ -117,6 +119,7 @@ const ICONS = {
   shirt: Shirt,
   sprout: Sprout,
   star: Star,
+  shield: ShieldCheck,
   style: Sparkles,
   sun: Sun,
   sunrise: Sunrise,
@@ -320,56 +323,81 @@ function SectionCard({ id, className = "", children }) {
 /* ═══════════════════════════════════════════════
    1. HERO — Sukha-style full-width hero
    ═══════════════════════════════════════════════ */
+const HERO_IMAGES = {
+  "100-hour": "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-asana-practice-3.webp",
+  "200-hour": "/images/tha_hatha/the-hatha-yogashala-goa-200-hour-ttc-group-class.jpg",
+  "300-hour": "/images/tha_hatha/the-hatha-yogashala-goa-yoga-philosophy-class.jpg",
+};
+
 function Hero({ c, course }) {
   const hours = String(course.hours).replace("-hour", "");
   const whatsappHref = whatsappLink(course.whatsappMessage);
+  const heroImage = HERO_IMAGES[course.hours] || course.image;
 
   return (
     <section id="top" className="yt-hero">
-      <Image src={course.image} alt={`Students practising during ${course.name}`} fill loading="eager" fetchPriority="high" sizes="100vw" className="yt-hero-img" />
+      <Image src={heroImage} alt={`Students practising during ${course.name} at Hatha Yogashala, Goa`} fill loading="eager" fetchPriority="high" sizes="100vw" className="yt-hero-img" />
       <div className="yt-hero-overlay" />
-      <Container className="relative z-10 w-full pb-14 pt-32 md:pb-20 md:pt-40">
-        <nav aria-label="Breadcrumb" className="mb-8">
-          <ol className="flex flex-wrap items-center gap-2 text-[13.5px] font-bold uppercase tracking-[0.16em] text-white/50">
-            {c.hero.breadcrumbs.map((item, index) => (
-              <li key={item.label} className="flex items-center gap-2">
-                {item.href ? <Link href={item.href} className="transition hover:text-white/80">{item.label}</Link> : <span className="text-white/80">{item.label}</span>}
-                {index < c.hero.breadcrumbs.length - 1 && <ChevronRight size={12} aria-hidden="true" className="text-white/30" />}
-              </li>
-            ))}
-          </ol>
-        </nav>
+      <Container className="relative z-10 w-full pb-16 pt-8 md:pb-20 md:pt-12">
+        <Stagger className="w-full">
+          <StaggerItem className="w-full">
+            <nav aria-label="Breadcrumb" className="mb-7">
+              <ol className="flex flex-wrap items-center gap-2 text-[13.5px] font-bold uppercase tracking-[0.16em] text-white/50">
+                {c.hero.breadcrumbs.map((item, index) => (
+                  <li key={item.label} className="flex items-center gap-2">
+                    {item.href ? <Link href={item.href} className="transition hover:text-white/80">{item.label}</Link> : <span className="text-white/80">{item.label}</span>}
+                    {index < c.hero.breadcrumbs.length - 1 && <span aria-hidden="true" className="size-1 rounded-full bg-white/30" />}
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          </StaggerItem>
 
-        <div className="flex flex-wrap items-center gap-2.5 mb-6">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[13.5px] font-bold uppercase tracking-[0.14em] text-white/80 backdrop-blur-sm ring-1 ring-white/10">
-            <Clock3 size={13} aria-hidden="true" />
-            {course.duration}
-          </span>
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[13.5px] font-bold uppercase tracking-[0.14em] text-white/80 backdrop-blur-sm ring-1 ring-white/10">
-            <Target size={13} aria-hidden="true" />
-            {course.level}
-          </span>
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[13.5px] font-bold uppercase tracking-[0.14em] text-white/80 backdrop-blur-sm ring-1 ring-white/10">
-            <Award size={13} aria-hidden="true" />
-            Global Alliance
-          </span>
-        </div>
+          <StaggerItem className="w-full">
+            <div className="mb-6 flex flex-wrap items-center gap-2.5">
+              {c.hero.pills.map((pill) => (
+                <span key={pill.label} className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[13.5px] font-bold uppercase tracking-[0.14em] text-white/85 backdrop-blur-sm ring-1 ring-white/10">
+                  <Icon name={pill.icon} size={13} className="text-[var(--gold)]" />
+                  {pill.value}
+                </span>
+              ))}
+            </div>
+          </StaggerItem>
 
-        <h1 className="max-w-3xl font-serif text-[2.2rem] font-normal leading-[1.1] tracking-tight text-white sm:text-[2.8rem] md:text-[3.5rem]">
-          {hours} Hour Yoga Teacher Training
-          <em className="block text-[var(--gold)]">in Goa</em>
-        </h1>
+          <StaggerItem className="w-full">
+            <h1 className="max-w-3xl font-serif text-[2.2rem] font-normal leading-[1.1] tracking-tight text-white sm:text-[2.8rem] md:text-[3.5rem]">
+              {hours} Hour Yoga Teacher Training
+              <em className="block text-[var(--gold)]">in Goa</em>
+            </h1>
+          </StaggerItem>
 
-        <p className="mt-5 max-w-xl text-[14px] leading-relaxed text-white/60 md:text-[15px]">{c.hero.text}</p>
+          <StaggerItem className="w-full">
+            <p className="mt-5 max-w-xl text-[14px] leading-relaxed text-white/70 md:text-[15.5px]">{c.hero.text}</p>
+          </StaggerItem>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3">
-          <PillButton href="/apply">Reserve your spot</PillButton>
-          <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="yt-btn-whatsapp">
-            <SiWhatsapp size={16} aria-hidden="true" />
-            Ask on WhatsApp
-          </a>
-        </div>
+          <StaggerItem className="w-full">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <PillButton href="/apply">Reserve your spot</PillButton>
+              <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="yt-btn-whatsapp">
+                <SiWhatsapp size={16} aria-hidden="true" />
+                Ask on WhatsApp
+              </a>
+            </div>
+          </StaggerItem>
+        </Stagger>
       </Container>
+
+      {/* Trust strip */}
+      <div className="yt-hero-trust" aria-label="Course credentials">
+        <Container className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 py-3.5">
+          {c.hero.trust.map((t) => (
+            <span key={t.text} className="inline-flex items-center gap-2 text-[12.5px] font-semibold uppercase tracking-[0.1em] text-white/70">
+              <Icon name={t.icon} size={15} className="text-[var(--gold)]" />
+              {t.text}
+            </span>
+          ))}
+        </Container>
+      </div>
     </section>
   );
 }

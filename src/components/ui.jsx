@@ -118,6 +118,7 @@ export function PageHero({
   title,
   text,
   image = "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
+  imageAlt,
   breadcrumbs = [{ label: "Home", href: "/" }, { label: title }],
   actions = [],
   facts = [],
@@ -126,7 +127,7 @@ export function PageHero({
     <section className="page-hero">
       <Image
         src={image}
-        alt="the-hatha-ypgashala-best-yoga-school-in-Goa"
+        alt={imageAlt || `Hatha Yogashala — ${title || "yoga school in Goa"}`}
         fill
         loading="eager"
         fetchPriority="high"
@@ -363,7 +364,7 @@ export function RetreatCard({ retreat }) {
         <p className="text-body mt-2.5 line-clamp-2">{retreat.description}</p>
 
         {/* Card Footer */}
-        <div className="mt-auto pt-5 flex items-center justify-between gap-3 border-t border-[var(--border)] mt-5">
+        <div className="mt-auto flex items-center justify-between gap-3 border-t border-[var(--border)] pt-5">
           <div>
             <span className="block text-[13.5px] font-bold uppercase tracking-wider text-[var(--muted)]">
               From / person

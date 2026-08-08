@@ -46,6 +46,7 @@ import FounderPreview from "./FounderPreview";
 import TeachersPreview from "./TeachersPreview";
 import FAQ from "./FAQ";
 import QuickNav from "./QuickNav";
+import { FadeIn, Stagger, StaggerItem } from "./retreat/Motion";
 
 const whyItems = [
   {
@@ -196,38 +197,50 @@ export default function HomePage() {
       {/* ===== 1. HERO — headline, intro copy, and school stats ===== */}
       <section className="home-hero">
         <Container className="hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow">
-              <Sparkles aria-hidden="true" size={15} />
-              Yoga study in Goa, India
-            </p>
-            <h1>
-              Hatha Yogashala
-              <em>Yoga School in Goa</em>
-            </h1>
-            <p className="hero-tagline">
-              Yoga teacher training shaped by{" "}
-              <em>practice, place &amp; presence.</em>
-            </p>
-            <p>
-              Hatha Yogashala is a Yoga Alliance-registered yoga school and
-              ashram in Querim, North Goa, offering residential Hatha yoga
-              teacher training (100, 200, and 300-hour) and restorative yoga
-              retreats (3 to 7 days) with clear course scope, thoughtful student
-              support, and no unsupported claims.
-            </p>
-            <div className="hero-actions">
-              <ButtonLink href="/apply">Reserve your spot</ButtonLink>
-              <ButtonLink href="/courses" variant="secondary">
-                Explore courses
-              </ButtonLink>
-            </div>
-            <p className="hero-note">
-              Batch dates, fees, faculty, and room availability are confirmed in
-              writing before payment.
-            </p>
-          </div>
-          <div className="hero-visual">
+          <Stagger className="hero-copy" gap={0.1}>
+            <StaggerItem>
+              <p className="eyebrow">
+                <Sparkles aria-hidden="true" size={15} />
+                Yoga study in Goa, India
+              </p>
+            </StaggerItem>
+            <StaggerItem>
+              <h1>
+                Hatha Yogashala
+                <em>Yoga School in Goa</em>
+              </h1>
+            </StaggerItem>
+            <StaggerItem>
+              <p className="hero-tagline">
+                Yoga teacher training shaped by{" "}
+                <em>practice, place &amp; presence.</em>
+              </p>
+            </StaggerItem>
+            <StaggerItem>
+              <p>
+                Hatha Yogashala is a Yoga Alliance-registered yoga school and
+                ashram in Querim, North Goa, offering residential Hatha yoga
+                teacher training (100, 200, and 300-hour) and restorative yoga
+                retreats (3 to 7 days) with clear course scope, thoughtful student
+                support, and no unsupported claims.
+              </p>
+            </StaggerItem>
+            <StaggerItem>
+              <div className="hero-actions">
+                <ButtonLink href="/apply">Reserve your spot</ButtonLink>
+                <ButtonLink href="/courses" variant="secondary">
+                  Explore courses
+                </ButtonLink>
+              </div>
+            </StaggerItem>
+            <StaggerItem>
+              <p className="hero-note">
+                Batch dates, fees, faculty, and room availability are confirmed in
+                writing before payment.
+              </p>
+            </StaggerItem>
+          </Stagger>
+          <FadeIn className="hero-visual">
             <div className="hero-sun" aria-hidden="true" />
             <div className="hero-image">
               <Image
@@ -239,7 +252,7 @@ export default function HomePage() {
                 sizes="(max-width: 900px) 100vw, 45vw"
               />
             </div>
-          </div>
+          </FadeIn>
         </Container>
       </section>
 
@@ -286,81 +299,97 @@ export default function HomePage() {
       </section>
 
       {/* ===== 3. ABOUT PREVIEW — short intro to the school ===== */}
-      <AboutPreview />
+      <FadeIn>
+        <AboutPreview />
+      </FadeIn>
 
       {/* ===== 4. TEACHER TRAINING — 100/200/300-hour program cards ===== */}
       <section className="section section-peach" id="courses">
         <Container>
-          <SectionHeading
-            eyebrow="Teacher training"
-            title="Choose the yoga teacher training depth that fits your path"
-            text="Compare level, curriculum, accommodation, completion details, and fees before choosing by hour count."
-            align="center"
-          />
-          <div className="grid gap-5 lg:grid-cols-3">
+          <FadeIn>
+            <SectionHeading
+              eyebrow="Teacher training"
+              title="Choose the yoga teacher training depth that fits your path"
+              text="Compare level, curriculum, accommodation, completion details, and fees before choosing by hour count."
+              align="center"
+            />
+          </FadeIn>
+          <Stagger className="grid gap-5 lg:grid-cols-3">
             {teacherTrainings.map((course) => (
-              <ProgramCard key={course.slug} course={course} />
+              <StaggerItem key={course.slug}>
+                <ProgramCard course={course} />
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </Container>
       </section>
 
       {/* ===== 5. RETREATS — coastal retreat cards ===== */}
       <section className="section" id="retreats">
         <Container>
-          <SectionHeading
-            eyebrow="Coastal retreats"
-            title="Yoga retreats to make room for practice and rest"
-            text="Each retreat is a personal-practice experience, not a teacher-training course or professional certification."
-            align="center"
-          />
-          <div className="flex flex-wrap justify-center gap-5">
+          <FadeIn>
+            <SectionHeading
+              eyebrow="Coastal retreats"
+              title="Yoga retreats to make room for practice and rest"
+              text="Each retreat is a personal-practice experience, not a teacher-training course or professional certification."
+              align="center"
+            />
+          </FadeIn>
+          <Stagger className="flex flex-wrap justify-center gap-5">
             {retreats.map((retreat) => (
-              <div
+              <StaggerItem
                 key={retreat.slug}
                 className="w-full sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.833rem)]"
               >
                 <RetreatCard retreat={retreat} />
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </Container>
       </section>
 
       {/* ===== 6. FOUNDER PREVIEW — introduction to the founder ===== */}
-      <FounderPreview />
+      <FadeIn>
+        <FounderPreview />
+      </FadeIn>
 
       {/* ===== 7. TEACHERS PREVIEW — faculty cards ===== */}
-      <TeachersPreview />
+      <FadeIn>
+        <TeachersPreview />
+      </FadeIn>
 
       {/* ===== 8. WHY CHOOSE US — trust-building reasons ===== */}
       <section className="section" id="why-us">
         <Container>
-          <WhyChooser items={whyItems}>
-            <SectionHeading
-              eyebrow="Why choose us"
-              title="What should earn your trust in a yoga school"
-              text="Good yoga education begins with information you can inspect and questions you are welcome to ask."
-            />
-          </WhyChooser>
+          <FadeIn>
+            <WhyChooser items={whyItems}>
+              <SectionHeading
+                eyebrow="Why choose us"
+                title="What should earn your trust in a yoga school"
+                text="Good yoga education begins with information you can inspect and questions you are welcome to ask."
+              />
+            </WhyChooser>
+          </FadeIn>
         </Container>
       </section>
 
       {/* ===== 10. COURSE COMPARISON — 100 vs 200 vs 300-hour table ===== */}
       <section className="section !py-10" id="comparison">
         <Container>
-          <SectionHeading
-            eyebrow="Comparison of our TTC programs"
-            title={
-              <>
-                Which Course is{" "}
-                <span className="text-[var(--coral-dark)]">Right for You?</span>
-              </>
-            }
-            align="center"
-          />
+          <FadeIn>
+            <SectionHeading
+              eyebrow="Comparison of our TTC programs"
+              title={
+                <>
+                  Which Course is{" "}
+                  <span className="text-[var(--coral-dark)]">Right for You?</span>
+                </>
+              }
+              align="center"
+            />
+          </FadeIn>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <Stagger className="mt-8 grid gap-6 md:grid-cols-3" gap={0.1}>
             {teacherTrainings.map((course, ci) => {
               const isPopular = ci === 1; // middle card only
               const badge = isPopular
@@ -370,7 +399,7 @@ export default function HomePage() {
                   : "ADVANCED";
 
               return (
-                <div key={course.slug} className="relative">
+                <StaggerItem key={course.slug} className="relative">
                   <span
                     className={`absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-4 py-1.5 text-[13.5px] font-bold tracking-[0.08em] ${
                       isPopular
@@ -435,17 +464,17 @@ export default function HomePage() {
                       Explore {course.hours}
                     </ButtonLink>
                   </article>
-                </div>
+                </StaggerItem>
               );
             })}
-          </div>
+          </Stagger>
         </Container>
       </section>
 
       {/* ===== 11 CERTIFICATION — Yoga Alliance accreditation ===== */}
       <section className="section" id="certification">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <FadeIn className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
               <SectionHeading
                 eyebrow="Global recognition"
@@ -531,14 +560,14 @@ export default function HomePage() {
                 />
               </div>
             </div>
-          </div>
+          </FadeIn>
         </Container>
       </section>
 
       {/* ===== 12. WHY GOA — coastal setting with photo tiles ===== */}
       <section className="section section-peach">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <FadeIn className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left — text + benefits */}
             <div>
               <SectionHeading
@@ -628,7 +657,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </div>
+          </FadeIn>
         </Container>
       </section>
 
@@ -639,7 +668,7 @@ export default function HomePage() {
         aria-labelledby="residential-experience-title"
       >
         <Container>
-          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+          <FadeIn className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
             <MobileStickyBar
               left={
                 <p className="text-[13.5px] font-black uppercase tracking-widest text-[var(--coral-dark)]">
@@ -722,44 +751,56 @@ export default function HomePage() {
                 ))}
               </ul>
             </div>
-          </div>
+          </FadeIn>
         </Container>
       </section>
 
       {/* ===== 14. REVIEWS — Google student reviews ===== */}
-      <ReviewsSection
-        testimonials={testimonials}
-        reviewProfile={reviewProfile}
-        tripadvisorTestimonials={tripadvisorTestimonials}
-        tripadvisorProfile={tripadvisorProfile}
-      />
+      <FadeIn>
+        <ReviewsSection
+          testimonials={testimonials}
+          reviewProfile={reviewProfile}
+          tripadvisorTestimonials={tripadvisorTestimonials}
+          tripadvisorProfile={tripadvisorProfile}
+        />
+      </FadeIn>
 
       {/* ===== 15. GALLERY — photo preview of life in Goa ===== */}
       <section className="section">
         <Container>
-          <SectionHeading
-            eyebrow="A glimpse of Goa"
-            title="Yoga practice, rest, and coastal surroundings"
-            text="A deliberate mix of portrait, landscape, and detail images keeps the gallery balanced without stretching or empty tiles."
-            align="center"
-          />
-          <Gallery items={galleryItems} filters={false} />
-          <ButtonLink href="/gallery" variant="text" className="mt-7">
-            View full gallery
-          </ButtonLink>
+          <FadeIn>
+            <SectionHeading
+              eyebrow="A glimpse of Goa"
+              title="Yoga practice, rest, and coastal surroundings"
+              text="A deliberate mix of portrait, landscape, and detail images keeps the gallery balanced without stretching or empty tiles."
+              align="center"
+            />
+          </FadeIn>
+          <FadeIn>
+            <Gallery items={galleryItems} filters={false} />
+          </FadeIn>
+          <FadeIn>
+            <ButtonLink href="/gallery" variant="text" className="mt-7">
+              View full gallery
+            </ButtonLink>
+          </FadeIn>
         </Container>
       </section>
 
-      <FAQ />
+      <FadeIn>
+        <FAQ />
+      </FadeIn>
 
       <section className="section" id="location">
         <Container>
-          <SectionHeading
-            eyebrow="Find your way"
-            title="Goa, India"
-            text="The exact street address is not published because it has not been confirmed. The map shows Goa at regional level."
-          />
-          <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+          <FadeIn>
+            <SectionHeading
+              eyebrow="Find your way"
+              title="Goa, India"
+              text="The exact street address is not published because it has not been confirmed. The map shows Goa at regional level."
+            />
+          </FadeIn>
+          <FadeIn className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
             <div className="card card-body flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 text-[var(--coral-dark)]">
@@ -831,14 +872,14 @@ export default function HomePage() {
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
             />
-          </div>
+          </FadeIn>
         </Container>
       </section>
 
       {/* ===== 16. BLOG — latest journal articles ===== */}
       <section className="section section-peach" id="journal">
         <Container>
-          <div className="flex flex-wrap items-end justify-between gap-6">
+          <FadeIn className="flex flex-wrap items-end justify-between gap-6">
             <SectionHeading
               eyebrow="From the journal"
               title="Yoga guides to practise, plan and prepare"
@@ -847,12 +888,14 @@ export default function HomePage() {
             <ButtonLink href="/blog" variant="text" className="shrink-0">
               View all articles
             </ButtonLink>
-          </div>
-          <div className="blog-grid">
+          </FadeIn>
+          <Stagger className="blog-grid">
             {posts.slice(0, 3).map((post) => (
-              <BlogCard post={post} key={post.slug} />
+              <StaggerItem key={post.slug}>
+                <BlogCard post={post} />
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </Container>
       </section>
 

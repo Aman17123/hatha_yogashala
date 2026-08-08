@@ -539,7 +539,7 @@
       }
     }
 
-    > p:not(.eyebrow, .hero-note, .hero-tagline) {
+    p:not(.eyebrow, .hero-note, .hero-tagline) {
       max-width: 650px;
       margin-top: 0.75rem;
       color: var(--ink);

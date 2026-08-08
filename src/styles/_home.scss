@@ -21,13 +21,15 @@
   // own height so it sits exactly below the sticky header; the trust
   // strip stays a compact marquee rather than a full blank screen.
   @media (min-width: 1024px) {
-    .home-page > section {
+    .home-page > section,
+    .home-page > div > section {
       display: flex !important;
       flex-direction: column !important;
       justify-content: center !important;
     }
 
-    .home-page > section:not(.home-hero):not(.trust-strip):not(#google-reviews):not(#tripadvisor-reviews) {
+    .home-page > section:not(.home-hero):not(.trust-strip):not(#google-reviews):not(#tripadvisor-reviews),
+    .home-page > div > section:not(.home-hero):not(.trust-strip):not(#google-reviews):not(#tripadvisor-reviews) {
       min-height: 100vh !important;
     }
 
@@ -81,7 +83,7 @@
       font-size: 19px !important;
     }
 
-    .home-page .hero-copy > p:not(.eyebrow, .hero-note, .hero-tagline) {
+    .home-page .hero-copy p:not(.eyebrow, .hero-note, .hero-tagline) {
       font-size: 16px !important;
     }
 
@@ -120,6 +122,10 @@
     }
 
     // Program (TTC) cards
+    .home-page .program-card {
+      height: 100%;
+    }
+
     .home-page .program-title,
     .home-page .program-card h3 {
       font-size: 21px !important;
@@ -268,7 +274,7 @@
       font-size: 17px !important;
     }
 
-    .home-page .hero-copy > p:not(.eyebrow, .hero-note, .hero-tagline) {
+    .home-page .hero-copy p:not(.eyebrow, .hero-note, .hero-tagline) {
       font-size: 14.5px !important;
     }
 
@@ -634,7 +640,7 @@
       font-size: 15.5px !important;
     }
 
-    .home-page .hero-copy > p:not(.eyebrow, .hero-note, .hero-tagline) {
+    .home-page .hero-copy p:not(.eyebrow, .hero-note, .hero-tagline) {
       font-size: 13.5px !important;
     }
 

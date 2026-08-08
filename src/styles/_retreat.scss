@@ -28,8 +28,47 @@
       180deg,
       rgb(var(--ink-ch) / 58%) 0%,
       rgb(var(--ink-ch) / 28%) 42%,
-      rgb(var(--ink-ch) / 86%) 100%
+      rgb(var(--ink-ch) / 70%) 100%
     );
+  }
+
+  .retreat-hero-orb {
+    position: absolute;
+    z-index: 1;
+    top: -160px;
+    right: -120px;
+    width: 560px;
+    height: 560px;
+    border-radius: 50%;
+    background:
+      radial-gradient(
+        circle at 30% 25%,
+        rgba(201, 169, 97, 0.55) 0%,
+        rgba(201, 169, 97, 0.18) 38%,
+        rgba(201, 169, 97, 0) 62%
+      ),
+      radial-gradient(
+        circle at 70% 80%,
+        rgba(201, 169, 97, 0.32) 0%,
+        rgba(201, 169, 97, 0) 62%
+      );
+    filter: blur(2px);
+    pointer-events: none;
+  }
+
+  .retreat-hero::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset-inline: 10% 0;
+    bottom: 0;
+    height: 320px;
+    background: radial-gradient(
+      ellipse at 30% 100%,
+      rgba(201, 169, 97, 0.22) 0%,
+      rgba(201, 169, 97, 0) 60%
+    );
+    pointer-events: none;
   }
 
   .retreat-hero-inner {

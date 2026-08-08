@@ -1480,9 +1480,12 @@ export const retreats = [3, 5, 7].map((days) => {
     benefits: benefitsByDays[days],
     price: { 3: "€199", 5: "€299", 7: "€449" }[days],
     image:
-      days % 2
-        ? "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp"
-        : "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
+      {
+        3: "/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp",
+        5: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
+        7: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
+      }[days] ||
+      "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
     date: "Monthly retreat start dates year-round",
     availability: "Book Now",
     duration: `${days} days`,

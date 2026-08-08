@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 // Set this to `false` to restore all pages.
-const ENABLED = true;
+const ENABLED = false;
 
 export function proxy(request) {
   if (!ENABLED) return NextResponse.next();
