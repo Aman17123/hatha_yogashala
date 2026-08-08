@@ -24,6 +24,13 @@
   --hero-sun: #24402f;
   --peach: #e5f2ef;
   --sage: #7c9472;
+
+  /* ── Font-size tokens (single source of truth) ──
+     --fs-para   →  15.5px  main paragraph / body text
+     --fs-small  →  13px    captions, tags, labels, hints
+     Change here once — everything updates site-wide.  */
+  --fs-para: 15.5px;
+  --fs-small: 13px;
 }
 
 /* ─────────────────────────────────────────────
@@ -241,7 +248,7 @@ body {
   background: var(--background);
   color: var(--text);
   font-family: var(--font-body), sans-serif;
-  font-size: 16px;
+  font-size: var(--fs-para);
   line-height: 1.75;
   text-rendering: optimizeLegibility;
 }
@@ -258,7 +265,7 @@ button,
 input,
 select,
 textarea {
-  font-size: 16px;
+  font-size: var(--fs-para);
 }
 
 /* ── Global Text Content ───────────────────────
@@ -304,126 +311,77 @@ img {
 }
 
 /* ── Global Typography System ───────────────────
-   One reusable paragraph class + fixed heading
-   and body scale. Minimum visible font size is
-   13.5px. No fluid clamp() typography. */
+   All font sizes reference the two tokens above:
+     --fs-para   = 15.5px  → paragraph / body copy
+     --fs-small  = 13px    → captions, tags, hints
+   Change the token in :root to update everywhere. */
 @layer components {
+  /* ─── Para / body copy ──────────────────────── */
+  /* .para  =  standard class to use on any element
+     that carries paragraph-level text.            */
+  .para,
   .text-body {
-    font-size: 15px;
-    line-height: 1.7;
+    font-size: var(--fs-para);
+    line-height: 1.75;
     font-weight: 400;
     color: #000000;
     letter-spacing: normal;
   }
 
+  /* ─── Lead / large body text ────────────────── */
   .text-large {
     font-size: 18px;
     line-height: 1.7;
     font-weight: 400;
-    color: #000000;
+    color: var(--text);
     letter-spacing: normal;
   }
 
+  /* ─── Small / secondary text ────────────────── */
   .text-small {
-    font-size: 13.5px;
+    font-size: var(--fs-small);
     line-height: 1.6;
     font-weight: 400;
-    color: #000000;
+    color: var(--text);
     letter-spacing: normal;
   }
 
+  /* ─── Heading scale ─────────────────────────── */
   .text-h1 {
     font-size: 48px;
     line-height: 1.2;
     font-weight: 400;
-    color: #000000;
-    letter-spacing: normal;
+    color: var(--text);
   }
-
   .text-h2 {
     font-size: 38px;
     line-height: 1.2;
     font-weight: 400;
-    color: #000000;
-    letter-spacing: normal;
+    color: var(--text);
   }
-
   .text-h3 {
     font-size: 30px;
     line-height: 1.3;
     font-weight: 400;
-    color: #000000;
-    letter-spacing: normal;
+    color: var(--text);
   }
-
   .text-h4 {
     font-size: 24px;
     line-height: 1.35;
     font-weight: 400;
-    color: #000000;
-    letter-spacing: normal;
+    color: var(--text);
   }
-
   .text-h5 {
     font-size: 20px;
     line-height: 1.4;
     font-weight: 400;
-    color: #000000;
-    letter-spacing: normal;
+    color: var(--text);
   }
-
   .text-h6 {
     font-size: 18px;
     line-height: 1.4;
     font-weight: 400;
-    color: #000000;
-    letter-spacing: normal;
-  }
-
-  [data-theme="dark"] .text-body,
-  [data-theme="dark"] .text-large,
-  [data-theme="dark"] .text-small,
-  [data-theme="dark"] .text-h1,
-  [data-theme="dark"] .text-h2,
-  [data-theme="dark"] .text-h3,
-  [data-theme="dark"] .text-h4,
-  [data-theme="dark"] .text-h5,
-  [data-theme="dark"] .text-h6 {
     color: var(--text);
-  }
-}
-
-/* Minimum font-size floor: no visible text renders
-   smaller than 13.5px. Explicit utilities still win
-   in the utilities layer; this guards everything else. */
-@layer base {
-  p,
-  li,
-  dt,
-  dd,
-  figcaption,
-  blockquote,
-  a,
-  button,
-  input,
-  select,
-  textarea,
-  label,
-  legend,
-  td,
-  th,
-  small {
-    font-size: 13.5px;
-  }
-
-  p,
-  li,
-  dt,
-  dd,
-  figcaption,
-  blockquote {
-    font-size: 15px;
-    line-height: 1.7;
   }
 }
 
@@ -651,7 +609,7 @@ img {
 .footer-logo small {
   margin-top: 0.25rem;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -885,7 +843,7 @@ img {
   gap: 0.5rem;
   margin-bottom: 0.5rem;
   color: var(--coral-dark);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -989,6 +947,16 @@ img {
   font-size: 15px;
 }
 
+/* Merged from src/styles (component is wrapped in .StaggerItem divs, so the
+   direct-child rule above never matches — this descendant rule is the
+   effective one). */
+.hero-copy p:not(.eyebrow, .hero-note, .hero-tagline) {
+  max-width: 650px;
+  margin-top: 0.75rem;
+  color: var(--ink);
+  font-size: 15px;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -999,7 +967,7 @@ img {
 .hero-note {
   margin-top: 0.6rem;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .hero-visual {
@@ -1040,7 +1008,7 @@ img {
   background: rgb(44 26 14 / 78%);
   color: var(--on-accent);
   padding: 0.32rem 0.58rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.09em;
   line-height: 1;
@@ -1116,13 +1084,13 @@ img {
 
 .trust-rating {
   font-weight: 800;
-  font-size: 15.2px;
+  font-size: var(--fs-para);
   color: #2b2118;
 }
 
 .trust-stars {
   color: var(--gold);
-  font-size: 13.6px;
+  font-size: var(--fs-small);
   letter-spacing: 1px;
 }
 
@@ -1157,14 +1125,14 @@ img {
 
 .trust-stat strong {
   font-family: var(--font-heading), sans-serif;
-  font-size: 14.4px;
+  font-size: var(--fs-small);
   font-weight: 800;
   color: #2b2118;
   line-height: 1.1;
 }
 
 .trust-stat-sub {
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1196,6 +1164,12 @@ img {
   }
 
   .trust-item:not(:last-child)::after {
+    display: none;
+  }
+
+  /* Merged from src/styles — hides the separator for every trust item
+     (including the last one), not just non-last items. */
+  .trust-item::after {
     display: none;
   }
 
@@ -1312,7 +1286,7 @@ img {
   align-items: center;
   gap: 0.65rem;
   color: var(--brown);
-  font-size: 14.4px;
+  font-size: var(--fs-small);
   font-weight: 700;
 }
 
@@ -1332,7 +1306,7 @@ img {
   background: var(--cream);
   color: var(--brown);
   padding: 0.34rem 0.66rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
 }
 
@@ -1416,7 +1390,7 @@ img {
 
 .meta-grid dt {
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1439,7 +1413,7 @@ img {
 .partner-strip p {
   flex: 0 0 auto;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1500,7 +1474,7 @@ img {
   align-items: flex-start;
   gap: 0.55rem;
   color: var(--text);
-  font-size: 14.4px;
+  font-size: var(--fs-small);
 }
 
 .why-image,
@@ -1606,7 +1580,7 @@ img {
 .comparison-head > span {
   border-left: 0;
   color: #d7d0cc;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1619,7 +1593,7 @@ img {
 
 .comparison-head small {
   color: var(--coral);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -1634,7 +1608,7 @@ img {
   border-top: 1px solid var(--border);
   border-left: 1px solid var(--border);
   padding: 1rem 1.2rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .comparison-row > div:first-child {
@@ -1670,12 +1644,12 @@ img {
 
 .credential-cards strong {
   color: var(--brown);
-  font-size: 13.6px;
+  font-size: var(--fs-small);
 }
 
 .credential-cards span {
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .certificate-placeholder {
@@ -1702,7 +1676,7 @@ img {
 
 .certificate-placeholder span {
   color: var(--coral-dark);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1791,7 +1765,7 @@ img {
 .founder-role,
 .teacher-role {
   color: var(--coral-dark) !important;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
 }
 
@@ -2006,7 +1980,7 @@ blockquote {
   bottom: 1rem;
   left: 1.2rem;
   color: var(--on-accent);
-  font-size: 13.6px;
+  font-size: var(--fs-small);
   font-weight: 700;
   letter-spacing: 0.02em;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
@@ -2034,7 +2008,7 @@ blockquote {
   background: var(--white);
   padding: 0.55rem 0.95rem;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 760;
   transition:
     border-color 180ms ease,
@@ -2263,7 +2237,7 @@ blockquote {
 .final-cta-actions .button {
   min-height: 40px;
   padding: 0.55rem 1.15rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 @media (max-width: 768px) {
@@ -2307,14 +2281,14 @@ blockquote {
 .footer-intro p {
   max-width: 360px;
   margin-top: 1.2rem;
-  font-size: 13.6px;
+  font-size: var(--fs-small);
 }
 
 .footer h2 {
   margin-bottom: 1rem;
   color: var(--on-accent);
   font-family: var(--font-body), sans-serif;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2330,7 +2304,7 @@ blockquote {
 
 .footer li,
 .footer a {
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .footer a:hover {
@@ -2350,7 +2324,7 @@ blockquote {
 
 .placeholder-note {
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .footer .placeholder-note {
@@ -2381,7 +2355,7 @@ blockquote {
 
 .footer-bottom p,
 .footer-bottom a {
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 /* ── Floating Actions ────────────────────────── */
@@ -2406,7 +2380,7 @@ blockquote {
   gap: 0.5rem;
   border-radius: 999px;
   padding: 0.72rem 1.2rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   pointer-events: auto;
   text-decoration: none;
@@ -2425,6 +2399,20 @@ blockquote {
   background: #25d366;
   color: var(--on-accent);
   box-shadow: 0 10px 30px rgb(37 211 102 / 25%);
+}
+
+/* Merged from src/styles — hover states for the floating action bar. */
+.floating-actions a:hover {
+  transform: translateY(-3px);
+}
+
+.floating-actions a:first-child:hover {
+  background: var(--coral-dark);
+  box-shadow: 0 16px 36px rgb(47 79 62 / 34%);
+}
+
+.floating-actions a:last-child:hover {
+  box-shadow: 0 16px 36px rgb(37 211 102 / 40%);
 }
 
 /* Course pages render their own mobile CTA bar — hide the global one. */
@@ -2459,7 +2447,7 @@ body:has(.yttc-page) .floating-actions {
 .page-hero-eyebrow {
   margin-bottom: 0.8rem;
   color: var(--gold);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -2486,7 +2474,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.45rem;
   color: rgb(255 255 255 / 75%);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 /* ── Snapshot ─────────────────────────────────── */
@@ -2519,7 +2507,7 @@ body:has(.yttc-page) .floating-actions {
 
 .snapshot dt {
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -2528,7 +2516,7 @@ body:has(.yttc-page) .floating-actions {
 .snapshot dd {
   margin: 0.18rem 0 0;
   color: var(--brown);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 /* ── Notice ────────────────────────────────────── */
 
@@ -2561,7 +2549,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--coral);
   color: var(--on-accent);
   padding: 0.75rem 0.45rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2608,7 +2596,7 @@ body:has(.yttc-page) .floating-actions {
   border-top: 1px solid var(--border);
   padding: 0.65rem 0.35rem;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 /* ── Detail Grid ─────────────────────────────── */
@@ -2645,7 +2633,7 @@ body:has(.yttc-page) .floating-actions {
 
 .methodology-grid span {
   color: var(--coral);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 850;
 }
 
@@ -2701,7 +2689,7 @@ body:has(.yttc-page) .floating-actions {
 
 .teacher-facts dt {
   color: var(--brown);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
 }
 
@@ -2730,7 +2718,7 @@ body:has(.yttc-page) .floating-actions {
 
 .pricing-summary span {
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -2759,7 +2747,7 @@ body:has(.yttc-page) .floating-actions {
 
 .policy-grid p {
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 /* ── Empty State ─────────────────────────────── */
@@ -2825,7 +2813,7 @@ body:has(.yttc-page) .floating-actions {
   display: grid;
   gap: 0.35rem;
   color: var(--brown);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 750;
 }
 
@@ -2892,7 +2880,7 @@ body:has(.yttc-page) .floating-actions {
   gap: 0.7rem;
   margin-top: 1.2rem;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .consent-field input {
@@ -2922,7 +2910,7 @@ body:has(.yttc-page) .floating-actions {
 .form-status {
   min-height: 24px;
   margin-top: 0.8rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .form-status[data-state="error"] {
@@ -2960,14 +2948,14 @@ body:has(.yttc-page) .floating-actions {
   min-width: 135px;
   border-bottom: 1px solid var(--border);
   padding: 1rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   vertical-align: top;
 }
 
 .pricing-table th {
   background: var(--brown);
   color: var(--on-accent);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -3075,7 +3063,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.45rem;
   color: #c5bdb7;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .article-meta svg {
@@ -3113,7 +3101,7 @@ body:has(.yttc-page) .floating-actions {
 
 .article-toc strong {
   color: var(--brown);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -3126,7 +3114,7 @@ body:has(.yttc-page) .floating-actions {
   border-left: 1px solid var(--border);
   color: var(--muted);
   padding: 0.45rem 0.8rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   line-height: 1.5;
 }
 
@@ -3142,7 +3130,7 @@ body:has(.yttc-page) .floating-actions {
 
 .article-updated {
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .article-content section {
@@ -3187,7 +3175,7 @@ body:has(.yttc-page) .floating-actions {
 .author-card p {
   margin-top: 0.3rem;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   line-height: 1.6;
 }
 
@@ -3432,14 +3420,14 @@ body:has(.yttc-page) .floating-actions {
 
   .comparison-mobile dt {
     color: var(--brown);
-    font-size: 13.5px;
+    font-size: var(--fs-small);
     font-weight: 800;
   }
 
   .comparison-mobile dd {
     margin: 0;
     color: var(--muted);
-    font-size: 13.5px;
+    font-size: var(--fs-small);
   }
 
   .founder-image {
@@ -3540,11 +3528,11 @@ body:has(.yttc-page) .floating-actions {
   }
 
   .brand strong {
-    font-size: 15.2px;
+    font-size: var(--fs-para);
   }
 
   .brand small {
-    font-size: 13.5px;
+    font-size: var(--fs-small);
   }
 
   .hero-copy h1 {
@@ -3818,7 +3806,7 @@ body:has(.yttc-page) .floating-actions {
   .pricing-table td::before {
     content: attr(data-label);
     color: var(--muted);
-    font-size: 13.5px;
+    font-size: var(--fs-small);
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -3907,7 +3895,7 @@ body:has(.yttc-page) .floating-actions {
 
 .page-hero-facts dt {
   color: rgb(255 255 255 / 68%);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -3916,7 +3904,7 @@ body:has(.yttc-page) .floating-actions {
 .page-hero-facts dd {
   margin: 0.2rem 0 0;
   color: var(--on-accent);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 700;
 }
 
@@ -3962,7 +3950,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--coral);
   color: var(--on-accent);
   padding: 0.42rem 0.85rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -3987,7 +3975,7 @@ body:has(.yttc-page) .floating-actions {
 .program-kicker {
   margin-bottom: 0.4rem;
   color: var(--coral-dark);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -4007,7 +3995,7 @@ body:has(.yttc-page) .floating-actions {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   line-height: 1.6;
 }
 
@@ -4032,7 +4020,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.4rem;
   color: var(--muted);
-  font-size: 14.1px;
+  font-size: var(--fs-small);
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: none;
@@ -4045,7 +4033,7 @@ body:has(.yttc-page) .floating-actions {
 .program-stats dd {
   margin: 0;
   color: var(--brown);
-  font-size: 15.2px;
+  font-size: var(--fs-para);
   font-weight: 800;
   text-align: right;
 }
@@ -4068,7 +4056,7 @@ body:has(.yttc-page) .floating-actions {
 .program-price-label {
   display: block;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -4083,7 +4071,7 @@ body:has(.yttc-page) .floating-actions {
 
 .program-price-values del {
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .program-price-values strong {
@@ -4100,7 +4088,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--success);
   color: var(--on-accent);
   padding: 0.16rem 0.5rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.04em;
 }
@@ -4140,7 +4128,7 @@ body:has(.yttc-page) .floating-actions {
   gap: 0.5rem;
   margin-top: 1rem;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 700;
 }
 
@@ -4198,7 +4186,7 @@ body:has(.yttc-page) .floating-actions {
 
 .feature-card p {
   color: var(--muted);
-  font-size: 13.6px;
+  font-size: var(--fs-small);
   line-height: 1.6;
 }
 
@@ -4230,7 +4218,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--cream);
   padding: 0.28rem 0.6rem;
   color: var(--brown);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -4242,7 +4230,7 @@ body:has(.yttc-page) .floating-actions {
 
 .day-card p {
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   line-height: 1.6;
 }
 
@@ -4274,7 +4262,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--brown);
   color: var(--on-accent);
   padding: 0.36rem 0.8rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.06em;
   box-shadow: 0 8px 22px rgb(44 26 14 / 24%);
@@ -4293,7 +4281,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--cream);
   padding: 0.24rem 0.6rem;
   color: var(--brown);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -4329,14 +4317,14 @@ body:has(.yttc-page) .floating-actions {
 .batch-dates {
   margin-top: 0.2rem;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .availability-tag {
   flex: 0 0 auto;
   border-radius: 999px;
   padding: 0.3rem 0.7rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -4432,7 +4420,7 @@ body:has(.yttc-page) .floating-actions {
   border-radius: 50%;
   background: var(--white);
   color: var(--coral-dark);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   box-shadow: 0 6px 18px rgb(89 56 43 / 9%);
 }
@@ -4666,7 +4654,7 @@ body:has(.yttc-page) .floating-actions {
   gap: 0.5rem;
   list-style: none;
   color: rgb(255 255 255 / 72%);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .retreat-hero-breadcrumbs a:hover {
@@ -4686,7 +4674,7 @@ body:has(.yttc-page) .floating-actions {
   background: rgb(255 255 255 / 12%);
   backdrop-filter: blur(8px);
   padding: 0.38rem 0.9rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -4731,14 +4719,14 @@ body:has(.yttc-page) .floating-actions {
 
 .retreat-hero-meta span {
   color: rgb(255 255 255 / 78%);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   line-height: 1.35;
 }
 
 .retreat-hero-meta strong {
   display: block;
   color: var(--on-accent);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
 }
 
@@ -4794,7 +4782,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.45rem;
   color: var(--brown);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
 }
 
@@ -4868,7 +4856,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--cream);
   padding: 0.4rem 0.9rem;
   color: var(--brown);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 700;
 }
 
@@ -4916,7 +4904,7 @@ body:has(.yttc-page) .floating-actions {
 .retreat-why-card p {
   margin-top: 0.4rem;
   color: var(--muted);
-  font-size: 13.8px;
+  font-size: var(--fs-small);
 }
 
 /* ── Teachers ─────────────────────────────────── */
@@ -4946,7 +4934,7 @@ body:has(.yttc-page) .floating-actions {
 
 .retreat-teacher-role {
   color: var(--coral-dark);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -4959,21 +4947,21 @@ body:has(.yttc-page) .floating-actions {
 
 .retreat-teacher-exp {
   color: var(--brown);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 700;
 }
 
 .retreat-teacher-spec {
   margin-top: 0.2rem;
   color: var(--coral-dark);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 700;
 }
 
 .retreat-teacher-bio {
   margin-top: 0.55rem;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   line-height: 1.6;
 }
 
@@ -4983,7 +4971,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: flex-start;
   gap: 0.45rem;
   color: var(--success);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 700;
 }
 
@@ -5008,7 +4996,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--white);
   padding: 0.9rem 1.05rem;
   color: var(--brown);
-  font-size: 14.7px;
+  font-size: var(--fs-small);
   font-weight: 700;
   transition:
     transform 180ms ease,
@@ -5045,7 +5033,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--coral);
   color: var(--on-accent);
   padding: 0.3rem 0.85rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -5059,7 +5047,7 @@ body:has(.yttc-page) .floating-actions {
 .retreat-schedule-day header p {
   margin-top: 0.35rem;
   color: var(--muted);
-  font-size: 13.6px;
+  font-size: var(--fs-small);
 }
 
 .retreat-schedule-timeline {
@@ -5090,7 +5078,7 @@ body:has(.yttc-page) .floating-actions {
 
 .retreat-schedule-entry time {
   color: var(--coral-dark);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   white-space: nowrap;
 }
@@ -5107,7 +5095,7 @@ body:has(.yttc-page) .floating-actions {
 
 .retreat-schedule-entry strong {
   color: var(--brown);
-  font-size: 15.2px;
+  font-size: var(--fs-para);
   font-weight: 700;
 }
 
@@ -5144,7 +5132,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--surface);
   color: var(--coral-dark);
   padding: 0.25rem 0.6rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -5158,7 +5146,7 @@ body:has(.yttc-page) .floating-actions {
 .retreat-experience-card p {
   margin-top: 0.45rem;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 /* ── Free time ────────────────────────────────── */
@@ -5192,7 +5180,7 @@ body:has(.yttc-page) .floating-actions {
 .retreat-freetime-card p {
   margin-top: 0.25rem;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 /* ── Accommodation ────────────────────────────── */
@@ -5217,7 +5205,7 @@ body:has(.yttc-page) .floating-actions {
 .retreat-room-block > p {
   margin: 0.4rem 0 1rem;
   color: var(--muted);
-  font-size: 13.6px;
+  font-size: var(--fs-small);
 }
 
 .retreat-room-gallery {
@@ -5257,7 +5245,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.5rem;
   color: var(--brown);
-  font-size: 13.6px;
+  font-size: var(--fs-small);
   font-weight: 700;
 }
 
@@ -5288,7 +5276,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.35rem;
   color: var(--coral-dark);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
 }
 
@@ -5299,7 +5287,7 @@ body:has(.yttc-page) .floating-actions {
 
 .retreat-meal-body p {
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .retreat-meal-philosophy {
@@ -5336,7 +5324,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: flex-start;
   gap: 0.5rem;
   color: #33503f;
-  font-size: 13.6px;
+  font-size: var(--fs-small);
 }
 
 /* ── Inclusion ────────────────────────────────── */
@@ -5383,7 +5371,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.55rem;
   color: var(--text);
-  font-size: 14.1px;
+  font-size: var(--fs-small);
 }
 
 /* ── Testimonials ─────────────────────────────── */
@@ -5450,13 +5438,13 @@ body:has(.yttc-page) .floating-actions {
 .testimonial-slide figcaption strong {
   display: block;
   color: var(--brown);
-  font-size: 15.2px;
+  font-size: var(--fs-para);
 }
 
 .testimonial-slide figcaption small {
   display: block;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 .testimonial-avatar-fallback {
   display: flex;
@@ -5580,7 +5568,7 @@ body:has(.yttc-page) .floating-actions {
 
 .video-caption small {
   color: rgb(255 255 255 / 78%);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 /* ── Pricing / registration ───────────────────── */
@@ -5611,7 +5599,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--surface);
   color: var(--coral-dark);
   padding: 0.35rem 0.9rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -5647,7 +5635,7 @@ body:has(.yttc-page) .floating-actions {
 
 .retreat-price-per {
   color: var(--muted);
-  font-size: 13.6px;
+  font-size: var(--fs-small);
 }
 
 .retreat-price-card ul {
@@ -5663,7 +5651,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.55rem;
   color: var(--text);
-  font-size: 14.4px;
+  font-size: var(--fs-small);
   font-weight: 600;
 }
 
@@ -5681,7 +5669,7 @@ body:has(.yttc-page) .floating-actions {
 .retreat-dates-strip strong {
   display: block;
   color: var(--brown);
-  font-size: 14.1px;
+  font-size: var(--fs-small);
 }
 
 .retreat-dates-strip ul {
@@ -5703,14 +5691,14 @@ body:has(.yttc-page) .floating-actions {
   background: var(--white);
   padding: 0.55rem 0.85rem;
   color: var(--brown);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 600;
 }
 
 .retreat-dates-strip li small {
   flex: 0 0 auto;
   color: var(--coral-dark);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
 }
 
@@ -5742,7 +5730,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.45rem;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 700;
 }
 
@@ -5767,7 +5755,7 @@ body:has(.yttc-page) .floating-actions {
 
 .booking-price-from {
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -5782,7 +5770,7 @@ body:has(.yttc-page) .floating-actions {
 
 .booking-price small {
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .booking-rating {
@@ -5794,12 +5782,12 @@ body:has(.yttc-page) .floating-actions {
 
 .booking-rating strong {
   color: var(--brown);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .booking-rating small {
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .booking-facts {
@@ -5822,7 +5810,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.45rem;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 700;
 }
 
@@ -5833,7 +5821,7 @@ body:has(.yttc-page) .floating-actions {
 .booking-facts dd {
   margin: 0;
   color: var(--brown);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 700;
   text-align: right;
 }
@@ -5862,7 +5850,7 @@ body:has(.yttc-page) .floating-actions {
 .booking-rooms span {
   flex: 1;
   color: var(--brown);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 700;
 }
 
@@ -5879,7 +5867,7 @@ body:has(.yttc-page) .floating-actions {
 
 .booking-rooms small {
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .booking-actions {
@@ -5946,7 +5934,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.5rem;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 600;
 }
 
@@ -5967,7 +5955,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--white);
   padding: 0.65rem 0.8rem;
   color: var(--brown);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 700;
   text-align: center;
   transition:
@@ -5989,7 +5977,7 @@ body:has(.yttc-page) .floating-actions {
 
 .booking-payments > span {
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -6010,7 +5998,7 @@ body:has(.yttc-page) .floating-actions {
   background: var(--cream);
   padding: 0.3rem 0.7rem;
   color: var(--brown);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 700;
 }
 
@@ -6019,7 +6007,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.4rem;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .booking-success-note {
@@ -6028,7 +6016,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: center;
   gap: 0.5rem;
   color: var(--success);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 700;
 }
 
@@ -6085,7 +6073,7 @@ body:has(.yttc-page) .floating-actions {
   justify-self: start;
   border-radius: 999px;
   padding: 0.25rem 0.65rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -6095,7 +6083,7 @@ body:has(.yttc-page) .floating-actions {
   grid-column: 1 / -1;
   grid-row: 3;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   line-height: 1.5;
 }
 
@@ -6112,7 +6100,7 @@ body:has(.yttc-page) .floating-actions {
   align-items: flex-start;
   gap: 0.6rem;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .month-details li svg {
@@ -6124,7 +6112,7 @@ body:has(.yttc-page) .floating-actions {
 .month-details li strong {
   display: block;
   color: var(--brown);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -6178,7 +6166,7 @@ body:has(.yttc-page) .floating-actions {
   backdrop-filter: blur(6px);
   color: var(--coral-dark);
   padding: 0.35rem 0.75rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -6192,7 +6180,7 @@ body:has(.yttc-page) .floating-actions {
 .blog-results-count {
   margin: 0 0 1.2rem;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
 }
 
 .blog-pagination {
@@ -6561,7 +6549,7 @@ body:has(.yttc-page) .floating-actions {
   border-radius: 999px;
   background: var(--coral-dark);
   color: white;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -6588,7 +6576,7 @@ body:has(.yttc-page) .floating-actions {
   border-radius: 999px;
   background: transparent;
   color: var(--coral-dark);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -6613,7 +6601,7 @@ body:has(.yttc-page) .floating-actions {
   border-radius: 999px;
   background: #25d366;
   color: white;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -6634,7 +6622,7 @@ body:has(.yttc-page) .floating-actions {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -6698,7 +6686,7 @@ body:has(.yttc-page) .floating-actions {
   border-radius: 999px;
   background: var(--cream);
   border: 1px solid var(--border);
-  font-size: 13.5px;
+  font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -6807,5 +6795,1558 @@ body:has(.yttc-page) .floating-actions {
   }
   .footer-wordmark {
     font-size: 192px;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Merged from src/styles/_base.scss (element type scale + text)
+   — previously loaded via layout.jsx → main.scss. Deleted with
+   the rest of src/styles/. Values are byte-identical to the
+   sass-compiled output.                                     */
+@layer base {
+  /* ── Global Type Scale ─────────────────────────
+     Gotu is applied to every heading site-wide. Body
+     copy keeps its own sans-serif. All sizes are px. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    color: var(--brown);
+    font-family: var(--font-heading), "Gotu", sans-serif;
+    font-weight: 400;
+    letter-spacing: normal;
+  }
+
+  h1 {
+    font-size: 48px;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 38px;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: 30px;
+    line-height: 1.3;
+  }
+
+  h4 {
+    font-size: 24px;
+    line-height: 1.35;
+  }
+
+  h5 {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  h6 {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  p {
+    margin-block: 0;
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: #000000;
+  }
+
+  li {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: #000000;
+  }
+
+  small {
+    font-size: 13px;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 40px;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 32px;
+      line-height: 1.2;
+    }
+
+    h3 {
+      font-size: 26px;
+      line-height: 1.3;
+    }
+
+    h4 {
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    h5 {
+      font-size: 18px;
+      line-height: 1.4;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 34px;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    h3 {
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    h4 {
+      font-size: 20px;
+      line-height: 1.35;
+    }
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Merged from src/styles/_layout.scss — SCSS-only components
+   (no globals.css equivalent existed): .hero-stats base block,
+   .brand-logo lockup and the WhatsApp FAB + tooltip.         */
+@layer components {
+  .hero-stats {
+    position: absolute;
+    right: 0;
+    bottom: 1.5rem;
+    display: grid;
+    width: min(200px, 100%);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: rgb(255 255 255 / 94%);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(6px);
+  }
+
+  .hero-stats div {
+    display: grid;
+    gap: 0.2rem;
+    padding: 0.85rem 1.1rem;
+  }
+
+  .hero-stats div + div {
+    border-top: 1px solid var(--border);
+  }
+
+  .hero-stats strong {
+    color: var(--brown);
+    font-family: var(--font-heading), sans-serif;
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-stats span {
+    color: var(--muted);
+    font-size: 13.5px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .hero-stats strong.stat-number {
+    font-size: 28px !important;
+  }
+
+  /* ── Brand Lockup (theme SVG logo) ──────────── */
+  .brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.72rem;
+    color: var(--brown);
+  }
+
+  .brand-logo .brand-logo-mark {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 auto;
+    color: var(--coral);
+  }
+
+  .brand-logo .brand-logo-copy {
+    display: grid;
+    gap: 0.12rem;
+    text-align: left;
+  }
+
+  .brand-logo strong {
+    font-family: var(--font-heading), sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  .brand-logo small {
+    color: var(--coral-dark);
+    font-size: 13.5px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  /* WhatsApp FAB — circular logo only; the label appears as a tooltip on hover. */
+  .floating-actions a.fa-wa {
+    width: 62px;
+    height: 62px;
+    min-width: 0;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 0;
+  }
+
+  .floating-actions a.fa-wa svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .floating-actions a.fa-wa .fa-tooltip {
+    position: absolute;
+    top: 50%;
+    right: calc(100% + 0.7rem);
+    padding: 0.45rem 0.75rem;
+    border-radius: 8px;
+    background: var(--ink);
+    color: #fff;
+    font-size: 13.5px;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-50%) translateX(4px);
+    pointer-events: none;
+    transition:
+      opacity 160ms ease,
+      visibility 160ms ease,
+      transform 160ms ease;
+  }
+
+  .floating-actions a.fa-wa .fa-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left-color: var(--ink);
+  }
+
+  .floating-actions a.fa-wa:hover .fa-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Merged from src/styles/_quicknav.scss — Homepage collapsible
+   side quick-navigation widget. Collapsed: coral tab pinned to
+   the left edge. Expanded: white panel slides out. Hidden below
+   640px where the floating action bar covers quick actions.
+   Nesting flattened; output byte-identical to sass compile.   */
+@layer components {
+  .quick-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 620;
+    pointer-events: none;
+  }
+
+  /* ── Collapsed tab ───────────────────────────── */
+  .quick-nav-tab {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 0.55rem;
+    border: 0;
+    border-radius: 0 14px 14px 0;
+    background: var(--coral);
+    color: #fff;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 18%);
+    cursor: pointer;
+    pointer-events: auto;
+    transform: translateY(-50%);
+    transition:
+      background 180ms ease,
+      box-shadow 180ms ease,
+      opacity 180ms ease,
+      visibility 180ms ease;
+  }
+
+  .quick-nav-tab:hover {
+    background: var(--coral-dark);
+    box-shadow: 0 14px 34px rgb(0 0 0 / 26%);
+  }
+
+  .quick-nav-tab svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .quick-nav-tab-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 13.5px;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* ── Expanded panel ───────────────────────────── */
+  .quick-nav-panel {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 280px;
+    max-width: calc(100vw - 2rem);
+    border: 1px solid var(--border);
+    border-radius: 0 16px 16px 0;
+    background: #fff;
+    box-shadow: 0 24px 60px rgb(0 0 0 / 18%);
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-50%) translateX(calc(-100% - 1rem));
+    transition:
+      transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 200ms ease,
+      visibility 0s linear 260ms;
+  }
+
+  .quick-nav[data-open="true"] .quick-nav-panel {
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+    transition:
+      transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 200ms ease,
+      visibility 0s linear 0s;
+  }
+
+  .quick-nav[data-open="true"] .quick-nav-tab {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .quick-nav-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.85rem 1rem;
+    background: var(--coral);
+    color: #fff;
+  }
+
+  .quick-nav-head-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 13.5px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .quick-nav-head-title svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .quick-nav-close {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border: 0;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 18%);
+    color: #fff;
+    cursor: pointer;
+    transition:
+      background 160ms ease,
+      transform 160ms ease;
+  }
+
+  .quick-nav-close:hover {
+    background: rgb(255 255 255 / 32%);
+    transform: rotate(90deg);
+  }
+
+  .quick-nav-close svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .quick-nav-list {
+    margin: 0;
+    padding: 0.5rem;
+    list-style: none;
+  }
+
+  .quick-nav-list li + li {
+    margin-top: 0.15rem;
+  }
+
+  .quick-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.65rem 0.75rem;
+    border-radius: 10px;
+    color: var(--ink);
+    text-decoration: none;
+    transition:
+      background 160ms ease,
+      color 160ms ease;
+  }
+
+  .quick-nav-link:hover {
+    background: var(--cream);
+  }
+
+  .quick-nav-link.is-active {
+    background: color-mix(in srgb, var(--coral) 12%, #fff);
+    color: var(--coral-dark);
+  }
+
+  .quick-nav-dot {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--coral) 28%, transparent);
+    transition: background 160ms ease;
+  }
+
+  .quick-nav-link.is-active .quick-nav-dot {
+    background: var(--coral);
+  }
+
+  .quick-nav-label {
+    flex: 1;
+    font-size: 13.5px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .quick-nav-chevron {
+    width: 15px;
+    height: 15px;
+    color: var(--coral);
+    opacity: 0;
+    transition: opacity 160ms ease;
+  }
+
+  .quick-nav-link.is-active .quick-nav-chevron {
+    opacity: 1;
+  }
+
+  /* Anchor offset so section jumps clear the sticky header. */
+  #courses,
+  #retreats,
+  #why-us,
+  #residential-experience,
+  #google-reviews,
+  #tripadvisor-reviews,
+  #enrolment-questions,
+  #location {
+    scroll-margin-top: 110px;
+  }
+
+  /* Hide entirely on small screens — bottom floating bar covers quick actions. */
+  @media (max-width: 639px) {
+    .quick-nav {
+      display: none;
+    }
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Merged from src/styles/_home.scss — Home-page density & type
+   scale for laptop/desktop. Scoped to .home-page; `!important`
+   beats inline Tailwind utilities. Byte-identical to sass.    */
+@layer components {
+  /* ── Section framing: one centered viewport per section ────── */
+  @media (min-width: 1024px) {
+    .home-page > section,
+    .home-page > div > section {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+    }
+
+    .home-page > section:not(.home-hero):not(.trust-strip):not(#google-reviews):not(#tripadvisor-reviews),
+    .home-page > div > section:not(.home-hero):not(.trust-strip):not(#google-reviews):not(#tripadvisor-reviews) {
+      min-height: 100vh !important;
+    }
+
+    /* Final CTA stays compact rather than a full viewport */
+    .home-page .final-cta-section {
+      min-height: 0 !important;
+      padding-block: 20px !important;
+    }
+
+    /* Reviews are compact two-row sections, not full-viewport */
+    .home-page #google-reviews,
+    .home-page #tripadvisor-reviews {
+      min-height: 0 !important;
+    }
+
+    .home-page #google-reviews .gap-4,
+    .home-page #tripadvisor-reviews .gap-4 {
+      gap: 0.9rem !important;
+    }
+
+    .home-page #google-reviews .review-card h3,
+    .home-page #tripadvisor-reviews .review-card h3 {
+      font-size: 14px !important;
+    }
+
+    .home-page .section {
+      padding-block: 84px !important;
+    }
+
+    .home-page .section-tight {
+      padding-block: 52px !important;
+    }
+
+    .home-page .section-heading {
+      margin-bottom: 34px !important;
+    }
+
+    .home-page .section-heading > p:last-child {
+      margin-top: 18px !important;
+    }
+  }
+
+  /* ── Base fixed type scale (1920px+ desktop) ────────────────── */
+  @media (min-width: 1024px) {
+    /* Hero */
+    .home-page .hero-copy h1 {
+      font-size: 56px !important;
+    }
+
+    .home-page .hero-tagline {
+      font-size: 19px !important;
+    }
+
+    .home-page .hero-copy p:not(.eyebrow, .hero-note, .hero-tagline) {
+      font-size: 16px !important;
+    }
+
+    .home-page .hero-note {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .hero-visual {
+      min-height: 500px !important;
+    }
+
+    .home-page .hero-grid {
+      gap: 4.5rem !important;
+    }
+
+    /* Section headings */
+    .home-page .section-heading h2,
+    .home-page .section-title {
+      font-size: 44px !important;
+      line-height: 1.12 !important;
+    }
+
+    .home-page .section-heading > p:last-child {
+      font-size: 17.5px !important;
+    }
+
+    .home-page .eyebrow {
+      font-size: 13.5px !important;
+    }
+
+    /* Buttons */
+    .home-page .button {
+      font-size: 14.2px !important;
+      min-height: 44px !important;
+      padding: 0.6rem 1.25rem !important;
+    }
+
+    /* Program (TTC) cards */
+    .home-page .program-card {
+      height: 100%;
+    }
+
+    .home-page .program-title,
+    .home-page .program-card h3 {
+      font-size: 21px !important;
+    }
+
+    .home-page .program-description,
+    .home-page .retreat-description {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .program-stats {
+      margin-top: 0.9rem !important;
+    }
+
+    .home-page .program-stats dt {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .program-stats dd {
+      font-size: 14.5px !important;
+    }
+
+    .home-page .program-pricing {
+      margin-top: 0.8rem !important;
+    }
+
+    .home-page .program-actions {
+      margin-top: 0.8rem !important;
+    }
+
+    .home-page .program-trust {
+      margin-top: 0.7rem !important;
+    }
+
+    .home-page .program-card .card-body {
+      padding: 1.1rem !important;
+    }
+
+    .home-page .program-price strong {
+      font-size: 15.5px !important;
+    }
+
+    .home-page .program-price {
+      padding: 0.55rem 0.7rem !important;
+    }
+
+    /* Retreat cards */
+    .home-page #retreats .text-xl {
+      font-size: 19px !important;
+    }
+
+    /* Comparison cards */
+    .home-page .cmp-row {
+      padding-block: 0.6rem !important;
+    }
+
+    /* Misc body text inside cards */
+    .home-page .text-base {
+      font-size: 15.5px !important;
+    }
+
+    .home-page .text-sm {
+      font-size: 14.5px !important;
+    }
+
+    /* Teachers preview */
+    .home-page #teachers-preview .teacher-card {
+      padding: 1.25rem !important;
+    }
+
+    .home-page #teachers-preview .teacher-card-avatar {
+      width: 104px !important;
+      height: 104px !important;
+    }
+
+    .home-page #teachers-preview .mb-10 {
+      margin-bottom: 2rem !important;
+    }
+
+    /* Dates & schedule */
+    .home-page #dates article {
+      padding: 1.1rem !important;
+    }
+
+    .home-page #dates .grid {
+      gap: 0.9rem !important;
+    }
+
+    /* Why-chooser accordion */
+    .home-page .why-chooser .accordion-item button {
+      min-height: 50px !important;
+      padding: 0.7rem 0.9rem !important;
+    }
+
+    .home-page .why-chooser .accordion-panel p {
+      padding: 0 0.9rem 0.8rem !important;
+    }
+
+    /* Reviews headings & bottom bar */
+    .home-page #google-reviews .text-2xl,
+    .home-page #tripadvisor-reviews .text-2xl {
+      font-size: 30px !important;
+    }
+
+    .home-page #google-reviews .mt-8,
+    .home-page #tripadvisor-reviews .mt-8 {
+      margin-top: 1.25rem !important;
+    }
+
+    /* Location card */
+    .home-page #location .card-body {
+      padding: 1.4rem !important;
+    }
+
+    /* Gallery button */
+    .home-page .mt-7 {
+      margin-top: 1.25rem !important;
+    }
+
+    /* Comparison grid spacing */
+    .home-page #comparison .mt-10 {
+      margin-top: 1.75rem !important;
+    }
+  }
+
+  /* ── Laptop tier 1 (<=1536px): ~10-15% smaller ──────────────── */
+  @media (min-width: 1024px) and (max-width: 1536px) {
+    .home-page .section {
+      padding-block: 48px !important;
+    }
+
+    .home-page .section-heading {
+      margin-bottom: 16px !important;
+    }
+
+    .home-page .section-heading > p:last-child {
+      margin-top: 8px !important;
+    }
+
+    /* Hero */
+    .home-page .hero-copy h1 {
+      font-size: 50px !important;
+    }
+
+    .home-page .hero-tagline {
+      font-size: 17px !important;
+    }
+
+    .home-page .hero-copy p:not(.eyebrow, .hero-note, .hero-tagline) {
+      font-size: 14.5px !important;
+    }
+
+    .home-page .hero-note {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .hero-visual {
+      min-height: 460px !important;
+    }
+
+    .home-page .hero-grid {
+      gap: 3.5rem !important;
+    }
+
+    /* Section headings */
+    .home-page .section-heading h2,
+    .home-page .section-title {
+      font-size: 39px !important;
+    }
+
+    .home-page .section-heading > p:last-child {
+      font-size: 15.5px !important;
+    }
+
+    .home-page .eyebrow {
+      font-size: 13.5px !important;
+    }
+
+    /* Buttons */
+    .home-page .button {
+      font-size: 13.5px !important;
+      min-height: 42px !important;
+      padding: 0.55rem 1.15rem !important;
+    }
+
+    /* Program (TTC) cards */
+    .home-page .program-title,
+    .home-page .program-card h3 {
+      font-size: 19px !important;
+    }
+
+    .home-page .program-description,
+    .home-page .retreat-description {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .program-stats {
+      margin-top: 0.7rem !important;
+    }
+
+    .home-page .program-stats dt {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .program-stats dd {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .program-pricing {
+      margin-top: 0.6rem !important;
+    }
+
+    .home-page .program-actions {
+      margin-top: 0.6rem !important;
+    }
+
+    .home-page .program-trust {
+      margin-top: 0.5rem !important;
+    }
+
+    .home-page .program-card .card-body {
+      padding: 0.9rem !important;
+    }
+
+    .home-page .program-price strong {
+      font-size: 14.5px !important;
+    }
+
+    .home-page .program-price {
+      padding: 0.45rem 0.6rem !important;
+    }
+
+    /* Retreat cards */
+    .home-page #retreats .text-xl {
+      font-size: 17px !important;
+    }
+
+    /* Comparison cards */
+    .home-page .cmp-row {
+      padding-block: 0.28rem !important;
+    }
+
+    .home-page .cmp-head {
+      padding: 0.55rem 0.9rem 0.4rem !important;
+    }
+
+    .home-page .cmp-foot {
+      padding: 0.35rem 0.9rem !important;
+    }
+
+    .home-page .cmp-cta {
+      padding-block: 0.3rem !important;
+    }
+
+    /* Misc body text */
+    .home-page .text-base {
+      font-size: 14.5px !important;
+    }
+
+    .home-page .text-sm {
+      font-size: 13.5px !important;
+    }
+
+    /* Card imagery — fixed heights (laptop tier 1) */
+    .home-page #courses .program-media {
+      aspect-ratio: auto !important;
+      height: 200px !important;
+    }
+
+    .home-page #retreats .home-retreat-media {
+      aspect-ratio: auto !important;
+      height: 165px !important;
+    }
+
+    .home-page #retreats .p-6 {
+      padding: 1rem !important;
+    }
+
+    .home-page #about-preview .home-about-main {
+      aspect-ratio: auto !important;
+      height: 330px !important;
+    }
+
+    .home-page #about-preview .home-about-sub {
+      aspect-ratio: auto !important;
+      height: 195px !important;
+    }
+
+    .home-page #founder-preview .home-founder-media {
+      aspect-ratio: auto !important;
+      height: 500px !important;
+    }
+
+    .home-page #residential-experience .home-res-media {
+      aspect-ratio: auto !important;
+      height: 260px !important;
+    }
+
+    .home-page #enrolment-questions .home-enq-media {
+      aspect-ratio: auto !important;
+      height: 340px !important;
+    }
+
+    .home-page #residential-experience .facility-card {
+      padding: 0.8rem 0.9rem !important;
+    }
+
+    .home-page #residential-experience .facility-card h3 {
+      font-size: 15px !important;
+      margin-top: 0.35rem !important;
+    }
+
+    .home-page #residential-experience .facility-card p {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .home-whygoa-tall {
+      aspect-ratio: auto !important;
+      height: 350px !important;
+    }
+
+    .home-page .home-whygoa-square {
+      aspect-ratio: auto !important;
+      height: 260px !important;
+    }
+
+    .home-page .why-visual {
+      min-height: 480px !important;
+    }
+
+    .home-page .blog-card-image {
+      aspect-ratio: auto !important;
+      height: 200px !important;
+    }
+
+    .home-page #journal .p-6 {
+      padding: 1rem !important;
+    }
+
+    .home-page .map-frame {
+      min-height: 300px !important;
+    }
+
+    .home-page .review-card {
+      height: 240px !important;
+    }
+
+    .home-page .final-cta-section {
+      padding-block: 20px !important;
+    }
+
+    /* Gallery — four columns so the masonry fits one screen */
+    .home-page .gallery-grid {
+      column-count: 4 !important;
+      column-gap: 1rem !important;
+    }
+
+    .home-page .gallery-item {
+      aspect-ratio: auto !important;
+      margin-bottom: 0.6rem !important;
+    }
+
+    .home-page .gallery-item:nth-child(1),
+    .home-page .gallery-item:nth-child(4),
+    .home-page .gallery-item:nth-child(8),
+    .home-page .gallery-item:nth-child(11) {
+      height: 125px !important;
+    }
+
+    .home-page .gallery-item:nth-child(2),
+    .home-page .gallery-item:nth-child(5),
+    .home-page .gallery-item:nth-child(9) {
+      height: 100px !important;
+    }
+
+    .home-page .gallery-item:nth-child(3),
+    .home-page .gallery-item:nth-child(6),
+    .home-page .gallery-item:nth-child(7),
+    .home-page .gallery-item:nth-child(10) {
+      height: 115px !important;
+    }
+
+    .home-page .gallery-item span {
+      font-size: 13.5px !important;
+    }
+
+    /* Teachers preview */
+    .home-page #teachers-preview .teacher-card {
+      padding: 1rem !important;
+    }
+
+    .home-page #teachers-preview .teacher-card-avatar {
+      width: 96px !important;
+      height: 96px !important;
+    }
+
+    .home-page #teachers-preview .teacher-card h3 {
+      font-size: 15px !important;
+    }
+
+    .home-page #teachers-preview .teacher-card p {
+      font-size: 13.5px !important;
+    }
+
+    /* Dates & schedule */
+    .home-page #dates article {
+      padding: 0.9rem !important;
+    }
+
+    .home-page #dates .grid {
+      gap: 0.7rem !important;
+    }
+
+    /* Why-chooser accordion */
+    .home-page .why-chooser .accordion-item button {
+      min-height: 46px !important;
+      padding: 0.6rem 0.85rem !important;
+      font-size: 13.5px !important;
+    }
+
+    .home-page .why-chooser .accordion-panel p {
+      padding: 0 0.85rem 0.7rem !important;
+      font-size: 13.5px !important;
+    }
+
+    /* Reviews */
+    .home-page #google-reviews .text-2xl,
+    .home-page #tripadvisor-reviews .text-2xl {
+      font-size: 26px !important;
+    }
+
+    .home-page #google-reviews .mb-10,
+    .home-page #tripadvisor-reviews .mb-10 {
+      margin-bottom: 1.75rem !important;
+    }
+
+    .home-page #google-reviews .mt-8,
+    .home-page #tripadvisor-reviews .mt-8 {
+      margin-top: 1rem !important;
+    }
+
+    /* Enrolment questions */
+    .home-page #enrolment-questions article {
+      padding: 0.85rem !important;
+    }
+
+    .home-page #enrolment-questions article h3 {
+      font-size: 15px !important;
+    }
+
+    .home-page #enrolment-questions .ml-\[52px\] p {
+      font-size: 13.5px !important;
+    }
+
+    /* Location */
+    .home-page #location .card-body {
+      padding: 0.8rem !important;
+    }
+
+    .home-page #location .text-2xl {
+      font-size: 24px !important;
+    }
+
+    .home-page #location .space-y-3 {
+      gap: 0.45rem !important;
+    }
+
+    .home-page #location .text-sm {
+      font-size: 13.5px !important;
+    }
+
+    /* Founder right column */
+    .home-page #founder-preview .quote-box {
+      padding: 1rem !important;
+    }
+
+    /* Comparison header */
+    .home-page #comparison .mt-10 {
+      margin-top: 1.25rem !important;
+    }
+
+    .home-page #comparison .gap-6 {
+      gap: 1rem !important;
+    }
+
+    /* Final CTA */
+    .home-page .final-cta-section h2 {
+      font-size: 32px !important;
+    }
+  }
+
+  /* ── Laptop tier 2 (<=1440px): ~15-20% smaller ──────────────── */
+  @media (min-width: 1024px) and (max-width: 1440px) {
+    .home-page .section {
+      padding-block: 40px !important;
+    }
+
+    .home-page .section-heading {
+      margin-bottom: 14px !important;
+    }
+
+    .home-page .section-heading > p:last-child {
+      margin-top: 8px !important;
+    }
+
+    /* Hero */
+    .home-page .hero-copy h1 {
+      font-size: 45px !important;
+    }
+
+    .home-page .hero-tagline {
+      font-size: 15.5px !important;
+    }
+
+    .home-page .hero-copy p:not(.eyebrow, .hero-note, .hero-tagline) {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .hero-note {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .hero-visual {
+      min-height: 430px !important;
+    }
+
+    .home-page .hero-image {
+      inset: 0 28px 0 0 !important;
+    }
+
+    .home-page .hero-grid {
+      gap: 2.8rem !important;
+    }
+
+    .home-page .hero-stats div {
+      padding: 0.6rem 0.9rem !important;
+    }
+
+    /* Section headings */
+    .home-page .section-heading h2,
+    .home-page .section-title {
+      font-size: 35px !important;
+    }
+
+    .home-page .section-heading > p:last-child {
+      font-size: 14.5px !important;
+    }
+
+    .home-page .eyebrow {
+      font-size: 13.5px !important;
+    }
+
+    /* Buttons */
+    .home-page .button {
+      font-size: 13.5px !important;
+      min-height: 40px !important;
+      padding: 0.5rem 1.05rem !important;
+    }
+
+    /* Program (TTC) cards */
+    .home-page .program-title,
+    .home-page .program-card h3 {
+      font-size: 17.5px !important;
+    }
+
+    .home-page .program-description,
+    .home-page .retreat-description {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .program-stats {
+      margin-top: 0.55rem !important;
+    }
+
+    .home-page .program-stats dt {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .program-stats dd {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .program-pricing {
+      margin-top: 0.5rem !important;
+    }
+
+    .home-page .program-actions {
+      margin-top: 0.5rem !important;
+    }
+
+    .home-page .program-trust {
+      margin-top: 0.4rem !important;
+    }
+
+    .home-page .program-card .card-body {
+      padding: 0.75rem !important;
+    }
+
+    .home-page .program-price strong {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .program-price {
+      padding: 0.4rem 0.55rem !important;
+    }
+
+    .home-page .program-save {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .program-kicker {
+      font-size: 13.5px !important;
+    }
+
+    /* Retreat cards */
+    .home-page #retreats .text-xl {
+      font-size: 15.5px !important;
+    }
+
+    .home-page #retreats .text-sm {
+      font-size: 13.5px !important;
+    }
+
+    /* Comparison cards — tighten rows, header and CTA */
+    .home-page .cmp-row {
+      padding-block: 0.42rem !important;
+    }
+
+    .home-page .cmp-row-label {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .cmp-row-value {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .cmp-head {
+      padding: 0.55rem 0.9rem 0.35rem !important;
+    }
+
+    .home-page .cmp-foot {
+      padding: 0.35rem 0.9rem !important;
+    }
+
+    .home-page .cmp-cta {
+      padding-block: 0.3rem !important;
+    }
+
+    .home-page .cmp-head .text-base {
+      font-size: 14px !important;
+    }
+
+    .home-page #comparison .text-xs {
+      font-size: 13.5px !important;
+    }
+
+    /* Misc body text */
+    .home-page .text-base {
+      font-size: 13.5px !important;
+    }
+
+    .home-page .text-sm {
+      font-size: 13.5px !important;
+    }
+
+    /* Card imagery — fixed heights (laptop tier 2) */
+    .home-page #courses .program-media {
+      aspect-ratio: auto !important;
+      height: 180px !important;
+    }
+
+    .home-page #courses .grid {
+      gap: 1rem !important;
+    }
+
+    .home-page #retreats .home-retreat-media {
+      aspect-ratio: auto !important;
+      height: 150px !important;
+    }
+
+    .home-page #retreats .grid {
+      gap: 1rem !important;
+    }
+
+    .home-page #retreats .p-6 {
+      padding: 0.8rem !important;
+    }
+
+    .home-page #about-preview .home-about-main {
+      aspect-ratio: auto !important;
+      height: 300px !important;
+    }
+
+    .home-page #about-preview .home-about-sub {
+      aspect-ratio: auto !important;
+      height: 175px !important;
+    }
+
+    .home-page #about-preview .space-y-6 > * + * {
+      margin-top: 0.95rem !important;
+    }
+
+    .home-page #about-preview .space-y-4 > * + * {
+      margin-top: 0.8rem !important;
+    }
+
+    .home-page #about-preview .space-y-4 p {
+      font-size: 13.5px !important;
+      line-height: 1.55 !important;
+    }
+
+    .home-page #about-preview .text-base {
+      font-size: 13.5px !important;
+      line-height: 1.6 !important;
+    }
+
+    .home-page #about-preview .space-y-4 span {
+      font-size: 13.5px !important;
+    }
+
+    .home-page #founder-preview .home-founder-media {
+      aspect-ratio: auto !important;
+      height: 470px !important;
+    }
+
+    .home-page #residential-experience .home-res-media {
+      aspect-ratio: auto !important;
+      height: 230px !important;
+    }
+
+    .home-page #enrolment-questions .home-enq-media {
+      aspect-ratio: auto !important;
+      height: 285px !important;
+    }
+
+    .home-page #residential-experience .facility-card {
+      padding: 0.65rem 0.8rem !important;
+    }
+
+    .home-page #residential-experience .facility-card h3 {
+      font-size: 14px !important;
+      margin-top: 0.3rem !important;
+    }
+
+    .home-page #residential-experience .facility-card p {
+      font-size: 13.5px !important;
+    }
+
+    .home-page #residential-experience .home-res-media + ul {
+      margin-top: 0.9rem !important;
+    }
+
+    .home-page .home-whygoa-tall {
+      aspect-ratio: auto !important;
+      height: 330px !important;
+    }
+
+    .home-page .home-whygoa-square {
+      aspect-ratio: auto !important;
+      height: 245px !important;
+    }
+
+    .home-page .why-visual {
+      min-height: 440px !important;
+    }
+
+    .home-page .blog-card-image {
+      aspect-ratio: auto !important;
+      height: 180px !important;
+    }
+
+    .home-page #journal .p-6 {
+      padding: 0.8rem !important;
+    }
+
+    .home-page .map-frame {
+      min-height: 290px !important;
+    }
+
+    .home-page .review-card {
+      height: 220px !important;
+    }
+
+    .home-page .review-card .p-4 {
+      padding: 0.9rem !important;
+    }
+
+    .home-page .final-cta-section {
+      padding-block: 16px !important;
+    }
+
+    /* Gallery — four columns so the masonry fits one screen (tier 2) */
+    .home-page .gallery-grid {
+      column-count: 4 !important;
+      column-gap: 1rem !important;
+    }
+
+    .home-page .gallery-item {
+      aspect-ratio: auto !important;
+      margin-bottom: 0.5rem !important;
+    }
+
+    .home-page .gallery-item:nth-child(1),
+    .home-page .gallery-item:nth-child(4),
+    .home-page .gallery-item:nth-child(8),
+    .home-page .gallery-item:nth-child(11) {
+      height: 115px !important;
+    }
+
+    .home-page .gallery-item:nth-child(2),
+    .home-page .gallery-item:nth-child(5),
+    .home-page .gallery-item:nth-child(9) {
+      height: 90px !important;
+    }
+
+    .home-page .gallery-item:nth-child(3),
+    .home-page .gallery-item:nth-child(6),
+    .home-page .gallery-item:nth-child(7),
+    .home-page .gallery-item:nth-child(10) {
+      height: 105px !important;
+    }
+
+    .home-page .gallery-item span {
+      font-size: 13.5px !important;
+    }
+
+    /* Compact shared bits */
+    .home-page .home-whygoa-tall,
+    .home-page .home-whygoa-square {
+      border-radius: 22px !important;
+    }
+
+    /* Teachers preview */
+    .home-page #teachers-preview .teacher-card {
+      padding: 0.85rem !important;
+    }
+
+    .home-page #teachers-preview .teacher-card-avatar {
+      width: 88px !important;
+      height: 88px !important;
+    }
+
+    .home-page #teachers-preview .mb-10 {
+      margin-bottom: 1.5rem !important;
+    }
+
+    /* Dates & schedule */
+    .home-page #dates article {
+      padding: 0.75rem !important;
+    }
+
+    /* Why-chooser accordion */
+    .home-page .why-chooser .accordion-item button {
+      min-height: 42px !important;
+      padding: 0.5rem 0.75rem !important;
+      font-size: 13.5px !important;
+    }
+
+    .home-page .why-chooser .accordion-panel p {
+      padding: 0 0.75rem 0.6rem !important;
+      font-size: 13.5px !important;
+    }
+
+    .home-page .why-chooser {
+      gap: 3rem !important;
+    }
+
+    /* Reviews */
+    .home-page #google-reviews .text-2xl,
+    .home-page #tripadvisor-reviews .text-2xl {
+      font-size: 23px !important;
+    }
+
+    .home-page #google-reviews .mb-10,
+    .home-page #tripadvisor-reviews .mb-10 {
+      margin-bottom: 1.25rem !important;
+    }
+
+    .home-page #google-reviews .mt-8,
+    .home-page #tripadvisor-reviews .mt-8 {
+      margin-top: 0.75rem !important;
+    }
+
+    /* Enrolment questions */
+    .home-page #enrolment-questions article {
+      padding: 0.55rem !important;
+    }
+
+    .home-page #enrolment-questions article h3 {
+      font-size: 13.5px !important;
+    }
+
+    .home-page #enrolment-questions .ml-\[52px\] p {
+      font-size: 13.5px !important;
+    }
+
+    /* Location */
+    .home-page #location .card-body {
+      padding: 0.7rem !important;
+    }
+
+    .home-page #location .text-2xl {
+      font-size: 20px !important;
+    }
+
+    .home-page #location .space-y-3 {
+      gap: 0.35rem !important;
+    }
+
+    .home-page #location .text-sm {
+      font-size: 13.5px !important;
+    }
+
+    .home-page #location .text-xs {
+      font-size: 13.5px !important;
+    }
+
+    /* Founder */
+    .home-page #founder-preview .quote-box {
+      padding: 0.85rem !important;
+    }
+
+    .home-page #founder-preview .quote-box p {
+      font-size: 13.5px !important;
+    }
+
+    .home-page #founder-preview .text-base {
+      font-size: 13.5px !important;
+    }
+
+    /* Comparison */
+    .home-page #comparison .mt-10 {
+      margin-top: 0.6rem !important;
+    }
+
+    .home-page #comparison .gap-6 {
+      gap: 0.75rem !important;
+    }
+
+    /* Final CTA */
+    .home-page .final-cta-section h2 {
+      font-size: 30px !important;
+    }
   }
 }
