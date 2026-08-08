@@ -7307,8 +7307,15 @@ body:has(.yttc-page) .floating-actions {
       justify-content: center !important;
     }
 
-    .home-page > section:not(.home-hero):not(.trust-strip):not(#google-reviews):not(#tripadvisor-reviews),
-    .home-page > div > section:not(.home-hero):not(.trust-strip):not(#google-reviews):not(#tripadvisor-reviews) {
+    .home-page
+      > section:not(.home-hero):not(.trust-strip):not(#google-reviews):not(
+        #tripadvisor-reviews
+      ),
+    .home-page
+      > div
+      > section:not(.home-hero):not(.trust-strip):not(#google-reviews):not(
+        #tripadvisor-reviews
+      ) {
       min-height: 100vh !important;
     }
 

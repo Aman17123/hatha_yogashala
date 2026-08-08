@@ -58,7 +58,7 @@ export default function FounderPreview({ founder = founderData }) {
                 Our Lineage & Vision
               </p>
               <h2 className="mt-2 section-title text-[var(--brown)]">
-                Meet the Founder & Lead Master
+                Meet the Founder of Our Goa Yoga School
               </h2>
             </div>
 

@@ -214,17 +214,17 @@ export default function HomePage() {
             </StaggerItem>
             <StaggerItem startVisible>
               <p className="hero-tagline">
-                Yoga teacher training shaped by{" "}
-                <em>practice, place &amp; presence.</em>
+                Join our Yoga Teacher Training in Goa —{" "}
+                <em>shaped by practice, place &amp; presence.</em>
               </p>
             </StaggerItem>
             <StaggerItem startVisible>
-              <p>
+              <p className="text-[15px]">
                 Hatha Yogashala is a Yoga Alliance-registered yoga school and
                 ashram in Querim, North Goa, offering residential Hatha yoga
                 teacher training (100, 200, and 300-hour) and restorative yoga
-                retreats (3 to 7 days) with clear course scope, thoughtful student
-                support, and no unsupported claims.
+                retreats (3 to 7 days) with clear course scope, thoughtful
+                student support, and no unsupported claims.
               </p>
             </StaggerItem>
             <StaggerItem startVisible>
@@ -237,8 +237,8 @@ export default function HomePage() {
             </StaggerItem>
             <StaggerItem startVisible>
               <p className="hero-note">
-                Batch dates, fees, faculty, and room availability are confirmed in
-                writing before payment.
+                Batch dates, fees, faculty, and room availability are confirmed
+                in writing before payment.
               </p>
             </StaggerItem>
           </Stagger>
@@ -312,7 +312,7 @@ export default function HomePage() {
           <FadeIn>
             <SectionHeading
               eyebrow="Teacher training"
-              title="Choose the yoga teacher training depth that fits your path"
+              title="Choose Your Yoga Teacher Training Course in Goa"
               text="Compare level, curriculum, accommodation, completion details, and fees before choosing by hour count."
               align="center"
             />
@@ -333,7 +333,7 @@ export default function HomePage() {
           <FadeIn>
             <SectionHeading
               eyebrow="Coastal retreats"
-              title="Yoga retreats to make room for practice and rest"
+              title="Yoga Retreats in Goa — Practice, Rest & Restore"
               text="Each retreat is a personal-practice experience, not a teacher-training course or professional certification."
               align="center"
             />
@@ -368,7 +368,7 @@ export default function HomePage() {
             <WhyChooser items={whyItems}>
               <SectionHeading
                 eyebrow="Why choose us"
-                title="What should earn your trust in a yoga school"
+                title="Why Choose Our Yoga School in Goa"
                 text="Good yoga education begins with information you can inspect and questions you are welcome to ask."
               />
             </WhyChooser>
@@ -382,12 +382,7 @@ export default function HomePage() {
           <FadeIn>
             <SectionHeading
               eyebrow="Comparison of our TTC programs"
-              title={
-                <>
-                  Which Course is{" "}
-                  <span className="text-[var(--coral-dark)]">Right for You?</span>
-                </>
-              }
+              title="Compare Yoga Teacher Training Courses in Goa"
               align="center"
             />
           </FadeIn>
@@ -483,12 +478,9 @@ export default function HomePage() {
                 eyebrow="Global recognition"
                 title={
                   <>
-                    Internationally recognized{" "}
+                    Yoga Alliance-Certified Teacher{" "}
                     <span className="text-[var(--coral-dark)]">
-                      Yoga Alliance
-                    </span>{" "}
-                    <span className="text-[var(--coral-dark)]">
-                      certification
+                      Training in Goa
                     </span>
                   </>
                 }
@@ -692,7 +684,7 @@ export default function HomePage() {
             <div className="lg:sticky lg:top-24">
               <SectionHeading
                 eyebrow="Residential experience"
-                title="Yoga accommodation and spaces around the practice"
+                title="Yoga Teacher Training Accommodation in Goa"
                 text="Confirm the exact room, yoga hall, meals, facilities, and support attached to your batch before payment."
               />
               <div className="mt-5 max-w-md space-y-4 text-[14px] leading-7 text-black/80">
@@ -774,7 +766,7 @@ export default function HomePage() {
           <FadeIn>
             <SectionHeading
               eyebrow="A glimpse of Goa"
-              title="Yoga practice, rest, and coastal surroundings"
+              title="Yoga Teacher Training in Goa — Photo Gallery"
               text="A deliberate mix of portrait, landscape, and detail images keeps the gallery balanced without stretching or empty tiles."
               align="center"
             />
@@ -799,7 +791,7 @@ export default function HomePage() {
           <FadeIn>
             <SectionHeading
               eyebrow="Find your way"
-              title="Goa, India"
+              title="Find Us — Yoga School Location in Goa, India"
               text="The exact street address is not published because it has not been confirmed. The map shows Goa at regional level."
             />
           </FadeIn>
@@ -885,7 +877,7 @@ export default function HomePage() {
           <FadeIn className="flex flex-wrap items-end justify-between gap-6">
             <SectionHeading
               eyebrow="From the journal"
-              title="Yoga guides to practise, plan and prepare"
+              title="Yoga & Goa Travel Guides"
               text="Original, practical articles on yoga study, Goa travel, and building a sustainable home practice."
             />
             <ButtonLink href="/blog" variant="text" className="shrink-0">

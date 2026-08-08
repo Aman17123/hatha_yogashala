@@ -85,7 +85,44 @@ export const faqData = [
       "/images/tha_hatha/the-hatha-yogashala-goa-yoga-retreat-2025-session.avif",
     imageAlt: "Group yoga session during a training batch",
   },
+  {
+    id: "faq-06",
+    number: "06",
+    question:
+      "Why choose Hatha Yogashala for yoga teacher training in Goa?",
+    shortSummary: "Transparent curriculum, certified teachers, small groups.",
+    description:
+      "Hatha Yogashala is a Yoga Alliance-registered school in North Goa offering 100-hour, 200-hour, and 300-hour teacher training led by experienced, internationally certified faculty. We prioritise transparency — full curriculum, fees, faculty profiles, and accommodation details are available before any payment.",
+    bullets: [
+      "Yoga Alliance RYS-registered school in Goa.",
+      "Certified, experienced faculty with 15+ years teaching.",
+      "Small-group batches for personalised attention.",
+      "Full residential campus a short walk from Querim beach.",
+    ],
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
+    imageAlt: "Hatha Yogashala yoga school campus in Querim, North Goa",
+  },
+  {
+    id: "faq-07",
+    number: "07",
+    question:
+      "What is the best time of year for a yoga teacher training course in Goa?",
+    shortSummary: "October to March offers the most comfortable conditions.",
+    description:
+      "The most comfortable season for a yoga teacher training course in Goa is October through March, when temperatures are moderate, humidity is lower, and the monsoon has cleared. We run batches year-round and can advise on the best dates based on your travel plans and climate preferences.",
+    bullets: [
+      "October–March: ideal weather, cooler mornings and evenings.",
+      "April–May: warmer but manageable with proper hydration and rest.",
+      "June–September: monsoon season — available for those comfortable with rain.",
+      "Contact us for a personal batch recommendation.",
+    ],
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp",
+    imageAlt: "Yoga students practising on a Goa beach in the winter season",
+  },
 ];
+
 
 export const founderData = {
   name: "Yogi Kalpendra Chauhan",
@@ -200,7 +237,7 @@ export const teachersData = [
 
 export const aboutSectionData = {
   eyebrow: "Yoga Alliance Registered School in Goa",
-  heading: "A Sanctuary for Traditional Hatha Yoga Study & Practice",
+  heading: "A Sanctuary for Yoga Teacher Training in Goa",
   subheading:
     "Rooted in classical traditions and surrounded by North Goa's calming coastal nature, Hatha Yogashala in Querim provides residential teacher training and retreats designed for deep learning.",
   paragraph1:

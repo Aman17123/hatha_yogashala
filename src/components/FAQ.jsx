@@ -9,7 +9,7 @@ import { ButtonLink, Container, MobileStickyBar, SectionHeading } from "@/compon
 export default function FAQ({
   questions = faqData,
   eyebrow = "Got Questions?",
-  title = "Frequently Asked Questions",
+  title = "Yoga Teacher Training in Goa — FAQs",
   text = "Everything you need to know before booking your yoga teacher training — straight answers, no vague promises.",
 }) {
   const [activeIndex, setActiveIndex] = useState(0);

@@ -9,7 +9,7 @@ export default function TeachersPreview({ teachers = teachersData }) {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <SectionHeading
             eyebrow="Expert Faculty"
-            title="Meet Our Teachers"
+            title="Meet Our Yoga Teacher Training Faculty in Goa"
             text="Experienced lead teachers, anatomy specialists, and meditation masters assigned to guide your practice in Goa."
           />
           <div className="shrink-0">
