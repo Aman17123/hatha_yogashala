@@ -25,8 +25,6 @@ import {
   reviewProfile,
   site,
   testimonials,
-  tripadvisorProfile,
-  tripadvisorTestimonials,
 } from "@/data/siteData";
 import {
   ButtonLink,
@@ -387,7 +385,7 @@ export default function HomePage() {
             />
           </FadeIn>
 
-          <Stagger className="mt-8 grid gap-6 md:grid-cols-3" gap={0.1}>
+          <Stagger className="mt-10 grid gap-8 md:grid-cols-3" gap={0.1}>
             {teacherTrainings.map((course, ci) => {
               const isPopular = ci === 1; // middle card only
               const badge = isPopular
@@ -397,66 +395,68 @@ export default function HomePage() {
                   : "ADVANCED";
 
               return (
-                <StaggerItem key={course.slug} className="relative">
+                <StaggerItem key={course.slug} className="relative pt-2">
                   <span
-                    className={`absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-4 py-1.5 text-[13.5px] font-bold tracking-[0.08em] ${
+                    className={`absolute -top-3 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full px-4 py-1 text-[12px] font-bold tracking-[0.08em] shadow-sm ${
                       isPopular
                         ? "bg-[var(--coral-dark)] text-white"
-                        : "bg-[var(--cream)] text-[#1b1b2e]"
+                        : "border border-[var(--border)] bg-[var(--cream)] text-[#1b1b2e]"
                     }`}
                   >
                     {badge}
                   </span>
 
                   <article
-                    className={`flex h-full flex-col items-center rounded-2xl border bg-white p-5 text-center ${
+                    className={`flex h-full flex-col items-center justify-between rounded-2xl border bg-white px-5 pb-6 pt-8 text-center transition-all ${
                       isPopular
-                        ? "border-2 border-[var(--coral-dark)]"
-                        : "border-[var(--border)]"
+                        ? "border-2 border-[var(--coral-dark)] shadow-md"
+                        : "border-[var(--border)] shadow-sm"
                     }`}
                   >
-                    <h3 className="text-base font-extrabold text-[#1b1b2e]">
-                      {course.name}
-                    </h3>
-                    <p className="mb-3 text-[13.5px] font-bold uppercase tracking-[0.1em] text-[var(--coral-dark)]">
-                      {course.subtitle}
-                    </p>
+                    <div className="w-full">
+                      <h3 className="text-base font-extrabold text-[#1b1b2e]">
+                        {course.name}
+                      </h3>
+                      <p className="mb-4 text-[13.5px] font-bold uppercase tracking-[0.1em] text-[var(--coral-dark)]">
+                        {course.subtitle}
+                      </p>
 
-                    <dl className="flex-1 space-y-2.5">
-                      {comparisonRows.map((row, ri) => {
-                        const Icon = rowIcons[ri];
-                        return (
-                          <div
-                            key={row[0]}
-                            className="flex flex-col items-center"
-                          >
-                            <dt className="flex items-center justify-center gap-2 text-[13.5px] font-bold uppercase text-muted">
-                              <Icon
-                                className="size-3.5 shrink-0 text-[var(--coral-dark)]"
-                                aria-hidden="true"
-                              />
-                              {row[0]}
-                            </dt>
-                            <dd
-                              className={`mt-1 font-semibold leading-snug text-[#1b1b2e] ${
-                                row[0] === "Shared-room price"
-                                  ? "text-2xl font-extrabold text-[var(--coral-dark)]"
-                                  : "text-[13.5px]"
-                              }`}
+                      <dl className="space-y-3">
+                        {comparisonRows.map((row, ri) => {
+                          const Icon = rowIcons[ri];
+                          return (
+                            <div
+                              key={row[0]}
+                              className="flex flex-col items-center justify-center min-h-[52px]"
                             >
-                              {row[ci + 1]}
-                            </dd>
-                          </div>
-                        );
-                      })}
-                    </dl>
+                              <dt className="flex items-center justify-center gap-1.5 text-[12px] font-bold uppercase text-[var(--muted)]">
+                                <Icon
+                                  className="size-3.5 shrink-0 text-[var(--coral-dark)]"
+                                  aria-hidden="true"
+                                />
+                                {row[0]}
+                              </dt>
+                              <dd
+                                className={`mt-0.5 font-semibold leading-snug text-[#1b1b2e] ${
+                                  row[0] === "Shared-room price"
+                                    ? "text-xl font-extrabold text-[var(--coral-dark)]"
+                                    : "text-[13px]"
+                                }`}
+                              >
+                                {row[ci + 1]}
+                              </dd>
+                            </div>
+                          );
+                        })}
+                      </dl>
+                    </div>
 
                     <ButtonLink
                       href={`/courses/${course.slug}`}
-                      className={`mt-5 flex w-full items-center justify-center gap-2 rounded-full py-2.5 text-[13.5px] font-bold uppercase tracking-[0.08em] ${
+                      className={`mt-6 flex w-full items-center justify-center gap-2 rounded-full py-2.5 text-[13px] font-bold uppercase tracking-[0.08em] ${
                         isPopular
-                          ? "bg-[var(--coral-dark)] text-white"
-                          : "bg-[var(--cream)] text-[#1b1b2e]"
+                          ? "bg-[var(--coral-dark)] text-white hover:opacity-95"
+                          : "bg-[var(--cream)] text-[#1b1b2e] hover:bg-[#eae3d5]"
                       }`}
                     >
                       Explore {course.hours}
@@ -684,7 +684,7 @@ export default function HomePage() {
             <div className="lg:sticky lg:top-24">
               <SectionHeading
                 eyebrow="Residential experience"
-                title="Yoga Teacher Training Accommodation in Goa"
+                title="Accommodation & Food"
                 text="Confirm the exact room, yoga hall, meals, facilities, and support attached to your batch before payment."
               />
               <div className="mt-5 max-w-md space-y-4 text-[14px] leading-7 text-black/80">
@@ -705,7 +705,7 @@ export default function HomePage() {
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
                 <ButtonLink href="/accommodation" variant="secondary">
-                  Explore accommodation
+                  Explore accommodation & food
                 </ButtonLink>
               </div>
             </div>
@@ -714,8 +714,8 @@ export default function HomePage() {
             <div>
               <div className="home-res-media relative aspect-[16/10] overflow-hidden rounded-[28px] shadow-xl">
                 <Image
-                  src="/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp"
-                  alt="Residential campus and yoga school at Hatha Yogashala in Querim, North Goa"
+                  src="/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp"
+                  alt="Residential campus and accommodation at Hatha Yogashala in Querim, North Goa"
                   fill
                   sizes="(max-width: 1024px) 100vw, 55vw"
                   className="object-cover"
@@ -745,6 +745,23 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-6 rounded-2xl border border-[var(--border)] bg-white p-6 shadow-sm">
+                <div className="flex items-center gap-2 mb-2 text-[var(--coral-dark)]">
+                  <Leaf className="h-5 w-5 shrink-0" />
+                  <h3 className="font-serif text-xl font-bold text-black">
+                    Nourishing Sattvic Meals
+                  </h3>
+                </div>
+                <p className="text-[14px] leading-relaxed text-black/80">
+                  Every course includes three freshly prepared vegetarian, sattvic
+                  meals daily (Monday to Saturday morning). Prepared with locally
+                  sourced ingredients, our menu supports intense daily practice
+                  with easy digestion and balanced nutrition. Special dietary
+                  accommodations (vegan, gluten-free, dairy-free) are available
+                  upon request.
+                </p>
+              </div>
             </div>
           </FadeIn>
         </Container>
@@ -755,8 +772,6 @@ export default function HomePage() {
         <ReviewsSection
           testimonials={testimonials}
           reviewProfile={reviewProfile}
-          tripadvisorTestimonials={tripadvisorTestimonials}
-          tripadvisorProfile={tripadvisorProfile}
         />
       </FadeIn>
 

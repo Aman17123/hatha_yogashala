@@ -78,12 +78,6 @@ function GoogleG({ className = "h-12 w-12" }) {
   );
 }
 
-function TripAdvisorLogo({ className = "h-12 w-12" }) {
-  return (
-    <BrandLogo name="tripadvisor" alt="TripAdvisor" className={className} />
-  );
-}
-
 function ReviewGrid({
   visibleTestimonials,
   trackRef,
@@ -159,16 +153,10 @@ export default function ReviewsSection({
   reviewProfile = {},
   title = "Student Reviews",
   subtitle = "Verified 5.0 Rating in Goa",
-  tripadvisorTestimonials = [],
-  tripadvisorProfile = {},
-  tripadvisorTitle = "Student Reviews",
-  tripadvisorSubtitle = "Verified 5.0 Rating in Goa",
 }) {
   const trackRef = useRef(null);
-  const tripTrackRef = useRef(null);
 
   const visibleTestimonials = testimonials.slice(0, 4);
-  const visibleTripTestimonials = tripadvisorTestimonials.slice(0, 4);
 
   function scroll(direction) {
     const track = trackRef.current;
@@ -176,17 +164,8 @@ export default function ReviewsSection({
     track.scrollBy({ left: direction * 320, behavior: "smooth" });
   }
 
-  function scrollTrip(direction) {
-    const track = tripTrackRef.current;
-    if (!track) return;
-    track.scrollBy({ left: direction * 320, behavior: "smooth" });
-  }
-
   const rating = reviewProfile.rating ?? 5.0;
   const googleUrl = reviewProfile.googleBusinessUrl || "";
-
-  const tripRating = tripadvisorProfile.rating ?? 5.0;
-  const tripUrl = tripadvisorProfile.tripadvisorUrl || "";
 
   return (
     <>
@@ -267,88 +246,6 @@ export default function ReviewsSection({
                 className="w-full rounded-full bg-[#2f6de0] px-6 py-3 text-center text-[13.5px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#2758b8] md:w-auto"
               >
                 Open Google Profile
-              </a>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* ============ TRIPADVISOR SECTION ============ */}
-      <section
-        className="section-tight overflow-hidden border-t border-[var(--border)] bg-[var(--cream)]"
-        id="tripadvisor-reviews"
-      >
-        <div className="mx-auto max-w-7xl px-4 md:px-8">
-          <div className="mb-8 text-center">
-            <div className="mb-2 flex items-center justify-center gap-2">
-              <TripAdvisorLogo className="h-8 w-8 md:h-10 md:w-10" />
-              <h2 className="text-2xl font-black tracking-tighter text-[var(--brown)] md:text-4xl">
-                TripAdvisor —{" "}
-                <span className="text-[#007a5e]">{tripadvisorTitle}</span>
-              </h2>
-            </div>
-            <div className="mx-auto mb-2 h-1 w-24 rounded-full bg-[#00af87]" />
-            <p className="text-[13.5px] font-bold uppercase tracking-[0.3em] text-[var(--muted)] md:text-[13.5px]">
-              {tripadvisorSubtitle}
-            </p>
-          </div>
-
-          {visibleTripTestimonials.length ? (
-            <ReviewGrid
-              visibleTestimonials={visibleTripTestimonials}
-              trackRef={tripTrackRef}
-              scroll={scrollTrip}
-              cardBorderClass="border-[var(--border)]"
-              starColorClass="fill-[#007a5e] text-[#007a5e]"
-              avatarGradientClass="bg-gradient-to-br from-[#007a5e] to-[#00634b]"
-              arrowColorClass="text-[#007a5e]"
-            />
-          ) : (
-            <div className="rounded-2xl border border-[var(--border)] bg-[var(--white)] p-4 text-center shadow-sm">
-              <h3 className="text-sm font-black text-[var(--brown)]">
-                No verified public reviews are linked yet
-              </h3>
-              <p className="mt-2 text-[13.5px] text-[var(--text)]">
-                Reviews populate only from approved platform sources.
-              </p>
-            </div>
-          )}
-
-          <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-xl border border-[var(--border)] bg-[var(--white)] px-4 py-4 shadow-sm md:flex-row">
-            <div className="flex items-center gap-3 text-center md:text-left">
-              <TripAdvisorLogo className="h-12 w-12" />
-              <div>
-                <h3 className="text-[14px] font-black leading-tight text-[var(--brown)] md:text-[16px]">
-                  Excellent on TripAdvisor
-                </h3>
-                <div className="flex items-center justify-center gap-2 md:justify-start">
-                  <span className="text-sm font-black text-[var(--brown)]">
-                    {tripRating}
-                  </span>
-                  <Stars
-                    count={Math.round(tripRating)}
-                    colorClass="fill-[#007a5e] text-[#007a5e]"
-                  />
-                </div>
-              </div>
-            </div>
-            {tripUrl ? (
-              <a
-                href={tripUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full rounded-full bg-[#007a5e] px-6 py-3 text-center text-[13.5px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#00634b] md:w-auto"
-              >
-                Review Us on TripAdvisor
-              </a>
-            ) : (
-              <a
-                href="https://www.tripadvisor.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full rounded-full bg-[#007a5e] px-6 py-3 text-center text-[13.5px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#00634b] md:w-auto"
-              >
-                Open TripAdvisor Profile
               </a>
             )}
           </div>

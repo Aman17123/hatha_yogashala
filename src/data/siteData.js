@@ -249,74 +249,7 @@ export const testimonials = [
   },
 ];
 
-export const tripadvisorProfile = {
-  tripadvisorUrl: "https://www.tripadvisor.com/",
-  rating: 5.0,
-  reviewCount: 210,
-};
 
-export const tripadvisorTestimonials = [
-  {
-    name: "Aisha K, India",
-    rating: 5,
-    date: "2026",
-    platform: "TripAdvisor",
-    headline: "Best yoga school in Goa — a must-visit!",
-    excerpt:
-      "Hatha Yogashala is a hidden gem near Arambol. Warm welcome, authentic Hatha classes, clean rooms and incredible sattvic food. I came for a 7-day retreat and felt at home from day one. Highly recommended.",
-    sourceUrl: "https://www.tripadvisor.com/",
-  },
-  {
-    name: "Marta P, Poland",
-    rating: 5,
-    date: "2026",
-    platform: "TripAdvisor",
-    headline: "Life-changing teacher training",
-    excerpt:
-      "Completed my 200-hour YTT here and it exceeded every expectation. Small group, expert teachers, and a peaceful beachside location. The best value yoga experience I have found anywhere in Goa.",
-    sourceUrl: "https://www.tripadvisor.com/",
-  },
-  {
-    name: "John ,Netherlands",
-    rating: 5,
-    date: "2025",
-    platform: "TripAdvisor",
-    headline: "Perfect place to recharge",
-    excerpt:
-      "I stayed for a week and loved every moment. Morning practice by the palms, sunset beach walks, sound healing and genuinely kind staff. This is the real deal — no gimmicks, just excellent yoga.",
-    sourceUrl: "https://www.tripadvisor.com/",
-  },
-  {
-    name: "Emma L, UK",
-    rating: 5,
-    date: "2025",
-    platform: "TripAdvisor",
-    headline: "Authentic and unforgettable",
-    excerpt:
-      "The teachers know their craft and care about each student. Meditation, pranayama and philosophy were taught with depth. Easily the most authentic yoga school we visited during our trip to India.",
-    sourceUrl: "https://www.tripadvisor.com/",
-  },
-  {
-    name: "Sofia R, Brazil",
-    rating: 5,
-    date: "2025",
-    platform: "TripAdvisor",
-    headline: "Paradise with purpose",
-    excerpt:
-      "Beautiful setting, wholesome meals and a truly balanced daily rhythm. The retreat gave me time to breathe, practice and rest. I left feeling stronger and calmer. Worth every rupee.",
-    sourceUrl: "https://www.tripadvisor.com/",
-  },
-  {
-    name: "Lars M, Germany",
-    rating: 5,
-    date: "2024",
-    platform: "TripAdvisor",
-    headline: "Excellent teachers, excellent food",
-    excerpt:
-      "From the pickup at Mopa airport to the final closing circle, everything was smooth. Small class sizes mean real attention. I have trained at several schools across Asia — this one stands out.",
-    sourceUrl: "https://www.tripadvisor.com/",
-  },
-];
 
 export const travelOptions = [
   {

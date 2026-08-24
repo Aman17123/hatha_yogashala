@@ -20,7 +20,6 @@ import {
   teachers,
   testimonials,
   travelOptions,
-  tripadvisorTestimonials,
 } from "./siteData";
 
 const LEVEL_ORDER = ["100-hour", "200-hour", "300-hour"];
@@ -786,7 +785,6 @@ export function yttcContent(course) {
     // ── Reviews ─────────────────────────────────────────────
     reviews: {
       google: testimonials,
-      tripadvisor: tripadvisorTestimonials,
     },
 
     // ── FAQ ─────────────────────────────────────────────────

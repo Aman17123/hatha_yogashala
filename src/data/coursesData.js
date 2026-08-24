@@ -65,7 +65,7 @@ const hundredHour = {
   certification: "Yoga Alliance USA Recognized",
   outcome: "Strong foundation, bridge to 200H",
   perfectfor: "Complete beginners, limited time",
-  cardBadge: "BEGGINER",
+  cardBadge: "BEGINNER",
   cardSummary:
     "A two-week, beginner-friendly foundation course at one of the best yoga schools in Goa — Yoga Alliance-approved, with accommodation, meals, and certification included.",
   cardStats: {
