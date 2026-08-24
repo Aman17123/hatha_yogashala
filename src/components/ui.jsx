@@ -242,7 +242,7 @@ export function ProgramCard({ course, horizontal = false }) {
           }
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        {course.cardBadge && (
+        {course.cardBadge && !["Most Popular", "Most Booked", "Shared"].includes(course.cardBadge) && (
           <span className="program-badge">{course.cardBadge}</span>
         )}
       </div>
@@ -267,12 +267,12 @@ export function ProgramCard({ course, horizontal = false }) {
         {pricing && (
           <div className="program-pricing">
             <PriceRow
-              label="Shared room"
+              label="Shared"
               price={pricing.shared}
               currency={currency}
             />
             <PriceRow
-              label="Private room"
+              label="Private"
               price={pricing.private}
               currency={currency}
             />
@@ -285,6 +285,12 @@ export function ProgramCard({ course, horizontal = false }) {
             className={isFeatured ? "shadow-md" : ""}
           >
             View Details
+          </ButtonLink>
+          <ButtonLink
+            href={`/courses/${course.slug}#registration`}
+            variant="secondary"
+          >
+            View Course Fee
           </ButtonLink>
           <a
             className="program-wa"

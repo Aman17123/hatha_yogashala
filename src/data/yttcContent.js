@@ -449,14 +449,18 @@ export function yttcContent(course) {
 
     // ── Quick-nav jump links ───────────────────────────────
     quickNav: [
-      { id: "overview", label: "Overview" },
+      { id: "what-is", label: "Overview" },
+      { id: "why", label: "Why Choose Us" },
       { id: "syllabus", label: "Syllabus" },
       { id: "schedule", label: "Schedule" },
-      { id: "dates-fees", label: "Dates & Fees" },
+      { id: "highlights", label: "Course Keys" },
       { id: "teachers", label: "Teachers" },
-      { id: "accommodation", label: "Accommodation" },
-      { id: "reviews", label: "Reviews" },
-      { id: "faq", label: "FAQ" },
+      { id: "experiences", label: "Activities & Excursions" },
+      { id: "included", label: "Include / Exclude" },
+      { id: "accommodation", label: "Accommodation & Food" },
+      { id: "outcomes", label: "What You'll Learn" },
+      { id: "dates", label: "Course Dates" },
+      { id: "fees", label: "Course Fees" },
     ],
 
     // ── Sticky booking sidebar ─────────────────────────────
