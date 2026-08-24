@@ -724,8 +724,7 @@ img {
 }
 
 .mobile-dialog,
-.lightbox,
-.contents-dialog {
+.lightbox {
   width: 100%;
   max-width: none;
   height: 100%;
@@ -737,8 +736,7 @@ img {
 }
 
 .mobile-dialog::backdrop,
-.lightbox::backdrop,
-.contents-dialog::backdrop {
+.lightbox::backdrop {
   background: rgb(37 36 35 / 72%);
   backdrop-filter: blur(3px);
 }
@@ -1777,18 +1775,9 @@ blockquote {
   font-family: var(--font-heading), sans-serif;
   font-size: 17.9px;
 }
-/* ── Horizontal Scroller ────────────────────── */
+/* ── Lightbox Controls ──────────────────────── */
 
-.scroller-controls {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.6rem;
-  margin: -4.5rem 0 1.2rem;
-}
-
-.scroller-controls button,
-.lightbox-controls button,
-.contents-top button {
+.lightbox-controls button {
   display: grid;
   width: 46px;
   height: 46px;
@@ -1796,21 +1785,6 @@ blockquote {
   border: 1px solid var(--border);
   border-radius: 50%;
   background: var(--white);
-}
-
-.horizontal-scroller {
-  display: grid;
-  overflow-x: auto;
-  grid-auto-columns: minmax(290px, 31%);
-  grid-auto-flow: column;
-  gap: 1.2rem;
-  padding: 0.5rem 0 1.2rem;
-  scroll-snap-type: x mandatory;
-  scrollbar-color: var(--coral) var(--surface);
-}
-
-.horizontal-scroller > * {
-  scroll-snap-align: start;
 }
 /* ── Teacher Avatar ─────────────────────────── */
 
@@ -2477,47 +2451,6 @@ body:has(.yttc-page) .floating-actions {
   font-size: var(--fs-small);
 }
 
-/* ── Snapshot ─────────────────────────────────── */
-
-.snapshot {
-  display: grid;
-  margin: 0;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  background: var(--white);
-  box-shadow: var(--shadow-soft);
-}
-
-.snapshot > div {
-  display: grid;
-  min-height: 120px;
-  align-content: center;
-  padding: 1.2rem;
-}
-
-.snapshot > div + div {
-  border-left: 1px solid var(--border);
-}
-
-.snapshot svg {
-  margin-bottom: 0.5rem;
-  color: var(--coral-dark);
-}
-
-.snapshot dt {
-  color: var(--muted);
-  font-size: var(--fs-small);
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.snapshot dd {
-  margin: 0.18rem 0 0;
-  color: var(--brown);
-  font-size: var(--fs-small);
-}
 /* ── Notice ────────────────────────────────────── */
 
 .notice {
@@ -2533,70 +2466,6 @@ body:has(.yttc-page) .floating-actions {
 .notice svg {
   flex: 0 0 auto;
   color: var(--coral-dark);
-}
-
-/* ── Contents Drawer ──────────────────────────── */
-
-.contents-trigger {
-  position: fixed;
-  z-index: 650;
-  top: 52%;
-  left: 0;
-  min-width: 48px;
-  min-height: 120px;
-  border: 0;
-  border-radius: 0 14px 14px 0;
-  background: var(--coral);
-  color: var(--on-accent);
-  padding: 0.75rem 0.45rem;
-  font-size: var(--fs-small);
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  writing-mode: vertical-rl;
-}
-/* ── Contents Dialog ──────────────────────────── */
-
-.contents-dialog {
-}
-
-.contents-dialog > div {
-  position: absolute;
-  top: 50%;
-  left: 1rem;
-  width: min(360px, calc(100vw - 2rem));
-  transform: translateY(-50%);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  background: var(--cream);
-  padding: 1rem;
-  box-shadow: var(--shadow);
-}
-
-.contents-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.8rem;
-}
-
-.contents-top h2 {
-  font-size: 24px;
-}
-
-.contents-dialog nav {
-  display: grid;
-  max-height: 60vh;
-  overflow-y: auto;
-}
-
-.contents-dialog nav a {
-  min-height: 44px;
-  border-top: 1px solid var(--border);
-  padding: 0.65rem 0.35rem;
-  color: var(--muted);
-  font-size: var(--fs-small);
 }
 
 /* ── Detail Grid ─────────────────────────────── */
@@ -3434,10 +3303,6 @@ body:has(.yttc-page) .floating-actions {
     min-height: 430px;
   }
 
-  .horizontal-scroller {
-    grid-auto-columns: minmax(290px, 64%);
-  }
-
   .contact-location-grid,
   .travel-grid,
   .detail-grid,
@@ -3445,45 +3310,6 @@ body:has(.yttc-page) .floating-actions {
   .policy-grid,
   .room-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .snapshot {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .snapshot > div + div {
-    border-left: 0;
-  }
-
-  .snapshot > div:nth-child(even) {
-    border-left: 1px solid var(--border);
-  }
-
-  .snapshot > div:nth-child(n + 3) {
-    border-top: 1px solid var(--border);
-  }
-
-  .contents-trigger {
-    top: auto;
-    bottom: calc(1rem + env(safe-area-inset-bottom));
-    left: 50%;
-    min-width: 120px;
-    min-height: 44px;
-    transform: translateX(-50%);
-    border-radius: 999px;
-    writing-mode: horizontal-tb;
-  }
-
-  .contents-dialog > div {
-    top: auto;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    max-height: 78vh;
-    transform: none;
-    border-radius: 24px 24px 0 0;
-    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
   }
 
   .contact-aside,
@@ -3632,14 +3458,6 @@ body:has(.yttc-page) .floating-actions {
     grid-template-columns: 1fr;
   }
 
-  .horizontal-scroller {
-    grid-auto-columns: 84%;
-  }
-
-  .scroller-controls {
-    margin-top: -3.5rem;
-  }
-
   .facility-grid {
     grid-template-columns: 1fr;
   }
@@ -3728,18 +3546,6 @@ body:has(.yttc-page) .floating-actions {
   .course-overview-image {
     min-height: 430px;
     border-radius: 28px 80px 28px 28px;
-  }
-
-  .snapshot {
-    grid-template-columns: 1fr;
-  }
-
-  .snapshot > div:nth-child(even) {
-    border-left: 0;
-  }
-
-  .snapshot > div + div {
-    border-top: 1px solid var(--border);
   }
 
   .teacher-grid {

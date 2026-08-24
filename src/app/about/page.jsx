@@ -110,7 +110,7 @@ export default function AboutPage() {
               ["Trust", "Keep certification, fees, reviews, dates, and outcomes verifiable and easy to update.", ShieldCheck],
             ].map(([title, text, Icon]) => (
               <article className="card card-body" key={title}>
-                <Icon aria-hidden="true" /><h2>{title}</h2><p>{text}</p>
+                <Icon aria-hidden="true" /><h3>{title}</h3><p>{text}</p>
               </article>
             ))}
           </div>

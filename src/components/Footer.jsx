@@ -17,6 +17,7 @@ const quickLinks = [
 ];
 
 const courseLinks = [
+  ["Yoga TTC Overview", "/yoga-teacher-training"],
   ["100 Hour YTTC", "/courses/100-hour-yoga-teacher-training-goa"],
   ["200 Hour YTTC", "/courses/200-hour-yoga-teacher-training-goa"],
   ["300 Hour YTTC", "/courses/300-hour-yoga-teacher-training-goa"],
@@ -257,8 +258,8 @@ function FooterColumn({ children }) {
 function FooterHeading({ children }) {
   return (
     <div className="mb-3 flex flex-col items-center sm:items-start">
-      <h3 className=" font-mono text-[25px] uppercase  ">{children}</h3>
-      <span aria-hidden="true" className="block h-px w-[80%] bg-[#2A2A22]" />
+      <h3 className="font-mono text-sm font-bold uppercase tracking-wider text-[var(--gold)]">{children}</h3>
+      <span aria-hidden="true" className="block h-px w-[80%] bg-[var(--border)]" />
     </div>
   );
 }
@@ -270,7 +271,7 @@ function FooterLinkList({ links }) {
         <li key={href}>
           <Link
             href={href}
-            className="group inline-flex items-center gap-2 font-medium text-[13.5px] leading-5 text-[#2A2A22] transition duration-150 hover:text-[#2C7F74]"
+            className="group inline-flex items-center gap-2 font-medium text-[13.5px] leading-5 text-[var(--text)] transition duration-150 hover:text-[var(--coral-dark)]"
           >
             <span>{label}</span>
             <ArrowUpRight
@@ -286,9 +287,9 @@ function FooterLinkList({ links }) {
 
 function ContactItem({ Icon, children }) {
   return (
-    <li className="grid grid-cols-[1.1rem_1fr] items-start gap-3 text-left text-[13.5px] leading-5 text-[#2A2A22]">
+    <li className="grid grid-cols-[1.1rem_1fr] items-start gap-3 text-left text-[13.5px] leading-5 text-[var(--text)]">
       <Icon
-        className="mt-0.5 size-4 stroke-[1.7] text-[#2C7F74]"
+        className="mt-0.5 size-4 stroke-[1.7] text-[var(--coral-dark)]"
         aria-hidden="true"
       />
       {children}
@@ -298,7 +299,7 @@ function ContactItem({ Icon, children }) {
 
 function FooterPolicyLink({ href, children }) {
   return (
-    <Link href={href} className="transition hover:text-[#2C7F74]">
+    <Link href={href} className="transition hover:text-[var(--coral-dark)]">
       {children}
     </Link>
   );

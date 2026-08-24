@@ -3,9 +3,6 @@ import Link from "next/link";
 import {
   ArrowRight,
   BadgeCheck,
-  CalendarDays,
-  Clock3,
-  MapPin,
   Sparkles,
   Star,
   Timer,
@@ -408,28 +405,6 @@ export function GoogleMark({ className = "" }) {
       </svg>
       <strong>Google</strong>
     </span>
-  );
-}
-
-export function Snapshot({ items }) {
-  return (
-    <dl className="snapshot">
-      {items.map(({ label, value, icon }) => (
-        <div key={label}>
-          <dt className="flex flex-col items-center">
-            {icon === "calendar" ? (
-              <CalendarDays aria-hidden="true" size={20} />
-            ) : icon === "location" ? (
-              <MapPin aria-hidden="true" size={20} />
-            ) : (
-              <Clock3 aria-hidden="true" size={20} />
-            )}
-            {label}
-          </dt>
-          <dd>{publicValue(value)}</dd>
-        </div>
-      ))}
-    </dl>
   );
 }
 

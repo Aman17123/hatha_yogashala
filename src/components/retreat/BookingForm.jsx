@@ -11,6 +11,7 @@ import {
   ShieldCheck,
   Wallet,
 } from "lucide-react";
+import { retreatPricingByDays } from "@/data/retreatData";
 
 const paymentIcons = {
   PayPal: Wallet,
@@ -40,10 +41,22 @@ export default function BookingForm({
   paymentOptions = [],
   pricing,
   showPayment = true,
+  programOptions,
+  submitLabel,
 }) {
+  // Course mode: pass programOptions ([{ value, label }]) to replace the
+  // retreat duration select with a course selector priced from `pricing`.
+  const isProgram = Array.isArray(programOptions) && programOptions.length > 0;
+
   const [status, setStatus] = useState(initialStatus);
   const [accommodation, setAccommodation] = useState("Shared room");
   const [days, setDays] = useState("3");
+  const [program, setProgram] = useState(programOptions?.[0]?.value ?? "");
+
+  const currentPricing = isProgram ? null : retreatPricingByDays[days] || pricing;
+  const sharedPrice = (isProgram ? pricing?.shared?.price : currentPricing?.shared?.price) ?? (days === "5" ? 299 : days === "7" ? 449 : 199);
+  const privatePrice = (isProgram ? pricing?.private?.price : currentPricing?.private?.price) ?? (days === "5" ? 499 : days === "7" ? 649 : 399);
+  const currencySymbol = pricing?.shared?.currency === "USD" ? "$" : "€";
 
   async function submit(event) {
     event.preventDefault();
@@ -52,6 +65,11 @@ export default function BookingForm({
     const form = event.currentTarget;
     const data = Object.fromEntries(new FormData(form));
 
+    const selectedProgram = programOptions?.find((option) => option.value === data.program)?.label || data.program;
+    const scheduleLine = isProgram
+      ? `Course: ${selectedProgram}`
+      : `Start: ${data.startDate || "flexible"} · End: ${data.endDate || "flexible"} · Duration: ${data.days || "flexible"} day(s)`;
+
     const payload = {
       name: data.name,
       email: data.email,
@@ -59,11 +77,13 @@ export default function BookingForm({
       phone: data.whatsapp,
       country: data.country,
       course: retreatName,
-      batch: data.startDate && data.endDate ? `${data.startDate} to ${data.endDate}` : "Flexible dates",
+      batch: data.startDate && data.endDate
+        ? `${data.startDate} to ${data.endDate}`
+        : isProgram ? "Monthly start dates" : "Flexible dates",
       room: data.accommodation,
-      experience: `${data.notes || ""}${data.days ? ` Retreat duration: ${data.days} day(s).` : ""}`.trim(),
+      experience: `${data.notes || ""}${isProgram ? ` Course: ${selectedProgram}.` : data.days ? ` Retreat duration: ${data.days} day(s).` : ""}`.trim(),
       pickup: "No",
-      message: `Booking request for ${retreatName}. Start: ${data.startDate || "flexible"} · End: ${data.endDate || "flexible"} · Duration: ${data.days || "flexible"} day(s) · Accommodation: ${data.accommodation}. Notes: ${data.notes || "none"}`,
+      message: `Booking request for ${retreatName}. ${scheduleLine} · Accommodation: ${data.accommodation}. Notes: ${data.notes || "none"}`,
       consent: data.consent === "on",
     };
 
@@ -125,19 +145,37 @@ export default function BookingForm({
         <Field label="Country" name="country" required>
           <input id={`${compact ? "c" : "f"}-country`} name="country" autoComplete="country-name" maxLength="80" required />
         </Field>
-        <Field label="Retreat duration" name="days" required>
-          <select
-            id={`${compact ? "c" : "f"}-days`}
-            name="days"
-            required
-            value={days}
-            onChange={(event) => setDays(event.target.value)}
-          >
-            <option value="3">3-Day Yoga Retreat</option>
-            <option value="5">5-Day Yoga Retreat</option>
-            <option value="7">7-Day Yoga Retreat</option>
-          </select>
-        </Field>
+        {isProgram ? (
+          <Field label="Course" name="program" required>
+            <select
+              id={`${compact ? "c" : "f"}-program`}
+              name="program"
+              required
+              value={program}
+              onChange={(event) => setProgram(event.target.value)}
+            >
+              {programOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </Field>
+        ) : (
+          <Field label="Retreat duration" name="days" required>
+            <select
+              id={`${compact ? "c" : "f"}-days`}
+              name="days"
+              required
+              value={days}
+              onChange={(event) => setDays(event.target.value)}
+            >
+              <option value="3">3-Day Yoga Retreat</option>
+              <option value="5">5-Day Yoga Retreat</option>
+              <option value="7">7-Day Yoga Retreat</option>
+            </select>
+          </Field>
+        )}
         <Field label="Accommodation" name="accommodation" required>
           <select
             id={`${compact ? "c" : "f"}-accom`}
@@ -146,8 +184,8 @@ export default function BookingForm({
             value={accommodation}
             onChange={(event) => setAccommodation(event.target.value)}
           >
-            <option value="Shared room">Shared Room — €{pricing?.shared?.price ?? 199}/person</option>
-            <option value="Private room">Private Room — €{pricing?.private?.price ?? 399}/person</option>
+            <option value="Shared room">Shared Room — {currencySymbol}{sharedPrice}/person</option>
+            <option value="Private room">Private Room — {currencySymbol}{privatePrice}/person</option>
           </select>
         </Field>
         {!compact && (
@@ -194,9 +232,7 @@ export default function BookingForm({
         )}
         {status.state === "loading"
           ? "Securing your place…"
-          : compact
-            ? "Book Your Retreat"
-            : "Request Booking"}
+          : (submitLabel ?? (compact ? "Book Your Retreat" : "Request Booking"))}
       </button>
 
       <div

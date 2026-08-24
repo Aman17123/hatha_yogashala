@@ -24,22 +24,16 @@ export default function FounderPreview({ founder = founderData }) {
                 alt={founder.imageAlt || founder.name}
                 width={500}
                 height={500}
-                sizes="3/4"
+                sizes="(max-width: 1024px) 100vw, 42vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
 
               {/* Solid dark scrim bar — guaranteed contrast, no gradient/opacity guessing */}
               <div className="absolute bottom-0 left-0 right-0 bg-[var(--brown)] px-6 py-5 space-y-1">
-                <h3
-                  style={{ color: "#ffffff" }}
-                  className="text-xl font-serif font-bold"
-                >
+                <h3 className="text-xl font-serif font-bold text-white">
                   {founder.name}
                 </h3>
-                <p
-                  style={{ color: "rgba(255,255,255,0.85)" }}
-                  className="text-sm font-medium"
-                >
+                <p className="text-sm font-medium text-white/85">
                   {founder.role} · {founder.experience}
                 </p>
               </div>

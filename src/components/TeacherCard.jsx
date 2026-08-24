@@ -13,7 +13,7 @@ export default function TeacherCard({ teacher }) {
         />
       </div>
 
-      <h3 className="mt-4 font-serif text-[16px]  font-normal leading-[20px] text-[var(--brown)]">
+      <h3 className="mt-4 font-serif text-[16px] font-bold leading-[20px] text-[var(--brown)]">
         {teacher.name}
       </h3>
 

@@ -44,6 +44,34 @@ function nextLevels(course) {
     .slice(0, 2);
 }
 
+// The certification ladder always contains all three levels in ascending
+// order, so the pathway visual and the comparison table render the same
+// structure on every course page — only which column is "Current Step"
+// moves with the page you are on.
+function certificationLadder() {
+  return LEVEL_ORDER.map((hours) =>
+    teacherTrainings.find((item) => item.hours === hours),
+  ).filter(Boolean);
+}
+
+function pathwayRole(courseHours, stepHours) {
+  if (courseHours === stepHours) return "Current Step";
+  const from = LEVEL_ORDER.indexOf(courseHours);
+  const to = LEVEL_ORDER.indexOf(stepHours);
+  if (to < from) return to === 0 ? "Foundation Step" : "Prerequisite";
+  return to === from + 1 ? "Next Level" : "Advanced Level";
+}
+
+function teachAfter(hours) {
+  if (hours === "300-hour") {
+    return "Yes — advanced 300-hour teaching standing";
+  }
+  if (hours === "100-hour") {
+    return "Not on its own — completes as Part 1 of the 200-hour";
+  }
+  return "Yes — register with Yoga Alliance";
+}
+
 function hoursSplit(course) {
   const total = Number.parseInt(String(course.hours), 10) || 100;
   // REPLACE: adjust the hour split to match the confirmed syllabus.
@@ -54,13 +82,15 @@ function hoursSplit(course) {
         ? { asana: 0.4, anatomy: 0.16, philosophy: 0.2, teaching: 0.24 }
         : { asana: 0.46, anatomy: 0.15, philosophy: 0.19, teaching: 0.2 };
   const round5 = (fraction) => Math.round((total * fraction) / 5) * 5;
-  return {
-    asana: round5(split.asana),
-    anatomy: round5(split.anatomy),
-    philosophy: round5(split.philosophy),
-    teaching: round5(split.teaching),
-    total,
-  };
+  const buckets = Object.entries(split).map(([key, fraction]) => [
+    key,
+    round5(fraction),
+  ]);
+  // Any rounding drift lands on the largest stream so the four hour-count
+  // badges always sum exactly to the course total.
+  const drift = total - buckets.reduce((sum, [, value]) => sum + value, 0);
+  buckets[0][1] += drift;
+  return { ...Object.fromEntries(buckets), total };
 }
 
 // Condense the course journey into the 4-step roadmap used by the
@@ -288,12 +318,7 @@ export function yttcContent(course) {
         ? 1549
         : 1249;
 
-  const canTeachAfter =
-    course.hours === "100-hour"
-      ? "Not on its own — completes as Part 1 of the 200-hour"
-      : course.hours === "300-hour"
-        ? "Yes — advanced 300-hour teaching standing"
-        : "Yes — register with Yoga Alliance and teach worldwide";
+  const canTeachAfter = teachAfter(course.hours);
 
   const nextStep =
     course.hours === "100-hour"
@@ -478,6 +503,10 @@ export function yttcContent(course) {
 
     // ── Who should join ─────────────────────────────────────
     whoShouldJoin: course.whoCanJoin || [],
+    whoShouldJoinNote:
+      course.hours === "300-hour"
+        ? "Built for certified teachers — here is who this advanced training is designed for."
+        : "The course welcomes every level — here is who it is designed for.",
     requirements: [
       {
         label: "Age",
@@ -485,7 +514,10 @@ export function yttcContent(course) {
       },
       {
         label: "Fitness level",
-        value: "No prior experience required — all levels welcome",
+        value:
+          course.hours === "300-hour"
+            ? "Certified 200-hour teachers with a steady personal practice, prepared for an intensive daily schedule"
+            : "No prior experience required — all levels welcome",
       },
       { label: "Language", value: safe(course.teachingLanguage) },
       {
@@ -567,48 +599,47 @@ export function yttcContent(course) {
     ),
 
     // ── Pathway comparison ──────────────────────────────────
-    pathway: {
-      current: course,
-      next,
-      canTeachAfter,
-      nextStep,
-      rows: [
-        ["Who it's for", course.bestFor, ...next.map((item) => item.bestFor)],
-        [
-          "Certification status",
-          safe(course.certification),
-          ...next.map((item) => safe(item.certification)),
+    pathway: (() => {
+      const ladder = certificationLadder();
+      return {
+        current: course,
+        next,
+        columns: ladder.map((item) => ({
+          course: item,
+          role: pathwayRole(course.hours, item.hours),
+        })),
+        canTeachAfter,
+        nextStep,
+        rows: [
+          ["Who it's for", ...ladder.map((item) => item.bestFor)],
+          [
+            "Certification status",
+            ...ladder.map((item) => safe(item.certification)),
+          ],
+          [
+            "Prior experience needed",
+            ...ladder.map((item) => item.prerequisites.join(", ")),
+          ],
+          ["Can you teach after?", ...ladder.map((item) => teachAfter(item.hours))],
+          ["Duration", ...ladder.map((item) => item.duration)],
+          [
+            "Typical cost",
+            ...ladder.map(
+              (item) =>
+                `${currency}${item.price} shared / ${currency}${item.privatePrice} private`,
+            ),
+          ],
+          [
+            "Next step",
+            ...ladder.map((item) =>
+              item.hours === course.hours
+                ? nextStep
+                : "Continue the pathway",
+            ),
+          ],
         ],
-        [
-          "Prior experience needed",
-          course.prerequisites.join(", "),
-          ...next.map((item) => item.prerequisites.join(", ")),
-        ],
-        [
-          "Can you teach after?",
-          canTeachAfter,
-          ...next.map((item) =>
-            item.hours === "300-hour"
-              ? "Yes — advanced 300-hour teaching standing"
-              : "Yes — register with Yoga Alliance",
-          ),
-        ],
-        [
-          "Duration",
-          course.duration,
-          ...next.map((item) => item.duration),
-        ],
-        [
-          "Typical cost",
-          `${currency}${course.price} shared / ${currency}${course.privatePrice} private`,
-          ...next.map(
-            (item) =>
-              `${currency}${item.price} shared / ${currency}${item.privatePrice} private`,
-          ),
-        ],
-        ["Next step", nextStep, ...next.map((item) => "Continue the pathway")],
-      ],
-    },
+      };
+    })(),
 
     // ── Outcomes ─────────────────────────────────────────────
     outcomes: outcomesWithImages(course),

@@ -68,9 +68,9 @@ export default function TeachersPage() {
                     <span className="inline-block rounded-full bg-[var(--cream)] border border-[var(--border)] px-3 py-1 text-[13.5px] font-bold uppercase tracking-wider text-[var(--coral-dark)]">
                       {teacher.specialty}
                     </span>
-                    <h2 className="text-2xl font-serif font-bold text-[var(--brown)]">
+                    <h3 className="text-2xl font-serif font-bold text-[var(--brown)]">
                       {teacher.name}
-                    </h2>
+                    </h3>
                     <p className="text-[13.5px] font-semibold text-[var(--coral-dark)]">
                       {teacher.role}
                     </p>

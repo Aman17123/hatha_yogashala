@@ -13,19 +13,27 @@ import {
   Users,
 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
+import { whatsappLink } from "@/data/siteData";
 import BookingForm from "./BookingForm";
 
-export default function BookingSidebar({ page, retreat }) {
+export default function BookingSidebar({
+  page,
+  retreat,
+  ctaLabel = "Book Your Retreat",
+  entityLabel = "Retreat",
+  studentsLabel = "retreat guests",
+  programOptions,
+}) {
   const [openForm, setOpenForm] = useState(false);
   const p = page.pricing;
-  const whatsappHref = "/contact#whatsapp";
+  const whatsappHref = whatsappLink(retreat.whatsappMessage || `Hi, I have a question about the ${retreat.name} retreat in Goa.`);
   const formatPrice = (price) =>
     typeof price === "number"
       ? `${p.shared.currency === "EUR" ? "€" : "$"}${price}`
       : null;
 
   return (
-    <aside className="retreat-sidebar scroll-mt-[110px]" id="book" aria-label="Retreat booking summary">
+    <aside className="retreat-sidebar scroll-mt-[110px]" id="book" aria-label={`${entityLabel} booking summary`}>
       <div className="booking-card">
         {/* Price block */}
         <div className="booking-card-head">
@@ -78,7 +86,7 @@ export default function BookingSidebar({ page, retreat }) {
             <dt>
               <Users size={15} aria-hidden="true" /> Students
             </dt>
-            <dd>{page.students} retreat guests</dd>
+            <dd>{page.students} {studentsLabel}</dd>
           </div>
         </dl>
 
@@ -106,7 +114,7 @@ export default function BookingSidebar({ page, retreat }) {
             onClick={() => setOpenForm((value) => !value)}
             aria-expanded={openForm}
           >
-            Book Your Retreat
+            {ctaLabel}
             <ArrowRight size={17} aria-hidden="true" />
           </button>
           <div className="booking-actions-secondary">
@@ -115,6 +123,8 @@ export default function BookingSidebar({ page, retreat }) {
             </Link>
             <a
               href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
               className="button booking-whatsapp"
               aria-label="WhatsApp inquiry"
             >
@@ -132,6 +142,8 @@ export default function BookingSidebar({ page, retreat }) {
               compact
               paymentOptions={p.paymentOptions}
               pricing={p}
+              programOptions={programOptions}
+              submitLabel={ctaLabel}
             />
           </div>
         )}
@@ -148,7 +160,7 @@ export default function BookingSidebar({ page, retreat }) {
       </div>
 
       {/* Quick links into the page */}
-      <nav className="booking-mininav" aria-label="Retreat page sections">
+      <nav className="booking-mininav" aria-label={`${entityLabel} page sections`}>
         <a href="#overview">Overview</a>
         <a href="#schedule">Daily Schedule</a>
         <a href="#accommodation">Accommodation</a>

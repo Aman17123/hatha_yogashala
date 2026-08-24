@@ -172,41 +172,6 @@ export function WhyChooser({ items, children }) {
   );
 }
 
-export function HorizontalScroller({ children, label = "items" }) {
-  const rowRef = useRef(null);
-
-  function scroll(direction) {
-    rowRef.current?.scrollBy({
-      left: direction * Math.min(rowRef.current.clientWidth * 0.85, 720),
-      behavior: "smooth",
-    });
-  }
-
-  return (
-    <div>
-      <div className="scroller-controls">
-        <button
-          type="button"
-          onClick={() => scroll(-1)}
-          aria-label={`Previous ${label}`}
-        >
-          <ArrowLeft aria-hidden="true" size={19} />
-        </button>
-        <button
-          type="button"
-          onClick={() => scroll(1)}
-          aria-label={`Next ${label}`}
-        >
-          <ArrowRight aria-hidden="true" size={19} />
-        </button>
-      </div>
-      <div className="horizontal-scroller" ref={rowRef} tabIndex="0">
-        {children}
-      </div>
-    </div>
-  );
-}
-
 export function Gallery({ items, filters = true }) {
   const categories = ["All", ...new Set(items.map((item) => item.category))];
   const [category, setCategory] = useState("All");
@@ -489,63 +454,3 @@ export function BlogExplorer({ posts, perPage = 6 }) {
   );
 }
 
-export function CourseContents({ items }) {
-  const [open, setOpen] = useState(false);
-  const dialogRef = useRef(null);
-
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (!dialog) return;
-    if (open && !dialog.open) dialog.showModal();
-    if (!open && dialog.open) dialog.close();
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
-
-  return (
-    <>
-      <button
-        type="button"
-        className="contents-trigger"
-        onClick={() => setOpen(true)}
-      >
-        Contents
-      </button>
-      <dialog
-        ref={dialogRef}
-        className="contents-dialog"
-        onClose={() => setOpen(false)}
-        onCancel={(event) => {
-          event.preventDefault();
-          setOpen(false);
-        }}
-      >
-        <div>
-          <div className="contents-top">
-            <h2>On this page</h2>
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              aria-label="Close contents"
-            >
-              <X aria-hidden="true" />
-            </button>
-          </div>
-          <nav aria-label="Course page sections">
-            {items.map((item) => (
-              <a
-                href={`#${item.id}`}
-                key={item.id}
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </dialog>
-    </>
-  );
-}

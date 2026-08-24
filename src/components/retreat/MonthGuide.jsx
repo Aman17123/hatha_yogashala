@@ -7,7 +7,7 @@ import { ChevronDown, Sun, Thermometer, Users, Compass } from "lucide-react";
 const seasonStyles = {
   high: { label: "High season", className: "bg-[var(--cream)] text-[var(--coral-dark)]" },
   shoulder: { label: "Shoulder season", className: "bg-[var(--cream)] text-[var(--gold)]" },
-  monsoon: { label: "Monsoon", className: "bg-[var(--cream)] text-[#3a6cb0]" },
+  monsoon: { label: "Monsoon", className: "bg-[var(--cream)] text-[var(--sage)]" },
 };
 
 export default function MonthGuide({ months }) {

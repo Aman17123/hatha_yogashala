@@ -491,8 +491,8 @@ const hundredHour = {
 const twoHundredHour = {
   slug: "200-hour-yoga-teacher-training-goa",
   hours: "200-hour",
-  name: "200-Hour Yoga TTC in Goa",
-  level: "Foundational teacher training (certifying)",
+  name: "200-Hour Yoga Teacher Training in Goa",
+  level: "Foundational",
   certification: "Yoga Alliance USA Recognized",
   outcome: "Full teaching certification, RYT 200",
   perfectfor: "Aspiring teachers, serious practitioners",
@@ -912,8 +912,8 @@ const twoHundredHour = {
 const threeHundredHour = {
   slug: "300-hour-yoga-teacher-training-goa",
   hours: "300-hour",
-  name: "300-Hour Yoga TTC in Goa",
-  level: "Advanced study (for certified 200-hour teachers)",
+  name: "300-Hour Yoga Teacher Training in Goa",
+  level: "Advanced",
   certification: "Yoga Alliance USA Recognized",
   outcome: "Advanced mastery, RYT 500 eligible",
   perfectfor: "Certified teachers advancing skills",
@@ -1321,7 +1321,7 @@ const threeHundredHour = {
   ],
 };
 
-export const mainCourses = [hundredHour, twoHundredHour, threeHundredHour];
+const mainCourses = [hundredHour, twoHundredHour, threeHundredHour];
 
 // ---------------------------------------------------------------------
 // SHORT COURSES

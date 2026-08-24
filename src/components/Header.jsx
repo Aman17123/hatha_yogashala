@@ -67,6 +67,7 @@ const yogaTtcColumns = [
   {
     title: "Yoga TTC",
     links: [
+      { label: "Yoga TTC Overview", href: "/yoga-teacher-training" },
       {
         label: "100 Hour Yoga TTC",
         href: "/courses/100-hour-yoga-teacher-training-goa",
@@ -222,7 +223,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 relative transition-all duration-300 ${
+        className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled
             ? "bg-[var(--cream)]/95 shadow-[0_2px_12px_rgba(0,0,0,0.05)] backdrop-blur-xl"
             : "bg-[var(--cream)]"

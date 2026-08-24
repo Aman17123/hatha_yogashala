@@ -45,6 +45,7 @@ export default function sitemap() {
     { path: "/apply", lastmod: SITE_LASTMOD },
     { path: "/courses", lastmod: SITE_LASTMOD },
     { path: "/retreats", lastmod: SITE_LASTMOD },
+    { path: "/yoga-teacher-training", lastmod: SITE_LASTMOD },
     { path: "/blog", lastmod: SITE_LASTMOD },
     { path: "/privacy-policy", lastmod: SITE_LASTMOD },
     { path: "/terms", lastmod: SITE_LASTMOD },
