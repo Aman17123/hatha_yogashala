@@ -81,7 +81,7 @@ export default function AboutPage() {
               title="Hatha as a steady meeting of effort and ease"
               text="The school is founded on patient, traditional Hatha practice rather than spectacle — a place where discipline, inquiry, breath, and rest support one another at a residential ashram in Querim, Goa."
             />
-            <div className="prose-compact">
+            <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-[var(--text)]">
               <p>
                 Located in Querim village, North Goa — minutes from Arambol and
                 Querim beaches — the school creates a clear residential setting

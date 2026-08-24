@@ -119,9 +119,12 @@ export function PageHero({
   breadcrumbs = [{ label: "Home", href: "/" }, { label: title }],
   actions = [],
   facts = [],
+  className = "",
+  titleClassName = "",
+  copyClassName = "",
 }) {
   return (
-    <section className="page-hero">
+    <section className={`page-hero ${className}`}>
       <Image
         src={image}
         alt={imageAlt || `Hatha Yogashala — ${title || "yoga school in Goa"}`}
@@ -135,8 +138,8 @@ export function PageHero({
       <Container className="relative z-10">
         <Breadcrumbs items={breadcrumbs} />
         {eyebrow && <p className="page-hero-eyebrow">{eyebrow}</p>}
-        <h1>{title}</h1>
-        {text && <p className="page-hero-copy">{text}</p>}
+        <h1 className={titleClassName}>{title}</h1>
+        {text && <p className={`page-hero-copy ${copyClassName}`}>{text}</p>}
         {actions.length > 0 && (
           <div className="page-hero-actions">
             {actions.map((action) => (
