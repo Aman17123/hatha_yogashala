@@ -1,24 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Award,
-  BookOpen,
   CalendarDays,
-  Camera,
   Check,
   CheckCircle2,
   Clock3,
-  Coffee,
-  Compass,
   Heart,
   Home,
   Leaf,
   MapPin,
-  Moon,
   ShieldCheck,
   Sparkles,
   Star,
-  Sun,
   Users,
   Waves,
   XCircle,
@@ -29,33 +22,18 @@ import { Accordion } from "./Interactive";
 import { Container, ButtonLink, JsonLd, Media, MobileStickyBar, RetreatCard, SectionHeading } from "./ui";
 import BookingSidebar from "./retreat/BookingSidebar";
 import BookingForm from "./retreat/BookingForm";
-import TestimonialCarousel, { VideoTestimonials } from "./retreat/TestimonialCarousel";
-import MonthGuide from "./retreat/MonthGuide";
+import TestimonialCarousel from "./retreat/TestimonialCarousel";
 import { FadeIn, Stagger, StaggerItem } from "./retreat/Motion";
 import { SiWhatsapp } from "react-icons/si";
 
 const whyIcons = {
   users: Users,
-  award: Award,
   flower: Sparkles,
   sparkles: Sparkles,
   waves: Waves,
   leaf: Leaf,
   home: Home,
-  compass: Compass,
-  moon: Moon,
   heart: Heart,
-};
-
-const freeTimeIcons = {
-  waves: Waves,
-  book: BookOpen,
-  coffee: Coffee,
-  camera: Camera,
-  sparkles: Sparkles,
-  sun: Sun,
-  shopping: Compass,
-  compass: Compass,
 };
 
 function RetreatEyebrow({ children }) {
@@ -182,20 +160,20 @@ export default function RetreatTemplate({ retreat, page }) {
   return (
     <>
       <JsonLd data={tripSchema} />
-      <JsonLd data={faqSchema} />
       <JsonLd data={localBusinessSchema} />
       <JsonLd data={eventSchema} />
       <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
 
-      {/* ============ SECTION 1 — HERO ============ */}
-      <section className="retreat-hero" id="top">
-        <Image
-          src={retreat.image}
-          alt={`${retreat.name} on the Goan coast`}
+      {/* ============ HERO SECTION ============ */}
+      <section className="retreat-hero">
+        <Media
+          src={p.heroImage}
+          alt={p.heroImageAlt}
           fill
-          preload
+          priority
           sizes="100vw"
-          className="object-cover"
+          className="retreat-hero-media"
         />
         <div className="retreat-hero-overlay" />
         <span className="retreat-hero-orb" aria-hidden="true" />
@@ -258,8 +236,8 @@ export default function RetreatTemplate({ retreat, page }) {
                 <ButtonLink href="#registration" className="retreat-hero-cta">
                   Book Your Retreat
                 </ButtonLink>
-                <ButtonLink href="#schedule" variant="light">
-                  View Schedule
+                <ButtonLink href="#accommodation" variant="light">
+                  View Accommodation
                 </ButtonLink>
                 <a href={whatsappHref} className="button retreat-whatsapp">
                   <SiWhatsapp size={17} aria-hidden="true" />
@@ -282,7 +260,7 @@ export default function RetreatTemplate({ retreat, page }) {
         </div>
       </section>
 
-      {/* ============ STICKY BOOKING SIDEBAR / 60% CONTENT ============ */}
+      {/* ============ STICKY BOOKING SIDEBAR / CONTENT ============ */}
       <div className="container retreat-layout">
         {/* Sticky booking sidebar */}
         <BookingSidebar page={p} retreat={retreat} />
@@ -372,124 +350,7 @@ export default function RetreatTemplate({ retreat, page }) {
             </Stagger>
           </section>
 
-          {/* ============ SECTION 4 — MEET YOUR TEACHERS ============ */}
-          <section className="retreat-section" id="teachers">
-            <RetreatEyebrow>Meet your teachers</RetreatEyebrow>
-            <h2 className="retreat-section-title">Guided by experienced, compassionate teachers</h2>
-            <Stagger className="retreat-teacher-grid">
-              {p.teachers.map((teacher) => (
-                <StaggerItem key={teacher.role}>
-                  <article className="retreat-teacher-card">
-                    <div className="retreat-teacher-image">
-                      <Media src={teacher.image} alt={`Portrait of ${teacher.role}`} className="h-full w-full" />
-                    </div>
-                    <div className="retreat-teacher-body">
-                      <p className="retreat-teacher-role">{teacher.role}</p>
-                      <h3>{teacher.name}</h3>
-                      <p className="retreat-teacher-exp">{teacher.experience}</p>
-                      <p className="retreat-teacher-spec">{teacher.specialization}</p>
-                      <p className="retreat-teacher-bio">{teacher.bio}</p>
-                      <p className="retreat-teacher-cred">
-                        <Award size={14} aria-hidden="true" />
-                        {teacher.credentials}
-                      </p>
-                    </div>
-                  </article>
-                </StaggerItem>
-              ))}
-            </Stagger>
-          </section>
-
-          {/* ============ SECTION 5 — RETREAT HIGHLIGHTS ============ */}
-          <section className="retreat-section" id="highlights">
-            <RetreatEyebrow>Retreat highlights</RetreatEyebrow>
-            <h2 className="retreat-section-title">Every day, a different gift</h2>
-            <Stagger className="retreat-highlight-grid">
-              {p.highlights.map((highlight) => (
-                <StaggerItem key={highlight}>
-                  <div className="retreat-highlight-card">
-                    <CheckCircle2 size={19} className="text-[var(--coral-dark)]" aria-hidden="true" />
-                    <span>{highlight}</span>
-                  </div>
-                </StaggerItem>
-              ))}
-            </Stagger>
-          </section>
-
-          {/* ============ SECTION 6 — DAILY SCHEDULE ============ */}
-          <section className="retreat-section" id="schedule">
-            <RetreatEyebrow>Detailed daily schedule</RetreatEyebrow>
-            <h2 className="retreat-section-title">A {p.days}-day rhythm designed to restore</h2>
-            <p className="retreat-section-lead">
-              Predictable days make deep rest possible. Here is how your {p.days} days at Hatha Yogashala unfold.
-            </p>
-            <div className="retreat-schedule">
-              {p.daysSchedule.map((day, dayIndex) => (
-                <FadeIn key={day.title} delay={dayIndex * 0.05}>
-                  <article className="retreat-schedule-day">
-                    <header>
-                      <span className="retreat-schedule-daynum">Day {dayIndex + 1}</span>
-                      <h3>{day.title}</h3>
-                      <p>{day.intro}</p>
-                    </header>
-                    <div className="retreat-schedule-timeline">
-                      {day.schedule.map(([time, activity]) => (
-                        <div className="retreat-schedule-entry" key={`${time}-${activity}`}>
-                          <time>{time}</time>
-                          <span className="retreat-schedule-dot" aria-hidden="true" />
-                          <strong>{activity}</strong>
-                        </div>
-                      ))}
-                    </div>
-                  </article>
-                </FadeIn>
-              ))}
-            </div>
-          </section>
-
-          {/* ============ SECTION 7 — OPTIONAL GOA EXPERIENCES ============ */}
-          <section className="retreat-section" id="experiences">
-            <RetreatEyebrow>Optional Goa experiences</RetreatEyebrow>
-            <h2 className="retreat-section-title">Goa beyond the shala</h2>
-            <p className="retreat-section-lead">
-              During free time, explore the best of North Goa — each option is easy to arrange with our host.
-            </p>
-            <Stagger className="retreat-experience-grid">
-              {p.experiences.map((experience) => (
-                <StaggerItem key={experience.title}>
-                  <article className="retreat-experience-card">
-                    <span className="retreat-experience-tag">{experience.tag}</span>
-                    <h3>{experience.title}</h3>
-                    <p>{experience.text}</p>
-                  </article>
-                </StaggerItem>
-              ))}
-            </Stagger>
-          </section>
-
-          {/* ============ SECTION 8 — FREE TIME IDEAS ============ */}
-          <section className="retreat-section" id="free-time">
-            <RetreatEyebrow>Free time ideas</RetreatEyebrow>
-            <h2 className="retreat-section-title">Unhurried hours, entirely yours</h2>
-            <Stagger className="retreat-freetime-grid">
-              {p.freeTime.map((idea) => {
-                const Icon = freeTimeIcons[idea.icon] || Sparkles;
-                return (
-                  <StaggerItem key={idea.title}>
-                    <div className="retreat-freetime-card">
-                      <Icon size={18} className="text-[var(--coral-dark)]" aria-hidden="true" />
-                      <div>
-                        <h3>{idea.title}</h3>
-                        <p>{idea.text}</p>
-                      </div>
-                    </div>
-                  </StaggerItem>
-                );
-              })}
-            </Stagger>
-          </section>
-
-          {/* ============ SECTION 9 — ACCOMMODATION ============ */}
+          {/* ============ SECTION — ACCOMMODATION ============ */}
           <section className="retreat-section" id="accommodation">
             <RetreatEyebrow>Accommodation</RetreatEyebrow>
             <h2 className="retreat-section-title">Rest well between practices</h2>
@@ -533,7 +394,7 @@ export default function RetreatTemplate({ retreat, page }) {
             </div>
           </section>
 
-          {/* ============ SECTION 10 — MEALS ============ */}
+          {/* ============ SECTION — MEALS ============ */}
           <section className="retreat-section" id="meals">
             <RetreatEyebrow>Meals</RetreatEyebrow>
             <h2 className="retreat-section-title">Sattvic food, cooked with love</h2>
@@ -572,17 +433,7 @@ export default function RetreatTemplate({ retreat, page }) {
             </div>
           </section>
 
-          {/* ============ SECTION 11 — BEST TIME TO VISIT ============ */}
-          <section className="retreat-section" id="best-time">
-            <RetreatEyebrow>Best time to visit</RetreatEyebrow>
-            <h2 className="retreat-section-title">Every season has its gift</h2>
-            <p className="retreat-section-lead">
-              Tap any month to see weather, crowds, and the retreat experience it offers.
-            </p>
-            <MonthGuide months={p.bestTime} />
-          </section>
-
-          {/* ============ SECTION 12 — WHAT'S INCLUDED ============ */}
+          {/* ============ SECTION — WHAT'S INCLUDED ============ */}
           <section className="retreat-section" id="included">
             <RetreatEyebrow>What&apos;s included</RetreatEyebrow>
             <h2 className="retreat-section-title">Everything you need, nothing you don&apos;t</h2>
@@ -616,25 +467,21 @@ export default function RetreatTemplate({ retreat, page }) {
             </div>
           </section>
 
-          {/* ============ SECTION 13 — TESTIMONIALS ============ */}
+          {/* ============ SECTION — TESTIMONIALS ============ */}
           <section className="retreat-section" id="reviews">
             <RetreatEyebrow>Guest stories</RetreatEyebrow>
             <h2 className="retreat-section-title">Trusted by travellers from 30+ countries</h2>
             <TestimonialCarousel testimonials={p.testimonials} />
-            <div className="retreat-video-testimonials">
-              <h3>Watch their stories</h3>
-              <VideoTestimonials items={p.testimonials.slice(0, 3)} />
-            </div>
           </section>
 
-          {/* ============ SECTION 14 — FAQ ============ */}
+          {/* ============ SECTION — FAQ ============ */}
           <section className="retreat-section" id="faq">
             <RetreatEyebrow>Retreat FAQ</RetreatEyebrow>
             <h2 className="retreat-section-title">Answers before you ask</h2>
             <Accordion items={p.faqs} />
           </section>
 
-          {/* ============ SECTION 15 — OFFICIAL REGISTRATION ============ */}
+          {/* ============ SECTION — OFFICIAL REGISTRATION ============ */}
           <section className="retreat-section" id="registration">
             <RetreatEyebrow>Official registration</RetreatEyebrow>
             <h2 className="retreat-section-title">Reserve your place</h2>
@@ -719,13 +566,13 @@ export default function RetreatTemplate({ retreat, page }) {
         </div>
       </div>
 
-      {/* ============ SECTION 16 — FINAL CTA ============ */}
+      {/* ============ SECTION — FINAL CTA ============ */}
       <section className="retreat-final-cta">
         <Container>
           <FadeIn className="retreat-final-cta-inner">
             <h2>Your Journey Starts Here</h2>
             <p>
-              Reserve your place and experience three transformative days of yoga, mindfulness, community, and the beauty of Goa.
+              Reserve your place and experience transformative days of yoga, mindfulness, community, and the beauty of Goa.
             </p>
             <div className="retreat-final-cta-actions">
               <ButtonLink href="#registration" className="retreat-hero-cta">

@@ -99,6 +99,12 @@ export const pageSeo = {
       "Wellness retreats in Goa at Hatha Yogashala — 3, 5 and 7-day yoga and meditation retreats near Querim and Arambol beaches with accommodation and vegetarian meals.",
     path: "/retreats",
   },
+  holidays: {
+    title: "Yoga Holidays in Goa — 3, 5 & 7 Day Authentic Yogic Breaks",
+    description:
+      "Take an authentic yoga break by the ocean in Goa. Explore 3, 5, and 7-day yoga holidays with daily asana, Ayurvedic massage, sattvic food, and beachside relaxation.",
+    path: "/holidays",
+  },
   blog: {
     title: "Yoga Blog, Tips & Goa Retreat Guides",
     description:
@@ -369,6 +375,22 @@ export const navigation = [
     label: "Retreats",
     children: [
       {
+        label: "5-Day Awaken & Align",
+        href: "/retreats/5-day-awaken-and-align-retreat-goa",
+      },
+      {
+        label: "Aerial Yoga Retreat",
+        href: "/retreats/aerial-yoga-retreat-goa",
+      },
+      {
+        label: "Ayurvedic Massage Therapy",
+        href: "/retreats/ayurvedic-massage-therapy-goa",
+      },
+      {
+        label: "Yoga Festivals in Goa",
+        href: "/retreats/yoga-festivals-in-goa",
+      },
+      {
         label: "3-Day Yoga Retreat",
         href: "/retreats/3-day-yoga-retreat-goa",
       },
@@ -379,6 +401,23 @@ export const navigation = [
       {
         label: "7-Day Yoga Retreat",
         href: "/retreats/7-day-yoga-retreat-goa",
+      },
+    ],
+  },
+  {
+    label: "Holidays",
+    children: [
+      {
+        label: "3 Day Yoga Holiday in Goa",
+        href: "/holidays/3-day-yoga-holiday-goa",
+      },
+      {
+        label: "5 Day Yoga Holiday in Goa",
+        href: "/holidays/5-day-yoga-holiday-goa",
+      },
+      {
+        label: "7 Day Yoga Holiday in Goa",
+        href: "/holidays/7-day-yoga-holiday-goa",
       },
     ],
   },

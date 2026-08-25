@@ -2415,7 +2415,8 @@ body:has(.yttc-page) .floating-actions {
 .page-hero h1 {
   max-width: 950px;
   color: var(--on-accent);
-  font-size: 48px;
+  font-size: 36px;
+  line-height: 44px;
 }
 
 .page-hero-eyebrow {
@@ -2910,7 +2911,8 @@ body:has(.yttc-page) .floating-actions {
 .article-header h1 {
   max-width: 980px;
   color: var(--on-accent);
-  font-size: 48px;
+  font-size: 36px;
+  line-height: 44px;
 }
 
 .article-deck {
@@ -3537,9 +3539,11 @@ body:has(.yttc-page) .floating-actions {
     padding-block: 4rem 2.5rem;
   }
 
-  .page-hero h1 {
-    font-size: 48px;
-    line-height: 56px;
+  .page-hero h1,
+  .retreat-hero h1,
+  .article-header h1 {
+    font-size: 30px;
+    line-height: 36px;
   }
 
   .why-image,
@@ -4299,9 +4303,11 @@ body:has(.yttc-page) .floating-actions {
     min-height: 660px;
   }
 
-  .page-hero h1 {
-    font-size: 48px;
-    line-height: 56px;
+  .page-hero h1,
+  .retreat-hero h1,
+  .article-header h1 {
+    font-size: 28px;
+    line-height: 34px;
   }
 }
 
@@ -4489,7 +4495,8 @@ body:has(.yttc-page) .floating-actions {
 .retreat-hero h1 {
   max-width: 940px;
   color: var(--on-accent);
-  font-size: 48px;
+  font-size: 36px;
+  line-height: 44px;
 }
 
 .retreat-hero-tagline {
@@ -6522,8 +6529,8 @@ body:has(.yttc-page) .floating-actions {
   .article-header h1,
   .not-found h1,
   .retreat-hero h1 {
-    font-size: 60px;
-    line-height: 68px;
+    font-size: 38px;
+    line-height: 46px;
   }
   .retreat-final-cta h2 {
     font-size: 54px;
@@ -6554,8 +6561,8 @@ body:has(.yttc-page) .floating-actions {
   .article-header h1,
   .not-found h1,
   .retreat-hero h1 {
-    font-size: 80px;
-    line-height: 90px;
+    font-size: 42px;
+    line-height: 50px;
   }
   .retreat-final-cta h2 {
     font-size: 66px;
@@ -6582,18 +6589,12 @@ body:has(.yttc-page) .floating-actions {
 }
 
 @media (min-width: 1536px) {
-  .page-hero h1 {
-    font-size: 96px;
-    line-height: 108px;
-  }
-  .article-header h1 {
-    font-size: 92px;
-    line-height: 104px;
-  }
+  .page-hero h1,
+  .article-header h1,
   .not-found h1,
   .retreat-hero h1 {
-    font-size: 88px;
-    line-height: 100px;
+    font-size: 42px;
+    line-height: 50px;
   }
   .retreat-final-cta h2 {
     font-size: 74px;

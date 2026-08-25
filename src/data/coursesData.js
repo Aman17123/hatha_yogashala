@@ -1451,76 +1451,360 @@ const retreatWhatIs = {
   },
 };
 
-export const retreats = [3, 5, 7].map((days) => {
-  const profile = retreatProfiles[days];
-  const benefitsByDays = {
-    3: [
-      "Daily Hatha yoga & meditation",
-      "Ice baths, sauna & ecstatic dance",
-      "Cultural tours & heritage experiences",
+export const retreats = [
+  ...[3, 5, 7].map((days) => {
+    const profile = retreatProfiles[days];
+    const benefitsByDays = {
+      3: [
+        "Daily Hatha yoga & meditation",
+        "Ice baths, sauna & ecstatic dance",
+        "Cultural tours & heritage experiences",
+      ],
+      5: [
+        "Daily yoga, sound healing & breathwork",
+        "Sauna, ice bath & massage therapies",
+        "Beach practice near Arambol",
+      ],
+      7: [
+        "Full-week Mind-Body-Soul wellness journey",
+        "Sound healing, sauna, ice bath & massage",
+        "Temple visits & cultural excursions",
+      ],
+    };
+    return {
+      slug: `${days}-day-yoga-retreat-goa`,
+      days,
+      name: `${days}-Day Yoga Retreat in Goa`,
+      category: profile.category,
+      description: profile.emphasis,
+      whatIs: retreatWhatIs[days],
+      benefits: benefitsByDays[days],
+      price: { 3: "€199", 5: "€299", 7: "€449" }[days],
+      image:
+        {
+          3: "/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp",
+          5: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
+          7: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
+        }[days] ||
+        "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
+      date: "Monthly retreat start dates year-round",
+      availability: "Book Now",
+      duration: `${days} days`,
+      level: "All levels",
+      location: "Querim, North Goa, India",
+      room: "AC dorm, twin sharing, or private room",
+      meals: "Three vegetarian meals per day",
+      overview: profile.emphasis,
+      distinctFocus:
+        "Each retreat is a personal-practice experience, not a teacher-training course or professional certification.",
+      whoFor: profile.whoFor,
+      itinerary: Array.from({ length: days }, (_, index) => [
+        `Day ${index + 1}`,
+        index === 0
+          ? "Arrival, welcome, and an opening Hatha practice"
+          : index === days - 1
+            ? "Closing practice, reflection, and departure"
+            : "Morning Hatha, breathwork, study, and protected rest",
+      ]),
+      dailySchedule: [
+        ["07:00", "Morning Hatha yoga"],
+        ["09:00", "Breakfast and free time"],
+        ["11:00", "Pranayama and meditation"],
+        ["17:00", "Restorative practice"],
+      ],
+      gallery: [],
+      includedActivities: [],
+      excludedActivities: [],
+      optionalGoaIdeas: [
+        "Explore coastal walks and nearby beaches",
+        "Plan local culture and food outings",
+        "Rest, read, and reflect at your own pace",
+      ],
+    };
+  }),
+  {
+    slug: "5-day-awaken-and-align-retreat-goa",
+    days: 5,
+    name: "5-Day Awaken & Align Retreat",
+    category: "Awaken & Align",
+    description:
+      "Realign your physical posture, balance subtle energetic centers, and awaken vitality through alignment-focused Hatha yoga, pranayama, sound therapy, and beachfront calm in North Goa.",
+    whatIs: {
+      heading: "What is the 5-Day Awaken & Align Retreat?",
+      paragraphs: [
+        "The 5-Day Awaken & Align Retreat at Hatha Yogashala is designed for seekers looking to recalibrate their physical alignment, release chronic muscular tension, and awaken inner vitality. Set in our tranquil beachside ashram in Querim, North Goa, this immersion bridges deep anatomical alignment with breathwork and sound meditation.",
+        "Each day combines precise posture breakdown, therapeutic adjustments, morning alignment flow, evening restorative yoga, sound healing baths, and mindful beach walks near Arambol. It is a revitalising space to reset your posture and nervous system.",
+        "All sessions are suitable for both beginners and experienced practitioners who wish to refine their alignment and reconnect with bodily awareness.",
+      ],
+      points: [
+        "Daily posture alignment & precision adjustments",
+        "Pranayama, chakra balancing & sound healing baths",
+        "Sattvic vegetarian cuisine and quiet coastal environment",
+        "Individual guidance in intimate group settings",
+      ],
+    },
+    benefits: [
+      "Precision posture alignment & therapeutic adjustment",
+      "Sound healing, breathwork & chakra meditation",
+      "Beachfront relaxation & quiet coastal setting",
     ],
-    5: [
-      "Daily yoga, sound healing & breathwork",
-      "Sauna, ice bath & massage therapies",
-      "Beach practice near Arambol",
-    ],
-    7: [
-      "Full-week Mind-Body-Soul wellness journey",
-      "Sound healing, sauna, ice bath & massage",
-      "Temple visits & cultural excursions",
-    ],
-  };
-  return {
-    slug: `${days}-day-yoga-retreat-goa`,
-    days,
-    name: `${days}-Day Yoga Retreat in Goa`,
-    category: profile.category,
-    description: profile.emphasis,
-    whatIs: retreatWhatIs[days],
-    benefits: benefitsByDays[days],
-    price: { 3: "€199", 5: "€299", 7: "€449" }[days],
+    price: "€349",
     image:
-      {
-        3: "/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp",
-        5: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
-        7: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
-      }[days] ||
-      "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
+      "/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp",
     date: "Monthly retreat start dates year-round",
     availability: "Book Now",
-    duration: `${days} days`,
+    duration: "5 days",
     level: "All levels",
     location: "Querim, North Goa, India",
     room: "AC dorm, twin sharing, or private room",
     meals: "Three vegetarian meals per day",
-    overview: profile.emphasis,
+    overview:
+      "A 5-day alignment and awakening retreat blending precision Hatha yoga, pranayama, sound baths, and coastal tranquility.",
     distinctFocus:
       "Each retreat is a personal-practice experience, not a teacher-training course or professional certification.",
-    whoFor: profile.whoFor,
-    itinerary: Array.from({ length: days }, (_, index) => [
+    whoFor: [
+      "Practitioners wanting to correct posture and alignment habits",
+      "Anyone seeking energy renewal and stress release",
+      "Solo travellers and couples looking for a focused reset",
+    ],
+    itinerary: Array.from({ length: 5 }, (_, index) => [
       `Day ${index + 1}`,
       index === 0
-        ? "Arrival, welcome, and an opening Hatha practice"
-        : index === days - 1
-          ? "Closing practice, reflection, and departure"
-          : "Morning Hatha, breathwork, study, and protected rest",
+        ? "Arrival, welcome circle, and opening alignment assessment"
+        : index === 4
+          ? "Closing alignment integration, reflection, and departure"
+          : "Morning alignment flow, posture clinic, and evening sound meditation",
     ]),
     dailySchedule: [
-      ["07:00", "Morning Hatha yoga"],
-      ["09:00", "Breakfast and free time"],
-      ["11:00", "Pranayama and meditation"],
-      ["17:00", "Restorative practice"],
+      ["07:00", "Awaken Morning Alignment Flow"],
+      ["09:00", "Healthy Vegetarian Breakfast"],
+      ["11:00", "Posture Clinic & Breathwork"],
+      ["13:00", "Sattvic Lunch & Rest"],
+      ["17:00", "Restorative Yoga & Sound Bath"],
+      ["19:30", "Dinner & Quiet Time"],
     ],
-    gallery: retreatGallery,
+    gallery: [],
     includedActivities: [],
     excludedActivities: [],
     optionalGoaIdeas: [
-      "Explore coastal walks and nearby beaches",
-      "Plan local culture and food outings",
-      "Rest, read, and reflect at your own pace",
+      "Explore Querim & Arambol beach sunsets",
+      "Visit local spice farms and coastal viewpoints",
+      "Relax in open-air reading gardens",
     ],
-  };
-});
+  },
+  {
+    slug: "aerial-yoga-retreat-goa",
+    days: 5,
+    name: "Aerial Yoga Retreat in Goa",
+    category: "Aerial & Flow",
+    description:
+      "Experience the weightless freedom of aerial yoga silks with gentle spinal decompression, core strengthening, restorative inversions, and ocean breezes in North Goa.",
+    whatIs: {
+      heading: "What is the Aerial Yoga Retreat in Goa?",
+      paragraphs: [
+        "Our Aerial Yoga Retreat offers a liberating approach to yoga by using suspended soft silk hammocks in our open-air beachside yoga shala. Combining traditional Hatha principles with aerial support, this retreat allows for deep spinal traction, easy inversions, and gentle joint decompression.",
+        "Led by experienced aerial instructors, you will practice flying postures, core conditioning, cocooned hammock meditation, and evening sound healing. Free hours allow time to enjoy the pool, beaches, and healthy coastal living in North Goa.",
+        "No prior aerial yoga experience is needed. The retreat is beginner-friendly and tailored to build confidence in the hammock step by step.",
+      ],
+      points: [
+        "Daily aerial hammock classes and guided safe inversions",
+        "Gentle spinal decompression and joint-friendly flexibility",
+        "Cocooned sound bath relaxation and Yoga Nidra",
+        "Step-by-step personal guidance in small batches",
+      ],
+    },
+    benefits: [
+      "Anti-gravity spinal decompression & joint relief",
+      "Floating sound bath & cocooned Yoga Nidra",
+      "Aerial flow & restorative aerial Yin yoga",
+    ],
+    price: "€369",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
+    date: "Monthly retreat start dates year-round",
+    availability: "Book Now",
+    duration: "5 days",
+    level: "All levels",
+    location: "Querim, North Goa, India",
+    room: "AC dorm, twin sharing, or private room",
+    meals: "Three vegetarian meals per day",
+    overview:
+      "A 5-day aerial yoga immersion combining suspended hammock practice, gentle inversions, and deep coastal relaxation.",
+    distinctFocus:
+      "Each retreat is a personal-practice experience, not a teacher-training course or professional certification.",
+    whoFor: [
+      "Anyone curious to try aerial yoga in a safe, guided setting",
+      "Yogis wanting joint decompression and deeper flexibility",
+      "Travellers seeking a fun, uplifting, and restorative break",
+    ],
+    itinerary: Array.from({ length: 5 }, (_, index) => [
+      `Day ${index + 1}`,
+      index === 0
+        ? "Arrival, hammock orientation, and gentle floating relaxation"
+        : index === 4
+          ? "Aerial flow integration, celebratory practice, and departure"
+          : "Morning aerial flow, afternoon inversion technique, and evening hammock sound bath",
+    ]),
+    dailySchedule: [
+      ["07:00", "Morning Aerial Vinyasa & Grounding"],
+      ["09:00", "Nourishing Breakfast"],
+      ["11:00", "Aerial Technique & Inversions Workshop"],
+      ["13:00", "Fresh Sattvic Lunch"],
+      ["17:00", "Restorative Aerial Yin & Floating Meditation"],
+      ["19:30", "Dinner & Stargazing"],
+    ],
+    gallery: [],
+    includedActivities: [],
+    excludedActivities: [],
+    optionalGoaIdeas: [
+      "Paddleboarding and ocean swims at Querim beach",
+      "Sunset walks around Arambol sweet water lake",
+      "Unwinding at beachside cafes",
+    ],
+  },
+  {
+    slug: "ayurvedic-massage-therapy-goa",
+    days: 7,
+    name: "Ayurvedic Massage Therapy Retreat in Goa",
+    category: "Ayurveda & Healing",
+    description:
+      "Rejuvenate mind and body with traditional Ayurvedic massages, Abhyanga herbal oil therapies, detox steam, gentle yoga, and tailored sattvic nutrition in North Goa.",
+    whatIs: {
+      heading: "What is the Ayurvedic Massage Therapy Retreat?",
+      paragraphs: [
+        "The Ayurvedic Massage Therapy Retreat at Hatha Yogashala is a healing sanctuary designed around authentic Indian body therapies, cellular restoration, and stress relief. Set beside the beaches of North Goa, this 7-day program combines daily Ayurvedic treatments with restorative yoga.",
+        "Experience warm herbal oil Abhyanga massage, Shirodhara forehead oil flow, herbal steam (Swedana), and dosha-balancing nutrition. Gentle morning breathwork and evening restorative yoga support your body's natural healing rhythm.",
+        "Perfect for anyone recovering from burnout, chronic fatigue, or simply wanting to restore vitality through authentic Ayurvedic care.",
+      ],
+      points: [
+        "Daily Ayurvedic herbal oil body therapies & Abhyanga",
+        "Shirodhara relaxation & herbal steam detox sessions",
+        "Gentle morning yoga and evening restorative practice",
+        "Personalised Ayurvedic dietary and lifestyle recommendations",
+      ],
+    },
+    benefits: [
+      "Traditional Ayurvedic massage & Abhyanga therapy",
+      "Shirodhara treatments & herbal steam detox",
+      "Restorative yoga, pranayama & nervous system reset",
+    ],
+    price: "€499",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-meditation-pranayama-session.webp",
+    date: "Monthly retreat start dates year-round",
+    availability: "Book Now",
+    duration: "7 days",
+    level: "All levels",
+    location: "Querim, North Goa, India",
+    room: "AC dorm, twin sharing, or private room",
+    meals: "Three vegetarian meals per day",
+    overview:
+      "A 7-day Ayurvedic wellness immersion pairing traditional body therapies with restorative yoga and sattvic nourishment.",
+    distinctFocus:
+      "Each retreat is a personal-practice experience, not a teacher-training course or professional certification.",
+    whoFor: [
+      "Those experiencing physical exhaustion or burnout",
+      "Seekers of authentic Indian Ayurvedic massage and detox",
+      "Anyone wanting a slower, deeply nurturing retreat pace",
+    ],
+    itinerary: Array.from({ length: 7 }, (_, index) => [
+      `Day ${index + 1}`,
+      index === 0
+        ? "Arrival, Ayurvedic dosha consultation, and gentle welcome yoga"
+        : index === 6
+          ? "Final rejuvenation therapy, closing circle, and departure"
+          : "Gentle morning yoga, daily Ayurvedic massage session, and evening Yoga Nidra",
+    ]),
+    dailySchedule: [
+      ["07:00", "Gentle Hatha & Pranayama"],
+      ["09:00", "Ayurvedic Breakfast"],
+      ["10:30", "Individual Ayurvedic Massage & Abhyanga Session"],
+      ["13:00", "Dosha-Balancing Sattvic Lunch"],
+      ["16:30", "Herbal Steam & Detox Tea"],
+      ["17:30", "Restorative Yoga & Yoga Nidra"],
+      ["19:30", "Light Dinner"],
+    ],
+    gallery: [],
+    includedActivities: [],
+    excludedActivities: [],
+    optionalGoaIdeas: [
+      "Herbal spice plantation excursions",
+      "Quiet sunset walks on Querim beach",
+      "Ayurvedic cooking masterclass",
+    ],
+  },
+  {
+    slug: "yoga-festivals-in-goa",
+    days: 3,
+    name: "Yoga Festivals in Goa Retreat",
+    category: "Festival & Community",
+    description:
+      "Celebrate the joyful spirit of yoga with ecstatic dance, live sacred kirtan, guest masterclasses, community circles, and beachside gatherings in North Goa.",
+    whatIs: {
+      heading: "What is the Yoga Festivals in Goa Retreat?",
+      paragraphs: [
+        "The Yoga Festivals in Goa retreat captures the celebratory, community-focused energy of North Goa's wellness scene. Held across select seasonal dates at Hatha Yogashala in Querim, this immersion unites yogis, musicians, and teachers from around the world.",
+        "Join uplifting masterclasses in Hatha, Vinyasa, Yin, and AcroYoga, sing along at sacred kirtan concerts, dance under the stars at beach ecstatic dance sessions, and enjoy ice baths and fire circles. It is a joyful celebration of movement, sound, and connection.",
+        "Open to all ages and experience levels — come as you are to share, celebrate, and connect with a global community.",
+      ],
+      points: [
+        "Live sacred kirtan, mantra music & ecstatic dance",
+        "Multi-style yoga workshops & guest teacher sessions",
+        "Sunset beach sessions & community fire gatherings",
+        "All-inclusive festival pass with delicious feasts and stay",
+      ],
+    },
+    benefits: [
+      "Live sacred kirtan & ecstatic dance gatherings",
+      "Multi-style yoga masterclasses & workshops",
+      "Ice baths, sauna & beachfront fire circles",
+    ],
+    price: "€249",
+    image:
+      "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
+    date: "Monthly retreat start dates year-round",
+    availability: "Book Now",
+    duration: "3 days",
+    level: "All levels",
+    location: "Querim, North Goa, India",
+    room: "AC dorm, twin sharing, or private room",
+    meals: "Three vegetarian meals per day",
+    overview:
+      "A 3-day celebratory yoga festival experience with live music, diverse workshops, and beachside community connection.",
+    distinctFocus:
+      "Each retreat is a personal-practice experience, not a teacher-training course or professional certification.",
+    whoFor: [
+      "Community seekers and festival enthusiasts",
+      "Yogis looking to experience multiple styles and live music",
+      "Travellers wanting a high-energy, uplifting weekend retreat",
+    ],
+    itinerary: Array.from({ length: 3 }, (_, index) => [
+      `Day ${index + 1}`,
+      index === 0
+        ? "Arrival, festival opening ceremony, sunset yoga, and welcome kirtan"
+        : index === 2
+          ? "Morning celebration flow, closing heart circle, and departure"
+          : "All-day workshop choices, ecstatic dance, and beachside fire circle",
+    ]),
+    dailySchedule: [
+      ["07:30", "Morning Festival Flow & Live Acoustic Music"],
+      ["09:30", "Community Breakfast Feast"],
+      ["11:00", "Guest Masterclasses (Vinyasa / Aerial / Acro)"],
+      ["13:30", "Sattvic Lunch & Pool Relaxation"],
+      ["16:30", "Breathwork Journey & Ice Bath Session"],
+      ["18:30", "Sunset Ecstatic Dance & Sacred Kirtan"],
+      ["20:30", "Feast Dinner & Fire Circle"],
+    ],
+    gallery: [],
+    includedActivities: [],
+    excludedActivities: [],
+    optionalGoaIdeas: [
+      "Arambol beach drum circle at sunset",
+      "Exploring bohemian cafes and artisan stalls",
+      "River kayaking and coastal nature trails",
+    ],
+  },
+];
 
 export function getCourse(slug) {
   return courses.find((course) => course.slug === slug);

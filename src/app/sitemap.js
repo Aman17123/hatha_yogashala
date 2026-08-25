@@ -1,5 +1,6 @@
 import { posts } from "@/data/blogData";
 import { courses, retreats } from "@/data/coursesData";
+import { holidays } from "@/data/holidaysData";
 import { absoluteUrl } from "@/data/siteData";
 
 const SITE_LASTMOD = "2026-07-20";
@@ -45,6 +46,7 @@ export default function sitemap() {
     { path: "/apply", lastmod: SITE_LASTMOD },
     { path: "/courses", lastmod: SITE_LASTMOD },
     { path: "/retreats", lastmod: SITE_LASTMOD },
+    { path: "/holidays", lastmod: SITE_LASTMOD },
     { path: "/yoga-teacher-training", lastmod: SITE_LASTMOD },
     { path: "/blog", lastmod: SITE_LASTMOD },
     { path: "/privacy-policy", lastmod: SITE_LASTMOD },
@@ -77,6 +79,16 @@ export default function sitemap() {
         {
           url: absoluteUrl(retreat.image),
           title: retreat.name,
+        },
+      ],
+    })),
+    ...holidays.map((holiday) => ({
+      url: absoluteUrl(`/holidays/${holiday.slug}`),
+      lastModified: SITE_LASTMOD,
+      images: [
+        {
+          url: absoluteUrl(holiday.image),
+          title: holiday.name,
         },
       ],
     })),

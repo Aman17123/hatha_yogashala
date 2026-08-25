@@ -806,9 +806,44 @@ function sampleDates(days) {
   });
 }
 
-export function getRetreatPageData(days) {
-  const category = days === 3 ? "Coastal reset" : days === 5 ? "Restorative stay" : days === 7 ? "Full week immersion" : "Extended immersion";
-  const name = `${days}-Day Yoga Retreat in Goa`;
+export function getRetreatPageData(arg) {
+  const retreat = typeof arg === "object" && arg !== null ? arg : null;
+  const days = retreat?.days || (typeof arg === "number" ? arg : 5);
+  const category =
+    retreat?.category ||
+    (days === 3
+      ? "Coastal reset"
+      : days === 5
+        ? "Restorative stay"
+        : days === 7
+          ? "Full week immersion"
+          : "Extended immersion");
+  const name = retreat?.name || `${days}-Day Yoga Retreat in Goa`;
+  const heroImage = retreat?.image || IMAGES.hero;
+  const heroImageAlt = retreat?.name
+    ? `Yoga and meditation session during ${retreat.name}`
+    : `Peaceful yoga and meditation session during ${name}`;
+  const heroTagline =
+    retreat?.description ||
+    (days === 3
+      ? "A unique blend of spiritual exploration, physical rejuvenation, and cultural immersion in North Goa."
+      : days === 7
+        ? "A complete Mind-Body-Soul wellness retreat — daily yoga and meditation, sound healing, sauna and ice bath, and cultural excursions by the sea."
+        : `${days} days of guided yoga, beach-side meditation, sattvic food, and true rest on the Goan coast.`);
+  const duration = retreat?.duration || `${days} days · ${days - 1} nights`;
+  const location = retreat?.location || "Querim, North Goa, India";
+  const locationDetail =
+    "Querim · near Arambol · approx. 25–30 min from MOPA (GOX) · Mopa and Dabolim (GOI) airports";
+
+  const sharedPriceNumber =
+    retreat?.pricing?.shared?.price ??
+    retreatPricingByDays[days]?.shared?.price ??
+    (days === 3 ? 199 : days === 7 ? 449 : 299);
+  const privatePriceNumber =
+    retreat?.pricing?.private?.price ??
+    retreatPricingByDays[days]?.private?.price ??
+    (days === 3 ? 399 : days === 7 ? 649 : 499);
+
   return {
     days,
     name,
@@ -816,20 +851,18 @@ export function getRetreatPageData(days) {
     rating: 4.9,
     ratingCount: 187,
     students: "3,500+",
-    heroTagline: days === 3
-      ? "A unique blend of spiritual exploration, physical rejuvenation, and cultural immersion in North Goa."
-      : days === 7
-        ? "A complete Mind-Body-Soul wellness retreat — daily yoga and meditation, sound healing, sauna and ice bath, and cultural excursions by the sea."
-        : `${days} days of guided yoga, beach-side meditation, sattvic food, and true rest on the Goan coast.`,
-    duration: `${days} days · ${days - 1} nights`,
-    location: "Querim, North Goa, India",
-    locationDetail: "Querim · near Arambol · approx. 25–30 min from MOPA (GOX) · Mopa and Dabolim (GOI) airports",
-    overview: buildOverview(days, name),
-    overviewSummary: buildOverviewShort(days, name),
+    heroTagline,
+    heroImage,
+    heroImageAlt,
+    duration,
+    location,
+    locationDetail,
+    overview: retreat?.whatIs?.paragraphs || buildOverview(days, name),
+    overviewSummary: retreat?.whatIs?.paragraphs || buildOverviewShort(days, name),
     whyChoose,
     teachers: retreatTeachers,
-    highlights: retreatHighlights,
-    daysSchedule: baseDays[days],
+    highlights: retreat?.benefits || retreatHighlights,
+    daysSchedule: baseDays[days] || baseDays[5],
     experiences: goaExperiences,
     freeTime: freeTimeIdeas,
     accommodation: {
@@ -848,11 +881,11 @@ export function getRetreatPageData(days) {
       ...retreatPricing,
       shared: {
         ...retreatPricing.shared,
-        price: retreatPricingByDays[days].shared.price,
+        price: sharedPriceNumber,
       },
       private: {
         ...retreatPricing.private,
-        price: retreatPricingByDays[days].private.price,
+        price: privatePriceNumber,
       },
     },
     trustBadges,

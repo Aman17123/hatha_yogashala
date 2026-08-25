@@ -376,7 +376,7 @@ export default function Navbar() {
                 href={contactHref}
                 className="relative isolate hidden items-center justify-center overflow-hidden whitespace-nowrap rounded-full border border-[var(--coral-dark)] px-4 py-2.5 text-[13.5px] font-semibold uppercase tracking-[0.12em] text-[var(--coral-dark)] transition-[color,border-color,transform] duration-300 before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:bg-[var(--coral-dark)] before:transition-transform before:duration-300 before:ease-out hover:-translate-y-0.5 hover:border-[var(--coral-dark)] hover:text-white hover:before:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral-dark)]/30 motion-reduce:transform-none xl:inline-flex"
               >
-                Contact
+                Contact Us
               </Link>
               <Link
                 href="/apply"
@@ -390,7 +390,7 @@ export default function Navbar() {
                 />
 
                 <span className="relative transition-transform duration-300 group-hover:translate-x-0.5">
-                  Reserve Your Spot
+                  Book Now
                 </span>
               </Link>
               <button

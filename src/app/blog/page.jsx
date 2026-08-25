@@ -20,7 +20,7 @@ const blogSchema = {
     name: "Hatha Yogashala",
     url: absoluteUrl("/"),
   },
-  blogPost: posts.slice(0, 6).map((post) => ({
+  blogPost: posts.map((post) => ({
     "@type": "BlogPosting",
     headline: post.title,
     url: absoluteUrl(`/blog/${post.slug}`),
@@ -38,7 +38,8 @@ function formatDate(value) {
 }
 
 export default function BlogPage() {
-  const [featured, ...rest] = posts;
+  const displayedPosts = posts;
+  const [featured, ...rest] = displayedPosts;
   return (
     <>
       <JsonLd data={blogSchema} />
@@ -55,7 +56,10 @@ export default function BlogPage() {
             <h2>From the journal</h2>
           </div>
           <article className="featured-post group">
-            <Link href={`/blog/${featured.slug}`} className="featured-post-image block">
+            <Link
+              href={`/blog/${featured.slug}`}
+              className="featured-post-image block"
+            >
               <Image
                 src={featured.image}
                 alt={featured.imageAlt}
@@ -65,7 +69,9 @@ export default function BlogPage() {
                 sizes="(max-width: 768px) 100vw, 55vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <span className="featured-post-category">{featured.category}</span>
+              <span className="featured-post-category">
+                {featured.category}
+              </span>
             </Link>
             <div className="flex flex-col">
               <span className="blog-card-meta inline-flex flex-wrap gap-x-4 gap-y-1.5 text-[13.5px] font-medium text-[var(--muted)]">
@@ -107,7 +113,7 @@ export default function BlogPage() {
             <h2>Explore by topic</h2>
             <p>Search the full article library or filter by category.</p>
           </div>
-          <BlogExplorer posts={[featured, ...rest]} />
+          <BlogExplorer posts={displayedPosts} perPage={4} />
         </Container>
       </section>
     </>

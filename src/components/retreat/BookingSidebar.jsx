@@ -118,8 +118,8 @@ export default function BookingSidebar({
             <ArrowRight size={17} aria-hidden="true" />
           </button>
           <div className="booking-actions-secondary">
-            <Link href="#schedule" className="button button-secondary">
-              View Schedule
+            <Link href="#accommodation" className="button button-secondary">
+              Accommodation
             </Link>
             <a
               href={whatsappHref}
@@ -162,9 +162,9 @@ export default function BookingSidebar({
       {/* Quick links into the page */}
       <nav className="booking-mininav" aria-label={`${entityLabel} page sections`}>
         <a href="#overview">Overview</a>
-        <a href="#schedule">Daily Schedule</a>
         <a href="#accommodation">Accommodation</a>
         <a href="#meals">Meals</a>
+        <a href="#included">Included</a>
         <a href="#registration">Pricing & Booking</a>
         <a href="#faq">FAQ</a>
       </nav>

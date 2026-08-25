@@ -14,7 +14,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const retreat = getRetreat(slug);
   if (!retreat) return {};
-  const page = getRetreatPageData(retreat.days);
+  const page = getRetreatPageData(retreat);
   return makeMetadata(
     page.name,
     `Plan the ${page.name}: daily yoga, meditation, sattvic meals, beachside accommodation, dates, prices and booking.`,
@@ -28,7 +28,7 @@ export default async function RetreatPage({ params }) {
   const retreat = getRetreat(slug);
   if (!retreat) notFound();
 
-  const page = getRetreatPageData(retreat.days);
+  const page = getRetreatPageData(retreat);
 
   return <RetreatTemplate retreat={retreat} page={page} />;
 }

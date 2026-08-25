@@ -1,12 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  BadgeCheck,
-  Sparkles,
-  Star,
-  Timer,
-} from "lucide-react";
+import { ArrowRight, BadgeCheck, Sparkles, Star, Timer } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { publicValue, whatsappLink } from "@/data/siteData";
 import { getRetreatPageData } from "@/data/retreatData";
@@ -75,15 +69,17 @@ export function Media({
   alt,
   className = "",
   preload = false,
+  priority = false,
   sizes = "(max-width: 768px) 100vw, 50vw",
 }) {
+  if (!src) return null;
   return (
     <div className={`media ${className}`}>
       <Image
         src={src}
-        alt={alt}
+        alt={alt || "Hatha Yogashala Goa"}
         fill
-        preload={preload}
+        priority={priority || preload}
         sizes={sizes}
         className="object-cover"
       />
@@ -242,9 +238,10 @@ export function ProgramCard({ course, horizontal = false }) {
           }
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        {course.cardBadge && !["Most Popular", "Most Booked", "Shared"].includes(course.cardBadge) && (
-          <span className="program-badge">{course.cardBadge}</span>
-        )}
+        {course.cardBadge &&
+          !["Most Popular", "Most Booked", "Shared"].includes(
+            course.cardBadge,
+          ) && <span className="program-badge">{course.cardBadge}</span>}
       </div>
       <div className="card-body program-body">
         <h3 className="program-title">{course.name}</h3>
@@ -328,8 +325,8 @@ export function ProgramCard({ course, horizontal = false }) {
 }
 
 export function RetreatCard({ retreat }) {
-  const page = getRetreatPageData(retreat.days);
-  const numericPrice = page.pricing.shared.price;
+  const page = getRetreatPageData(retreat);
+  const numericPrice = page?.pricing?.shared?.price;
   const price =
     typeof numericPrice === "number"
       ? `${page.pricing.shared.currency === "EUR" ? "€" : "$"}${numericPrice}`
