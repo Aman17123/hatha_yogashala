@@ -238,10 +238,9 @@ export function ProgramCard({ course, horizontal = false }) {
           }
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        {course.cardBadge &&
-          !["Most Popular", "Most Booked", "Shared"].includes(
-            course.cardBadge,
-          ) && <span className="program-badge">{course.cardBadge}</span>}
+        {course.cardBadge && (
+          <span className="program-badge">{course.cardBadge}</span>
+        )}
       </div>
       <div className="card-body program-body">
         <h3 className="program-title">{course.name}</h3>
@@ -347,14 +346,14 @@ export function RetreatCard({ retreat }) {
               className="size-3 fill-[var(--gold)] text-[var(--gold)]"
               aria-hidden="true"
             />
-            {page.rating}
+            {typeof page.rating === "number" ? page.rating.toFixed(1) : page.rating}
           </span>
         </div>
       </div>
 
       {/* Card Body */}
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-serif text-xl font-bold text-black group-hover:text-[var(--coral-dark)] transition-colors leading-snug">
+        <h3 className="font-heading text-xl font-bold text-black group-hover:text-[var(--coral-dark)] transition-colors leading-snug">
           <Link href={`/retreats/${retreat.slug}`}>{retreat.name}</Link>
         </h3>
 

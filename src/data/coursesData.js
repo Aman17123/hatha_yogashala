@@ -61,6 +61,8 @@ const hundredHour = {
   slug: "100-hour-yoga-teacher-training-goa",
   hours: "100-hour",
   name: "100-Hour Yoga Teacher Training in Goa",
+  image:
+    "/images/tha_hatha/the-hatha-yogashala-100-hour-yoga-teacher-training-course-goa.webp",
   level: "Foundation",
   certification: "Yoga Alliance USA Recognized",
   outcome: "Strong foundation, bridge to 200H",
@@ -499,12 +501,14 @@ const twoHundredHour = {
   slug: "200-hour-yoga-teacher-training-goa",
   hours: "200-hour",
   name: "200-Hour Yoga Teacher Training in Goa",
+  image:
+    "/images/tha_hatha/the-hatha-yogashala-aerial-yoga-teacher-training-course-goa.webp",
   level: "Foundational",
   certification: "200-Hour Yoga Alliance (RYS 200)",
   outcome: "Full teaching certification, RYT 200",
   perfectfor: "Aspiring teachers, serious practitioners",
   featured: true,
-  cardBadge: "Most Popular",
+  cardBadge: "MOST POPULAR",
   cardSummary:
     "Our flagship 21–22 day Yoga Alliance-approved course in Hatha, Ashtanga, Vinyasa & Ayurveda — daily asana, pranayama, philosophy, anatomy, and supervised teaching practice.",
   cardStats: {
@@ -927,6 +931,8 @@ const threeHundredHour = {
   slug: "300-hour-yoga-teacher-training-goa",
   hours: "300-hour",
   name: "300-Hour Yoga Teacher Training in Goa",
+  image:
+    "/images/tha_hatha/the-hatha-yogashala-300-hour-yoga-teacher-training-course-goa.webp",
   level: "Advanced",
   certification: "300-Hour Yoga Alliance (RYS 300)",
   outcome: "Advanced mastery, RYT 500 eligible",
@@ -1349,12 +1355,14 @@ const flexibleTwoHundredHour = {
   slug: "22-day-200-hour-flexible-yoga-teacher-training-goa",
   hours: "200-hour",
   name: "22-Day 200 Hour Flexible Yoga Teacher Training Goa",
+  image:
+    "/images/tha_hatha/the-hatha-yogashala-22-day-200-hour-hatha-ashtanga-vinyasa-ayurveda-flexible-yoga-teacher-training-goa.webp",
   level: "Multi-Style & Flexible",
   certification: "Yoga Alliance USA Recognized RYS-200",
   outcome: "200-Hour Multi-Style Yoga Teacher Certification",
   perfectfor: "All levels, aspiring teachers, flexible learners",
   featured: true,
-  cardBadge: "Flexible & Multi-Style",
+  cardBadge: "FLEXIBLE",
   cardSummary:
     "A 22-day holistic Yoga Alliance-approved 200-Hour training in Goa covering Hatha, Ashtanga, Vinyasa, Yin, Restorative, and Ayurveda with freedom to customize your schedule.",
   cardStats: {
@@ -1396,7 +1404,8 @@ const flexibleTwoHundredHour = {
   description:
     "22-Day 200-Hour Hatha, Ashtanga, Vinyasa, Ayurveda and Flexible Yoga Teacher Training in Goa. Open to all levels.",
   whatIs: {
-    heading: "22-Day 200-Hour Hatha, Ashtanga, Vinyasa & Ayurveda Flexible Training",
+    heading:
+      "22-Day 200-Hour Hatha, Ashtanga, Vinyasa & Ayurveda Flexible Training",
     paragraphs: [
       "At The Hatha Yogashala, our 200-Hour Yoga Teacher Training course offers a holistic approach to yoga, covering philosophy, meditation, anatomy, kriya, and the art of teaching. This program is designed not only to prepare you to design and deliver yoga classes but also to help you integrate yoga into your daily life. Over the span of 22 days in Goa, you’ll dive into the practices of Hatha, Vinyasa, Yin, and Restorative yoga techniques.",
       "Our experienced and nurturing teachers will guide you through yoga philosophy, meditation, anatomy, alignment, teaching methodology, and pranayama breathing techniques. Although this 200-Hour Yoga Teacher Training is primarily designed for aspiring yoga teachers, it is open to all levels—from beginners to those with some yoga experience who wish to deepen their knowledge and self-healing practices.",
@@ -1500,11 +1509,13 @@ const ashtangaTwoHundredHour = {
   slug: "200-hour-ashtanga-vinyasa-yoga-teacher-training-goa",
   hours: "200-hour",
   name: "200-Hour Ashtanga Vinyasa Yoga Teacher Training in Goa",
+  image:
+    "/images/tha_hatha/the-hatha-yogashala-200-hour-ashtanga-vinyasa-yoga-teacher-training-course-goa.webp",
   level: "Ashtanga Vinyasa Specialist",
   certification: "200-Hour Yoga Alliance (RYS 200)",
   outcome: "200-Hour Ashtanga Vinyasa Yoga Teacher Certification",
   perfectfor: "Dynamic practitioners, aspiring Ashtanga Vinyasa instructors",
-  cardBadge: "Ashtanga Specialist",
+  cardBadge: "ASHTANGA",
   cardSummary:
     "An intensive 21-day Ashtanga Vinyasa certification in Goa focusing on the Primary Series, Ujjayi breath, bandhas, drishti, dynamic adjustments, and 6 Goa excursions.",
   cardStats: {
@@ -1658,11 +1669,13 @@ const aerialTtc = {
   slug: "aerial-yoga-teacher-training-goa",
   hours: "50-hour",
   name: "Aerial Yoga Teacher Training Course in Goa",
+  image:
+    "/images/tha_hatha/the-hatha-yogashala-aerial-yoga-teacher-training-course-goa.webp",
   level: "Aerial Specialist",
   certification: "50-Hour Yoga Alliance Approved",
   outcome: "50-Hour Aerial Yoga Teacher Certification",
   perfectfor: "Yogis and instructors seeking aerial hammock mastery",
-  cardBadge: "Aerial Specialist",
+  cardBadge: "AERIAL",
   cardSummary:
     "A 7-day 50-hour Aerial Yoga Teacher Training in Goa covering aerial hammock poses, safe rigging, spinal decompression, and therapeutic fly sequencing.",
   cardStats: {
@@ -1791,9 +1804,9 @@ const aerialTtc = {
 const mainCourses = [
   hundredHour,
   twoHundredHour,
+  threeHundredHour,
   flexibleTwoHundredHour,
   ashtangaTwoHundredHour,
-  threeHundredHour,
   aerialTtc,
 ];
 
@@ -1855,7 +1868,7 @@ const retreatProfiles = {
     emphasis:
       "Step away from the noise of daily life and into three days of stillness, movement, and community at Hatha Yogashala, Goa. This short, immersive retreat is designed for travelers who want a genuine reset — a blend of yoga practice, internal cleansing, sound healing, and the natural beauty of Goa's coastline, all held within a warm and supportive community.",
     excursionsStory:
-      "Beyond the mat, your days open up into the best of Goa: sunset beach sessions, waterfall visits, and evening kirtan circles for the soul. Ice baths and sauna sessions support recovery and deepen the reset, while our evening \"Goa Experience\" outings give you a taste of local culture, markets, and coastline beyond the retreat walls. Playful beach games and acro yoga round out the day with lightness and connection.",
+      'Beyond the mat, your days open up into the best of Goa: sunset beach sessions, waterfall visits, and evening kirtan circles for the soul. Ice baths and sauna sessions support recovery and deepen the reset, while our evening "Goa Experience" outings give you a taste of local culture, markets, and coastline beyond the retreat walls. Playful beach games and acro yoga round out the day with lightness and connection.',
     checkIn: "11:00 AM",
     checkOut: "1:00 PM",
     whoFor: [
@@ -2039,6 +2052,7 @@ export const retreats = [
       name: `${days}-Day Yoga Retreat in Goa`,
       category: profile.category,
       description: profile.emphasis,
+      rating: days === 5 ? 5.0 : 4.9,
       whatIs: retreatWhatIs[days],
       benefits: benefitsByDays[days],
       price: { 3: "€199", 5: "€299", 7: "€399" }[days],
@@ -2049,7 +2063,9 @@ export const retreats = [
       priceHeader: "Price In Euro",
       feeRows: feeRowsByDays[days],
       accommodationOptions:
-        days === 7 ? standardAccommodationOptions7 : standardAccommodationOptions5,
+        days === 7
+          ? standardAccommodationOptions7
+          : standardAccommodationOptions5,
       excursionsStory: profile.excursionsStory,
       image:
         {
@@ -2191,7 +2207,12 @@ export const retreats = [
           "Beach Time / Self-Time",
           "Beach Time / Self-Time",
         ],
-        ["04:30 – 05:30 PM", "Orientation", "Iyengar Style Asana", "Check-Out*"],
+        [
+          "04:30 – 05:30 PM",
+          "Orientation",
+          "Iyengar Style Asana",
+          "Check-Out*",
+        ],
         [
           "05:45 – 07:15 PM",
           "Kundalini and Chakra Sadhana",
@@ -2443,8 +2464,7 @@ export const retreats = [
         text: "I came alone and left with a community. The festival is as much about connection as it is about yoga.",
       },
     ],
-    image:
-      "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
+    image: "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
     date: "Annual festival dates available on enquiry",
     availability: "Inquire Now",
     duration: "3 days",

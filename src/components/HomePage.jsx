@@ -62,8 +62,7 @@ const whyItems = [
     title: "Information before payment",
     content:
       "Dates, total price, room category, meals, teachers, inclusions, assessment, certification, and cancellation terms are confirmed in writing before a reservation is treated as complete.",
-    image:
-      "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
+    image: "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
     alt: "Residential campus and gardens of The Hatha Yogashala in North Goa",
   },
   {
@@ -78,8 +77,7 @@ const whyItems = [
     title: "A grounded Goa setting",
     content:
       "Residential planning accounts for coastal weather, rest, wet-season access, transport, hydration, laundry, and quiet time instead of treating Goa as scenery alone.",
-    image:
-      "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
+    image: "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
     alt: "Coastal yoga practice at The Hatha Yogashala in Goa",
   },
 ];
@@ -280,7 +278,7 @@ const certificationBadges = [
     caption: "200-Hour Yoga\n(YTTC) – Rishikesh",
   },
   {
-    icon: "/images/tha_hatha/The-hatha-yogashala-yoga-alliance.png",
+    icon: "/images/tha_hatha/The-hatha-yogashala-yoga-alliance-logo.webp",
     caption: "Registered Yoga School",
   },
   {
@@ -355,7 +353,7 @@ export default function HomePage() {
             <div className="hero-sun" aria-hidden="true" />
             <div className="hero-image">
               <Image
-                src="/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp"
+                src="/images/tha_hatha/the-hatha-yogashala-yoga-school-building-goa.webp"
                 alt="Yoga students practicing teacher training alignment at The Hatha Yogashala in Goa"
                 fill
                 loading="eager"
@@ -616,7 +614,7 @@ export default function HomePage() {
                         alt={badge.caption}
                         fill
                         className="object-contain p-2"
-                        sizes="64px"
+                        sizes="60px"
                       />
                     </span>
                     <p className="text-[13.5px] font-semibold leading-snug text-[var(--teal-dark)] sm:text-[13.5px]">
@@ -862,12 +860,12 @@ export default function HomePage() {
                   </h3>
                 </div>
                 <p className="text-[14px] leading-relaxed text-black/80">
-                  Every course includes three freshly prepared vegetarian, sattvic
-                  meals daily (Monday to Saturday morning). Prepared with locally
-                  sourced ingredients, our menu supports intense daily practice
-                  with easy digestion and balanced nutrition. Special dietary
-                  accommodations (vegan, gluten-free, dairy-free) are available
-                  upon request.
+                  Every course includes three freshly prepared vegetarian,
+                  sattvic meals daily (Monday to Saturday morning). Prepared
+                  with locally sourced ingredients, our menu supports intense
+                  daily practice with easy digestion and balanced nutrition.
+                  Special dietary accommodations (vegan, gluten-free,
+                  dairy-free) are available upon request.
                 </p>
               </div>
             </div>

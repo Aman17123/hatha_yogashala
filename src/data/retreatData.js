@@ -790,7 +790,7 @@ export function getRetreatPageData(arg) {
     days,
     name,
     category,
-    rating: 4.9,
+    rating: retreat?.rating ?? (days === 5 ? 5.0 : 4.9),
     ratingCount: 187,
     students: "3,500+",
     heroTagline,
