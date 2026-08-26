@@ -18,8 +18,8 @@ export const faqData = [
       "Sample certificates and verification links available on request.",
     ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-alliance-certification.jpg",
-    imageAlt: "Certification ceremony at the yoga school",
+      "/images/tha_hatha/The-hatha-yogashala--Certificate.webp",
+    imageAlt: "Yoga Alliance teacher training certification at The Hatha Yogashala Goa",
   },
   {
     id: "experience-required",
@@ -34,8 +34,8 @@ export const faqData = [
       "Personal assessment call before booking to set expectations.",
     ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg",
-    imageAlt: "Beginner and experienced students practising together",
+      "/images/tha_hatha/the-hatha-yogashala-yoga-asana-practice-shala-goa.webp",
+    imageAlt: "Beginner and experienced yoga students practicing asanas in open-air shala",
   },
   {
     id: "accommodation-faq",
@@ -50,8 +50,8 @@ export const faqData = [
       "No hidden charges added after booking.",
     ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
-    imageAlt: "Student accommodation at the yoga school campus",
+      "/images/tha_hatha/the-hatha-yogashala-private-room-accommodation-goa.webp",
+    imageAlt: "Private room accommodation at The Hatha Yogashala Goa campus",
   },
   {
     id: "cancellation-policy",
@@ -66,8 +66,8 @@ export const faqData = [
       "Direct support from our team for any changes.",
     ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
-    imageAlt: "Yoga shala campus view",
+      "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
+    imageAlt: "Lush tropical ashram campus and peaceful gardens at The Hatha Yogashala Goa",
   },
   {
     id: "batch-dates",
@@ -82,8 +82,8 @@ export const faqData = [
       "Personal guidance call available before booking.",
     ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-retreat-2025-session.avif",
-    imageAlt: "Group yoga session during a training batch",
+      "/images/tha_hatha/the-hatha-yogashala-group-yoga-class-downward-dog-goa.webp",
+    imageAlt: "Group yoga training batch practicing alignment in North Goa",
   },
   {
     id: "faq-06",
@@ -100,7 +100,7 @@ export const faqData = [
       "Full residential campus a short walk from Querim beach.",
     ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
+      "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp",
     imageAlt: "Hatha Yogashala yoga school campus in Querim, North Goa",
   },
   {
@@ -118,8 +118,8 @@ export const faqData = [
       "Contact us for a personal batch recommendation.",
     ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp",
-    imageAlt: "Yoga students practising on a Goa beach in the winter season",
+      "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
+    imageAlt: "Yoga students practicing on a Goa beach in the winter season",
   },
 ];
 
@@ -212,8 +212,8 @@ export const teachersData = [
     qualifications: "M.Sc. Anatomy & Kinesiology",
     experience: "8+ Years",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-asana-practice-2.webp",
-    imageAlt: "Anatomy and alignment teacher explaining yogic alignment",
+      "/images/tha_hatha/the-hatha-yogashala-chair-assisted-restorative-yoga-goa.webp",
+    imageAlt: "Anatomy and alignment teacher explaining yogic alignment with props",
     coursesTaught: [
       "200-Hour Yoga Teacher Training",
       "300-Hour Yoga Teacher Training",
@@ -229,8 +229,8 @@ export const teachersData = [
     qualifications: "B.A.M.S. (Ayurvedic Physician)",
     experience: "8+ Years",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-students-relaxation.webp",
-    imageAlt: "Ayurveda teacher sharing wellness principles at Hatha Yogashala",
+      "/images/tha_hatha/the-hatha-yogashala-ayurvedic-massage-therapy-goa.webp",
+    imageAlt: "Ayurveda teacher sharing wellness and massage principles at The Hatha Yogashala Goa",
     coursesTaught: ["Ayurveda Course", "Goa Yoga Retreats"],
   },
 ];

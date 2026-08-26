@@ -88,10 +88,10 @@ export default function BlogPage() {
                   {featured.readingTime}
                 </span>
               </span>
-              <h2 className="mt-4 font-serif text-2xl font-bold leading-snug text-black transition-colors group-hover:text-[var(--coral-dark)] sm:text-3xl">
+              <h2 className="mt-4 font-heading text-2xl font-normal leading-snug text-[var(--brown)] transition-colors group-hover:text-[var(--coral-dark)] sm:text-3xl">
                 {featured.title}
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-black/70">
+              <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
                 {featured.excerpt}
               </p>
               <Link

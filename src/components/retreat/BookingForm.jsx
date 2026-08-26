@@ -53,10 +53,10 @@ export default function BookingForm({
   const [days, setDays] = useState("3");
   const [program, setProgram] = useState(programOptions?.[0]?.value ?? "");
 
-  const currentPricing = isProgram ? null : retreatPricingByDays[days] || pricing;
-  const sharedPrice = (isProgram ? pricing?.shared?.price : currentPricing?.shared?.price) ?? (days === "5" ? 299 : days === "7" ? 449 : 199);
-  const privatePrice = (isProgram ? pricing?.private?.price : currentPricing?.private?.price) ?? (days === "5" ? 499 : days === "7" ? 649 : 399);
-  const currencySymbol = pricing?.shared?.currency === "USD" ? "$" : "€";
+  const currentPricing = isProgram ? null : (pricing?.shared?.currency === "INR" ? pricing : retreatPricingByDays[days] || pricing);
+  const sharedPrice = (isProgram || pricing?.shared?.currency === "INR" ? pricing?.shared?.price : currentPricing?.shared?.price) ?? (days === "5" ? 299 : days === "7" ? 449 : 199);
+  const privatePrice = (isProgram || pricing?.shared?.currency === "INR" ? pricing?.private?.price : currentPricing?.private?.price) ?? (days === "5" ? 499 : days === "7" ? 649 : 399);
+  const currencySymbol = pricing?.shared?.currency === "INR" ? "₹" : pricing?.shared?.currency === "USD" ? "$" : "€";
 
   async function submit(event) {
     event.preventDefault();

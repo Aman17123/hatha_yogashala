@@ -271,13 +271,13 @@ function subjectTabs(course) {
 
 function outcomesWithImages(course) {
   const images = [
-    "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-asana-practice-3.webp",
-    "/images/tha_hatha/the-hatha-yogashala-goa-meditation-pranayama-session.webp",
-    "/images/tha_hatha/the-hatha-yogashala-goa-yoga-philosophy-class.jpg",
-    "/images/tha_hatha/the-hatha-yogashala-goa-group-yoga-class-warrior-pose.jpg",
-    "/images/tha_hatha/the-hatha-yogashala-goa-yoga-alliance-certification.jpg",
-    "/images/tha_hatha/the-hatha-yogashala-goa-yoga-students-group-photo.jpg",
-    "/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp",
+    "/images/tha_hatha/the-hatha-yogashala-yoga-asana-practice-shala-goa.webp",
+    "/images/tha_hatha/pranayama-meditation-goa.png",
+    "/images/tha_hatha/the-hatha-yogashala-chair-assisted-restorative-yoga-goa.webp",
+    "/images/tha_hatha/the-hatha-yogashala-group-yoga-class-downward-dog-goa.webp",
+    "/images/tha_hatha/The-hatha-yogashala--Certificate.webp",
+    "/images/tha_hatha/the-hatha-yogashala-yoga-instructor-certification-goa.webp",
+    "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
   ];
   return (course.learningOutcomes || []).map((title, index) => ({
     title,
@@ -293,13 +293,12 @@ export function yttcContent(course) {
     .filter((teacher) => teacher.name && !teacher.name.startsWith("["))
     .map((teacher, index) => ({
       ...teacher,
-      // REPLACE: assign the correct faculty portrait per teacher.
       image:
         index === 0
           ? "/images/tha_hatha/Pradeep-Singh.png"
           : index === 1
             ? "/images/tha_hatha/Surbhi-Babhulkar.png"
-            : "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-portrait.webp",
+            : "/images/tha_hatha/The_Hatha_Yogashala-founder-Goa.webp",
     }));
   const currency = course.pricing?.currency || "€";
 
@@ -588,8 +587,8 @@ export function yttcContent(course) {
         },
       ],
       sample: {
-        src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-alliance-certification.jpg",
-        alt: "Sample completion certificate from Hatha Yogashala in Goa",
+        src: "/images/tha_hatha/The-hatha-yogashala--Certificate.webp",
+        alt: "Sample Yoga Alliance Certified Teacher Training Certificate from The Hatha Yogashala Goa",
       },
     },
 
@@ -648,34 +647,33 @@ export function yttcContent(course) {
     outcomes: outcomesWithImages(course),
 
     // ── Excursions ──────────────────────────────────────────
-    // REPLACE: swap in the school's confirmed excursion list.
     excursions: [
       {
         title: "Temple visits",
         text: "Guided visits to local temples, with history and ritual explained by the faculty.",
         image:
-          "/images/tha_hatha/the-hatha-yogashala-goa-yoga-philosophy-class.jpg",
-        alt: "Students exploring local temple culture near Hatha Yogashala",
+          "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-02.webp",
+        alt: "Students exploring local temple culture near Hatha Yogashala in North Goa",
       },
       {
         title: "Sunrise points",
         text: "Early-morning beach and cliff viewpoints for quiet sunrise practice.",
         image:
-          "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
-        alt: "Sunrise meditation spot near the Goa coast",
+          "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
+        alt: "Sunrise meditation spot near the Goa coastline",
       },
       {
         title: "Nature sites",
         text: "River and waterfall walks through the green North-Goa countryside.",
         image:
-          "/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp",
-        alt: "Nature walk through the North Goa landscape",
+          "/images/tha_hatha/the-hatha-yogashala-balcony-view-coconut-trees-goa.webp",
+        alt: "Nature walk through the lush tropical North Goa landscape",
       },
       {
         title: "Cultural landmarks",
         text: "Market days, forts and heritage villages that show the real Goa beyond the beach.",
         image:
-          "/images/tha_hatha/the-hatha-yogashala-goa-yoga-students-group-photo.jpg",
+          "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
         alt: "Students on a cultural outing near Querim, North Goa",
       },
     ],

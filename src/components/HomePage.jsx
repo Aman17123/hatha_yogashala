@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
+  ArrowRight,
   BadgeCheck,
   Compass,
   Globe,
@@ -44,6 +46,7 @@ import FounderPreview from "./FounderPreview";
 import TeachersPreview from "./TeachersPreview";
 import FAQ from "./FAQ";
 import QuickNav from "./QuickNav";
+import HomeGalleryMarquee from "./HomeGalleryMarquee";
 import { FadeIn, Stagger, StaggerItem } from "./retreat/Motion";
 
 const whyItems = [
@@ -52,23 +55,23 @@ const whyItems = [
     content:
       "Course pages explain the learning goal, suitability, subjects, teaching method, daily rhythm, stay, price checks, and the limits of each completion document.",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-philosophy-class.jpg",
-    alt: "Students studying yoga philosophy in class at Hatha Yogashala in Goa",
+      "/images/tha_hatha/the-hatha-yogashala-chair-assisted-restorative-yoga-goa.webp",
+    alt: "Students studying yoga alignment with props at The Hatha Yogashala in Goa",
   },
   {
     title: "Information before payment",
     content:
       "Dates, total price, room category, meals, teachers, inclusions, assessment, certification, and cancellation terms are confirmed in writing before a reservation is treated as complete.",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
-    alt: "Residential campus view of Hatha Yogashala in North Goa",
+      "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
+    alt: "Residential campus and gardens of The Hatha Yogashala in North Goa",
   },
   {
     title: "Practice suited to the student",
     content:
       "The enquiry process asks about experience, injuries, health, accessibility, dietary needs, room preference, and travel questions so suitability can be discussed early.",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg",
+      "/images/tha_hatha/the-hatha-yogashala-yoga-asana-practice-shala-goa.webp",
     alt: "Teacher observing students during a Hatha yoga teacher training session",
   },
   {
@@ -76,26 +79,134 @@ const whyItems = [
     content:
       "Residential planning accounts for coastal weather, rest, wet-season access, transport, hydration, laundry, and quiet time instead of treating Goa as scenery alone.",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-retreat-2025-session.avif",
-    alt: "Coastal yoga retreat session at Hatha Yogashala in Goa",
+      "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
+    alt: "Coastal yoga practice at The Hatha Yogashala in Goa",
   },
 ];
-const rowIcons = [
-  Clock,
-  Target,
-  TrendingUp,
-  Sparkles,
-  Award,
-  BadgeCheck,
-  DollarSign,
-];
-const comparisonRows = [
-  ["Duration", ...teacherTrainings.map((course) => course.duration)],
-  ["Level", ...teacherTrainings.map((course) => course.level)],
-  ["Outcome", ...teacherTrainings.map((course) => course.outcome)],
-  ["Perfect For", ...teacherTrainings.map((course) => course.perfectfor)],
-  ["Certification", ...teacherTrainings.map((course) => course.certification)],
-  ["Shared-room price", ...teacherTrainings.map((course) => course.price)],
+
+const comparisonCards = [
+  {
+    title: "100 Hour TTC",
+    subtitle: "FOUNDATIONAL PATH",
+    slug: "100-hour-yoga-teacher-training-goa",
+    hours: "100 HOUR",
+    badge: "BEGINNER",
+    isPopular: false,
+    items: [
+      {
+        icon: Sparkles,
+        label: "BEST FOR",
+        value: "Beginners & professionals wanting to deepen their knowledge",
+      },
+      {
+        icon: Target,
+        label: "PERFECT FOR",
+        value: "Complete beginners, limited time",
+      },
+      {
+        icon: Clock,
+        label: "DURATION",
+        value: "11 Days",
+      },
+      {
+        icon: TrendingUp,
+        label: "OUTCOME",
+        value: "Strong foundation, bridge to 200H",
+      },
+      {
+        icon: Award,
+        label: "CERTIFICATION",
+        value: "100 Hour Completion (AYUSH)",
+      },
+      {
+        icon: DollarSign,
+        label: "INVESTMENT",
+        value: "$499 - $599",
+      },
+    ],
+  },
+  {
+    title: "200 Hour TTC",
+    subtitle: "PROFESSIONAL PATH",
+    slug: "200-hour-yoga-teacher-training-goa",
+    hours: "200 HOUR",
+    badge: "MOST POPULAR",
+    isPopular: true,
+    items: [
+      {
+        icon: Sparkles,
+        label: "BEST FOR",
+        value:
+          "Intermediates & beginners who want to become Yoga Alliance certified teachers",
+      },
+      {
+        icon: Target,
+        label: "PERFECT FOR",
+        value: "Aspiring teachers, serious practitioners",
+      },
+      {
+        icon: Clock,
+        label: "DURATION",
+        value: "24 Days",
+      },
+      {
+        icon: TrendingUp,
+        label: "OUTCOME",
+        value: "Full teaching certification, RYT 200",
+      },
+      {
+        icon: Award,
+        label: "CERTIFICATION",
+        value: "Yoga Alliance USA Recognized",
+      },
+      {
+        icon: DollarSign,
+        label: "INVESTMENT",
+        value: "$879 - $999",
+      },
+    ],
+  },
+  {
+    title: "300 Hour TTC",
+    subtitle: "MASTERY PATH",
+    slug: "300-hour-yoga-teacher-training-goa",
+    hours: "300 HOUR",
+    badge: "ADVANCED",
+    isPopular: false,
+    items: [
+      {
+        icon: Sparkles,
+        label: "BEST FOR",
+        value:
+          "Advanced students wanting to achieve Master-level accreditation",
+      },
+      {
+        icon: Target,
+        label: "PERFECT FOR",
+        value: "Certified teachers advancing skills",
+      },
+      {
+        icon: Clock,
+        label: "DURATION",
+        value: "28 Days",
+      },
+      {
+        icon: TrendingUp,
+        label: "OUTCOME",
+        value: "Advanced mastery, RYT 500 eligible",
+      },
+      {
+        icon: Award,
+        label: "CERTIFICATION",
+        value: "Yoga Alliance USA RYT 300",
+      },
+      {
+        icon: DollarSign,
+        label: "INVESTMENT",
+        value: "$1149 - $1249",
+      },
+    ],
+  },
 ];
 
 function GoogleLogo({ size = 21 }) {
@@ -244,8 +355,8 @@ export default function HomePage() {
             <div className="hero-sun" aria-hidden="true" />
             <div className="hero-image">
               <Image
-                src="/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp"
-                alt="A yoga practitioner meditating at sunset in a peaceful coastal setting in Goa"
+                src="/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp"
+                alt="Yoga students practicing teacher training alignment at The Hatha Yogashala in Goa"
                 fill
                 loading="eager"
                 fetchPriority="high"
@@ -315,8 +426,8 @@ export default function HomePage() {
               align="center"
             />
           </FadeIn>
-          <Stagger className="grid gap-5 lg:grid-cols-3">
-            {teacherTrainings.map((course) => (
+          <Stagger className="grid gap-5 md:grid-cols-3 max-w-5xl mx-auto">
+            {teacherTrainings.slice(0, 3).map((course) => (
               <StaggerItem key={course.slug}>
                 <ProgramCard course={course} />
               </StaggerItem>
@@ -336,12 +447,9 @@ export default function HomePage() {
               align="center"
             />
           </FadeIn>
-          <Stagger className="flex flex-wrap justify-center gap-5">
-            {retreats.map((retreat) => (
-              <StaggerItem
-                key={retreat.slug}
-                className="w-full sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.833rem)]"
-              >
+          <Stagger className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+            {retreats.slice(0, 3).map((retreat) => (
+              <StaggerItem key={retreat.slug}>
                 <RetreatCard retreat={retreat} />
               </StaggerItem>
             ))}
@@ -374,93 +482,94 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ===== 10. COURSE COMPARISON — 100 vs 200 vs 300-hour table ===== */}
-      <section className="section !py-10" id="comparison">
+      {/* ===== 10. COURSE COMPARISON — 100 vs 200 vs 300-hour compact cards ===== */}
+      <section className="section !py-12 bg-white" id="comparison">
         <Container>
-          <FadeIn>
-            <SectionHeading
-              eyebrow="Comparison of our TTC programs"
-              title="Compare Yoga Teacher Training Courses in Goa"
-              align="center"
-            />
+          <FadeIn className="text-center">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-normal text-[var(--brown)]">
+              Which Course is{" "}
+              <span className="text-[var(--coral-dark)] font-medium">
+                Right for You?
+              </span>
+            </h2>
+            <p className="mt-2 text-xs sm:text-[13px] font-extrabold uppercase tracking-[0.16em] text-[var(--muted)]">
+              COMPARISON OF OUR TTC PROGRAMS
+            </p>
           </FadeIn>
 
-          <Stagger className="mt-10 grid gap-8 md:grid-cols-3" gap={0.1}>
-            {teacherTrainings.map((course, ci) => {
-              const isPopular = ci === 1; // middle card only
-              const badge = isPopular
-                ? "MOST POPULAR"
-                : ci === 0
-                  ? "BEGINNER"
-                  : "ADVANCED";
-
+          <Stagger
+            className="mt-8 md:mt-10 grid gap-6 md:gap-7 md:grid-cols-3 max-w-6xl mx-auto"
+            gap={0.1}
+          >
+            {comparisonCards.map((card) => {
+              const isPopular = card.isPopular;
               return (
-                <StaggerItem key={course.slug} className="relative pt-2">
-                  <span
-                    className={`absolute -top-3 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full px-4 py-1 text-[12px] font-bold tracking-[0.08em] shadow-sm ${
-                      isPopular
-                        ? "bg-[var(--coral-dark)] text-white"
-                        : "border border-[var(--border)] bg-[var(--cream)] text-[#1b1b2e]"
-                    }`}
-                  >
-                    {badge}
-                  </span>
-
+                <StaggerItem
+                  key={card.slug}
+                  className={`pt-3 flex ${isPopular ? "relative z-30" : "relative z-10"}`}
+                >
+                  {card.badge && (
+                    <span
+                      className={`absolute -top-1 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full px-4 py-1 text-[11px] font-extrabold uppercase tracking-wider ${
+                        isPopular
+                          ? "z-40 bg-[var(--coral-dark)] text-white shadow-md ring-2 ring-white"
+                          : "z-20 border border-[var(--border)] bg-[#faf7f2] text-[var(--brown)] shadow-xs"
+                      }`}
+                    >
+                      {card.badge}
+                    </span>
+                  )}
                   <article
-                    className={`flex h-full flex-col items-center justify-between rounded-2xl border bg-white px-5 pb-6 pt-8 text-center transition-all ${
+                    className={`flex flex-col justify-between w-full rounded-[28px] bg-white p-6 sm:p-7 transition-all ${
                       isPopular
-                        ? "border-2 border-[var(--coral-dark)] shadow-md"
-                        : "border-[var(--border)] shadow-sm"
+                        ? "relative z-30 border-2 border-[var(--coral-dark)] shadow-xl ring-4 ring-[var(--coral-dark)]/10 md:-translate-y-1.5"
+                        : "relative z-10 border border-[var(--border)] shadow-xs hover:border-[var(--coral-dark)]/40"
                     }`}
                   >
-                    <div className="w-full">
-                      <h3 className="text-base font-extrabold text-[#1b1b2e]">
-                        {course.name}
+                    <div>
+                      <h3 className="font-heading text-xl sm:text-2xl font-bold text-[#1b1b2e]">
+                        {card.title}
                       </h3>
-                      <p className="mb-4 text-[13.5px] font-bold uppercase tracking-[0.1em] text-[var(--coral-dark)]">
-                        {course.subtitle}
+                      <p className="mt-1 mb-6 text-[11px] font-extrabold uppercase tracking-[0.14em] text-[var(--coral-dark)]">
+                        {card.subtitle}
                       </p>
 
-                      <dl className="space-y-3">
-                        {comparisonRows.map((row, ri) => {
-                          const Icon = rowIcons[ri];
+                      <div className="space-y-4">
+                        {card.items.map((item) => {
+                          const Icon = item.icon;
                           return (
                             <div
-                              key={row[0]}
-                              className="flex flex-col items-center justify-center min-h-[52px]"
+                              key={item.label}
+                              className="flex items-start gap-3 text-left"
                             >
-                              <dt className="flex items-center justify-center gap-1.5 text-[12px] font-bold uppercase text-[var(--muted)]">
-                                <Icon
-                                  className="size-3.5 shrink-0 text-[var(--coral-dark)]"
-                                  aria-hidden="true"
-                                />
-                                {row[0]}
-                              </dt>
-                              <dd
-                                className={`mt-0.5 font-semibold leading-snug text-[#1b1b2e] ${
-                                  row[0] === "Shared-room price"
-                                    ? "text-xl font-extrabold text-[var(--coral-dark)]"
-                                    : "text-[13px]"
-                                }`}
-                              >
-                                {row[ci + 1]}
-                              </dd>
+                              <div className="mt-0.5 shrink-0 text-[var(--coral-dark)]">
+                                <Icon size={16} strokeWidth={2.2} />
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <p className="text-[10px] sm:text-[10.5px] font-extrabold uppercase tracking-wider text-[var(--muted)]">
+                                  {item.label}
+                                </p>
+                                <p className="mt-0.5 text-[12.5px] sm:text-[13px] font-semibold text-[#1b1b2e] leading-snug">
+                                  {item.value}
+                                </p>
+                              </div>
                             </div>
                           );
                         })}
-                      </dl>
+                      </div>
                     </div>
 
-                    <ButtonLink
-                      href={`/courses/${course.slug}`}
-                      className={`mt-6 flex w-full items-center justify-center gap-2 rounded-full py-2.5 text-[13px] font-bold uppercase tracking-[0.08em] ${
+                    <Link
+                      href={`/courses/${card.slug}`}
+                      className={`mt-7 flex w-full items-center justify-center gap-1.5 rounded-full py-3 text-xs font-bold uppercase tracking-wider transition-all ${
                         isPopular
-                          ? "bg-[var(--coral-dark)] text-white hover:opacity-95"
-                          : "bg-[var(--cream)] text-[#1b1b2e] hover:bg-[#eae3d5]"
+                          ? "bg-[var(--coral-dark)] text-white shadow-sm hover:opacity-95"
+                          : "bg-[#f5f1eb] text-[var(--brown)] hover:bg-[#eae3d5]"
                       }`}
                     >
-                      Explore {course.hours}
-                    </ButtonLink>
+                      <span>EXPLORE {card.hours} TTC</span>
+                      <ArrowRight size={14} />
+                    </Link>
                   </article>
                 </StaggerItem>
               );
@@ -535,24 +644,23 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-              <div className="relative h-[340px] w-full overflow-hidden rounded-3xl sm:h-[420px]">
-                <Image
-                  src="/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp"
-                  alt="Yoga teacher training certification ceremony at Sukha Yogashala"
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 40vw, 90vw"
-                />
-              </div>
-              <div className="absolute -bottom-6 left-3 w-56 overflow-hidden rounded-xl border-4 border-white shadow-xl sm:-left-6 sm:w-64">
-                <Image
-                  src="/images/tha_hatha/The-hatha-yogashala--Certificate.webp"
-                  alt="Yoga Alliance 200-hour certificate of registration"
-                  width={400}
-                  height={300}
-                  className="h-auto w-full object-cover"
-                />
+            <div className="relative mx-auto w-full max-w-lg lg:max-w-none flex justify-center">
+              <div className="relative w-full max-w-md overflow-hidden rounded-3xl border-4 border-white bg-white p-3 shadow-2xl transition-transform duration-300 hover:scale-[1.02]">
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[var(--surface)]">
+                  <Image
+                    src="/images/tha_hatha/The-hatha-yogashala--Certificate.webp"
+                    alt="Yoga Alliance Official Certificate — The Hatha Yogashala Goa"
+                    fill
+                    className="object-contain"
+                    sizes="(min-width: 1024px) 45vw, 90vw"
+                  />
+                </div>
+                <div className="mt-3 flex items-center justify-between px-2 text-xs font-semibold text-[var(--muted)]">
+                  <span className="flex items-center gap-1.5 text-[var(--teal-dark)]">
+                    <BadgeCheck size={16} /> Verified RYS 200 &amp; 300
+                  </span>
+                  <span>Yoga Alliance USA</span>
+                </div>
               </div>
             </div>
           </FadeIn>
@@ -619,8 +727,8 @@ export default function HomePage() {
                 style={{ aspectRatio: "3/4" }}
               >
                 <Media
-                  src="/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp"
-                  alt="Yoga students practising on a Goa beach beside the coastal path"
+                  src="/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp"
+                  alt="Yoga students practicing on a Goa beach in North Goa"
                   className="h-full w-full"
                 />
               </div>
@@ -631,8 +739,8 @@ export default function HomePage() {
                   style={{ aspectRatio: "1/1" }}
                 >
                   <Media
-                    src="/images/tha_hatha/the-hatha-yogashala-goa-meditation-pranayama-session.webp"
-                    alt="Yoga students in a quiet meditation and pranayama session in Goa"
+                    src="/images/tha_hatha/the-hatha-yogashala-balcony-view-coconut-trees-goa.webp"
+                    alt="Lush tropical coconut palms and peaceful coastal surroundings in North Goa"
                     className="h-full w-full"
                   />
                 </div>
@@ -714,8 +822,8 @@ export default function HomePage() {
             <div>
               <div className="home-res-media relative aspect-[16/10] overflow-hidden rounded-[28px] shadow-xl">
                 <Image
-                  src="/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp"
-                  alt="Residential campus and accommodation at Hatha Yogashala in Querim, North Goa"
+                  src="/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp"
+                  alt="Residential campus and accommodation at The Hatha Yogashala in Querim, North Goa"
                   fill
                   sizes="(max-width: 1024px) 100vw, 55vw"
                   className="object-cover"
@@ -775,27 +883,10 @@ export default function HomePage() {
         />
       </FadeIn>
 
-      {/* ===== 15. GALLERY — photo preview of life in Goa ===== */}
-      <section className="section">
-        <Container>
-          <FadeIn>
-            <SectionHeading
-              eyebrow="A glimpse of Goa"
-              title="Yoga Teacher Training in Goa — Photo Gallery"
-              text="A deliberate mix of portrait, landscape, and detail images keeps the gallery balanced without stretching or empty tiles."
-              align="center"
-            />
-          </FadeIn>
-          <FadeIn>
-            <Gallery items={galleryItems} filters={false} />
-          </FadeIn>
-          <FadeIn>
-            <ButtonLink href="/gallery" variant="text" className="mt-7">
-              View full gallery
-            </ButtonLink>
-          </FadeIn>
-        </Container>
-      </section>
+      {/* ===== 15. GALLERY — 2-row continuous scrolling photo preview ===== */}
+      <FadeIn>
+        <HomeGalleryMarquee />
+      </FadeIn>
 
       <FadeIn>
         <FAQ />

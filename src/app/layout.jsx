@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Gotu, Manrope, Quicksand } from "next/font/google";
 import { ClipboardList } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
+import "./tailwind.css";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -59,10 +60,10 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
+        url: "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp",
         width: 1792,
         height: 896,
-        alt: "Hatha Yogashala yoga school campus in Goa",
+        alt: "The Hatha Yogashala yoga teacher training and retreat school in North Goa",
       },
     ],
   },
@@ -70,7 +71,7 @@ export const metadata = {
     card: "summary_large_image",
     title: pageSeo.home.title,
     description: pageSeo.home.description,
-    images: ["/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp"],
+    images: ["/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp"],
   },
   robots: { index: true, follow: true },
 };
@@ -112,8 +113,12 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="en-IN" className={`${heading.variable} ${body.variable} ${quicksand.variable}`}>
-      <body id="top">
+    <html
+      lang="en-IN"
+      className={`${heading.variable} ${body.variable} ${quicksand.variable}`}
+      suppressHydrationWarning
+    >
+      <body id="top" suppressHydrationWarning>
         <JsonLd data={organization} />
         <JsonLd data={website} />
         <a className="skip-link" href="#main-content">Skip to content</a>

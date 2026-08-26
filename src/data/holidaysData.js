@@ -9,8 +9,8 @@ export const holidays = [
     numericPrice: 250,
     currency: "$",
     duration: "3 Days",
-    image: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
-    imageAlt: "Student meditating at sunset during 3 days yoga holiday in Goa",
+    image: "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
+    imageAlt: "Student meditating and practicing yoga during 3 days yoga holiday in Goa",
     location: "Querim Beach, North Goa, India",
     introText: [
       "Take a 3-day break from your busy and noisy life by the magnificent ocean in Goa. This yoga retreat, created by the leading yoga school from the birthplace of yoga, Goa in northern India, offers an authentic yogic experience. For the past 10 years, we have been delivering yogic wisdom in the most genuine way, attracting people from all over the world. To spread this wisdom even further, we now offer our high-quality yoga teacher training courses and yoga retreats in the southern part of India.",
@@ -82,8 +82,8 @@ export const holidays = [
     numericPrice: 410,
     currency: "$",
     duration: "5 Days",
-    image: "/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp",
-    imageAlt: "Students practicing beach yoga during 5 days yoga holiday in Goa",
+    image: "/images/tha_hatha/the-hatha-yogashala-group-yoga-class-downward-dog-goa.webp",
+    imageAlt: "Group yoga asana session during 5 days yoga holiday in Goa",
     location: "Querim Beach, North Goa, India",
     introText: [
       "Escape the daily noise and delve deeper into your inner self with our 5-day yoga retreat. This retreat offers you the freedom to choose your schedule—whether you rise early at 6am for the first class or prefer to enjoy a longer sleep in your serene private room and join classes later in the day. With yoga classes available throughout the day, you can participate in as many sessions as you desire.",
@@ -179,8 +179,8 @@ export const holidays = [
     numericPrice: 570,
     currency: "$",
     duration: "7 Days",
-    image: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
-    imageAlt: "Students in class during 7 days yoga holiday in Goa",
+    image: "/images/tha_hatha/the-hatha-yogashala-yoga-asana-practice-shala-goa.webp",
+    imageAlt: "Daily yoga and breathwork practice during 7 days yoga holiday in Goa",
     location: "Querim Beach, North Goa, India",
     introText: [
       "Experience the ultimate one-week yoga retreat in Goa with Hatha Yogashala Goa. Originating from the world capital of yoga, Goa at the foothills of the Himalayas in northern India, we have ventured south to Goa, renowned as a paradise of Ayurveda. For the past decade, we have passionately imparted authentic yogic knowledge to seekers worldwide. Our center, Hatha Yogashala in Goa, stands as a leading yoga school in this vibrant coastal state. Today, we proudly extend our presence to this Ayurvedic haven, embracing Goa’s serene beauty and spiritual richness.",

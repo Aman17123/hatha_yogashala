@@ -33,7 +33,7 @@ const sharedDefaults = {
   privatePrice: "Fee to be confirmed",
   certification: "Yoga Alliance-approved certificate",
   image:
-    "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
+    "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp",
   date: "Monthly course start dates year-round",
   bookingStatus: "Seats Available",
   format: "Residential",
@@ -79,6 +79,13 @@ const hundredHour = {
     shared: "€699",
     private: "€999",
   },
+  feeRows: [
+    { facility: "Mixed AC Dorm", price: "€699" },
+    { facility: "Twin Sharing AC", price: "€799" },
+    { facility: "Private Room Non-AC", price: "€899" },
+    { facility: "Private Room AC", price: "€999" },
+    { facility: "Private AC Room for 2 Pax", price: "€1,499" },
+  ],
   rating: 4.9,
   graduates: 3500,
   whatsappMessage:
@@ -493,15 +500,15 @@ const twoHundredHour = {
   hours: "200-hour",
   name: "200-Hour Yoga Teacher Training in Goa",
   level: "Foundational",
-  certification: "Yoga Alliance USA Recognized",
+  certification: "200-Hour Yoga Alliance (RYS 200)",
   outcome: "Full teaching certification, RYT 200",
   perfectfor: "Aspiring teachers, serious practitioners",
   featured: true,
   cardBadge: "Most Popular",
   cardSummary:
-    "Our flagship 22-day Yoga Alliance-approved course in Hatha, Ashtanga, Vinyasa & Ayurveda — daily asana, pranayama, philosophy, anatomy, and supervised teaching practice.",
+    "Our flagship 21–22 day Yoga Alliance-approved course in Hatha, Ashtanga, Vinyasa & Ayurveda — daily asana, pranayama, philosophy, anatomy, and supervised teaching practice.",
   cardStats: {
-    duration: "22 Days",
+    duration: "21–22 Days",
     level: "Beginner–Intermediate",
     certification: "Yoga Alliance",
     batchSize: "Small batches",
@@ -511,6 +518,13 @@ const twoHundredHour = {
     shared: "€799",
     private: "€1,199",
   },
+  feeRows: [
+    { facility: "Mixed AC Dorm", price: "€799" },
+    { facility: "Twin Sharing AC", price: "€899" },
+    { facility: "Private Room Non-AC", price: "€1,099" },
+    { facility: "Private Room AC", price: "€1,199" },
+    { facility: "Private AC Room (2 Pax)", price: "€1,699" },
+  ],
   rating: 5.0,
   graduates: 3500,
   whatsappMessage:
@@ -914,7 +928,7 @@ const threeHundredHour = {
   hours: "300-hour",
   name: "300-Hour Yoga Teacher Training in Goa",
   level: "Advanced",
-  certification: "Yoga Alliance USA Recognized",
+  certification: "300-Hour Yoga Alliance (RYS 300)",
   outcome: "Advanced mastery, RYT 500 eligible",
   perfectfor: "Certified teachers advancing skills",
   cardBadge: "ADVANCED",
@@ -931,6 +945,13 @@ const threeHundredHour = {
     shared: "€899",
     private: "€1,399",
   },
+  feeRows: [
+    { facility: "Mixed AC Dorm", price: "€899" },
+    { facility: "Twin Sharing AC", price: "€999" },
+    { facility: "Private Room Non-AC", price: "€1,299" },
+    { facility: "Private Room AC", price: "€1,399" },
+    { facility: "Private AC Room for 2 Pax", price: "€1,899" },
+  ],
   rating: 4.9,
   graduates: 3500,
   whatsappMessage:
@@ -1321,7 +1342,460 @@ const threeHundredHour = {
   ],
 };
 
-const mainCourses = [hundredHour, twoHundredHour, threeHundredHour];
+// ---------------------------------------------------------------------
+// 22-DAY 200-HOUR FLEXIBLE YOGA TEACHER TRAINING
+// ---------------------------------------------------------------------
+const flexibleTwoHundredHour = {
+  slug: "22-day-200-hour-flexible-yoga-teacher-training-goa",
+  hours: "200-hour",
+  name: "22-Day 200 Hour Flexible Yoga Teacher Training Goa",
+  level: "Multi-Style & Flexible",
+  certification: "Yoga Alliance USA Recognized RYS-200",
+  outcome: "200-Hour Multi-Style Yoga Teacher Certification",
+  perfectfor: "All levels, aspiring teachers, flexible learners",
+  featured: true,
+  cardBadge: "Flexible & Multi-Style",
+  cardSummary:
+    "A 22-day holistic Yoga Alliance-approved 200-Hour training in Goa covering Hatha, Ashtanga, Vinyasa, Yin, Restorative, and Ayurveda with freedom to customize your schedule.",
+  cardStats: {
+    duration: "22 Days",
+    level: "All Levels",
+    certification: "Yoga Alliance RYT-200",
+    batchSize: "Small batches",
+  },
+  pricing: {
+    currency: "EUR",
+    shared: "€799",
+    private: "€1,199",
+    roomOptions: [
+      { type: "Mixed AC Dorm", price: "€799" },
+      { type: "Twin Sharing AC", price: "€899" },
+      { type: "Private Room Non-AC", price: "€1,099" },
+      { type: "Private Room AC", price: "€1,199" },
+      { type: "Private AC Room (2 Pax)", price: "€1,699" },
+    ],
+  },
+  feeRows: [
+    { facility: "Mixed AC Dorm", price: "€799" },
+    { facility: "Twin Sharing AC", price: "€899" },
+    { facility: "Private Room Non-AC", price: "€1,099" },
+    { facility: "Private Room AC", price: "€1,199" },
+    { facility: "Private AC Room for 2 Pax", price: "€1,699" },
+  ],
+  rating: 5.0,
+  graduates: 3500,
+  whatsappMessage:
+    "Hi The Hatha Yogashala, I'm interested in the 22-Day 200-Hour Flexible Yoga Teacher Training in Goa. Could you share upcoming dates and availability?",
+  heroIntroduction:
+    "At The Hatha Yogashala, our 200-Hour Yoga Teacher Training course offers a holistic approach to yoga, covering philosophy, meditation, anatomy, kriya, and the art of teaching. Over the span of 22 days in Goa, dive into the practices of Hatha, Vinyasa, Yin, and Restorative yoga techniques.",
+  duration: "22 days",
+  bestFor:
+    "Beginners and experienced practitioners who want a comprehensive, flexible 200-Hour teacher training covering multiple styles in Goa.",
+  outcome:
+    "200-Hour Yoga Alliance approved Multi-Style Yoga Teacher Training certificate upon completion.",
+  description:
+    "22-Day 200-Hour Hatha, Ashtanga, Vinyasa, Ayurveda and Flexible Yoga Teacher Training in Goa. Open to all levels.",
+  whatIs: {
+    heading: "22-Day 200-Hour Hatha, Ashtanga, Vinyasa & Ayurveda Flexible Training",
+    paragraphs: [
+      "At The Hatha Yogashala, our 200-Hour Yoga Teacher Training course offers a holistic approach to yoga, covering philosophy, meditation, anatomy, kriya, and the art of teaching. This program is designed not only to prepare you to design and deliver yoga classes but also to help you integrate yoga into your daily life. Over the span of 22 days in Goa, you’ll dive into the practices of Hatha, Vinyasa, Yin, and Restorative yoga techniques.",
+      "Our experienced and nurturing teachers will guide you through yoga philosophy, meditation, anatomy, alignment, teaching methodology, and pranayama breathing techniques. Although this 200-Hour Yoga Teacher Training is primarily designed for aspiring yoga teachers, it is open to all levels—from beginners to those with some yoga experience who wish to deepen their knowledge and self-healing practices.",
+      "Upon completing the course, you will be eligible to register with the Yoga Alliance, allowing you to teach yoga anywhere in the world. Throughout the training, our instructors place a strong emphasis on asana practice, helping you enhance your posture and alignment for optimal physical benefits.",
+    ],
+    points: [
+      "22-day holistic residential program in North Goa",
+      "Yoga Alliance approved RYT-200 certification",
+      "Multi-style: Hatha, Ashtanga Primary Series, Vinyasa & Ayurveda",
+      "Supervised teaching practicum and individualized alignment adjustments",
+    ],
+  },
+  curriculum: [
+    {
+      title: "Asana Classes (Ashtanga Primary Series & Hatha)",
+      content:
+        "Dedicated in-depth study of the Ashtanga primary series (A & B series) focusing on breath control (pranayama), bandhas, and drishti. Combined with foundational Hatha postures, yogic diet, body purification, and Sanskrit posture names.",
+    },
+    {
+      title: "Pranayama, Mudras & Mantras",
+      content:
+        "Classical breath regulation, energy locks, hand mudras, and traditional Sanskrit mantra chanting for physical and subtle energy purification.",
+    },
+    {
+      title: "Yoga Philosophy, History & Patanjali Sutras",
+      content:
+        "Origins of yoga, the 8 limbs (Ashtanga), commentaries over Patanjali Yoga Sutras, and integrating ancient wisdom into contemporary living.",
+    },
+    {
+      title: "Alignments, Adjustments & Anatomy",
+      content:
+        "Functional anatomy and physiology, biomechanics, safe posture adjustments, prop usage, and injury prevention.",
+    },
+    {
+      title: "Teaching Methodology & Practicum",
+      content:
+        "Class preparation, space setting, voice projection, student sequencing, class presentation, and hands-on teaching practice with mentor feedback.",
+    },
+    {
+      title: "Ayurveda, Chakras & Karma Yoga",
+      content:
+        "Ayurveda fundamentals, body layers (Koshas), energy centers (Chakras), and selfless action (Karma Yoga) in daily ashram living.",
+    },
+  ],
+  schedule: [
+    ["07:00 am – 08:00 am", "Pranayama, Shatkarma, Chanting"],
+    ["08:00 am – 08:15 am", "Tea / Coffee Break"],
+    ["08:15 am – 09:30 am", "Asana (Hatha / Ashtanga)"],
+    ["09:30 am – 10:45 am", "Healthy Breakfast"],
+    ["11:00 am – 12:30 pm", "Anatomy / Philosophy / Ayurveda"],
+    ["12:30 pm – 01:30 pm", "Adjustment & Alignment Lab"],
+    ["01:30 pm – 02:30 pm", "Sattvic Lunch"],
+    ["02:30 pm – 04:00 pm", "Self-time / Rest / Karma Yoga"],
+    ["04:00 pm – 05:30 pm", "Teaching Practices & Methodology"],
+    ["05:30 pm – 07:00 pm", "Meditation / Beach Practice Games"],
+    ["07:00 pm – 08:00 pm", "Dinner"],
+    ["08:00 pm – 10:00 pm", "Outing / Kirtan / Goa Experience"],
+    ["10:00 pm", "Lights Out"],
+  ],
+  inclusions: [
+    "200-Hour Yoga Alliance approved Multi-Style Yoga Teacher Training certificate",
+    "Three healthy vegetarian meals daily (Monday to Saturday morning)",
+    "Choice of clean and spacious accommodation near the beach",
+    "Hot water showers and Wi-Fi in all rooms",
+    "Meditation music and unlimited filtered drinking water",
+    "Course manual and PDFs of spiritual and practical books from library",
+    "Yoga Kit (mat and training accessories)",
+    "24/7 student support",
+  ],
+  learningOutcomes: [
+    "Ancient Yogic Philosophy (History and Origin)",
+    "Practical Yoga Classes for Strength, Flexibility & Mobility",
+    "Paths of Yoga and Different definitions of Yoga as per Yogic Texts",
+    "All about Ashtanga Yoga (8 Limbs)",
+    "Anatomy & Physiology and How to integrate it with Yoga",
+    "Ayurveda - The Science of Life",
+    "All about Chakras and different layers of our body",
+    "Commentaries over Patanjali Yoga Sutras",
+    "Usage of Props & Resources for Teaching",
+    "Tons of eBooks & Resources on different topics related to Yoga",
+  ],
+  courseDates: [
+    { label: "1 March 2026", availability: "Book Now" },
+    { label: "1 April 2026", availability: "Book Now" },
+    { label: "1 May 2026", availability: "Book Now" },
+    { label: "1 June 2026", availability: "Book Now" },
+    { label: "1 July 2026", availability: "Book Now" },
+    { label: "1 August 2026", availability: "Book Now" },
+    { label: "1 September 2026", availability: "Book Now" },
+    { label: "1 October 2026", availability: "Book Now" },
+    { label: "1 November 2026", availability: "Book Now" },
+    { label: "1 December 2026", availability: "Book Now" },
+    { label: "3 January 2027", availability: "Book Now" },
+  ],
+};
+
+// ---------------------------------------------------------------------
+// 200-HOUR ASHTANGA VINYASA YOGA TEACHER TRAINING
+// ---------------------------------------------------------------------
+const ashtangaTwoHundredHour = {
+  slug: "200-hour-ashtanga-vinyasa-yoga-teacher-training-goa",
+  hours: "200-hour",
+  name: "200-Hour Ashtanga Vinyasa Yoga Teacher Training in Goa",
+  level: "Ashtanga Vinyasa Specialist",
+  certification: "200-Hour Yoga Alliance (RYS 200)",
+  outcome: "200-Hour Ashtanga Vinyasa Yoga Teacher Certification",
+  perfectfor: "Dynamic practitioners, aspiring Ashtanga Vinyasa instructors",
+  cardBadge: "Ashtanga Specialist",
+  cardSummary:
+    "An intensive 21-day Ashtanga Vinyasa certification in Goa focusing on the Primary Series, Ujjayi breath, bandhas, drishti, dynamic adjustments, and 6 Goa excursions.",
+  cardStats: {
+    duration: "21 Days",
+    level: "All Levels",
+    certification: "Yoga Alliance RYT-200",
+    batchSize: "Small batches",
+  },
+  pricing: {
+    currency: "EUR",
+    shared: "€799",
+    private: "€1,199",
+    roomOptions: [
+      { type: "Mixed AC Dorm", price: "€799" },
+      { type: "Twin Sharing AC", price: "€899" },
+      { type: "Private Room Non-AC", price: "€1,099" },
+      { type: "Private Room AC", price: "€1,199" },
+      { type: "Private AC Room (2 Pax)", price: "€1,699" },
+    ],
+  },
+  feeRows: [
+    { facility: "Mixed AC Dorm", price: "€799" },
+    { facility: "Twin Sharing AC", price: "€899" },
+    { facility: "Private Room Non-AC", price: "€1,099" },
+    { facility: "Private Room AC", price: "€1,199" },
+    { facility: "Private AC Room (2 Pax)", price: "€1,699" },
+  ],
+  rating: 5.0,
+  graduates: 3500,
+  whatsappMessage:
+    "Hi The Hatha Yogashala, I'm interested in the 200-Hour Ashtanga Vinyasa Yoga Teacher Training in Goa. Could you share upcoming dates and availability?",
+  heroIntroduction:
+    "Come join us in a journey of growth and discovery with our 200-Hour Ashtanga and Vinyasa Yoga Teacher Training Course at The Hatha Yogashala Goa. Over three weeks, be guided by seasoned instructors passionate about Hatha and Ashtanga Vinyasa Yoga.",
+  duration: "21 days",
+  bestFor:
+    "Students looking for an immersive Ashtanga and Vinyasa flow teacher training program in North Goa.",
+  outcome:
+    "Yoga Alliance approved 200-Hour Ashtanga Vinyasa Yoga Teacher Training certificate.",
+  description:
+    "Join The Hatha Yogashala for a three-week journey of growth and discovery through Ashtanga and Vinyasa yoga. Led by seasoned instructors passionate about Hatha and Ashtanga Vinyasa, this course blends timeless tradition with contemporary teaching methods to help you become a confident, capable yoga teacher — while deepening your own connection to practice and purpose. Beginners are welcome.",
+  whatIs: {
+    heading: "200-Hour Ashtanga Vinyasa Yoga Teacher Training Course in Goa",
+    paragraphs: [
+      "Come join us in a journey of growth and discovery with our 200-Hour Ashtanga and Vinyasa Yoga Teacher Training Course. Over three weeks in beautiful Goa, you’ll be guided by a dedicated team of seasoned instructors who are passionate about Hatha and Ashtanga Vinyasa Yoga.",
+      "This course is crafted to nurture your skills and knowledge, helping you become a confident and skilled yoga teacher. We blend timeless yoga traditions with fresh, modern insights to create a rich and fulfilling learning experience. Join us to unlock your potential and connect deeply with your practice and purpose.",
+      "All our asana classes are dedicated to the in-depth study and practice of the Ashtanga primary series. In these sessions, asanas are practiced in a dynamic, set sequence, with a strong focus on mastering the A and B series. Emphasis is placed on breath control (pranayama), energy locks (bandhas), and the gaze (drishti).",
+    ],
+    points: [
+      "21-day immersive Ashtanga Vinyasa certification",
+      "Full Primary Series masterclasses (Series A & B)",
+      "Pranayama, Bandhas, Drishti and Alignment adjustments",
+      "6 Exciting Goa Excursions included (Temple visits, 100-Year Banyan tree, Russian banya ice bath, Mud bath, Ecstatic dance, Percussion workshop)",
+    ],
+  },
+  curriculum: [
+    {
+      title: "Asana Classes (Ashtanga Primary Series & Hatha)",
+      content:
+        "Daily practice of the Ashtanga primary series A and B with precision on bandhas, drishti, breath, and Sanskrit posture names.",
+    },
+    {
+      title: "Pranayama & Mantras",
+      content:
+        "Traditional breathwork and sacred mantra chanting to harmonize energy channels.",
+    },
+    {
+      title: "Yoga Philosophy and History",
+      content:
+        "Eight limbs of Ashtanga yoga, Patanjali yoga sutras, and historical origins.",
+    },
+    {
+      title: "Alignments, Adjustments & Methodology",
+      content:
+        "Hands-on adjustments, teaching skills, class presentation, and sequencing dynamic vinyasa classes.",
+    },
+    {
+      title: "Anatomy, Kriyas & Mudras",
+      content:
+        "Applied biomechanics, muscle engagement, shatkarma cleansing, and mudras.",
+    },
+    {
+      title: "Meditation & Karma Yoga",
+      content:
+        "Daily meditation practice, yoga nidra, and selfless action in daily life.",
+    },
+  ],
+  schedule: [
+    ["07:00 am – 08:00 am", "Pranayama, Shatkarma, Chanting"],
+    ["08:00 am – 08:15 am", "Tea / Coffee Break"],
+    ["08:15 am – 09:30 am", "Asana (Ashtanga Vinyasa)"],
+    ["09:30 am – 10:45 am", "Breakfast"],
+    ["11:00 am – 12:30 pm", "Anatomy / Philosophy / Ayurveda"],
+    ["12:30 pm – 01:30 pm", "Adjustment & Alignment Lab"],
+    ["01:30 pm – 02:30 pm", "Lunch"],
+    ["02:30 pm – 04:00 pm", "Self-time / Rest / Karma Yoga"],
+    ["04:00 pm – 05:30 pm", "Teaching Practices"],
+    ["05:30 pm – 07:00 pm", "Meditation / Beach Practice Games"],
+    ["07:00 pm – 08:00 pm", "Dinner"],
+    ["08:00 pm – 10:00 pm", "Outing / Kirtan / Goa Experience"],
+    ["10:00 pm", "Lights Out"],
+  ],
+  inclusions: [
+    "Daily meditation or chanting sessions",
+    "Comprehensive course manual and study materials",
+    "Yoga Alliance registration eligibility on completion",
+    "Opening and closing ceremonies",
+    "21 nights of beachside accommodation",
+    "Three daily vegetarian/vegan meals",
+    "Full access to shala facilities, Wi-Fi campus, and chill-out zone",
+    "Self-service laundry",
+  ],
+  excursions: [
+    "Temple Visits — a cultural heritage tour of the region's ancient temples",
+    "100-Year-Old Banyan Tree — a visit to this centuries-old natural landmark",
+    "Sauna / Ice Bath (Russian Banya) — alternating heat and cold therapy",
+    "Mud Bath — a natural, detoxifying skin treatment",
+    "Ecstatic Dance — free-movement sessions to music and rhythm",
+    "Percussion Workshops — hands-on musical and creative expression",
+  ],
+  learningOutcomes: [
+    "Ancient Yogic Philosophy (History and Origin)",
+    "Practical Yoga Classes for Strength, Flexibility & Mobility",
+    "Paths of Yoga and Different definitions of Yoga as per Yogic Texts",
+    "All about Ashtanga Yoga (8 Limbs)",
+    "Anatomy & Physiology and How to integrate it with Yoga",
+    "Ayurveda - The Science of Life",
+    "All about Chakras and different layers of our body",
+    "Commentaries over Patanjali Yoga Sutras",
+    "Usage of the Props & Resources for Teaching",
+    "Tons of eBooks & Resources on different topics related to Yoga",
+  ],
+  courseDates: [
+    { label: "1 March 2026", availability: "Book Now" },
+    { label: "1 April 2026", availability: "Book Now" },
+    { label: "1 May 2026", availability: "Book Now" },
+    { label: "1 June 2026", availability: "Book Now" },
+    { label: "1 July 2026", availability: "Book Now" },
+    { label: "1 August 2026", availability: "Book Now" },
+    { label: "1 September 2026", availability: "Book Now" },
+    { label: "1 October 2026", availability: "Book Now" },
+    { label: "1 November 2026", availability: "Book Now" },
+    { label: "1 December 2026", availability: "Book Now" },
+    { label: "3 January 2027", availability: "Book Now" },
+  ],
+};
+
+// ---------------------------------------------------------------------
+// AERIAL YOGA TEACHER TRAINING
+// ---------------------------------------------------------------------
+const aerialTtc = {
+  slug: "aerial-yoga-teacher-training-goa",
+  hours: "50-hour",
+  name: "Aerial Yoga Teacher Training Course in Goa",
+  level: "Aerial Specialist",
+  certification: "50-Hour Yoga Alliance Approved",
+  outcome: "50-Hour Aerial Yoga Teacher Certification",
+  perfectfor: "Yogis and instructors seeking aerial hammock mastery",
+  cardBadge: "Aerial Specialist",
+  cardSummary:
+    "A 7-day 50-hour Aerial Yoga Teacher Training in Goa covering aerial hammock poses, safe rigging, spinal decompression, and therapeutic fly sequencing.",
+  cardStats: {
+    duration: "7 Days",
+    level: "All Levels",
+    certification: "Yoga Alliance",
+    batchSize: "Small batches",
+  },
+  pricing: {
+    currency: "EUR",
+    shared: "€849",
+    private: "€1,199",
+    roomOptions: [
+      { type: "Mixed AC Dorm", price: "€849" },
+      { type: "Twin Sharing AC", price: "€949" },
+      { type: "Private Room Non-AC", price: "€999" },
+      { type: "Private Room AC", price: "€1,199" },
+    ],
+  },
+  feeRows: [
+    { facility: "Mixed AC Dorm", price: "€849" },
+    { facility: "Twin Sharing AC", price: "€949" },
+    { facility: "Private Room Non-AC", price: "€999" },
+    { facility: "Private Room AC", price: "€1,199" },
+  ],
+  rating: 4.9,
+  graduates: 3500,
+  whatsappMessage:
+    "Hi The Hatha Yogashala, I'm interested in the Aerial Yoga Teacher Training in Goa. Could you share upcoming dates and availability?",
+  heroIntroduction:
+    "Elevate your practice with our 50-Hour Aerial Yoga Teacher Training in Goa at The Hatha Yogashala. Over 7 days, immerse yourself in aerial yoga — mastering graceful teaching technique alongside the technical science of working with the hammock.",
+  duration: "7 days",
+  bestFor:
+    "Beginners with limited time seeking a focused introduction to aerial yoga and foundational technique, as well as certified teachers wanting to add aerial expertise to their offering.",
+  outcome:
+    "50-Hour Yoga Alliance approved Aerial Yoga Teacher Training certificate.",
+  description:
+    "Elevate your practice with The Hatha Yogashala's 50-Hour Aerial Yoga Teacher Training. Over seven days, immerse yourself in aerial yoga — mastering graceful teaching technique alongside the technical science of working with the hammock. This course is designed to refine skill, build confidence, and deepen your understanding of aerial movement.",
+  whatIs: {
+    heading: "Aerial Yoga Teacher Training Course in Goa",
+    paragraphs: [
+      "Elevate your practice with our 50-hour Aerial Yoga Teacher Training in Goa. Over the course of 7 days, immerse yourself in the world of aerial yoga, mastering both the art of graceful teaching and the science of aerial techniques. This training is crafted to refine your skills, boost your confidence, and deepen your understanding of aerial yoga.",
+      "You’ll explore a variety of unique aerial poses and sequences, learn essential safety measures, and develop effective teaching strategies. Our program provides advanced training in aerial poses, therapeutic techniques for different age groups, and a thorough understanding of anatomy and hands-on adjustments.",
+      "Whether you’re a dedicated yogi or aspiring instructor, this course will transform you into a skilled aerial yoga teacher, certified by Yoga Alliance. Join us to unlock new dimensions of your practice and teaching journey.",
+    ],
+    points: [
+      "7-day intensive residential aerial training",
+      "Silk hammock safety, knots, and rigging fundamentals",
+      "Spinal decompression, inversions & restorative aerial flows",
+      "50-Hour Yoga Alliance approved teacher certification",
+    ],
+  },
+  curriculum: [
+    {
+      title: "Aerial Asana & Sequencing",
+      content:
+        "Grounded and aerial asana drawing on the Ashtanga primary series structure, pranayama, bandhas, drishti, hammock poses, transitions, floating flows, and restorative suspensions.",
+    },
+    {
+      title: "Rigging, Safety & Equipment Care",
+      content:
+        "Proper hammock heights, daisy chains, carabiners, structural rigging safety, and student weight distributions.",
+    },
+    {
+      title: "Anatomy of Inversions & Decompression",
+      content:
+        "Spine mechanics, pelvic alignment, shoulder girdle stabilization in fabric, and contraindications.",
+    },
+    {
+      title: "Teaching Methodology & Hands-on Spotting",
+      content:
+        "Safe hands-on spotting techniques, verbal cueing while suspended, and lesson plan structuring.",
+    },
+    {
+      title: "Floating Meditation & Yoga Nidra",
+      content:
+        "Cocoon relaxation, breath regulation in hammock, and sound healing integration.",
+    },
+  ],
+  schedule: [
+    ["07:00 am – 08:00 am", "Pranayama, Shatkarma, Chanting"],
+    ["08:00 am – 08:15 am", "Tea / Coffee Break"],
+    ["08:15 am – 09:30 am", "Aerial Asana & Hammock Practice"],
+    ["09:30 am – 10:45 am", "Breakfast"],
+    ["11:00 am – 12:30 pm", "Aerial Anatomy / Rigging Safety"],
+    ["12:30 pm – 01:30 pm", "Hands-on Spotting & Adjustments"],
+    ["01:30 pm – 02:30 pm", "Lunch"],
+    ["02:30 pm – 04:00 pm", "Rest / Self-study"],
+    ["04:00 pm – 05:30 pm", "Teaching Practices & Sequencing"],
+    ["05:30 pm – 07:00 pm", "Floating Meditation / Yoga Nidra"],
+    ["07:00 pm – 08:00 pm", "Dinner"],
+    ["08:00 pm – 10:00 pm", "Evening Satsang / Goa Experience"],
+    ["10:00 pm", "Lights Out"],
+  ],
+  inclusions: [
+    "50-Hour Yoga Alliance approved Aerial Yoga certificate",
+    "Three vegetarian meals daily (Monday–Saturday mornings)",
+    "Beachside accommodation options",
+    "Hot water, in-room Wi-Fi, meditation music, unlimited filtered water",
+    "Course manual plus digital spiritual and practical library",
+    "Yoga kit",
+    "24/7 student support",
+  ],
+  learningOutcomes: [
+    "Complete aerial hammock posture repertoire and transitions",
+    "Safety rigging protocols, equipment inspection, and spotting",
+    "Spinal decompression and therapeutic aerial adjustments",
+    "Confidence in designing and teaching full 60–90 minute aerial classes",
+    "Yoga Alliance recognized teaching credential",
+  ],
+  courseDates: [
+    { label: "1 March 2026", availability: "Book Now" },
+    { label: "1 April 2026", availability: "Book Now" },
+    { label: "1 May 2026", availability: "Book Now" },
+    { label: "1 June 2026", availability: "Book Now" },
+    { label: "1 July 2026", availability: "Book Now" },
+    { label: "1 August 2026", availability: "Book Now" },
+    { label: "1 September 2026", availability: "Book Now" },
+    { label: "1 October 2026", availability: "Book Now" },
+    { label: "1 November 2026", availability: "Book Now" },
+    { label: "1 December 2026", availability: "Book Now" },
+    { label: "3 January 2027", availability: "Book Now" },
+  ],
+};
+
+const mainCourses = [
+  hundredHour,
+  twoHundredHour,
+  flexibleTwoHundredHour,
+  ashtangaTwoHundredHour,
+  threeHundredHour,
+  aerialTtc,
+];
 
 // ---------------------------------------------------------------------
 // SHORT COURSES
@@ -1332,33 +1806,33 @@ const mainCourses = [hundredHour, twoHundredHour, threeHundredHour];
 // ---------------------------------------------------------------------
 const retreatGallery = [
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
-    alt: "Yoga practitioner meditating in a peaceful coastal Goa setting",
+    src: "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
+    alt: "Morning yoga practice at The Hatha Yogashala Goa beachside campus",
     caption: "Morning practice by the coast",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg",
-    alt: "Small group studying yoga alignment in Goa",
+    src: "/images/tha_hatha/the-hatha-yogashala-yoga-asana-practice-shala-goa.webp",
+    alt: "Students practicing Hatha yoga asana alignment in open-air shala",
     caption: "Guided Hatha practice",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
-    alt: "Calm residential campus representing accommodation choices in Goa",
+    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
+    alt: "Lush tropical ashram campus and peaceful gardens in North Goa",
     caption: "Residential stay",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp",
-    alt: "Beachfront yoga practice beside the Goa coast",
+    src: "/images/tha_hatha/the-hatha-yogashala-balcony-view-coconut-trees-goa.webp",
+    alt: "Balcony view overlooking coconut palms at yoga retreat campus",
     caption: "Time to rest and explore",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-goa-meditation-pranayama-session.webp",
-    alt: "Pranayama and breathwork practice in a peaceful tropical shala",
+    src: "/images/tha_hatha/pranayama-meditation-goa.png",
+    alt: "Pranayama breathwork and guided meditation practice in Goa",
     caption: "Breath and meditation",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-asana-practice-3.webp",
-    alt: "Teacher observing a student during a Hatha yoga practice",
+    src: "/images/tha_hatha/the-hatha-yogashala-chair-assisted-restorative-yoga-goa.webp",
+    alt: "Restorative yoga alignment practice using chairs and yoga props",
     caption: "Personal guidance",
   },
 ];
@@ -1376,9 +1850,14 @@ export const teacherTrainings = mainCourses.map(withDefaults);
 // ---------------------------------------------------------------------
 const retreatProfiles = {
   3: {
-    category: "Mini Escape",
+    category: "3-Day Retreat",
+    tagline: "Discover. Recharge. Thrive.",
     emphasis:
-      "A unique blend of spiritual exploration, physical rejuvenation, and cultural immersion — daily yoga and meditation, ice baths, sauna, ecstatic dance, and cultural tours in North Goa.",
+      "Step away from the noise of daily life and into three days of stillness, movement, and community at Hatha Yogashala, Goa. This short, immersive retreat is designed for travelers who want a genuine reset — a blend of yoga practice, internal cleansing, sound healing, and the natural beauty of Goa's coastline, all held within a warm and supportive community.",
+    excursionsStory:
+      "Beyond the mat, your days open up into the best of Goa: sunset beach sessions, waterfall visits, and evening kirtan circles for the soul. Ice baths and sauna sessions support recovery and deepen the reset, while our evening \"Goa Experience\" outings give you a taste of local culture, markets, and coastline beyond the retreat walls. Playful beach games and acro yoga round out the day with lightness and connection.",
+    checkIn: "11:00 AM",
+    checkOut: "1:00 PM",
     whoFor: [
       "Travellers with limited time seeking a quick reset",
       "Weekend wellness escape seekers",
@@ -1386,89 +1865,172 @@ const retreatProfiles = {
     ],
   },
   5: {
-    category: "Holistic Healing",
+    category: "5-Day Retreat",
+    tagline: "Rebalance Your Soul in Goa's Bliss",
     emphasis:
-      "A holistic healing-by-the-sea retreat — yoga, sound healing, breathwork, and massage designed to enhance physical, mental, and energetic well-being.",
+      "Five days offers the space to truly settle into practice. This retreat combines daily Hatha yoga, philosophy and anatomy sessions, cleansing rituals, and restorative downtime, giving you enough time to build routine, deepen your understanding, and leave feeling genuinely renewed.",
+    excursionsStory:
+      "With five days to explore, you'll experience more of what makes Goa special — waterfall trips, sunset beaches, and kirtan evenings woven around your practice. Ice bath and sauna sessions offer recovery between deeper philosophy and anatomy sessions, while nightly Goa Experience outings introduce you to local flavor, culture, and community beyond the retreat.",
+    checkIn: "11:00 AM",
+    checkOut: "1:00 PM",
     whoFor: [
       "Practitioners wanting genuine rest alongside practice",
-      "Returning students",
-      "Couples or small groups",
+      "Returning students and holistic wellness seekers",
+      "Couples or solo travellers needing a vital life reset",
     ],
   },
   7: {
-    category: "Mind-Body-Soul",
+    category: "7-Day Retreat",
+    tagline: "Discover Harmony in Goa's Calm",
     emphasis:
-      "The complete Goa wellness retreat — daily yoga and meditation, sound healing, sauna and ice bath, cultural excursions, and nourishing vegetarian food.",
+      "A full week at Hatha Yogashala is where transformation really begins to take root. Seven days of consistent Hatha practice, philosophy, ayurveda, sound healing, and community give you time to move past the initial adjustment and into a genuine rhythm — leaving with tools and habits you can carry home.",
+    excursionsStory:
+      "A full week gives the richest excursion experience: multiple waterfall and beach outings, evening kirtan, and repeated Goa Experience trips into local markets and culture. Ice bath and sauna rituals become part of your rhythm, and beach games and acro yoga sessions build genuine camaraderie within the group over the course of the week.",
+    checkIn: "11:00 AM",
+    checkOut: "1:00 PM",
     whoFor: [
       "Practitioners ready for a full-week wellness immersion",
-      "Solo travellers wanting a complete reset",
+      "Solo travellers wanting deep transformation and rest",
     ],
   },
 };
 
 const retreatWhatIs = {
   3: {
-    heading: "What is a 3-day yoga retreat?",
+    heading: "3-Day Yoga Retreat — Overview",
     paragraphs: [
-      "The 3-day Hatha Yogashala mini escape is a unique blend of spiritual exploration, physical rejuvenation, and cultural immersion in the serene surroundings of North Goa. Engage in yoga, meditation, and wellness practices while experiencing the region's rich heritage through nature walks, beach sessions, and cultural tours — a perfect short wellness retreat in Goa.",
-      "Designed for busy travelers who still want a meaningful reset, this 3-day yoga retreat in Goa includes daily Hatha yoga and meditation, ice baths, sauna therapy, ecstatic dance, and cultural exploration. It is a holistic escape from daily life that fosters deep self-reflection, connection, and inner peace.",
-      "All yoga sessions are adaptable to every level, and the retreat is a personal-practice experience — not a teacher-training course.",
+      "Step away from the noise of daily life and into three days of stillness, movement, and community at Hatha Yogashala, Goa. This short, immersive retreat is designed for travelers who want a genuine reset — a blend of yoga practice, internal cleansing, sound healing, and the natural beauty of Goa's coastline, all held within a warm and supportive community.",
     ],
     points: [
-      "Daily Hatha yoga and meditation",
-      "Ice bath, sauna therapy, and ecstatic dance",
-      "Cultural tours and heritage exploration",
-      "All levels welcome — no yoga experience needed",
+      "Daily yoga practice, internal cleansing & breathwork",
+      "Sound healing, massage & Ayurveda basics",
+      "Ice bath, sauna, waterfalls & sacred kirtan",
+      "Evening Goa Experience outings & beach practice games",
     ],
   },
   5: {
-    heading: "What is a 5-day yoga retreat?",
+    heading: "5-Day Yoga Retreat — Overview",
     paragraphs: [
-      "Our 5-day holistic healing-by-the-sea retreat at Hatha Yogashala offers a refreshing escape to explore the wonders of your body and mind in a beautiful coastal setting. Experience yoga, meditation, sound healing, breathwork, and massage designed to enhance physical, mental, and energetic well-being.",
-      "The 5-day retreat is a perfect opportunity to reconnect with yourself, refresh your mind, and discover your true potential in a serene, supportive environment — based at our peaceful ashram in Querim, North Goa, close to Arambol and the region's most beautiful beaches.",
-      "All sessions are adapted to every level, and the retreat is a personal-practice experience rather than a teacher-training course.",
+      "Five days offers the space to truly settle into practice. This retreat combines daily Hatha yoga, philosophy and anatomy sessions, cleansing rituals, and restorative downtime, giving you enough time to build routine, deepen your understanding, and leave feeling genuinely renewed.",
     ],
     points: [
-      "Daily yoga, meditation, sound healing, and breathwork",
-      "Sauna and ice bath therapy",
-      "Massage and wellness therapies",
-      "All levels welcome",
+      "Daily Hatha yoga, philosophy & anatomy sessions",
+      "Internal cleansing rituals & restorative downtime",
+      "Ice bath, sauna, waterfalls & evening kirtan",
+      "Goa Experience cultural outings & beach sunsets",
     ],
   },
   7: {
-    heading: "What is a 7-day yoga retreat?",
+    heading: "7-Day Yoga Retreat — Overview",
     paragraphs: [
-      "Escape to the tranquil beauty of North Goa with our exclusive 7-day Mind-Body-Soul retreat at Hatha Yogashala — one of the best yoga retreat destinations near Goa's beaches. We offer a complete wellness retreat in Goa that nurtures every aspect of your well-being.",
-      "This 7-day yoga retreat in Goa is designed for those who want more than a holiday — it is a holistic journey to rejuvenate mind, body, and soul. Set in our peaceful beachside ashram in Querim, the retreat blends daily Hatha yoga and meditation with therapeutic experiences such as sound healing, breathwork, massage, Russian banya sauna and ice baths, ecstatic dance, and visits to ancient temples.",
-      "Every session adapts to all levels, and the retreat remains a personal-practice experience — not a teacher-training course.",
+      "A full week at Hatha Yogashala is where transformation really begins to take root. Seven days of consistent Hatha practice, philosophy, ayurveda, sound healing, and community give you time to move past the initial adjustment and into a genuine rhythm — leaving with tools and habits you can carry home.",
     ],
     points: [
-      "Daily yoga and meditation by the sea",
-      "Sound healing, sauna, ice bath, and massage",
-      "Temple visits and cultural excursions",
-      "Ideal for solo travelers and all levels",
+      "Full 7-day deep transformational immersion",
+      "Consistent Hatha practice, philosophy & Ayurveda",
+      "Multiple waterfall & beach outings, ice baths & sauna",
+      "Rich community camaraderie, kirtan & beach acro yoga",
     ],
   },
 };
 
+const standardRetreatSchedule = [
+  ["07:00 – 08:00 AM", "Internal Cleansing"],
+  ["08:00 – 08:15 AM", "Tea / Coffee Break"],
+  ["08:15 – 09:30 AM", "Yoga Practice"],
+  ["09:30 – 10:45 AM", "Breakfast"],
+  ["11:00 AM – 12:30 PM", "Anatomy / Philosophy / Ayurveda Basics"],
+  ["12:30 – 01:30 PM", "Sound Healing / Breath Work / Massage"],
+  ["01:30 – 02:30 PM", "Lunch"],
+  ["02:30 – 04:00 PM", "Self-Reflection / Rest"],
+  ["04:00 – 05:30 PM", "Ice Bath / Sauna / Waterfalls / Kirtan"],
+  ["05:30 – 07:00 PM", "Meditation / Beach Practice Games / Acro Yoga"],
+  ["07:00 – 08:00 PM", "Dinner"],
+  ["08:00 – 10:00 PM", "Outing / Goa Experience"],
+  ["10:00 PM", "Lights Out"],
+];
+
+const standardAccommodationOptions5 = [
+  {
+    name: "Mixed AC Dorm",
+    description:
+      "Experience community living with comfort in our Mixed AC Dorm. Ideal for solo travelers or groups, this dorm offers a cool and relaxed atmosphere, with easy access to all amenities. Enjoy the company of like-minded individuals while still having your own personal space.",
+  },
+  {
+    name: "Female AC Dorm",
+    description:
+      "Our Female AC Dorm is a sanctuary designed specifically for women, offering a safe and peaceful environment. This dorm is perfect for female travelers who value comfort and security while being part of a supportive community. The cool air-conditioned space ensures a restful stay, allowing you to focus on your practice and relaxation.",
+  },
+  {
+    name: "Twin Sharing",
+    description:
+      "The Twin Sharing room is perfect for friends or solo travelers looking to share a space with a fellow yogi. These rooms offer a balance of privacy and companionship, featuring comfortable beds, modern amenities, and a peaceful ambiance that promotes rest and rejuvenation.",
+  },
+  {
+    name: "Triple Sharing",
+    description:
+      "Ideal for small groups or those looking to bond with new friends, the Triple Sharing room provides a spacious and comfortable setting. With three cozy beds, air conditioning, and all necessary amenities, this room offers a budget-friendly option without compromising on comfort or luxury.",
+  },
+  {
+    name: "Private Room",
+    description:
+      "Our Private Rooms are designed for those who seek solitude and personal space. These rooms offer ultimate privacy and comfort, featuring plush beds, modern amenities, and a tranquil environment that allows you to unwind completely. Perfect for individuals who value their own space while enjoying the benefits of a retreat.",
+  },
+];
+
+const standardAccommodationOptions7 = [
+  {
+    name: "Female AC Dorm",
+    description:
+      "Our Female AC Dorm is a sanctuary designed specifically for women, offering a safe and peaceful environment. This dorm is perfect for female travelers who value comfort and security while being part of a supportive community. The cool air-conditioned space ensures a restful stay, allowing you to focus on your practice and relaxation.",
+  },
+  {
+    name: "Twin Sharing",
+    description:
+      "The Twin Sharing room is perfect for friends or solo travelers looking to share a space with a fellow yogi. These rooms offer a balance of privacy and companionship, featuring comfortable beds, modern amenities, and a peaceful ambiance that promotes rest and rejuvenation.",
+  },
+  {
+    name: "Private Room",
+    description:
+      "Our Private Rooms are designed for those who seek solitude and personal space. These rooms offer ultimate privacy and comfort, featuring plush beds, modern amenities, and a tranquil environment that allows you to unwind completely. Perfect for individuals who value their own space while enjoying the benefits of a retreat.",
+  },
+];
+
 export const retreats = [
   ...[3, 5, 7].map((days) => {
     const profile = retreatProfiles[days];
-    const benefitsByDays = {
+    const feeRowsByDays = {
       3: [
-        "Daily Hatha yoga & meditation",
-        "Ice baths, sauna & ecstatic dance",
-        "Cultural tours & heritage experiences",
+        { facility: "Mixes AC Dorm", price: "€199" },
+        { facility: "Twin sharing", price: "€299" },
+        { facility: "Private Room", price: "€399" },
       ],
       5: [
-        "Daily yoga, sound healing & breathwork",
-        "Sauna, ice bath & massage therapies",
-        "Beach practice near Arambol",
+        { facility: "Mixes AC Dorm", price: "€299" },
+        { facility: "Twin sharing", price: "€399" },
+        { facility: "Private Room", price: "€499" },
       ],
       7: [
-        "Full-week Mind-Body-Soul wellness journey",
-        "Sound healing, sauna, ice bath & massage",
-        "Temple visits & cultural excursions",
+        { facility: "AC Dorm", price: "€399" },
+        { facility: "Twin sharing", price: "€499" },
+        { facility: "Private Room", price: "€599" },
+      ],
+    };
+    const benefitsByDays = {
+      3: [
+        "Daily Hatha yoga & internal cleansing",
+        "Ice baths, sauna, waterfalls & kirtan",
+        "Goa Experience outings & beach practice",
+      ],
+      5: [
+        "Daily Hatha yoga, anatomy & philosophy",
+        "Sound healing, breathwork & massage",
+        "Sunset beach sessions & Goa cultural outings",
+      ],
+      7: [
+        "Full 7-day deep transformational immersion",
+        "Ayurveda, philosophy, sound healing & massage",
+        "Multiple waterfall & beach outings + kirtan circles",
       ],
     };
     return {
@@ -1479,21 +2041,35 @@ export const retreats = [
       description: profile.emphasis,
       whatIs: retreatWhatIs[days],
       benefits: benefitsByDays[days],
-      price: { 3: "€199", 5: "€299", 7: "€449" }[days],
+      price: { 3: "€199", 5: "€299", 7: "€399" }[days],
+      priceNumeric: { 3: 199, 5: 299, 7: 399 }[days],
+      priceCurrency: "EUR",
+      feeTableName: `${days} Days Yoga Retreat`,
+      facilityHeader: "Facilities",
+      priceHeader: "Price In Euro",
+      feeRows: feeRowsByDays[days],
+      accommodationOptions:
+        days === 7 ? standardAccommodationOptions7 : standardAccommodationOptions5,
+      excursionsStory: profile.excursionsStory,
       image:
         {
-          3: "/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp",
-          5: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
-          7: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
+          3: "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
+          5: "/images/tha_hatha/the-hatha-yogashala-group-yoga-class-downward-dog-goa.webp",
+          7: "/images/tha_hatha/the-hatha-yogashala-yoga-asana-practice-shala-goa.webp",
         }[days] ||
-        "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
+        "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
       date: "Monthly retreat start dates year-round",
       availability: "Book Now",
       duration: `${days} days`,
+      checkIn: "11:00 AM",
+      checkOut: "1:00 PM",
       level: "All levels",
       location: "Querim, North Goa, India",
-      room: "AC dorm, twin sharing, or private room",
-      meals: "Three vegetarian meals per day",
+      room:
+        days === 7
+          ? "Female AC dorm, twin sharing, or private room"
+          : "Mixed AC dorm, female AC dorm, twin sharing, triple sharing, or private room",
+      meals: "Three vegetarian meals per day (vegan/GF on request)",
       overview: profile.emphasis,
       distinctFocus:
         "Each retreat is a personal-practice experience, not a teacher-training course or professional certification.",
@@ -1501,23 +2077,25 @@ export const retreats = [
       itinerary: Array.from({ length: days }, (_, index) => [
         `Day ${index + 1}`,
         index === 0
-          ? "Arrival, welcome, and an opening Hatha practice"
+          ? "Arrival (11:00 AM check-in), welcome orientation, opening yoga, and dinner"
           : index === days - 1
-            ? "Closing practice, reflection, and departure"
-            : "Morning Hatha, breathwork, study, and protected rest",
+            ? "Morning practice, closing reflection, lunch, and departure (1:00 PM check-out)"
+            : "Morning cleansing & yoga, sound healing/massage, excursions, and sunset beach meditation",
       ]),
-      dailySchedule: [
-        ["07:00", "Morning Hatha yoga"],
-        ["09:00", "Breakfast and free time"],
-        ["11:00", "Pranayama and meditation"],
-        ["17:00", "Restorative practice"],
-      ],
+      dailySchedule: standardRetreatSchedule,
       gallery: [],
-      includedActivities: [],
+      includedActivities: [
+        "Temple visits (cultural heritage tour)",
+        "100-Year-Old Banyan Tree visit",
+        "Sauna / ice bath (Russian Banya)",
+        "Mud bath therapy",
+        "Ecstatic dance",
+        "Percussion workshops",
+      ],
       excludedActivities: [],
       optionalGoaIdeas: [
-        "Explore coastal walks and nearby beaches",
-        "Plan local culture and food outings",
+        "Explore coastal walks and nearby Arambol beaches",
+        "Visit local spice farms and sweet water lake",
         "Rest, read, and reflect at your own pace",
       ],
     };
@@ -1526,70 +2104,141 @@ export const retreats = [
     slug: "5-day-awaken-and-align-retreat-goa",
     days: 5,
     name: "5-Day Awaken & Align Retreat",
-    category: "Awaken & Align",
+    category: "Kundalini & Iyengar Fusion",
     description:
-      "Realign your physical posture, balance subtle energetic centers, and awaken vitality through alignment-focused Hatha yoga, pranayama, sound therapy, and beachfront calm in North Goa.",
+      "The Awaken & Align Retreat is a five-day journey into Iyengar-style asana, Tantra philosophy, and Kundalini and Chakra Sadhana. Structured around a clear arc — arrival, deep practice, and closing ceremony — this retreat is built for those seeking a more focused, tradition-rooted exploration of yoga and inner alignment.",
     whatIs: {
-      heading: "What is the 5-Day Awaken & Align Retreat?",
+      heading: "What Is The Awaken & Align Retreat?",
       paragraphs: [
-        "The 5-Day Awaken & Align Retreat at Hatha Yogashala is designed for seekers looking to recalibrate their physical alignment, release chronic muscular tension, and awaken inner vitality. Set in our tranquil beachside ashram in Querim, North Goa, this immersion bridges deep anatomical alignment with breathwork and sound meditation.",
-        "Each day combines precise posture breakdown, therapeutic adjustments, morning alignment flow, evening restorative yoga, sound healing baths, and mindful beach walks near Arambol. It is a revitalising space to reset your posture and nervous system.",
-        "All sessions are suitable for both beginners and experienced practitioners who wish to refine their alignment and reconnect with bodily awareness.",
+        "The Awaken & Align Retreat is a five-day journey into Iyengar-style asana, Tantra philosophy, and Kundalini and Chakra Sadhana. Structured around a clear arc — arrival, deep practice, and closing ceremony — this retreat is built for those seeking a more focused, tradition-rooted exploration of yoga and inner alignment.",
+        "Facilitated by Yogendra (20+ years Iyengar Yoga expertise) and Abin (30 years Tantra, Samkhya & Yoga initiated in Kaula tradition), this retreat combines precise posture alignment with energy awakening in North Goa.",
       ],
       points: [
-        "Daily posture alignment & precision adjustments",
-        "Pranayama, chakra balancing & sound healing baths",
-        "Sattvic vegetarian cuisine and quiet coastal environment",
-        "Individual guidance in intimate group settings",
+        "Iyengar-Style Asana & Postural Alignment Mastery",
+        "Tantra Philosophy & Sacred Teachings",
+        "Kundalini & Chakra Sadhana Energy Work",
+        "Kaya Shuddhi Cleansing & Meditative Breathwork",
       ],
     },
     benefits: [
-      "Precision posture alignment & therapeutic adjustment",
-      "Sound healing, breathwork & chakra meditation",
-      "Beachfront relaxation & quiet coastal setting",
+      "Precision Iyengar posture alignment & props mastery",
+      "Kundalini Kriyas, Chakra Sadhana & Tantra philosophy",
+      "Gourmet wellness cuisine & beachside serene accommodation",
     ],
-    price: "€349",
+    price: "₹21,000",
+    priceNumeric: 21000,
+    priceCurrency: "INR",
+    feeTableName: "5 Days Awaken & Align Retreat",
+    facilityHeader: "Sharing Type",
+    priceHeader: "Cost",
+    feeRows: [
+      { facility: "Twin Sharing", price: "21000" },
+      { facility: "Private Room", price: "25000" },
+      { facility: "Twin Sharing Private Room", price: "39000" },
+    ],
+    accommodationOptions: [
+      {
+        name: "Twin Sharing",
+        description:
+          "The Twin Sharing room is perfect for friends or solo travelers looking to share a space with a fellow yogi. These rooms offer a balance of privacy and companionship, featuring comfortable beds, modern amenities, and a peaceful ambiance that promotes rest and rejuvenation.",
+      },
+      {
+        name: "Private Room",
+        description:
+          "Our Private Rooms are designed for those who seek solitude and personal space. These rooms offer ultimate privacy and comfort, featuring plush beds, modern amenities, and a tranquil environment that allows you to unwind completely. Perfect for individuals who value their own space while enjoying the benefits of a retreat.",
+      },
+      {
+        name: "Twin Sharing (Private Room)",
+        description:
+          "Ideal for couples or friends who want private deluxe accommodation with two beds, air conditioning, and attached modern bathroom.",
+      },
+    ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp",
+      "/images/tha_hatha/the-hatha-yogashala-5-day-awaken-align-yoga-retreat-goa.webp",
     date: "Monthly retreat start dates year-round",
     availability: "Book Now",
-    duration: "5 days",
+    duration: "5 Days, 4 Nights",
     level: "All levels",
-    location: "Querim, North Goa, India",
-    room: "AC dorm, twin sharing, or private room",
-    meals: "Three vegetarian meals per day",
+    location: "Near Keri Beach, Arambol, North Goa",
+    room: "Twin sharing or private room",
+    meals: "Three wholesome, soul-nourishing meals daily",
     overview:
-      "A 5-day alignment and awakening retreat blending precision Hatha yoga, pranayama, sound baths, and coastal tranquility.",
+      "The Awaken & Align Retreat is a five-day journey into Iyengar-style asana, Tantra philosophy, and Kundalini and Chakra Sadhana. Structured around a clear arc — arrival, deep practice, and closing ceremony — this retreat is built for those seeking a more focused, tradition-rooted exploration of yoga and inner alignment.",
     distinctFocus:
       "Each retreat is a personal-practice experience, not a teacher-training course or professional certification.",
     whoFor: [
-      "Practitioners wanting to correct posture and alignment habits",
-      "Anyone seeking energy renewal and stress release",
-      "Solo travellers and couples looking for a focused reset",
+      "Seekers wanting deep postural alignment and Kundalini energy awakening",
+      "Practitioners looking to learn authentic Tantra and Chakra Sadhana",
+      "Travellers wanting a boutique, small-group coastal retreat experience",
     ],
-    itinerary: Array.from({ length: 5 }, (_, index) => [
-      `Day ${index + 1}`,
-      index === 0
-        ? "Arrival, welcome circle, and opening alignment assessment"
-        : index === 4
-          ? "Closing alignment integration, reflection, and departure"
-          : "Morning alignment flow, posture clinic, and evening sound meditation",
-    ]),
+    scheduleMatrix: {
+      columns: ["Time", "Day 01", "Day 02 / 03 / 04", "Day 05"],
+      rows: [
+        ["07:00 – 07:45 AM", "–", "Kaya Shuddhi", "Kaya Shuddhi"],
+        ["08:00 – 09:30 AM", "–", "Iyengar Style Asana", "Iyengar Style Asana"],
+        ["09:30 – 10:15 AM", "–", "Breakfast", "Breakfast"],
+        [
+          "10:15 AM – 12:00 PM",
+          "–",
+          "Beach Time / Self-Time",
+          "Tantra Philosophy, Kundalini and Chakra Sadhana",
+        ],
+        ["12:00 – 01:00 PM", "–", "Tantra Philosophy", "Closing Ceremony"],
+        ["01:00 – 02:00 PM", "–", "Lunch", "Lunch"],
+        [
+          "02:00 – 04:30 PM",
+          "Check-In*",
+          "Beach Time / Self-Time",
+          "Beach Time / Self-Time",
+        ],
+        ["04:30 – 05:30 PM", "Orientation", "Iyengar Style Asana", "Check-Out*"],
+        [
+          "05:45 – 07:15 PM",
+          "Kundalini and Chakra Sadhana",
+          "Kundalini and Chakra Sadhana",
+          "–",
+        ],
+        ["07:15 – 08:15 PM", "Dinner", "Dinner", "–"],
+        ["10:00 PM", "Lights Off", "Lights Off", "–"],
+      ],
+    },
+    itinerary: [
+      [
+        "Day 1",
+        "Check-in (02:00–04:30 PM), Orientation (04:30 PM), Kundalini & Chakra Sadhana (05:45 PM), Dinner (07:15 PM)",
+      ],
+      [
+        "Days 2–4",
+        "Kaya Shuddhi (07:00 AM), Iyengar Asana (08:00 AM), Breakfast, Beach Time, Tantra Philosophy (12:00 PM), Lunch, Afternoon Asana (04:30 PM), Kundalini & Chakra Sadhana (05:45 PM), Dinner",
+      ],
+      [
+        "Day 5",
+        "Kaya Shuddhi (07:00 AM), Iyengar Asana (08:00 AM), Breakfast, Tantra & Chakra Sadhana (10:15 AM), Closing Ceremony (12:00 PM), Lunch, Beach Time, Check-Out (04:30–05:30 PM)",
+      ],
+    ],
     dailySchedule: [
-      ["07:00", "Awaken Morning Alignment Flow"],
-      ["09:00", "Healthy Vegetarian Breakfast"],
-      ["11:00", "Posture Clinic & Breathwork"],
-      ["13:00", "Sattvic Lunch & Rest"],
-      ["17:00", "Restorative Yoga & Sound Bath"],
-      ["19:30", "Dinner & Quiet Time"],
+      ["07:00 – 07:45 AM", "Kaya Shuddhi (Cleansing)"],
+      ["08:00 – 09:30 AM", "Iyengar-Style Asana"],
+      ["09:30 – 10:15 AM", "Breakfast"],
+      ["10:15 AM – 12:00 PM", "Beach Time / Self-Time"],
+      ["12:00 – 01:00 PM", "Tantra Philosophy"],
+      ["01:00 – 02:00 PM", "Lunch"],
+      ["02:00 – 04:30 PM", "Beach Time / Self-Time"],
+      ["04:30 – 05:30 PM", "Iyengar-Style Asana"],
+      ["05:45 – 07:15 PM", "Kundalini & Chakra Sadhana"],
+      ["07:15 – 08:15 PM", "Dinner"],
+      ["10:00 PM", "Lights Off"],
     ],
     gallery: [],
-    includedActivities: [],
+    includedActivities: [
+      "Two Iyengar asana classes & two Kundalini sessions daily",
+      "Tantra philosophy lectures and practical techniques",
+      "Kaya Shuddhi & Shatkarma cleansing practices",
+    ],
     excludedActivities: [],
     optionalGoaIdeas: [
-      "Explore Querim & Arambol beach sunsets",
-      "Visit local spice farms and coastal viewpoints",
-      "Relax in open-air reading gardens",
+      "Walk to unspoiled Keri Beach",
+      "Explore Arambol sweet water lake and sunset viewpoints",
     ],
   },
   {
@@ -1597,62 +2246,68 @@ export const retreats = [
     days: 5,
     name: "Aerial Yoga Retreat in Goa",
     category: "Aerial & Flow",
+    hidePricingAndSidebar: true,
     description:
-      "Experience the weightless freedom of aerial yoga silks with gentle spinal decompression, core strengthening, restorative inversions, and ocean breezes in North Goa.",
+      "Take your practice off the mat and into the air. At Hatha Yogashala, our Aerial Yoga Retreat blends the grounded principles of Hatha yoga with the playful, decompressive power of the aerial hammock — helping you build strength, release tension in the spine, and rediscover a sense of lightness in both body and mind.",
     whatIs: {
-      heading: "What is the Aerial Yoga Retreat in Goa?",
+      heading: "What Is This",
       paragraphs: [
-        "Our Aerial Yoga Retreat offers a liberating approach to yoga by using suspended soft silk hammocks in our open-air beachside yoga shala. Combining traditional Hatha principles with aerial support, this retreat allows for deep spinal traction, easy inversions, and gentle joint decompression.",
-        "Led by experienced aerial instructors, you will practice flying postures, core conditioning, cocooned hammock meditation, and evening sound healing. Free hours allow time to enjoy the pool, beaches, and healthy coastal living in North Goa.",
-        "No prior aerial yoga experience is needed. The retreat is beginner-friendly and tailored to build confidence in the hammock step by step.",
+        "Aerial yoga uses a soft fabric hammock, suspended at hip height, to support and deepen traditional yoga postures. It allows for gentle spinal decompression and inversions that are normally difficult or inaccessible on the ground, while building core strength and flexibility. No prior aerial or advanced yoga experience is needed — our instructors guide you through each pose safely, from basic supported stretches to more playful inversions, at a pace that suits your body. It's an experience that feels equal parts practice and play, leaving you both challenged and refreshed.",
       ],
       points: [
-        "Daily aerial hammock classes and guided safe inversions",
+        "Daily aerial hammock classes and safe guided inversions",
         "Gentle spinal decompression and joint-friendly flexibility",
-        "Cocooned sound bath relaxation and Yoga Nidra",
-        "Step-by-step personal guidance in small batches",
+        "Guided meditation, sunrise beach yoga & holistic health workshops",
+        "Cozy eco-friendly accommodation with garden & pool access",
       ],
     },
     benefits: [
       "Anti-gravity spinal decompression & joint relief",
-      "Floating sound bath & cocooned Yoga Nidra",
-      "Aerial flow & restorative aerial Yin yoga",
+      "Guided meditation & sunrise beach yoga sessions",
+      "Holistic wellness workshops & hammock sound baths",
     ],
-    price: "€369",
+    testimonials: [
+      {
+        name: "Retreat Guest",
+        country: "International Guest",
+        tag: "Aerial Yoga Retreat",
+        rating: 5,
+        text: "I came in nervous about being upside down in a hammock and left feeling stronger and lighter than I have in years. The teachers made it feel completely safe.",
+      },
+      {
+        name: "Retreat Guest",
+        country: "International Guest",
+        tag: "Aerial Yoga Retreat",
+        rating: 5,
+        text: "Aerial yoga at Hatha Yogashala was the highlight of my trip to Goa. My back pain eased within days, and the whole experience felt joyful, not just therapeutic.",
+      },
+      {
+        name: "Retreat Guest",
+        country: "International Guest",
+        tag: "Aerial Yoga Retreat",
+        rating: 5,
+        text: "Such a unique way to experience yoga. The instructors were patient with beginners like me, and by the end of the week I was doing inversions I never thought possible.",
+      },
+    ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
-    date: "Monthly retreat start dates year-round",
-    availability: "Book Now",
+      "/images/tha_hatha/the-hatha-yogashala-aerial-yoga-teacher-training-course-goa.webp",
+    date: "Flexible dates available on enquiry",
+    availability: "Inquire Now",
     duration: "5 days",
     level: "All levels",
     location: "Querim, North Goa, India",
-    room: "AC dorm, twin sharing, or private room",
+    room: "Sanctuary accommodation in North Goa",
     meals: "Three vegetarian meals per day",
     overview:
-      "A 5-day aerial yoga immersion combining suspended hammock practice, gentle inversions, and deep coastal relaxation.",
+      "Take your practice off the mat and into the air. At Hatha Yogashala, our Aerial Yoga Retreat blends the grounded principles of Hatha yoga with the playful, decompressive power of the aerial hammock — helping you build strength, release tension in the spine, and rediscover a sense of lightness in both body and mind.",
     distinctFocus:
       "Each retreat is a personal-practice experience, not a teacher-training course or professional certification.",
     whoFor: [
       "Anyone curious to try aerial yoga in a safe, guided setting",
       "Yogis wanting joint decompression and deeper flexibility",
-      "Travellers seeking a fun, uplifting, and restorative break",
+      "Travellers seeking a fun, uplifting, and restorative coastal retreat",
     ],
-    itinerary: Array.from({ length: 5 }, (_, index) => [
-      `Day ${index + 1}`,
-      index === 0
-        ? "Arrival, hammock orientation, and gentle floating relaxation"
-        : index === 4
-          ? "Aerial flow integration, celebratory practice, and departure"
-          : "Morning aerial flow, afternoon inversion technique, and evening hammock sound bath",
-    ]),
-    dailySchedule: [
-      ["07:00", "Morning Aerial Vinyasa & Grounding"],
-      ["09:00", "Nourishing Breakfast"],
-      ["11:00", "Aerial Technique & Inversions Workshop"],
-      ["13:00", "Fresh Sattvic Lunch"],
-      ["17:00", "Restorative Aerial Yin & Floating Meditation"],
-      ["19:30", "Dinner & Stargazing"],
-    ],
+    itinerary: [],
     gallery: [],
     includedActivities: [],
     excludedActivities: [],
@@ -1665,65 +2320,71 @@ export const retreats = [
   {
     slug: "ayurvedic-massage-therapy-goa",
     days: 7,
-    name: "Ayurvedic Massage Therapy Retreat in Goa",
+    name: "Ayurvedic Massage Therapy in Goa",
     category: "Ayurveda & Healing",
+    hidePricingAndSidebar: true,
     description:
-      "Rejuvenate mind and body with traditional Ayurvedic massages, Abhyanga herbal oil therapies, detox steam, gentle yoga, and tailored sattvic nutrition in North Goa.",
+      "Rooted in one of the world's oldest healing traditions, our Ayurvedic Massage experience at Hatha Yogashala is designed to restore balance to body and mind. Using warm herbal oils and time-honored techniques, each session is tailored to support relaxation, detoxification, and deep physical release alongside your yoga practice.",
     whatIs: {
-      heading: "What is the Ayurvedic Massage Therapy Retreat?",
+      heading: "What Is This",
       paragraphs: [
-        "The Ayurvedic Massage Therapy Retreat at Hatha Yogashala is a healing sanctuary designed around authentic Indian body therapies, cellular restoration, and stress relief. Set beside the beaches of North Goa, this 7-day program combines daily Ayurvedic treatments with restorative yoga.",
-        "Experience warm herbal oil Abhyanga massage, Shirodhara forehead oil flow, herbal steam (Swedana), and dosha-balancing nutrition. Gentle morning breathwork and evening restorative yoga support your body's natural healing rhythm.",
-        "Perfect for anyone recovering from burnout, chronic fatigue, or simply wanting to restore vitality through authentic Ayurvedic care.",
+        "Ayurvedic massage, or Abhyanga, is a therapeutic full-body treatment rooted in Ayurveda, India's traditional system of medicine. Warm, herb-infused oils are massaged into the body using rhythmic strokes suited to your individual constitution, or dosha, helping to release muscular tension, stimulate circulation, and calm the nervous system. At Hatha Yogashala, our practitioners are trained in traditional Ayurvedic methods and work with you to choose oils and techniques that complement your retreat experience, whether your focus is recovery, relaxation, or deeper energetic balance.",
       ],
       points: [
-        "Daily Ayurvedic herbal oil body therapies & Abhyanga",
-        "Shirodhara relaxation & herbal steam detox sessions",
-        "Gentle morning yoga and evening restorative practice",
-        "Personalised Ayurvedic dietary and lifestyle recommendations",
+        "Abhyanga — full-body massage with warm herbal oils",
+        "Shirodhara — continuous stream of warm oil across the forehead",
+        "Pinda Sweda — herbal poultice massage",
+        "Marma Point Therapy — massage targeting vital energy points",
+        "Daily gentle restorative yoga & dosha-balancing nutrition",
       ],
     },
     benefits: [
-      "Traditional Ayurvedic massage & Abhyanga therapy",
-      "Shirodhara treatments & herbal steam detox",
+      "Abhyanga & Shirodhara traditional therapies",
+      "Pinda Sweda & Marma point body healing",
       "Restorative yoga, pranayama & nervous system reset",
     ],
-    price: "€499",
+    testimonials: [
+      {
+        name: "Retreat Guest",
+        country: "International Guest",
+        tag: "Ayurvedic Massage",
+        rating: 5,
+        text: "The Ayurvedic massage was pure bliss after a week of intense practice. My shoulders and back felt completely reset, and the herbal oils left my skin glowing.",
+      },
+      {
+        name: "Retreat Guest",
+        country: "International Guest",
+        tag: "Ayurvedic Massage",
+        rating: 5,
+        text: "I've had massages before, but this felt different — more intentional, more connected to what my body actually needed. Truly restorative.",
+      },
+      {
+        name: "Retreat Guest",
+        country: "International Guest",
+        tag: "Ayurvedic Massage",
+        rating: 5,
+        text: "A perfect complement to the yoga sessions. I left feeling like my whole system had been recalibrated.",
+      },
+    ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-meditation-pranayama-session.webp",
-    date: "Monthly retreat start dates year-round",
-    availability: "Book Now",
+      "/images/tha_hatha/the-hatha-yogashala-ayurvedic-massage-therapy-goa.webp",
+    date: "Flexible dates available on enquiry",
+    availability: "Inquire Now",
     duration: "7 days",
     level: "All levels",
     location: "Querim, North Goa, India",
-    room: "AC dorm, twin sharing, or private room",
+    room: "Sanctuary accommodation in North Goa",
     meals: "Three vegetarian meals per day",
     overview:
-      "A 7-day Ayurvedic wellness immersion pairing traditional body therapies with restorative yoga and sattvic nourishment.",
+      "Rooted in one of the world's oldest healing traditions, our Ayurvedic Massage experience at Hatha Yogashala is designed to restore balance to body and mind. Using warm herbal oils and time-honored techniques, each session is tailored to support relaxation, detoxification, and deep physical release alongside your yoga practice.",
     distinctFocus:
       "Each retreat is a personal-practice experience, not a teacher-training course or professional certification.",
     whoFor: [
-      "Those experiencing physical exhaustion or burnout",
-      "Seekers of authentic Indian Ayurvedic massage and detox",
-      "Anyone wanting a slower, deeply nurturing retreat pace",
+      "Those experiencing physical exhaustion, muscle tension, or burnout",
+      "Seekers of authentic Indian Ayurvedic massage and dosha balancing",
+      "Anyone wanting a slower, deeply nurturing restorative retreat",
     ],
-    itinerary: Array.from({ length: 7 }, (_, index) => [
-      `Day ${index + 1}`,
-      index === 0
-        ? "Arrival, Ayurvedic dosha consultation, and gentle welcome yoga"
-        : index === 6
-          ? "Final rejuvenation therapy, closing circle, and departure"
-          : "Gentle morning yoga, daily Ayurvedic massage session, and evening Yoga Nidra",
-    ]),
-    dailySchedule: [
-      ["07:00", "Gentle Hatha & Pranayama"],
-      ["09:00", "Ayurvedic Breakfast"],
-      ["10:30", "Individual Ayurvedic Massage & Abhyanga Session"],
-      ["13:00", "Dosha-Balancing Sattvic Lunch"],
-      ["16:30", "Herbal Steam & Detox Tea"],
-      ["17:30", "Restorative Yoga & Yoga Nidra"],
-      ["19:30", "Light Dinner"],
-    ],
+    itinerary: [],
     gallery: [],
     includedActivities: [],
     excludedActivities: [],
@@ -1736,41 +2397,63 @@ export const retreats = [
   {
     slug: "yoga-festivals-in-goa",
     days: 3,
-    name: "Yoga Festivals in Goa Retreat",
+    name: "Yoga Festival in Goa",
     category: "Festival & Community",
+    hidePricingAndSidebar: true,
     description:
-      "Celebrate the joyful spirit of yoga with ecstatic dance, live sacred kirtan, guest masterclasses, community circles, and beachside gatherings in North Goa.",
+      "Once a year, Hatha Yogashala opens its doors for a celebration of yoga in all its forms. Our Yoga Festival brings together practitioners, teachers, musicians, and seekers from around the world for days of shared practice, workshops, live music, and community — a joyful gathering for anyone who loves yoga, in whatever form that takes.",
     whatIs: {
-      heading: "What is the Yoga Festivals in Goa Retreat?",
+      heading: "What Is This",
       paragraphs: [
-        "The Yoga Festivals in Goa retreat captures the celebratory, community-focused energy of North Goa's wellness scene. Held across select seasonal dates at Hatha Yogashala in Querim, this immersion unites yogis, musicians, and teachers from around the world.",
-        "Join uplifting masterclasses in Hatha, Vinyasa, Yin, and AcroYoga, sing along at sacred kirtan concerts, dance under the stars at beach ecstatic dance sessions, and enjoy ice baths and fire circles. It is a joyful celebration of movement, sound, and connection.",
-        "Open to all ages and experience levels — come as you are to share, celebrate, and connect with a global community.",
+        "The Yoga Festival is a multi-day gathering featuring a rotating lineup of yoga styles, workshops, and wellness sessions led by teachers from different traditions and backgrounds — from Hatha and Vinyasa to Kundalini, sound healing, and meditation. Alongside daily practice sessions, the festival includes live kirtan and music evenings, communal meals, and open spaces for connection between practitioners of all levels. It's designed to feel less like a structured course and more like a celebration — an opportunity to sample new styles, meet fellow yogis, and soak in the energy of a shared community event.",
       ],
       points: [
-        "Live sacred kirtan, mantra music & ecstatic dance",
-        "Multi-style yoga workshops & guest teacher sessions",
-        "Sunset beach sessions & community fire gatherings",
-        "All-inclusive festival pass with delicious feasts and stay",
+        "Daily multi-level yoga classes & guided meditation",
+        "Workshops on alignment, breathwork & yoga philosophy",
+        "Wellness talks on nutrition, mindfulness & self-care",
+        "Live music, ecstatic dance performances & marketplace",
+        "All-inclusive celebration pass with healthy meals and stay",
       ],
     },
     benefits: [
-      "Live sacred kirtan & ecstatic dance gatherings",
-      "Multi-style yoga masterclasses & workshops",
-      "Ice baths, sauna & beachfront fire circles",
+      "Daily yoga classes, meditation & alignment workshops",
+      "Live music, ecstatic dance & wellness marketplace",
+      "Healthy meals & vibrant global community connection",
     ],
-    price: "€249",
+    testimonials: [
+      {
+        name: "Festival Guest",
+        country: "International Guest",
+        tag: "Yoga Festival",
+        rating: 5,
+        text: "The variety was incredible — I tried styles of yoga I'd never even heard of and left with a completely refreshed practice.",
+      },
+      {
+        name: "Festival Guest",
+        country: "International Guest",
+        tag: "Yoga Festival",
+        rating: 5,
+        text: "The evening kirtan sessions gave me chills every night. The whole festival had this beautiful, welcoming energy.",
+      },
+      {
+        name: "Festival Guest",
+        country: "International Guest",
+        tag: "Yoga Festival",
+        rating: 5,
+        text: "I came alone and left with a community. The festival is as much about connection as it is about yoga.",
+      },
+    ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
-    date: "Monthly retreat start dates year-round",
-    availability: "Book Now",
+      "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
+    date: "Annual festival dates available on enquiry",
+    availability: "Inquire Now",
     duration: "3 days",
     level: "All levels",
     location: "Querim, North Goa, India",
-    room: "AC dorm, twin sharing, or private room",
+    room: "Sanctuary accommodation in North Goa",
     meals: "Three vegetarian meals per day",
     overview:
-      "A 3-day celebratory yoga festival experience with live music, diverse workshops, and beachside community connection.",
+      "Once a year, Hatha Yogashala opens its doors for a celebration of yoga in all its forms. Our Yoga Festival brings together practitioners, teachers, musicians, and seekers from around the world for days of shared practice, workshops, live music, and community — a joyful gathering for anyone who loves yoga, in whatever form that takes.",
     distinctFocus:
       "Each retreat is a personal-practice experience, not a teacher-training course or professional certification.",
     whoFor: [
@@ -1778,23 +2461,7 @@ export const retreats = [
       "Yogis looking to experience multiple styles and live music",
       "Travellers wanting a high-energy, uplifting weekend retreat",
     ],
-    itinerary: Array.from({ length: 3 }, (_, index) => [
-      `Day ${index + 1}`,
-      index === 0
-        ? "Arrival, festival opening ceremony, sunset yoga, and welcome kirtan"
-        : index === 2
-          ? "Morning celebration flow, closing heart circle, and departure"
-          : "All-day workshop choices, ecstatic dance, and beachside fire circle",
-    ]),
-    dailySchedule: [
-      ["07:30", "Morning Festival Flow & Live Acoustic Music"],
-      ["09:30", "Community Breakfast Feast"],
-      ["11:00", "Guest Masterclasses (Vinyasa / Aerial / Acro)"],
-      ["13:30", "Sattvic Lunch & Pool Relaxation"],
-      ["16:30", "Breathwork Journey & Ice Bath Session"],
-      ["18:30", "Sunset Ecstatic Dance & Sacred Kirtan"],
-      ["20:30", "Feast Dinner & Fire Circle"],
-    ],
+    itinerary: [],
     gallery: [],
     includedActivities: [],
     excludedActivities: [],

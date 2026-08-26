@@ -11,19 +11,43 @@ const quickLinks = [
   ["About Us", "/about"],
   ["Our Founder", "/founder"],
   ["Our Teachers", "/teachers"],
-  ["Blog", "/blog"],
-  ["Gallery", "/gallery"],
-  ["Contact Us", "/contact"],
+  ["Certification", "/certification"],
+  ["Accommodation", "/accommodation"],
+  ["Blog & Journal", "/blog"],
+  ["Photo Gallery", "/gallery"],
 ];
 
-const courseLinks = [
+const ttcLinks = [
   ["Yoga TTC Overview", "/yoga-teacher-training"],
-  ["100 Hour YTTC", "/courses/100-hour-yoga-teacher-training-goa"],
-  ["200 Hour YTTC", "/courses/200-hour-yoga-teacher-training-goa"],
-  ["300 Hour YTTC", "/courses/300-hour-yoga-teacher-training-goa"],
+  ["100 Hour Yoga TTC", "/courses/100-hour-yoga-teacher-training-goa"],
+  ["200 Hour Yoga TTC", "/courses/200-hour-yoga-teacher-training-goa"],
+  [
+    "22-Day 200-Hr Flexible TTC",
+    "/courses/22-day-200-hour-flexible-yoga-teacher-training-goa",
+  ],
+  [
+    "200-Hr Ashtanga Vinyasa",
+    "/courses/200-hour-ashtanga-vinyasa-yoga-teacher-training-goa",
+  ],
+  ["300 Hour Yoga TTC", "/courses/300-hour-yoga-teacher-training-goa"],
+  ["Aerial Yoga TTC", "/courses/aerial-yoga-teacher-training-goa"],
+];
+
+const retreatLinks = [
+  ["Yoga Retreats Overview", "/retreats"],
   ["3-Day Yoga Retreat", "/retreats/3-day-yoga-retreat-goa"],
   ["5-Day Yoga Retreat", "/retreats/5-day-yoga-retreat-goa"],
   ["7-Day Yoga Retreat", "/retreats/7-day-yoga-retreat-goa"],
+  [
+    "5-Day Awaken & Align",
+    "/retreats/5-day-awaken-and-align-retreat-goa",
+  ],
+  ["Aerial Yoga Retreat", "/retreats/aerial-yoga-retreat-goa"],
+  [
+    "Ayurvedic Massage Therapy",
+    "/retreats/ayurvedic-massage-therapy-goa",
+  ],
+  ["Yoga Festival in Goa", "/retreats/yoga-festivals-in-goa"],
 ];
 
 const socialLinks = [
@@ -46,16 +70,6 @@ const socialLinks = [
     label: "Google Maps",
     name: "google-maps",
     href: site.contact.map,
-  },
-  {
-    label: "TripAdvisor",
-    name: "tripadvisor",
-    href: site.social.tripadvisor,
-  },
-  {
-    label: "Email",
-    name: "gmail",
-    href: `mailto:${site.contact.email}`,
   },
   {
     label: "WhatsApp",
@@ -123,7 +137,7 @@ export default function Footer() {
       {/* link columns */}
       <section className="relative z-10 -mt-10">
         <Container>
-          <Reveal className="grid gap-6 py-6 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-[1.2fr_1fr_1fr_1.2fr] lg:gap-6">
+          <Reveal className="grid gap-6 py-6 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-[1.3fr_1.1fr_1.1fr_1fr_1.2fr] lg:gap-6">
             <FooterColumn>
               <Link
                 href="/"
@@ -140,11 +154,11 @@ export default function Footer() {
               </Link>
 
               <p className="text-body mx-auto max-w-xs sm:mx-0">
-                Traditional Hatha yoga teacher training and mindful residential
-                retreats in Goa, India.
+                Yoga Alliance certified 100/200/300-hour teacher training and
+                mindful residential retreats in Querim, North Goa.
               </p>
 
-              <div className="mx-auto mt-3 grid w-fit grid-cols-4 gap-2 sm:mx-0">
+              <div className="mx-auto mt-3 flex items-center justify-center gap-3.5 sm:mx-0 sm:justify-start">
                 {socialLinks.map(({ label, name, href }) =>
                   typeof href === "string" &&
                   (href.startsWith("https://") ||
@@ -156,9 +170,13 @@ export default function Footer() {
                       rel="noopener noreferrer"
                       aria-label={label}
                       title={label}
-                      className="grid size-9 place-items-center rounded-md border border-[var(--brown)]/15 bg-white transition duration-200 hover:border-[var(--brown)]/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]"
+                      className="inline-flex items-center justify-center transition-transform duration-200 hover:scale-115 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]"
                     >
-                      <BrandLogo name={name} alt={label} className="size-5" />
+                      <BrandLogo
+                        name={name}
+                        alt={label}
+                        className="size-7 transition-opacity hover:opacity-80"
+                      />
                     </a>
                   ) : (
                     <span
@@ -166,9 +184,9 @@ export default function Footer() {
                       role="img"
                       aria-label={`${label} link pending`}
                       title={`${label} link pending`}
-                      className="grid size-9 place-items-center rounded-md border border-[var(--brown)]/15 text-[var(--brown)]/60"
+                      className="inline-flex items-center justify-center opacity-40"
                     >
-                      <BrandLogo name={name} className="size-5 opacity-40" />
+                      <BrandLogo name={name} className="size-7" />
                     </span>
                   ),
                 )}
@@ -176,13 +194,18 @@ export default function Footer() {
             </FooterColumn>
 
             <FooterColumn>
-              <FooterHeading>Quick Links</FooterHeading>
-              <FooterLinkList links={quickLinks} />
+              <FooterHeading>Teacher Training</FooterHeading>
+              <FooterLinkList links={ttcLinks} />
             </FooterColumn>
 
             <FooterColumn>
-              <FooterHeading>Course Links</FooterHeading>
-              <FooterLinkList links={courseLinks} />
+              <FooterHeading>Yoga Retreats</FooterHeading>
+              <FooterLinkList links={retreatLinks} />
+            </FooterColumn>
+
+            <FooterColumn>
+              <FooterHeading>Quick Links</FooterHeading>
+              <FooterLinkList links={quickLinks} />
             </FooterColumn>
 
             <FooterColumn>
@@ -258,8 +281,13 @@ function FooterColumn({ children }) {
 function FooterHeading({ children }) {
   return (
     <div className="mb-3 flex flex-col items-center sm:items-start">
-      <h3 className="font-mono text-sm font-bold uppercase tracking-wider text-[var(--gold)]">{children}</h3>
-      <span aria-hidden="true" className="block h-px w-[80%] bg-[var(--border)]" />
+      <h3 className="font-mono text-sm font-bold uppercase tracking-wider text-[var(--gold)]">
+        {children}
+      </h3>
+      <span
+        aria-hidden="true"
+        className="block h-px w-[80%] bg-[var(--border)]"
+      />
     </div>
   );
 }

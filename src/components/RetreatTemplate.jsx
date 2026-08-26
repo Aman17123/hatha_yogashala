@@ -47,6 +47,8 @@ function RetreatEyebrow({ children }) {
 
 export default function RetreatTemplate({ retreat, page }) {
   const p = page;
+  const isSimple = Boolean(p.hidePricingAndSidebar || retreat.hidePricingAndSidebar);
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -57,7 +59,7 @@ export default function RetreatTemplate({ retreat, page }) {
     })),
   };
   const tripOffers = [];
-  if (typeof p.pricing.shared.price === "number") {
+  if (p.pricing && typeof p.pricing.shared?.price === "number") {
     tripOffers.push({
       "@type": "Offer",
       name: "Shared room",
@@ -66,7 +68,7 @@ export default function RetreatTemplate({ retreat, page }) {
       availability: "https://schema.org/InStock",
     });
   }
-  if (typeof p.pricing.private.price === "number") {
+  if (p.pricing && typeof p.pricing.private?.price === "number") {
     tripOffers.push({
       "@type": "Offer",
       name: "Private room",
@@ -83,7 +85,7 @@ export default function RetreatTemplate({ retreat, page }) {
     url: absoluteUrl(`/retreats/${retreat.slug}`),
     touristType: "Yoga and wellness travellers",
     provider: { "@type": "Organization", name: site.name, url: site.url },
-    itinerary: {
+    itinerary: p.daysSchedule?.length > 0 ? {
       "@type": "ItemList",
       itemListElement: p.daysSchedule.map((day, index) => ({
         "@type": "ListItem",
@@ -91,14 +93,19 @@ export default function RetreatTemplate({ retreat, page }) {
         name: `Day ${index + 1} — ${day.title}`,
         description: day.intro,
       })),
-    },
+    } : undefined,
     offers: tripOffers.length > 0 ? tripOffers : undefined,
   };
-  const currencySymbol = p.pricing.shared.currency === "EUR" ? "€" : "$";
+  const currencySymbol =
+    p.pricing?.shared?.currency === "INR" || retreat?.priceCurrency === "INR"
+      ? "₹"
+      : p.pricing?.shared?.currency === "EUR"
+        ? "€"
+        : "$";
   const priceRange =
-    typeof p.pricing.shared.price === "number" && typeof p.pricing.private.price === "number"
+    p.pricing && typeof p.pricing.shared?.price === "number" && typeof p.pricing.private?.price === "number"
       ? `${currencySymbol}${p.pricing.shared.price}-${currencySymbol}${p.pricing.private.price}`
-      : currencySymbol;
+      : undefined;
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -124,8 +131,8 @@ export default function RetreatTemplate({ retreat, page }) {
     "@type": "Event",
     name: retreat.name,
     description: p.overviewSummary[0],
-    startDate: p.dates[0]?.start,
-    endDate: p.dates[0]?.end,
+    startDate: p.dates?.[0]?.start,
+    endDate: p.dates?.[0]?.end,
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     eventStatus: "https://schema.org/EventScheduled",
     location: {
@@ -134,7 +141,7 @@ export default function RetreatTemplate({ retreat, page }) {
       address: { "@type": "PostalAddress", addressLocality: "Goa", addressCountry: "IN" },
     },
     offers:
-      typeof p.pricing.shared.price === "number"
+      p.pricing && typeof p.pricing.shared?.price === "number"
         ? {
             "@type": "Offer",
             price: p.pricing.shared.price,
@@ -167,16 +174,18 @@ export default function RetreatTemplate({ retreat, page }) {
 
       {/* ============ HERO SECTION ============ */}
       <section className="retreat-hero">
-        <Media
-          src={p.heroImage}
-          alt={p.heroImageAlt}
-          fill
-          priority
-          sizes="100vw"
-          className="retreat-hero-media"
-        />
-        <div className="retreat-hero-overlay" />
-        <span className="retreat-hero-orb" aria-hidden="true" />
+        <div className="retreat-hero-bg">
+          <Image
+            src={p.heroImage}
+            alt={p.heroImageAlt || retreat.name}
+            fill
+            priority
+            sizes="100vw"
+            className="retreat-hero-bg-img"
+          />
+          <div className="retreat-hero-overlay" />
+          <span className="retreat-hero-orb" aria-hidden="true" />
+        </div>
         <Container className="retreat-hero-inner">
           <Stagger gap={0.11}>
             <StaggerItem>
@@ -233,16 +242,33 @@ export default function RetreatTemplate({ retreat, page }) {
 
             <StaggerItem>
               <div className="retreat-hero-actions">
-                <ButtonLink href="#registration" className="retreat-hero-cta">
-                  Book Your Retreat
-                </ButtonLink>
-                <ButtonLink href="#accommodation" variant="light">
-                  View Accommodation
-                </ButtonLink>
-                <a href={whatsappHref} className="button retreat-whatsapp">
-                  <SiWhatsapp size={17} aria-hidden="true" />
-                  WhatsApp Inquiry
-                </a>
+                {isSimple ? (
+                  <>
+                    <ButtonLink href="#inquiry" className="retreat-hero-cta">
+                      Inquire Now
+                    </ButtonLink>
+                    <a href={whatsappHref} className="button retreat-whatsapp">
+                      <SiWhatsapp size={17} aria-hidden="true" />
+                      WhatsApp Inquiry
+                    </a>
+                    <ButtonLink href="/contact" variant="light">
+                      Schedule a Call
+                    </ButtonLink>
+                  </>
+                ) : (
+                  <>
+                    <ButtonLink href="#registration" className="retreat-hero-cta">
+                      Book Your Retreat
+                    </ButtonLink>
+                    <ButtonLink href="#accommodation" variant="light">
+                      View Accommodation
+                    </ButtonLink>
+                    <a href={whatsappHref} className="button retreat-whatsapp">
+                      <SiWhatsapp size={17} aria-hidden="true" />
+                      WhatsApp Inquiry
+                    </a>
+                  </>
+                )}
               </div>
             </StaggerItem>
           </Stagger>
@@ -261,32 +287,54 @@ export default function RetreatTemplate({ retreat, page }) {
       </section>
 
       {/* ============ STICKY BOOKING SIDEBAR / CONTENT ============ */}
-      <div className="container retreat-layout">
-        {/* Sticky booking sidebar */}
-        <BookingSidebar page={p} retreat={retreat} />
-        <MobileStickyBar
-          left={
-            <p className="text-[13.5px] font-black leading-tight text-[var(--brown)]">
-              From <span className="text-[var(--coral-dark)]">{typeof p.pricing.shared.price === "number" ? `${currencySymbol}${p.pricing.shared.price}` : "On enquiry"}</span>
-              <span className="text-[13.5px] font-semibold text-[var(--muted)]"> /person</span>
-            </p>
-          }
-          right={
-            <>
-              <a href="#book" className="button button-primary !px-4 !py-2.5 !text-[13.5px]">Book Your Retreat</a>
-              <a href={whatsappHref} className="button booking-whatsapp !px-3 !py-2.5 !text-[13.5px]" aria-label="WhatsApp inquiry">
-                <SiWhatsapp size={15} aria-hidden="true" />
-              </a>
-            </>
-          }
-        />
+      <div className={isSimple ? "container max-w-4xl mx-auto px-4 py-12" : "container retreat-layout"}>
+        {!isSimple && (
+          <>
+            {/* Sticky booking sidebar */}
+            <BookingSidebar page={p} retreat={retreat} />
+            <MobileStickyBar
+              left={
+                <p className="text-[13.5px] font-black leading-tight text-[var(--brown)]">
+                  From <span className="text-[var(--coral-dark)]">{typeof p.pricing?.shared?.price === "number" ? `${currencySymbol}${p.pricing.shared.price.toLocaleString()}` : "On enquiry"}</span>
+                  <span className="text-[13.5px] font-semibold text-[var(--muted)]"> /person</span>
+                </p>
+              }
+              right={
+                <>
+                  <a href="#book" className="button button-primary !px-4 !py-2.5 !text-[13.5px]">Book Your Retreat</a>
+                  <a href={whatsappHref} className="button booking-whatsapp !px-3 !py-2.5 !text-[13.5px]" aria-label="WhatsApp inquiry">
+                    <SiWhatsapp size={15} aria-hidden="true" />
+                  </a>
+                </>
+              }
+            />
+          </>
+        )}
 
-        <div className="retreat-content" id="overview">
+        <div className={isSimple ? "retreat-content !max-w-none !w-full" : "retreat-content"} id="overview">
 
-          {/* ============ SECTION 2 — WHAT THIS IS (SEO) ============ */}
+          {/* ============ SECTION 1 — OVERVIEW ============ */}
+          <section className="retreat-section">
+            <RetreatEyebrow>Overview</RetreatEyebrow>
+            <h2 className="retreat-section-title">A transformative reset in North Goa</h2>
+            <div className="retreat-overview">
+              {p.overview.map((paragraph, index) => (
+                <FadeIn key={index} delay={index * 0.04}>
+                  <p>{paragraph}</p>
+                </FadeIn>
+              ))}
+            </div>
+            <div className="retreat-overview-tags">
+              {["Relaxation", "Meditation", "Beach experience", "Community", "Wellness", "Yoga practice"].map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+          </section>
+
+          {/* ============ SECTION 2 — WHAT THIS IS (SEO / AEO) ============ */}
           {retreat.whatIs && (
             <section className="retreat-section" id="what-is">
-              <RetreatEyebrow>What this retreat is</RetreatEyebrow>
+              <RetreatEyebrow>What Is This</RetreatEyebrow>
               <h2 className="retreat-section-title">{retreat.whatIs.heading}</h2>
               <div className="retreat-overview">
                 {retreat.whatIs.paragraphs.map((paragraph, index) => (
@@ -310,162 +358,283 @@ export default function RetreatTemplate({ retreat, page }) {
             </section>
           )}
 
-          {/* ============ SECTION 3 — OVERVIEW ============ */}
-          <section className="retreat-section">
-            <RetreatEyebrow>Overview</RetreatEyebrow>
-            <h2 className="retreat-section-title">A pause that changes the pace of your life</h2>
-            <div className="retreat-overview">
-              {p.overview.map((paragraph, index) => (
-                <FadeIn key={index} delay={index * 0.04}>
-                  <p>{paragraph}</p>
-                </FadeIn>
-              ))}
-            </div>
-            <div className="retreat-overview-tags">
-              {["Relaxation", "Meditation", "Beach experience", "Community", "Wellness", "Yoga practice"].map((tag) => (
-                <span key={tag}>{tag}</span>
-              ))}
-            </div>
-          </section>
+          {/* ============ SECTION — ACCOMMODATION (Standard Retreats Only) ============ */}
+          {!isSimple && (
+            <section className="retreat-section" id="accommodation">
+              <RetreatEyebrow>Accommodation</RetreatEyebrow>
+              <h2 className="retreat-section-title">Comfortable living &amp; sanctuary spaces</h2>
+              <p className="retreat-section-lead">
+                Rest deeply between your yoga practices. Every space is air-conditioned, calm, clean, and located inside our tranquil beachside ashram campus in North Goa.
+              </p>
 
-          {/* ============ SECTION 3 — WHY CHOOSE ============ */}
-          <section className="retreat-section" id="why">
-            <RetreatEyebrow>Why choose this retreat</RetreatEyebrow>
-            <h2 className="retreat-section-title">Ten reasons guests keep coming back</h2>
-            <Stagger className="retreat-why-grid">
-              {p.whyChoose.map((item) => {
-                const Icon = whyIcons[item.icon] || Sparkles;
-                return (
-                  <StaggerItem key={item.title}>
-                    <article className="retreat-why-card">
-                      <span className="retreat-why-icon">
-                        <Icon size={20} aria-hidden="true" />
-                      </span>
-                      <h3>{item.title}</h3>
-                      <p>{item.text}</p>
+              {/* Structured Accommodation Options */}
+              {p.accommodation.options?.length > 0 && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                  {p.accommodation.options.map((opt) => (
+                    <article key={opt.name} className="p-5 rounded-2xl border border-[var(--border)] bg-white shadow-xs">
+                      <h3 className="font-heading text-lg font-semibold text-[var(--brown)] mb-2 flex items-center gap-2">
+                        <Home size={18} className="text-[var(--coral-dark)] shrink-0" />
+                        {opt.name}
+                      </h3>
+                      <p className="text-sm text-[var(--muted)] leading-relaxed">{opt.description}</p>
                     </article>
-                  </StaggerItem>
-                );
-              })}
-            </Stagger>
-          </section>
+                  ))}
+                </div>
+              )}
 
-          {/* ============ SECTION — ACCOMMODATION ============ */}
-          <section className="retreat-section" id="accommodation">
-            <RetreatEyebrow>Accommodation</RetreatEyebrow>
-            <h2 className="retreat-section-title">Rest well between practices</h2>
-            <p className="retreat-section-lead">
-              Choose a shared twin room for community, or a private room for extra space and privacy. Every room is calm, clean, and close to the practice hall.
-            </p>
-            <div className="retreat-rooms">
-              <FadeIn>
-                <article className="retreat-room-block">
-                  <h3>Shared room</h3>
-                  <p>Thoughtfully paired twin beds, garden views, and the easy friendships of retreat life.</p>
-                  <div className="retreat-room-gallery">
-                    {p.accommodation.sharedGallery.map((image) => (
-                      <Media key={image.caption} src={image.src} alt={image.alt} className="h-40 w-full rounded-2xl" />
-                    ))}
-                  </div>
-                </article>
-              </FadeIn>
-              <FadeIn delay={0.08}>
-                <article className="retreat-room-block">
-                  <h3>Private room</h3>
-                  <p>Your own space with an attached bathroom and extra quiet for those who prefer solitude.</p>
-                  <div className="retreat-room-gallery">
-                    {p.accommodation.privateGallery.map((image) => (
-                      <Media key={image.caption} src={image.src} alt={image.alt} className="h-40 w-full rounded-2xl" />
-                    ))}
-                  </div>
-                </article>
-              </FadeIn>
-            </div>
-            <div className="retreat-facilities">
-              <h3>Facilities</h3>
-              <ul>
-                {p.accommodation.facilities.map((facility) => (
-                  <li key={facility.label}>
-                    <Check size={15} className="text-[var(--coral-dark)]" aria-hidden="true" />
-                    {facility.label}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-
-          {/* ============ SECTION — MEALS ============ */}
-          <section className="retreat-section" id="meals">
-            <RetreatEyebrow>Meals</RetreatEyebrow>
-            <h2 className="retreat-section-title">Sattvic food, cooked with love</h2>
-            <p className="retreat-section-lead">
-              Three freshly prepared vegetarian meals a day, plus snacks — the fuel your practice and rest depend on.
-            </p>
-            <Stagger className="retreat-meal-grid">
-              {p.meals.map((meal) => (
-                <StaggerItem key={meal.meal}>
-                  <article className="retreat-meal-card">
-                    <Media src={meal.image} alt={`${meal.meal} at the retreat`} className="h-44 w-full" />
-                    <div className="retreat-meal-body">
-                      <span className="retreat-meal-time">
-                        <Clock3 size={13} aria-hidden="true" /> {meal.time}
-                      </span>
-                      <h3>{meal.meal}</h3>
-                      <p>{meal.text}</p>
+              <div className="retreat-rooms mt-8">
+                <FadeIn>
+                  <article className="retreat-room-block">
+                    <h3>Shared Living &amp; Dorms</h3>
+                    <p>Thoughtfully paired twin beds and community dorms with garden views and the easy friendships of retreat life.</p>
+                    <div className="retreat-room-gallery">
+                      {p.accommodation.sharedGallery.map((image) => (
+                        <Media key={image.caption} src={image.src} alt={image.alt} className="h-40 w-full rounded-2xl" />
+                      ))}
                     </div>
                   </article>
-                </StaggerItem>
-              ))}
-            </Stagger>
-            <div className="retreat-meal-philosophy">
-              <Leaf size={22} className="text-[var(--coral)]" aria-hidden="true" />
-              <div>
-                <h3>{p.mealPhilosophy.title}</h3>
+                </FadeIn>
+                <FadeIn delay={0.08}>
+                  <article className="retreat-room-block">
+                    <h3>Private Rooms</h3>
+                    <p>Your own sanctuary with an attached bathroom and quiet environment for those who prefer solitude and personal space.</p>
+                    <div className="retreat-room-gallery">
+                      {p.accommodation.privateGallery.map((image) => (
+                        <Media key={image.caption} src={image.src} alt={image.alt} className="h-40 w-full rounded-2xl" />
+                      ))}
+                    </div>
+                  </article>
+                </FadeIn>
+              </div>
+              <div className="retreat-facilities">
+                <h3>Facilities &amp; Amenities</h3>
                 <ul>
-                  {p.mealPhilosophy.points.map((point) => (
-                    <li key={point}>
-                      <Check size={14} className="text-[var(--coral)]" aria-hidden="true" />
-                      {point}
+                  {p.accommodation.facilities.map((facility) => (
+                    <li key={facility.label}>
+                      <Check size={15} className="text-[var(--coral-dark)]" aria-hidden="true" />
+                      {facility.label}
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
-          </section>
+            </section>
+          )}
 
-          {/* ============ SECTION — WHAT'S INCLUDED ============ */}
-          <section className="retreat-section" id="included">
-            <RetreatEyebrow>What&apos;s included</RetreatEyebrow>
-            <h2 className="retreat-section-title">Everything you need, nothing you don&apos;t</h2>
-            <div className="retreat-inclusion-grid">
-              <article className="retreat-include-card">
-                <h3>
-                  <CheckCircle2 size={18} aria-hidden="true" /> Included
-                </h3>
-                <ul>
-                  {p.included.map((item) => (
-                    <li key={item}>
-                      <Check size={15} className="text-[var(--coral)]" aria-hidden="true" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-              <article className="retreat-exclude-card">
-                <h3>
-                  <XCircle size={18} aria-hidden="true" /> Not included
-                </h3>
-                <ul>
-                  {p.notIncluded.map((item) => (
-                    <li key={item}>
-                      <XCircle size={15} className="text-[var(--coral-dark)]/60" aria-hidden="true" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            </div>
-          </section>
+          {/* ============ SECTION — DAILY SCHEDULE (Standard Retreats Only) ============ */}
+          {!isSimple && (p.scheduleMatrix || p.dailySchedule) && (
+            <section className="retreat-section" id="schedule">
+              <RetreatEyebrow>Daily Schedule</RetreatEyebrow>
+              <h2 className="retreat-section-title">Daily rhythm &amp; routine</h2>
+              <div className="inline-block bg-[var(--coral-dark)]/10 text-[var(--coral-dark)] px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide mt-2">
+                <em>Check-in: {p.checkIn || "11:00 AM"} | Check-out: {p.checkOut || "1:00 PM"}</em>
+              </div>
+
+              {p.scheduleMatrix ? (
+                <div className="mt-6 overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-xs">
+                  <div className="overflow-x-auto">
+                    <table className="w-full border-collapse text-left text-xs sm:text-sm">
+                      <thead>
+                        <tr className="bg-[var(--coral-dark)] text-white">
+                          {p.scheduleMatrix.columns.map((col, cIdx) => (
+                            <th
+                              key={col}
+                              className={`py-3.5 px-4 font-sans font-bold ${
+                                cIdx < p.scheduleMatrix.columns.length - 1 ? "border-r border-white/20" : ""
+                              }`}
+                            >
+                              {col}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {p.scheduleMatrix.rows.map((row, rIdx) => (
+                          <tr
+                            key={rIdx}
+                            className={`border-b border-[var(--border)] transition-colors hover:bg-[var(--surface)]/50 ${
+                              rIdx % 2 === 1 ? "bg-[var(--cream)]" : "bg-white"
+                            }`}
+                          >
+                            {row.map((cell, cIdx) => (
+                              <td
+                                key={cIdx}
+                                className={`py-3 px-4 ${cIdx === 0 ? "font-bold text-[var(--coral-dark)] whitespace-nowrap" : "text-[var(--brown)] font-medium"} ${
+                                  cIdx < row.length - 1 ? "border-r border-[var(--border)]" : ""
+                                }`}
+                              >
+                                {cell}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              ) : (
+                <div className="mt-6 overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-xs">
+                  <div className="overflow-x-auto">
+                    <table className="w-full border-collapse text-left text-xs sm:text-sm">
+                      <thead>
+                        <tr className="bg-[var(--coral-dark)] text-white">
+                          <th className="py-3.5 px-6 font-sans font-bold border-r border-white/20 w-1/3">
+                            Time
+                          </th>
+                          <th className="py-3.5 px-6 font-sans font-bold">
+                            Activity
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {p.dailySchedule.map(([time, activity], idx) => (
+                          <tr
+                            key={time}
+                            className={`border-b border-[var(--border)] transition-colors hover:bg-[var(--surface)]/50 ${
+                              idx % 2 === 1 ? "bg-[var(--cream)]" : "bg-white"
+                            }`}
+                          >
+                            <td className="py-3.5 px-6 font-bold text-[var(--coral-dark)] border-r border-[var(--border)] whitespace-nowrap">
+                              {time}
+                            </td>
+                            <td className="py-3.5 px-6 font-medium text-[var(--brown)]">
+                              {activity}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+            </section>
+          )}
+
+          {/* ============ SECTION — EXCURSIONS & ACTIVITIES (Standard Retreats Only) ============ */}
+          {!isSimple && (
+            <section className="retreat-section" id="excursions">
+              <RetreatEyebrow>Excursions &amp; Activities</RetreatEyebrow>
+              <h2 className="retreat-section-title">Beyond the mat — the Goa experience</h2>
+              {p.excursionsStory && (
+                <div className="p-5 sm:p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] my-6">
+                  <p className="text-sm sm:text-base text-[var(--brown)] leading-relaxed font-normal">
+                    {p.excursionsStory}
+                  </p>
+                </div>
+              )}
+              <div className="retreat-experience-grid">
+                {p.experiences.map((exp) => (
+                  <article key={exp.title} className="retreat-experience-card">
+                    <span className="retreat-experience-tag">{exp.tag}</span>
+                    <h3>{exp.title}</h3>
+                    <p>{exp.text}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* ============ SECTION — WHY CHOOSE (Standard Retreats Only) ============ */}
+          {!isSimple && p.whyChoose?.length > 0 && (
+            <section className="retreat-section" id="why">
+              <RetreatEyebrow>Why choose this retreat</RetreatEyebrow>
+              <h2 className="retreat-section-title">Ten reasons guests keep coming back</h2>
+              <Stagger className="retreat-why-grid">
+                {p.whyChoose.map((item) => {
+                  const Icon = whyIcons[item.icon] || Sparkles;
+                  return (
+                    <StaggerItem key={item.title}>
+                      <article className="retreat-why-card">
+                        <span className="retreat-why-icon">
+                          <Icon size={20} aria-hidden="true" />
+                        </span>
+                        <h3>{item.title}</h3>
+                        <p>{item.text}</p>
+                      </article>
+                    </StaggerItem>
+                  );
+                })}
+              </Stagger>
+            </section>
+          )}
+
+          {/* ============ SECTION — MEALS (Standard Retreats Only) ============ */}
+          {!isSimple && p.meals?.length > 0 && (
+            <section className="retreat-section" id="meals">
+              <RetreatEyebrow>Meals</RetreatEyebrow>
+              <h2 className="retreat-section-title">Sattvic food, cooked with love</h2>
+              <p className="retreat-section-lead">
+                Three freshly prepared vegetarian meals a day, plus snacks — the fuel your practice and rest depend on.
+              </p>
+              <Stagger className="retreat-meal-grid">
+                {p.meals.map((meal) => (
+                  <StaggerItem key={meal.meal}>
+                    <article className="retreat-meal-card">
+                      <Media src={meal.image} alt={`${meal.meal} at the retreat`} className="h-44 w-full" />
+                      <div className="retreat-meal-body">
+                        <span className="retreat-meal-time">
+                          <Clock3 size={13} aria-hidden="true" /> {meal.time}
+                        </span>
+                        <h3>{meal.meal}</h3>
+                        <p>{meal.text}</p>
+                      </div>
+                    </article>
+                  </StaggerItem>
+                ))}
+              </Stagger>
+              {p.mealPhilosophy && (
+                <div className="retreat-meal-philosophy">
+                  <Leaf size={22} className="text-[var(--coral)]" aria-hidden="true" />
+                  <div>
+                    <h3>{p.mealPhilosophy.title}</h3>
+                    <ul>
+                      {p.mealPhilosophy.points.map((point) => (
+                        <li key={point}>
+                          <Check size={14} className="text-[var(--coral)]" aria-hidden="true" />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </section>
+          )}
+
+          {/* ============ SECTION — WHAT'S INCLUDED (Standard Retreats Only) ============ */}
+          {!isSimple && p.included?.length > 0 && (
+            <section className="retreat-section" id="included">
+              <RetreatEyebrow>What&apos;s included</RetreatEyebrow>
+              <h2 className="retreat-section-title">Everything you need, nothing you don&apos;t</h2>
+              <div className="retreat-inclusion-grid">
+                <article className="retreat-include-card">
+                  <h3>
+                    <CheckCircle2 size={18} aria-hidden="true" /> Included
+                  </h3>
+                  <ul>
+                    {p.included.map((item) => (
+                      <li key={item}>
+                        <Check size={15} className="text-[var(--coral)]" aria-hidden="true" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+                <article className="retreat-exclude-card">
+                  <h3>
+                    <XCircle size={18} aria-hidden="true" /> Not included
+                  </h3>
+                  <ul>
+                    {p.notIncluded.map((item) => (
+                      <li key={item}>
+                        <XCircle size={15} className="text-[var(--coral-dark)]/60" aria-hidden="true" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </div>
+            </section>
+          )}
 
           {/* ============ SECTION — TESTIMONIALS ============ */}
           <section className="retreat-section" id="reviews">
@@ -481,88 +650,115 @@ export default function RetreatTemplate({ retreat, page }) {
             <Accordion items={p.faqs} />
           </section>
 
-          {/* ============ SECTION — OFFICIAL REGISTRATION ============ */}
-          <section className="retreat-section" id="registration">
-            <RetreatEyebrow>Official registration</RetreatEyebrow>
-            <h2 className="retreat-section-title">Reserve your place</h2>
-            <p className="retreat-section-lead">
-              Choose your room, confirm your dates, and submit the secure booking form. Our team replies within 24 hours with verified payment instructions.
-            </p>
-
-            <div className="retreat-pricing-cards">
+          {/* ============ SECTION — INQUIRY / REGISTRATION ============ */}
+          {isSimple ? (
+            <section className="retreat-section" id="inquiry">
+              <RetreatEyebrow>Inquire &amp; Connect</RetreatEyebrow>
+              <h2 className="retreat-section-title">Inquire About {retreat.name}</h2>
+              <p className="retreat-section-lead">
+                Interested in joining or have questions about upcoming dates and arrangements? Send your enquiry below and our team will get back to you within 24 hours.
+              </p>
               <FadeIn>
-                <article className="retreat-price-card">
-                  <span className="retreat-price-badge">Shared Room</span>
-                  <div className="retreat-price-value">
-                    <span className="retreat-price-currency">{p.pricing.shared.currency === "EUR" ? "€" : "$"}</span>
-                    <strong>{p.pricing.shared.price ?? "—"}</strong>
-                    <span className="retreat-price-per">/ person</span>
+                <div className="retreat-booking-form mt-6">
+                  <BookingForm
+                    retreatName={retreat.name}
+                    showPayment={false}
+                    submitLabel="Send Enquiry"
+                  />
+                  <div className="retreat-booking-trust">
+                    <span>
+                      <ShieldCheck size={15} aria-hidden="true" /> Secure confidential inquiry
+                    </span>
+                    <span>
+                      <LockIcon /> Spam protected
+                    </span>
+                    <span>
+                      <Check size={15} aria-hidden="true" /> No spam, ever
+                    </span>
                   </div>
-                  <ul>
-                    <li><Check size={15} className="text-[var(--coral)]" aria-hidden="true" />Shared twin room</li>
-                    <li><Check size={15} className="text-[var(--coral)]" aria-hidden="true" />Three daily meals</li>
-                    <li><Check size={15} className="text-[var(--coral)]" aria-hidden="true" />Full retreat access</li>
-                    <li><Check size={15} className="text-[var(--coral)]" aria-hidden="true" />Community experience</li>
-                  </ul>
-                </article>
-              </FadeIn>
-              <FadeIn delay={0.08}>
-                <article className="retreat-price-card retreat-price-card-featured">
-                  <span className="retreat-price-badge retreat-price-badge-featured">
-                    <Heart size={11} aria-hidden="true" /> Most booked
-                  </span>
-                  <div className="retreat-price-value">
-                    <span className="retreat-price-currency">{p.pricing.private.currency === "EUR" ? "€" : "$"}</span>
-                    <strong>{p.pricing.private.price ?? "—"}</strong>
-                    <span className="retreat-price-per">/ person</span>
-                  </div>
-                  <ul>
-                    <li><Check size={15} className="text-[var(--coral-dark)]" aria-hidden="true" />Private room</li>
-                    <li><Check size={15} className="text-[var(--coral-dark)]" aria-hidden="true" />Attached bathroom</li>
-                    <li><Check size={15} className="text-[var(--coral-dark)]" aria-hidden="true" />Extra privacy</li>
-                    <li><Check size={15} className="text-[var(--coral-dark)]" aria-hidden="true" />Full retreat access</li>
-                  </ul>
-                </article>
-              </FadeIn>
-            </div>
-
-            <div className="retreat-dates-strip" aria-label="Upcoming dates">
-              <CalendarDays size={16} className="text-[var(--coral-dark)] shrink-0" aria-hidden="true" />
-              <div>
-                <strong>Upcoming start dates</strong>
-                <ul>
-                  {p.dates.map((date) => (
-                    <li key={date.id}>
-                      <span>{date.label}</span>
-                      <small>{date.availability}</small>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <FadeIn>
-              <div className="retreat-booking-form">
-                <h3>Secure booking form</h3>
-                <BookingForm
-                  retreatName={retreat.name}
-                  paymentOptions={p.pricing.paymentOptions}
-                  pricing={p.pricing}
-                />
-                <div className="retreat-booking-trust">
-                  <span>
-                    <ShieldCheck size={15} aria-hidden="true" /> Secure encrypted submission
-                  </span>
-                  <span>
-                    <LockIcon /> Spam protected
-                  </span>
-                  <span>
-                    <Check size={15} aria-hidden="true" /> No spam, ever
-                  </span>
                 </div>
+              </FadeIn>
+            </section>
+          ) : (
+            <section className="retreat-section" id="registration">
+              {/* Centered Course Fees Title with Underline */}
+              <div className="text-center mb-6">
+                <h2 className="font-heading text-3xl sm:text-4xl font-normal text-[var(--brown)]">
+                  Course Fees
+                </h2>
+                <div className="w-16 h-0.5 bg-[var(--coral-dark)] mx-auto mt-2.5" />
               </div>
-            </FadeIn>
-          </section>
+
+              {/* Course Fees Table */}
+              {p.feeRows && (
+                <div className="max-w-2xl mx-auto overflow-hidden rounded-xl border border-[var(--border)] bg-white shadow-xs mb-8">
+                  <div className="overflow-x-auto">
+                    <table className="w-full border-collapse text-center">
+                      <thead>
+                        {/* Retreat Name Subheader Row */}
+                        <tr className="bg-white border-b border-[var(--border)]">
+                          <th
+                            colSpan={2}
+                            className="py-3 px-4 text-center font-heading text-sm sm:text-base font-normal text-[var(--brown)]"
+                          >
+                            {p.feeTableName || `${p.days} Days Yoga Retreat`}
+                          </th>
+                        </tr>
+                        {/* Table Column Headers (Orange Background) */}
+                        <tr className="bg-[var(--coral-dark)] text-white">
+                          <th className="py-3 px-6 text-center font-sans font-bold text-xs sm:text-sm border-r border-white/20 w-1/2">
+                            {p.facilityHeader || "Facilities"}
+                          </th>
+                          <th className="py-3 px-6 text-center font-sans font-bold text-xs sm:text-sm w-1/2">
+                            {p.priceHeader || "Price In Euro"}
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {p.feeRows.map((row, idx) => (
+                          <tr
+                            key={row.facility}
+                            className={`border-b border-[var(--border)] transition-colors hover:bg-[var(--surface)]/50 ${
+                              idx % 2 === 1 ? "bg-[var(--surface)]/30" : "bg-white"
+                            }`}
+                          >
+                            <td className="py-3.5 px-6 text-center font-medium text-xs sm:text-sm text-[var(--brown)] border-r border-[var(--border)]">
+                              {row.facility}
+                            </td>
+                            <td className="py-3.5 px-6 text-center font-normal text-xs sm:text-sm text-[var(--brown)]">
+                              {row.price}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
+              <FadeIn>
+                <div className="retreat-booking-form">
+                  <h3>Secure booking form</h3>
+                  <BookingForm
+                    retreatName={retreat.name}
+                    paymentOptions={p.pricing?.paymentOptions}
+                    pricing={p.pricing}
+                  />
+                  <div className="retreat-booking-trust">
+                    <span>
+                      <ShieldCheck size={15} aria-hidden="true" /> Secure encrypted submission
+                    </span>
+                    <span>
+                      <LockIcon /> Spam protected
+                    </span>
+                    <span>
+                      <Check size={15} aria-hidden="true" /> No spam, ever
+                    </span>
+                  </div>
+                </div>
+              </FadeIn>
+            </section>
+          )}
         </div>
       </div>
 
@@ -570,13 +766,14 @@ export default function RetreatTemplate({ retreat, page }) {
       <section className="retreat-final-cta">
         <Container>
           <FadeIn className="retreat-final-cta-inner">
-            <h2>Your Journey Starts Here</h2>
+            <h2>Start Your Retreat Journey</h2>
             <p>
-              Reserve your place and experience transformative days of yoga, mindfulness, community, and the beauty of Goa.
+              Ready to disconnect, recharge, and reconnect with yourself? Reach out to The Hatha Yogashala and experience Goa's beaches,
+              culture, and wellness traditions in one immersive escape.
             </p>
             <div className="retreat-final-cta-actions">
-              <ButtonLink href="#registration" className="retreat-hero-cta">
-                Book Your Retreat
+              <ButtonLink href={isSimple ? "#inquiry" : "#registration"} className="retreat-hero-cta">
+                {isSimple ? "Inquire Now" : "Book Now"}
               </ButtonLink>
               <a href={whatsappHref} className="button retreat-whatsapp">
                 <SiWhatsapp size={17} aria-hidden="true" />

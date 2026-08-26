@@ -41,7 +41,7 @@ export default function FounderPage() {
         eyebrow="Leadership & Lineage"
         title="Meet Our Founder"
         text="Discover the vision, traditional background, and teaching philosophy guiding Hatha Yogashala in Goa, India."
-        image="/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-portrait.webp"
+        image="/images/tha_hatha/The_Hatha_Yogashala-founder-Goa.webp"
       />
 
       {/* Founder Biography & Lineage */}

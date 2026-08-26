@@ -82,7 +82,7 @@ export default function HolidayTemplate({ holiday }) {
       {/* =========================================================================
           SECTION 1 — HERO & AUTHENTIC INTRODUCTION (Compact & Tight Top Margin)
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#FAF7F2] pt-4 pb-8 md:pt-6 md:pb-12 border-b border-[var(--border)]">
+      <section className="relative overflow-hidden bg-[var(--cream)] pt-4 pb-8 md:pt-6 md:pb-12 border-b border-[var(--border)]">
         <Container>
           {/* Compact Breadcrumbs */}
           <nav aria-label="Breadcrumb" className="mb-3">
@@ -97,7 +97,7 @@ export default function HolidayTemplate({ holiday }) {
                       {item.label}
                     </Link>
                   ) : (
-                    <span className="text-black font-semibold">
+                    <span className="text-[var(--brown)] font-semibold">
                       {item.label}
                     </span>
                   )}
@@ -117,7 +117,7 @@ export default function HolidayTemplate({ holiday }) {
                 The Hatha Yogashala Goa
               </span>
 
-              <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-black">
+              <h1 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-normal leading-tight text-[var(--brown)]">
                 {holiday.name}
               </h1>
 
@@ -126,7 +126,7 @@ export default function HolidayTemplate({ holiday }) {
               </p>
 
               {/* Compact Meta Badges */}
-              <div className="mt-4 flex flex-wrap gap-2.5 text-xs font-semibold text-black/80">
+              <div className="mt-4 flex flex-wrap gap-2.5 text-xs font-semibold text-[var(--brown)]">
                 <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-[var(--border)] shadow-xs">
                   <Clock3 size={14} className="text-[var(--coral-dark)]" />
                   <span>{holiday.duration}</span>
@@ -150,11 +150,9 @@ export default function HolidayTemplate({ holiday }) {
                 </div>
               </div>
 
-              {/* Intro paragraphs */}
-              <div className="mt-4 space-y-2.5 text-xs sm:text-sm leading-relaxed text-black/80">
-                {holiday.introText.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
+              {/* Short Intro Lead */}
+              <div className="mt-4 text-xs sm:text-sm leading-relaxed text-[var(--text)]">
+                <p>{holiday.introText[0]}</p>
               </div>
 
               {/* Action Buttons */}
@@ -194,7 +192,7 @@ export default function HolidayTemplate({ holiday }) {
                     <span className="text-[11px] uppercase tracking-widest font-bold text-white/90">
                       The Hatha Yogashala Goa
                     </span>
-                    <h2 className="text-base text-white font-bold font-serif">
+                    <h2 className="text-base text-white font-normal font-heading">
                       {holiday.name}
                     </h2>
                   </div>
@@ -207,7 +205,7 @@ export default function HolidayTemplate({ holiday }) {
                       {holiday.price}
                     </span>
                   </div>
-                  <div className="grid grid-cols-2 gap-2 text-xs font-medium text-black/80">
+                  <div className="grid grid-cols-2 gap-2 text-xs font-medium text-[var(--brown)]">
                     <span className="flex items-center gap-1.5">
                       <Check size={13} className="text-[var(--coral-dark)]" />{" "}
                       Daily Yoga
@@ -233,23 +231,22 @@ export default function HolidayTemplate({ holiday }) {
       </section>
 
       {/* =========================================================================
-          SECTION 2 — RENEWAL YOGA RETREAT (Compact Contrasting Theme)
+          SECTION 2 — RENEWAL YOGA RETREAT (Surface Theme matching website)
           ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#24201D] text-white py-10 md:py-14">
-        <div className="absolute inset-0 bg-[radial-gradient(#C85A32_1px,transparent_1px)] [background-size:24px_24px] opacity-15" />
+      <section className="relative overflow-hidden bg-[var(--surface)] py-10 md:py-14 border-b border-[var(--border)]">
         <Container className="relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--coral-dark)]/30 border border-[var(--coral)]/40 px-3 py-0.5 text-[11px] font-extrabold uppercase tracking-widest text-[#FFA585] mb-2.5">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--coral-dark)]/10 border border-[var(--coral-dark)]/20 px-3 py-0.5 text-[11px] font-extrabold uppercase tracking-widest text-[var(--coral-dark)] mb-2.5">
               <Sparkles size={13} />
               {holiday.renewalSection.eyebrow}
             </span>
-            <h2 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold leading-tight text-white">
+            <h2 className="font-heading text-xl sm:text-2xl md:text-3xl font-normal leading-tight text-[var(--brown)]">
               {holiday.renewalSection.title}
             </h2>
-            <p className="mt-2.5 text-xs sm:text-sm text-[#FFA585] font-semibold">
+            <p className="mt-2.5 text-xs sm:text-sm text-[var(--coral-dark)] font-semibold">
               {holiday.renewalSection.lead}
             </p>
-            <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-white/80">
+            <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-[var(--muted)]">
               {holiday.renewalSection.body}
             </p>
           </div>
@@ -258,12 +255,12 @@ export default function HolidayTemplate({ holiday }) {
             {holiday.renewalSection.points.map((point, idx) => (
               <div
                 key={idx}
-                className="rounded-xl border border-white/10 bg-white/5 p-4 sm:p-5 backdrop-blur-md transition-all duration-300 hover:border-[var(--coral)]/60 hover:bg-white/10 hover:-translate-y-0.5"
+                className="rounded-xl border border-[var(--border)] bg-white p-4 sm:p-5 shadow-xs transition-all duration-300 hover:border-[var(--coral)] hover:shadow-md hover:-translate-y-0.5"
               >
-                <div className="flex size-8 items-center justify-center rounded-lg bg-[var(--coral-dark)]/40 text-[#FFA585] mb-3 font-bold text-xs">
+                <div className="flex size-8 items-center justify-center rounded-lg bg-[var(--coral-dark)]/10 text-[var(--coral-dark)] mb-3 font-bold text-xs">
                   0{idx + 1}
                 </div>
-                <p className="text-xs sm:text-sm font-semibold text-white/95 leading-snug">
+                <p className="text-xs sm:text-sm font-semibold text-[var(--brown)] leading-snug">
                   {point}
                 </p>
               </div>
@@ -276,7 +273,7 @@ export default function HolidayTemplate({ holiday }) {
           SECTION 3 — RETREAT SCHEDULE, FEES & INCLUSIONS (Clean, Tabbed & Aligned)
           ========================================================================= */}
       <section
-        className="relative bg-[#FFF7F0] py-10 md:py-14 border-b border-[var(--border)]"
+        className="relative bg-[var(--cream)] py-10 md:py-14 border-b border-[var(--border)]"
         id="schedule"
       >
         <Container>
@@ -284,10 +281,10 @@ export default function HolidayTemplate({ holiday }) {
             <span className="text-[11px] font-extrabold uppercase tracking-widest text-[var(--coral-dark)]">
               Structured Daily Rhythm
             </span>
-            <h2 className="mt-1 font-serif text-xl sm:text-2xl md:text-3xl font-bold text-black">
+            <h2 className="mt-1 font-heading text-xl sm:text-2xl md:text-3xl font-normal text-[var(--brown)]">
               Retreat Schedule & Details
             </h2>
-            <p className="mt-2 text-xs sm:text-sm text-black/70">
+            <p className="mt-2 text-xs sm:text-sm text-[var(--muted)]">
               Designed with care to leave ample space for deep practice,
               nourishing meals, and unhurried rest.
             </p>
@@ -306,7 +303,7 @@ export default function HolidayTemplate({ holiday }) {
                     className={`rounded-lg px-3.5 py-1.5 text-xs font-bold transition-all ${
                       activeDayIdx === idx
                         ? "bg-[var(--coral-dark)] text-white shadow-sm"
-                        : "bg-white text-black/70 hover:bg-black/5 border border-[var(--border)]"
+                        : "bg-white text-[var(--brown)]/80 hover:bg-[var(--surface)] border border-[var(--border)]"
                     }`}
                   >
                     {dayPlan.day.replace(" Schedule", "")}
@@ -322,7 +319,7 @@ export default function HolidayTemplate({ holiday }) {
                       <span className="rounded-md bg-[var(--coral-dark)] px-2.5 py-1 text-xs font-extrabold text-white">
                         {activeDay.day}
                       </span>
-                      <h3 className="font-serif text-base sm:text-lg font-bold text-black">
+                      <h3 className="font-heading text-base sm:text-lg font-normal text-[var(--brown)]">
                         {activeDay.title}
                       </h3>
                     </div>
@@ -332,13 +329,13 @@ export default function HolidayTemplate({ holiday }) {
                     {activeDay.items.map((item, iIdx) => (
                       <li
                         key={iIdx}
-                        className="flex items-start gap-3 p-2 rounded-lg transition-colors hover:bg-[var(--coral-dark)]/5"
+                        className="flex items-start gap-3 p-2 rounded-lg transition-colors hover:bg-[var(--surface)]"
                       >
                         <span className="shrink-0 w-32 sm:w-36 text-xs font-bold text-[var(--coral-dark)] mt-0.5 flex items-center gap-1.5">
                           <Clock3 size={13} />
                           {item.time}
                         </span>
-                        <span className="text-black/90 font-medium">
+                        <span className="text-[var(--brown)] font-medium">
                           {item.title}
                         </span>
                       </li>
@@ -385,7 +382,7 @@ export default function HolidayTemplate({ holiday }) {
                 </div>
 
                 <div>
-                  <h3 className="font-serif text-lg font-bold text-black mb-1">
+                  <h3 className="font-heading text-lg font-normal text-[var(--brown)] mb-1">
                     Retreat Fees & Dates
                   </h3>
                   <div className="mt-3 flex items-baseline gap-2">
@@ -399,15 +396,15 @@ export default function HolidayTemplate({ holiday }) {
                   <p className="mt-1.5 text-xs font-semibold text-[var(--brown)]">
                     Duration: {holiday.duration}
                   </p>
-                  <div className="mt-3 pt-3 border-t border-[var(--border)] text-xs leading-relaxed text-black/75 bg-[var(--coral-dark)]/5 p-3 rounded-lg">
+                  <div className="mt-3 pt-3 border-t border-[var(--border)] text-xs leading-relaxed text-[var(--text)] bg-[var(--surface)] p-3 rounded-lg">
                     <strong>Retreat Dates:</strong> {holiday.datesNote}
                   </div>
 
                   <div className="mt-4">
-                    <h4 className="text-[11px] font-extrabold uppercase tracking-wider text-black/80 mb-2.5">
+                    <h4 className="text-[11px] font-extrabold uppercase tracking-wider text-[var(--brown)] mb-2.5">
                       What is Included:
                     </h4>
-                    <ul className="space-y-2 text-xs text-black/85">
+                    <ul className="space-y-2 text-xs text-[var(--text)]">
                       {holiday.inclusions.map((inc, i) => (
                         <li key={i} className="flex items-start gap-2">
                           <CheckCircle2
@@ -443,18 +440,18 @@ export default function HolidayTemplate({ holiday }) {
         subtitle="Verified 5.0 Rating for The Hatha Yogashala Goa"
       />
 
-      <section className="relative bg-white py-10 md:py-14" id="book">
+      <section className="relative bg-[var(--background)] py-10 md:py-14" id="book">
         <Container>
           {/* Booking Box */}
-          <div className="max-w-2xl mx-auto rounded-2xl border border-[var(--border)] bg-[#FAF7F2] p-5 sm:p-8 shadow-md">
+          <div className="max-w-2xl mx-auto rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 sm:p-8 shadow-md">
             <div className="text-center mb-6">
               <span className="rounded-full bg-[var(--coral-dark)]/10 px-3 py-0.5 text-[11px] font-bold uppercase text-[var(--coral-dark)] tracking-wider">
                 Direct Booking
               </span>
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-black mt-2">
+              <h3 className="font-heading text-xl sm:text-2xl font-normal text-[var(--brown)] mt-2">
                 Book Your {holiday.name}
               </h3>
-              <p className="text-xs sm:text-sm text-black/70 mt-1.5">
+              <p className="text-xs sm:text-sm text-[var(--muted)] mt-1.5">
                 Submit the short form below. The Hatha Yogashala team will reply
                 within 24 hours with availability.
               </p>

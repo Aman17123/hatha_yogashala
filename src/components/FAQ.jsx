@@ -30,17 +30,8 @@ export default function FAQ({
           {/* Left Column — Sticky Container (Desktop) */}
           <div className="space-y-6 lg:sticky lg:top-24 lg:self-start">
             {/* Header info (Desktop) */}
-            <div className="hidden lg:block space-y-3">
-              <p className="eyebrow">
-                <Sparkles aria-hidden="true" size={15} />
-                {eyebrow}
-              </p>
-              <h2 className="text-3xl xl:text-4xl font-serif font-bold text-[var(--brown)] leading-tight">
-                {title}
-              </h2>
-              <p className="text-body text-[var(--muted)]">
-                {text}
-              </p>
+            <div className="hidden lg:block">
+              <SectionHeading eyebrow={eyebrow} title={title} text={text} />
             </div>
 
             {/* Active Visual / Image Box with Smooth Transition */}
@@ -72,7 +63,7 @@ export default function FAQ({
                         FAQ {q.number} of{" "}
                         {String(questions.length).padStart(2, "0")}
                       </span>
-                      <p className="text-[13.5px] font-semibold mt-0.5 line-clamp-1 text-[var(--brown)]">
+                      <p className="text-[14px] font-medium mt-0.5 line-clamp-1 text-[var(--brown)]">
                         {q.shortSummary}
                       </p>
                     </div>
@@ -85,7 +76,7 @@ export default function FAQ({
             <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-[var(--border)]">
               {/* Active Counter Indicator */}
               <div className="flex items-center gap-2">
-                <span className="text-2xl font-serif font-bold text-[var(--coral-dark)]">
+                <span className="text-2xl font-heading font-normal text-[var(--coral-dark)]">
                   {String(activeIndex + 1).padStart(2, "0")}
                 </span>
                 <span className="text-[13.5px] text-[var(--muted)] font-medium">
@@ -121,7 +112,7 @@ export default function FAQ({
             <MobileStickyBar
               left={
                 <div className="flex items-baseline gap-2">
-                  <span className="font-serif text-xl font-bold leading-none text-[var(--coral-dark)]">
+                  <span className="font-heading text-xl font-medium leading-none text-[var(--coral-dark)]">
                     {String(activeIndex + 1).padStart(2, "0")}
                   </span>
                   <span className="text-[13.5px] font-bold uppercase tracking-widest text-[var(--muted)]">
@@ -159,7 +150,7 @@ export default function FAQ({
                   >
                     {/* Number Badge */}
                     <span
-                      className={`grid size-9 shrink-0 place-items-center rounded-full font-serif text-[13.5px] font-bold transition-colors duration-300 ${
+                      className={`grid size-9 shrink-0 place-items-center rounded-full font-heading text-[13.5px] font-normal transition-colors duration-300 ${
                         isActive
                           ? "bg-[var(--coral-dark)] text-white shadow-md shadow-[var(--coral-dark)]/20"
                           : "bg-[var(--cream)] text-[var(--coral-dark)]"
@@ -169,7 +160,7 @@ export default function FAQ({
                     </span>
 
                     <h3
-                      className={`min-w-0 flex-1 font-serif text-base font-bold leading-snug transition-colors duration-300 lg:text-lg ${
+                      className={`min-w-0 flex-1 font-heading text-base font-normal leading-snug transition-colors duration-300 lg:text-lg ${
                         isActive
                           ? "text-[var(--coral-dark)]"
                           : "text-[var(--brown)]"
@@ -180,7 +171,7 @@ export default function FAQ({
                   </button>
                   {isActive && (
                     <div className="ml-[52px]">
-                      <p className="text-body mt-2">
+                      <p className="mt-2 text-[15px] text-[var(--muted)] leading-relaxed">
                         {q.description}
                       </p>
                       {q.bullets?.length > 0 && (
@@ -188,7 +179,7 @@ export default function FAQ({
                           {q.bullets.map((bullet, bIdx) => (
                             <li
                               key={bIdx}
-                              className="text-body flex items-start gap-2.5 font-medium leading-normal"
+                              className="flex items-start gap-2.5 text-[14px] text-[var(--muted)] font-medium leading-normal"
                             >
                               <CheckCircle2
                                 size={15}

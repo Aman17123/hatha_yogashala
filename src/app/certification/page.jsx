@@ -55,7 +55,7 @@ export default function CertificationPage() {
         eyebrow="Credentials"
         title="Certification & Verification"
         text="See the certificate graduates receive and how to verify it — without badges, recognition claims, or previews that have not been approved."
-        image="/images/tha_hatha/the-hatha-yogashala-goa-yoga-alliance-certification.jpg"
+        image="/images/tha_hatha/the-hatha-yogashala-yoga-instructor-certification-goa.webp"
       />
       <section className="section">
         <Container>

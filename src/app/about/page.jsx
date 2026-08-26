@@ -66,12 +66,12 @@ export default function AboutPage() {
         eyebrow="Our story"
         title="About the Yoga School in North Goa"
         text="Hatha Yogashala is a Yoga Alliance-registered yoga school and ashram in Querim, North Goa — a beachside setting for clear teaching, traditional Hatha practice, and honest information near Arambol."
-        image="/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp"
+        image="/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp"
       />
       <section className="section">
         <Container className="split-layout">
           <Media
-            src="/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg"
+            src="/images/tha_hatha/the-hatha-yogashala-yoga-asana-practice-shala-goa.webp"
             alt="Students learning Hatha yoga in a small group in the Goa shala"
             className="course-overview-image"
           />
@@ -134,7 +134,7 @@ export default function AboutPage() {
               ))}
             </ul>
           </div>
-          <Media src="/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp" alt="Residential study environment for yoga training in Goa" className="course-overview-image" />
+          <Media src="/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp" alt="Residential study environment for yoga training in Goa" className="course-overview-image" />
         </Container>
       </section>
 

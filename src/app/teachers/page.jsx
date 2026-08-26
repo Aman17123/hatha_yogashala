@@ -33,7 +33,7 @@ export default function TeachersPage() {
         eyebrow="Expert Faculty"
         title="Our Yoga Teachers in Goa"
         text="Meet the dedicated masters and subject specialists guiding traditional Hatha yoga, functional anatomy, pranayama, and teaching methodology."
-        image="/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-portrait.webp"
+        image="/images/tha_hatha/Pradeep-Singh.png"
       />
 
       {/* Intro Section */}

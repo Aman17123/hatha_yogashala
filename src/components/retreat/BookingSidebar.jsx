@@ -7,6 +7,7 @@ import {
   CalendarDays,
   Check,
   Clock3,
+  CreditCard,
   Heart,
   MapPin,
   Star,
@@ -26,14 +27,29 @@ export default function BookingSidebar({
 }) {
   const [openForm, setOpenForm] = useState(false);
   const p = page.pricing;
-  const whatsappHref = whatsappLink(retreat.whatsappMessage || `Hi, I have a question about the ${retreat.name} retreat in Goa.`);
+  const whatsappHref = whatsappLink(
+    retreat.whatsappMessage ||
+      `Hi, I have a question about the ${retreat.name} retreat in Goa.`,
+  );
+  const currencySymbol =
+    p?.shared?.currency === "INR" || retreat?.priceCurrency === "INR"
+      ? "₹"
+      : p?.shared?.currency === "EUR"
+        ? "€"
+        : "$";
   const formatPrice = (price) =>
     typeof price === "number"
-      ? `${p.shared.currency === "EUR" ? "€" : "$"}${price}`
+      ? `${currencySymbol}${price.toLocaleString()}`
       : null;
 
+  const pricingTarget = entityLabel === "TTC Course" ? "#fees" : "#registration";
+
   return (
-    <aside className="retreat-sidebar scroll-mt-[110px]" id="book" aria-label={`${entityLabel} booking summary`}>
+    <aside
+      className="retreat-sidebar scroll-mt-[110px]"
+      id="book"
+      aria-label={`${entityLabel} booking summary`}
+    >
       <div className="booking-card">
         {/* Price block */}
         <div className="booking-card-head">
@@ -86,50 +102,48 @@ export default function BookingSidebar({
             <dt>
               <Users size={15} aria-hidden="true" /> Students
             </dt>
-            <dd>{page.students} {studentsLabel}</dd>
+            <dd>
+              {page.students} {studentsLabel}
+            </dd>
           </div>
         </dl>
-
-        {/* Room pricing */}
-        <div className="booking-rooms">
-          <div>
-            <span>Shared Room</span>
-            <strong>{formatPrice(p.shared.price) ?? "On enquiry"}</strong>
-            <small>/ person</small>
-          </div>
-          <div className="booking-rooms-featured">
-            <span>
-              <Heart size={11} aria-hidden="true" /> Most booked
-            </span>
-            <strong>{formatPrice(p.private.price) ?? "On enquiry"}</strong>
-            <small>/ person</small>
-          </div>
-        </div>
 
         {/* CTA buttons */}
         <div className="booking-actions">
           <button
             type="button"
-            className="button button-primary booking-cta"
+            className="button button-primary !w-full !py-2.5 !text-[13px] font-bold"
             onClick={() => setOpenForm((value) => !value)}
             aria-expanded={openForm}
           >
-            {ctaLabel}
-            <ArrowRight size={17} aria-hidden="true" />
+            <span>{ctaLabel}</span>
+            <ArrowRight size={15} aria-hidden="true" />
           </button>
+
+          <a
+            href={pricingTarget}
+            className="button button-secondary !w-full !py-2.5 !text-[12.5px] font-bold flex items-center justify-center gap-1.5"
+          >
+            <CreditCard size={14} className="text-[var(--coral-dark)]" />
+            <span>View Prices &amp; Dates</span>
+          </a>
+
           <div className="booking-actions-secondary">
-            <Link href="#accommodation" className="button button-secondary">
+            <Link
+              href="#accommodation"
+              className="button button-secondary !w-full !py-2 !px-2 !text-[12px] font-semibold text-center truncate"
+            >
               Accommodation
             </Link>
             <a
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="button booking-whatsapp"
+              className="button booking-whatsapp !w-full !py-2 !px-2 !text-[12px] font-bold flex items-center justify-center gap-1 truncate"
               aria-label="WhatsApp inquiry"
             >
-              <SiWhatsapp size={17} aria-hidden="true" />
-              WhatsApp
+              <SiWhatsapp size={13} className="shrink-0" />
+              <span>WhatsApp</span>
             </a>
           </div>
         </div>
@@ -160,12 +174,15 @@ export default function BookingSidebar({
       </div>
 
       {/* Quick links into the page */}
-      <nav className="booking-mininav" aria-label={`${entityLabel} page sections`}>
+      <nav
+        className="booking-mininav"
+        aria-label={`${entityLabel} page sections`}
+      >
         <a href="#overview">Overview</a>
         <a href="#accommodation">Accommodation</a>
         <a href="#meals">Meals</a>
         <a href="#included">Included</a>
-        <a href="#registration">Pricing & Booking</a>
+        <a href={pricingTarget}>Prices &amp; Dates</a>
         <a href="#faq">FAQ</a>
       </nav>
     </aside>

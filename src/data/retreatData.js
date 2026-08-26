@@ -12,37 +12,39 @@
  */
 
 const IMAGES = {
-  hero: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
-  class: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg",
-  coast: "/images/tha_hatha/the-hatha-yogashala-goa-beach-yoga-wheel-pose-students.webp",
-  accommodation: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
-  pranayama: "/images/tha_hatha/the-hatha-yogashala-goa-meditation-pranayama-session.webp",
-  hatha: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg",
+  hero: "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
+  class: "/images/tha_hatha/the-hatha-yogashala-group-yoga-class-downward-dog-goa.webp",
+  coast: "/images/tha_hatha/the-hatha-yogashala-balcony-view-coconut-trees-goa.webp",
+  accommodation: "/images/tha_hatha/the-hatha-yogashala-private-room-accommodation-goa.webp",
+  pranayama: "/images/tha_hatha/pranayama-meditation-goa.png",
+  hatha: "/images/tha_hatha/the-hatha-yogashala-yoga-asana-practice-shala-goa.webp",
 };
 
 export const retreatPricingByDays = {
   3: { shared: { price: 199 }, private: { price: 399 } },
   5: { shared: { price: 299 }, private: { price: 499 } },
-  7: { shared: { price: 449 }, private: { price: 649 } },
+  7: { shared: { price: 399 }, private: { price: 599 } },
 };
 
 export const retreatPricing = {
   shared: { price: 199, currency: "EUR", label: "Shared Room", per: "person" },
   private: { price: 399, currency: "EUR", label: "Private Room", per: "person" },
-  paymentOptions: ["Bank Transfer", "PayPal", "Card"],
+  paymentOptions: ["Bank Transfer", "PayPal", "Wise", "UPI", "Card"],
   trustBadges: [
-    "Yoga Alliance Registered School",
-    "All-inclusive vegetarian meals",
-    "Beachside accommodation included",
-    "24/7 student support",
+    "3, 5 & 7-Day Formats + 5-Day Kundalini & Iyengar",
+    "Daily Yoga, Meditation & Ayurveda Sessions",
+    "Sound Healing, Breathwork & Ice Baths",
+    "Vegetarian & Vegan Meals (Gluten-Free on Request)",
+    "Beachside Living Near Arambol & Keri Beach",
   ],
 };
 
 export const trustBadges = [
-  "Yoga Alliance Inspired Curriculum",
-  "Small Group Experience",
-  "Vegetarian Meals Included",
-  "Beach & Nature Experiences",
+  "3, 5 & 7-Day Formats + 5-Day Kundalini & Iyengar",
+  "Daily Yoga, Meditation & Ayurveda",
+  "Sound Healing, Breathwork & Ice Baths",
+  "Vegetarian Meals Included (Vegan/GF on request)",
+  "Located Near Arambol & Keri Beach, North Goa",
 ];
 
 export const whyChoose = [
@@ -53,7 +55,7 @@ export const whyChoose = [
   },
   {
     title: "Experienced Teachers",
-    text: "Certified Hatha instructors with years of residential teaching and a clear, consent-led, inclusive style.",
+    text: "Certified Hatha & Iyengar instructors with years of residential teaching and a clear, inclusive style.",
     icon: "award",
   },
   {
@@ -62,43 +64,61 @@ export const whyChoose = [
     icon: "flower",
   },
   {
-    title: "Meditation Sessions",
-    text: "Guided stillness each day — from breath awareness to Yoga Nidra — designed for every experience level.",
+    title: "Meditation & Breathwork",
+    text: "Guided stillness, Pranayama, and Shatkarma each day — designed for every experience level.",
     icon: "sparkles",
   },
   {
-    title: "Beach Walks",
-    text: "Sunrise and sunset beach time beside quiet North Goa shores, moments from the shala.",
+    title: "Wellness Excursions",
+    text: "Ice baths, sauna therapy, mud baths, ecstatic dance, and visits to 100-year-old banyan trees and temples.",
     icon: "waves",
   },
   {
     title: "Healthy Sattvic Meals",
-    text: "Three freshly prepared vegetarian meals a day, cooked with local produce and traditional Ayurvedic principles.",
+    text: "Three freshly prepared vegetarian meals a day, with vegan, gluten-free, and allergy options on request.",
     icon: "leaf",
   },
   {
     title: "Comfortable Accommodation",
-    text: "Clean, calm shared or private rooms with attached bathrooms, hot water, and a restful environment.",
+    text: "From mixed and female-only AC dorms to twin-sharing and private rooms with attached bathrooms.",
     icon: "home",
   },
   {
-    title: "Personal Growth",
-    text: "Guided reflection, journaling prompts, and honest conversations that turn a holiday into a turning point.",
+    title: "Personal Growth & Sound Healing",
+    text: "Sound baths, massage, and honest conversations that turn a holiday into a rejuvenating life reset.",
     icon: "compass",
   },
   {
-    title: "Stress Relief",
-    text: "A protected digital-detox rhythm that swaps notifications for stillness, sea air, and deep rest.",
+    title: "Stress Relief & Digital Detox",
+    text: "A restorative coastal rhythm that swaps notifications for stillness, sea air, and deep rest.",
     icon: "moon",
   },
   {
     title: "Community Connection",
-    text: "Small-group dinners, sunset circles, and shared experiences that often become lifelong friendships.",
+    text: "Small-group dinners, beach sunset circles, and shared experiences that often become lifelong friendships.",
     icon: "heart",
   },
 ];
 
 export const retreatTeachers = [
+  {
+    name: "Yogendra",
+    role: "Iyengar Yoga Master",
+    experience: "20+ years of Iyengar Yoga expertise",
+    specialization: "Precise Alignment · Posture Correction · Props Mastery",
+    bio: "Yogendra brings over 20 years of Iyengar Yoga expertise, known for a meticulous eye and unmatched patience in guiding students toward better alignment — whether you're a seasoned yogi or brand new to the practice, his teaching adapts to every level.",
+    credentials: "Master Iyengar Facilitator · 20+ Years Practice",
+    image: IMAGES.hatha,
+  },
+  {
+    name: "Abin",
+    role: "Tantra & Philosophy Teacher",
+    experience: "30 years studying Tantra, Samkhya & Yoga",
+    specialization: "Kundalini Yoga · Tantric Kaula Tradition · Kriya Yoga",
+    bio: "Abin has spent nearly 30 years studying Tantra, Samkhya, and Yoga, initiated into the Tantric Kaula tradition and Kriya Yoga. He brings profound spiritual insight with a relatable, grounded teaching style, connecting ancient traditions to modern living.",
+    credentials: "Initiated Kaula & Kriya Yoga Lineage Master",
+    image: IMAGES.pranayama,
+  },
   {
     name: "Lead Hatha Yoga Teacher",
     role: "Hatha Yoga Teacher",
@@ -106,7 +126,7 @@ export const retreatTeachers = [
     specialization: "Hatha Vinyasa · Alignment · Adjustments",
     bio: "The lead teacher guides the morning asana practice with clear, precise cueing and a warm, unhurried pace. Trained in classical Hatha and modern functional alignment, they adapt every posture so beginners feel capable and experienced practitioners stay challenged.",
     credentials: "E-RYT 500 · 1,000+ teaching hours · First-aid certified",
-    image: IMAGES.hatha,
+    image: IMAGES.class,
   },
   {
     name: "Meditation & Pranayama Teacher",
@@ -115,111 +135,57 @@ export const retreatTeachers = [
     specialization: "Vipassana · Mindfulness · Yoga Nidra",
     bio: "A long-time daily meditator who makes stillness accessible to everyone. Their sessions blend breath observation, body scanning, and gentle guided practice — a grounding counterpoint to the active morning classes.",
     credentials: "Certified Meditation Facilitator · 10-day silent retreats",
-    image: IMAGES.pranayama,
-  },
-  {
-    name: "Breathwork & Pranayama Teacher",
-    role: "Pranayama Teacher",
-    experience: "8+ years of breath coaching",
-    specialization: "Pranayama · Breathwork · Nervous-system regulation",
-    bio: "Leads the breathwork and pranayama sessions with an emphasis on safety and personal pacing. Expect accessible techniques that calm the nervous system, improve focus, and support better sleep — taught without dogma.",
-    credentials: "Breathwork Facilitator · Yoga Therapy Diploma",
-    image: IMAGES.class,
-  },
-  {
-    name: "Retreat Facilitator & Host",
-    role: "Retreat Facilitator",
-    experience: "7+ years hosting retreats in Goa",
-    specialization: "Hospitality · Community · Excursions",
-    bio: "Your host for the stay — from arrival to farewell. They coordinate meals, excursions, sunset circles, and the small logistics that make a retreat feel effortless, and they are always available for a conversation or a question.",
-    credentials: "Retreat Management · Local Goa guide network",
     image: IMAGES.coast,
   },
 ];
 
 export const retreatHighlights = [
-  "Beach Sunrise Yoga",
-  "Guided Meditation",
-  "Breathwork Sessions",
-  "Sound Healing",
-  "Healthy Vegetarian Meals",
-  "Nature Excursions",
-  "Sunset Practices",
-  "Community Circles",
-  "Digital Detox",
-  "Mindfulness Workshops",
+  "Daily Morning & Evening Yoga",
+  "Meditation & Breathwork (Pranayama & Shatkarma)",
+  "Sound Healing & Ayurvedic Massage Therapy",
+  "Sauna & Ice Bath (Russian Banya)",
+  "Mud Bath Therapy & Waterfalls",
+  "Ecstatic Dance & Percussion Workshops",
+  "Temple Visits & 100-Year-Old Banyan Tree Excursion",
+  "Three Nourishing Vegetarian Meals Daily",
+  "Beachside Living Near Arambol & Keri Beach",
 ];
 
 export const goaExperiences = [
   {
-    title: "Arambol Beach",
-    text: "A bohemian northern beach famous for its drum circles, cliff viewpoints, and relaxed sunset energy — a favourite for a slow afternoon.",
-    tag: "Free time",
+    title: "Temple Visits (Cultural Heritage Tour)",
+    text: "Immerse yourself in the region's rich cultural heritage with visits to ancient temples, discovering the history and spirituality behind these sacred sites.",
+    tag: "Culture",
   },
   {
-    title: "Morjim Beach",
-    text: "A wide, quiet stretch of sand and olive ridley turtle nesting ground, ideal for long walks and birdwatching by the estuary.",
+    title: "100-Year-Old Banyan Tree",
+    text: "Visit a majestic, century-old banyan tree — a natural landmark and testament to nature's resilience and beauty.",
     tag: "Nature",
   },
   {
-    title: "Ashwem Beach",
-    text: "A serene, upscale beach with shallow waters and laid-back beach shacks — perfect for swimming and sunset dinners.",
-    tag: "Relaxation",
-  },
-  {
-    title: "Sunset Cruise",
-    text: "Sail along the Chapora river as the sky turns gold, often with dolphins surfacing alongside the boat.",
-    tag: "Boat trip",
-  },
-  {
-    title: "Dolphin Watching",
-    text: "An early-morning boat ride to spot playful spinner dolphins in their natural habitat.",
-    tag: "Wildlife",
-  },
-  {
-    title: "Spice Plantation Tour",
-    text: "Wander through fragrant spice farms, taste fresh tropical fruit, and learn how Ayurvedic ingredients reach your plate.",
-    tag: "Culture",
-  },
-  {
-    title: "Old Goa Heritage Walk",
-    text: "Explore the colonial churches, cathedrals, and ruins of 16th-century Old Goa with a knowledgeable local guide.",
-    tag: "History",
-  },
-  {
-    title: "Portuguese Architecture Tour",
-    text: "Wander the pastel-hued streets and heritage houses of Fontainhas, Goa's Latin Quarter.",
-    tag: "Culture",
-  },
-  {
-    title: "Local Markets",
-    text: "Browse vibrant Anjuna and Mapusa markets for textiles, spices, ceramics, and handmade souvenirs.",
-    tag: "Shopping",
-  },
-  {
-    title: "Beach Cafes",
-    text: "Sip fresh coconut water or a lassi at a sun-drenched café while watching the waves roll in.",
-    tag: "Food",
-  },
-  {
-    title: "Live Music Evenings",
-    text: "Acoustic sets and open-mic nights at nearby beach bars — a gentle taste of Goa's creative scene.",
-    tag: "Evening",
-  },
-  {
-    title: "Water Activities",
-    text: "Kayaking, paddleboarding, and snorkelling at calm coves, arranged through trusted local operators.",
-    tag: "Adventure",
-  },
-  {
-    title: "Ayurvedic Therapies",
-    text: "Traditional Abhyanga massage and herbal treatments with qualified Ayurvedic practitioners.",
+    title: "Sauna / Ice Bath (Russian Banya)",
+    text: "(availability basis) Revitalize body and mind by alternating between sauna heat and an invigorating ice bath.",
     tag: "Wellness",
   },
   {
-    title: "Massage Sessions",
-    text: "Rejuvenating deep-tissue or relaxation massages at the shala or a trusted nearby studio.",
+    title: "Mud Bath",
+    text: "(availability basis) A natural, therapeutic mud bath for detoxifying and revitalizing the skin.",
     tag: "Wellness",
+  },
+  {
+    title: "Ecstatic Dance",
+    text: "Free-flowing movement and rhythm sessions for an exhilarating release of energy.",
+    tag: "Community",
+  },
+  {
+    title: "Percussion Workshops",
+    text: "Hands-on, collaborative sessions in rhythm and musical expression.",
+    tag: "Music",
+  },
+  {
+    title: "Arambol & Keri Beach",
+    text: "Walk along tranquil beaches, watch coastal sunsets, and visit the sweet water lake.",
+    tag: "Beach",
   },
 ];
 
@@ -232,7 +198,6 @@ export const freeTimeIdeas = [
   { title: "Meditation", text: "Sit by the beach or in the garden with your own quiet practice.", icon: "sparkles" },
   { title: "Sunset watching", text: "Goa sunsets are famous for a reason — find your spot and stay for the show.", icon: "sun" },
   { title: "Shopping", text: "Hunt for handmade textiles, jewellery, and ceramics at local markets.", icon: "shopping" },
-  { title: "Local culture exploration", text: "Visit a village temple, a spice farm, or a heritage house to meet the real Goa.", icon: "compass" },
 ];
 
 export const accommodationFacilities = [
@@ -244,60 +209,88 @@ export const accommodationFacilities = [
   { label: "Peaceful Environment", included: true },
 ];
 
+export const accommodationOptions = [
+  {
+    name: "Mixed AC Dorm",
+    description:
+      "Comfortable community living, ideal for solo travelers or groups. A relaxed, air-conditioned shared space with easy access to all amenities.",
+  },
+  {
+    name: "Female AC Dorm",
+    description:
+      "A dedicated, safe, and peaceful air-conditioned dorm for women travelers who value comfort, security, and a supportive community.",
+  },
+  {
+    name: "Twin Sharing",
+    description:
+      "A balance of privacy and companionship for friends or solo travelers, with comfortable beds and a peaceful ambience.",
+  },
+  {
+    name: "Triple Sharing",
+    description:
+      "A spacious, budget-friendly option for small groups, with three beds, air conditioning, and full amenities.",
+  },
+  {
+    name: "Private Room",
+    description:
+      "Ultimate privacy and comfort, with plush beds and a tranquil setting for guests who want their own space during the retreat.",
+  },
+];
+
 const sharedGallery = [
-  { src: IMAGES.accommodation, alt: "Calm shared twin room at the retreat", caption: "Shared twin room" },
-  { src: IMAGES.coast, alt: "Shared room garden and palm setting", caption: "Garden setting" },
-  { src: IMAGES.class, alt: "Open-air shared practice area", caption: "Open-air practice hall" },
+  { src: "/images/tha_hatha/the-hatha-yogashala-shared-dormitory-room-goa.webp", alt: "Air conditioned shared dorm room accommodation at The Hatha Yogashala Goa", caption: "Shared AC dorm room" },
+  { src: "/images/tha_hatha/the-hatha-yogashala-balcony-view-coconut-trees-goa.webp", alt: "Lush tropical palm garden and balcony view", caption: "Tropical garden view" },
+  { src: "/images/tha_hatha/the-hatha-yogashala-yoga-hall-with-mats-goa.webp", alt: "Open-air wooden shala with yoga mats for daily retreat practice", caption: "Practice hall" },
 ];
 
 const privateGallery = [
-  { src: IMAGES.accommodation, alt: "Private room with attached bathroom", caption: "Private room" },
-  { src: IMAGES.hero, alt: "Private balcony facing the garden", caption: "Private balcony" },
-  { src: IMAGES.coast, alt: "Tranquil path from private rooms to the beach", caption: "Beach access" },
+  { src: "/images/tha_hatha/the-hatha-yogashala-private-room-accommodation-goa.webp", alt: "Private room with plush bedding and attached modern bathroom in Goa", caption: "Private room" },
+  { src: "/images/tha_hatha/the-hatha-yogashala-balcony-view-coconut-trees-goa.webp", alt: "Private balcony facing peaceful coconut palm groves", caption: "Private balcony" },
+  { src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp", alt: "Serene campus pathways to nearby Keri and Arambol beach", caption: "Campus & beach path" },
 ];
 
 const mealImages = {
-  breakfast: IMAGES.accommodation,
-  lunch: IMAGES.class,
-  dinner: IMAGES.pranayama,
-  snacks: IMAGES.coast,
+  breakfast: "/images/tha_hatha/the-hatha-yogashala-sattvic-yogic-meal-goa.webp",
+  lunch: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-04.webp",
+  dinner: "/images/tha_hatha/the-hatha-yogashala-sattvic-yogic-meal-goa.webp",
+  snacks: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-05.webp",
 };
 
 export const meals = [
   {
     meal: "Breakfast",
-    time: "09:00",
-    text: "Fresh fruit, smoothie bowls, porridge, eggs on request, herbal teas, and filter coffee to ease you into the day.",
+    time: "09:30 – 10:45 AM",
+    text: "A wholesome start featuring fruits, cereals, and traditional Indian dishes to ease you into the day.",
     image: mealImages.breakfast,
   },
   {
     meal: "Lunch",
-    time: "13:00",
-    text: "A sattvic thali with seasonal vegetables, dal, rice, salad, and chutney — cooked fresh and balanced for energy.",
+    time: "01:30 – 02:30 PM",
+    text: "A balanced plate of vegetables, grains, and legumes for a satisfying, energizing midday meal.",
     image: mealImages.lunch,
   },
   {
     meal: "Dinner",
-    time: "20:00",
-    text: "A lighter evening meal with soups, grains, vegetables, and the occasional local Goan speciality, always vegetarian.",
+    time: "07:00 – 08:00 PM",
+    text: "Light, easily digestible dishes designed to support restful sleep and recovery, always vegetarian.",
     image: mealImages.dinner,
   },
   {
-    meal: "Snacks",
-    time: "16:30",
-    text: "Fruit, nuts, coconut water, and herbal tea between sessions to keep you nourished without heaviness.",
+    meal: "Tea/Coffee Break",
+    time: "08:00 – 08:15 AM",
+    text: "Herbal teas, fresh filter coffee, and fruit after morning cleansing.",
     image: mealImages.snacks,
   },
 ];
 
 export const mealPhilosophy = {
-  title: "A sattvic kitchen",
+  title: "Food & Nutrition",
   points: [
-    "Sattvic philosophy — food that is fresh, pure, and light to support clarity and calm",
-    "Fresh ingredients — vegetables and fruit sourced locally, often the same day",
-    "Vegetarian meals — no meat or fish anywhere on the retreat",
-    "Vegan options — every meal can be prepared plant-based on request",
-    "Gluten-free options — accommodated with advance notice",
+    "All meals at The Hatha Yogashala are vegetarian, prepared with fresh, locally sourced ingredients.",
+    "Breakfast: A wholesome start featuring fruits, cereals, and traditional Indian dishes.",
+    "Lunch: A balanced plate of vegetables, grains, and legumes for a satisfying, energizing midday meal.",
+    "Dinner: Light, easily digestible dishes designed to support restful sleep and recovery.",
+    "Vegan, gluten-free, and allergy-specific requirements accommodated with prior notice.",
   ],
 };
 
@@ -317,21 +310,21 @@ export const bestTimeToVisit = [
 ];
 
 export const whatIncluded = [
-  "Accommodation",
-  "Meals",
-  "Daily Yoga",
-  "Meditation",
-  "Retreat Materials",
-  "Community Activities",
-  "Teacher Support",
+  "Beachside accommodation (dorm, twin-share, or private)",
+  "Three daily vegetarian meals (vegan/GF on request)",
+  "Daily yoga, meditation & breathwork sessions",
+  "Ayurveda & philosophy classes",
+  "Sound healing, breathwork & massage therapy",
+  "Wellness excursions (ice bath, sauna, mud bath, ecstatic dance, temples)",
+  "Wi-Fi, hot water & filtered drinking water",
+  "24/7 student support throughout your stay",
 ];
 
 export const whatNotIncluded = [
-  "Flights",
-  "Visa",
-  "Travel Insurance",
-  "Personal Expenses",
-  "Airport Transfers",
+  "Flights, visa & travel insurance",
+  "Airport or railway station transfers (available on request)",
+  "Personal toiletries & laundry",
+  "Optional personal expenses",
 ];
 
 export const testimonials = [
@@ -403,104 +396,40 @@ export const testimonials = [
 
 export const retreatFaqs = [
   {
-    question: "What should I bring to the retreat?",
+    question:
+      "What is a yoga retreat, and how is it different from a Yoga Teacher Training (YTT)?",
     answer:
-      "Pack breathable practice clothing, a light layer for early mornings, sun protection, a refillable water bottle, personal toiletries, prescribed medication, and comfortable walking shoes. Mats and props are provided.",
+      "A yoga retreat is a short, immersive wellness break focused on daily practice, rest, and self-care — typically 3 to 7 days — with no certification involved. A Yoga Teacher Training (YTT) is a longer, structured certification course (100–300 hours) that qualifies you to teach. The Hatha Yogashala offers both.",
   },
   {
-    question: "Can complete beginners join?",
+    question: "How long are the retreats at The Hatha Yogashala?",
     answer:
-      "Yes. Every session is adapted for all levels, and the teachers offer variations for every posture. Many first-time yoga guests join our retreats and leave with a practice they can continue at home.",
+      "We offer 3-day, 5-day, and 7-day retreat formats, plus a specialized 5-Day Kundalini & Iyengar fusion retreat near Keri Beach. Each includes daily yoga, meditation, Ayurveda basics, and wellness excursions.",
   },
   {
-    question: "Is airport transfer available?",
+    question: "Do I need prior yoga experience to join a retreat?",
     answer:
-      "Airport transfers are not included in the retreat fee, but we can arrange a reliable transfer from Goa International Airport (GOI) or Manohar International Airport (GOX) for a small fee. Share your flight details when you book.",
+      "No. Our retreats are open to all levels, from complete beginners to experienced practitioners. Classes and practices are adapted to suit everyone in the group.",
   },
   {
     question: "What is included in the retreat price?",
     answer:
-      "The price includes accommodation, three daily sattvic meals, daily yoga and meditation sessions, retreat materials, community activities, and ongoing teacher support. Flights, visa, insurance, personal expenses, and transfers are not included.",
+      "Accommodation, three daily vegetarian meals, daily yoga and meditation sessions, Ayurveda/philosophy classes, sound healing or breathwork sessions, and access to wellness excursions (subject to availability) such as ice baths, sauna, and mud baths.",
   },
   {
-    question: "Can dietary needs be accommodated?",
+    question: "What are the check-in and check-out times?",
     answer:
-      "Yes. The kitchen is fully vegetarian with vegan and gluten-free options available. Please let us know about allergies or dietary requirements at the time of booking so we can prepare.",
+      "Standard check-in is 11:00 AM and check-out is 1:00 PM on the retreat's start and end dates.",
   },
   {
-    question: "Is Goa safe for solo travellers?",
+    question: "Can dietary restrictions be accommodated?",
     answer:
-      "Goa is one of India's most traveller-friendly destinations, and North Goa is very safe for solo travellers. The shala is in a peaceful residential area, and our staff are available around the clock.",
+      "Yes. Vegan, gluten-free, and allergy-specific requirements can be accommodated with prior notice.",
   },
   {
-    question: "Which airport should I fly into?",
+    question: "How do I get to The Hatha Yogashala in Goa?",
     answer:
-      "Goa International Airport (GOI / Dabolim) and Manohar International Airport (GOX / MOPA) both serve the region. GOX is closer to the shala in North Goa. Most guests book flights before confirming transfers.",
-  },
-  {
-    question: "What is the daily schedule?",
-    answer:
-      "Most days begin with morning asana and pranayama, followed by breakfast, a free or excursion block, lunch, rest, an evening vinyasa or gentle session, and sunset meditation. A full day-by-day schedule is shown on this page.",
-  },
-  {
-    question: "Is the retreat suitable for pregnant guests?",
-    answer:
-      "Many prenatal guests join with an approved doctor's note. Please share your stage of pregnancy and any medical guidance when booking so the teachers can plan suitable variations.",
-  },
-  {
-    question: "Can I extend my stay?",
-    answer:
-      "Yes — many guests combine a retreat with a longer stay in Goa. Ask about extending your accommodation or joining a longer retreat back to back.",
-  },
-  {
-    question: "What payment methods do you accept?",
-    answer:
-      "We accept PayPal, Wise, UPI, and international bank transfer. After booking, you will receive verified payment instructions and a written confirmation of your reservation.",
-  },
-  {
-    question: "What is the cancellation policy?",
-    answer:
-      "Reservations are fully refundable up to 14 days before the retreat start date. Inside 14 days, the deposit is non-refundable but can be transferred to a future retreat date.",
-  },
-  {
-    question: "Are the retreats run by the same teachers every time?",
-    answer:
-      "Our core teaching team leads every retreat, with occasional guest teachers for specialist sessions like sound healing. The exact facilitator for your dates is confirmed at booking.",
-  },
-  {
-    question: "How large are the retreat groups?",
-    answer:
-      "We keep groups intentionally small — typically 8 to 14 guests — so every person receives genuine individual attention.",
-  },
-  {
-    question: "Will I have free time during the retreat?",
-    answer:
-      "Absolutely. Each day includes protected free time for the beach, reading, journaling, exploring, or simply resting. The schedule is designed for restoration, not a packed itinerary.",
-  },
-  {
-    question: "Is there WiFi and phone signal?",
-    answer:
-      "Yes, high-speed WiFi is available at the shala and phone signal is strong in the area. We gently encourage a digital detox, but you are never cut off.",
-  },
-  {
-    question: "Can couples or friends share a room?",
-    answer:
-      "Yes. The shared rooms are twin rooms, ideal for two people travelling together. Choose the shared room option and note your preference at booking.",
-  },
-  {
-    question: "What if I have an injury or health condition?",
-    answer:
-      "Share any injuries, conditions, or accessibility needs when you book. The teachers will adapt your practice and, if needed, suggest suitable sessions with a health professional's guidance.",
-  },
-  {
-    question: "What is the dress code?",
-    answer:
-      "Comfortable, modest practice clothing is perfect. Goa is relaxed, but modest dress is appreciated in villages and temples during excursions.",
-  },
-  {
-    question: "How do I confirm my booking?",
-    answer:
-      "Complete the booking form on this page, and our team will confirm availability, send verified payment instructions, and issue written confirmation — including a pre-retreat preparation guide.",
+      "The nearest airport is Manohar International Airport (Mopa, North Goa), about an hour away; Dabolim Airport is roughly a 2-hour drive. The nearest railway station is Margao, about 80 km away. Airport and station transfers can be arranged for an additional charge.",
   },
 ];
 
@@ -812,37 +741,50 @@ export function getRetreatPageData(arg) {
   const category =
     retreat?.category ||
     (days === 3
-      ? "Coastal reset"
+      ? "3-Day Retreat"
       : days === 5
-        ? "Restorative stay"
+        ? "5-Day Retreat"
         : days === 7
-          ? "Full week immersion"
-          : "Extended immersion");
+          ? "7-Day Retreat"
+          : "Mindful Yoga Retreat");
   const name = retreat?.name || `${days}-Day Yoga Retreat in Goa`;
   const heroImage = retreat?.image || IMAGES.hero;
   const heroImageAlt = retreat?.name
     ? `Yoga and meditation session during ${retreat.name}`
     : `Peaceful yoga and meditation session during ${name}`;
   const heroTagline =
-    retreat?.description ||
-    (days === 3
-      ? "A unique blend of spiritual exploration, physical rejuvenation, and cultural immersion in North Goa."
-      : days === 7
-        ? "A complete Mind-Body-Soul wellness retreat — daily yoga and meditation, sound healing, sauna and ice bath, and cultural excursions by the sea."
-        : `${days} days of guided yoga, beach-side meditation, sattvic food, and true rest on the Goan coast.`);
+    retreat?.tagline ||
+    retreat?.heroSubtitle ||
+    (retreat?.description
+      ? retreat.description.split(". ")[0] + "."
+      : days === 3
+        ? "Step away from the noise of daily life into 3 days of stillness, movement, and community in Goa."
+        : days === 7
+          ? "Seven days of consistent Hatha practice, Ayurvedic wellness, and coastal living in North Goa."
+          : "Five days to settle into practice — daily Hatha yoga, cleansing rituals, and restorative downtime.");
   const duration = retreat?.duration || `${days} days · ${days - 1} nights`;
   const location = retreat?.location || "Querim, North Goa, India";
   const locationDetail =
     "Querim · near Arambol · approx. 25–30 min from MOPA (GOX) · Mopa and Dabolim (GOI) airports";
 
+  const currency = retreat?.priceCurrency || "EUR";
   const sharedPriceNumber =
     retreat?.pricing?.shared?.price ??
+    retreat?.priceNumeric ??
     retreatPricingByDays[days]?.shared?.price ??
-    (days === 3 ? 199 : days === 7 ? 449 : 299);
+    (days === 3 ? 199 : days === 7 ? 399 : 299);
   const privatePriceNumber =
     retreat?.pricing?.private?.price ??
     retreatPricingByDays[days]?.private?.price ??
-    (days === 3 ? 399 : days === 7 ? 649 : 499);
+    (days === 3 ? 399 : days === 7 ? 599 : 499);
+
+  const rawOverview = retreat?.overview
+    ? Array.isArray(retreat.overview)
+      ? retreat.overview
+      : [retreat.overview]
+    : retreat?.whatIs?.paragraphs || buildOverview(days, name);
+
+  const isSimple = Boolean(retreat?.hidePricingAndSidebar);
 
   return {
     days,
@@ -855,40 +797,62 @@ export function getRetreatPageData(arg) {
     heroImage,
     heroImageAlt,
     duration,
+    hidePricingAndSidebar: isSimple,
+    checkIn: retreat?.checkIn || "11:00 AM",
+    checkOut: retreat?.checkOut || "1:00 PM",
     location,
     locationDetail,
-    overview: retreat?.whatIs?.paragraphs || buildOverview(days, name),
-    overviewSummary: retreat?.whatIs?.paragraphs || buildOverviewShort(days, name),
-    whyChoose,
+    overview: rawOverview,
+    overviewSummary: retreat?.whatIs?.paragraphs || rawOverview,
+    whyChoose: isSimple ? [] : whyChoose,
     teachers: retreatTeachers,
     highlights: retreat?.benefits || retreatHighlights,
-    daysSchedule: baseDays[days] || baseDays[5],
-    experiences: goaExperiences,
-    freeTime: freeTimeIdeas,
+    daysSchedule: isSimple ? [] : baseDays[days] || baseDays[5],
+    dailySchedule: isSimple ? null : retreat?.dailySchedule || standardRetreatSchedule,
+    scheduleMatrix: isSimple ? null : retreat?.scheduleMatrix || null,
+    excursionsStory: isSimple ? null : retreat?.excursionsStory || null,
+    experiences: isSimple ? [] : goaExperiences,
+    freeTime: isSimple ? [] : freeTimeIdeas,
+    feeRows: isSimple ? null : retreat?.feeRows || null,
+    feeTableName: retreat?.feeTableName || `${days} Days Yoga Retreat`,
+    facilityHeader: retreat?.facilityHeader || "Facilities",
+    priceHeader: retreat?.priceHeader || (retreat?.priceCurrency === "INR" ? "Cost" : "Price In Euro"),
     accommodation: {
-      sharedGallery,
-      privateGallery,
-      facilities: accommodationFacilities,
+      options: isSimple ? [] : retreat?.accommodationOptions || accommodationOptions,
+      sharedGallery: isSimple ? [] : sharedGallery,
+      privateGallery: isSimple ? [] : privateGallery,
+      facilities: isSimple ? [] : accommodationFacilities,
     },
-    meals,
-    mealPhilosophy,
+    meals: isSimple ? [] : meals,
+    mealPhilosophy: isSimple ? null : mealPhilosophy,
     bestTime: bestTimeToVisit,
-    included: whatIncluded,
-    notIncluded: whatNotIncluded,
-    testimonials,
+    included: isSimple ? [] : whatIncluded,
+    notIncluded: isSimple ? [] : whatNotIncluded,
+    testimonials: retreat?.testimonials || testimonials,
     faqs: retreatFaqs,
-    pricing: {
-      ...retreatPricing,
-      shared: {
-        ...retreatPricing.shared,
-        price: sharedPriceNumber,
-      },
-      private: {
-        ...retreatPricing.private,
-        price: privatePriceNumber,
-      },
-    },
-    trustBadges,
-    dates: sampleDates(days),
+    pricing: isSimple
+      ? null
+      : {
+          ...retreatPricing,
+          shared: {
+            ...retreatPricing.shared,
+            price: sharedPriceNumber,
+            currency,
+          },
+          private: {
+            ...retreatPricing.private,
+            price: privatePriceNumber,
+            currency,
+          },
+        },
+    trustBadges: isSimple
+      ? [
+          "Authentic Yoga & Wellness Tradition in Goa",
+          "Certified Experienced Instructors",
+          "Beachside Ashram Campus in North Goa",
+          "All Experience Levels Welcome",
+        ]
+      : trustBadges,
+    dates: isSimple ? [] : sampleDates(days),
   };
 }

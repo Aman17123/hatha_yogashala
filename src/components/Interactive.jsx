@@ -312,10 +312,10 @@ export function BlogCard({ post }) {
           <span className="blog-card-category">{post.category}</span>
         </div>
         <div className="flex flex-1 flex-col p-6">
-          <h3 className="font-serif text-lg font-bold leading-snug text-black transition-colors group-hover:text-[var(--coral-dark)]">
+          <h3 className="font-heading text-lg font-normal leading-snug text-[var(--brown)] transition-colors group-hover:text-[var(--coral-dark)]">
             {post.title}
           </h3>
-          <p className="mt-2.5 text-[13.5px] leading-relaxed text-black/70 line-clamp-3">
+          <p className="mt-2.5 text-[13.5px] leading-relaxed text-[var(--muted)] line-clamp-3">
             {post.excerpt}
           </p>
           <div className="blog-card-meta mt-4 flex flex-wrap gap-x-4 gap-y-1.5 border-t border-[var(--border)] pt-4 text-[13.5px] font-medium text-[var(--muted)]">

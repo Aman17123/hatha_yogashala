@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
 /* ── Design Tokens ─────────────────────────── */
 
 :root {
@@ -8,6 +6,8 @@
   --cream: #fbf8f1;
   --coral: #2f4f3e;
   --coral-dark: #24402f;
+  --secondary: #f2722b;
+  --secondary-dark: #d95e1a;
   --gold: #c9a961;
   --brown: #24241d;
   --text: #202019;
@@ -55,6 +55,8 @@
   --cream: #ffffff;
   --coral: #2e8378;
   --coral-dark: #1f5f56;
+  --secondary: #f2722b;
+  --secondary-dark: #d95e1a;
   --gold: #c9a961;
   --brown: #24241d;
   --text: #202019;
@@ -199,9 +201,10 @@
   --color-border: var(--border);
   --color-success: var(--success);
   --color-footer: var(--footer);
-  --font-sans: var(--font-body);
-  --font-heading: var(--font-heading);
-  --font-serif: var(--font-heading);
+  --font-sans: var(--font-body), sans-serif;
+  --font-heading: var(--font-heading), "Gotu", sans-serif;
+  --font-serif: var(--font-heading), "Gotu", sans-serif;
+  --font-quicksand: var(--font-quicksand), "Quicksand", sans-serif;
 
   --text-xs: 12px;
   --text-xs--line-height: 16px;
@@ -261,6 +264,20 @@ textarea {
   font-family: var(--font-body), sans-serif;
 }
 
+/* ── Header & Navbar Unified Typography ────────── */
+header,
+header nav,
+header nav a,
+header nav button,
+header a,
+header button,
+header dialog,
+header dialog nav,
+header dialog nav a,
+header dialog nav button {
+  font-family: var(--font-body), sans-serif !important;
+}
+
 button,
 input,
 select,
@@ -286,6 +303,15 @@ blockquote {
    Gotu is applied to every heading site-wide. Body
    copy keeps its own sans-serif. All sizes are px. */
 @layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading), "Gotu", sans-serif;
+  }
+
   a {
     color: inherit;
     text-decoration: none;
@@ -2149,29 +2175,42 @@ blockquote {
 .map-placeholder p {
   color: var(--muted);
 }
-/* ── Final CTA — fixed full-bleed background ─── */
+/* ── Final CTA — clean, responsive background ─── */
 
 .final-cta-section {
   position: relative;
   display: grid;
   place-items: center;
-  height: var(--final-cta-height, 70vh);
+  min-height: var(--final-cta-height, 460px);
   overflow: hidden;
-  padding-block: clamp(28px, 2.5vw, 42px);
+  padding-block: clamp(64px, 8vw, 100px);
   text-align: center;
   color: var(--on-accent);
-  background-image: url("/images/tha_hatha/the-hatha-yogashala-goa-group-yoga-class-warrior-pose.jpg");
-  background-attachment: fixed;
-  background-position: center;
+  background-color: var(--teal-dark, #134e4a);
   background-size: cover;
+  background-position: center 35%;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-.final-cta-section::before {
+@media (max-width: 768px) {
+  .final-cta-section {
+    background-attachment: scroll;
+    background-position: center center;
+    padding-block: 56px;
+  }
+}
+
+.final-cta-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  content: "";
+  /* Luminous rich teal & warm emerald tint — NOT pitch black */
+  background: radial-gradient(
+    circle at 50% 45%,
+    rgba(19, 78, 74, 0.45) 0%,
+    rgba(14, 45, 43, 0.68) 100%
+  );
+  z-index: 1;
 }
 
 .final-cta-section .container {
@@ -2179,26 +2218,33 @@ blockquote {
   z-index: 2;
   display: grid;
   justify-items: center;
-  gap: 0.6rem;
+  gap: 0.85rem;
+  max-width: 800px;
 }
 
 .final-cta-section .eyebrow {
   justify-content: center;
   color: #e2c68f;
+  font-weight: 700;
+  letter-spacing: 0.15em;
 }
 
 .final-cta-section h2 {
-  max-width: 680px;
-  color: var(--on-accent);
-  font-size: 20px;
-  line-height: 1.2;
+  max-width: 720px;
+  color: #ffffff;
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+  text-wrap: balance;
 }
 
 .final-cta-section p:not(.eyebrow) {
-  max-width: 560px;
+  max-width: 620px;
   margin-top: 0;
-  font-size: 15px;
-  color: rgb(255 255 255 / 88%);
+  font-size: clamp(14.5px, 1.4vw, 16.5px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .final-cta-actions {
@@ -2206,6 +2252,7 @@ blockquote {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.8rem;
+  margin-top: 0.5rem;
 }
 
 .final-cta-actions .button {
@@ -3114,6 +3161,45 @@ body:has(.yttc-page) .floating-actions {
   to {
     transform: translateX(calc(-50% - 1.5rem));
   }
+}
+
+@keyframes marquee-ltr {
+  0% {
+    transform: translateX(calc(-50% - 0.625rem));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes marquee-rtl {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 0.625rem));
+  }
+}
+
+.gallery-marquee-ltr {
+  display: flex;
+  width: max-content;
+  gap: 1.25rem;
+  animation: marquee-ltr 45s linear infinite;
+  will-change: transform;
+}
+
+.gallery-marquee-rtl {
+  display: flex;
+  width: max-content;
+  gap: 1.25rem;
+  animation: marquee-rtl 45s linear infinite;
+  will-change: transform;
+}
+
+.gallery-marquee-container:hover .gallery-marquee-ltr,
+.gallery-marquee-container:hover .gallery-marquee-rtl {
+  animation-play-state: paused;
 }
 
 @keyframes spin {
@@ -4396,10 +4482,32 @@ body:has(.yttc-page) .floating-actions {
 .retreat-hero {
   position: relative;
   display: grid;
-  min-height: clamp(620px, 92svh, 840px);
+  min-height: clamp(620px, 90svh, 840px);
   overflow: hidden;
   align-items: end;
   color: var(--on-accent);
+  background-color: var(--teal-dark, #134e4a);
+}
+
+.retreat-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.retreat-hero-bg-img,
+.retreat-hero-bg img,
+.retreat-hero-media img,
+.retreat-hero-media {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center 35%;
 }
 
 .retreat-hero-overlay {
@@ -4407,10 +4515,11 @@ body:has(.yttc-page) .floating-actions {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgb(16 11 8 / 58%) 0%,
-    rgb(16 11 8 / 28%) 42%,
-    rgb(16 11 8 / 70%) 100%
+    rgba(16, 11, 8, 0.65) 0%,
+    rgba(16, 11, 8, 0.38) 42%,
+    rgba(16, 11, 8, 0.88) 100%
   );
+  z-index: 1;
 }
 
 .retreat-hero-orb {
@@ -4455,60 +4564,72 @@ body:has(.yttc-page) .floating-actions {
 .retreat-hero-inner {
   position: relative;
   z-index: 2;
-  padding-block: 2rem 7rem;
+  padding-block: 2.5rem 6.5rem;
 }
 
-.retreat-hero-breadcrumbs ol {
+.retreat-hero-breadcrumbs ol,
+.retreat-hero-breadcrumb {
   display: flex;
-  margin: 0 0 1.3rem;
+  margin: 0 0 1rem;
   padding: 0;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.5rem;
   list-style: none;
-  color: rgb(255 255 255 / 72%);
+  color: rgb(255 255 255 / 75%);
   font-size: var(--fs-small);
 }
 
-.retreat-hero-breadcrumbs a:hover {
+.retreat-hero-breadcrumbs a:hover,
+.retreat-hero-breadcrumb a:hover {
   color: var(--on-accent);
 }
 
-.retreat-hero-pills {
+.retreat-hero-pills,
+.retreat-hero-badges {
   display: flex;
-  margin-bottom: 1.1rem;
+  margin-bottom: 0.85rem;
   flex-wrap: wrap;
   gap: 0.55rem;
 }
 
-.retreat-hero-pills span {
+.retreat-hero-pills span,
+.retreat-hero-badge,
+.retreat-hero-badge-sub {
   border: 1px solid rgb(255 255 255 / 32%);
   border-radius: 999px;
-  background: rgb(255 255 255 / 12%);
+  background: rgb(255 255 255 / 14%);
   backdrop-filter: blur(8px);
-  padding: 0.38rem 0.9rem;
+  padding: 0.35rem 0.85rem;
   font-size: var(--fs-small);
   font-weight: 800;
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
-.retreat-hero h1 {
-  max-width: 940px;
+.retreat-hero h1,
+.retreat-hero-title {
+  max-width: 860px;
   color: var(--on-accent);
-  font-size: 36px;
-  line-height: 44px;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 0;
 }
 
-.retreat-hero-tagline {
-  max-width: 740px;
-  margin-top: 1.1rem;
+.retreat-hero-tagline,
+.retreat-hero-lead {
+  max-width: 620px;
+  margin-top: 0.65rem;
+  margin-bottom: 1.15rem;
   color: #f4ece6;
-  font-size: 18px;
+  font-size: clamp(14px, 1.3vw, 16px);
+  line-height: 1.5;
 }
 
 .retreat-hero-meta {
   display: flex;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   flex-wrap: wrap;
   gap: 0.7rem;
 }
@@ -4695,7 +4816,7 @@ body:has(.yttc-page) .floating-actions {
 
 .retreat-why-card:hover {
   transform: translateY(-4px);
-  border-color: rgb(207 91 80 / 40%);
+  border-color: var(--coral-dark);
   box-shadow: var(--shadow);
 }
 
@@ -4865,51 +4986,43 @@ body:has(.yttc-page) .floating-actions {
 
 .retreat-schedule-timeline {
   position: relative;
-  display: grid;
-  padding: 1.2rem 1.6rem 1.5rem;
-  gap: 0.1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.4rem;
 }
 
-.retreat-schedule-timeline::before {
-  position: absolute;
-  top: 1.5rem;
-  bottom: 1.6rem;
-  left: calc(64px + 1.05rem);
-  width: 1px;
-  background: var(--border);
-  content: "";
-}
-
-.retreat-schedule-entry {
+.retreat-schedule-entry,
+.retreat-schedule-row {
   position: relative;
-  display: grid;
-  grid-template-columns: 64px 1.1rem 1fr;
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0;
+  gap: 1rem;
+  padding: 0.65rem 0.5rem;
 }
 
-.retreat-schedule-entry time {
+.retreat-schedule-entry time,
+.retreat-schedule-row time {
   color: var(--coral-dark);
   font-size: var(--fs-small);
-  font-weight: 800;
+  font-weight: 700;
   white-space: nowrap;
+  min-width: 140px;
 }
 
 .retreat-schedule-dot {
-  z-index: 1;
-  width: 10px;
-  height: 10px;
-  margin: auto;
-  border: 2px solid var(--coral);
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
   border-radius: 50%;
-  background: var(--white);
+  background: var(--coral-dark);
 }
 
-.retreat-schedule-entry strong {
+.retreat-schedule-entry strong,
+.retreat-schedule-row strong {
   color: var(--brown);
   font-size: var(--fs-para);
-  font-weight: 700;
+  font-weight: 600;
+  flex: 1;
 }
 
 /* ── Experiences ──────────────────────────────── */
@@ -5550,10 +5663,10 @@ body:has(.yttc-page) .floating-actions {
 /* ── Sidebar booking card ─────────────────────── */
 .booking-card {
   overflow: hidden;
-  border: 1px solid rgb(207 91 80 / 40%);
+  border: 1px solid var(--border);
   border-radius: 22px;
   background: var(--white);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-soft);
 }
 
 .booking-card-head {
@@ -5639,68 +5752,39 @@ body:has(.yttc-page) .floating-actions {
   text-align: right;
 }
 
-.booking-rooms {
-  display: grid;
-  padding: 0.8rem 1.1rem;
-  gap: 0.6rem;
-}
-
-.booking-rooms > div {
-  display: flex;
-  align-items: baseline;
-  gap: 0.4rem;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: var(--cream);
-  padding: 0.8rem 1rem;
-}
-
-.booking-rooms-featured {
-  border-color: rgb(207 91 80 / 45%) !important;
-  background: #fff5f1 !important;
-}
-
-.booking-rooms span {
-  flex: 1;
-  color: var(--brown);
-  font-size: var(--fs-small);
-  font-weight: 700;
-}
-
-.booking-rooms span svg {
-  margin-right: 0.3rem;
-  color: var(--coral-dark);
-  vertical-align: -1px;
-}
-
-.booking-rooms strong {
-  color: var(--brown);
-  font-size: 20px;
-}
-
-.booking-rooms small {
-  color: var(--muted);
-  font-size: var(--fs-small);
-}
-
 .booking-actions {
-  display: grid;
-  padding: 0.5rem 1.1rem 0.8rem;
-  gap: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem 1rem;
+  gap: 0.5rem;
 }
 
-.booking-cta.button {
+.booking-actions .button {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: 40px;
+  padding: 0.55rem 0.85rem;
+  font-size: 13px;
+  text-align: center;
 }
 
 .booking-actions-secondary {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.7rem;
+  gap: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .booking-actions-secondary .button {
   width: 100%;
+  min-width: 0;
+  padding-inline: 0.35rem;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .booking-whatsapp.button {
@@ -6121,16 +6205,12 @@ body:has(.yttc-page) .floating-actions {
   }
 
   .retreat-schedule-timeline {
-    padding-inline: 1.2rem;
+    padding-inline: 0.8rem;
   }
 
-  .retreat-schedule-timeline::before {
-    left: calc(56px + 0.95rem);
-  }
-
-  .retreat-schedule-entry {
-    grid-template-columns: 56px 0.9rem 1fr;
-    gap: 0.4rem;
+  .retreat-schedule-entry,
+  .retreat-schedule-row {
+    gap: 0.5rem;
   }
 
   .retreat-facilities ul,

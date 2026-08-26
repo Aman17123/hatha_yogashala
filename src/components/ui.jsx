@@ -110,7 +110,7 @@ export function PageHero({
   eyebrow,
   title,
   text,
-  image = "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp",
+  image = "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp",
   imageAlt,
   breadcrumbs = [{ label: "Home", href: "/" }, { label: title }],
   actions = [],
@@ -212,7 +212,7 @@ export function PriceRow({ label, price, currency }) {
 export function ProgramCard({ course, horizontal = false }) {
   const image =
     course.image ||
-    "/images/tha_hatha/the-hatha-yogashala-goa-yoga-school-cover-image.webp";
+    "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp";
   const stats = course.cardStats || {};
   const pricing = course.pricing || null;
   const currency = pricing?.currency || "$";
@@ -276,18 +276,12 @@ export function ProgramCard({ course, horizontal = false }) {
           </div>
         )}
 
-        <div className="program-actions">
+        <div className="program-actions flex items-center gap-2">
           <ButtonLink
             href={`/courses/${course.slug}`}
-            className={isFeatured ? "shadow-md" : ""}
+            className={`flex-1 text-center ${isFeatured ? "shadow-md" : ""}`}
           >
             View Details
-          </ButtonLink>
-          <ButtonLink
-            href={`/courses/${course.slug}#registration`}
-            variant="secondary"
-          >
-            View Course Fee
           </ButtonLink>
           <a
             className="program-wa"
@@ -329,7 +323,7 @@ export function RetreatCard({ retreat }) {
   const numericPrice = page?.pricing?.shared?.price;
   const price =
     typeof numericPrice === "number"
-      ? `${page.pricing.shared.currency === "EUR" ? "€" : "$"}${numericPrice}`
+      ? `${page.pricing.shared.currency === "EUR" ? "€" : page.pricing.shared.currency === "INR" ? "₹" : "$"}${numericPrice.toLocaleString()}`
       : (retreat.price ?? "On enquiry");
 
   return (
@@ -370,7 +364,7 @@ export function RetreatCard({ retreat }) {
         <div className="mt-auto flex items-center justify-between gap-3 border-t border-[var(--border)] pt-5">
           <div>
             <span className="block text-[13.5px] font-bold uppercase tracking-wider text-[var(--muted)]">
-              From / person
+              {typeof numericPrice === "number" ? "From / person" : "Pricing"}
             </span>
             <strong className="text-lg font-bold text-[var(--coral-dark)]">
               {price}
@@ -429,15 +423,21 @@ export function FinalCTA({
   title = "Ready to plan your practice in Goa?",
   text = "Tell us what you want to study. The school can confirm suitability, dates, fees, and availability before you make travel plans.",
   className = "",
+  image = "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp",
+  imageAlt = "The Hatha Yogashala yoga teacher training and retreat in Goa",
   height, // e.g. "45vh"
 }) {
   return (
     <section
       className={`final-cta-section ${className}`}
-      style={height ? { "--final-cta-height": height } : undefined}
+      style={{
+        backgroundImage: `url(${image})`,
+        ...(height ? { "--final-cta-height": height } : {}),
+      }}
       aria-labelledby="final-cta-title"
     >
-      <Container>
+      <div className="final-cta-overlay" />
+      <Container className="relative z-10">
         <Eyebrow>Begin with a conversation</Eyebrow>
         <h2 id="final-cta-title">{title}</h2>
         <p>{text}</p>
