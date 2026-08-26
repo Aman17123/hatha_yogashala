@@ -394,7 +394,7 @@ export default function YogaTTCHubPage({ page }) {
       )}
 
       {/* ============ 5. START YOUR YOGA JOURNEY CTA ============ */}
-      <section className="relative overflow-hidden bg-[var(--teal-dark)] text-white py-16 md:py-20">
+      <section className="relative overflow-hidden bg-[#134e4a] text-white py-16 md:py-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(201,169,97,0.2),transparent_60%)] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(217,99,74,0.15),transparent_60%)] pointer-events-none" />
         <Container className="relative z-10 text-center max-w-2xl mx-auto px-4">

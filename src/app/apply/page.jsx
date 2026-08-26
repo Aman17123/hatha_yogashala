@@ -12,7 +12,7 @@ export default function ApplyPage() {
         eyebrow="Application"
         title="Reserve Your Spot"
         text="Share your preferred program, batch, room, experience, and support needs. Submission is an enquiry—not a confirmed booking."
-        image="/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp"
+        image="/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp"
         loading="eager"
       />
       <section className="section">

@@ -1,26 +1,27 @@
 import { posts } from "@/data/blogData";
 import { courses, retreats } from "@/data/coursesData";
 import { holidays } from "@/data/holidaysData";
+import { pranayamaCourses } from "@/data/pranayamaData";
 import { absoluteUrl } from "@/data/siteData";
 
 const SITE_LASTMOD = "2026-07-20";
 
 const homepageImages = [
-  "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp",
+  "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
   "/images/tha_hatha/Pradeep-Singh.png",
   "/images/tha_hatha/The_Hatha_Yogashala-founder-Goa.webp",
-  "/images/tha_hatha/pranayama-meditation-goa.png",
-  "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
-  "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
-  "/images/tha_hatha/the-hatha-yogashala-200-hour-yoga-teacher-training-goa.webp",
-  "/images/tha_hatha/the-hatha-yogashala-group-yoga-class-downward-dog-goa.webp",
+  "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
+  "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
+  "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
+  "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-04.webp",
+  "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-04.webp",
   "/images/tha_hatha/The-hatha-yogashala--Certificate.webp",
-  "/images/tha_hatha/the-hatha-yogashala-yoga-hall-with-mats-goa.webp",
-  "/images/tha_hatha/the-hatha-yogashala-private-room-accommodation-goa.webp",
-  "/images/tha_hatha/the-hatha-yogashala-sattvic-yogic-meal-goa.webp",
-  "/images/tha_hatha/the-hatha-yogashala-chair-assisted-restorative-yoga-goa.webp",
-  "/images/tha_hatha/the-hatha-yogashala-yoga-instructor-certification-goa.webp",
-  "/images/tha_hatha/the-hatha-yogashala-5-day-awaken-align-yoga-retreat-goa.webp",
+  "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
+  "/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-bedroom-interior-01.webp",
+  "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-01.webp",
+  "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-02.webp",
+  "/images/hatha-yogashala/hatha-yogashala-pernem-goa-certificate-presentation-teacher-training-01.webp",
+  "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-02.webp",
 ];
 
 function toImageEntries(images) {
@@ -47,6 +48,9 @@ export default function sitemap() {
     { path: "/courses", lastmod: SITE_LASTMOD },
     { path: "/retreats", lastmod: SITE_LASTMOD },
     { path: "/yoga-teacher-training", lastmod: SITE_LASTMOD },
+    { path: "/holidays", lastmod: SITE_LASTMOD },
+    { path: "/pranayama", lastmod: SITE_LASTMOD },
+    { path: "/about/goa", lastmod: SITE_LASTMOD },
     { path: "/blog", lastmod: SITE_LASTMOD },
     { path: "/privacy-policy", lastmod: SITE_LASTMOD },
     { path: "/terms", lastmod: SITE_LASTMOD },
@@ -58,48 +62,55 @@ export default function sitemap() {
       url: absoluteUrl(route.path || "/"),
       lastModified: route.lastmod,
       ...(route.images
-        ? { images: toImageEntries(route.images) }
+        ? {
+            images: toImageEntries(route.images),
+          }
         : {}),
     })),
     ...courses.map((course) => ({
       url: absoluteUrl(`/courses/${course.slug}`),
       lastModified: SITE_LASTMOD,
-      images: [
-        {
-          url: absoluteUrl(course.image),
-          title: course.name,
-        },
-      ],
+      ...(course.image
+        ? {
+            images: toImageEntries([course.image]),
+          }
+        : {}),
     })),
     ...retreats.map((retreat) => ({
       url: absoluteUrl(`/retreats/${retreat.slug}`),
       lastModified: SITE_LASTMOD,
-      images: [
-        {
-          url: absoluteUrl(retreat.image),
-          title: retreat.name,
-        },
-      ],
+      ...(retreat.image
+        ? {
+            images: toImageEntries([retreat.image]),
+          }
+        : {}),
     })),
     ...holidays.map((holiday) => ({
       url: absoluteUrl(`/holidays/${holiday.slug}`),
       lastModified: SITE_LASTMOD,
-      images: [
-        {
-          url: absoluteUrl(holiday.image),
-          title: holiday.name,
-        },
-      ],
+      ...(holiday.image
+        ? {
+            images: toImageEntries([holiday.image]),
+          }
+        : {}),
+    })),
+    ...pranayamaCourses.map((pranayama) => ({
+      url: absoluteUrl(`/pranayama/${pranayama.slug}`),
+      lastModified: SITE_LASTMOD,
+      ...(pranayama.heroImage
+        ? {
+            images: toImageEntries([pranayama.heroImage]),
+          }
+        : {}),
     })),
     ...posts.map((post) => ({
       url: absoluteUrl(`/blog/${post.slug}`),
-      lastModified: post.updated,
-      images: [
-        {
-          url: absoluteUrl(post.image),
-          title: post.title,
-        },
-      ],
+      lastModified: post.updated || SITE_LASTMOD,
+      ...(post.image
+        ? {
+            images: toImageEntries([post.image]),
+          }
+        : {}),
     })),
   ];
 }

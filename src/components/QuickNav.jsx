@@ -9,7 +9,7 @@ const NAV_ITEMS = [
   { id: "why-us", label: "Why Us" },
   { id: "residential-experience", label: "Accommodation" },
   { id: "google-reviews", label: "Reviews" },
-  { id: "enrolment-questions", label: "FAQs" },
+  { id: "faq", label: "FAQs" },
   { id: "location", label: "Location" },
 ];
 

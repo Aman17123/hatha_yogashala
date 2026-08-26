@@ -7,71 +7,71 @@ import { Container } from "./ui";
 
 const row1Images = [
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-01.webp",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
     alt: "Morning asana and alignment practice at The Hatha Yogashala Goa",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-02.webp",
-    alt: "Students exploring cultural heritage landmarks near the ashram in North Goa",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
+    alt: "Sunrise beach yoga session on Querim beach with students from The Hatha Yogashala Goa",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-03.webp",
-    alt: "Teacher providing alignment adjustments during yoga training session",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
+    alt: "Evening candlelit meditation and sound healing in the wooden shala",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-04.webp",
+    src: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
+    alt: "Eco wooden cottages in lush tropical garden setting at The Hatha Yogashala in Arambol, Goa",
+  },
+  {
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-01.webp",
     alt: "Wholesome vegetarian community dining at The Hatha Yogashala",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-05.webp",
-    alt: "Students sharing tea break and yogic discussions between classes",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-havan-fire-puja-opening-ceremony-01.webp",
+    alt: "Traditional havan fire puja ceremony performed at The Hatha Yogashala",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-06.webp",
-    alt: "Peaceful yoga shala practice hall and nature setting in North Goa",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-01.webp",
+    alt: "Wall-supported headstand alignment and posture mentoring during teacher training",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-07.webp",
-    alt: "Asana alignment and body awareness practice in open-air shala",
-  },
-  {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-08.webp",
-    alt: "Hands-on posture adjustments and mentoring during teacher training",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-graduation-group-photo-celebration-01.webp",
+    alt: "Graduation celebration and group camaraderie of yoga students in Goa",
   },
 ];
 
 const row2Images = [
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-09.webp",
-    alt: "Graduation celebration and group camaraderie of yoga students in Goa",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-flower-petal-om-mandala-ceremony-01.webp",
+    alt: "Flower petal Om mandala made by students during opening ceremony",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-10.webp",
-    alt: "Students in mindful meditation and breathwork in serene tropical gardens",
-  },
-  {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-11.webp",
+    src: "/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-bedroom-interior-01.webp",
     alt: "Clean, comfortable residential campus rooms with peaceful surroundings",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-12.webp",
-    alt: "Student performing seated meditation and namaste posture",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ayurvedic-cooking-class-kitchen-01.webp",
+    alt: "Students learning traditional Indian cooking and roti-making in the kitchen",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-13.webp",
-    alt: "Tropical campus pathways and peaceful ashram environment",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-beach-group-tree-pose-vrksasana-01.webp",
+    alt: "Group tree pose Vrksasana practice along the sandy shore in Querim, Goa",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-14.webp",
-    alt: "Sunset yoga and meditation on the coast of North Goa",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-garden-lounge-candid-portrait-01.webp",
+    alt: "Students relaxing in the lush tropical garden lounge between sessions",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-15.webp",
-    alt: "Deep focus and posture practice in the wooden yoga shala",
-  },
-  {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-16.webp",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-certificate-presentation-teacher-training-01.webp",
     alt: "Certificate presentation and graduation at The Hatha Yogashala Goa",
+  },
+  {
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
+    alt: "Deep focus and posture practice in the open-air wooden yoga shala",
+  },
+  {
+    src: "/images/accomodation/the-hatha-yogashala-arambol-goa-coconut-palms-sunlight-02.webp",
+    alt: "Tropical coconut palms and peaceful ashram environment in North Goa",
   },
 ];
 
@@ -81,72 +81,75 @@ export default function HomeGalleryMarquee() {
 
   return (
     <section
-      className="py-10 md:py-14 bg-white overflow-hidden"
+      className="py-8 md:py-10 bg-white overflow-hidden"
       id="gallery-preview"
-      aria-label="Student and school photo gallery"
+      aria-label="Photo gallery preview"
     >
-      {/* Title */}
-      <Container className="mb-6 md:mb-8 text-center">
-        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-normal text-[var(--brown)]">
-          Beautiful Moments of Our{" "}
-          <span className="text-[var(--coral-dark)] font-medium">
-            School &amp; Students
-          </span>
-        </h2>
-        <div className="w-14 h-1 bg-[var(--coral-dark)]/30 mx-auto mt-2.5 rounded-full" />
+      <Container className="mb-5 md:mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div>
+            <p className="text-[12px] font-extrabold uppercase tracking-[0.16em] text-[var(--coral-dark)]">
+              Visual Journey
+            </p>
+            <h2 className="mt-1 font-heading text-2xl sm:text-3xl md:text-4xl text-[var(--brown)]">
+              Life at The Hatha Yogashala
+            </h2>
+          </div>
+          <Link
+            href="/gallery"
+            className="inline-flex items-center gap-2 text-sm font-bold text-[var(--coral-dark)] hover:underline group"
+          >
+            <span>View Full Gallery</span>
+            <ArrowRight
+              size={16}
+              className="transition-transform group-hover:translate-x-1"
+            />
+          </Link>
+        </div>
       </Container>
 
-      {/* Marquee Rows Container */}
-      <div className="gallery-marquee-container flex flex-col gap-3 sm:gap-4 w-full">
-        {/* Row 1: Left to Right */}
-        <div className="overflow-hidden w-full flex">
-          <div className="gallery-marquee-ltr">
-            {fullRow1.map((item, idx) => (
-              <div
-                key={`r1-${idx}`}
-                className="relative w-[210px] sm:w-[270px] md:w-[320px] aspect-[16/10] shrink-0 rounded-xl sm:rounded-2xl overflow-hidden shadow-xs border border-black/5 bg-[var(--surface)] group cursor-pointer"
-              >
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  sizes="(max-width: 768px) 270px, 320px"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Row 2: Right to Left */}
-        <div className="overflow-hidden w-full flex">
+      <div className="gallery-marquee-container space-y-3 md:space-y-4">
+        {/* Row 1 — scroll left (RTL) */}
+        <div className="relative w-full overflow-hidden">
           <div className="gallery-marquee-rtl">
-            {fullRow2.map((item, idx) => (
+            {fullRow1.map((img, index) => (
               <div
-                key={`r2-${idx}`}
-                className="relative w-[210px] sm:w-[270px] md:w-[320px] aspect-[16/10] shrink-0 rounded-xl sm:rounded-2xl overflow-hidden shadow-xs border border-black/5 bg-[var(--surface)] group cursor-pointer"
+                key={`r1-${index}`}
+                className="relative shrink-0 w-[260px] sm:w-[320px] md:w-[360px] lg:w-[400px] aspect-[16/11] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
               >
                 <Image
-                  src={item.src}
-                  alt={item.alt}
+                  src={img.src}
+                  alt={img.alt}
                   fill
-                  sizes="(max-width: 768px) 270px, 320px"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 260px, (max-width: 768px) 320px, 400px"
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
               </div>
             ))}
           </div>
         </div>
-      </div>
 
-      <div className="mt-6 text-center">
-        <Link
-          href="/gallery"
-          className="inline-flex items-center gap-2 text-xs sm:text-[13px] font-bold uppercase tracking-wider text-[var(--coral-dark)] hover:underline"
-        >
-          <span>View Full Photo Gallery</span>
-          <ArrowRight size={14} />
-        </Link>
+        {/* Row 2 — scroll right (LTR) — opposite direction */}
+        <div className="relative w-full overflow-hidden">
+          <div className="gallery-marquee-ltr">
+            {fullRow2.map((img, index) => (
+              <div
+                key={`r2-${index}`}
+                className="relative shrink-0 w-[260px] sm:w-[320px] md:w-[360px] lg:w-[400px] aspect-[16/11] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(max-width: 640px) 260px, (max-width: 768px) 320px, 400px"
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

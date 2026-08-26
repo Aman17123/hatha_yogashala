@@ -12,12 +12,12 @@
  */
 
 const IMAGES = {
-  hero: "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
-  class: "/images/tha_hatha/the-hatha-yogashala-group-yoga-class-downward-dog-goa.webp",
-  coast: "/images/tha_hatha/the-hatha-yogashala-balcony-view-coconut-trees-goa.webp",
-  accommodation: "/images/tha_hatha/the-hatha-yogashala-private-room-accommodation-goa.webp",
-  pranayama: "/images/tha_hatha/pranayama-meditation-goa.png",
-  hatha: "/images/tha_hatha/the-hatha-yogashala-yoga-asana-practice-shala-goa.webp",
+  hero: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
+  class: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+  coast: "/images/accomodation/the-hatha-yogashala-arambol-goa-coconut-palms-sunlight-02.webp",
+  accommodation: "/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-bedroom-interior-01.webp",
+  pranayama: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
+  hatha: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
 };
 
 export const retreatPricingByDays = {
@@ -238,22 +238,22 @@ export const accommodationOptions = [
 ];
 
 const sharedGallery = [
-  { src: "/images/tha_hatha/the-hatha-yogashala-shared-dormitory-room-goa.webp", alt: "Air conditioned shared dorm room accommodation at The Hatha Yogashala Goa", caption: "Shared AC dorm room" },
-  { src: "/images/tha_hatha/the-hatha-yogashala-balcony-view-coconut-trees-goa.webp", alt: "Lush tropical palm garden and balcony view", caption: "Tropical garden view" },
-  { src: "/images/tha_hatha/the-hatha-yogashala-yoga-hall-with-mats-goa.webp", alt: "Open-air wooden shala with yoga mats for daily retreat practice", caption: "Practice hall" },
+  { src: "/images/accomodation/the-hatha-yogashala-arambol-goa-twin-bed-room-interior-01.webp", alt: "Air conditioned shared dorm room accommodation at The Hatha Yogashala Goa", caption: "Shared AC dorm room" },
+  { src: "/images/accomodation/the-hatha-yogashala-arambol-goa-coconut-palms-sunlight-02.webp", alt: "Lush tropical palm garden and balcony view", caption: "Tropical garden view" },
+  { src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp", alt: "Open-air wooden shala with yoga mats for daily retreat practice", caption: "Practice hall" },
 ];
 
 const privateGallery = [
-  { src: "/images/tha_hatha/the-hatha-yogashala-private-room-accommodation-goa.webp", alt: "Private room with plush bedding and attached modern bathroom in Goa", caption: "Private room" },
-  { src: "/images/tha_hatha/the-hatha-yogashala-balcony-view-coconut-trees-goa.webp", alt: "Private balcony facing peaceful coconut palm groves", caption: "Private balcony" },
-  { src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp", alt: "Serene campus pathways to nearby Keri and Arambol beach", caption: "Campus & beach path" },
+  { src: "/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-bedroom-interior-01.webp", alt: "Private room with plush bedding and attached modern bathroom in Goa", caption: "Private room" },
+  { src: "/images/accomodation/the-hatha-yogashala-arambol-goa-coconut-palms-sunlight-02.webp", alt: "Private balcony facing peaceful coconut palm groves", caption: "Private balcony" },
+  { src: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp", alt: "Serene campus pathways to nearby Keri and Arambol beach", caption: "Campus & beach path" },
 ];
 
 const mealImages = {
-  breakfast: "/images/tha_hatha/the-hatha-yogashala-sattvic-yogic-meal-goa.webp",
-  lunch: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-04.webp",
-  dinner: "/images/tha_hatha/the-hatha-yogashala-sattvic-yogic-meal-goa.webp",
-  snacks: "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-05.webp",
+  breakfast: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-01.webp",
+  lunch: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-02.webp",
+  dinner: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-03.webp",
+  snacks: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ayurvedic-cooking-class-kitchen-01.webp",
 };
 
 export const meals = [

@@ -63,7 +63,7 @@ export default function AccommodationPage() {
         eyebrow="Residential life"
         title="Accommodation in North Goa"
         text="Rest, meals and everyday amenities at the Hatha Yogashala ashram in Querim — a beachside home for yoga teacher training and retreats near Arambol."
-        image="/images/tha_hatha/the-hatha-yogashala-private-room-accommodation-goa.webp"
+        image="/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-bedroom-interior-01.webp"
       />
       <section className="section">
         <Container>
@@ -74,7 +74,7 @@ export default function AccommodationPage() {
           />
           <div className="split-layout">
             <Media
-              src="/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp"
+              src="/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp"
               alt="Residential campus and accommodation of the yoga school in North Goa"
               className="course-overview-image"
             />
@@ -195,7 +195,7 @@ export default function AccommodationPage() {
             </ul>
           </div>
           <Media
-            src="/images/tha_hatha/the-hatha-yogashala-yoga-hall-with-mats-goa.webp"
+            src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp"
             alt="Naturally lit open-air yoga hall used for group practice in Goa"
             className="course-overview-image"
           />

@@ -9,7 +9,7 @@ export const metadata = makeMetadata(
   "Yoga Teacher Training Goa | Yoga Alliance Certified TTC | The Hatha Yogashala",
   "Join The Hatha Yogashala in Goa for Yoga Alliance certified 100/200/300-Hour Yoga Teacher Training and Aerial Yoga TTC. Hatha, Ashtanga, Vinyasa & Ayurveda — beachside, all-inclusive, 24/7 support.",
   "/yoga-teacher-training",
-  "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp",
+  "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
   [
     "yoga teacher training goa",
     "200 hour YTT Goa",

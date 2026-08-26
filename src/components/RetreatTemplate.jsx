@@ -355,6 +355,28 @@ export default function RetreatTemplate({ retreat, page }) {
                   ))}
                 </Stagger>
               )}
+
+              {/* In-body Visual Showcase */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                  <Image
+                    src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-06.webp"
+                    alt="Morning coastal yoga practice on the beach in Goa"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                  <Image
+                    src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-03.webp"
+                    alt="Evening restorative sound healing and meditation session"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
             </section>
           )}
 
@@ -768,7 +790,7 @@ export default function RetreatTemplate({ retreat, page }) {
           <FadeIn className="retreat-final-cta-inner">
             <h2>Start Your Retreat Journey</h2>
             <p>
-              Ready to disconnect, recharge, and reconnect with yourself? Reach out to The Hatha Yogashala and experience Goa's beaches,
+              Ready to disconnect, recharge, and reconnect with yourself? Reach out to The Hatha Yogashala and experience Goa&apos;s beaches,
               culture, and wellness traditions in one immersive escape.
             </p>
             <div className="retreat-final-cta-actions">

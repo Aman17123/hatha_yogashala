@@ -102,26 +102,26 @@ const freeTimeIcons = {
 
 const HERO_IMAGES_BY_SLUG = {
   "100-hour-yoga-teacher-training-goa":
-    "/images/tha_hatha/the-hatha-yogashala-100-hour-yoga-teacher-training-course-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-02.webp",
   "200-hour-yoga-teacher-training-goa":
-    "/images/tha_hatha/the-hatha-yogashala-200-hour-yoga-teacher-training-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
   "22-day-200-hour-flexible-yoga-teacher-training-goa":
-    "/images/tha_hatha/the-hatha-yogashala-22-day-200-hour-hatha-ashtanga-vinyasa-ayurveda-flexible-yoga-teacher-training-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-04.webp",
   "200-hour-ashtanga-vinyasa-yoga-teacher-training-course-goa":
-    "/images/tha_hatha/the-hatha-yogashala-200-hour-ashtanga-vinyasa-yoga-teacher-training-course-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-02.webp",
   "300-hour-yoga-teacher-training-goa":
-    "/images/tha_hatha/the-hatha-yogashala-300-hour-yoga-teacher-training-course-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
   "aerial-yoga-teacher-training-goa":
-    "/images/tha_hatha/the-hatha-yogashala-aerial-yoga-teacher-training-course-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-08.webp",
 };
 
 const HERO_IMAGES = {
   "100-hour":
-    "/images/tha_hatha/the-hatha-yogashala-100-hour-yoga-teacher-training-course-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-02.webp",
   "200-hour":
-    "/images/tha_hatha/the-hatha-yogashala-200-hour-yoga-teacher-training-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
   "300-hour":
-    "/images/tha_hatha/the-hatha-yogashala-300-hour-yoga-teacher-training-course-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
 };
 
 function RetreatEyebrow({ children }) {
@@ -151,7 +151,7 @@ export default function YTTCPage({ course }) {
     HERO_IMAGES_BY_SLUG[course.slug] ||
     HERO_IMAGES[course.hours] ||
     course.image ||
-    "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp";
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp";
   const sharedPrice = parsePriceNumber(
     course.price || (course.pricing && course.pricing.shared),
   );
@@ -554,6 +554,28 @@ export default function YTTCPage({ course }) {
               </Stagger>
             )}
 
+            {/* In-body Visual Showcase */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+              <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp"
+                  alt="Asana practice and alignment in the shala"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp"
+                  alt="Sunrise beach practice in North Goa"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
             {/* Designed For */}
             {course.designedFor && course.designedFor.length > 0 && (
               <div className="mt-6 rounded-2xl border border-[var(--border)] bg-[var(--cream)] p-6">
@@ -758,6 +780,34 @@ export default function YTTCPage({ course }) {
                       </div>
                     ))}
                   </div>
+
+                  {/* Schedule in action photos */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 bg-[var(--surface)]/40 border-t border-[var(--border)]">
+                    <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden shadow-xs border border-[var(--border)]">
+                      <Image
+                        src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-03.webp"
+                        alt="Morning pranayama and breathwork at sunrise"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 40vw"
+                        className="object-cover"
+                      />
+                      <span className="absolute bottom-2 left-2 text-[11px] font-bold bg-black/60 text-white px-2.5 py-1 rounded-md backdrop-blur-sm">
+                        07:00 AM — Morning Breathwork & Asana
+                      </span>
+                    </div>
+                    <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden shadow-xs border border-[var(--border)]">
+                      <Image
+                        src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp"
+                        alt="Evening candlelit meditation and philosophy talk"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 40vw"
+                        className="object-cover"
+                      />
+                      <span className="absolute bottom-2 left-2 text-[11px] font-bold bg-black/60 text-white px-2.5 py-1 rounded-md backdrop-blur-sm">
+                        05:30 PM — Sunset Meditation & Philosophy
+                      </span>
+                    </div>
+                  </div>
                 </article>
               </FadeIn>
             </div>
@@ -937,6 +987,37 @@ export default function YTTCPage({ course }) {
               meals daily.
             </p>
 
+            {/* Room & Food Visuals */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
+              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-xs border border-[var(--border)]">
+                <Image
+                  src="/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp"
+                  alt="Eco-friendly cottages surrounded by tropical gardens"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 30vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-xs border border-[var(--border)]">
+                <Image
+                  src="/images/accomodation/the-hatha-yogashala-arambol-goa-private-room-interior-01.webp"
+                  alt="Spacious private room with ensuite bathroom"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 30vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-xs border border-[var(--border)]">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-01.webp"
+                  alt="Fresh organic Ayurvedic sattvic thali meal"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 30vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
             <div className="retreat-rooms">
               <FadeIn>
                 <article className="retreat-room-block">
@@ -948,11 +1029,11 @@ export default function YTTCPage({ course }) {
                   <div className="retreat-room-gallery">
                     {[
                       {
-                        src: "/images/tha_hatha/the-hatha-yogashala-shared-dormitory-room-goa.webp",
+                        src: "/images/accomodation/the-hatha-yogashala-arambol-goa-twin-bed-room-interior-01.webp",
                         alt: "Twin sharing AC room at The Hatha Yogashala Goa",
                       },
                       {
-                        src: "/images/tha_hatha/the-hatha-yogashala-balcony-view-coconut-trees-goa.webp",
+                        src: "/images/accomodation/the-hatha-yogashala-arambol-goa-coconut-palms-sunlight-02.webp",
                         alt: "Twin sharing bedroom with tropical palm balcony view",
                       },
                     ].map((img) => (
@@ -995,11 +1076,11 @@ export default function YTTCPage({ course }) {
                   <div className="retreat-room-gallery">
                     {[
                       {
-                        src: "/images/tha_hatha/the-hatha-yogashala-private-room-accommodation-goa.webp",
+                        src: "/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-bedroom-interior-01.webp",
                         alt: "Private room at The Hatha Yogashala Goa",
                       },
                       {
-                        src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
+                        src: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
                         alt: "Peaceful ashram campus gardens in North Goa",
                       },
                     ].map((img) => (
@@ -1052,12 +1133,12 @@ export default function YTTCPage({ course }) {
               </p>
               <Stagger className="retreat-meal-grid">
                 {meals.map((meal) => (
-                  <StaggerItem key={meal.type}>
+                  <StaggerItem key={meal.meal}>
                     <article className="retreat-meal-card">
-                      <span className="retreat-meal-type">{meal.type}</span>
+                      <span className="retreat-meal-type">{meal.meal}</span>
                       <p className="retreat-meal-time">{meal.time}</p>
-                      <h4 className="font-heading">{meal.title}</h4>
-                      <p className="retreat-meal-desc">{meal.description}</p>
+                      <h4 className="font-heading">{meal.meal}</h4>
+                      <p className="retreat-meal-desc">{meal.text}</p>
                     </article>
                   </StaggerItem>
                 ))}
@@ -1199,7 +1280,7 @@ export default function YTTCPage({ course }) {
       </div>
 
       {/* ============ FINAL CTA BANNER ============ */}
-      <section className="relative overflow-hidden bg-[var(--teal-dark)] text-white py-16 md:py-20 my-8">
+      <section className="relative overflow-hidden bg-[#134e4a] text-white py-16 md:py-20 my-8">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(201,169,97,0.2),transparent_60%)] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(217,99,74,0.15),transparent_60%)] pointer-events-none" />
         <div className="container relative z-10 text-center max-w-2xl mx-auto px-4">
@@ -1261,7 +1342,7 @@ export default function YTTCPage({ course }) {
                         src={
                           HERO_IMAGES[other.hours] ||
                           other.image ||
-                          "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp"
+                          "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp"
                         }
                         alt={other.name}
                         fill

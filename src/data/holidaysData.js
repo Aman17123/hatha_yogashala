@@ -9,7 +9,7 @@ export const holidays = [
     numericPrice: 250,
     currency: "$",
     duration: "3 Days",
-    image: "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
     imageAlt: "Student meditating and practicing yoga during 3 days yoga holiday in Goa",
     location: "Querim Beach, North Goa, India",
     introText: [
@@ -82,7 +82,7 @@ export const holidays = [
     numericPrice: 410,
     currency: "$",
     duration: "5 Days",
-    image: "/images/tha_hatha/the-hatha-yogashala-group-yoga-class-downward-dog-goa.webp",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-04.webp",
     imageAlt: "Group yoga asana session during 5 days yoga holiday in Goa",
     location: "Querim Beach, North Goa, India",
     introText: [
@@ -179,7 +179,7 @@ export const holidays = [
     numericPrice: 570,
     currency: "$",
     duration: "7 Days",
-    image: "/images/tha_hatha/the-hatha-yogashala-yoga-asana-practice-shala-goa.webp",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
     imageAlt: "Daily yoga and breathwork practice during 7 days yoga holiday in Goa",
     location: "Querim Beach, North Goa, India",
     introText: [

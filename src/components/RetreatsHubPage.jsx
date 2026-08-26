@@ -163,10 +163,10 @@ export default function RetreatsHubPage() {
                 retreat combines daily yoga and meditation with Ayurveda basics,
                 sound healing, breathwork, and wellness excursions like ice baths,
                 sauna therapy, and ecstatic dance, set against the backdrop of
-                Goa's coastline and heritage sites.
+                Goa&apos;s coastline and heritage sites.
               </p>
               <p className="text-sm text-[var(--muted)] leading-relaxed">
-                Whether you have a long weekend or a full week, we've built a
+                Whether you have a long weekend or a full week, we&apos;ve built a
                 retreat length and accommodation option to match — from shared
                 dorms to private rooms — all fully catered with fresh,
                 vegetarian meals.
@@ -414,7 +414,7 @@ export default function RetreatsHubPage() {
             <strong className="text-[var(--brown)] font-semibold">
               Book your retreat at The Hatha Yogashala
             </strong>{" "}
-            and experience Goa's beaches, culture, and wellness traditions in one
+            and experience Goa&apos;s beaches, culture, and wellness traditions in one
             immersive escape.
           </p>
           <div className="flex flex-wrap justify-center gap-3">

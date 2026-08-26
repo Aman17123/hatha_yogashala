@@ -17,14 +17,14 @@ export default function FounderPreview({ founder = founderData }) {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column — Founder Image Frame */}
-          <div className="lg:col-span-5 relative flex justify-center">
-            <div className="home-founder-media relative w-full max-w-md aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white group">
+          <div className="lg:col-span-6 relative flex justify-center">
+            <div className="home-founder-media relative w-full max-w-lg aspect-[4/5] min-h-[400px] sm:min-h-[440px] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white group">
               <Image
                 src={founder.image}
                 alt={founder.imageAlt || founder.name}
                 width={500}
                 height={500}
-                sizes="(max-width: 1024px) 100vw, 42vw"
+                sizes="(max-width: 1024px) 100vw, 48vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
 
@@ -45,7 +45,7 @@ export default function FounderPreview({ founder = founderData }) {
           </div>
 
           {/* Right Column — Founder Info & Quote */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-6 space-y-6">
             <div>
               <p className="eyebrow">
                 <Sparkles aria-hidden="true" size={15} />

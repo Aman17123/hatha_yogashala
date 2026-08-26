@@ -271,13 +271,13 @@ function subjectTabs(course) {
 
 function outcomesWithImages(course) {
   const images = [
-    "/images/tha_hatha/the-hatha-yogashala-yoga-asana-practice-shala-goa.webp",
-    "/images/tha_hatha/pranayama-meditation-goa.png",
-    "/images/tha_hatha/the-hatha-yogashala-chair-assisted-restorative-yoga-goa.webp",
-    "/images/tha_hatha/the-hatha-yogashala-group-yoga-class-downward-dog-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-02.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-04.webp",
     "/images/tha_hatha/The-hatha-yogashala--Certificate.webp",
-    "/images/tha_hatha/the-hatha-yogashala-yoga-instructor-certification-goa.webp",
-    "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-certificate-presentation-teacher-training-01.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
   ];
   return (course.learningOutcomes || []).map((title, index) => ({
     title,
@@ -652,28 +652,28 @@ export function yttcContent(course) {
         title: "Temple visits",
         text: "Guided visits to local temples, with history and ritual explained by the faculty.",
         image:
-          "/images/tha_hatha/the-hatha-yogashala-yoga-school-goa-02.webp",
+          "/images/hatha-yogashala/hatha-yogashala-pernem-goa-havan-fire-puja-opening-ceremony-01.webp",
         alt: "Students exploring local temple culture near Hatha Yogashala in North Goa",
       },
       {
         title: "Sunrise points",
         text: "Early-morning beach and cliff viewpoints for quiet sunrise practice.",
         image:
-          "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
+          "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
         alt: "Sunrise meditation spot near the Goa coastline",
       },
       {
         title: "Nature sites",
         text: "River and waterfall walks through the green North-Goa countryside.",
         image:
-          "/images/tha_hatha/the-hatha-yogashala-balcony-view-coconut-trees-goa.webp",
+          "/images/accomodation/the-hatha-yogashala-arambol-goa-coconut-palms-sunlight-02.webp",
         alt: "Nature walk through the lush tropical North Goa landscape",
       },
       {
         title: "Cultural landmarks",
         text: "Market days, forts and heritage villages that show the real Goa beyond the beach.",
         image:
-          "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
+          "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
         alt: "Students on a cultural outing near Querim, North Goa",
       },
     ],

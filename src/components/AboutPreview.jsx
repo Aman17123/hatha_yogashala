@@ -19,9 +19,9 @@ export default function AboutPreview({ data = aboutSectionData }) {
           <div className="lg:col-span-6 relative">
             <div className="relative grid grid-cols-2 gap-4">
               {/* Primary Main Photo */}
-              <div className="home-about-main col-span-2 rounded-[28px] overflow-hidden shadow-xl aspect-[16/10] relative group">
+              <div className="home-about-main col-span-2 rounded-[28px] overflow-hidden shadow-xl aspect-[16/11] min-h-[260px] sm:min-h-[300px] relative group">
                 <Media
-                  src="/images/tha_hatha/the-hatha-yogashala-goa-yoga-teacher-training-students-practice.jpg"
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp"
                   alt="Students learning traditional Hatha Yoga alignment in Goa shala"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 45vw"
@@ -33,9 +33,9 @@ export default function AboutPreview({ data = aboutSectionData }) {
               </div>
 
               {/* Secondary Sub Photo 1 */}
-              <div className="home-about-sub rounded-[24px] overflow-hidden shadow-md aspect-[4/3] relative">
+              <div className="home-about-sub rounded-[24px] overflow-hidden shadow-md aspect-[4/3.2] min-h-[160px] sm:min-h-[180px] relative">
                 <Media
-                  src="/images/tha_hatha/the-hatha-yogashala-goa-meditation-pranayama-session.webp"
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp"
                   alt="Pranayama and meditation session at Hatha Yogashala Goa"
                   className="w-full h-full object-cover"
                   sizes="(max-width: 1024px) 50vw, 22vw"
@@ -43,9 +43,9 @@ export default function AboutPreview({ data = aboutSectionData }) {
               </div>
 
               {/* Secondary Sub Photo 2 */}
-              <div className="home-about-sub rounded-[24px] overflow-hidden shadow-md aspect-[4/3] relative">
+              <div className="home-about-sub rounded-[24px] overflow-hidden shadow-md aspect-[4/3.2] min-h-[160px] sm:min-h-[180px] relative">
                 <Media
-                  src="/images/tha_hatha/the-hatha-yogashala-goa-yoga-students-relaxation.webp"
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-02.webp"
                   alt="Students relaxing and restoring in the quiet coastal setting of North Goa"
                   className="w-full h-full object-cover"
                   sizes="(max-width: 1024px) 50vw, 22vw"

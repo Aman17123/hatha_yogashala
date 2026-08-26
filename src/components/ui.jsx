@@ -110,7 +110,7 @@ export function PageHero({
   eyebrow,
   title,
   text,
-  image = "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp",
+  image = "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
   imageAlt,
   breadcrumbs = [{ label: "Home", href: "/" }, { label: title }],
   actions = [],
@@ -212,7 +212,7 @@ export function PriceRow({ label, price, currency }) {
 export function ProgramCard({ course, horizontal = false }) {
   const image =
     course.image ||
-    "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp";
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp";
   const stats = course.cardStats || {};
   const pricing = course.pricing || null;
   const currency = pricing?.currency || "$";
@@ -226,7 +226,7 @@ export function ProgramCard({ course, horizontal = false }) {
         horizontal ? "program-card-horizontal" : ""
       } ${isFeatured ? "program-card-featured" : ""}`}
     >
-      <div className="program-media">
+      <div className="program-media relative overflow-hidden aspect-[4/3.2] min-h-[220px]">
         <Image
           src={image}
           alt={`Students taking part in ${course.name}`}
@@ -238,14 +238,18 @@ export function ProgramCard({ course, horizontal = false }) {
           }
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         {course.cardBadge && (
           <span className="program-badge">{course.cardBadge}</span>
         )}
+        <div className="absolute bottom-0 inset-x-0 p-3.5 sm:p-4 z-10">
+          <h3 className="font-heading text-lg sm:text-xl font-bold text-white leading-snug drop-shadow-sm">
+            <Link href={`/courses/${course.slug}`}>{course.name}</Link>
+          </h3>
+        </div>
       </div>
-      <div className="card-body program-body">
-        <h3 className="program-title">{course.name}</h3>
-
-        <dl className="program-stats">
+      <div className="card-body program-body !pt-3.5 !pb-4">
+        <dl className="program-stats !mt-0">
           <div>
             <dt>
               <Timer aria-hidden="true" size={14} /> Duration
@@ -328,7 +332,7 @@ export function RetreatCard({ retreat }) {
   return (
     <article className="group flex flex-col h-full overflow-hidden rounded-[24px] border border-[var(--border)] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[var(--coral-dark)]/40">
       {/* Card Image */}
-      <div className="home-retreat-media relative overflow-hidden aspect-[4/3]">
+      <div className="home-retreat-media relative overflow-hidden aspect-[4/3.2] min-h-[220px]">
         <Media
           src={retreat.image}
           alt={`Yoga and meditation during ${retreat.name}`}
@@ -422,7 +426,7 @@ export function FinalCTA({
   title = "Ready to plan your practice in Goa?",
   text = "Tell us what you want to study. The school can confirm suitability, dates, fees, and availability before you make travel plans.",
   className = "",
-  image = "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp",
+  image = "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
   imageAlt = "The Hatha Yogashala yoga teacher training and retreat in Goa",
   height, // e.g. "45vh"
 }) {
@@ -451,3 +455,6 @@ export function FinalCTA({
     </section>
   );
 }
+
+export { FadeIn, Stagger, StaggerItem } from "./retreat/Motion";
+

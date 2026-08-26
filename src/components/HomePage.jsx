@@ -47,6 +47,7 @@ import TeachersPreview from "./TeachersPreview";
 import FAQ from "./FAQ";
 import QuickNav from "./QuickNav";
 import HomeGalleryMarquee from "./HomeGalleryMarquee";
+import HomePranayamaPreview from "./HomePranayamaPreview";
 import { FadeIn, Stagger, StaggerItem } from "./retreat/Motion";
 
 const whyItems = [
@@ -55,14 +56,14 @@ const whyItems = [
     content:
       "Course pages explain the learning goal, suitability, subjects, teaching method, daily rhythm, stay, price checks, and the limits of each completion document.",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-chair-assisted-restorative-yoga-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
     alt: "Students studying yoga alignment with props at The Hatha Yogashala in Goa",
   },
   {
     title: "Information before payment",
     content:
       "Dates, total price, room category, meals, teachers, inclusions, assessment, certification, and cancellation terms are confirmed in writing before a reservation is treated as complete.",
-    image: "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
+    image: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
     alt: "Residential campus and gardens of The Hatha Yogashala in North Goa",
   },
   {
@@ -70,14 +71,14 @@ const whyItems = [
     content:
       "The enquiry process asks about experience, injuries, health, accessibility, dietary needs, room preference, and travel questions so suitability can be discussed early.",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-yoga-asana-practice-shala-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
     alt: "Teacher observing students during a Hatha yoga teacher training session",
   },
   {
     title: "A grounded Goa setting",
     content:
       "Residential planning accounts for coastal weather, rest, wet-season access, transport, hydration, laundry, and quiet time instead of treating Goa as scenery alone.",
-    image: "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
     alt: "Coastal yoga practice at The Hatha Yogashala in Goa",
   },
 ];
@@ -353,7 +354,7 @@ export default function HomePage() {
             <div className="hero-sun" aria-hidden="true" />
             <div className="hero-image">
               <Image
-                src="/images/tha_hatha/the-hatha-yogashala-yoga-school-building-goa.webp"
+                src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp"
                 alt="Yoga students practicing teacher training alignment at The Hatha Yogashala in Goa"
                 fill
                 loading="eager"
@@ -454,6 +455,9 @@ export default function HomePage() {
           </Stagger>
         </Container>
       </section>
+
+      {/* ===== 5b. PRANAYAMA & BREATHWORK PREVIEW ===== */}
+      <HomePranayamaPreview />
 
       {/* ===== 6. FOUNDER PREVIEW — introduction to the founder ===== */}
       <FadeIn>
@@ -717,32 +721,30 @@ export default function HomePage() {
               </ButtonLink>
             </div>
 
-            {/* Right — two rounded photo tiles */}
-            <div className="grid grid-cols-2 gap-4 items-end">
+            {/* Right — two rounded photo tiles without overlap */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
               {/* Tall left photo */}
-              <div
-                className="home-whygoa-tall rounded-[28px] overflow-hidden shadow-xl"
-                style={{ aspectRatio: "3/4" }}
-              >
-                <Media
-                  src="/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp"
+              <div className="relative w-full aspect-[3/4] rounded-[28px] overflow-hidden shadow-xl border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp"
                   alt="Yoga students practicing on a Goa beach in North Goa"
-                  className="h-full w-full"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
               {/* Right column: square photo + location info card */}
               <div className="flex flex-col gap-4">
-                <div
-                  className="home-whygoa-square rounded-[28px] overflow-hidden shadow-xl"
-                  style={{ aspectRatio: "1/1" }}
-                >
-                  <Media
-                    src="/images/tha_hatha/the-hatha-yogashala-balcony-view-coconut-trees-goa.webp"
+                <div className="relative w-full aspect-square rounded-[28px] overflow-hidden shadow-xl border-2 border-white">
+                  <Image
+                    src="/images/accomodation/the-hatha-yogashala-arambol-goa-coconut-palms-sunlight-02.webp"
                     alt="Lush tropical coconut palms and peaceful coastal surroundings in North Goa"
-                    className="h-full w-full"
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
-                <div className="rounded-[24px] bg-white border border-[var(--border)] p-5 shadow-sm flex flex-col gap-1.5">
+                <div className="rounded-[24px] bg-white border border-[var(--border)] p-4 sm:p-5 shadow-sm flex flex-col gap-1.5">
                   <div className="flex items-center gap-2">
                     <MapPin
                       size={14}
@@ -818,9 +820,9 @@ export default function HomePage() {
 
             {/* Right — featured image + minimal facility list */}
             <div>
-              <div className="home-res-media relative aspect-[16/10] overflow-hidden rounded-[28px] shadow-xl">
+              <div className="home-res-media relative aspect-[16/11] min-h-[360px] sm:min-h-[420px] overflow-hidden rounded-[28px] shadow-xl">
                 <Image
-                  src="/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp"
+                  src="/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp"
                   alt="Residential campus and accommodation at The Hatha Yogashala in Querim, North Goa"
                   fill
                   sizes="(max-width: 1024px) 100vw, 55vw"
@@ -998,7 +1000,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <FinalCTA height="45vh" className="h-[40vh]" />
+      <FinalCTA height="auto" className="!min-h-[260px] !py-8 md:!py-10" />
     </div>
   );
 }

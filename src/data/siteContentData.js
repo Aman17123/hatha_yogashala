@@ -34,7 +34,7 @@ export const faqData = [
       "Personal assessment call before booking to set expectations.",
     ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-yoga-asana-practice-shala-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
     imageAlt: "Beginner and experienced yoga students practicing asanas in open-air shala",
   },
   {
@@ -50,7 +50,7 @@ export const faqData = [
       "No hidden charges added after booking.",
     ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-private-room-accommodation-goa.webp",
+      "/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-bedroom-interior-01.webp",
     imageAlt: "Private room accommodation at The Hatha Yogashala Goa campus",
   },
   {
@@ -66,7 +66,7 @@ export const faqData = [
       "Direct support from our team for any changes.",
     ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
+      "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
     imageAlt: "Lush tropical ashram campus and peaceful gardens at The Hatha Yogashala Goa",
   },
   {
@@ -82,7 +82,7 @@ export const faqData = [
       "Personal guidance call available before booking.",
     ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-group-yoga-class-downward-dog-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-04.webp",
     imageAlt: "Group yoga training batch practicing alignment in North Goa",
   },
   {
@@ -100,7 +100,7 @@ export const faqData = [
       "Full residential campus a short walk from Querim beach.",
     ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
     imageAlt: "Hatha Yogashala yoga school campus in Querim, North Goa",
   },
   {
@@ -118,7 +118,7 @@ export const faqData = [
       "Contact us for a personal batch recommendation.",
     ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-03.webp",
     imageAlt: "Yoga students practicing on a Goa beach in the winter season",
   },
 ];
@@ -180,7 +180,7 @@ export const teachersData = [
     bio: "Certified Ashtanga Vinyasa teacher (under Paramaguru Sharath Jois, Mysore) with 10+ years of experience. Leads Mysore-style practice, sequencing, and teaching methodology.",
     qualifications: "Certified Ashtanga (Mysore) Teacher",
     experience: "10+ Years",
-    image: "/images/tha_hatha/pranayama-meditation-goa.png",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
     imageAlt: "Senior Ashtanga teacher demonstrating alignment in Goa",
     coursesTaught: [
       "200-Hour Yoga Teacher Training",
@@ -212,7 +212,7 @@ export const teachersData = [
     qualifications: "M.Sc. Anatomy & Kinesiology",
     experience: "8+ Years",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-chair-assisted-restorative-yoga-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-02.webp",
     imageAlt: "Anatomy and alignment teacher explaining yogic alignment with props",
     coursesTaught: [
       "200-Hour Yoga Teacher Training",
@@ -229,7 +229,7 @@ export const teachersData = [
     qualifications: "B.A.M.S. (Ayurvedic Physician)",
     experience: "8+ Years",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-ayurvedic-massage-therapy-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ayurvedic-cooking-class-kitchen-02.webp",
     imageAlt: "Ayurveda teacher sharing wellness and massage principles at The Hatha Yogashala Goa",
     coursesTaught: ["Ayurveda Course", "Goa Yoga Retreats"],
   },

@@ -9,7 +9,7 @@ export const metadata = makeMetadata(
   "Yoga Retreats in Goa | 3, 5 & 7 Day Wellness Retreats | The Hatha Yogashala",
   "Book a 3, 5, or 7-day yoga retreat in Goa with The Hatha Yogashala. Daily yoga, meditation, Ayurveda, sound healing, ice baths, and beachside living — all-inclusive.",
   "/retreats",
-  "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
+  "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
   [
     "yoga retreat Goa",
     "3 day yoga retreat Goa",

@@ -60,7 +60,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp",
+        url: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
         width: 1792,
         height: 896,
         alt: "The Hatha Yogashala yoga teacher training and retreat school in North Goa",
@@ -71,7 +71,7 @@ export const metadata = {
     card: "summary_large_image",
     title: pageSeo.home.title,
     description: pageSeo.home.description,
-    images: ["/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp"],
+    images: ["/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp"],
   },
   robots: { index: true, follow: true },
 };

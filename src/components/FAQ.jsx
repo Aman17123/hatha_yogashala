@@ -16,7 +16,7 @@ export default function FAQ({
 
   return (
     <section
-      className="section section-cream relative"
+      className="section section-cream relative scroll-mt-24"
       id="faq"
     >
       <Container>
@@ -35,7 +35,7 @@ export default function FAQ({
             </div>
 
             {/* Active Visual / Image Box with Smooth Transition */}
-            <div className="home-faq-media relative rounded-[28px] overflow-hidden bg-[var(--cream)] border border-[var(--border)] shadow-md aspect-[4/3] group">
+            <div className="home-faq-media relative rounded-[28px] overflow-hidden bg-[var(--cream)] border border-[var(--border)] shadow-md aspect-[4/3.2] min-h-[340px] sm:min-h-[380px] group">
               {questions.map((q, idx) => {
                 const isActive = idx === activeIndex;
                 return (

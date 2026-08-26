@@ -9,7 +9,7 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.hathayogashala.com",
   hasProductionUrl: Boolean(process.env.NEXT_PUBLIC_SITE_URL),
   defaultImage:
-    "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
 
   social: {
     instagram: "", // Replace with the verified Instagram URL
@@ -560,100 +560,118 @@ export const faqs = [
 export const facilities = [
   {
     title: "Accommodation",
-    text: "Clean, spacious rooms near the beach — mixed AC dorms, female AC dorms, twin-sharing AC, and private rooms with hot water showers and Wi-Fi.",
+    text: "Clean, spacious rooms near the beach — mixed AC dorms, female AC dorms, twin-sharing AC, and private eco wooden cottages with hot water showers and Wi-Fi.",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-private-room-accommodation-goa.webp",
-    alt: "Private room accommodation and peaceful living at The Hatha Yogashala in Goa",
+      "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
+    alt: "Eco wooden cottage accommodation at The Hatha Yogashala in Arambol, Goa",
   },
   {
     title: "Yoga Hall",
     text: "Open-air shalas among the palm trees of Querim, North Goa — a peaceful learning environment minutes from the sea.",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-yoga-hall-with-mats-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
     alt: "Open-air wooden yoga practice hall with mats at The Hatha Yogashala Goa",
   },
   {
     title: "Meals",
     text: "Three healthy vegetarian and vegan meals per day, prepared fresh to support your practice — sattvic, nourishing, and served daily.",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-sattvic-yogic-meal-goa.webp",
-    alt: "Fresh sattvic vegetarian yogic meals served at The Hatha Yogashala Goa",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-01.webp",
+    alt: "Wholesome vegetarian ashram thali meal served at The Hatha Yogashala in Pernem, Goa",
   },
   {
     title: "Student Support",
     text: "24/7 student support, course manuals, PDF library of spiritual and practical books, meditation music, and unlimited filtered drinking water.",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-garden-lounge-candid-portrait-01.webp",
     alt: "Lush tropical ashram campus and student support at The Hatha Yogashala in North Goa",
   },
 ];
 
 export const galleryItems = [
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp",
-    alt: "Students practicing Hatha yoga teacher training in Goa",
-    caption: "Yoga training in Goa",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+    alt: "Students practicing Hatha yoga asana alignment inside the shala at The Hatha Yogashala, Pernem, Goa",
+    caption: "Hatha Asana Practice",
     category: "Yoga Training",
   },
   {
-    src: "/images/tha_hatha/pranayama-meditation-goa.png",
-    alt: "Morning meditation and pranayama breathwork session in Goa",
-    caption: "Morning meditation by the coast",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
+    alt: "Morning sunrise beach yoga session on Querim beach with students from The Hatha Yogashala, Goa",
+    caption: "Sunrise Beach Yoga",
+    category: "Beach Yoga",
+  },
+  {
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
+    alt: "Evening candlelit meditation and sound healing in the wooden shala at The Hatha Yogashala, Goa",
+    caption: "Candlelit Meditation",
     category: "Practice",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
-    alt: "Residential campus and lush garden setting of the Goa yoga school",
-    caption: "Residential campus",
+    src: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
+    alt: "Eco wooden cottages in lush tropical garden setting at The Hatha Yogashala in Arambol, Goa",
+    caption: "Eco Wooden Cottages",
     category: "Accommodation",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-hall-with-mats-goa.webp",
-    alt: "Open-air wooden practice hall with yoga mats at The Hatha Yogashala",
-    caption: "Open-air practice hall",
-    category: "Yoga Training",
-  },
-  {
-    src: "/images/tha_hatha/the-hatha-yogashala-private-room-accommodation-goa.webp",
-    alt: "Quiet private room accommodation at the Goa shala",
-    caption: "Quiet campus corner",
+    src: "/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-bedroom-interior-01.webp",
+    alt: "Comfortable cottage bedroom interior with modern amenities at The Hatha Yogashala, Arambol, Goa",
+    caption: "Cottage Bedroom Interior",
     category: "Accommodation",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
-    alt: "Yoga session in a peaceful coastal Goa setting",
-    caption: "Coastal retreat rhythm",
-    category: "Retreats",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-havan-fire-puja-opening-ceremony-01.webp",
+    alt: "Traditional havan fire puja opening ceremony at The Hatha Yogashala yoga retreat in Pernem, Querim, Goa",
+    caption: "Havan Fire Puja Ceremony",
+    category: "Ceremony",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-group-yoga-class-downward-dog-goa.webp",
-    alt: "Teacher guiding students during group asana alignment practice in Goa",
-    caption: "Teaching practice",
-    category: "Student Life",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-flower-petal-om-mandala-ceremony-01.webp",
+    alt: "Flower petal Om mandala made by students during opening ceremony at The Hatha Yogashala, Pernem, Goa",
+    caption: "Flower Petal Om Mandala",
+    category: "Ceremony",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-building-goa.webp",
-    alt: "The Hatha Yogashala school building and ashram campus in North Goa",
-    caption: "Residential life",
-    category: "Student Life",
-  },
-  {
-    src: "/images/tha_hatha/the-hatha-yogashala-balcony-view-coconut-trees-goa.webp",
-    alt: "Balcony view overlooking tropical coconut palm groves in Goa",
-    caption: "Goa campus view",
-    category: "Excursions",
-  },
-  {
-    src: "/images/tha_hatha/the-hatha-yogashala-sattvic-yogic-meal-goa.webp",
-    alt: "Fresh sattvic vegetarian meal prepared for retreat and TTC students",
-    caption: "Sattvic yogic meals",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-01.webp",
+    alt: "Wholesome vegetarian ashram thali meal served at The Hatha Yogashala in Pernem, Goa",
+    caption: "Sattvic Ashram Meals",
     category: "Meals",
   },
   {
-    src: "/images/tha_hatha/The-hatha-yogashala--Certificate.webp",
-    alt: "Yoga Alliance graduation certification from The Hatha Yogashala Goa",
-    caption: "Graduation certification",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ayurvedic-cooking-class-kitchen-01.webp",
+    alt: "Students learning traditional Indian cooking and roti-making in the kitchen at The Hatha Yogashala, Pernem, Goa",
+    caption: "Ayurvedic Cooking Workshop",
+    category: "Meals",
+  },
+  {
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-graduation-group-photo-celebration-01.webp",
+    alt: "Group photo celebrating yoga teacher training graduation at The Hatha Yogashala, Pernem, Goa",
+    caption: "Graduation Celebration",
     category: "Graduation",
+  },
+  {
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-certificate-presentation-teacher-training-01.webp",
+    alt: "Certificate presentation to graduating student at The Hatha Yogashala, Pernem, Goa",
+    caption: "Certificate Presentation",
+    category: "Graduation",
+  },
+  {
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-beach-group-tree-pose-vrksasana-01.webp",
+    alt: "Group tree pose Vrksasana practice along the sandy shore in Querim, Goa",
+    caption: "Beach Asana Alignment",
+    category: "Beach Yoga",
+  },
+  {
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-01.webp",
+    alt: "Wall-supported headstand Sirsasana practice and alignment workshop at The Hatha Yogashala, Goa",
+    caption: "Inversion Workshop",
+    category: "Yoga Training",
+  },
+  {
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-garden-lounge-candid-portrait-01.webp",
+    alt: "Students relaxing in the lush tropical garden lounge between sessions at The Hatha Yogashala, Goa",
+    caption: "Garden Lounge & Community",
+    category: "Student Life",
   },
 ];
 
@@ -661,7 +679,7 @@ export function makeMetadata(
   title,
   description,
   path = "/",
-  image = "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp",
+  image = "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
   keywords = [],
 ) {
   const canonicalUrl = new URL(path, site.url).toString();

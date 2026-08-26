@@ -24,6 +24,7 @@
   --hero-sun: #24402f;
   --peach: #e5f2ef;
   --sage: #7c9472;
+  --teal-dark: #134e4a;
 
   /* ── Font-size tokens (single source of truth) ──
      --fs-para   →  15.5px  main paragraph / body text
@@ -854,9 +855,9 @@ img {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr);
+  grid-template-columns: minmax(0, 1fr) minmax(460px, 1fr);
   align-items: center;
-  gap: clamp(2.5rem, 7vw, 7rem);
+  gap: clamp(2rem, 5vw, 5rem);
 }
 
 /* ── Typography ─────────────────────────────── */
@@ -996,14 +997,14 @@ img {
 
 .hero-visual {
   position: relative;
-  min-height: 520px;
+  min-height: 580px;
 }
 
 .hero-image {
   position: absolute;
-  inset: 0 45px 0 0;
+  inset: 0 15px 0 0;
   overflow: hidden;
-  border-radius: 48% 48% 28px 28px;
+  border-radius: 46% 46% 28px 28px;
   box-shadow: var(--shadow);
 }
 
@@ -1015,9 +1016,9 @@ img {
 .hero-sun {
   position: absolute;
   top: -30px;
-  right: -10px;
-  width: 190px;
-  height: 190px;
+  right: -5px;
+  width: 210px;
+  height: 210px;
   border-radius: 50%;
   background: var(--hero-sun);
 }
@@ -3165,7 +3166,7 @@ body:has(.yttc-page) .floating-actions {
 
 @keyframes marquee-ltr {
   0% {
-    transform: translateX(calc(-50% - 0.625rem));
+    transform: translateX(-50%);
   }
   100% {
     transform: translateX(0);
@@ -3177,23 +3178,23 @@ body:has(.yttc-page) .floating-actions {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50% - 0.625rem));
+    transform: translateX(-50%);
   }
 }
 
 .gallery-marquee-ltr {
   display: flex;
   width: max-content;
-  gap: 1.25rem;
-  animation: marquee-ltr 45s linear infinite;
+  gap: 0.75rem;
+  animation: marquee-ltr 38s linear infinite;
   will-change: transform;
 }
 
 .gallery-marquee-rtl {
   display: flex;
   width: max-content;
-  gap: 1.25rem;
-  animation: marquee-rtl 45s linear infinite;
+  gap: 0.75rem;
+  animation: marquee-rtl 38s linear infinite;
   will-change: transform;
 }
 
@@ -4253,7 +4254,7 @@ body:has(.yttc-page) .floating-actions {
 
 .why-chooser {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+  grid-template-columns: minmax(0, 1fr) minmax(380px, 0.95fr);
   align-items: start;
   gap: clamp(2rem, 6vw, 5rem);
 }
@@ -4261,7 +4262,7 @@ body:has(.yttc-page) .floating-actions {
 .why-visual {
   position: sticky;
   top: 7rem;
-  min-height: 560px;
+  min-height: 620px;
   overflow: hidden;
   border-radius: 32px;
   background: var(--peach);

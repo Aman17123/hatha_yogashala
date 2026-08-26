@@ -56,6 +56,7 @@ const aboutColumns = [
   {
     title: "Extras",
     links: [
+      { label: "Destination Goa", href: "/about/goa" },
       { label: "Gallery", href: findHref(["Gallery"], "/gallery") },
       { label: "Blogs", href: findHref(["Blog", "Blogs"], "/blog") },
       { label: "Contact & Travel", href: "/contact#travel" },
@@ -94,6 +95,37 @@ const yogaTtcChildren = [
   },
 ];
 
+const pranayamaChildren = [
+  {
+    label: "Pre-Pranayama Foundation",
+    href: "/pranayama/pre-pranayama-foundation",
+  },
+  {
+    label: "Beginner Pranayama",
+    href: "/pranayama/beginner-pranayama",
+  },
+  {
+    label: "Intermediate Pranayama",
+    href: "/pranayama/intermediate-pranayama",
+  },
+  {
+    label: "Advanced Pranayama",
+    href: "/pranayama/advanced-pranayama",
+  },
+  {
+    label: "Meditation & Breathing for Stress Relief",
+    href: "/pranayama/stress-relief-course",
+  },
+  {
+    label: "Daily Pranayama Classes",
+    href: "/pranayama/daily-pranayama-subscription",
+  },
+  {
+    label: "Online Yoga and Meditation",
+    href: "/pranayama/online-yoga-meditation",
+  },
+];
+
 const hiddenMainItems = new Set([
   "home",
   "about",
@@ -103,7 +135,12 @@ const hiddenMainItems = new Set([
   "yogateachertraining",
   "yogateachertrainingcourse",
   "yogateachertrainingcourses",
+  "pranayama",
+  "pranayamabreathwork",
+  "pranayamaandbreathwork",
   "gallery",
+  "blog",
+  "blogs",
   "contact",
   "contactus",
 ]);
@@ -112,6 +149,7 @@ const navbarNavigation = [
   { label: "Home", href: "/" },
   { label: "About", columns: aboutColumns },
   { label: "Yoga TTC", children: yogaTtcChildren },
+  { label: "Pranayama & Breathwork", children: pranayamaChildren },
   ...navigation.filter(
     (item) => !hiddenMainItems.has(normalizeLabel(item.label)),
   ),
@@ -124,7 +162,7 @@ const contactHref = findHref(["Contact", "Contact Us"], "/contact");
 // every other dropdown item keeps the muted sub-link styling.
 const childLinkClass = (label) =>
   `group/link flex items-center gap-2 whitespace-nowrap rounded-lg px-2 py-2 transition-[color,background-color,transform] duration-300 ease-out hover:translate-x-1 hover:bg-[var(--cream)] hover:text-[var(--coral-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral-dark)]/30 motion-reduce:transform-none ${
-    label === "Blogs"
+    label === "Blogs" || label === "Blog"
       ? "text-[15px] font-medium text-[var(--coral-dark)]/75"
       : "text-[15px] text-[var(--muted)]"
   }`;
@@ -147,7 +185,7 @@ function ChildLink({ child, onNavigate, router }) {
     />
   );
 
-  if (child.label === "Blogs") {
+  if (child.label === "Blogs" || child.label === "Blog") {
     return (
       <button
         type="button"
@@ -233,19 +271,12 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
+        className={`sticky top-0 z-50 border-b border-[var(--border)]/70 transition-all duration-300 ${
           scrolled
             ? "bg-[var(--cream)]/95 shadow-[0_2px_12px_rgba(0,0,0,0.05)] backdrop-blur-xl"
             : "bg-[var(--cream)]"
         }`}
       >
-        {/* Thin scroll line */}
-        <span
-          aria-hidden="true"
-          className={`pointer-events-none absolute inset-x-0 bottom-0 h-px bg-[var(--coral-dark)]/15 transition-opacity duration-300 ${
-            scrolled ? "opacity-100" : "opacity-0"
-          }`}
-        />
         <a
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:border focus:border-[var(--brown)]/20 focus:bg-[var(--cream)] focus:px-4 focus:py-2 focus:text-sm focus:text-[var(--brown)]"
           href="#main-content"

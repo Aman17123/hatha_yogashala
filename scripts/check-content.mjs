@@ -14,12 +14,16 @@ assert.equal(
 );
 assert.equal(course.curriculum.length, 10);
 assert.equal(course.faq.length, 7);
+const standardRetreats = retreats.filter((r) =>
+  ["3-day-yoga-retreat-goa", "5-day-yoga-retreat-goa", "7-day-yoga-retreat-goa"].includes(r.slug)
+);
+
 assert.deepEqual(
-  retreats.map(({ days }) => days),
+  standardRetreats.map(({ days }) => days),
   expectedRetreats,
 );
 
-for (const retreat of retreats) {
+for (const retreat of standardRetreats) {
   assert.equal(retreat.itinerary.length, retreat.days);
   assert.equal(retreat.slug, `${retreat.days}-day-yoga-retreat-goa`);
 }

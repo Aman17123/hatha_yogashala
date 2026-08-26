@@ -21,13 +21,13 @@ import {
 } from "@/data/retreatData";
 
 const IMAGES = {
-  hero: "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp",
-  class: "/images/tha_hatha/the-hatha-yogashala-group-yoga-class-downward-dog-goa.webp",
-  coast: "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
-  campus: "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
-  pranayama: "/images/tha_hatha/pranayama-meditation-goa.png",
-  hatha: "/images/tha_hatha/the-hatha-yogashala-yoga-asana-practice-shala-goa.webp",
-  philosophy: "/images/tha_hatha/the-hatha-yogashala-chair-assisted-restorative-yoga-goa.webp",
+  hero: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+  class: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-02.webp",
+  coast: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
+  campus: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
+  pranayama: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
+  hatha: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
+  philosophy: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-teacher-led-meditation-philosophy-talk-01.webp",
 };
 
 export const yttcTrustBadges = [
@@ -135,7 +135,7 @@ export const yttcLevels = [
     duration: "14 Days",
     level: "Beginner",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-100-hour-yoga-teacher-training-course-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-02.webp",
     imageAlt: "100-Hour Yoga Teacher Training Foundation Course at The Hatha Yogashala Goa",
     text: "Built for those new to practice or with limited time. The first half of our full 200-Hour curriculum; complete the remaining 100 hours within 21 months for full certification.",
     price: 699,
@@ -154,7 +154,7 @@ export const yttcLevels = [
     duration: "21–22 Days",
     level: "All Levels",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-200-hour-yoga-teacher-training-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
     imageAlt:
       "200-Hour Yoga Teacher Training in Hatha Ashtanga and Vinyasa at The Hatha Yogashala Goa",
     text: "Holistic, immersive training covering philosophy, meditation, anatomy, kriya, and teaching methodology across Hatha, Vinyasa, Yin, and Restorative yoga.",
@@ -175,7 +175,7 @@ export const yttcLevels = [
     duration: "22 Days",
     level: "All Levels",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-22-day-200-hour-hatha-ashtanga-vinyasa-ayurveda-flexible-yoga-teacher-training-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-04.webp",
     imageAlt:
       "22-Day flexible multi-style yoga teacher training session at The Hatha Yogashala Goa",
     text: "A 22-day holistic Yoga Alliance-approved training in Goa covering Hatha, Ashtanga, Vinyasa, Yin, Restorative, and Ayurveda with freedom to customize your schedule.",
@@ -195,7 +195,7 @@ export const yttcLevels = [
     duration: "21 Days",
     level: "All Levels",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-200-hour-ashtanga-vinyasa-yoga-teacher-training-course-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-02.webp",
     imageAlt:
       "200-Hour Ashtanga Vinyasa yoga teacher training course in North Goa",
     text: "Three-week journey of growth through Ashtanga and Vinyasa yoga with primary series mastery, pranayama, bandhas, drishti, and 6 cultural excursions.",
@@ -215,7 +215,7 @@ export const yttcLevels = [
     duration: "27 Days",
     level: "200H Certified",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-300-hour-yoga-teacher-training-course-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
     imageAlt:
       "300-Hour Advanced Yoga Teacher Training Course at The Hatha Yogashala Goa",
     text: "Advanced training in detailed anatomy, Ayurvedic massage for alignment, Bhagavad Gita & Samkhya philosophy, Vigyan Bhairav Tantra meditation, and sound healing.",
@@ -235,7 +235,7 @@ export const yttcLevels = [
     duration: "7 Days",
     level: "All Levels",
     image:
-      "/images/tha_hatha/the-hatha-yogashala-aerial-yoga-teacher-training-course-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-08.webp",
     imageAlt:
       "50-Hour Aerial Yoga Teacher Training Course with silk hammocks in Goa",
     text: "7-day 50-Hour Yoga Alliance approved course mastering graceful aerial teaching, hammock rigging safety, spinal decompression, and therapeutic fly sequencing.",

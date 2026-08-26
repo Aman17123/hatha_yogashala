@@ -33,7 +33,7 @@ const sharedDefaults = {
   privatePrice: "Fee to be confirmed",
   certification: "Yoga Alliance-approved certificate",
   image:
-    "/images/tha_hatha/the-hatha-yogashala-yoga-teacher-training-in-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
   date: "Monthly course start dates year-round",
   bookingStatus: "Seats Available",
   format: "Residential",
@@ -62,7 +62,7 @@ const hundredHour = {
   hours: "100-hour",
   name: "100-Hour Yoga Teacher Training in Goa",
   image:
-    "/images/tha_hatha/the-hatha-yogashala-100-hour-yoga-teacher-training-course-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-02.webp",
   level: "Foundation",
   certification: "Yoga Alliance USA Recognized",
   outcome: "Strong foundation, bridge to 200H",
@@ -332,17 +332,17 @@ const hundredHour = {
     food: "Meals are healthy, vegetarian, and prepared fresh daily to support your practice and recovery — three meals per day, Monday to Saturday morning.",
     images: [
       {
-        src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
+        src: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
         alt: "Residential campus and stay at Hatha Yogashala Goa",
         caption: "Residential stay",
       },
       {
-        src: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg",
+        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
         alt: "Open-air practice hall at Hatha Yogashala Goa",
         caption: "Open-air shala",
       },
       {
-        src: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
+        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
         alt: "Yoga practice near the beach at Hatha Yogashala Goa",
         caption: "Beach practice",
       },
@@ -502,7 +502,7 @@ const twoHundredHour = {
   hours: "200-hour",
   name: "200-Hour Yoga Teacher Training in Goa",
   image:
-    "/images/tha_hatha/the-hatha-yogashala-aerial-yoga-teacher-training-course-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
   level: "Foundational",
   certification: "200-Hour Yoga Alliance (RYS 200)",
   outcome: "Full teaching certification, RYT 200",
@@ -763,17 +763,17 @@ const twoHundredHour = {
     food: "Three healthy vegetarian meals daily (Monday to Saturday morning), prepared fresh to support your practice and recovery.",
     images: [
       {
-        src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
+        src: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
         alt: "Residential campus and stay at Hatha Yogashala Goa",
         caption: "Residential stay",
       },
       {
-        src: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg",
+        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
         alt: "Open-air practice hall at Hatha Yogashala Goa",
         caption: "Open-air shala",
       },
       {
-        src: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
+        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
         alt: "Yoga practice near the beach at Hatha Yogashala Goa",
         caption: "Beach practice",
       },
@@ -932,7 +932,7 @@ const threeHundredHour = {
   hours: "300-hour",
   name: "300-Hour Yoga Teacher Training in Goa",
   image:
-    "/images/tha_hatha/the-hatha-yogashala-300-hour-yoga-teacher-training-course-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-04.webp",
   level: "Advanced",
   certification: "300-Hour Yoga Alliance (RYS 300)",
   outcome: "Advanced mastery, RYT 500 eligible",
@@ -1191,17 +1191,17 @@ const threeHundredHour = {
     food: "Three healthy vegetarian meals per day (Monday to Saturday morning), prepared fresh to support your practice and recovery.",
     images: [
       {
-        src: "/images/tha_hatha/the-hatha-yogashala-goa-yoga-shala-campus-view.webp",
+        src: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
         alt: "Residential campus and stay at Hatha Yogashala Goa",
         caption: "Residential stay",
       },
       {
-        src: "/images/tha_hatha/the-hatha-yogashala-goa-hatha-yoga-teacher-training-session.jpg",
+        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
         alt: "Open-air practice hall at Hatha Yogashala Goa",
         caption: "Open-air shala",
       },
       {
-        src: "/images/tha_hatha/the-hatha-yogashala-goa-sunset-yoga-session.webp",
+        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
         alt: "Yoga practice near the beach at Hatha Yogashala Goa",
         caption: "Beach practice",
       },
@@ -1356,7 +1356,7 @@ const flexibleTwoHundredHour = {
   hours: "200-hour",
   name: "22-Day 200 Hour Flexible Yoga Teacher Training Goa",
   image:
-    "/images/tha_hatha/the-hatha-yogashala-22-day-200-hour-hatha-ashtanga-vinyasa-ayurveda-flexible-yoga-teacher-training-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-04.webp",
   level: "Multi-Style & Flexible",
   certification: "Yoga Alliance USA Recognized RYS-200",
   outcome: "200-Hour Multi-Style Yoga Teacher Certification",
@@ -1510,7 +1510,7 @@ const ashtangaTwoHundredHour = {
   hours: "200-hour",
   name: "200-Hour Ashtanga Vinyasa Yoga Teacher Training in Goa",
   image:
-    "/images/tha_hatha/the-hatha-yogashala-200-hour-ashtanga-vinyasa-yoga-teacher-training-course-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
   level: "Ashtanga Vinyasa Specialist",
   certification: "200-Hour Yoga Alliance (RYS 200)",
   outcome: "200-Hour Ashtanga Vinyasa Yoga Teacher Certification",
@@ -1670,7 +1670,7 @@ const aerialTtc = {
   hours: "50-hour",
   name: "Aerial Yoga Teacher Training Course in Goa",
   image:
-    "/images/tha_hatha/the-hatha-yogashala-aerial-yoga-teacher-training-course-goa.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-08.webp",
   level: "Aerial Specialist",
   certification: "50-Hour Yoga Alliance Approved",
   outcome: "50-Hour Aerial Yoga Teacher Certification",
@@ -1819,32 +1819,32 @@ const mainCourses = [
 // ---------------------------------------------------------------------
 const retreatGallery = [
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
     alt: "Morning yoga practice at The Hatha Yogashala Goa beachside campus",
     caption: "Morning practice by the coast",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-asana-practice-shala-goa.webp",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
     alt: "Students practicing Hatha yoga asana alignment in open-air shala",
     caption: "Guided Hatha practice",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
+    src: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
     alt: "Lush tropical ashram campus and peaceful gardens in North Goa",
     caption: "Residential stay",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-balcony-view-coconut-trees-goa.webp",
+    src: "/images/accomodation/the-hatha-yogashala-arambol-goa-coconut-palms-sunlight-02.webp",
     alt: "Balcony view overlooking coconut palms at yoga retreat campus",
     caption: "Time to rest and explore",
   },
   {
-    src: "/images/tha_hatha/pranayama-meditation-goa.png",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
     alt: "Pranayama breathwork and guided meditation practice in Goa",
     caption: "Breath and meditation",
   },
   {
-    src: "/images/tha_hatha/the-hatha-yogashala-chair-assisted-restorative-yoga-goa.webp",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-02.webp",
     alt: "Restorative yoga alignment practice using chairs and yoga props",
     caption: "Personal guidance",
   },
@@ -2069,11 +2069,11 @@ export const retreats = [
       excursionsStory: profile.excursionsStory,
       image:
         {
-          3: "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
-          5: "/images/tha_hatha/the-hatha-yogashala-group-yoga-class-downward-dog-goa.webp",
-          7: "/images/tha_hatha/the-hatha-yogashala-yoga-asana-practice-shala-goa.webp",
+          3: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
+          5: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-04.webp",
+          7: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
         }[days] ||
-        "/images/tha_hatha/the-hatha-yogashala-yoga-in-goa-india.webp",
+        "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
       date: "Monthly retreat start dates year-round",
       availability: "Book Now",
       duration: `${days} days`,
@@ -2170,7 +2170,7 @@ export const retreats = [
       },
     ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-5-day-awaken-align-yoga-retreat-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-02.webp",
     date: "Monthly retreat start dates year-round",
     availability: "Book Now",
     duration: "5 Days, 4 Nights",
@@ -2311,7 +2311,7 @@ export const retreats = [
       },
     ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-aerial-yoga-teacher-training-course-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-08.webp",
     date: "Flexible dates available on enquiry",
     availability: "Inquire Now",
     duration: "5 days",
@@ -2388,7 +2388,7 @@ export const retreats = [
       },
     ],
     image:
-      "/images/tha_hatha/the-hatha-yogashala-ayurvedic-massage-therapy-goa.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ayurvedic-cooking-class-kitchen-02.webp",
     date: "Flexible dates available on enquiry",
     availability: "Inquire Now",
     duration: "7 days",
@@ -2464,7 +2464,7 @@ export const retreats = [
         text: "I came alone and left with a community. The festival is as much about connection as it is about yoga.",
       },
     ],
-    image: "/images/tha_hatha/the-hatha-yogashala-yoga-school-campus-goa.webp",
+    image: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
     date: "Annual festival dates available on enquiry",
     availability: "Inquire Now",
     duration: "3 days",
