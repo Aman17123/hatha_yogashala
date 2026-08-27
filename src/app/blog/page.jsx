@@ -113,7 +113,7 @@ export default function BlogPage() {
             <h2>Explore by topic</h2>
             <p>Search the full article library or filter by category.</p>
           </div>
-          <BlogExplorer posts={displayedPosts} perPage={4} />
+          <BlogExplorer posts={displayedPosts} perPage={3} />
         </Container>
       </section>
     </>
