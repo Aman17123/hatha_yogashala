@@ -721,41 +721,41 @@ export default function HomePage() {
               </ButtonLink>
             </div>
 
-            {/* Right — two rounded photo tiles without overlap */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+            {/* Right — two rounded photo tiles without overlap (same side-by-side alignment on mobile and PC) */}
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 items-center">
               {/* Tall left photo */}
-              <div className="relative w-full aspect-[3/4] rounded-[28px] overflow-hidden shadow-xl border-2 border-white">
+              <div className="relative w-full aspect-[3/4] rounded-2xl sm:rounded-[28px] overflow-hidden shadow-md sm:shadow-xl border-2 border-white">
                 <Image
                   src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp"
                   alt="Yoga students practicing on a Goa beach in North Goa"
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
               {/* Right column: square photo + location info card */}
-              <div className="flex flex-col gap-4">
-                <div className="relative w-full aspect-square rounded-[28px] overflow-hidden shadow-xl border-2 border-white">
+              <div className="flex flex-col gap-2.5 sm:gap-4">
+                <div className="relative w-full aspect-square rounded-2xl sm:rounded-[28px] overflow-hidden shadow-md sm:shadow-xl border-2 border-white">
                   <Image
                     src="/images/accomodation/the-hatha-yogashala-arambol-goa-coconut-palms-sunlight-02.webp"
                     alt="Lush tropical coconut palms and peaceful coastal surroundings in North Goa"
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
-                <div className="rounded-[24px] bg-white border border-[var(--border)] p-4 sm:p-5 shadow-sm flex flex-col gap-1.5">
-                  <div className="flex items-center gap-2">
+                <div className="rounded-2xl sm:rounded-[24px] bg-white border border-[var(--border)] p-2.5 sm:p-4 shadow-xs sm:shadow-sm flex flex-col gap-1">
+                  <div className="flex items-center gap-1.5">
                     <MapPin
-                      size={14}
+                      size={13}
                       className="text-[var(--coral-dark)] shrink-0"
                     />
-                    <span className="text-[13.5px] font-bold uppercase tracking-wider text-[var(--coral-dark)]">
+                    <span className="text-[11px] sm:text-[13.5px] font-bold uppercase tracking-wider text-[var(--coral-dark)]">
                       Goa, India
                     </span>
                   </div>
-                  <p className="text-[13.5px] text-[var(--muted)] leading-relaxed font-medium">
-                    Querim, North Goa · near Arambol · ~30 min from MOPA Airport
+                  <p className="text-[10.5px] sm:text-[13.5px] text-[var(--muted)] leading-tight sm:leading-relaxed font-medium">
+                    Querim, North Goa · near Arambol
                   </p>
                 </div>
               </div>

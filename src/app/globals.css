@@ -8373,12 +8373,13 @@ body:has(.yttc-page) .floating-actions {
   }
 
   /* 6. Why Goa Photo Cards */
-  .home-page .home-whygoa-tall,
+  .home-page .home-whygoa-tall {
+    height: auto !important;
+    aspect-ratio: 3 / 4 !important;
+  }
   .home-page .home-whygoa-square {
     height: auto !important;
-    aspect-ratio: 16 / 10 !important;
-    min-height: 160px !important;
-    border-radius: 20px !important;
+    aspect-ratio: 1 / 1 !important;
   }
 
   /* 7. Residential Experience Media */
