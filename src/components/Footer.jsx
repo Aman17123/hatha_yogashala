@@ -74,7 +74,9 @@ const socialLinks = [
   {
     label: "WhatsApp",
     name: "whatsapp",
-    href: whatsappLink(),
+    href: whatsappLink(
+      "Hi The Hatha Yogashala, I'd like to know more about your courses, retreats, and upcoming batch dates in Goa.",
+    ),
   },
 ];
 

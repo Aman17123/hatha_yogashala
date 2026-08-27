@@ -7,7 +7,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { JsonLd } from "@/components/ui";
-import { absoluteUrl, pageSeo, reviewProfile, site } from "@/data/siteData";
+import { absoluteUrl, pageSeo, reviewProfile, site, whatsappLink } from "@/data/siteData";
 
 const heading = Gotu({
   variable: "--font-heading",
@@ -130,10 +130,20 @@ export default function RootLayout({ children }) {
             <ClipboardList aria-hidden="true" size={22} />
             <span>Apply now</span>
           </Link>
-          <Link href="/contact#whatsapp" className="fa-wa" aria-label="Chat with us on WhatsApp">
+          <a
+            href={whatsappLink(
+              "Hi The Hatha Yogashala, I would like to know more about your Yoga Teacher Training courses, retreats, and upcoming batch availability.",
+            )}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fa-wa"
+            aria-label="Chat with us on WhatsApp"
+          >
             <SiWhatsapp aria-hidden="true" size={34} />
-            <span className="fa-tooltip" role="tooltip">Chat with us</span>
-          </Link>
+            <span className="fa-tooltip" role="tooltip">
+              Chat with us
+            </span>
+          </a>
         </div>
       </body>
     </html>

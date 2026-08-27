@@ -18,7 +18,7 @@ export default function FounderPreview({ founder = founderData }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column — Founder Image Frame */}
           <div className="lg:col-span-6 relative flex justify-center">
-            <div className="home-founder-media relative w-full max-w-lg aspect-[4/5] min-h-[400px] sm:min-h-[440px] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white group">
+            <div className="home-founder-media relative w-full max-w-sm sm:max-w-md lg:max-w-lg aspect-[4/4.8] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-xl border-2 sm:border-4 border-white group">
               <Image
                 src={founder.image}
                 alt={founder.imageAlt || founder.name}
@@ -29,11 +29,11 @@ export default function FounderPreview({ founder = founderData }) {
               />
 
               {/* Solid dark scrim bar — guaranteed contrast, no gradient/opacity guessing */}
-              <div className="absolute bottom-0 left-0 right-0 bg-[var(--brown)] px-6 py-5 space-y-1">
-                <h3 className="text-xl font-serif font-bold text-white">
+              <div className="absolute bottom-0 left-0 right-0 bg-[var(--brown)] px-4 py-3 sm:px-6 sm:py-4 space-y-0.5 sm:space-y-1">
+                <h3 className="text-base sm:text-xl font-serif font-bold text-white">
                   {founder.name}
                 </h3>
-                <p className="text-sm font-medium text-white/85">
+                <p className="text-xs sm:text-sm font-medium text-white/85">
                   {founder.role} · {founder.experience}
                 </p>
               </div>

@@ -17,9 +17,9 @@ export default function AboutPreview({ data = aboutSectionData }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column — Visual Collage */}
           <div className="lg:col-span-6 relative">
-            <div className="relative grid grid-cols-2 gap-4">
+            <div className="relative grid grid-cols-2 gap-3 sm:gap-4">
               {/* Primary Main Photo */}
-              <div className="home-about-main col-span-2 rounded-[28px] overflow-hidden shadow-xl aspect-[16/11] min-h-[260px] sm:min-h-[300px] relative group">
+              <div className="home-about-main col-span-2 rounded-2xl sm:rounded-[28px] overflow-hidden shadow-lg aspect-[16/10] sm:aspect-[16/11] relative group">
                 <Media
                   src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp"
                   alt="Students learning traditional Hatha Yoga alignment in Goa shala"
@@ -27,13 +27,13 @@ export default function AboutPreview({ data = aboutSectionData }) {
                   sizes="(max-width: 1024px) 100vw, 45vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                <span className="absolute bottom-4 left-4 rounded-full bg-white/90 backdrop-blur-md px-3.5 py-1 text-[13.5px] font-bold text-[var(--brown)] shadow-sm">
+                <span className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-xs sm:text-[13.5px] font-bold text-[var(--brown)] shadow-sm">
                   Goa Campus Shala
                 </span>
               </div>
 
               {/* Secondary Sub Photo 1 */}
-              <div className="home-about-sub rounded-[24px] overflow-hidden shadow-md aspect-[4/3.2] min-h-[160px] sm:min-h-[180px] relative">
+              <div className="home-about-sub rounded-xl sm:rounded-[24px] overflow-hidden shadow-md aspect-[4/3] relative">
                 <Media
                   src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp"
                   alt="Pranayama and meditation session at Hatha Yogashala Goa"
@@ -43,7 +43,7 @@ export default function AboutPreview({ data = aboutSectionData }) {
               </div>
 
               {/* Secondary Sub Photo 2 */}
-              <div className="home-about-sub rounded-[24px] overflow-hidden shadow-md aspect-[4/3.2] min-h-[160px] sm:min-h-[180px] relative">
+              <div className="home-about-sub rounded-xl sm:rounded-[24px] overflow-hidden shadow-md aspect-[4/3] relative">
                 <Media
                   src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-02.webp"
                   alt="Students relaxing and restoring in the quiet coastal setting of North Goa"
