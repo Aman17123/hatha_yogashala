@@ -20,17 +20,17 @@ export default function FAQ({
       id="faq"
     >
       <Container>
-        {/* Mobile Header (Shown on stacked mobile layout) */}
-        <div className="lg:hidden mb-8">
-          <SectionHeading eyebrow={eyebrow} title={title} text={text} />
+        {/* Mobile Header */}
+        <div className="lg:hidden mb-6 text-center">
+          <SectionHeading eyebrow={eyebrow} title={title} text={text} align="center" />
         </div>
 
         {/* Two-Column Sticky Scroll Container */}
-        <div className="relative grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-10">
-          {/* Left Column — Sticky Container (Desktop) */}
-          <div className="space-y-6 lg:sticky lg:top-24 lg:self-start">
+        <div className="relative grid grid-cols-1 items-start gap-6 lg:grid-cols-2 lg:gap-10">
+          {/* Left Column — Sticky Container (Desktop Only) */}
+          <div className="hidden lg:block space-y-6 lg:sticky lg:top-24 lg:self-start">
             {/* Header info (Desktop) */}
-            <div className="hidden lg:block">
+            <div>
               <SectionHeading eyebrow={eyebrow} title={title} text={text} />
             </div>
 
@@ -107,15 +107,15 @@ export default function FAQ({
             </div>
           </div>
 
-          {/* Right Column — Scrollable Questions */}
-          <div className="space-y-3">
+          {/* Right Column — Accordion Questions */}
+          <div className="space-y-2.5 sm:space-y-3">
             <MobileStickyBar
               left={
                 <div className="flex items-baseline gap-2">
-                  <span className="font-heading text-xl font-medium leading-none text-[var(--coral-dark)]">
+                  <span className="font-heading text-lg font-medium leading-none text-[var(--coral-dark)]">
                     {String(activeIndex + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-[13.5px] font-bold uppercase tracking-widest text-[var(--muted)]">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[var(--muted)]">
                     / {String(questions.length).padStart(2, "0")} FAQs
                   </span>
                 </div>
@@ -124,7 +124,7 @@ export default function FAQ({
                 <ButtonLink
                   href="/contact"
                   variant="primary"
-                  className="!px-4 !py-2.5 text-[13.5px]"
+                  className="!px-3.5 !py-2 text-xs"
                 >
                   <span>Ask Us</span>
                 </ButtonLink>
@@ -136,23 +136,23 @@ export default function FAQ({
               return (
                 <article
                   key={q.id}
-                  className={`rounded-[22px] border p-4 transition-all duration-300 lg:p-5 ${
+                  className={`rounded-2xl sm:rounded-[22px] border p-3.5 sm:p-4 lg:p-5 transition-all duration-300 ${
                     isActive
-                      ? "border-[var(--coral-dark)] bg-white shadow-lg shadow-[var(--coral-dark)]/10"
-                      : "bg-white/70 border-[var(--border)] hover:bg-white hover:border-[var(--coral-dark)]/40 opacity-85 hover:opacity-100"
+                      ? "border-[var(--coral-dark)] bg-white shadow-md shadow-[var(--coral-dark)]/10"
+                      : "bg-white/80 border-[var(--border)] hover:bg-white hover:border-[var(--coral-dark)]/40"
                   }`}
                 >
                   <button
                     type="button"
-                    onClick={() => setActiveIndex(index)}
+                    onClick={() => setActiveIndex(isActive ? -1 : index)}
                     aria-expanded={isActive}
-                    className="flex w-full cursor-pointer items-start gap-4 border-0 bg-transparent p-0 text-left"
+                    className="flex w-full cursor-pointer items-start gap-2.5 sm:gap-3.5 border-0 bg-transparent p-0 text-left"
                   >
                     {/* Number Badge */}
                     <span
-                      className={`grid size-9 shrink-0 place-items-center rounded-full font-heading text-[13.5px] font-normal transition-colors duration-300 ${
+                      className={`grid size-7 sm:size-8 shrink-0 place-items-center rounded-full font-heading text-xs sm:text-[13px] font-semibold transition-colors duration-300 mt-0.5 ${
                         isActive
-                          ? "bg-[var(--coral-dark)] text-white shadow-md shadow-[var(--coral-dark)]/20"
+                          ? "bg-[var(--coral-dark)] text-white shadow-sm"
                           : "bg-[var(--cream)] text-[var(--coral-dark)]"
                       }`}
                     >
@@ -160,7 +160,7 @@ export default function FAQ({
                     </span>
 
                     <h3
-                      className={`min-w-0 flex-1 font-heading text-base font-normal leading-snug transition-colors duration-300 lg:text-lg ${
+                      className={`min-w-0 flex-1 font-heading text-sm sm:text-base lg:text-lg font-semibold leading-snug transition-colors duration-300 ${
                         isActive
                           ? "text-[var(--coral-dark)]"
                           : "text-[var(--brown)]"
@@ -170,19 +170,19 @@ export default function FAQ({
                     </h3>
                   </button>
                   {isActive && (
-                    <div className="ml-[52px]">
-                      <p className="mt-2 text-[15px] text-[var(--muted)] leading-relaxed">
+                    <div className="mt-2.5 pt-2 border-t border-[var(--border)]/60 sm:border-t-0 sm:pt-0 sm:ml-10">
+                      <p className="text-xs sm:text-sm text-[var(--muted)] leading-relaxed font-normal">
                         {q.description}
                       </p>
                       {q.bullets?.length > 0 && (
-                        <ul className="mt-3 space-y-1.5 border-t border-[var(--border)]/60 pt-3">
+                        <ul className="mt-2.5 space-y-1.5 border-t border-[var(--border)]/50 pt-2.5">
                           {q.bullets.map((bullet, bIdx) => (
                             <li
                               key={bIdx}
-                              className="flex items-start gap-2.5 text-[14px] text-[var(--muted)] font-medium leading-normal"
+                              className="flex items-start gap-2 text-xs sm:text-[13px] text-[var(--muted)] font-medium leading-normal"
                             >
                               <CheckCircle2
-                                size={15}
+                                size={14}
                                 className="mt-0.5 shrink-0 text-[var(--coral-dark)]"
                               />
                               <span>{bullet}</span>
@@ -195,6 +195,17 @@ export default function FAQ({
                 </article>
               );
             })}
+
+            {/* Mobile Bottom CTA */}
+            <div className="pt-3 text-center lg:hidden">
+              <ButtonLink
+                href="/contact"
+                variant="primary"
+                className="w-full justify-center !py-3 text-xs sm:text-sm font-bold shadow-sm"
+              >
+                <span>Still Have Questions? Contact Our Team</span>
+              </ButtonLink>
+            </div>
           </div>
         </div>
       </Container>
