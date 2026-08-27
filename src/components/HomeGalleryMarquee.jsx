@@ -81,11 +81,11 @@ export default function HomeGalleryMarquee() {
 
   return (
     <section
-      className="py-8 md:py-10 bg-white overflow-hidden"
+      className="py-5 md:py-7 bg-white overflow-hidden"
       id="gallery-preview"
       aria-label="Photo gallery preview"
     >
-      <Container className="mb-5 md:mb-6">
+      <Container className="mb-3 md:mb-4">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>
             <p className="text-[12px] font-extrabold uppercase tracking-[0.16em] text-[var(--coral-dark)]">
@@ -108,20 +108,20 @@ export default function HomeGalleryMarquee() {
         </div>
       </Container>
 
-      <div className="gallery-marquee-container space-y-3 md:space-y-4">
+      <div className="gallery-marquee-container space-y-2 md:space-y-2.5 xl:space-y-3">
         {/* Row 1 — scroll left (RTL) */}
         <div className="relative w-full overflow-hidden">
           <div className="gallery-marquee-rtl">
             {fullRow1.map((img, index) => (
               <div
                 key={`r1-${index}`}
-                className="relative shrink-0 w-[260px] sm:w-[320px] md:w-[360px] lg:w-[400px] aspect-[16/11] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
+                className="relative shrink-0 w-[190px] sm:w-[230px] md:w-[270px] lg:w-[300px] xl:w-[345px] 2xl:w-[380px] aspect-[16/10] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
               >
                 <Image
                   src={img.src}
                   alt={img.alt}
                   fill
-                  sizes="(max-width: 640px) 260px, (max-width: 768px) 320px, 400px"
+                  sizes="(max-width: 640px) 190px, (max-width: 768px) 230px, (max-width: 1024px) 270px, (max-width: 1280px) 300px, (max-width: 1536px) 345px, 380px"
                   className="object-cover hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
@@ -136,13 +136,13 @@ export default function HomeGalleryMarquee() {
             {fullRow2.map((img, index) => (
               <div
                 key={`r2-${index}`}
-                className="relative shrink-0 w-[260px] sm:w-[320px] md:w-[360px] lg:w-[400px] aspect-[16/11] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
+                className="relative shrink-0 w-[190px] sm:w-[230px] md:w-[270px] lg:w-[300px] xl:w-[345px] 2xl:w-[380px] aspect-[16/10] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
               >
                 <Image
                   src={img.src}
                   alt={img.alt}
                   fill
-                  sizes="(max-width: 640px) 260px, (max-width: 768px) 320px, 400px"
+                  sizes="(max-width: 640px) 190px, (max-width: 768px) 230px, (max-width: 1024px) 270px, (max-width: 1280px) 300px, (max-width: 1536px) 345px, 380px"
                   className="object-cover hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />

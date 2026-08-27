@@ -424,6 +424,10 @@ export const navigation = [
     label: "Holidays",
     children: [
       {
+        label: "All Yoga Holidays",
+        href: "/holidays",
+      },
+      {
         label: "3 Day Yoga Holiday in Goa",
         href: "/holidays/3-day-yoga-holiday-goa",
       },
