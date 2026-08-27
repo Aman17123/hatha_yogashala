@@ -443,7 +443,7 @@ export function FinalCTA({
       <Container className="relative z-10 text-center flex flex-col items-center">
         <div className="mb-4 relative w-40 sm:w-48 h-11 sm:h-12 rounded-2xl bg-white/95 backdrop-blur-md px-3.5 py-2 shadow-md border border-white/80">
           <Image
-            src="/images/logo.png"
+            src="/images/The-Hatha-Yogashala-logo.png"
             alt="The Hatha Yogashala Official Logo"
             fill
             className="object-contain p-1"

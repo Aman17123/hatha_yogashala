@@ -6,6 +6,9 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 2678400,
   },
+  experimental: {
+    cpus: 2,
+  },
 };
 
 export default nextConfig;

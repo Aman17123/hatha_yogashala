@@ -355,30 +355,34 @@ export const navigation = [
     ],
   },
   {
-    label: "Yoga Teacher Training",
+    label: "Yoga TTC",
     children: [
       {
-        label: "100-Hour Yoga Teacher Training",
+        label: "Yoga Teacher Training Courses in Goa",
+        href: "/yoga-teacher-training",
+      },
+      {
+        label: "100 Hour Yoga Teacher Training in Goa",
         href: "/courses/100-hour-yoga-teacher-training-goa",
       },
       {
-        label: "200-Hour Yoga Teacher Training",
+        label: "200 Hour Yoga Teacher Training in Goa",
         href: "/courses/200-hour-yoga-teacher-training-goa",
       },
       {
-        label: "22-Day 200-Hour Flexible Yoga Training",
+        label: "22-Day 200 Hour Flexible Yoga Teacher Training in Goa",
         href: "/courses/22-day-200-hour-flexible-yoga-teacher-training-goa",
       },
       {
-        label: "200-Hour Ashtanga Vinyasa Yoga Training",
+        label: "200 Hour Ashtanga Vinyasa Yoga Teacher Training in Goa",
         href: "/courses/200-hour-ashtanga-vinyasa-yoga-teacher-training-goa",
       },
       {
-        label: "300-Hour Yoga Teacher Training",
+        label: "300 Hour Yoga Teacher Training in Goa",
         href: "/courses/300-hour-yoga-teacher-training-goa",
       },
       {
-        label: "Aerial Yoga Teacher Training",
+        label: "Aerial Yoga Teacher Training in Goa",
         href: "/courses/aerial-yoga-teacher-training-goa",
       },
     ],
@@ -387,11 +391,23 @@ export const navigation = [
     label: "Retreats",
     children: [
       {
-        label: "All Retreats Overview",
+        label: "Yoga and Meditation Retreat in Goa",
         href: "/retreats",
       },
       {
-        label: "5-Day Awaken & Align",
+        label: "3 Day Yoga Retreat",
+        href: "/retreats/3-day-yoga-retreat-goa",
+      },
+      {
+        label: "5 Day Yoga Retreat",
+        href: "/retreats/5-day-yoga-retreat-goa",
+      },
+      {
+        label: "7 Day Yoga Retreat",
+        href: "/retreats/7-day-yoga-retreat-goa",
+      },
+      {
+        label: "5 Day Awaken & Align Retreat",
         href: "/retreats/5-day-awaken-and-align-retreat-goa",
       },
       {
@@ -405,18 +421,6 @@ export const navigation = [
       {
         label: "Yoga Festivals in Goa",
         href: "/retreats/yoga-festivals-in-goa",
-      },
-      {
-        label: "3-Day Yoga Retreat",
-        href: "/retreats/3-day-yoga-retreat-goa",
-      },
-      {
-        label: "5-Day Yoga Retreat",
-        href: "/retreats/5-day-yoga-retreat-goa",
-      },
-      {
-        label: "7-Day Yoga Retreat",
-        href: "/retreats/7-day-yoga-retreat-goa",
       },
     ],
   },
@@ -438,6 +442,39 @@ export const navigation = [
       {
         label: "7 Day Yoga Holiday in Goa",
         href: "/holidays/7-day-yoga-holiday-goa",
+      },
+    ],
+  },
+  {
+    label: "Online Pranayama",
+    children: [
+      {
+        label: "Pre-Pranayama Foundation",
+        href: "/pranayama/pre-pranayama-foundation",
+      },
+      {
+        label: "Beginner Pranayama",
+        href: "/pranayama/beginner-pranayama",
+      },
+      {
+        label: "Intermediate Pranayama",
+        href: "/pranayama/intermediate-pranayama",
+      },
+      {
+        label: "Advanced Pranayama",
+        href: "/pranayama/advanced-pranayama",
+      },
+      {
+        label: "Meditation & Breathing for Stress Relief",
+        href: "/pranayama/stress-relief-course",
+      },
+      {
+        label: "Daily Pranayama Classes",
+        href: "/pranayama/daily-pranayama-subscription",
+      },
+      {
+        label: "Online Yoga and Meditation",
+        href: "/pranayama/online-yoga-meditation",
       },
     ],
   },

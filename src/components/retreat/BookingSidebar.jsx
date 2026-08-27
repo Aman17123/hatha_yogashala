@@ -58,7 +58,7 @@ export default function BookingSidebar({
           <div className="flex items-center justify-between gap-2.5 mb-3.5 pb-3 border-b border-[var(--border)]/70">
             <div className="relative w-32 h-8 shrink-0">
               <Image
-                src="/images/logo.png"
+                src="/images/The-Hatha-Yogashala-logo.png"
                 alt="The Hatha Yogashala Logo"
                 fill
                 className="object-contain object-left"

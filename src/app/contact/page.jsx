@@ -127,7 +127,7 @@ export default function ContactPage() {
             <div className="flex items-center justify-between gap-3.5 p-4 rounded-2xl bg-white border border-[var(--border)] shadow-xs mb-2">
               <div className="relative w-36 h-9 shrink-0">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/The-Hatha-Yogashala-logo.png"
                   alt="The Hatha Yogashala Official Logo"
                   fill
                   className="object-contain object-left"

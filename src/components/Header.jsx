@@ -66,32 +66,86 @@ const aboutColumns = [
 
 const yogaTtcChildren = [
   {
-    label: "Yoga Teacher Training Course Overview",
+    label: "Yoga Teacher Training Courses in Goa",
     href: "/yoga-teacher-training",
   },
   {
-    label: "100 Hour Yoga Teacher Training Goa",
+    label: "100 Hour Yoga Teacher Training in Goa",
     href: "/courses/100-hour-yoga-teacher-training-goa",
   },
   {
-    label: "200 Hour Yoga Teacher Training Goa",
+    label: "200 Hour Yoga Teacher Training in Goa",
     href: "/courses/200-hour-yoga-teacher-training-goa",
   },
   {
-    label: "22-Day 200 Hour Flexible Yoga Training Goa",
+    label: "22-Day 200 Hour Flexible Yoga Teacher Training in Goa",
     href: "/courses/22-day-200-hour-flexible-yoga-teacher-training-goa",
   },
   {
-    label: "200 Hour Ashtanga Vinyasa Yoga Training Goa",
+    label: "200 Hour Ashtanga Vinyasa Yoga Teacher Training in Goa",
     href: "/courses/200-hour-ashtanga-vinyasa-yoga-teacher-training-goa",
   },
   {
-    label: "300 Hour Yoga Teacher Training Goa",
+    label: "300 Hour Yoga Teacher Training in Goa",
     href: "/courses/300-hour-yoga-teacher-training-goa",
   },
   {
-    label: "Aerial Yoga Teacher Training Goa",
+    label: "Aerial Yoga Teacher Training in Goa",
     href: "/courses/aerial-yoga-teacher-training-goa",
+  },
+];
+
+const retreatChildren = [
+  {
+    label: "Yoga and Meditation Retreat in Goa",
+    href: "/retreats",
+  },
+  {
+    label: "3 Day Yoga Retreat in Goa",
+    href: "/retreats/3-day-yoga-retreat-goa",
+  },
+  {
+    label: "5 Day Yoga Retreat in Goa",
+    href: "/retreats/5-day-yoga-retreat-goa",
+  },
+  {
+    label: "7 Day Yoga Retreat in Goa",
+    href: "/retreats/7-day-yoga-retreat-goa",
+  },
+  {
+    label: "5 Day Awaken & Align Retreat in Goa",
+    href: "/retreats/5-day-awaken-and-align-retreat-goa",
+  },
+  {
+    label: "Aerial Yoga Retreat in Goa",
+    href: "/retreats/aerial-yoga-retreat-goa",
+  },
+  {
+    label: "Ayurvedic Massage Therapy in Goa",
+    href: "/retreats/ayurvedic-massage-therapy-goa",
+  },
+  {
+    label: "Yoga Festivals in Goa",
+    href: "/retreats/yoga-festivals-in-goa",
+  },
+];
+
+const holidayChildren = [
+  {
+    label: "All Yoga Holidays",
+    href: "/holidays",
+  },
+  {
+    label: "3 Day Yoga Holiday in Goa",
+    href: "/holidays/3-day-yoga-holiday-goa",
+  },
+  {
+    label: "5 Day Yoga Holiday in Goa",
+    href: "/holidays/5-day-yoga-holiday-goa",
+  },
+  {
+    label: "7 Day Yoga Holiday in Goa",
+    href: "/holidays/7-day-yoga-holiday-goa",
   },
 ];
 
@@ -126,33 +180,13 @@ const pranayamaChildren = [
   },
 ];
 
-const hiddenMainItems = new Set([
-  "home",
-  "about",
-  "aboutus",
-  "yogattc",
-  "yttc",
-  "yogateachertraining",
-  "yogateachertrainingcourse",
-  "yogateachertrainingcourses",
-  "pranayama",
-  "pranayamabreathwork",
-  "pranayamaandbreathwork",
-  "gallery",
-  "blog",
-  "blogs",
-  "contact",
-  "contactus",
-]);
-
 const navbarNavigation = [
   { label: "Home", href: "/" },
   { label: "About", columns: aboutColumns },
   { label: "Yoga TTC", children: yogaTtcChildren },
-  { label: "Pranayama & Breathwork", children: pranayamaChildren },
-  ...navigation.filter(
-    (item) => !hiddenMainItems.has(normalizeLabel(item.label)),
-  ),
+  { label: "Retreats", children: retreatChildren },
+  { label: "Holidays", children: holidayChildren },
+  { label: "Online Pranayama", children: pranayamaChildren },
 ];
 
 const contactHref = findHref(["Contact", "Contact Us"], "/contact");
@@ -295,7 +329,7 @@ export default function Navbar() {
               aria-label={`${site.name} home`}
             >
               <Image
-                src="/images/logo.png"
+                src="/images/The-Hatha-Yogashala-logo.png"
                 alt={`${site.name} logo`}
                 width={175}
                 height={70}
@@ -414,12 +448,6 @@ export default function Navbar() {
 
             <div className="flex items-center gap-3 font-sans">
               <Link
-                href={contactHref}
-                className="relative isolate hidden items-center justify-center overflow-hidden whitespace-nowrap rounded-full border border-[var(--coral-dark)] px-4 py-2.5 font-sans text-[13.5px] font-semibold uppercase tracking-[0.12em] text-[var(--coral-dark)] transition-[color,border-color,transform] duration-300 before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:bg-[var(--coral-dark)] before:transition-transform before:duration-300 before:ease-out hover:-translate-y-0.5 hover:border-[var(--coral-dark)] hover:text-white hover:before:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral-dark)]/30 motion-reduce:transform-none xl:inline-flex"
-              >
-                Contact Us
-              </Link>
-              <Link
                 href="/apply"
                 aria-label="Reserve your spot"
                 className="group relative isolate hidden items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full border border-[var(--coral)] bg-[var(--coral)] px-5 py-2.5 font-sans text-[13.5px] font-semibold uppercase tracking-[0.12em] !text-white shadow-[0_8px_20px_rgba(47,79,62,0.24)] transition-all duration-300 ease-out before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:rounded-full before:bg-white before:transition-transform before:duration-300 before:ease-out hover:-translate-y-0.5 hover:!text-black hover:border-white hover:shadow-[0_12px_26px_rgba(0,0,0,0.18)] hover:before:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral)]/40 focus-visible:ring-offset-2 xl:inline-flex"
@@ -459,7 +487,7 @@ export default function Navbar() {
           <div className="flex h-dvh flex-col bg-[var(--cream)] text-[var(--brown)]">
             <div className="flex items-center justify-between border-b border-[var(--brown)]/10 px-5 py-4">
               <Image
-                src="/images/logo.png"
+                src="/images/The-Hatha-Yogashala-logo.png"
                 alt={`${site.name} logo`}
                 width={130}
                 height={52}

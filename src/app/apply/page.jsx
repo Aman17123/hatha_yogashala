@@ -31,7 +31,7 @@ export default function ApplyPage() {
             <div className="card card-body text-center flex flex-col items-center p-6 border border-[var(--border)] bg-gradient-to-b from-white to-[var(--cream)]/60 rounded-3xl shadow-sm mb-4">
               <div className="relative w-48 h-14 mb-2">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/The-Hatha-Yogashala-logo.png"
                   alt="The Hatha Yogashala Official Logo"
                   fill
                   className="object-contain"

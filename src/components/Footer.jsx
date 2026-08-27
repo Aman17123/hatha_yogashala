@@ -11,8 +11,8 @@ const quickLinks = [
   ["About Us", "/about"],
   ["Our Founder", "/founder"],
   ["Our Teachers", "/teachers"],
-  ["Certification", "/certification"],
   ["Accommodation", "/accommodation"],
+  ["Contact Us", "/contact"],
   ["Blog & Journal", "/blog"],
   ["Photo Gallery", "/gallery"],
 ];
@@ -147,7 +147,7 @@ export default function Footer() {
                 aria-label={`${site.name} home`}
               >
                 <Image
-                  src="/images/logo.png"
+                  src="/images/The-Hatha-Yogashala-logo.png"
                   alt="Hatha Yogashala"
                   width={170}
                   height={68}

@@ -82,7 +82,7 @@ export default function RootLayout({ children }) {
     "@type": "EducationalOrganization",
     name: site.name,
     url: site.url,
-    logo: absoluteUrl("/images/logo.png"),
+    logo: absoluteUrl("/images/The-Hatha-Yogashala-logo.png"),
     image: absoluteUrl(site.defaultImage),
     description: site.description,
     telephone: site.contact.phone,

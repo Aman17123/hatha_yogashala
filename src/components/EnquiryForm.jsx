@@ -106,7 +106,7 @@ export default function EnquiryForm({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 sm:p-4 mb-5 rounded-2xl bg-[var(--surface)]/70 border border-[var(--border)]">
         <div className="relative w-36 sm:w-44 h-10 sm:h-12 shrink-0">
           <Image
-            src="/images/logo.png"
+            src="/images/The-Hatha-Yogashala-logo.png"
             alt="The Hatha Yogashala Official Logo"
             fill
             className="object-contain object-left"
