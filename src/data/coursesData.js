@@ -2420,11 +2420,10 @@ export const retreats = [
     days: 3,
     name: "Yoga Festival in Goa",
     category: "Festival & Community",
-    hidePricingAndSidebar: true,
     description:
       "Once a year, Hatha Yogashala opens its doors for a celebration of yoga in all its forms. Our Yoga Festival brings together practitioners, teachers, musicians, and seekers from around the world for days of shared practice, workshops, live music, and community — a joyful gathering for anyone who loves yoga, in whatever form that takes.",
     whatIs: {
-      heading: "What Is This",
+      heading: "What Is This Festival Gathering",
       paragraphs: [
         "The Yoga Festival is a multi-day gathering featuring a rotating lineup of yoga styles, workshops, and wellness sessions led by teachers from different traditions and backgrounds — from Hatha and Vinyasa to Kundalini, sound healing, and meditation. Alongside daily practice sessions, the festival includes live kirtan and music evenings, communal meals, and open spaces for connection between practitioners of all levels. It's designed to feel less like a structured course and more like a celebration — an opportunity to sample new styles, meet fellow yogis, and soak in the energy of a shared community event.",
       ],
@@ -2464,9 +2463,9 @@ export const retreats = [
         text: "I came alone and left with a community. The festival is as much about connection as it is about yoga.",
       },
     ],
-    image: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
-    date: "Annual festival dates available on enquiry",
-    availability: "Inquire Now",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-birthday-celebration-community-gathering-01.webp",
+    date: "Flexible & Annual dates available on enquiry",
+    availability: "Booking Open",
     duration: "3 days",
     level: "All levels",
     location: "Querim, North Goa, India",

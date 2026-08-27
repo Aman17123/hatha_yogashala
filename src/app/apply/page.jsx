@@ -1,4 +1,5 @@
-import { Check, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import { Check, ShieldCheck, Sparkles } from "lucide-react";
 import EnquiryForm from "@/components/EnquiryForm";
 import { Container, PageHero, SectionHeading } from "@/components/ui";
 import { pageMetadata } from "@/data/siteData";
@@ -26,6 +27,27 @@ export default function ApplyPage() {
             <EnquiryForm />
           </div>
           <aside className="apply-aside">
+            {/* Official School Logo & Accreditation Box */}
+            <div className="card card-body text-center flex flex-col items-center p-6 border border-[var(--border)] bg-gradient-to-b from-white to-[var(--cream)]/60 rounded-3xl shadow-sm mb-4">
+              <div className="relative w-48 h-14 mb-2">
+                <Image
+                  src="/images/logo.png"
+                  alt="The Hatha Yogashala Official Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <h3 className="font-heading text-lg font-bold text-[var(--brown)]">
+                The Hatha Yogashala Goa
+              </h3>
+              <p className="text-[11px] text-[var(--coral-dark)] font-extrabold uppercase tracking-wider mt-0.5">
+                Yoga Alliance USA Registered School
+              </p>
+              <p className="text-xs text-[var(--muted)] mt-2 leading-relaxed">
+                Direct Ashram Admissions · Querim Beach, North Goa, India
+              </p>
+            </div>
+
             <div className="card card-body">
               <ShieldCheck aria-hidden="true" />
               <h2>Before you submit</h2>
@@ -43,12 +65,6 @@ export default function ApplyPage() {
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="notice">
-              <p>
-                <strong>Delivery status:</strong> the form returns an honest
-                configuration message until ENQUIRY_WEBHOOK_URL is added.
-              </p>
             </div>
           </aside>
         </Container>

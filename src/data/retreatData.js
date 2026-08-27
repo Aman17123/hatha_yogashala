@@ -151,6 +151,20 @@ export const retreatHighlights = [
   "Beachside Living Near Arambol & Keri Beach",
 ];
 
+export const standardRetreatSchedule = [
+  ["06:30 AM - 07:00 AM", "Morning Herbal Tea & Awakening"],
+  ["07:00 AM - 08:30 AM", "Classical Hatha / Vinyasa Yoga Asana & Alignment"],
+  ["08:30 AM - 09:30 AM", "Pranayama, Shatkarma & Guided Breathwork"],
+  ["09:30 AM - 10:30 AM", "Sattvic Vegetarian Breakfast Buffet"],
+  ["11:00 AM - 01:00 PM", "Vedic Philosophy, Anatomy Workshop or Free Time"],
+  ["01:00 PM - 02:00 PM", "Nutritious Ashram Lunch"],
+  ["02:00 PM - 04:30 PM", "Ayurvedic Massage, Rest, Beach Walk or Excursion"],
+  ["04:30 PM - 06:00 PM", "Restorative Yoga / Yin Yoga / Wall Rope Alignment"],
+  ["06:00 PM - 07:00 PM", "Sunset Meditation, Trataka or Sound Healing"],
+  ["07:30 PM - 08:30 PM", "Wholesome Vegetarian Dinner"],
+  ["08:30 PM - 09:30 PM", "Kirtan, Satsang, Philosophy Talk or Silent Reflection"],
+];
+
 export const goaExperiences = [
   {
     title: "Temple Visits (Cultural Heritage Tour)",

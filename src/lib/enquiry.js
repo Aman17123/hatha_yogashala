@@ -3,10 +3,14 @@ const limits = {
   email: 120,
   phone: 16,
   country: 80,
+  gender: 40,
+  age: 10,
   course: 120,
   batch: 80,
-  room: 40,
+  room: 60,
+  diet: 60,
   experience: 600,
+  health: 600,
   pickup: 80,
   message: 1500,
 };
@@ -41,8 +45,7 @@ export function validateEnquiry(input = {}) {
   if (!data.name) errors.name = "Enter your full name.";
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.email = "Enter a valid email address.";
   if (!/^\+[0-9]{6,15}$/.test(data.phone)) errors.phone = "Enter a valid phone number with country code.";
-  if (!data.country) errors.country = "Enter your country.";
-  if (!data.course) errors.course = "Choose a course, retreat, or general enquiry.";
+  if (!data.course) errors.course = "Choose a course, retreat, or inquiry topic.";
   if (input.consent !== true) errors.consent = "Consent is required before sending.";
 
   return { data, errors, valid: Object.keys(errors).length === 0 };

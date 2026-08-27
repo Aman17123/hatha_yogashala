@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { LoaderCircle, Send } from "lucide-react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
@@ -101,7 +102,34 @@ export default function EnquiryForm({
       noValidate={false}
       data-conversion-form={formIdentifier}
     >
+      {/* Official School Logo & Verification Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 sm:p-4 mb-5 rounded-2xl bg-[var(--surface)]/70 border border-[var(--border)]">
+        <div className="relative w-36 sm:w-44 h-10 sm:h-12 shrink-0">
+          <Image
+            src="/images/logo.png"
+            alt="The Hatha Yogashala Official Logo"
+            fill
+            className="object-contain object-left"
+          />
+        </div>
+        <div className="min-w-0 sm:text-right">
+          <span className="block text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-[var(--coral-dark)]">
+            Official Ashram Registration Desk
+          </span>
+          <strong className="block text-xs sm:text-sm font-bold text-[var(--brown)] truncate">
+            {retreatName || propCourse || "The Hatha Yogashala · Querim, North Goa"}
+          </strong>
+        </div>
+      </div>
+
       <div className="form-grid">
+        {/* === Section 1: Contact & Personal Details === */}
+        <div className="col-span-full border-b border-[var(--border)]/60 pb-2 mb-1">
+          <span className="text-[11px] font-extrabold uppercase tracking-widest text-[var(--coral-dark)]">
+            1. Personal & Contact Information
+          </span>
+        </div>
+
         <Field label="Full name" name="name" required>
           <input
             id="name"
@@ -109,23 +137,25 @@ export default function EnquiryForm({
             autoComplete="name"
             maxLength="80"
             required
-            placeholder="Your full name"
+            placeholder="e.g. Maya Sharma"
           />
         </Field>
-        <Field label="Email" name="email" required>
+
+        <Field label="Email address" name="email" required>
           <input
             id="email"
             name="email"
             type="email"
             autoComplete="email"
             maxLength="120"
-            placeholder="you@example.com"
+            placeholder="maya@example.com"
             pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
             title="Enter a valid email address like name@example.com"
             required
           />
         </Field>
-        <Field label="Phone / WhatsApp" name="phone" hint="Includes country code" required>
+
+        <Field label="WhatsApp / Phone" name="phone" hint="With country code" required>
           <PhoneInput
             id="phone"
             name="phone"
@@ -138,18 +168,50 @@ export default function EnquiryForm({
             onChange={setPhone}
           />
         </Field>
-        <Field label="Country" name="country" required>
+
+        <Field label="Country of residence" name="country" required={!compact}>
           <input
             id="country"
             name="country"
             autoComplete="country-name"
             maxLength="80"
-            required
-            placeholder="Your country of residence"
+            required={!compact}
+            placeholder="e.g. Germany, UK, USA, India"
           />
         </Field>
 
-        <Field label="Course or retreat" name="course" required>
+        {!compact && (
+          <>
+            <Field label="Gender" name="gender" hint="For room & dorm allotment">
+              <select id="gender" name="gender" defaultValue="Female">
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+                <option value="Non-binary">Non-binary</option>
+                <option value="Prefer not to say">Prefer not to say</option>
+              </select>
+            </Field>
+
+            <Field label="Age" name="age" hint="Optional">
+              <input
+                id="age"
+                name="age"
+                type="number"
+                min="16"
+                max="90"
+                placeholder="e.g. 28"
+              />
+            </Field>
+
+            {/* === Section 2: Program & Accommodation === */}
+            <div className="col-span-full border-b border-[var(--border)]/60 pb-2 mb-1 mt-4">
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-[var(--coral-dark)]">
+                2. Program & Stay Selection
+              </span>
+            </div>
+          </>
+        )}
+
+        <Field label={compact ? "Inquiry topic or program" : "Program / Course"} name="course" required>
           <select
             id="course"
             name="course"
@@ -168,21 +230,21 @@ export default function EnquiryForm({
               ))
             ) : (
               <>
-                <optgroup label="Yoga Teacher Training (TTC)">
+                <optgroup label="Yoga Teacher Training Courses (TTC)">
                   {courses.map((c) => (
                     <option value={c.name} key={c.slug}>
                       {c.name}
                     </option>
                   ))}
                 </optgroup>
-                <optgroup label="Yoga Retreats">
+                <optgroup label="Yoga Retreats in Goa">
                   {retreats.map((r) => (
                     <option value={r.name} key={r.slug}>
                       {r.name}
                     </option>
                   ))}
                 </optgroup>
-                <option value="General enquiry">General enquiry</option>
+                <option value="General admission inquiry">General admission inquiry</option>
               </>
             )}
           </select>
@@ -190,58 +252,111 @@ export default function EnquiryForm({
 
         {!compact && (
           <>
-            <Field label="Preferred batch" name="batch">
+            <Field label="Preferred batch / dates" name="batch">
               <input
                 id="batch"
                 name="batch"
                 defaultValue={propBatch}
-                placeholder="Month or dates"
+                placeholder="e.g. 1st of upcoming month / October 2026"
                 maxLength="80"
               />
             </Field>
-            <Field label="Room preference" name="room">
-              <select id="room" name="room" defaultValue="Not decided">
+
+            <Field label="Room category preference" name="room">
+              <select id="room" name="room" defaultValue="Private AC Wooden Cottage">
                 {Array.isArray(roomOptions) && roomOptions.length > 0 ? (
                   roomOptions.map((opt) => {
                     const label = typeof opt === "string" ? opt : opt.facility || opt.type || opt.name;
-                    return <option key={label}>{label}</option>;
+                    return <option key={label} value={label}>{label}</option>;
                   })
                 ) : (
                   <>
-                    <option>Not decided</option>
-                    <option>Shared room</option>
-                    <option>Private room</option>
+                    <option value="Private AC Wooden Cottage">Private AC Wooden Cottage</option>
+                    <option value="Twin Sharing AC Room">Twin Sharing AC Room (2 people)</option>
+                    <option value="Deluxe AC Dormitory">Deluxe AC Dormitory (Budget-friendly)</option>
+                    <option value="Undecided - Please advise">Undecided - Please advise</option>
                   </>
                 )}
               </select>
             </Field>
-            <Field label="Yoga experience" name="experience">
-              <textarea
-                id="experience"
-                name="experience"
-                rows="3"
-                maxLength="600"
-                placeholder="Your past yoga practice or goals"
-              />
-            </Field>
-            <Field label="Pickup requirement" name="pickup">
-              <select id="pickup" name="pickup" defaultValue="No">
-                <option>No</option>
-                <option>Yes — please share verified options</option>
+
+            <Field label="Dietary preference" name="diet">
+              <select id="diet" name="diet" defaultValue="Sattvic Vegetarian (Standard)">
+                <option value="Sattvic Vegetarian (Standard)">Sattvic Vegetarian (Standard buffet)</option>
+                <option value="100% Pure Vegan">100% Pure Vegan</option>
+                <option value="Gluten-Free Vegetarian">Gluten-Free Vegetarian</option>
+                <option value="Dairy-Free">Dairy-Free</option>
+                <option value="No Special Restrictions">No Special Restrictions</option>
               </select>
             </Field>
+
+            {/* === Section 3: Yogic Background & Health === */}
+            <div className="col-span-full border-b border-[var(--border)]/60 pb-2 mb-1 mt-4">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[var(--coral-dark)]">
+                3. Yogic Background & Health History
+              </span>
+            </div>
+
+            <Field label="Yoga practice background" name="experience">
+              <select id="experience" name="experience" defaultValue="Regular Practitioner (1–3 years)">
+                <option value="Complete Beginner (Little or no practice)">Complete Beginner (Little or no practice)</option>
+                <option value="Practicing 6 months to 1 year">Practicing 6 months to 1 year</option>
+                <option value="Regular Practitioner (1–3 years)">Regular Practitioner (1–3 years)</option>
+                <option value="Intermediate / Advanced (3+ years)">Intermediate / Advanced (3+ years)</option>
+                <option value="Certified Yoga Teacher looking to upskill">Certified Yoga Teacher looking to upskill</option>
+              </select>
+            </Field>
+
+            <Field label="Airport taxi coordination" name="pickup">
+              <select id="pickup" name="pickup" defaultValue="No, arranging travel independently">
+                <option value="No, arranging travel independently">No, arranging travel independently</option>
+                <option value="Yes — Pickup from MOPA Airport (GOX) ~30 min">Yes — Pickup from MOPA Airport (GOX) ~30 min</option>
+                <option value="Yes — Pickup from Dabolim Airport (GOI) ~60 min">Yes — Pickup from Dabolim Airport (GOI) ~60 min</option>
+                <option value="Yes — Pickup from Pernem / Thivim Train Station">Yes — Pickup from Pernem / Thivim Train Station</option>
+              </select>
+            </Field>
+
+            <div className="col-span-full">
+              <Field
+                label="Health considerations, injuries, or surgeries"
+                name="health"
+                hint="Helps our teachers provide safe alignment modifications"
+              >
+                <textarea
+                  id="health"
+                  name="health"
+                  rows="2"
+                  maxLength="600"
+                  placeholder="e.g. Past lower back stiffness, knee injury, pregnancy, or 'None'"
+                />
+              </Field>
+            </div>
+
+            {/* === Section 4: Questions & Special Notes === */}
+            <div className="col-span-full border-b border-[var(--border)]/60 pb-2 mb-1 mt-4">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[var(--coral-dark)]">
+                4. Questions & Special Requests
+              </span>
+            </div>
           </>
         )}
 
-        <Field label="Message" name="message">
-          <textarea
-            id="message"
-            name="message"
-            rows={compact ? 3 : 5}
-            maxLength="1500"
-            placeholder="Questions, accessibility needs, or health notes"
-          />
-        </Field>
+        <div className="col-span-full">
+          <Field label={compact ? "Your message or question" : "Additional message / questions"} name="message" required={compact}>
+            <textarea
+              id="message"
+              name="message"
+              rows={compact ? 4 : 3}
+              maxLength="1500"
+              required={compact}
+              placeholder={
+                compact
+                  ? "Please share what you would like to ask our Goa team..."
+                  : "Any specific goals, arrival questions, or notes for the faculty..."
+              }
+            />
+          </Field>
+        </div>
       </div>
 
       <label className="honeypot" aria-hidden="true">

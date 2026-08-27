@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   Bus,
@@ -122,6 +123,26 @@ export default function ContactPage() {
             <EnquiryForm compact />
           </div>
           <aside className="contact-aside">
+            {/* Official School Seal Badge */}
+            <div className="flex items-center justify-between gap-3.5 p-4 rounded-2xl bg-white border border-[var(--border)] shadow-xs mb-2">
+              <div className="relative w-36 h-9 shrink-0">
+                <Image
+                  src="/images/logo.png"
+                  alt="The Hatha Yogashala Official Logo"
+                  fill
+                  className="object-contain object-left"
+                />
+              </div>
+              <div className="text-right">
+                <span className="block text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-[var(--coral-dark)]">
+                  Campus Helpline
+                </span>
+                <strong className="block text-xs sm:text-sm font-bold text-[var(--brown)]">
+                  Goa, India
+                </strong>
+              </div>
+            </div>
+
             {contactChannels.map(({ label, value, href, brand, color }) => (
               <a
                 className="contact-card"
@@ -146,10 +167,8 @@ export default function ContactPage() {
                 </div>
               </a>
             ))}
-            <p className="placeholder-note">
-              Public contact details are shared after the school confirms them;
-              the enquiry form remains the reliable first route to the Goa
-              campus team.
+            <p className="text-xs text-[var(--muted)] text-center pt-2 leading-relaxed">
+              Our Goa admissions team is available daily from 8:00 AM to 8:00 PM (IST) to assist you with dates, room availability, and airport arrival.
             </p>
           </aside>
         </Container>

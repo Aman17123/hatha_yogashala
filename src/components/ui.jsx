@@ -440,7 +440,15 @@ export function FinalCTA({
       aria-labelledby="final-cta-title"
     >
       <div className="final-cta-overlay" />
-      <Container className="relative z-10">
+      <Container className="relative z-10 text-center flex flex-col items-center">
+        <div className="mb-4 relative w-40 sm:w-48 h-11 sm:h-12 rounded-2xl bg-white/95 backdrop-blur-md px-3.5 py-2 shadow-md border border-white/80">
+          <Image
+            src="/images/logo.png"
+            alt="The Hatha Yogashala Official Logo"
+            fill
+            className="object-contain p-1"
+          />
+        </div>
         <Eyebrow>Begin with a conversation</Eyebrow>
         <h2 id="final-cta-title">{title}</h2>
         <p>{text}</p>

@@ -380,6 +380,219 @@ export default function RetreatTemplate({ retreat, page }) {
             </section>
           )}
 
+          {/* ============ SECTION: VEDIC WISDOM & SACRED FIRE RITUALS ============ */}
+          <section className="retreat-section" id="vedic-rituals">
+            <RetreatEyebrow>Vedic Heritage</RetreatEyebrow>
+            <h2 className="retreat-section-title">Sacred Vedic Rituals &amp; Fire Puja</h2>
+            <p className="retreat-section-lead">
+              Experience the depth of ancient yogic traditions. From sacred Havan fire ceremonies and Vedic mantra chanting to flower petal Om mandalas and candlelit Trataka meditation, these rituals purify the energy and ground your retreat practice.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 my-6">
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-havan-fire-puja-opening-ceremony-01.webp"
+                  alt="Traditional Vedic Havan fire puja ceremony at The Hatha Yogashala Goa"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Vedic Havan Fire Puja</span>
+                </div>
+              </div>
+
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-flower-petal-om-mandala-ceremony-01.webp"
+                  alt="Sacred flower petal Om mandala ceremony"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Sacred Om Mandalas</span>
+                </div>
+              </div>
+
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp"
+                  alt="Evening candlelit Trataka and sound meditation inside the shala"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Candlelit Trataka Meditation</span>
+                </div>
+              </div>
+
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-teacher-led-meditation-philosophy-talk-01.webp"
+                  alt="Teacher-led Vedic philosophy and Upanishads talk"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Vedic Philosophy &amp; Chanting</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ============ SECTION: AERIAL & WALL-SUPPORTED ALIGNMENT ============ */}
+          <section className="retreat-section" id="aerial-alignment">
+            <RetreatEyebrow>Modern &amp; Classical Alignment</RetreatEyebrow>
+            <h2 className="retreat-section-title">Aerial &amp; Wall-Supported Inversions</h2>
+            <p className="retreat-section-lead">
+              Deepen your asana practice with therapeutic wall ropes and supported aerial inversions. This allows effortless spinal decompression, precise shoulder opening, and safe Sirsasana (headstand) mastery regardless of your experience level.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
+              <div className="group relative aspect-[3/4] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-01.webp"
+                  alt="Yoga student practicing wall-supported Sirsasana headstand with rope alignment"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-4">
+                  <span className="text-xs font-bold text-white">Wall-Supported Sirsasana</span>
+                </div>
+              </div>
+
+              <div className="group relative aspect-[3/4] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-03.webp"
+                  alt="Precise alignment and spine decompression using yoga wall props"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-4">
+                  <span className="text-xs font-bold text-white">Spine Decompression &amp; Props</span>
+                </div>
+              </div>
+
+              <div className="group relative aspect-[3/4] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-beach-headstand-sirsasana-pose-01.webp"
+                  alt="Confident headstand inversion on the beach in Goa"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-4">
+                  <span className="text-xs font-bold text-white">Freestanding Inversions</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ============ SECTION: AYURVEDIC HEALING & COOKING WISDOM ============ */}
+          <section className="retreat-section" id="ayurveda-wisdom">
+            <RetreatEyebrow>Ayurvedic Living</RetreatEyebrow>
+            <h2 className="retreat-section-title">Ayurvedic Therapies &amp; Kitchen Wisdom</h2>
+            <p className="retreat-section-lead">
+              Ayurveda and Yoga are sister sciences of longevity. Enjoy rejuvenating herbal oil massages, dosha-balancing Ayurvedic meals, and hands-on interactive cooking masterclasses in our open-air garden kitchen.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-ayurvedic-cooking-class-kitchen-01.webp"
+                  alt="Students learning traditional Ayurvedic cooking and spices at The Hatha Yogashala"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Ayurvedic Cooking Masterclasses</span>
+                </div>
+              </div>
+
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-ayurvedic-cooking-class-kitchen-02.webp"
+                  alt="Hands-on Indian roti and herbal preparation with resident chefs"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Dosha-Balancing Recipes</span>
+                </div>
+              </div>
+
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-01.webp"
+                  alt="Fresh organic Sattvic vegetarian ashram thali in Goa"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Organic Sattvic Feasts</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ============ SECTION: COMMUNITY CELEBRATION & FESTIVAL GATHERINGS ============ */}
+          <section className="retreat-section" id="community-festivals">
+            <RetreatEyebrow>Community &amp; Festivals</RetreatEyebrow>
+            <h2 className="retreat-section-title">Community Celebration, Kirtan &amp; Ecstatic Gatherings</h2>
+            <p className="retreat-section-lead">
+              Retreat life at Hatha Yogashala is vibrant and heartwarming. Join our evening live kirtans, joyful community gatherings, sacred mandala art workshops, and beach sunset circles where lifelong friendships are formed.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-birthday-celebration-community-gathering-01.webp"
+                  alt="Evening retreat community celebration and live music at The Hatha Yogashala Goa"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Live Kirtan &amp; Celebrations</span>
+                </div>
+              </div>
+
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-mandala-art-therapy-workshop-01.webp"
+                  alt="Creative mandala art therapy and sacred geometry workshop"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Mandala Art Therapy</span>
+                </div>
+              </div>
+
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-beach-group-tree-pose-vrksasana-01.webp"
+                  alt="Joyful beach yoga group connection at Querim beach Goa"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Beach Sunset Connection</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* ============ SECTION — ACCOMMODATION (Standard Retreats Only) ============ */}
           {!isSimple && (
             <section className="retreat-section" id="accommodation">

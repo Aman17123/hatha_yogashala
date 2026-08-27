@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -53,6 +54,21 @@ export default function BookingSidebar({
       <div className="booking-card">
         {/* Price block */}
         <div className="booking-card-head">
+          {/* Official Ashram Logo Badge */}
+          <div className="flex items-center justify-between gap-2.5 mb-3.5 pb-3 border-b border-[var(--border)]/70">
+            <div className="relative w-32 h-8 shrink-0">
+              <Image
+                src="/images/logo.png"
+                alt="The Hatha Yogashala Logo"
+                fill
+                className="object-contain object-left"
+              />
+            </div>
+            <span className="text-[10px] font-extrabold uppercase tracking-wider text-[var(--coral-dark)] text-right">
+              Direct Reservation
+            </span>
+          </div>
+
           <div className="booking-price">
             <span className="booking-price-from">From</span>
             <span>
