@@ -1,5 +1,17 @@
 import Image from "next/image";
-import { Bath, BedDouble, Leaf, Salad, Wifi } from "lucide-react";
+import {
+  Bath,
+  BedDouble,
+  CheckCircle2,
+  Clock3,
+  Coffee,
+  HeartHandshake,
+  Leaf,
+  Salad,
+  Sparkles,
+  Utensils,
+  Wifi,
+} from "lucide-react";
 import { Accordion } from "@/components/Interactive";
 import {
   Container,
@@ -30,19 +42,63 @@ const stayFaqs = [
       "Yes. Room categories include shared dorms, twin-sharing, and private rooms (AC and non-AC). Availability and the private-room fee are confirmed in writing before booking.",
   },
   {
-    question: "Are meals included in the price?",
+    question: "What kind of food is served, and can dietary restrictions be accommodated?",
     answer:
-      "Yes. Three healthy vegetarian meals are served daily, prepared fresh to support daily yoga practice. The serving schedule, dietary options and allergen process are confirmed before enrolment.",
+      "We serve three freshly prepared, sattvic vegetarian meals daily (Monday through Saturday morning). Our kitchen accommodates vegan, gluten-free, dairy-free, and nut-allergy requirements upon advance notice.",
+  },
+  {
+    question: "Is drinking water provided on campus?",
+    answer:
+      "Yes. Unlimited, multi-stage filtered and UV-purified drinking water is available 24/7 throughout the campus and dining hall.",
   },
 ];
 
 const atAGlance = [
   ["Location", "Querim, North Goa — near Arambol & Querim beaches"],
   ["Room options", "Shared dorms · twin-sharing · private (AC / non-AC)"],
-  ["Meals", "3 vegetarian meals per day, served fresh"],
-  ["Extras", "Hot-water showers, Wi-Fi, filtered drinking water"],
-  ["Practice spaces", "Open-air yoga shala on the residential campus"],
-  ["Student support", "24/7 support · course manuals · PDF library"],
+  ["Meals & Food", "3 sattvic vegetarian meals daily (Mon–Sat) · vegan/GF on request"],
+  ["Extras", "Hot-water showers, Wi-Fi, UV-filtered drinking water"],
+  ["Practice spaces", "Open-air yoga shala among coconut palms"],
+  ["Student support", "24/7 on-site support · course manuals · study library"],
+];
+
+const mealSchedule = [
+  {
+    meal: "Morning Sattvic Breakfast",
+    time: "08:30 AM – 09:30 AM",
+    description:
+      "Herbal teas, seasonal tropical fruits (papaya, bananas, pomegranate), warm Ayurvedic porridge, traditional South Indian poha, idlis or dosas, and soaked seeds.",
+    image:
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-01.webp",
+    alt: "Fresh breakfast and herbal tea served at The Hatha Yogashala in Goa",
+  },
+  {
+    meal: "Wholesome Ayurvedic Lunch",
+    time: "01:00 PM – 02:00 PM",
+    description:
+      "A complete balanced Indian thali featuring organic seasonal sabzi (vegetables), protein-rich dal (lentils), whole-grain rice, freshly rolled chapatis, cooling raita, and crisp garden salads.",
+    image:
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-02.webp",
+    alt: "Traditional vegetarian ashram lunch thali at The Hatha Yogashala in Pernem Goa",
+  },
+  {
+    meal: "Light Restorative Dinner",
+    time: "07:00 PM – 08:00 PM",
+    description:
+      "Digestive-friendly sattvic khichdi, steamed greens, warming vegetable broths, herbal infusions, and light grains formulated for restful sleep and overnight muscle recovery.",
+    image:
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-03.webp",
+    alt: "Nourishing sattvic dinner served at the yoga school dining area in Goa",
+  },
+];
+
+const dietaryHighlights = [
+  "100% Sattvic & Pure Vegetarian",
+  "Vegan & Dairy-Free Options",
+  "Gluten-Free upon Request",
+  "Locally Sourced Organic Ingredients",
+  "Unlimited Purified Drinking Water",
+  "Freshly Cooked Daily on Campus",
 ];
 
 export default function AccommodationPage() {
@@ -61,10 +117,13 @@ export default function AccommodationPage() {
       <JsonLd data={faqSchema} />
       <PageHero
         eyebrow="Residential life"
-        title="Accommodation in North Goa"
-        text="Rest, meals and everyday amenities at the Hatha Yogashala ashram in Querim — a beachside home for yoga teacher training and retreats near Arambol."
+        title="Accommodation & Food in North Goa"
+        text="Restful rooms, nourishing sattvic meals, and everyday ashram amenities at The Hatha Yogashala in Querim — a peaceful beachside sanctuary for yoga teacher training and retreats near Arambol."
         image="/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-bedroom-interior-01.webp"
+        imageAlt="Comfortable cottage bedroom interior at The Hatha Yogashala in Querim, Goa"
       />
+
+      {/* 1. Where You Stay — Room Options */}
       <section className="section">
         <Container>
           <SectionHeading
@@ -119,6 +178,7 @@ export default function AccommodationPage() {
         </Container>
       </section>
 
+      {/* 2. Accommodation & Stay at a Glance */}
       <section className="section section-peach">
         <Container>
           <SectionHeading
@@ -144,6 +204,95 @@ export default function AccommodationPage() {
         </Container>
       </section>
 
+      {/* 3. Dedicated Food & Sattvic Dining Section */}
+      <section className="section bg-[var(--cream)]" id="food">
+        <Container>
+          <SectionHeading
+            eyebrow="Nourishment & Dining"
+            title="Sattvic Nutrition & Mindful Dining Experience"
+            text="Food is an integral pillar of yogic discipline. Our in-house ashram kitchen prepares three wholesome, freshly cooked vegetarian meals every day to energize your body, maintain digestive ease, and support intense daily asana and pranayama practice."
+          />
+
+          {/* Dietary Highlights Bar */}
+          <div className="mb-10 flex flex-wrap justify-center gap-3">
+            {dietaryHighlights.map((item) => (
+              <div
+                key={item}
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-white px-4 py-2 text-[13.5px] font-semibold text-[var(--brown)] shadow-xs"
+              >
+                <CheckCircle2 size={15} className="text-[var(--coral-dark)]" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Daily Meals Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {mealSchedule.map((meal) => (
+              <article
+                key={meal.meal}
+                className="group flex flex-col rounded-[24px] border border-[var(--border)] bg-white p-6 shadow-sm transition-all hover:shadow-lg"
+              >
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[var(--cream)]">
+                  <Image
+                    src={meal.image}
+                    alt={meal.alt}
+                    fill
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+
+                <div className="mt-5 space-y-2.5 flex-1 flex flex-col">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--coral-dark)]">
+                    <Clock3 size={14} />
+                    <span>{meal.time}</span>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-[var(--brown)]">
+                    {meal.meal}
+                  </h3>
+
+                  <p className="text-sm text-[var(--text)] leading-relaxed flex-1">
+                    {meal.description}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {/* Dining Ambiance & Dietary Notes */}
+          <div className="mt-10 rounded-[28px] border border-[var(--border)] bg-white p-6 sm:p-8 shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-8 space-y-3">
+                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--coral-dark)]">
+                  <Utensils size={15} />
+                  <span>Communal Dining & Sangha</span>
+                </div>
+                <h3 className="text-2xl font-bold text-[var(--brown)]">
+                  Mindful Eating in an Open-Air Ashram Setting
+                </h3>
+                <p className="text-sm sm:text-base text-[var(--text)] leading-relaxed">
+                  Meals are served in our shaded communal dining hall overlooking lush Goan greenery. Dining together creates a warm, supportive community (sangha) where teachers and students share conversations, reflections, and laughter after practice.
+                </p>
+              </div>
+
+              <div className="lg:col-span-4 rounded-2xl bg-[var(--surface)] p-5 border border-[var(--border)]/60 space-y-2">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--coral-dark)]">
+                  <HeartHandshake size={15} />
+                  <span>Dietary Requirements</span>
+                </div>
+                <p className="text-[13px] leading-relaxed text-[var(--muted)]">
+                  Please notify our team during enrollment if you require vegan, gluten-free, or specific allergen-safe meal preparations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* 4. Campus Amenities Grid */}
       <section className="section">
         <Container>
           <SectionHeading
@@ -172,6 +321,7 @@ export default function AccommodationPage() {
         </Container>
       </section>
 
+      {/* 5. Shared Spaces */}
       <section className="section section-cream">
         <Container className="split-layout split-reverse">
           <div>
@@ -202,6 +352,7 @@ export default function AccommodationPage() {
         </Container>
       </section>
 
+      {/* 6. FAQ Section */}
       <section className="section">
         <Container className="content-narrow">
           <SectionHeading
@@ -212,6 +363,7 @@ export default function AccommodationPage() {
           <Accordion items={stayFaqs} />
         </Container>
       </section>
+
       <FinalCTA title="Ask about rooms and meals" />
     </>
   );

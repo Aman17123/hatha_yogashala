@@ -26,7 +26,7 @@ export default function CourseFeesTable({
         <span className="text-[11.5px] font-extrabold uppercase tracking-widest text-[var(--coral-dark)]">
           All-Inclusive Investment
         </span>
-        <h2 className="mt-1 font-heading text-2xl sm:text-3xl font-normal text-[var(--brown)]">
+        <h2 className="mt-1 text-[var(--brown)]">
           Course Fees for {programName}
         </h2>
         <p className="mt-2 text-xs sm:text-sm text-[var(--muted)] max-w-xl mx-auto">

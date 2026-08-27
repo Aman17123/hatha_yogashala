@@ -193,7 +193,7 @@ export default function RetreatTemplate({ retreat, page }) {
                 <ol>
                   <li><Link href="/">Home</Link></li>
                   <li aria-hidden="true">/</li>
-                  <li><Link href="/retreats">Yoga Retreats</Link></li>
+                  <li><Link href="/yoga-retreats-goa">Yoga Retreats</Link></li>
                   <li aria-hidden="true">/</li>
                   <li aria-current="page">{retreat.name}</li>
                 </ol>
@@ -918,7 +918,7 @@ export default function RetreatTemplate({ retreat, page }) {
             <section className="retreat-section" id="registration">
               {/* Centered Course Fees Title with Underline */}
               <div className="text-center mb-6">
-                <h2 className="font-heading text-3xl sm:text-4xl font-normal text-[var(--brown)]">
+                <h2 className="text-[var(--brown)]">
                   Course Fees
                 </h2>
                 <div className="w-16 h-0.5 bg-[var(--coral-dark)] mx-auto mt-2.5" />
@@ -1034,7 +1034,7 @@ export default function RetreatTemplate({ retreat, page }) {
           <p className="mt-8 text-center text-[13.5px] leading-relaxed text-[var(--muted)]">
             Ready to teach? Explore our{" "}
             <Link
-              href="/yoga-teacher-training"
+              href="/yoga-teacher-training-goa"
               className="font-bold uppercase tracking-widest text-[var(--coral-dark)] underline-offset-4 transition hover:underline"
             >
               Yoga Teacher Training Courses in Goa

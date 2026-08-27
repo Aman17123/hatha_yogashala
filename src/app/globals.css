@@ -1,3 +1,9 @@
+h1,
+h2 {
+  font-family: "Philosopher", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 /* ── Design Tokens ─────────────────────────── */
 
 :root {
@@ -204,8 +210,8 @@
   --color-footer: var(--footer);
   --font-sans: var(--font-body), sans-serif;
   --font-heading: var(--font-heading), "Gotu", sans-serif;
-  --font-serif: var(--font-heading), "Gotu", sans-serif;
   --font-quicksand: var(--font-quicksand), "Quicksand", sans-serif;
+  --font-philosopher: var(--font-philosopher), "Philosopher", sans-serif;
 
   --text-xs: 12px;
   --text-xs--line-height: 16px;
@@ -301,8 +307,9 @@ blockquote {
 }
 
 /* ── Global Type Scale ─────────────────────────
-   Gotu is applied to every heading site-wide. Body
-   copy keeps its own sans-serif. All sizes are px. */
+   Philosopher is applied to all h1 & h2 headings site-wide.
+   Gotu is applied to h3-h6 site-wide.
+   Body copy keeps its own sans-serif. All sizes are px. */
 @layer base {
   h1,
   h2,
@@ -310,7 +317,91 @@ blockquote {
   h4,
   h5,
   h6 {
+    margin: 0;
+    color: var(--brown);
+    font-weight: 400;
+    letter-spacing: normal;
+  }
+
+  h1 {
+    font-family: "Philosopher", sans-serif;
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--brown);
+  }
+
+  h2,
+  .section-heading h2,
+  .section-title,
+  .retreat-section-title,
+  .article-content h2,
+  .policy-page h2,
+  .final-cta-section h2 {
+    font-size: 38px !important;
+    line-height: 1.25 !important;
+    font-weight: 400;
+  }
+
+  h3 {
     font-family: var(--font-heading), "Gotu", sans-serif;
+    font-size: 28px;
+    line-height: 1.3;
+  }
+
+  h4 {
+    font-family: var(--font-heading), "Gotu", sans-serif;
+    font-size: 22px;
+    line-height: 1.35;
+  }
+
+  h5 {
+    font-family: var(--font-heading), "Gotu", sans-serif;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  h6 {
+    font-family: var(--font-heading), "Gotu", sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 1023px) {
+    h1 {
+      font-size: 40px;
+    }
+    h2,
+    .section-heading h2,
+    .section-title,
+    .retreat-section-title,
+    .article-content h2,
+    .policy-page h2,
+    .final-cta-section h2 {
+      font-size: 34px !important;
+    }
+    h3 {
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    h1 {
+      font-size: 30px;
+      line-height: 1.18;
+    }
+    h2,
+    .section-heading h2,
+    .section-title,
+    .retreat-section-title,
+    .article-content h2,
+    .policy-page h2,
+    .final-cta-section h2 {
+      font-size: 28px !important;
+    }
+    h3 {
+      font-size: 22px;
+    }
   }
 
   a {
@@ -883,30 +974,11 @@ img {
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 
-/* Unified homepage section headings — every major
-   section shares the same size, weight, spacing and
-   alignment. Fixed px values from the global scale. */
+/* Section headings inherit unified global type scale */
 .section-heading h2,
 .section-title {
-  font-family: var(--font-heading), sans-serif;
-  font-size: 38px;
-  font-weight: 400;
   letter-spacing: normal;
-  line-height: 1.2;
-}
-
-@media (max-width: 1023px) {
-  .section-heading h2,
-  .section-title {
-    font-size: 32px;
-  }
-}
-
-@media (max-width: 480px) {
-  .section-heading h2,
-  .section-title {
-    font-size: 28px;
-  }
+  line-height: 1.25;
 }
 
 .section-tight .section-heading {
@@ -935,11 +1007,6 @@ img {
 
 .section-heading.text-center .eyebrow {
   justify-content: center;
-}
-
-.hero-copy h1 {
-  max-width: 780px;
-  font-size: 32px;
 }
 
 .hero-copy h1 em {
@@ -2115,7 +2182,8 @@ blockquote {
 }
 
 .contact-card strong,
-.travel-grid h2 {
+.travel-grid h3,
+.travel-grid strong {
   color: var(--text);
   font-size: 16px;
   font-weight: 750;
@@ -2232,10 +2300,8 @@ blockquote {
 
 .final-cta-section h2 {
   max-width: 720px;
-  color: #ffffff;
-  font-size: clamp(24px, 3.5vw, 36px);
+  color: #ffffff !important;
   font-weight: 700;
-  line-height: 1.25;
   margin: 0;
   text-wrap: balance;
 }
@@ -2306,7 +2372,8 @@ blockquote {
   font-size: var(--fs-small);
 }
 
-.footer h2 {
+.footer h3,
+.footer-heading {
   margin-bottom: 1rem;
   color: var(--on-accent);
   font-family: var(--font-body), sans-serif;
@@ -2463,8 +2530,6 @@ body:has(.yttc-page) .floating-actions {
 .page-hero h1 {
   max-width: 950px;
   color: var(--on-accent);
-  font-size: 36px;
-  line-height: 44px;
 }
 
 .page-hero-eyebrow {
@@ -2657,8 +2722,8 @@ body:has(.yttc-page) .floating-actions {
   padding-left: 1rem;
 }
 
-.policy-grid h2,
-.policy-grid h3 {
+.policy-grid h3,
+.policy-grid strong {
   margin-bottom: 0.6rem;
   font-size: 18.4px;
 }
@@ -2959,8 +3024,6 @@ body:has(.yttc-page) .floating-actions {
 .article-header h1 {
   max-width: 980px;
   color: var(--on-accent);
-  font-size: 36px;
-  line-height: 44px;
 }
 
 .article-deck {
@@ -3058,7 +3121,6 @@ body:has(.yttc-page) .floating-actions {
 
 .article-content h2 {
   margin-bottom: 1rem;
-  font-size: 32px;
 }
 
 .article-content p {
@@ -3112,7 +3174,6 @@ body:has(.yttc-page) .floating-actions {
 
 .policy-page h2 {
   margin-bottom: 0.8rem;
-  font-size: 29px;
 }
 
 .policy-page p {
@@ -3138,10 +3199,6 @@ body:has(.yttc-page) .floating-actions {
   width: 60px;
   height: 60px;
   color: var(--coral);
-}
-
-.not-found h1 {
-  font-size: 48px;
 }
 
 .not-found > div > p:not(.eyebrow) {
@@ -3450,10 +3507,6 @@ body:has(.yttc-page) .floating-actions {
     font-size: var(--fs-small);
   }
 
-  .hero-copy h1 {
-    font-size: 44px;
-  }
-
   .hero-actions .button {
     width: 100%;
   }
@@ -3624,13 +3677,6 @@ body:has(.yttc-page) .floating-actions {
   .page-hero {
     min-height: 420px;
     padding-block: 4rem 2.5rem;
-  }
-
-  .page-hero h1,
-  .retreat-hero h1,
-  .article-header h1 {
-    font-size: 30px;
-    line-height: 36px;
   }
 
   .why-image,
@@ -4389,13 +4435,6 @@ body:has(.yttc-page) .floating-actions {
   .page-hero {
     min-height: 660px;
   }
-
-  .page-hero h1,
-  .retreat-hero h1,
-  .article-header h1 {
-    font-size: 28px;
-    line-height: 34px;
-  }
 }
 
 @media (max-width: 600px) {
@@ -4612,9 +4651,6 @@ body:has(.yttc-page) .floating-actions {
 .retreat-hero-title {
   max-width: 860px;
   color: var(--on-accent);
-  font-size: clamp(28px, 4vw, 42px);
-  line-height: 1.2;
-  font-weight: 700;
   margin: 0;
 }
 
@@ -4756,7 +4792,6 @@ body:has(.yttc-page) .floating-actions {
 
 .retreat-section-title {
   margin-bottom: 1rem;
-  font-size: 30px;
 }
 
 .retreat-section-lead {
@@ -6036,7 +6071,6 @@ body:has(.yttc-page) .floating-actions {
 
 .retreat-final-cta h2 {
   color: var(--on-accent);
-  font-size: 42px;
 }
 
 .retreat-final-cta p {
@@ -6122,7 +6156,7 @@ body:has(.yttc-page) .floating-actions {
 }
 
 .section-heading--blog h2 {
-  font-size: 30px;
+  color: var(--brown);
 }
 
 /* ── Responsive ───────────────────────────────── */
@@ -6171,11 +6205,6 @@ body:has(.yttc-page) .floating-actions {
 }
 
 @media (max-width: 640px) {
-  .retreat-hero h1 {
-    font-size: 48px;
-    line-height: 56px;
-  }
-
   .retreat-hero-meta {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -6604,204 +6633,21 @@ body:has(.yttc-page) .floating-actions {
   }
 }
 
-/* Responsive type tiers (fixed px, replacing fluid clamp()) */
 @media (min-width: 768px) {
-  .page-hero h1,
-  .article-header h1,
-  .not-found h1,
-  .retreat-hero h1 {
-    font-size: 38px;
-    line-height: 46px;
-  }
-  .retreat-final-cta h2 {
-    font-size: 54px;
-    line-height: 62px;
-  }
-  .article-content h2 {
-    font-size: 40px;
-    line-height: 48px;
-  }
-  .policy-page h2,
-  .retreat-section-title,
-  .section-heading--blog h2 {
-    font-size: 36px;
-  }
-  .yt-section-title {
-    font-size: 35px;
-  }
-  .final-cta-section h2 {
-    font-size: 25px;
-  }
   .footer-wordmark {
     font-size: 120px;
   }
 }
 
 @media (min-width: 1280px) {
-  .page-hero h1,
-  .article-header h1,
-  .not-found h1,
-  .retreat-hero h1 {
-    font-size: 42px;
-    line-height: 50px;
-  }
-  .retreat-final-cta h2 {
-    font-size: 66px;
-    line-height: 76px;
-  }
-  .article-content h2 {
-    font-size: 48px;
-    line-height: 58px;
-  }
-  .policy-page h2,
-  .retreat-section-title,
-  .section-heading--blog h2 {
-    font-size: 43px;
-  }
-  .yt-section-title {
-    font-size: 42px;
-  }
-  .final-cta-section h2 {
-    font-size: 30px;
-  }
   .footer-wordmark {
     font-size: 160px;
   }
 }
 
 @media (min-width: 1536px) {
-  .page-hero h1,
-  .article-header h1,
-  .not-found h1,
-  .retreat-hero h1 {
-    font-size: 42px;
-    line-height: 50px;
-  }
-  .retreat-final-cta h2 {
-    font-size: 74px;
-    line-height: 84px;
-  }
   .footer-wordmark {
     font-size: 192px;
-  }
-}
-
-/* ══════════════════════════════════════════════════════════════
-   Merged from src/styles/_base.scss (element type scale + text)
-   — previously loaded via layout.jsx → main.scss. Deleted with
-   the rest of src/styles/. Values are byte-identical to the
-   sass-compiled output.                                     */
-@layer base {
-  /* ── Global Type Scale ─────────────────────────
-     Gotu is applied to every heading site-wide. Body
-     copy keeps its own sans-serif. All sizes are px. */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0;
-    color: var(--brown);
-    font-family: var(--font-heading), "Gotu", sans-serif;
-    font-weight: 400;
-    letter-spacing: normal;
-  }
-
-  h1 {
-    font-size: 48px;
-    line-height: 1.2;
-  }
-
-  h2 {
-    font-size: 38px;
-    line-height: 1.2;
-  }
-
-  h3 {
-    font-size: 30px;
-    line-height: 1.3;
-  }
-
-  h4 {
-    font-size: 24px;
-    line-height: 1.35;
-  }
-
-  h5 {
-    font-size: 20px;
-    line-height: 1.4;
-  }
-
-  h6 {
-    font-size: 18px;
-    line-height: 1.4;
-  }
-
-  p {
-    margin-block: 0;
-    font-size: 15.5px;
-    line-height: 1.75;
-    color: #000000;
-  }
-
-  li {
-    font-size: 15.5px;
-    line-height: 1.75;
-    color: #000000;
-  }
-
-  small {
-    font-size: 13px;
-  }
-
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 40px;
-      line-height: 1.2;
-    }
-
-    h2 {
-      font-size: 32px;
-      line-height: 1.2;
-    }
-
-    h3 {
-      font-size: 26px;
-      line-height: 1.3;
-    }
-
-    h4 {
-      font-size: 22px;
-      line-height: 1.35;
-    }
-
-    h5 {
-      font-size: 18px;
-      line-height: 1.4;
-    }
-  }
-
-  @media (max-width: 480px) {
-    h1 {
-      font-size: 34px;
-      line-height: 1.2;
-    }
-
-    h2 {
-      font-size: 28px;
-      line-height: 1.2;
-    }
-
-    h3 {
-      font-size: 24px;
-      line-height: 1.3;
-    }
-
-    h4 {
-      font-size: 20px;
-      line-height: 1.35;
-    }
   }
 }
 
@@ -7249,10 +7095,6 @@ body:has(.yttc-page) .floating-actions {
   /* ── Base fixed type scale (1920px+ desktop) ────────────────── */
   @media (min-width: 1024px) {
     /* Hero */
-    .home-page .hero-copy h1 {
-      font-size: 56px !important;
-    }
-
     .home-page .hero-tagline {
       font-size: 19px !important;
     }
@@ -7271,13 +7113,6 @@ body:has(.yttc-page) .floating-actions {
 
     .home-page .hero-grid {
       gap: 4.5rem !important;
-    }
-
-    /* Section headings */
-    .home-page .section-heading h2,
-    .home-page .section-title {
-      font-size: 44px !important;
-      line-height: 1.12 !important;
     }
 
     .home-page .section-heading > p:last-child {
@@ -7440,7 +7275,7 @@ body:has(.yttc-page) .floating-actions {
     }
 
     /* Hero */
-    .home-page .hero-copy h1 {
+    h1 {
       font-size: 50px !important;
     }
 
@@ -7462,12 +7297,6 @@ body:has(.yttc-page) .floating-actions {
 
     .home-page .hero-grid {
       gap: 3.5rem !important;
-    }
-
-    /* Section headings */
-    .home-page .section-heading h2,
-    .home-page .section-title {
-      font-size: 39px !important;
     }
 
     .home-page .section-heading > p:last-child {
@@ -7784,11 +7613,6 @@ body:has(.yttc-page) .floating-actions {
     .home-page #comparison .gap-6 {
       gap: 1rem !important;
     }
-
-    /* Final CTA */
-    .home-page .final-cta-section h2 {
-      font-size: 32px !important;
-    }
   }
 
   /* ── Laptop tier 2 (<=1440px): ~15-20% smaller ──────────────── */
@@ -7806,7 +7630,7 @@ body:has(.yttc-page) .floating-actions {
     }
 
     /* Hero */
-    .home-page .hero-copy h1 {
+    h1 {
       font-size: 45px !important;
     }
 
@@ -7836,12 +7660,6 @@ body:has(.yttc-page) .floating-actions {
 
     .home-page .hero-stats div {
       padding: 0.6rem 0.9rem !important;
-    }
-
-    /* Section headings */
-    .home-page .section-heading h2,
-    .home-page .section-title {
-      font-size: 35px !important;
     }
 
     .home-page .section-heading > p:last-child {
@@ -8238,11 +8056,6 @@ body:has(.yttc-page) .floating-actions {
     .home-page #comparison .gap-6 {
       gap: 0.75rem !important;
     }
-
-    /* Final CTA */
-    .home-page .final-cta-section h2 {
-      font-size: 30px !important;
-    }
   }
 }
 
@@ -8269,7 +8082,7 @@ body:has(.yttc-page) .floating-actions {
     gap: 1.5rem !important;
   }
 
-  .hero-copy h1 {
+  h1 {
     font-size: 30px !important;
     line-height: 1.18 !important;
   }
@@ -8424,13 +8237,6 @@ body:has(.yttc-page) .floating-actions {
     padding-block: 2rem 2.5rem !important;
   }
 
-  .retreat-hero h1,
-  .retreat-hero-title {
-    font-size: 25px !important;
-    line-height: 1.22 !important;
-    margin-top: 0.25rem !important;
-  }
-
   .retreat-hero-tagline,
   .retreat-hero-lead {
     font-size: 13px !important;
@@ -8511,8 +8317,6 @@ body:has(.yttc-page) .floating-actions {
   }
 
   .retreat-section-title {
-    font-size: 22px !important;
-    line-height: 1.25 !important;
     margin-bottom: 0.75rem !important;
   }
 

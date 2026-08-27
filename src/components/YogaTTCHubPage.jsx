@@ -113,7 +113,7 @@ export default function YogaTTCHubPage({ page }) {
               Yoga Alliance Registered RYS · Querim Beach, North Goa
             </span>
 
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight text-[var(--brown)]">
+            <h1>
               Yoga Teacher Training in Goa
             </h1>
 
@@ -159,7 +159,7 @@ export default function YogaTTCHubPage({ page }) {
                 <span className="text-[11px] font-extrabold uppercase tracking-widest text-[var(--coral-dark)]">
                   Authentic Lineages
                 </span>
-                <h2 className="mt-1 font-heading text-2xl sm:text-3xl font-normal text-[var(--brown)]">
+                <h2 className="mt-1 text-[var(--brown)]">
                   Who We Are
                 </h2>
               </div>
@@ -221,7 +221,7 @@ export default function YogaTTCHubPage({ page }) {
               <span className="text-[11px] font-extrabold uppercase tracking-widest text-[var(--coral-dark)]">
                 Certified Curriculums
               </span>
-              <h2 className="mt-1 font-heading text-2xl sm:text-3xl font-normal text-[var(--brown)]">
+              <h2 className="mt-1 text-[var(--brown)]">
                 Choose Your TTC Level
               </h2>
             </div>
@@ -345,7 +345,7 @@ export default function YogaTTCHubPage({ page }) {
             <span className="text-[11px] font-extrabold uppercase tracking-widest text-[var(--coral-dark)]">
               The Hatha Yogashala Standard
             </span>
-            <h2 className="mt-1 font-heading text-2xl sm:text-3xl font-normal text-[var(--brown)]">
+            <h2 className="mt-1 text-[var(--brown)]">
               Why Train With Us in Goa
             </h2>
           </div>
@@ -382,7 +382,7 @@ export default function YogaTTCHubPage({ page }) {
               <span className="text-[11px] font-extrabold uppercase tracking-widest text-[var(--coral-dark)]">
                 Got Questions?
               </span>
-              <h2 className="mt-1 font-heading text-2xl sm:text-3xl font-normal text-[var(--brown)]">
+              <h2 className="mt-1 text-[var(--brown)]">
                 Frequently Asked Questions
               </h2>
             </div>
@@ -402,7 +402,7 @@ export default function YogaTTCHubPage({ page }) {
             <Sparkles size={13} aria-hidden="true" />
             Transform Your Life
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight text-white mb-4">
+          <h2 className="leading-tight text-white mb-4">
             Start Your Yoga Journey
           </h2>
           <p className="text-sm sm:text-base text-white/85 max-w-xl mx-auto leading-relaxed mb-8">

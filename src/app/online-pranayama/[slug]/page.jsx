@@ -17,7 +17,7 @@ export async function generateMetadata({ params }) {
   return makeMetadata(
     course.seo.title,
     course.seo.description,
-    `/pranayama/${course.slug}`,
+    `/online-pranayama/${course.slug}`,
     course.heroImage,
     course.seo.keywords.join(", "),
   );

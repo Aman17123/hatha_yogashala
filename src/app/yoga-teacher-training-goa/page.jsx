@@ -8,7 +8,7 @@ import { faqSchema } from "@/lib/schema";
 export const metadata = makeMetadata(
   "Yoga Teacher Training Goa | Yoga Alliance Certified TTC | The Hatha Yogashala",
   "Join The Hatha Yogashala in Goa for Yoga Alliance certified 100/200/300-Hour Yoga Teacher Training and Aerial Yoga TTC. Hatha, Ashtanga, Vinyasa & Ayurveda — beachside, all-inclusive, 24/7 support.",
-  "/yoga-teacher-training",
+  "/yoga-teacher-training-goa",
   "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
   [
     "yoga teacher training goa",
@@ -48,7 +48,7 @@ const schemaItemList = {
   })),
 };
 
-export default function YogaTeacherTrainingPage() {
+export default function YogaTeacherTrainingGoaPage() {
   const pageData = getYttcPageData();
   const faqSchemaData = faqSchema(yttcFaqs);
 

@@ -7,8 +7,8 @@ import { pranayamaCourses } from "@/data/pranayamaData";
 
 export default function HomePranayamaPreview() {
   const featuredSlugs = [
-    "pre-pranayama-foundation",
-    "beginner-pranayama",
+    "pre-pranayama-foundation-course",
+    "beginner-pranayama-course",
     "stress-relief-course",
   ];
   const featured = pranayamaCourses.filter((c) => featuredSlugs.includes(c.slug));
@@ -35,7 +35,7 @@ export default function HomePranayamaPreview() {
             <Wind size={13} aria-hidden="true" />
             Breathe · Regulate · Awaken
           </div>
-          <h2 className="font-heading text-2xl sm:text-3xl lg:text-[32px] font-normal text-[var(--brown)] leading-tight">
+          <h2 className="text-[var(--brown)]">
             The Hatha Yogashala — Pranayama & Breathwork
           </h2>
           <p className="mt-2 text-xs sm:text-sm text-[var(--muted)] leading-relaxed font-normal max-w-xl mx-auto">
@@ -86,7 +86,7 @@ export default function HomePranayamaPreview() {
                       {course.duration}
                     </span>
                     <Link
-                      href={`/pranayama/${course.slug}`}
+                      href={`/online-pranayama/${course.slug}`}
                       className="inline-flex items-center gap-1 text-xs font-bold text-[var(--coral-dark)] group-hover:translate-x-0.5 transition-transform"
                     >
                       <span>Learn more</span>
@@ -101,14 +101,14 @@ export default function HomePranayamaPreview() {
 
         <FadeIn className="mt-6 sm:mt-7 text-center flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
           <ButtonLink
-            href="/pranayama"
+            href="/online-pranayama"
             className="button button-primary !py-2.5 !px-6 text-xs sm:text-sm font-bold shadow-md hover:shadow-lg"
           >
             <span>View all Pranayama programs</span>
             <ArrowRight size={15} />
           </ButtonLink>
           <Link
-            href="/pranayama/daily-pranayama-subscription"
+            href="/online-pranayama/daily-pranayama-subscription"
             className="text-xs sm:text-sm font-bold text-[var(--coral-dark)] underline underline-offset-4 hover:text-[var(--brown)]"
           >
             Try a $10 Daily Breathwork Trial Session →

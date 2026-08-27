@@ -34,7 +34,7 @@ export default function ProgramGridLanding({
       {/* 1. Header Banner — Solid background with centered white text */}
       <section className="bg-[var(--secondary)] py-12 md:py-16 text-center text-white shadow-inner">
         <Container>
-          <h1 className="font-serif text-3xl md:text-5xl font-bold tracking-wide text-white drop-shadow-sm">
+          <h1 className="text-white drop-shadow-sm">
             {bannerTitle}
           </h1>
           {bannerSubtitle && (
@@ -60,9 +60,9 @@ export default function ProgramGridLanding({
                 </div>
 
                 {/* Program Title */}
-                <h2 className="font-serif text-lg md:text-xl font-bold text-[#24241d] leading-snug mb-8 group-hover:text-[var(--secondary)] transition-colors">
+                <h3 className="text-lg md:text-xl font-bold text-[#24241d] leading-snug mb-8 group-hover:text-[var(--secondary)] transition-colors">
                   {prog.title}
-                </h2>
+                </h3>
 
                 {/* Learn More » Link */}
                 <div className="mt-auto pt-2">

@@ -40,7 +40,7 @@ import ReviewsSection from "@/components/GoogleReviews";
 export const metadata = makeMetadata(
   "Yoga Holidays in Goa (3, 5 & 7 Days) | The Hatha Yogashala",
   "Recharge with authentic residential yoga holidays in Querim, North Goa. Includes daily Hatha yoga, Ayurvedic massage, sattvic food, and beachside relaxation.",
-  "/holidays",
+  "/yoga-holidays-goa",
   "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
   "yoga holidays Goa, short yoga retreat Goa, 3 day yoga holiday Goa, 7 day yoga break, beach yoga holiday India",
 );
@@ -54,7 +54,7 @@ const holidaySchema = {
   name: "Yoga Holidays in Goa | The Hatha Yogashala",
   description:
     "Short format residential yoga holidays in Querim, North Goa with daily asana, Ayurvedic massage, beach walks, and organic sattvic meals.",
-  url: absoluteUrl("/holidays"),
+  url: absoluteUrl("/yoga-holidays-goa"),
   touristType: ["Yoga Holiday Guests", "Wellness Travelers", "Solo Travelers"],
   provider: {
     "@type": "Organization",
@@ -337,7 +337,7 @@ const galleryMoments = [
 // =========================================================================
 // MAIN PAGE COMPONENT
 // =========================================================================
-export default function HolidaysPage() {
+export default function YogaHolidaysGoaPage() {
   const whatsappBookingHref = whatsappLink(
     "Hi The Hatha Yogashala, I would like to check availability and inquire about booking a Yoga Holiday in Goa."
   );
@@ -496,7 +496,7 @@ export default function HolidaysPage() {
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               Unhurried Flow
             </span>
-            <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)]">
+            <h2 className="mt-2 text-[var(--brown)]">
               A Typical Day on Your Yoga Holiday
             </h2>
             <p className="mt-2 text-sm sm:text-base text-[var(--muted)]">
@@ -595,7 +595,7 @@ export default function HolidaysPage() {
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               Holistic Rejuvenation
             </span>
-            <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)]">
+            <h2 className="mt-2 text-[var(--brown)]">
               The 4 Pillars of Your Goa Yoga Holiday
             </h2>
             <p className="mt-2 text-sm text-[var(--muted)]">
@@ -649,7 +649,7 @@ export default function HolidaysPage() {
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               The Haven
             </span>
-            <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)]">
+            <h2 className="mt-2 text-[var(--brown)]">
               Why Querim, North Goa is the Ideal Sanctuary
             </h2>
             <p className="mt-2 text-sm sm:text-base text-[var(--muted)]">
@@ -703,7 +703,7 @@ export default function HolidaysPage() {
               <span className="text-xs sm:text-[13px] font-bold uppercase tracking-widest text-[var(--coral-dark)]">
                 Sanctuary &amp; Nourishment
               </span>
-              <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)] leading-tight">
+              <h2 className="mt-2 text-[var(--brown)]">
                 Tranquil Cottage Living &amp; Sattvic Organic Dining
               </h2>
               <div className="mt-6 space-y-4 text-[15px] text-[#433c37] leading-relaxed">
@@ -744,7 +744,7 @@ export default function HolidaysPage() {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <ButtonLink href="/accommodation" variant="outline" className="!py-3 !px-6 text-sm font-bold">
+                <ButtonLink href="/accommodation-goa" variant="outline" className="!py-3 !px-6 text-sm font-bold">
                   <span>Explore Rooms &amp; Facilities</span>
                   <ArrowRight size={14} />
                 </ButtonLink>
@@ -784,7 +784,7 @@ export default function HolidaysPage() {
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               Transparent &amp; Complete
             </span>
-            <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)]">
+            <h2 className="mt-2 text-[var(--brown)]">
               Everything Included in Your Stay
             </h2>
             <p className="mt-2 text-sm sm:text-base text-[var(--muted)]">
@@ -827,7 +827,7 @@ export default function HolidaysPage() {
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               Tailored For You
             </span>
-            <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)]">
+            <h2 className="mt-2 text-[var(--brown)]">
               Who is a Goa Yoga Holiday Perfect For?
             </h2>
             <p className="mt-2 text-sm text-[var(--muted)]">
@@ -879,7 +879,7 @@ export default function HolidaysPage() {
               <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
                 Life on Holiday
               </span>
-              <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)]">
+              <h2 className="mt-2 text-[var(--brown)]">
                 Moments &amp; Memories at The Hatha Yogashala
               </h2>
             </div>
@@ -935,7 +935,7 @@ export default function HolidaysPage() {
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               Practical Information
             </span>
-            <h2 className="mt-2 font-heading text-2xl sm:text-3xl font-normal text-[var(--brown)]">
+            <h2 className="mt-2 text-[var(--brown)]">
               Frequently Asked Questions
             </h2>
           </div>

@@ -63,7 +63,7 @@ export const pageSeo = {
       "See the certificate graduates receive from The Hatha Yogashala — a Yoga Alliance-registered school in Goa. Learn how our 100, 200 and 300-hour yoga teacher training courses are certified and verified.",
     keywords:
       "yoga teacher training certification Goa, Yoga Alliance certificate, 200 hour YTTC certificate, Hatha Yoga TTC certification, yoga school registration Goa",
-    path: "/certification",
+    path: "/yoga-alliance-certification",
   },
   accommodation: {
     title: "Accommodation at the Yoga School in North Goa",
@@ -71,7 +71,7 @@ export const pageSeo = {
       "Rooms, meals and amenities at The Hatha Yogashala — a beachside yoga ashram in Querim, North Goa near Arambol. What's included in yoga course and retreat accommodation.",
     keywords:
       "yoga school accommodation Goa, yoga retreat stay Arambol, ashram rooms North Goa, vegetarian meals yoga retreat Goa, The Hatha Yogashala rooms",
-    path: "/accommodation",
+    path: "/accommodation-goa",
   },
   contact: {
     title: "Contact Us – Yoga School in Querim, North Goa",
@@ -91,19 +91,31 @@ export const pageSeo = {
     title: "Yoga Teacher Training Goa | Yoga Alliance Certified TTC | The Hatha Yogashala",
     description:
       "Join The Hatha Yogashala in Goa for Yoga Alliance certified 100/200/300-Hour Yoga Teacher Training and Aerial Yoga TTC. Hatha, Ashtanga, Vinyasa & Ayurveda — beachside, all-inclusive, 24/7 support.",
-    path: "/courses",
+    path: "/yoga-teacher-training-goa",
   },
   retreats: {
     title: "Yoga Retreats in Goa | 3, 5 & 7 Day Wellness Retreats | The Hatha Yogashala",
     description:
       "Book a 3, 5, or 7-day yoga retreat in Goa with The Hatha Yogashala. Daily yoga, meditation, Ayurveda, sound healing, ice baths, and beachside living — all-inclusive.",
-    path: "/retreats",
+    path: "/yoga-retreats-goa",
   },
   holidays: {
     title: "Yoga Holidays in Goa — 3, 5 & 7 Day Authentic Yogic Breaks",
     description:
       "Take an authentic yoga break by the ocean in Goa. Explore 3, 5, and 7-day yoga holidays with daily asana, Ayurvedic massage, sattvic food, and beachside relaxation.",
-    path: "/holidays",
+    path: "/yoga-holidays-goa",
+  },
+  goaGuide: {
+    title: "Destination Goa — Travel Guide for Yoga Students",
+    description:
+      "Everything you need to know about Querim, Arambol, and North Goa before joining your yoga teacher training or retreat.",
+    path: "/goa-travel-guide",
+  },
+  pranayama: {
+    title: "Online Pranayama & Breathwork Courses | The Hatha Yogashala",
+    description:
+      "Learn classical Hatha Pranayama online with authentic Indian masters. Live interactive batches and on-demand video library.",
+    path: "/online-pranayama",
   },
   blog: {
     title: "Yoga Blog, Tips & Goa Retreat Guides",
@@ -346,11 +358,11 @@ export const navigation = [
       },
       {
         label: "Certification",
-        href: "/certification",
+        href: "/yoga-alliance-certification",
       },
       {
-        label: "Accommodation",
-        href: "/accommodation",
+        label: "Accommodation & Food",
+        href: "/accommodation-goa",
       },
     ],
   },
@@ -359,7 +371,7 @@ export const navigation = [
     children: [
       {
         label: "Yoga Teacher Training Courses in Goa",
-        href: "/yoga-teacher-training",
+        href: "/yoga-teacher-training-goa",
       },
       {
         label: "100 Hour Yoga Teacher Training in Goa",
@@ -392,7 +404,7 @@ export const navigation = [
     children: [
       {
         label: "Yoga and Meditation Retreat in Goa",
-        href: "/retreats",
+        href: "/yoga-retreats-goa",
       },
       {
         label: "3 Day Yoga Retreat",
@@ -408,7 +420,7 @@ export const navigation = [
       },
       {
         label: "5 Day Awaken & Align Retreat",
-        href: "/retreats/5-day-awaken-and-align-retreat-goa",
+        href: "/retreats/5-day-awaken-and-align-yoga-retreat-goa",
       },
       {
         label: "Aerial Yoga Retreat",
@@ -420,7 +432,7 @@ export const navigation = [
       },
       {
         label: "Yoga Festivals in Goa",
-        href: "/retreats/yoga-festivals-in-goa",
+        href: "/retreats/yoga-festivals-goa",
       },
     ],
   },
@@ -429,7 +441,7 @@ export const navigation = [
     children: [
       {
         label: "All Yoga Holidays",
-        href: "/holidays",
+        href: "/yoga-holidays-goa",
       },
       {
         label: "3 Day Yoga Holiday in Goa",
@@ -450,31 +462,31 @@ export const navigation = [
     children: [
       {
         label: "Pre-Pranayama Foundation",
-        href: "/pranayama/pre-pranayama-foundation",
+        href: "/online-pranayama/pre-pranayama-foundation-course",
       },
       {
         label: "Beginner Pranayama",
-        href: "/pranayama/beginner-pranayama",
+        href: "/online-pranayama/beginner-pranayama-course",
       },
       {
         label: "Intermediate Pranayama",
-        href: "/pranayama/intermediate-pranayama",
+        href: "/online-pranayama/intermediate-pranayama-course",
       },
       {
         label: "Advanced Pranayama",
-        href: "/pranayama/advanced-pranayama",
+        href: "/online-pranayama/advanced-pranayama-course",
       },
       {
         label: "Meditation & Breathing for Stress Relief",
-        href: "/pranayama/stress-relief-course",
+        href: "/online-pranayama/stress-relief-course",
       },
       {
         label: "Daily Pranayama Classes",
-        href: "/pranayama/daily-pranayama-subscription",
+        href: "/online-pranayama/daily-pranayama-subscription",
       },
       {
         label: "Online Yoga and Meditation",
-        href: "/pranayama/online-yoga-meditation",
+        href: "/online-pranayama/yoga-meditation",
       },
     ],
   },

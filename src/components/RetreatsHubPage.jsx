@@ -104,7 +104,7 @@ export default function RetreatsHubPage() {
               Mindful Residential Retreats · North Goa Coast
             </span>
 
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight text-[var(--brown)]">
+            <h1>
               Yoga Retreats in Goa
             </h1>
 
@@ -149,7 +149,7 @@ export default function RetreatsHubPage() {
                 <span className="text-[11px] font-extrabold uppercase tracking-widest text-[var(--coral-dark)]">
                   Rest · Practice · Immersion
                 </span>
-                <h2 className="mt-1 font-heading text-2xl sm:text-3xl font-normal text-[var(--brown)]">
+                <h2 className="mt-1 text-[var(--brown)]">
                   Who We Are
                 </h2>
               </div>
@@ -211,7 +211,7 @@ export default function RetreatsHubPage() {
               <span className="text-[11px] font-extrabold uppercase tracking-widest text-[var(--coral-dark)]">
                 Curated Immersions
               </span>
-              <h2 className="mt-1 font-heading text-2xl sm:text-3xl font-normal text-[var(--brown)]">
+              <h2 className="mt-1 text-[var(--brown)]">
                 Choose Your Retreat
               </h2>
             </div>
@@ -354,7 +354,7 @@ export default function RetreatsHubPage() {
             <span className="text-[11px] font-extrabold uppercase tracking-widest text-[var(--coral-dark)]">
               The Hatha Yogashala Experience
             </span>
-            <h2 className="mt-1 font-heading text-2xl sm:text-3xl font-normal text-[var(--brown)]">
+            <h2 className="mt-1 text-[var(--brown)]">
               Why Retreat With Us in Goa
             </h2>
           </div>
@@ -390,7 +390,7 @@ export default function RetreatsHubPage() {
             <span className="text-[11px] font-extrabold uppercase tracking-widest text-[var(--coral-dark)]">
               Got Questions?
             </span>
-            <h2 className="mt-1 font-heading text-2xl sm:text-3xl font-normal text-[var(--brown)]">
+            <h2 className="mt-1 text-[var(--brown)]">
               Frequently Asked Questions
             </h2>
           </div>
@@ -406,7 +406,7 @@ export default function RetreatsHubPage() {
           <span className="text-[11px] font-extrabold uppercase tracking-widest text-[var(--coral-dark)]">
             Disconnect &amp; Reconnect
           </span>
-          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)] mt-1 mb-3">
+          <h2 className="text-[var(--brown)] mt-1 mb-3">
             Start Your Retreat Journey
           </h2>
           <p className="text-xs sm:text-sm text-[var(--muted)] mb-6 max-w-xl mx-auto leading-relaxed">

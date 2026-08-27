@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Gotu, Manrope, Quicksand } from "next/font/google";
+import { Gotu, Manrope, Quicksand, Philosopher } from "next/font/google";
 import { ClipboardList } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import "./tailwind.css";
@@ -13,6 +13,13 @@ const heading = Gotu({
   variable: "--font-heading",
   subsets: ["latin"],
   weight: "400",
+});
+
+const philosopher = Philosopher({
+  variable: "--font-philosopher",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
 });
 
 const body = Manrope({
@@ -115,7 +122,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en-IN"
-      className={`${heading.variable} ${body.variable} ${quicksand.variable}`}
+      className={`${heading.variable} ${philosopher.variable} ${body.variable} ${quicksand.variable}`}
       suppressHydrationWarning
     >
       <body id="top" suppressHydrationWarning>

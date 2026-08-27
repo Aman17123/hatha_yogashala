@@ -91,7 +91,7 @@ export default function HomeGalleryMarquee() {
             <p className="text-[12px] font-extrabold uppercase tracking-[0.16em] text-[var(--coral-dark)]">
               Visual Journey
             </p>
-            <h2 className="mt-1 font-heading text-2xl sm:text-3xl md:text-4xl text-[var(--brown)]">
+            <h2 className="mt-1 text-[var(--brown)]">
               Life at The Hatha Yogashala
             </h2>
           </div>

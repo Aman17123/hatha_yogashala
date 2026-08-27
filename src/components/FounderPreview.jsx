@@ -30,7 +30,7 @@ export default function FounderPreview({ founder = founderData }) {
 
               {/* Solid dark scrim bar — guaranteed contrast, no gradient/opacity guessing */}
               <div className="absolute bottom-0 left-0 right-0 bg-[var(--brown)] px-4 py-3 sm:px-6 sm:py-4 space-y-0.5 sm:space-y-1">
-                <h3 className="text-base sm:text-xl font-serif font-bold text-white">
+                <h3 className="text-base sm:text-xl font-bold text-white">
                   {founder.name}
                 </h3>
                 <p className="text-xs sm:text-sm font-medium text-white/85">
@@ -73,7 +73,7 @@ export default function FounderPreview({ founder = founderData }) {
 
             <div className="quote-box relative rounded-2xl bg-white/90 border-l-4 border-[var(--coral-dark)] p-6 shadow-sm space-y-3">
               <Quote className="size-6 text-[var(--coral-dark)]/40 absolute top-4 right-4" />
-              <p className="text-sm italic font-serif text-[var(--brown)] leading-relaxed">
+              <p className="text-sm italic text-[var(--brown)] leading-relaxed">
                 &ldquo;{founder.quote}&rdquo;
               </p>
 
@@ -81,7 +81,7 @@ export default function FounderPreview({ founder = founderData }) {
                 <span className="text-[13.5px] font-bold text-[var(--coral-dark)]">
                   — {founder.name}
                 </span>
-                <span className="font-serif italic text-base text-[var(--muted)] tracking-wider">
+                <span className="italic text-base text-[var(--muted)] tracking-wider">
                   {founder.name}
                 </span>
               </div>

@@ -338,7 +338,7 @@ export default function HomePage() {
             <StaggerItem startVisible>
               <div className="hero-actions">
                 <ButtonLink href="/apply">Reserve your spot</ButtonLink>
-                <ButtonLink href="/courses" variant="secondary">
+                <ButtonLink href="/yoga-teacher-training-goa" variant="secondary">
                   Explore courses
                 </ButtonLink>
               </div>
@@ -488,7 +488,7 @@ export default function HomePage() {
       <section className="section !py-12 bg-white" id="comparison">
         <Container>
           <FadeIn className="text-center">
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-normal text-[var(--brown)]">
+            <h2 className="text-[var(--brown)]">
               Which Course is{" "}
               <span className="text-[var(--coral-dark)] font-medium">
                 Right for You?
@@ -642,7 +642,7 @@ export default function HomePage() {
                     </p>
                   </div>
                 </div>
-                <ButtonLink href="/certification">View credentials</ButtonLink>
+                <ButtonLink href="/yoga-alliance-certification">View credentials</ButtonLink>
               </div>
             </div>
 
@@ -780,7 +780,7 @@ export default function HomePage() {
               }
               right={
                 <ButtonLink
-                  href="/accommodation"
+                  href="/accommodation-goa"
                   variant="secondary"
                   className="!px-4 !py-2.5 !text-[13.5px]"
                 >
@@ -812,7 +812,7 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
-                <ButtonLink href="/accommodation" variant="secondary">
+                <ButtonLink href="/accommodation-goa" variant="secondary">
                   Explore accommodation & food
                 </ButtonLink>
               </div>
@@ -844,7 +844,7 @@ export default function HomePage() {
                     key={facility.title}
                     className="facility-card rounded-2xl border border-[var(--border)] bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
                   >
-                    <h3 className="font-serif text-xl font-bold leading-snug text-black">
+                    <h3 className="text-xl font-bold leading-snug text-black">
                       {facility.title}
                     </h3>
                     <p className="mt-2 text-[15px] leading-relaxed text-black">
@@ -857,7 +857,7 @@ export default function HomePage() {
               <div className="mt-6 rounded-2xl border border-[var(--border)] bg-white p-6 shadow-sm">
                 <div className="flex items-center gap-2 mb-2 text-[var(--coral-dark)]">
                   <Leaf className="h-5 w-5 shrink-0" />
-                  <h3 className="font-serif text-xl font-bold text-black">
+                  <h3 className="text-xl font-bold text-black">
                     Nourishing Sattvic Meals
                   </h3>
                 </div>
@@ -910,7 +910,7 @@ export default function HomePage() {
                     Sanctuary Location
                   </span>
                 </div>
-                <h3 className="mt-3 text-2xl font-serif">
+                <h3 className="mt-3 text-2xl font-bold">
                   {site.name} — Goa, India
                 </h3>
                 <p className="mt-2 text-sm font-medium text-black/80">

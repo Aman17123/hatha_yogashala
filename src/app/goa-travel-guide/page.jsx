@@ -19,7 +19,7 @@ import { absoluteUrl, makeMetadata, site } from "@/data/siteData";
 export const metadata = makeMetadata(
   "Yoga in Goa — Location, Beach Ashram & Travel Guide | The Hatha Yogashala",
   "Discover why Querim, North Goa is the ideal destination for Yoga Teacher Training and retreats. Travel logistics, MOPA airport proximity, climate guide, and campus details.",
-  "/about/goa",
+  "/goa-travel-guide",
   "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
   "yoga in Goa, yoga teacher training destination Goa, Querim beach yoga, Arambol yoga ashram, MOPA airport yoga school Goa",
 );
@@ -30,7 +30,7 @@ const destinationSchema = {
   name: "The Hatha Yogashala Goa",
   description:
     "Residential yoga teacher training school and coastal ashram in Querim, North Goa near Arambol.",
-  url: absoluteUrl("/about/goa"),
+  url: absoluteUrl("/goa-travel-guide"),
   touristType: ["Yoga Students", "Wellness Travelers", "Teacher Trainees"],
   address: {
     "@type": "PostalAddress",
@@ -89,7 +89,7 @@ export default function DestinationGoaPage() {
               <span className="text-xs sm:text-[13px] font-bold uppercase tracking-widest text-[var(--coral-dark)]">
                 The Coastal Advantage
               </span>
-              <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)] leading-tight">
+              <h2 className="mt-2 text-[var(--brown)]">
                 Why Students Choose Goa for Yoga Teacher Training
               </h2>
               <div className="mt-6 space-y-4 text-[16px] text-[#433c37] leading-relaxed">
@@ -153,7 +153,7 @@ export default function DestinationGoaPage() {
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               Pernem, North Goa
             </span>
-            <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)]">
+            <h2 className="mt-2 text-[var(--brown)]">
               Location Highlights & Surroundings
             </h2>
             <p className="mt-2 text-sm text-[var(--muted)]">
@@ -209,7 +209,7 @@ export default function DestinationGoaPage() {
               <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
                 Practical Travel Info
               </span>
-              <h2 className="mt-1 font-heading text-2xl sm:text-3xl font-normal text-[var(--brown)]">
+              <h2 className="mt-1 text-[var(--brown)]">
                 Planning Your Arrival in Goa
               </h2>
             </div>
@@ -276,7 +276,7 @@ export default function DestinationGoaPage() {
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               Travel Questions
             </span>
-            <h2 className="mt-2 font-heading text-2xl sm:text-3xl font-normal text-[var(--brown)]">
+            <h2 className="mt-2 text-[var(--brown)]">
               Goa Travel & Ashram FAQs
             </h2>
           </div>

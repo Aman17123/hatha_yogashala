@@ -231,7 +231,7 @@ export default function HolidayTemplate({ holiday }) {
 
   const breadcrumbs = [
     { label: "Home", href: "/" },
-    { label: "Yoga Holidays", href: "/holidays" },
+    { label: "Yoga Holidays", href: "/yoga-holidays-goa" },
     { label: holiday.name },
   ];
 
@@ -308,7 +308,7 @@ export default function HolidayTemplate({ holiday }) {
                 The Hatha Yogashala Goa
               </span>
 
-              <h1 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-normal leading-tight text-[var(--brown)]">
+              <h1>
                 {holiday.name}
               </h1>
 
@@ -383,9 +383,9 @@ export default function HolidayTemplate({ holiday }) {
                     <span className="text-[11px] uppercase tracking-widest font-bold text-white/90">
                       The Hatha Yogashala Goa
                     </span>
-                    <h2 className="text-base text-white font-normal font-heading">
+                    <p className="text-base text-white font-normal font-heading">
                       {holiday.name}
-                    </h2>
+                    </p>
                   </div>
                 </div>
 
@@ -431,7 +431,7 @@ export default function HolidayTemplate({ holiday }) {
               <Sparkles size={13} />
               {holiday.renewalSection.eyebrow}
             </span>
-            <h2 className="font-heading text-xl sm:text-2xl md:text-3xl font-normal leading-tight text-[var(--brown)]">
+            <h2 className="text-[var(--brown)]">
               {holiday.renewalSection.title}
             </h2>
             <p className="mt-2.5 text-xs sm:text-sm text-[var(--coral-dark)] font-semibold">
@@ -472,7 +472,7 @@ export default function HolidayTemplate({ holiday }) {
             <span className="text-[11px] font-extrabold uppercase tracking-widest text-[var(--coral-dark)]">
               Structured Daily Rhythm
             </span>
-            <h2 className="mt-1 font-heading text-xl sm:text-2xl md:text-3xl font-normal text-[var(--brown)]">
+            <h2 className="mt-1 text-[var(--brown)]">
               {holiday.name} Schedule & Details
             </h2>
             <p className="mt-2 text-xs sm:text-sm text-[var(--muted)]">
@@ -630,7 +630,7 @@ export default function HolidayTemplate({ holiday }) {
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               Holistic Rejuvenation
             </span>
-            <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)]">
+            <h2 className="mt-2 text-[var(--brown)]">
               The 4 Pillars of Your Stay
             </h2>
             <p className="mt-2 text-sm text-[var(--muted)]">
@@ -684,7 +684,7 @@ export default function HolidayTemplate({ holiday }) {
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               The Haven
             </span>
-            <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)]">
+            <h2 className="mt-2 text-[var(--brown)]">
               Why Querim, North Goa is the Ideal Sanctuary
             </h2>
             <p className="mt-2 text-sm sm:text-base text-[var(--muted)]">
@@ -738,7 +738,7 @@ export default function HolidayTemplate({ holiday }) {
               <span className="text-xs sm:text-[13px] font-bold uppercase tracking-widest text-[var(--coral-dark)]">
                 Sanctuary &amp; Nourishment
               </span>
-              <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)] leading-tight">
+              <h2 className="mt-2 text-[var(--brown)]">
                 Tranquil Cottage Living &amp; Sattvic Organic Dining
               </h2>
               <div className="mt-6 space-y-4 text-[15px] text-[#433c37] leading-relaxed">
@@ -779,7 +779,7 @@ export default function HolidayTemplate({ holiday }) {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <ButtonLink href="/accommodation" variant="outline" className="!py-3 !px-6 text-sm font-bold">
+                <ButtonLink href="/accommodation-goa" variant="outline" className="!py-3 !px-6 text-sm font-bold">
                   <span>Explore Rooms &amp; Facilities</span>
                   <ArrowRight size={14} />
                 </ButtonLink>
@@ -819,7 +819,7 @@ export default function HolidayTemplate({ holiday }) {
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               Transparent &amp; Complete
             </span>
-            <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)]">
+            <h2 className="mt-2 text-[var(--brown)]">
               Everything Included in Your Stay
             </h2>
             <p className="mt-2 text-sm sm:text-base text-[var(--muted)]">
@@ -862,7 +862,7 @@ export default function HolidayTemplate({ holiday }) {
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               Tailored For You
             </span>
-            <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)]">
+            <h2 className="mt-2 text-[var(--brown)]">
               Who is a Goa Yoga Holiday Perfect For?
             </h2>
             <p className="mt-2 text-sm text-[var(--muted)]">
@@ -914,7 +914,7 @@ export default function HolidayTemplate({ holiday }) {
               <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
                 Life on Holiday
               </span>
-              <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)]">
+              <h2 className="mt-2 text-[var(--brown)]">
                 Moments &amp; Memories at The Hatha Yogashala
               </h2>
             </div>
@@ -970,7 +970,7 @@ export default function HolidayTemplate({ holiday }) {
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               Holiday Planning
             </span>
-            <h2 className="mt-2 font-heading text-2xl sm:text-3xl font-normal text-[var(--brown)]">
+            <h2 className="mt-2 text-[var(--brown)]">
               Frequently Asked Questions
             </h2>
           </div>

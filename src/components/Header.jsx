@@ -44,11 +44,11 @@ const aboutColumns = [
       },
       {
         label: "Our Certification",
-        href: findHref(["Certification"], "/certification"),
+        href: "/yoga-alliance-certification",
       },
       {
-        label: "Our Accommodation",
-        href: findHref(["Accommodation"], "/accommodation"),
+        label: "Accommodation & Food",
+        href: "/accommodation-goa",
       },
       { label: "Payment", href: "/payment-policy" },
     ],
@@ -56,9 +56,9 @@ const aboutColumns = [
   {
     title: "Extras",
     links: [
-      { label: "Destination Goa", href: "/about/goa" },
+      { label: "Destination Goa", href: "/goa-travel-guide" },
       { label: "Gallery", href: findHref(["Gallery"], "/gallery") },
-      { label: "Blogs", href: findHref(["Blog", "Blogs"], "/blog") },
+      { label: "Blogs", href: "/blog" },
       { label: "Contact & Travel", href: "/contact#travel" },
     ],
   },
@@ -67,7 +67,7 @@ const aboutColumns = [
 const yogaTtcChildren = [
   {
     label: "Yoga Teacher Training Courses in Goa",
-    href: "/yoga-teacher-training",
+    href: "/yoga-teacher-training-goa",
   },
   {
     label: "100 Hour Yoga Teacher Training in Goa",
@@ -98,7 +98,7 @@ const yogaTtcChildren = [
 const retreatChildren = [
   {
     label: "Yoga and Meditation Retreat in Goa",
-    href: "/retreats",
+    href: "/yoga-retreats-goa",
   },
   {
     label: "3 Day Yoga Retreat in Goa",
@@ -114,7 +114,7 @@ const retreatChildren = [
   },
   {
     label: "5 Day Awaken & Align Retreat in Goa",
-    href: "/retreats/5-day-awaken-and-align-retreat-goa",
+    href: "/retreats/5-day-awaken-and-align-yoga-retreat-goa",
   },
   {
     label: "Aerial Yoga Retreat in Goa",
@@ -126,14 +126,14 @@ const retreatChildren = [
   },
   {
     label: "Yoga Festivals in Goa",
-    href: "/retreats/yoga-festivals-in-goa",
+    href: "/retreats/yoga-festivals-goa",
   },
 ];
 
 const holidayChildren = [
   {
     label: "All Yoga Holidays",
-    href: "/holidays",
+    href: "/yoga-holidays-goa",
   },
   {
     label: "3 Day Yoga Holiday in Goa",
@@ -152,31 +152,31 @@ const holidayChildren = [
 const pranayamaChildren = [
   {
     label: "Pre-Pranayama Foundation",
-    href: "/pranayama/pre-pranayama-foundation",
+    href: "/online-pranayama/pre-pranayama-foundation-course",
   },
   {
     label: "Beginner Pranayama",
-    href: "/pranayama/beginner-pranayama",
+    href: "/online-pranayama/beginner-pranayama-course",
   },
   {
     label: "Intermediate Pranayama",
-    href: "/pranayama/intermediate-pranayama",
+    href: "/online-pranayama/intermediate-pranayama-course",
   },
   {
     label: "Advanced Pranayama",
-    href: "/pranayama/advanced-pranayama",
+    href: "/online-pranayama/advanced-pranayama-course",
   },
   {
     label: "Meditation & Breathing for Stress Relief",
-    href: "/pranayama/stress-relief-course",
+    href: "/online-pranayama/stress-relief-course",
   },
   {
     label: "Daily Pranayama Classes",
-    href: "/pranayama/daily-pranayama-subscription",
+    href: "/online-pranayama/daily-pranayama-subscription",
   },
   {
     label: "Online Yoga and Meditation",
-    href: "/pranayama/online-yoga-meditation",
+    href: "/online-pranayama/yoga-meditation",
   },
 ];
 
@@ -201,10 +201,8 @@ const childLinkClass = (label) =>
       : "text-[15px] text-[var(--muted)]"
   }`;
 
-// Renders a dropdown child as a <button> when it's the Blogs entry,
-// and as a normal <Link> (anchor) for everything else. Navigation for
-// the button is handled with router.push since a <button> has no href.
-function ChildLink({ child, onNavigate, router }) {
+// Renders all dropdown children as proper Next.js <Link> components with href
+function ChildLink({ child, onNavigate }) {
   const className = childLinkClass(child.label);
   const dot = (
     <span
@@ -218,23 +216,6 @@ function ChildLink({ child, onNavigate, router }) {
       aria-hidden="true"
     />
   );
-
-  if (child.label === "Blogs" || child.label === "Blog") {
-    return (
-      <button
-        type="button"
-        onClick={() => {
-          onNavigate?.();
-          router.push(child.href);
-        }}
-        className={`w-full text-left ${className}`}
-      >
-        {dot}
-        {underline}
-        {child.label}
-      </button>
-    );
-  }
 
   return (
     <Link href={child.href} onClick={onNavigate} className={className}>

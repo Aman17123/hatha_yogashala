@@ -11,14 +11,14 @@ const quickLinks = [
   ["About Us", "/about"],
   ["Our Founder", "/founder"],
   ["Our Teachers", "/teachers"],
-  ["Accommodation", "/accommodation"],
+  ["Accommodation & Food", "/accommodation-goa"],
   ["Contact Us", "/contact"],
   ["Blog & Journal", "/blog"],
   ["Photo Gallery", "/gallery"],
 ];
 
 const ttcLinks = [
-  ["Yoga TTC Overview", "/yoga-teacher-training"],
+  ["Yoga TTC Overview", "/yoga-teacher-training-goa"],
   ["100 Hour Yoga TTC", "/courses/100-hour-yoga-teacher-training-goa"],
   ["200 Hour Yoga TTC", "/courses/200-hour-yoga-teacher-training-goa"],
   [
@@ -34,20 +34,20 @@ const ttcLinks = [
 ];
 
 const retreatLinks = [
-  ["Yoga Retreats Overview", "/retreats"],
+  ["Yoga Retreats Overview", "/yoga-retreats-goa"],
   ["3-Day Yoga Retreat", "/retreats/3-day-yoga-retreat-goa"],
   ["5-Day Yoga Retreat", "/retreats/5-day-yoga-retreat-goa"],
   ["7-Day Yoga Retreat", "/retreats/7-day-yoga-retreat-goa"],
   [
     "5-Day Awaken & Align",
-    "/retreats/5-day-awaken-and-align-retreat-goa",
+    "/retreats/5-day-awaken-and-align-yoga-retreat-goa",
   ],
   ["Aerial Yoga Retreat", "/retreats/aerial-yoga-retreat-goa"],
   [
     "Ayurvedic Massage Therapy",
     "/retreats/ayurvedic-massage-therapy-goa",
   ],
-  ["Yoga Festival in Goa", "/retreats/yoga-festivals-in-goa"],
+  ["Yoga Festival in Goa", "/retreats/yoga-festivals-goa"],
 ];
 
 const socialLinks = [
@@ -116,13 +116,13 @@ export default function Footer() {
             <p className="font-mono text-[11px] sm:text-xs lg:text-[13.5px] uppercase tracking-[0.28em] sm:tracking-[0.32em] text-[var(--gold)]">
               Breathe · Move · Awaken
             </p>
-            <h2 className="max-w-xl font-serif text-[20px] sm:text-[23px] md:text-[26px] lg:text-[30px] xl:text-[32px] font-normal leading-[1.12] tracking-[-0.02em] text-[var(--brown)]">
+            <h2 className="max-w-xl text-[var(--brown)] tracking-[-0.02em]">
               Begin your yoga journey in Goa
             </h2>
 
             <div className="mt-0.5 sm:mt-1 flex flex-col items-center gap-2">
               <Link
-                href="/courses"
+                href="/yoga-teacher-training-goa"
                 className="group inline-flex min-h-9 sm:min-h-9.5 lg:min-h-10.5 items-center justify-center gap-2 rounded-md border border-[var(--brown)]/20 px-3.5 py-1.5 sm:px-4 sm:py-1.5 lg:px-4.5 lg:py-2 text-xs sm:text-[12.5px] lg:text-[13.5px] font-semibold uppercase tracking-[0.14em] text-[var(--brown)] transition duration-200 hover:border-[var(--gold)] hover:bg-[var(--gold)]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--cream)]"
               >
                 Explore YTTC & retreats

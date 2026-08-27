@@ -194,7 +194,7 @@ export default function ContactPage() {
               return (
                 <article className="card card-body" key={label}>
                   <Icon aria-hidden="true" />
-                  <h2>{label}</h2>
+                  <h3>{label}</h3>
                   <p>{text}</p>
                 </article>
               );
@@ -203,7 +203,7 @@ export default function ContactPage() {
           <div className="grid gap-6 mt-8 lg:grid-cols-[0.8fr_1.2fr]">
             <article className="card card-body">
               <MapPinned aria-hidden="true" />
-              <h2 className="mt-4">{site.contact.address}</h2>
+              <h3 className="mt-4">{site.contact.address}</h3>
               <p className="mt-3">
                 Request the exact arrival window and route before travel so your
                 airport pickup or bus connection is confirmed for The Hatha Yogashala in Querim, North Goa.

@@ -1,6 +1,6 @@
 export const pranayamaCourses = [
   {
-    slug: "pre-pranayama-foundation",
+    slug: "pre-pranayama-foundation-course",
     title: "Pre-Pranayama Foundation Course",
     eyebrow: "Breath Anatomy & Diaphragmatic Awareness",
     level: "Foundational / All Levels",
@@ -12,7 +12,7 @@ export const pranayamaCourses = [
     trialPrice: "$10 USD Trial Session Available",
     prerequisites: "None. Suitable for absolute beginners and all body types.",
     nextStep: {
-      slug: "beginner-pranayama",
+      slug: "beginner-pranayama-course",
       title: "Beginner Pranayama Course",
       ctaText: "Continue to Beginner Pranayama",
     },
@@ -137,7 +137,7 @@ export const pranayamaCourses = [
     ],
   },
   {
-    slug: "beginner-pranayama",
+    slug: "beginner-pranayama-course",
     title: "Beginner Pranayama Course",
     eyebrow: "Classical Yogic Breathing & Energy Harmonization",
     level: "Beginner / Intermediate Prep",
@@ -149,7 +149,7 @@ export const pranayamaCourses = [
     trialPrice: "$10 USD Single Class Pass",
     prerequisites: "Pre-Pranayama Foundation or basic breath awareness.",
     nextStep: {
-      slug: "intermediate-pranayama",
+      slug: "intermediate-pranayama-course",
       title: "Intermediate Pranayama Course",
       ctaText: "Advance to Intermediate Pranayama",
     },
@@ -274,7 +274,7 @@ export const pranayamaCourses = [
     ],
   },
   {
-    slug: "intermediate-pranayama",
+    slug: "intermediate-pranayama-course",
     title: "Intermediate Pranayama Course",
     eyebrow: "Kumbhaka Ratios, Bandhas & Pranic Expansion",
     level: "Intermediate",
@@ -286,7 +286,7 @@ export const pranayamaCourses = [
     trialPrice: "$15 USD Drop-in Evaluation",
     prerequisites: "Completion of Beginner Pranayama or 6+ months consistent breath practice.",
     nextStep: {
-      slug: "advanced-pranayama",
+      slug: "advanced-pranayama-course",
       title: "Advanced Pranayama Course",
       ctaText: "Prepare for Advanced Pranayama",
     },
@@ -411,7 +411,7 @@ export const pranayamaCourses = [
     ],
   },
   {
-    slug: "advanced-pranayama",
+    slug: "advanced-pranayama-course",
     title: "Advanced Pranayama & Kundalini Awakening",
     eyebrow: "Maha Bandha, Kevala Kumbhaka & Higher States",
     level: "Advanced / Master Level",
@@ -825,7 +825,7 @@ export const pranayamaCourses = [
     ],
   },
   {
-    slug: "online-yoga-meditation",
+    slug: "yoga-meditation",
     title: "Online Yoga and Meditation Immersion",
     eyebrow: "Holistic Asana, Breath & Mindfulness Practice",
     level: "All Levels",

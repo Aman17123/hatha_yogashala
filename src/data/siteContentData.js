@@ -150,9 +150,6 @@ export const founderData = {
   ],
   message:
     "Welcome to The Hatha Yogashala in Querim, North Goa. Our shala was built to be a sanctuary where sincere seekers can study traditional Hatha Yoga deeply, away from the noise and rush of modern life. Whether you come to become a certified teacher or to immerse yourself in self-discovery, we welcome you with warmth, discipline, and honest guidance.",
-  isPlaceholder: true,
-  placeholderNote:
-    "[EDITABLE DATA PLACEHOLDER: Replace name, portrait, qualifications, and biography with verified founder details as needed.]",
 };
 
 export const teachersData = [

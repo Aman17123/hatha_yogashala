@@ -178,7 +178,7 @@ export default function ReviewsSection({
           <div className="mb-8 text-center">
             <div className="mb-2 flex items-center justify-center gap-2">
               <GoogleG className="h-8 w-8 md:h-10 md:w-10" />
-              <h2 className="text-2xl font-black tracking-tighter text-[var(--brown)] md:text-4xl">
+              <h2 className="text-[var(--brown)]">
                 Google — <span className="text-[#4285F4]">{title}</span>
               </h2>
             </div>

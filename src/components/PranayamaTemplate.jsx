@@ -87,7 +87,7 @@ export default function PranayamaTemplate({ course }) {
           <Breadcrumbs
             items={[
               { label: "Home", href: "/" },
-              { label: "Pranayama & Breathwork", href: "/pranayama" },
+              { label: "Pranayama & Breathwork", href: "/online-pranayama" },
               { label: course.title },
             ]}
           />
@@ -99,7 +99,7 @@ export default function PranayamaTemplate({ course }) {
                 {course.eyebrow}
               </span>
 
-              <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-normal leading-[1.12] text-[var(--brown)] tracking-tight">
+              <h1>
                 {course.title}
               </h1>
 
@@ -184,7 +184,7 @@ export default function PranayamaTemplate({ course }) {
               <span className="text-xs sm:text-[13px] font-bold uppercase tracking-widest text-[var(--coral-dark)]">
                 The Science & Tradition
               </span>
-              <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)] leading-tight">
+              <h2 className="mt-2 text-[var(--brown)]">
                 {course.whyMatters.heading}
               </h2>
 
@@ -242,7 +242,7 @@ export default function PranayamaTemplate({ course }) {
             <span className="text-xs sm:text-[13px] font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               Tailored Guidance
             </span>
-            <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)]">
+            <h2 className="mt-2 text-[var(--brown)]">
               Who Should Join This Program
             </h2>
             <p className="mt-2 text-sm text-[var(--muted)]">
@@ -280,7 +280,7 @@ export default function PranayamaTemplate({ course }) {
             <span className="text-xs sm:text-[13px] font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               Curriculum & Competencies
             </span>
-            <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)]">
+            <h2 className="mt-2 text-[var(--brown)]">
               What You Will Master
             </h2>
             <p className="mt-2 text-sm text-[var(--muted)]">
@@ -319,7 +319,7 @@ export default function PranayamaTemplate({ course }) {
               <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
                 Program Specifications
               </span>
-              <h2 className="mt-1 font-heading text-2xl sm:text-3xl font-normal text-[var(--brown)]">
+              <h2 className="mt-1 text-[var(--brown)]">
                 Course Details & Logistics
               </h2>
             </div>
@@ -446,7 +446,7 @@ export default function PranayamaTemplate({ course }) {
                   <p className="text-xs text-[var(--muted)]">
                     Are you a course graduate? Access your complimentary{" "}
                     <Link
-                      href="/pranayama/prana-circle"
+                      href="/online-pranayama/prana-circle"
                       className="text-[var(--coral-dark)] font-bold underline underline-offset-2 hover:text-[var(--brown)]"
                     >
                       Prana Circle Alumni Satsang →
@@ -478,7 +478,7 @@ export default function PranayamaTemplate({ course }) {
             <span className="text-xs sm:text-[13px] font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               Common Questions
             </span>
-            <h2 className="mt-2 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)]">
+            <h2 className="mt-2 text-[var(--brown)]">
               Frequently Asked Questions
             </h2>
           </div>
@@ -516,7 +516,7 @@ export default function PranayamaTemplate({ course }) {
                 </h4>
               </div>
               <Link
-                href={`/pranayama/${course.nextStep.slug}`}
+                href={`/online-pranayama/${course.nextStep.slug}`}
                 className="button button-primary !py-2.5 !px-5 text-xs sm:text-sm font-bold shrink-0"
               >
                 <span>{course.nextStep.ctaText}</span>

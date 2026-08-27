@@ -35,9 +35,10 @@ export default function sitemap() {
   const staticRoutes = [
     { path: "", lastmod: SITE_LASTMOD, images: homepageImages },
     { path: "/about", lastmod: SITE_LASTMOD },
+    { path: "/founder", lastmod: SITE_LASTMOD },
     { path: "/teachers", lastmod: SITE_LASTMOD },
-    { path: "/certification", lastmod: SITE_LASTMOD },
-    { path: "/accommodation", lastmod: SITE_LASTMOD },
+    { path: "/yoga-alliance-certification", lastmod: SITE_LASTMOD },
+    { path: "/accommodation-goa", lastmod: SITE_LASTMOD },
     {
       path: "/gallery",
       lastmod: SITE_LASTMOD,
@@ -45,12 +46,11 @@ export default function sitemap() {
     },
     { path: "/contact", lastmod: SITE_LASTMOD },
     { path: "/apply", lastmod: SITE_LASTMOD },
-    { path: "/courses", lastmod: SITE_LASTMOD },
-    { path: "/retreats", lastmod: SITE_LASTMOD },
-    { path: "/yoga-teacher-training", lastmod: SITE_LASTMOD },
-    { path: "/holidays", lastmod: SITE_LASTMOD },
-    { path: "/pranayama", lastmod: SITE_LASTMOD },
-    { path: "/about/goa", lastmod: SITE_LASTMOD },
+    { path: "/yoga-teacher-training-goa", lastmod: SITE_LASTMOD },
+    { path: "/yoga-retreats-goa", lastmod: SITE_LASTMOD },
+    { path: "/yoga-holidays-goa", lastmod: SITE_LASTMOD },
+    { path: "/online-pranayama", lastmod: SITE_LASTMOD },
+    { path: "/goa-travel-guide", lastmod: SITE_LASTMOD },
     { path: "/blog", lastmod: SITE_LASTMOD },
     { path: "/privacy-policy", lastmod: SITE_LASTMOD },
     { path: "/terms", lastmod: SITE_LASTMOD },
@@ -95,7 +95,7 @@ export default function sitemap() {
         : {}),
     })),
     ...pranayamaCourses.map((pranayama) => ({
-      url: absoluteUrl(`/pranayama/${pranayama.slug}`),
+      url: absoluteUrl(`/online-pranayama/${pranayama.slug}`),
       lastModified: SITE_LASTMOD,
       ...(pranayama.heroImage
         ? {

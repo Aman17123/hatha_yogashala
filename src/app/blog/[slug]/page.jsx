@@ -309,7 +309,7 @@ export default async function BlogPostPage({ params }) {
 
             {post.faqs && post.faqs.length > 0 && (
               <section id="frequently-asked-questions" className="mt-12 pt-8 border-t border-[var(--border)] scroll-mt-24">
-                <h2 className="font-heading text-2xl sm:text-3xl text-[var(--brown)] mb-6">
+                <h2 className="text-[var(--brown)] mb-6">
                   Frequently Asked Questions
                 </h2>
                 <div className="space-y-4">

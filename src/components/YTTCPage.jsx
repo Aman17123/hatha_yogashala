@@ -397,7 +397,7 @@ export default function YTTCPage({ course }) {
           <nav aria-label="Breadcrumb" className="retreat-hero-breadcrumb">
             <Link href="/">Home</Link>
             <span>/</span>
-            <Link href="/courses">Yoga Teacher Training</Link>
+            <Link href="/yoga-teacher-training-goa">Yoga Teacher Training</Link>
             <span>/</span>
             <span>{course.name}</span>
           </nav>
@@ -409,7 +409,7 @@ export default function YTTCPage({ course }) {
             </span>
           </div>
 
-          <h1 className="retreat-hero-title font-heading">{course.name}</h1>
+          <h1 className="retreat-hero-title">{course.name}</h1>
           <p className="retreat-hero-lead">{pageData.heroTagline}</p>
 
           <div className="retreat-hero-meta">
@@ -527,7 +527,7 @@ export default function YTTCPage({ course }) {
             id="overview"
           >
             <RetreatEyebrow>1. Course Overview</RetreatEyebrow>
-            <h2 className="retreat-section-title font-heading">
+            <h2 className="retreat-section-title font-philosopher">
               {whatIs.heading}
             </h2>
             <div className="retreat-overview">
@@ -628,7 +628,7 @@ export default function YTTCPage({ course }) {
             id="why"
           >
             <RetreatEyebrow>2. Why Choose This Course</RetreatEyebrow>
-            <h2 className="retreat-section-title font-heading">
+            <h2 className="retreat-section-title font-philosopher">
               Why students choose us for their {course.hours || "TTC"} in Goa
             </h2>
             <Stagger className="retreat-why-grid">
@@ -655,7 +655,7 @@ export default function YTTCPage({ course }) {
             id="syllabus"
           >
             <RetreatEyebrow>3. Syllabus &amp; Curriculum</RetreatEyebrow>
-            <h2 className="retreat-section-title font-heading">
+            <h2 className="retreat-section-title font-philosopher">
               Comprehensive {course.hours || "Yoga Alliance"} Syllabus
             </h2>
             <p className="retreat-section-lead">
@@ -737,7 +737,7 @@ export default function YTTCPage({ course }) {
             id="schedule"
           >
             <RetreatEyebrow>4. Daily Schedule</RetreatEyebrow>
-            <h2 className="retreat-section-title font-heading">
+            <h2 className="retreat-section-title font-philosopher">
               A structured daily rhythm designed for deep immersion
             </h2>
             <p className="retreat-section-lead">
@@ -819,7 +819,7 @@ export default function YTTCPage({ course }) {
             id="highlights"
           >
             <RetreatEyebrow>5. Course Key Highlights</RetreatEyebrow>
-            <h2 className="retreat-section-title font-heading">
+            <h2 className="retreat-section-title font-philosopher">
               Core Pillars of Your Teacher Training
             </h2>
             <p className="retreat-section-lead">
@@ -857,7 +857,7 @@ export default function YTTCPage({ course }) {
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
               <div>
                 <RetreatEyebrow>6. Expert Faculty</RetreatEyebrow>
-                <h2 className="retreat-section-title font-heading !mb-0">
+                <h2 className="retreat-section-title font-philosopher !mb-0">
                   Meet Your Yoga Teacher Training Faculty in Goa
                 </h2>
               </div>
@@ -887,7 +887,7 @@ export default function YTTCPage({ course }) {
             id="experiences"
           >
             <RetreatEyebrow>7. Activities &amp; Excursions</RetreatEyebrow>
-            <h2 className="retreat-section-title font-heading">
+            <h2 className="retreat-section-title font-philosopher">
               Goa Beyond the Shala
             </h2>
             <p className="retreat-section-lead">
@@ -915,7 +915,7 @@ export default function YTTCPage({ course }) {
             id="included"
           >
             <RetreatEyebrow>8. What&apos;s Included</RetreatEyebrow>
-            <h2 className="retreat-section-title font-heading">
+            <h2 className="retreat-section-title font-philosopher">
               Everything Included in Your Tuition
             </h2>
             <p className="retreat-section-lead">
@@ -947,7 +947,7 @@ export default function YTTCPage({ course }) {
             id="excluded"
           >
             <RetreatEyebrow>9. What&apos;s Excluded</RetreatEyebrow>
-            <h2 className="retreat-section-title font-heading">
+            <h2 className="retreat-section-title font-philosopher">
               Items Not Covered in the Course Fee
             </h2>
             <p className="retreat-section-lead">
@@ -978,7 +978,7 @@ export default function YTTCPage({ course }) {
             id="accommodation"
           >
             <RetreatEyebrow>10. Accommodation &amp; Food</RetreatEyebrow>
-            <h2 className="retreat-section-title font-heading">
+            <h2 className="retreat-section-title font-philosopher">
               Rest &amp; Nourishment on Campus
             </h2>
             <p className="retreat-section-lead">
@@ -1152,7 +1152,7 @@ export default function YTTCPage({ course }) {
             id="learning-outcomes"
           >
             <RetreatEyebrow>11. What You&apos;ll Learn</RetreatEyebrow>
-            <h2 className="retreat-section-title font-heading">
+            <h2 className="retreat-section-title font-philosopher">
               Graduate Learning Outcomes &amp; Skills
             </h2>
             <p className="retreat-section-lead">
@@ -1184,7 +1184,9 @@ export default function YTTCPage({ course }) {
             id="dates"
           >
             <RetreatEyebrow>12. Upcoming Intakes</RetreatEyebrow>
-            <h2 className="retreat-section-title font-heading">Course Dates</h2>
+            <h2 className="retreat-section-title font-philosopher">
+              Course Dates
+            </h2>
             <p className="retreat-section-lead">
               New batches start monthly throughout the year. Select your
               preferred intake month below.
@@ -1223,7 +1225,7 @@ export default function YTTCPage({ course }) {
 
             <div className="retreat-booking-form mt-8" id="registration">
               <RetreatEyebrow>Reserve Your Place</RetreatEyebrow>
-              <h2 className="retreat-section-title font-heading">
+              <h2 className="retreat-section-title font-philosopher">
                 Secure Enrollment Form
               </h2>
               <p className="retreat-section-lead">
@@ -1259,7 +1261,7 @@ export default function YTTCPage({ course }) {
             id="reviews"
           >
             <RetreatEyebrow>Student Experiences</RetreatEyebrow>
-            <h2 className="retreat-section-title font-heading">
+            <h2 className="retreat-section-title font-philosopher">
               Trusted by 3,500+ yoga teacher graduates
             </h2>
             <TestimonialCarousel testimonials={pageData.testimonials} />
@@ -1271,7 +1273,7 @@ export default function YTTCPage({ course }) {
             id="faq"
           >
             <RetreatEyebrow>Frequently Asked Questions</RetreatEyebrow>
-            <h2 className="retreat-section-title font-heading">
+            <h2 className="retreat-section-title font-philosopher">
               Answers Before You Arrive
             </h2>
             <Accordion items={faqList} />
@@ -1289,7 +1291,7 @@ export default function YTTCPage({ course }) {
               <Sparkles size={13} aria-hidden="true" />
               Yoga Alliance Certified
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight text-white mb-4">
+            <h2 className="font-philosopher leading-tight text-white mb-4">
               Start Your Yoga Journey
             </h2>
             <p className="text-sm sm:text-base text-white/85 max-w-xl mx-auto leading-relaxed mb-8">
@@ -1320,7 +1322,7 @@ export default function YTTCPage({ course }) {
               <span className="text-[11px] font-extrabold uppercase tracking-widest text-[var(--coral-dark)]">
                 Yoga Teacher Training Lineages
               </span>
-              <h2 className="mt-1 font-heading text-2xl sm:text-3xl lg:text-4xl font-normal text-[var(--brown)]">
+              <h2 className="mt-1 font-philosopher text-[var(--brown)]">
                 Other Trainings Offered at The Hatha Yogashala
               </h2>
               <p className="mt-2 text-xs sm:text-sm text-[var(--muted)]">

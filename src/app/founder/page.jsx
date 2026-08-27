@@ -3,7 +3,6 @@ import {
   CheckCircle2,
   Heart,
   Quote,
-  ShieldAlert,
   Sparkles,
 } from "lucide-react";
 import { founderData } from "@/data/siteContentData";
@@ -42,6 +41,7 @@ export default function FounderPage() {
         title="Meet Our Founder"
         text="Discover the vision, traditional background, and teaching philosophy guiding The Hatha Yogashala in Goa, India."
         image="/images/tha_hatha/The_Hatha_Yogashala-founder-Goa.webp"
+        imageAlt="Pradeep Singh, Founder and Lead Teacher at The Hatha Yogashala in Goa"
       />
 
       {/* Founder Biography & Lineage */}
@@ -64,7 +64,7 @@ export default function FounderPage() {
 
               {/* Quick Facts Card */}
               <div className="rounded-[24px] bg-white border border-[var(--border)] p-6 shadow-sm space-y-4">
-                <h3 className="text-base font-serif font-bold text-[var(--brown)] border-b border-[var(--border)]/60 pb-3">
+                <h3 className="text-base font-bold text-[var(--brown)] border-b border-[var(--border)]/60 pb-3">
                   Founder Credentials
                 </h3>
                 <dl className="space-y-3 text-[13.5px] sm:text-sm">
@@ -86,14 +86,6 @@ export default function FounderPage() {
                   </div>
                 </dl>
               </div>
-
-              {/* Editable Placeholder Banner if applicable */}
-              {founderData.isPlaceholder && (
-                <div className="flex items-start gap-2.5 rounded-2xl bg-[var(--cream)] border border-[var(--border)] p-4 text-[13.5px] text-[var(--muted)]">
-                  <ShieldAlert size={16} className="text-[var(--coral-dark)] shrink-0 mt-0.5" />
-                  <span>{founderData.placeholderNote}</span>
-                </div>
-              )}
             </div>
 
             {/* Right Column — Full Story & Philosophy */}
@@ -103,7 +95,7 @@ export default function FounderPage() {
                   <Sparkles aria-hidden="true" size={15} />
                   Yoga Journey & Background
                 </p>
-                <h2 className="mt-2 text-3xl sm:text-4xl font-serif font-bold text-[var(--brown)] leading-tight">
+                <h2 className="mt-2 text-[var(--brown)]">
                   {founderData.name}
                 </h2>
                 <p className="text-sm font-semibold text-[var(--coral-dark)] mt-1">
@@ -120,7 +112,7 @@ export default function FounderPage() {
               {/* Quote */}
               <div className="relative rounded-2xl bg-[var(--cream)]/70 border-l-4 border-[var(--coral-dark)] p-6 shadow-sm space-y-2">
                 <Quote className="size-6 text-[var(--coral-dark)]/30 absolute top-4 right-4" />
-                <p className="text-base italic font-serif text-[var(--brown)] leading-relaxed">
+                <p className="text-base italic text-[var(--brown)] leading-relaxed">
                   &ldquo;{founderData.quote}&rdquo;
                 </p>
                 <p className="text-[13.5px] font-bold text-[var(--coral-dark)] uppercase tracking-wider pt-2">
@@ -130,7 +122,7 @@ export default function FounderPage() {
 
               {/* Areas of Expertise */}
               <div className="space-y-3 pt-2">
-                <h3 className="text-lg font-serif font-bold text-[var(--brown)]">
+                <h3 className="text-lg font-bold text-[var(--brown)]">
                   Areas of Expertise & Mastery
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -156,14 +148,14 @@ export default function FounderPage() {
             <span className="grid size-12 place-items-center mx-auto rounded-full bg-[var(--cream)] text-[var(--coral-dark)]">
               <Heart size={24} />
             </span>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[var(--brown)]">
+            <h2 className="text-[var(--brown)]">
               A Personal Message to Future Students
             </h2>
-            <p className="text-base sm:text-lg text-[var(--text)] italic font-serif leading-relaxed">
+            <p className="text-base sm:text-lg text-[var(--text)] italic leading-relaxed">
               &ldquo;{founderData.message}&rdquo;
             </p>
             <div className="pt-4 border-t border-[var(--border)] flex justify-center gap-4">
-              <ButtonLink href="/courses" variant="primary">
+              <ButtonLink href="/yoga-teacher-training-goa" variant="primary">
                 Explore Courses
               </ButtonLink>
               <ButtonLink href="/apply" variant="secondary">

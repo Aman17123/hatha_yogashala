@@ -2117,7 +2117,7 @@ export const retreats = [
     };
   }),
   {
-    slug: "5-day-awaken-and-align-retreat-goa",
+    slug: "5-day-awaken-and-align-yoga-retreat-goa",
     days: 5,
     name: "5-Day Awaken & Align Retreat",
     category: "Kundalini & Iyengar Fusion",
@@ -2416,7 +2416,7 @@ export const retreats = [
     ],
   },
   {
-    slug: "yoga-festivals-in-goa",
+    slug: "yoga-festivals-goa",
     days: 3,
     name: "Yoga Festival in Goa",
     category: "Festival & Community",

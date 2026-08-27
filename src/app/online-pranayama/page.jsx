@@ -8,7 +8,7 @@ import { absoluteUrl, makeMetadata, site } from "@/data/siteData";
 export const metadata = makeMetadata(
   "Pranayama & Breathwork Courses Online | The Hatha Yogashala",
   "Master classical Indian Pranayama, diaphragmatic breathwork, and stress-relief breathing. From Pre-Pranayama Foundation to Advanced Bandhas & Kundalini.",
-  "/pranayama",
+  "/online-pranayama",
   "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
   "pranayama course, breathwork training online, learn yogic breathing, Hatha pranayama Goa, Nadi Shodhana class",
 );
@@ -19,7 +19,7 @@ const hubSchema = {
   name: "Pranayama & Breathwork Programs",
   description:
     "Systematic breathwork courses from foundational diaphragmatic breathing to advanced Kumbhaka and Bandha mastery.",
-  url: absoluteUrl("/pranayama"),
+  url: absoluteUrl("/online-pranayama"),
   publisher: {
     "@type": "Organization",
     name: site.name,
@@ -27,7 +27,7 @@ const hubSchema = {
   },
 };
 
-export default function PranayamaHubPage() {
+export default function OnlinePranayamaHubPage() {
   const mainCourses = pranayamaCourses.filter((c) => c.slug !== "prana-circle");
 
   return (
@@ -102,7 +102,7 @@ export default function PranayamaHubPage() {
 
                   <div className="mt-6 pt-2">
                     <Link
-                      href={`/pranayama/${course.slug}`}
+                      href={`/online-pranayama/${course.slug}`}
                       className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--surface)] px-4 py-3 text-xs sm:text-sm font-bold text-[var(--coral-dark)] transition-all hover:bg-[var(--coral-dark)] hover:text-white"
                     >
                       <span>Explore Course Syllabus</span>
@@ -130,7 +130,7 @@ export default function PranayamaHubPage() {
               </div>
               <div className="lg:col-span-4 flex justify-start lg:justify-end">
                 <Link
-                  href="/pranayama/prana-circle"
+                  href="/online-pranayama/prana-circle"
                   className="button button-primary !py-3.5 !px-6 text-sm font-bold shadow-md"
                 >
                   <span>Learn About Prana Circle</span>

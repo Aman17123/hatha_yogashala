@@ -163,7 +163,7 @@ export default function AboutPage() {
               text="Certification, teachers, graduate outcomes, and student voices each require supporting information and an appropriate public source."
             />
             <div className="policy-grid">
-              <article><h3>Certification</h3><p>{placeholders.certification}. {placeholders.verificationUrl}</p><ButtonLink href="/certification" variant="text">View certification</ButtonLink></article>
+              <article><h3>Certification</h3><p>{placeholders.certification}. {placeholders.verificationUrl}</p><ButtonLink href="/yoga-alliance-certification" variant="text">View certification</ButtonLink></article>
               <article><h3>Teaching team</h3><p>Faculty names, qualifications, experience, subject roles, and batch assignments are verified before publication.</p><ButtonLink href="/teachers" variant="text">Meet the teachers</ButtonLink></article>
               <article><h3>Student reviews</h3><p>No student review is shown without its original platform source, reviewer attribution, rating, and date.</p><ButtonLink href="/contact" variant="text">Ask a question</ButtonLink></article>
             </div>
