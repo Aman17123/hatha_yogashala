@@ -1,5 +1,5 @@
 /**
- * Premium retreat page content — Hatha Yogashala, Goa
+ * Premium retreat page content — The Hatha Yogashala, Goa
  *
  * This module holds the editorial + booking content for the redesigned
  * retreat detail pages. It is intentionally separated from coursesData
@@ -346,7 +346,7 @@ export const testimonials = [
     name: "Maria",
     country: "Spain",
     rating: 5,
-    text: "The 7-day retreat at Hatha Yogashala was the reset I desperately needed. The teachers' guidance, the ice baths, the food, the beach meditations — every single day felt intentional and healing. I left Goa feeling like a new person.",
+    text: "The 7-day retreat at The Hatha Yogashala was the reset I desperately needed. The teachers' guidance, the ice baths, the food, the beach meditations — every single day felt intentional and healing. I left Goa feeling like a new person.",
     image: IMAGES.hero,
     tag: "7-Day Retreat",
   },
@@ -354,7 +354,7 @@ export const testimonials = [
     name: "Anna",
     country: "Germany",
     rating: 5,
-    text: "Five days at Hatha Yogashala gave me what months of city life could not — stillness, energy, and clarity. The sound healing and beach meditations were unforgettable. I will be back for the 7-day retreat next year.",
+    text: "Five days at The Hatha Yogashala gave me what months of city life could not — stillness, energy, and clarity. The sound healing and beach meditations were unforgettable. I will be back for the 7-day retreat next year.",
     image: IMAGES.class,
     tag: "5-Day Retreat",
   },
@@ -362,7 +362,7 @@ export const testimonials = [
     name: "Nikita",
     country: "Russia",
     rating: 5,
-    text: "I only had a weekend in Goa, and this 3-day retreat at Hatha Yogashala was the perfect way to spend it. The ice bath, the beach yoga, the food — everything was exceptional. I left completely recharged.",
+    text: "I only had a weekend in Goa, and this 3-day retreat at The Hatha Yogashala was the perfect way to spend it. The ice bath, the beach yoga, the food — everything was exceptional. I left completely recharged.",
     image: IMAGES.coast,
     tag: "3-Day Retreat",
   },
@@ -370,7 +370,7 @@ export const testimonials = [
     name: "Elena",
     country: "Russia",
     rating: 5,
-    text: "Hatha Yogashala completely transformed my relationship with yoga. The teaching was precise, the community was warm, and training next to the beach in Goa was beyond what I imagined.",
+    text: "The Hatha Yogashala completely transformed my relationship with yoga. The teaching was precise, the community was warm, and training next to the beach in Goa was beyond what I imagined.",
     image: IMAGES.pranayama,
     tag: "200-Hour YTT",
   },
@@ -394,7 +394,7 @@ export const testimonials = [
     name: "Lukas",
     country: "Germany",
     rating: 5,
-    text: "The philosophy and meditation teachings at Hatha Yogashala changed how I see yoga. The quality of teaching and the warmth of the community exceeded every expectation.",
+    text: "The philosophy and meditation teachings at The Hatha Yogashala changed how I see yoga. The quality of teaching and the warmth of the community exceeded every expectation.",
     image: IMAGES.hero,
     tag: "300-Hour YTT",
   },

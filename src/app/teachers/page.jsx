@@ -16,7 +16,7 @@ export default function TeachersPage() {
   const facultySchema = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
-    name: "Hatha Yogashala",
+    name: "The Hatha Yogashala",
     employee: teachersData.map((t) => ({
       "@type": "Person",
       name: t.name,

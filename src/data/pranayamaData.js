@@ -182,7 +182,7 @@ export const pranayamaCourses = [
         "learn Nadi Shodhana",
         "Ujjayi breathing class",
         "classical yogic breathwork",
-        "Hatha Yogashala pranayama",
+        "The Hatha Yogashala pranayama",
       ],
     },
     summary:
@@ -311,7 +311,7 @@ export const pranayamaCourses = [
       },
     ],
     seo: {
-      title: "Intermediate Pranayama Course: Bandhas & Kumbhaka | Hatha Yogashala",
+      title: "Intermediate Pranayama Course: Bandhas & Kumbhaka | The Hatha Yogashala",
       description:
         "Deepen your breathwork with classical Kumbhaka ratios (1:4:2), Kapalabhati, Bhastrika, and the three Bandhas (Mula, Uddiyana, Jalandhara).",
       keywords: [
@@ -570,7 +570,7 @@ export const pranayamaCourses = [
     galleryImages: [
       {
         src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-savasana-final-relaxation-pose-01.webp",
-        alt: "Restorative Savasana and guided breath release at Hatha Yogashala",
+        alt: "Restorative Savasana and guided breath release at The Hatha Yogashala",
         caption: "Deep nervous system reset in restorative relaxation",
       },
       {
@@ -724,14 +724,14 @@ export const pranayamaCourses = [
       },
     ],
     seo: {
-      title: "Daily Pranayama Classes Online (Monthly Subscription) | Hatha Yogashala",
+      title: "Daily Pranayama Classes Online (Monthly Subscription) | The Hatha Yogashala",
       description:
         "Join live daily 30-minute morning and evening Pranayama and meditation classes with expert Indian teachers. $10 trial session available. Subscribe for $99/mo.",
       keywords: [
         "daily pranayama classes online",
         "live morning breathwork subscription",
         "daily meditation membership",
-        "Hatha Yogashala online classes",
+        "The Hatha Yogashala online classes",
         "breathwork trial session $10",
       ],
     },
@@ -972,14 +972,14 @@ export const pranayamaCourses = [
     timezone: "IST (Indian Standard Time)",
     price: "Complimentary for Course Alumni & Active Subscribers",
     trialPrice: "Free for Alumni / Included in Subscription",
-    prerequisites: "Enrollment in any Hatha Yogashala course or active daily subscription.",
+    prerequisites: "Enrollment in any The Hatha Yogashala course or active daily subscription.",
     heroImage:
       "/images/hatha-yogashala/hatha-yogashala-pernem-goa-graduation-group-photo-celebration-01.webp",
     heroImageAlt: "Alumni community gathering at The Hatha Yogashala Goa",
     galleryImages: [
       {
         src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-birthday-celebration-community-gathering-01.webp",
-        alt: "Community celebration and fellowship at Hatha Yogashala",
+        alt: "Community celebration and fellowship at The Hatha Yogashala",
         caption: "Celebrating milestones and mutual spiritual growth",
       },
       {
@@ -996,12 +996,12 @@ export const pranayamaCourses = [
     seo: {
       title: "The Prana Circle (Alumni Community) | The Hatha Yogashala",
       description:
-        "The Prana Circle is a monthly global community Satsang for Hatha Yogashala alumni and subscribers, featuring group breathwork and master mentoring.",
+        "The Prana Circle is a monthly global community Satsang for The Hatha Yogashala alumni and subscribers, featuring group breathwork and master mentoring.",
       keywords: [
         "Prana Circle alumni",
         "yoga community satsang Goa",
         "monthly breathwork call",
-        "Hatha Yogashala alumni network",
+        "The Hatha Yogashala alumni network",
         "breathwork community online",
       ],
     },

@@ -24,7 +24,7 @@ export function BrandLogo({ className = "", showTagline = true }) {
         </g>
       </svg>
       <span className="brand-logo-copy">
-        <strong>Hatha Yogashala</strong>
+        <strong>The Hatha Yogashala</strong>
         {showTagline && <small>Goa · India</small>}
       </span>
     </span>

@@ -548,7 +548,7 @@ export default function RetreatTemplate({ retreat, page }) {
             <RetreatEyebrow>Community &amp; Festivals</RetreatEyebrow>
             <h2 className="retreat-section-title">Community Celebration, Kirtan &amp; Ecstatic Gatherings</h2>
             <p className="retreat-section-lead">
-              Retreat life at Hatha Yogashala is vibrant and heartwarming. Join our evening live kirtans, joyful community gatherings, sacred mandala art workshops, and beach sunset circles where lifelong friendships are formed.
+              Retreat life at The Hatha Yogashala is vibrant and heartwarming. Join our evening live kirtans, joyful community gatherings, sacred mandala art workshops, and beach sunset circles where lifelong friendships are formed.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">

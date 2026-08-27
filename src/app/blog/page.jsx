@@ -11,13 +11,13 @@ export const metadata = pageMetadata("blog");
 const blogSchema = {
   "@context": "https://schema.org",
   "@type": "Blog",
-  name: "Hatha Yogashala Yoga Blog",
+  name: "The Hatha Yogashala Yoga Blog",
   description:
-    "Practical yoga guides from Hatha Yogashala in Goa — choosing yoga teacher training, planning a retreat near Arambol, and building a sustainable practice.",
+    "Practical yoga guides from The Hatha Yogashala in Goa — choosing yoga teacher training, planning a retreat near Arambol, and building a sustainable practice.",
   url: absoluteUrl("/blog"),
   publisher: {
     "@type": "Organization",
-    name: "Hatha Yogashala",
+    name: "The Hatha Yogashala",
     url: absoluteUrl("/"),
   },
   blogPost: posts.map((post) => ({

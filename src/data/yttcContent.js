@@ -653,7 +653,7 @@ export function yttcContent(course) {
         text: "Guided visits to local temples, with history and ritual explained by the faculty.",
         image:
           "/images/hatha-yogashala/hatha-yogashala-pernem-goa-havan-fire-puja-opening-ceremony-01.webp",
-        alt: "Students exploring local temple culture near Hatha Yogashala in North Goa",
+        alt: "Students exploring local temple culture near The Hatha Yogashala in North Goa",
       },
       {
         title: "Sunrise points",

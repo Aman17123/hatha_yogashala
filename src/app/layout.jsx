@@ -30,7 +30,7 @@ export const metadata = {
   metadataBase: new URL(site.url),
   title: {
     default: pageSeo.home.title,
-    template: "%s | Hatha Yogashala",
+    template: "%s | The Hatha Yogashala",
   },
   description: pageSeo.home.description,
   applicationName: site.name,

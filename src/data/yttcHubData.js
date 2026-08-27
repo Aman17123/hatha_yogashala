@@ -1,5 +1,5 @@
 /**
- * Yoga TTC hub page content — Hatha Yogashala, Goa
+ * Yoga TTC hub page content — The Hatha Yogashala, Goa
  *
  * Mirrors the retreat page data model (retreatData.js) so the teacher
  * training hub can share the same layout system — BookingSidebar,

@@ -26,7 +26,7 @@ export default function FounderPage() {
     jobTitle: founderData.role,
     worksFor: {
       "@type": "EducationalOrganization",
-      name: "Hatha Yogashala",
+      name: "The Hatha Yogashala",
     },
     description: founderData.shortBio,
     knowsAbout: founderData.areasOfExpertise,
@@ -40,7 +40,7 @@ export default function FounderPage() {
       <PageHero
         eyebrow="Leadership & Lineage"
         title="Meet Our Founder"
-        text="Discover the vision, traditional background, and teaching philosophy guiding Hatha Yogashala in Goa, India."
+        text="Discover the vision, traditional background, and teaching philosophy guiding The Hatha Yogashala in Goa, India."
         image="/images/tha_hatha/The_Hatha_Yogashala-founder-Goa.webp"
       />
 

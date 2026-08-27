@@ -17,7 +17,7 @@ const stayFaqs = [
   {
     question: "What accommodation is included with the yoga course?",
     answer:
-      "Residential yoga courses and retreats at Hatha Yogashala include a room at the school in Querim, North Goa and three vegetarian meals per day. Exact room category, occupancy and fees are confirmed in writing before booking.",
+      "Residential yoga courses and retreats at The Hatha Yogashala include a room at the school in Querim, North Goa and three vegetarian meals per day. Exact room category, occupancy and fees are confirmed in writing before booking.",
   },
   {
     question: "Where is the accommodation located?",
@@ -70,7 +70,7 @@ export default function AccommodationPage() {
           <SectionHeading
             eyebrow="Where you stay"
             title="A quiet campus near the beach"
-            text="Hatha Yogashala is a residential yoga school in Querim village, North Goa — minutes from Querim and Arambol beaches. Rooms, meals and practice spaces sit together on one peaceful campus."
+            text="The Hatha Yogashala is a residential yoga school in Querim village, North Goa — minutes from Querim and Arambol beaches. Rooms, meals and practice spaces sit together on one peaceful campus."
           />
           <div className="split-layout">
             <Media

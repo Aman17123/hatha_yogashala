@@ -173,7 +173,7 @@ export const holidays = [
     slug: "7-day-yoga-holiday-goa",
     days: 7,
     name: "7 Days Yoga Holiday",
-    tagline: "Experience the ultimate one-week yoga retreat in Goa with Hatha Yogashala Goa.",
+    tagline: "Experience the ultimate one-week yoga retreat in Goa with The Hatha Yogashala Goa.",
     subtitle: "A complete one-week Ayurvedic immersion with three complimentary full-body massages.",
     price: "$570 USD",
     numericPrice: 570,
@@ -183,7 +183,7 @@ export const holidays = [
     imageAlt: "Daily yoga and breathwork practice during 7 days yoga holiday in Goa",
     location: "Querim Beach, North Goa, India",
     introText: [
-      "Experience the ultimate one-week yoga retreat in Goa with Hatha Yogashala Goa. Originating from the world capital of yoga, Goa at the foothills of the Himalayas in northern India, we have ventured south to Goa, renowned as a paradise of Ayurveda. For the past decade, we have passionately imparted authentic yogic knowledge to seekers worldwide. Our center, Hatha Yogashala in Goa, stands as a leading yoga school in this vibrant coastal state. Today, we proudly extend our presence to this Ayurvedic haven, embracing Goa’s serene beauty and spiritual richness.",
+      "Experience the ultimate one-week yoga retreat in Goa with The Hatha Yogashala Goa. Originating from the world capital of yoga, Goa at the foothills of the Himalayas in northern India, we have ventured south to Goa, renowned as a paradise of Ayurveda. For the past decade, we have passionately imparted authentic yogic knowledge to seekers worldwide. Our center, The Hatha Yogashala in Goa, stands as a leading yoga school in this vibrant coastal state. Today, we proudly extend our presence to this Ayurvedic haven, embracing Goa’s serene beauty and spiritual richness.",
       "You’ll enjoy worry-free dining with three rejuvenating buffet-style vegetarian meals provided daily. Additionally, indulge in the Ayurvedic paradise of Goa with three complimentary full-body Ayurvedic massages at our spa.",
     ],
     renewalSection: {

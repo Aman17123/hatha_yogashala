@@ -56,7 +56,7 @@ export default function YogaTTCHubPage({ page }) {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const currencySymbol = p.pricing?.shared?.currency === "EUR" ? "€" : "$";
   const whatsappHref = whatsappLink(
-    "Hi Hatha Yogashala, I'm interested in the Yoga Teacher Training in Goa. Could you share upcoming dates and availability?",
+    "Hi The Hatha Yogashala, I'm interested in the Yoga Teacher Training in Goa. Could you share upcoming dates and availability?",
   );
 
   const filteredLevels = (p.levels || []).filter((level) => {

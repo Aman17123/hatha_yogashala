@@ -1,5 +1,5 @@
 /**
- * Site Content Data for Hatha Yogashala, Goa
+ * Site Content Data for The Hatha Yogashala, Goa
  * Contains structured reusable data objects for About, Founder, Teachers,
  * and Interactive Enrolment Questions.
  */
@@ -17,9 +17,9 @@ export const faqData = [
       "Registration status and eligibility explained clearly, no vague claims.",
       "Sample certificates and verification links available on request.",
     ],
-    image:
-      "/images/tha_hatha/The-hatha-yogashala--Certificate.webp",
-    imageAlt: "Yoga Alliance teacher training certification at The Hatha Yogashala Goa",
+    image: "/images/tha_hatha/The-hatha-yogashala--Certificate.webp",
+    imageAlt:
+      "Yoga Alliance teacher training certification at The Hatha Yogashala Goa",
   },
   {
     id: "experience-required",
@@ -35,7 +35,8 @@ export const faqData = [
     ],
     image:
       "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
-    imageAlt: "Beginner and experienced yoga students practicing asanas in open-air shala",
+    imageAlt:
+      "Beginner and experienced yoga students practicing asanas in open-air shala",
   },
   {
     id: "accommodation-faq",
@@ -67,7 +68,8 @@ export const faqData = [
     ],
     image:
       "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
-    imageAlt: "Lush tropical ashram campus and peaceful gardens at The Hatha Yogashala Goa",
+    imageAlt:
+      "Lush tropical ashram campus and peaceful gardens at The Hatha Yogashala Goa",
   },
   {
     id: "batch-dates",
@@ -89,10 +91,10 @@ export const faqData = [
     id: "faq-06",
     number: "06",
     question:
-      "Why choose Hatha Yogashala for yoga teacher training in Goa?",
+      "Why choose The Hatha Yogashala for yoga teacher training in Goa?",
     shortSummary: "Transparent curriculum, certified teachers, small groups.",
     description:
-      "Hatha Yogashala is a Yoga Alliance-registered school in North Goa offering 100-hour, 200-hour, and 300-hour teacher training led by experienced, internationally certified faculty. We prioritise transparency — full curriculum, fees, faculty profiles, and accommodation details are available before any payment.",
+      "The Hatha Yogashala is a Yoga Alliance-registered school in North Goa offering 100-hour, 200-hour, and 300-hour teacher training led by experienced, internationally certified faculty. We prioritise transparency — full curriculum, fees, faculty profiles, and accommodation details are available before any payment.",
     bullets: [
       "Yoga Alliance RYS-registered school in Goa.",
       "Certified, experienced faculty with 15+ years teaching.",
@@ -101,7 +103,7 @@ export const faqData = [
     ],
     image:
       "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
-    imageAlt: "Hatha Yogashala yoga school campus in Querim, North Goa",
+    imageAlt: "The Hatha Yogashala yoga school campus in Querim, North Goa",
   },
   {
     id: "faq-07",
@@ -123,7 +125,6 @@ export const faqData = [
   },
 ];
 
-
 export const founderData = {
   name: "Yogi Kalpendra Chauhan",
   role: "Philosophy, Pranayama & Meditationr",
@@ -138,7 +139,7 @@ export const founderData = {
   quote:
     "Yoga is a path of self-inquiry. I teach from the breath outward, guiding students to find alignment, steadiness, and ease — on the mat and in life.",
   image: "/images/tha_hatha/The_Hatha_Yogashala-founder-Goa.webp",
-  imageAlt: "Lead Teacher of Hatha Yogashala in Goa",
+  imageAlt: "Lead Teacher of The Hatha Yogashala in Goa",
   lineage: "Classical Hatha Yoga & Ashtanga Vinyasa (India)",
   areasOfExpertise: [
     "Traditional Hatha Postures",
@@ -148,7 +149,7 @@ export const founderData = {
     "Teacher Mentorship & Practicums",
   ],
   message:
-    "Welcome to Hatha Yogashala in Querim, North Goa. Our shala was built to be a sanctuary where sincere seekers can study traditional Hatha Yoga deeply, away from the noise and rush of modern life. Whether you come to become a certified teacher or to immerse yourself in self-discovery, we welcome you with warmth, discipline, and honest guidance.",
+    "Welcome to The Hatha Yogashala in Querim, North Goa. Our shala was built to be a sanctuary where sincere seekers can study traditional Hatha Yoga deeply, away from the noise and rush of modern life. Whether you come to become a certified teacher or to immerse yourself in self-discovery, we welcome you with warmth, discipline, and honest guidance.",
   isPlaceholder: true,
   placeholderNote:
     "[EDITABLE DATA PLACEHOLDER: Replace name, portrait, qualifications, and biography with verified founder details as needed.]",
@@ -165,7 +166,7 @@ export const teachersData = [
     experience: "15+ Years",
     image: "/images/tha_hatha/Pradeep-Singh.png",
     imageAlt:
-      "Portrait of the lead Hatha yoga teacher at Hatha Yogashala in Goa",
+      "Portrait of the lead Hatha yoga teacher at The Hatha Yogashala in Goa",
     coursesTaught: [
       "100-Hour Yoga Teacher Training",
       "200-Hour Yoga Teacher Training",
@@ -180,7 +181,7 @@ export const teachersData = [
     bio: "Certified Ashtanga Vinyasa teacher (under Paramaguru Sharath Jois, Mysore) with 10+ years of experience. Leads Mysore-style practice, sequencing, and teaching methodology.",
     qualifications: "Certified Ashtanga (Mysore) Teacher",
     experience: "10+ Years",
-    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+    image: "/images/tha_hatha/Yogendra-Nawale-1.png",
     imageAlt: "Senior Ashtanga teacher demonstrating alignment in Goa",
     coursesTaught: [
       "200-Hour Yoga Teacher Training",
@@ -203,45 +204,15 @@ export const teachersData = [
       "Meditation & Yoga Nidra",
     ],
   },
-  {
-    id: "anatomy-alignment-teacher",
-    name: "Anatomy & Alignment Teacher",
-    role: "Anatomy & Adjustment Faculty",
-    specialty: "Functional Yoga Anatomy",
-    bio: "Combines modern movement science with traditional alignment to ensure safe, injury-free practice for all student body types.",
-    qualifications: "M.Sc. Anatomy & Kinesiology",
-    experience: "8+ Years",
-    image:
-      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-02.webp",
-    imageAlt: "Anatomy and alignment teacher explaining yogic alignment with props",
-    coursesTaught: [
-      "200-Hour Yoga Teacher Training",
-      "300-Hour Yoga Teacher Training",
-      "Adjustment & Alignment Course",
-    ],
-  },
-  {
-    id: "ayurveda-teacher",
-    name: "Ayurveda & Lifestyle Teacher",
-    role: "Ayurveda & Wellness Faculty",
-    specialty: "Ayurvedic Diet & Living",
-    bio: "Teaches practical Ayurvedic nutrition, dosha balancing, and daily sattvic routines for residential students.",
-    qualifications: "B.A.M.S. (Ayurvedic Physician)",
-    experience: "8+ Years",
-    image:
-      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ayurvedic-cooking-class-kitchen-02.webp",
-    imageAlt: "Ayurveda teacher sharing wellness and massage principles at The Hatha Yogashala Goa",
-    coursesTaught: ["Ayurveda Course", "Goa Yoga Retreats"],
-  },
 ];
 
 export const aboutSectionData = {
   eyebrow: "Yoga Alliance Registered School in Goa",
   heading: "A Sanctuary for Yoga Teacher Training in Goa",
   subheading:
-    "Rooted in classical traditions and surrounded by North Goa's calming coastal nature, Hatha Yogashala in Querim provides residential teacher training and retreats designed for deep learning.",
+    "Rooted in classical traditions and surrounded by North Goa's calming coastal nature, The Hatha Yogashala in Querim provides residential teacher training and retreats designed for deep learning.",
   paragraph1:
-    "Hatha Yogashala is a Yoga Alliance-registered yoga school in North Goa, offering authentic 100, 200, and 300-hour teacher training led by internationally certified teachers with 15+ years of experience. Students have trained here from all over the world, and our graduates now teach across Europe, Russia, and the Americas.",
+    "The Hatha Yogashala is a Yoga Alliance-registered yoga school in North Goa, offering authentic 100, 200, and 300-hour teacher training led by internationally certified teachers with 15+ years of experience. Students have trained here from all over the world, and our graduates now teach across Europe, Russia, and the Americas.",
   paragraph2:
     "Our residential school sits a short walk from Querim beach, blending daily Hatha yoga and meditation, breathwork, and philosophy with the warmth of a true Indian ashram.",
   trustPoints: [

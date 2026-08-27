@@ -874,8 +874,8 @@ export default function YTTCPage({ course }) {
               masters assigned to guide your practice in Goa.
             </p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {teachersData.slice(0, 4).map((teacher) => (
+            <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 justify-center">
+              {teachersData.slice(0, 3).map((teacher) => (
                 <TeacherCard key={teacher.id} teacher={teacher} />
               ))}
             </div>

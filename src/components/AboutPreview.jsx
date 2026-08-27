@@ -36,7 +36,7 @@ export default function AboutPreview({ data = aboutSectionData }) {
               <div className="home-about-sub rounded-xl sm:rounded-[24px] overflow-hidden shadow-md aspect-[4/3] relative">
                 <Media
                   src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp"
-                  alt="Pranayama and meditation session at Hatha Yogashala Goa"
+                  alt="Pranayama and meditation session at The Hatha Yogashala Goa"
                   className="w-full h-full object-cover"
                   sizes="(max-width: 1024px) 50vw, 22vw"
                 />

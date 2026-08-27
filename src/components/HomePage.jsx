@@ -316,7 +316,7 @@ export default function HomePage() {
             </StaggerItem>
             <StaggerItem startVisible>
               <h1>
-                Hatha Yogashala
+                The Hatha Yogashala
                 <em>Yoga School in Goa</em>
               </h1>
             </StaggerItem>
@@ -328,7 +328,7 @@ export default function HomePage() {
             </StaggerItem>
             <StaggerItem startVisible>
               <p className="text-[15px]">
-                Hatha Yogashala is a Yoga Alliance-registered yoga school and
+                The Hatha Yogashala is a Yoga Alliance-registered yoga school and
                 ashram in Querim, North Goa, offering residential Hatha yoga
                 teacher training (100, 200, and 300-hour) and restorative yoga
                 retreats (3 to 7 days) with clear course scope, thoughtful
@@ -920,7 +920,7 @@ export default function HomePage() {
                 <div className="mt-4 space-y-3 text-sm text-black/70 border-t border-black/10 pt-4">
                   <p>
                     Nestled in peaceful{" "}
-                    <strong>Querim, Pernem, North Goa</strong>, Hatha Yogashala
+                    <strong>Querim, Pernem, North Goa</strong>, The Hatha Yogashala
                     is a premier residential yoga teacher training school and
                     restorative retreat sanctuary in India.
                   </p>

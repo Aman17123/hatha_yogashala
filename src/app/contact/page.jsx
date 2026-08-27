@@ -77,7 +77,7 @@ export default function ContactPage() {
       label: "WhatsApp",
       value: site.contact.whatsapp,
       href: whatsappLink(
-        "Hello Hatha Yogashala, I'd like to ask about yoga teacher training or a retreat in Goa.",
+        "Hello The Hatha Yogashala, I'd like to ask about yoga teacher training or a retreat in Goa.",
       ),
       brand: "whatsapp",
       color: "#25D366",
@@ -110,7 +110,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="We’re here to help"
         title="Contact the Goa Yoga School"
-        text="Ask about yoga teacher training, retreats, accommodation, travel to Querim–Arambol, or the application process at Hatha Yogashala in North Goa."
+        text="Ask about yoga teacher training, retreats, accommodation, travel to Querim–Arambol, or the application process at The Hatha Yogashala in North Goa."
       />
       <section className="section">
         <Container className="contact-page-grid">
@@ -179,7 +179,7 @@ export default function ContactPage() {
           <SectionHeading
             eyebrow="Travel planning"
             title="Reaching the yoga school in North Goa"
-            text="Hatha Yogashala sits in Querem village, Pernem — minutes from Arambol and Querim beach and a short drive from Goa’s international airports."
+            text="The Hatha Yogashala sits in Querem village, Pernem — minutes from Arambol and Querim beach and a short drive from Goa’s international airports."
           />
           <div className="travel-grid">
             {travelOptions.map(({ label, text }) => {
@@ -206,7 +206,7 @@ export default function ContactPage() {
               <h2 className="mt-4">{site.contact.address}</h2>
               <p className="mt-3">
                 Request the exact arrival window and route before travel so your
-                airport pickup or bus connection is confirmed for Hatha Yogashala in Querim, North Goa.
+                airport pickup or bus connection is confirmed for The Hatha Yogashala in Querim, North Goa.
               </p>
               <Link
                 className="button button-primary mt-6"
@@ -220,7 +220,7 @@ export default function ContactPage() {
             <iframe
               className="map-frame"
               src={site.contact.mapEmbedUrl}
-              title="Map of Hatha Yogashala in Querim, North Goa, India"
+              title="Map of The Hatha Yogashala in Querim, North Goa, India"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen

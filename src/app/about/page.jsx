@@ -65,7 +65,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="Our story"
         title="About the Yoga School in North Goa"
-        text="Hatha Yogashala is a Yoga Alliance-registered yoga school and ashram in Querim, North Goa — a beachside setting for clear teaching, traditional Hatha practice, and honest information near Arambol."
+        text="The Hatha Yogashala is a Yoga Alliance-registered yoga school and ashram in Querim, North Goa — a beachside setting for clear teaching, traditional Hatha practice, and honest information near Arambol."
         image="/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp"
       />
       <section className="section">
@@ -144,7 +144,7 @@ export default function AboutPage() {
             <div className="overflow-hidden rounded-[24px] border border-[var(--border)] bg-white p-4 shadow-sm">
               <Image
                 src="/images/tha_hatha/The-hatha-yogashala--Certificate.webp"
-                alt="Sample yoga teacher training certificate issued to a graduate of Hatha Yogashala in Goa"
+                alt="Sample yoga teacher training certificate issued to a graduate of The Hatha Yogashala in Goa"
                 width={1200}
                 height={900}
                 loading="lazy"

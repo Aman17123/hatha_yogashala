@@ -1,11 +1,11 @@
 export const site = {
-  name: "Hatha Yogashala",
-  shortName: "Hatha Yogashala",
+  name: "The Hatha Yogashala",
+  shortName: "The Hatha Yogashala",
   tagline: "Rooted practice by the Goan coast",
   location: "Querim, Pernem, North Goa, India",
   seoLocation: "Goa",
   description:
-    "Hatha Yogashala is a Yoga Alliance-registered yoga school and ashram in North Goa, offering authentic 100, 200 and 300-hour yoga teacher training, meditation programs, and transformational 3, 5 and 7-day wellness retreats near Querim and Arambol beaches.",
+    "The Hatha Yogashala is a Yoga Alliance-registered yoga school and ashram in North Goa, offering authentic 100, 200 and 300-hour yoga teacher training, meditation programs, and transformational 3, 5 and 7-day wellness retreats near Querim and Arambol beaches.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.hathayogashala.com",
   hasProductionUrl: Boolean(process.env.NEXT_PUBLIC_SITE_URL),
   defaultImage:
@@ -40,27 +40,27 @@ export const pageSeo = {
   home: {
     title: "Yoga School in Goa — Teacher Training & Retreats",
     description:
-      "Hatha Yogashala is a Yoga Alliance-registered yoga school in Goa offering 100–300-hour teacher training and 3–7 day wellness retreats near Querim beach. Book now.",
+      "The Hatha Yogashala is a Yoga Alliance-registered yoga school in Goa offering 100–300-hour teacher training and 3–7 day wellness retreats near Querim beach. Book now.",
     path: "/",
   },
   about: {
     title: "About the School – Yoga Ashram & Teacher Training in Goa",
     description:
-      "Hatha Yogashala is a Yoga Alliance-registered yoga school and beachside ashram in Querim, North Goa — near Arambol. Meet our teachers, philosophy, campus, and why students choose us for yoga teacher training and retreats in Goa.",
+      "The Hatha Yogashala is a Yoga Alliance-registered yoga school and beachside ashram in Querim, North Goa — near Arambol. Meet our teachers, philosophy, campus, and why students choose us for yoga teacher training and retreats in Goa.",
     keywords:
-      "yoga ashram Goa, best yoga school in Goa, Hatha Yoga teacher training Goa, yoga retreat North Goa, Arambol yoga school, Querim yoga ashram, Hatha Yogashala",
+      "yoga ashram Goa, best yoga school in Goa, Hatha Yoga teacher training Goa, yoga retreat North Goa, Arambol yoga school, Querim yoga ashram, The Hatha Yogashala",
     path: "/about",
   },
   teachers: {
     title: "Our Yoga Teachers in Goa",
     description:
-      "Meet the training team at Hatha Yogashala — experienced yoga educators in Goa with 25+ years of combined teaching experience across Hatha, Ashtanga Vinyasa, Yin, and Restorative yoga.",
+      "Meet the training team at The Hatha Yogashala — experienced yoga educators in Goa with 25+ years of combined teaching experience across Hatha, Ashtanga Vinyasa, Yin, and Restorative yoga.",
     path: "/teachers",
   },
   certification: {
     title: "Yoga Teacher Training Certification & Verification in Goa",
     description:
-      "See the certificate graduates receive from Hatha Yogashala — a Yoga Alliance-registered school in Goa. Learn how our 100, 200 and 300-hour yoga teacher training courses are certified and verified.",
+      "See the certificate graduates receive from The Hatha Yogashala — a Yoga Alliance-registered school in Goa. Learn how our 100, 200 and 300-hour yoga teacher training courses are certified and verified.",
     keywords:
       "yoga teacher training certification Goa, Yoga Alliance certificate, 200 hour YTTC certificate, Hatha Yoga TTC certification, yoga school registration Goa",
     path: "/certification",
@@ -68,23 +68,23 @@ export const pageSeo = {
   accommodation: {
     title: "Accommodation at the Yoga School in North Goa",
     description:
-      "Rooms, meals and amenities at Hatha Yogashala — a beachside yoga ashram in Querim, North Goa near Arambol. What's included in yoga course and retreat accommodation.",
+      "Rooms, meals and amenities at The Hatha Yogashala — a beachside yoga ashram in Querim, North Goa near Arambol. What's included in yoga course and retreat accommodation.",
     keywords:
-      "yoga school accommodation Goa, yoga retreat stay Arambol, ashram rooms North Goa, vegetarian meals yoga retreat Goa, Hatha Yogashala rooms",
+      "yoga school accommodation Goa, yoga retreat stay Arambol, ashram rooms North Goa, vegetarian meals yoga retreat Goa, The Hatha Yogashala rooms",
     path: "/accommodation",
   },
   contact: {
     title: "Contact Us – Yoga School in Querim, North Goa",
     description:
-      "Contact Hatha Yogashala in Querim, North Goa to ask about yoga teacher training, retreats, dates, fees, accommodation and travel to Arambol and Querim beach, North Goa, India.",
+      "Contact The Hatha Yogashala in Querim, North Goa to ask about yoga teacher training, retreats, dates, fees, accommodation and travel to Arambol and Querim beach, North Goa, India.",
     keywords:
-      "contact yoga school Goa, yoga teacher training enquiry Goa, Hatha Yogashala Goa contact, WhatsApp yoga Goa, yoga retreat booking North Goa, Arambol yoga contact",
+      "contact yoga school Goa, yoga teacher training enquiry Goa, The Hatha Yogashala Goa contact, WhatsApp yoga Goa, yoga retreat booking North Goa, Arambol yoga contact",
     path: "/contact",
   },
   apply: {
     title: "Apply for Yoga Teacher Training in Goa",
     description:
-      "Submit your application for residential yoga teacher training or a wellness retreat at Hatha Yogashala in Querim, North Goa.",
+      "Submit your application for residential yoga teacher training or a wellness retreat at The Hatha Yogashala in Querim, North Goa.",
     path: "/apply",
   },
   courses: {
@@ -108,7 +108,7 @@ export const pageSeo = {
   blog: {
     title: "Yoga Blog, Tips & Goa Retreat Guides",
     description:
-      "Practical yoga guides from Hatha Yogashala in Goa — how to choose yoga teacher training, plan a yoga retreat in Goa near Arambol, and build a sustainable home practice.",
+      "Practical yoga guides from The Hatha Yogashala in Goa — how to choose yoga teacher training, plan a yoga retreat in Goa near Arambol, and build a sustainable home practice.",
     keywords:
       "yoga blog, yoga teacher training tips, yoga retreat Goa guide, Hatha yoga practice, beginner yoga Goa, yoga for beginners",
     path: "/blog",
@@ -122,27 +122,27 @@ export const pageSeo = {
     path: "/gallery",
   },
   founder: {
-    title: "Founder of Hatha Yogashala",
+    title: "Founder of The Hatha Yogashala",
     description:
-      "Meet the founder of Hatha Yogashala and the teaching vision behind the school in Goa.",
+      "Meet the founder of The Hatha Yogashala and the teaching vision behind the school in Goa.",
     path: "/founder",
   },
   privacy: {
-    title: "Privacy Policy | Hatha Yogashala",
+    title: "Privacy Policy | The Hatha Yogashala",
     description:
-      "How enquiry information submitted to Hatha Yogashala is intended to be handled.",
+      "How enquiry information submitted to The Hatha Yogashala is intended to be handled.",
     path: "/privacy-policy",
   },
   terms: {
-    title: "Terms & Conditions | Hatha Yogashala",
+    title: "Terms & Conditions | The Hatha Yogashala",
     description:
-      "Booking and participation terms for Hatha Yogashala yoga programs in Goa.",
+      "Booking and participation terms for The Hatha Yogashala yoga programs in Goa.",
     path: "/terms",
   },
   payment: {
-    title: "Payment & Refund Policy | Hatha Yogashala",
+    title: "Payment & Refund Policy | The Hatha Yogashala",
     description:
-      "The payment, deposit, balance, and refund framework for Hatha Yogashala in Goa.",
+      "The payment, deposit, balance, and refund framework for The Hatha Yogashala in Goa.",
     path: "/payment-policy",
   },
 };
@@ -196,7 +196,7 @@ export const testimonials = [
     date: "2026",
     platform: "200-Hour YTT",
     excerpt:
-      "Hatha Yogashala transformed more than my practice — it transformed my life. The teachers are precise, patient, and deeply knowledgeable. Completing my 200-hour certification by the beach in Goa was a dream.",
+      "The Hatha Yogashala transformed more than my practice — it transformed my life. The teachers are precise, patient, and deeply knowledgeable. Completing my 200-hour certification by the beach in Goa was a dream.",
     sourceUrl: "https://www.google.com/maps?q=Hatha+Yogashala+Querim+Goa",
   },
   {
@@ -214,7 +214,7 @@ export const testimonials = [
     date: "2026",
     platform: "300-Hour YTT",
     excerpt:
-      "The philosophy and meditation teachings at Hatha Yogashala changed how I see yoga. The quality of teaching and the warmth of the community exceeded every expectation.",
+      "The philosophy and meditation teachings at The Hatha Yogashala changed how I see yoga. The quality of teaching and the warmth of the community exceeded every expectation.",
     sourceUrl: "https://www.google.com/maps?q=Hatha+Yogashala+Querim+Goa",
   },
   {
@@ -264,7 +264,7 @@ export const travelOptions = [
   },
   {
     label: "By train",
-    text: "Pernem railway station is the closest stop to Hatha Yogashala in North Goa; onward transport can be arranged.",
+    text: "Pernem railway station is the closest stop to The Hatha Yogashala in North Goa; onward transport can be arranged.",
   },
   {
     label: "By bus",
@@ -554,32 +554,32 @@ export const faqs = [
   {
     question: "Which is the best yoga school in Goa?",
     answer:
-      "Hatha Yogashala in North Goa is consistently rated among the best yoga schools in Goa, offering Yoga Alliance-approved teacher training, small class sizes, beachside accommodation, and an experienced international teaching team.",
+      "The Hatha Yogashala in North Goa is consistently rated among the best yoga schools in Goa, offering Yoga Alliance-approved teacher training, small class sizes, beachside accommodation, and an experienced international teaching team.",
   },
   {
-    question: "Is Hatha Yogashala Yoga Alliance certified?",
+    question: "Is The Hatha Yogashala Yoga Alliance certified?",
     answer:
-      "Yes. Hatha Yogashala is a registered yoga school, and our 100, 200 and 300-hour yoga teacher training courses in Goa follow the Yoga Alliance-approved syllabus, making graduates eligible for worldwide registration.",
+      "Yes. The Hatha Yogashala is a registered yoga school, and our 100, 200 and 300-hour yoga teacher training courses in Goa follow the Yoga Alliance-approved syllabus, making graduates eligible for worldwide registration.",
   },
   {
-    question: "Where is Hatha Yogashala located?",
+    question: "Where is The Hatha Yogashala located?",
     answer:
-      "Hatha Yogashala is located in Querim village, Pernem, North Goa, India — minutes from Querim and Arambol beaches and a short drive from Goa's international airports.",
+      "The Hatha Yogashala is located in Querim village, Pernem, North Goa, India — minutes from Querim and Arambol beaches and a short drive from Goa's international airports.",
   },
   {
     question: "Can beginners join yoga teacher training in Goa?",
     answer:
-      "Absolutely. Our 100-hour and 200-hour courses warmly welcome beginners. Teacher training at Hatha Yogashala is designed for all levels, from complete beginners to experienced practitioners.",
+      "Absolutely. Our 100-hour and 200-hour courses warmly welcome beginners. Teacher training at The Hatha Yogashala is designed for all levels, from complete beginners to experienced practitioners.",
   },
   {
-    question: "What is included in a retreat at Hatha Yogashala?",
+    question: "What is included in a retreat at The Hatha Yogashala?",
     answer:
       "Retreats include daily yoga and meditation, vegetarian meals, accommodation, and access to activities such as ice baths, sauna, ecstatic dance, sound healing, beach practice, and cultural excursions.",
   },
   {
     question: "How do I become a certified yoga teacher in Goa?",
     answer:
-      "Complete a Yoga Alliance-approved 200-hour yoga teacher training (and 300-hour for advanced certification) at Hatha Yogashala in Goa, then register with Yoga Alliance to teach worldwide.",
+      "Complete a Yoga Alliance-approved 200-hour yoga teacher training (and 300-hour for advanced certification) at The Hatha Yogashala in Goa, then register with Yoga Alliance to teach worldwide.",
   },
   {
     question: "What is the best time for a yoga retreat in Goa?",
@@ -592,7 +592,7 @@ export const faqs = [
       "100-hour courses start at €699, 200-hour at €799, and 300-hour at €899 — all-inclusive with accommodation and vegetarian meals.",
   },
   {
-    question: "How do I reach Hatha Yogashala?",
+    question: "How do I reach The Hatha Yogashala?",
     answer:
       "Fly to Mopa (GOX) or Dabolim (GOI) airport in Goa. The ashram is about 25–30 minutes from Mopa; pickup can be arranged on request.",
   },

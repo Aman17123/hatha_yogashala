@@ -135,7 +135,7 @@ export default function DestinationGoaPage() {
               <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-md border-2 border-white">
                 <Image
                   src="/images/accomodation/the-hatha-yogashala-arambol-goa-coconut-palms-sunlight-02.webp"
-                  alt="Lush green coconut palms surrounding Hatha Yogashala Goa"
+                  alt="Lush green coconut palms surrounding The Hatha Yogashala Goa"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover"

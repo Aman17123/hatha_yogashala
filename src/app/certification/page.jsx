@@ -95,7 +95,7 @@ export default function CertificationPage() {
             <div className="overflow-hidden rounded-2xl border border-[var(--border)] bg-white p-4 shadow-sm">
               <Image
                 src="/images/tha_hatha/The-hatha-yogashala--Certificate.webp"
-                alt="Sample yoga teacher training certificate from Hatha Yogashala, a registered yoga school in Goa"
+                alt="Sample yoga teacher training certificate from The Hatha Yogashala, a registered yoga school in Goa"
                 width={800}
                 height={900}
                 loading="lazy"

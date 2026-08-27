@@ -27,7 +27,7 @@ const homepageImages = [
 function toImageEntries(images) {
   return images.map((url) => ({
     url,
-    title: "Hatha Yogashala — Yoga School in Goa",
+    title: "The Hatha Yogashala — Yoga School in Goa",
   }));
 }
 

@@ -31,7 +31,7 @@ const aboutColumns = [
     title: "About Us",
     links: [
       {
-        label: "Hatha Yogashala",
+        label: "The Hatha Yogashala",
         href: findHref(["About", "About Us"], "/about"),
       },
       {

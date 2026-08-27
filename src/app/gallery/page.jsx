@@ -14,9 +14,9 @@ export default function GalleryPage() {
   const imageSchema = {
     "@context": "https://schema.org",
     "@type": "ImageGallery",
-    name: "Hatha Yogashala Yoga School Gallery – Goa",
+    name: "The Hatha Yogashala Yoga School Gallery – Goa",
     description:
-      "Photos of yoga teacher training, meditation, retreats, accommodation and coastal practice at Hatha Yogashala in Querim, North Goa.",
+      "Photos of yoga teacher training, meditation, retreats, accommodation and coastal practice at The Hatha Yogashala in Querim, North Goa.",
     url: absoluteUrl("/gallery"),
     creator: {
       "@type": "Organization",

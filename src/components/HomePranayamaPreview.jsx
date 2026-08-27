@@ -21,7 +21,7 @@ export default function HomePranayamaPreview() {
         aria-hidden="true"
       >
         <Image
-          src="/images/logo2.png"
+          src="/images/The-Hatha-Yogashala-hand-logo.png"
           alt="The Hatha Yogashala brand emblem"
           width={700}
           height={700}

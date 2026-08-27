@@ -6,7 +6,7 @@ export const posts = [
     category: "Goa & Travel",
     date: "2026-08-20",
     updated: "2026-08-20",
-    author: "Hatha Yogashala Editorial Team",
+    author: "The Hatha Yogashala Editorial Team",
     readingTime: "8 min read",
     excerpt:
       "The best time to visit Goa for yoga is between November and February (25–32°C, low humidity). Discover our month-by-month weather, crowds, and pricing guide.",
@@ -112,7 +112,7 @@ Shoulder-season slots (October, March) are more forgiving and can often be booke
     category: "Course Guides",
     date: "2026-08-18",
     updated: "2026-08-18",
-    author: "Hatha Yogashala Editorial Team",
+    author: "The Hatha Yogashala Editorial Team",
     readingTime: "7 min read",
     excerpt:
       "Choose a retreat for rest and reset, or teacher training for international certification and professional mastery. Here is how to decide.",
@@ -127,7 +127,7 @@ Shoulder-season slots (October, March) are more forgiving and can often be booke
     ],
     image:
       "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
-    imageAlt: "Peaceful garden setting at Hatha Yogashala in North Goa",
+    imageAlt: "Peaceful garden setting at The Hatha Yogashala in North Goa",
     sections: [
       {
         heading: "Overview: Key Differences at a Glance",
@@ -224,7 +224,7 @@ Others do it in the opposite order: completing their YTT, then returning periodi
     category: "Teacher Training",
     date: "2026-08-15",
     updated: "2026-08-15",
-    author: "Hatha Yogashala Editorial Team",
+    author: "The Hatha Yogashala Editorial Team",
     readingTime: "9 min read",
     excerpt:
       "Before booking a yoga teacher training in Goa, check five non-negotiables: Yoga Alliance accreditation, class size, faculty credentials, syllabus, and reviews.",
@@ -235,7 +235,7 @@ Others do it in the opposite order: completing their YTT, then returning periodi
       "how to choose yoga teacher training",
       "Yoga Alliance certified school Goa",
       "yoga TTC checklist 2026",
-      "Hatha Yogashala Goa accreditation",
+      "The Hatha Yogashala Goa accreditation",
     ],
     image:
       "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",

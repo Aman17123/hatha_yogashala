@@ -1,5 +1,5 @@
 /**
- * Course & Retreat data — Hatha Yogashala, Goa
+ * Course & Retreat data — The Hatha Yogashala, Goa
  *
  * SEO NOTE: Every course previously shared one `commonCurriculum` /
  * `overview` / `schedule` block via spread. Google treats near-identical
@@ -91,7 +91,7 @@ const hundredHour = {
   rating: 4.9,
   graduates: 3500,
   whatsappMessage:
-    "Hi Hatha Yogashala, I'm interested in the 100-Hour Yoga Teacher Training in Goa. Could you share the upcoming dates, availability, and the full fee breakdown?",
+    "Hi The Hatha Yogashala, I'm interested in the 100-Hour Yoga Teacher Training in Goa. Could you share the upcoming dates, availability, and the full fee breakdown?",
   heroIntroduction:
     "Dive into the world of yoga with our 100-hour yoga teacher training in Goa — designed for beginners with limited time who want a solid, authentic introduction to Hatha and Ashtanga Vinyasa yoga. This two-week immersive course is also the first half of our comprehensive 200-hour program; complete the second half within 21 months to earn your full 200-hour Yoga Alliance certification.",
   duration: "14 days",
@@ -104,7 +104,7 @@ const hundredHour = {
   whatIs: {
     heading: "What is a 100-hour yoga teacher training?",
     paragraphs: [
-      "The 100-hour yoga teacher training in Goa at Hatha Yogashala is a compact, all-inclusive foundation course for students who are new to yoga or simply short on time. You will explore traditional Hatha yoga, Ashtanga Vinyasa, pranayama (breathwork), meditation, the eight limbs of yoga, chakra anatomy, and the fundamentals of teaching methodology — all in a peaceful beachside ashram in North Goa.",
+      "The 100-hour yoga teacher training in Goa at The Hatha Yogashala is a compact, all-inclusive foundation course for students who are new to yoga or simply short on time. You will explore traditional Hatha yoga, Ashtanga Vinyasa, pranayama (breathwork), meditation, the eight limbs of yoga, chakra anatomy, and the fundamentals of teaching methodology — all in a peaceful beachside ashram in North Goa.",
       "The course follows the Yoga Alliance-approved syllabus, giving you a genuine foundation in yoga teacher training in Goa whether you continue your certification or simply wish to deepen your own practice.",
       "Because this is the first half of our 200-hour program, you can return within 21 months to complete the second half and earn your full 200-hour certification.",
     ],
@@ -122,7 +122,7 @@ const hundredHour = {
     "Teaching methodology",
   ],
   overview: [
-    "The 100-hour yoga teacher training in Goa at Hatha Yogashala is a compact, all-inclusive foundation course for students who are new to yoga or simply short on time.",
+    "The 100-hour yoga teacher training in Goa at The Hatha Yogashala is a compact, all-inclusive foundation course for students who are new to yoga or simply short on time.",
     "Explore traditional Hatha yoga, Ashtanga Vinyasa, pranayama, meditation, the eight limbs of yoga, chakra anatomy, and the fundamentals of teaching methodology — all in a peaceful beachside ashram in North Goa.",
   ],
   whoCanJoin: [
@@ -333,17 +333,17 @@ const hundredHour = {
     images: [
       {
         src: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
-        alt: "Residential campus and stay at Hatha Yogashala Goa",
+        alt: "Residential campus and stay at The Hatha Yogashala Goa",
         caption: "Residential stay",
       },
       {
         src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
-        alt: "Open-air practice hall at Hatha Yogashala Goa",
+        alt: "Open-air practice hall at The Hatha Yogashala Goa",
         caption: "Open-air shala",
       },
       {
         src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
-        alt: "Yoga practice near the beach at Hatha Yogashala Goa",
+        alt: "Yoga practice near the beach at The Hatha Yogashala Goa",
         caption: "Beach practice",
       },
     ],
@@ -465,7 +465,7 @@ const hundredHour = {
     {
       question: "Can I upgrade my 100-hour certificate to a 200-hour one?",
       answer:
-        "Yes. The 100-hour course is the first half of our 200-hour yoga teacher training. Complete the second half at Hatha Yogashala within 21 months and receive your full 200-hour certification.",
+        "Yes. The 100-hour course is the first half of our 200-hour yoga teacher training. Complete the second half at The Hatha Yogashala within 21 months and receive your full 200-hour certification.",
     },
     {
       question: "What is included in the fee?",
@@ -475,7 +475,7 @@ const hundredHour = {
     {
       question: "Where is the course located?",
       answer:
-        "At Hatha Yogashala ashram in Querim, North Goa, minutes from the beach and near Arambol — one of Goa's most loved wellness destinations.",
+        "At The Hatha Yogashala ashram in Querim, North Goa, minutes from the beach and near Arambol — one of Goa's most loved wellness destinations.",
     },
     {
       question: "Is this a residential yoga course in Goa?",
@@ -532,9 +532,9 @@ const twoHundredHour = {
   rating: 5.0,
   graduates: 3500,
   whatsappMessage:
-    "Hi Hatha Yogashala, I'm interested in the 200-Hour Yoga Teacher Training in Goa. Could you share the upcoming dates, availability, and the full fee breakdown?",
+    "Hi The Hatha Yogashala, I'm interested in the 200-Hour Yoga Teacher Training in Goa. Could you share the upcoming dates, availability, and the full fee breakdown?",
   heroIntroduction:
-    "Take the most important step in your teaching journey at Hatha Yogashala — a leading yoga school in Goa. Over 22 immersive days in North Goa, you will master Hatha, Ashtanga Vinyasa, Yin, and Restorative yoga, study philosophy, anatomy, pranayama, and teaching methodology, and leave ready to register with the Yoga Alliance and teach yoga anywhere in the world.",
+    "Take the most important step in your teaching journey at The Hatha Yogashala — a leading yoga school in Goa. Over 22 immersive days in North Goa, you will master Hatha, Ashtanga Vinyasa, Yin, and Restorative yoga, study philosophy, anatomy, pranayama, and teaching methodology, and leave ready to register with the Yoga Alliance and teach yoga anywhere in the world.",
   duration: "22 days",
   bestFor:
     "Aspiring teachers and committed practitioners seeking their first teaching certification, open to all levels from beginners to experienced yogis.",
@@ -545,7 +545,7 @@ const twoHundredHour = {
   whatIs: {
     heading: "What is a 200-hour yoga teacher training?",
     paragraphs: [
-      "Hatha Yogashala's 200-hour yoga teacher training in Goa is a holistic, immersive certification course covering philosophy, meditation, anatomy, kriya, pranayama, and the art of teaching. While primarily designed for aspiring teachers, it is open to all levels — from beginners to experienced practitioners who wish to deepen their self-healing practice.",
+      "The Hatha Yogashala's 200-hour yoga teacher training in Goa is a holistic, immersive certification course covering philosophy, meditation, anatomy, kriya, pranayama, and the art of teaching. While primarily designed for aspiring teachers, it is open to all levels — from beginners to experienced practitioners who wish to deepen their self-healing practice.",
       "Led by a nurturing, highly qualified team, the course emphasizes daily asana practice with precise alignment, gradually guiding you into the role of instructor through supervised teaching practice in a supportive environment.",
       "Over 22 immersive days in North Goa, you will master Hatha, Ashtanga Vinyasa, Yin, and Restorative yoga, study philosophy, anatomy, pranayama, and teaching methodology, and leave ready to register with the Yoga Alliance and teach anywhere in the world.",
     ],
@@ -764,17 +764,17 @@ const twoHundredHour = {
     images: [
       {
         src: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
-        alt: "Residential campus and stay at Hatha Yogashala Goa",
+        alt: "Residential campus and stay at The Hatha Yogashala Goa",
         caption: "Residential stay",
       },
       {
         src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
-        alt: "Open-air practice hall at Hatha Yogashala Goa",
+        alt: "Open-air practice hall at The Hatha Yogashala Goa",
         caption: "Open-air shala",
       },
       {
         src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
-        alt: "Yoga practice near the beach at Hatha Yogashala Goa",
+        alt: "Yoga practice near the beach at The Hatha Yogashala Goa",
         caption: "Beach practice",
       },
     ],
@@ -890,7 +890,7 @@ const twoHundredHour = {
     {
       question: "Is the 200-hour course Yoga Alliance certified?",
       answer:
-        "Yes. Hatha Yogashala is a Yoga Alliance-registered school, and graduates of our 200-hour yoga teacher training in Goa can register with the Yoga Alliance to teach worldwide.",
+        "Yes. The Hatha Yogashala is a Yoga Alliance-registered school, and graduates of our 200-hour yoga teacher training in Goa can register with the Yoga Alliance to teach worldwide.",
     },
     {
       question: "Can beginners join this yoga teacher training?",
@@ -910,7 +910,7 @@ const twoHundredHour = {
     {
       question: "Which is the best yoga school in Goa for 200-hour training?",
       answer:
-        "Hatha Yogashala is consistently rated among the best yoga teacher training schools in Goa for its experienced teachers, traditional curriculum, small class sizes, and beachside location.",
+        "The Hatha Yogashala is consistently rated among the best yoga teacher training schools in Goa for its experienced teachers, traditional curriculum, small class sizes, and beachside location.",
     },
     {
       question: "How long does the 200-hour yoga teacher training take?",
@@ -961,9 +961,9 @@ const threeHundredHour = {
   rating: 4.9,
   graduates: 3500,
   whatsappMessage:
-    "Hi Hatha Yogashala, I'm interested in the 300-Hour Advanced Yoga Teacher Training in Goa. Could you share the upcoming dates, availability, and the full fee breakdown?",
+    "Hi The Hatha Yogashala, I'm interested in the 300-Hour Advanced Yoga Teacher Training in Goa. Could you share the upcoming dates, availability, and the full fee breakdown?",
   heroIntroduction:
-    "Take your practice and teaching to a deeper level with Hatha Yogashala's 300-hour advanced yoga teacher training in Goa. Over 27 transformative days you will master detailed anatomy, integrate Ayurveda and massage techniques for optimal alignment, explore the Bhagavad Gita and Samkhya philosophy, and practice Vigyan Bhairav Tantra meditation — all beside the beaches of North Goa.",
+    "Take your practice and teaching to a deeper level with The Hatha Yogashala's 300-hour advanced yoga teacher training in Goa. Over 27 transformative days you will master detailed anatomy, integrate Ayurveda and massage techniques for optimal alignment, explore the Bhagavad Gita and Samkhya philosophy, and practice Vigyan Bhairav Tantra meditation — all beside the beaches of North Goa.",
   duration: "27 days",
   bestFor:
     "Certified teachers seeking advanced yoga teacher training in Goa — deepening anatomy, Ayurveda, philosophy, and trauma-informed practice.",
@@ -1192,17 +1192,17 @@ const threeHundredHour = {
     images: [
       {
         src: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
-        alt: "Residential campus and stay at Hatha Yogashala Goa",
+        alt: "Residential campus and stay at The Hatha Yogashala Goa",
         caption: "Residential stay",
       },
       {
         src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
-        alt: "Open-air practice hall at Hatha Yogashala Goa",
+        alt: "Open-air practice hall at The Hatha Yogashala Goa",
         caption: "Open-air shala",
       },
       {
         src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
-        alt: "Yoga practice near the beach at Hatha Yogashala Goa",
+        alt: "Yoga practice near the beach at The Hatha Yogashala Goa",
         caption: "Beach practice",
       },
     ],
@@ -1323,7 +1323,7 @@ const threeHundredHour = {
     {
       question: "Is the 300-hour certification recognized?",
       answer:
-        "Yes. Hatha Yogashala is a Yoga Alliance-registered school in Goa, and the 300-hour course follows the approved advanced training syllabus.",
+        "Yes. The Hatha Yogashala is a Yoga Alliance-registered school in Goa, and the 300-hour course follows the approved advanced training syllabus.",
     },
     {
       question: "What makes this an advanced yoga teacher training in Goa?",
@@ -1339,7 +1339,7 @@ const threeHundredHour = {
       question:
         "Can I combine the 100-hour and 200-hour courses into the 300-hour track?",
       answer:
-        "Please contact us to plan a continuous certification pathway at Hatha Yogashala.",
+        "Please contact us to plan a continuous certification pathway at The Hatha Yogashala.",
     },
     {
       question: "How long does the 300-hour yoga teacher training take?",
@@ -1866,7 +1866,7 @@ const retreatProfiles = {
     category: "3-Day Retreat",
     tagline: "Discover. Recharge. Thrive.",
     emphasis:
-      "Step away from the noise of daily life and into three days of stillness, movement, and community at Hatha Yogashala, Goa. This short, immersive retreat is designed for travelers who want a genuine reset — a blend of yoga practice, internal cleansing, sound healing, and the natural beauty of Goa's coastline, all held within a warm and supportive community.",
+      "Step away from the noise of daily life and into three days of stillness, movement, and community at The Hatha Yogashala, Goa. This short, immersive retreat is designed for travelers who want a genuine reset — a blend of yoga practice, internal cleansing, sound healing, and the natural beauty of Goa's coastline, all held within a warm and supportive community.",
     excursionsStory:
       'Beyond the mat, your days open up into the best of Goa: sunset beach sessions, waterfall visits, and evening kirtan circles for the soul. Ice baths and sauna sessions support recovery and deepen the reset, while our evening "Goa Experience" outings give you a taste of local culture, markets, and coastline beyond the retreat walls. Playful beach games and acro yoga round out the day with lightness and connection.',
     checkIn: "11:00 AM",
@@ -1896,7 +1896,7 @@ const retreatProfiles = {
     category: "7-Day Retreat",
     tagline: "Discover Harmony in Goa's Calm",
     emphasis:
-      "A full week at Hatha Yogashala is where transformation really begins to take root. Seven days of consistent Hatha practice, philosophy, ayurveda, sound healing, and community give you time to move past the initial adjustment and into a genuine rhythm — leaving with tools and habits you can carry home.",
+      "A full week at The Hatha Yogashala is where transformation really begins to take root. Seven days of consistent Hatha practice, philosophy, ayurveda, sound healing, and community give you time to move past the initial adjustment and into a genuine rhythm — leaving with tools and habits you can carry home.",
     excursionsStory:
       "A full week gives the richest excursion experience: multiple waterfall and beach outings, evening kirtan, and repeated Goa Experience trips into local markets and culture. Ice bath and sauna rituals become part of your rhythm, and beach games and acro yoga sessions build genuine camaraderie within the group over the course of the week.",
     checkIn: "11:00 AM",
@@ -1912,7 +1912,7 @@ const retreatWhatIs = {
   3: {
     heading: "3-Day Yoga Retreat — Overview",
     paragraphs: [
-      "Step away from the noise of daily life and into three days of stillness, movement, and community at Hatha Yogashala, Goa. This short, immersive retreat is designed for travelers who want a genuine reset — a blend of yoga practice, internal cleansing, sound healing, and the natural beauty of Goa's coastline, all held within a warm and supportive community.",
+      "Step away from the noise of daily life and into three days of stillness, movement, and community at The Hatha Yogashala, Goa. This short, immersive retreat is designed for travelers who want a genuine reset — a blend of yoga practice, internal cleansing, sound healing, and the natural beauty of Goa's coastline, all held within a warm and supportive community.",
     ],
     points: [
       "Daily yoga practice, internal cleansing & breathwork",
@@ -1936,7 +1936,7 @@ const retreatWhatIs = {
   7: {
     heading: "7-Day Yoga Retreat — Overview",
     paragraphs: [
-      "A full week at Hatha Yogashala is where transformation really begins to take root. Seven days of consistent Hatha practice, philosophy, ayurveda, sound healing, and community give you time to move past the initial adjustment and into a genuine rhythm — leaving with tools and habits you can carry home.",
+      "A full week at The Hatha Yogashala is where transformation really begins to take root. Seven days of consistent Hatha practice, philosophy, ayurveda, sound healing, and community give you time to move past the initial adjustment and into a genuine rhythm — leaving with tools and habits you can carry home.",
     ],
     points: [
       "Full 7-day deep transformational immersion",
@@ -2269,7 +2269,7 @@ export const retreats = [
     category: "Aerial & Flow",
     hidePricingAndSidebar: true,
     description:
-      "Take your practice off the mat and into the air. At Hatha Yogashala, our Aerial Yoga Retreat blends the grounded principles of Hatha yoga with the playful, decompressive power of the aerial hammock — helping you build strength, release tension in the spine, and rediscover a sense of lightness in both body and mind.",
+      "Take your practice off the mat and into the air. At The Hatha Yogashala, our Aerial Yoga Retreat blends the grounded principles of Hatha yoga with the playful, decompressive power of the aerial hammock — helping you build strength, release tension in the spine, and rediscover a sense of lightness in both body and mind.",
     whatIs: {
       heading: "What Is This",
       paragraphs: [
@@ -2300,7 +2300,7 @@ export const retreats = [
         country: "International Guest",
         tag: "Aerial Yoga Retreat",
         rating: 5,
-        text: "Aerial yoga at Hatha Yogashala was the highlight of my trip to Goa. My back pain eased within days, and the whole experience felt joyful, not just therapeutic.",
+        text: "Aerial yoga at The Hatha Yogashala was the highlight of my trip to Goa. My back pain eased within days, and the whole experience felt joyful, not just therapeutic.",
       },
       {
         name: "Retreat Guest",
@@ -2320,7 +2320,7 @@ export const retreats = [
     room: "Sanctuary accommodation in North Goa",
     meals: "Three vegetarian meals per day",
     overview:
-      "Take your practice off the mat and into the air. At Hatha Yogashala, our Aerial Yoga Retreat blends the grounded principles of Hatha yoga with the playful, decompressive power of the aerial hammock — helping you build strength, release tension in the spine, and rediscover a sense of lightness in both body and mind.",
+      "Take your practice off the mat and into the air. At The Hatha Yogashala, our Aerial Yoga Retreat blends the grounded principles of Hatha yoga with the playful, decompressive power of the aerial hammock — helping you build strength, release tension in the spine, and rediscover a sense of lightness in both body and mind.",
     distinctFocus:
       "Each retreat is a personal-practice experience, not a teacher-training course or professional certification.",
     whoFor: [
@@ -2345,11 +2345,11 @@ export const retreats = [
     category: "Ayurveda & Healing",
     hidePricingAndSidebar: true,
     description:
-      "Rooted in one of the world's oldest healing traditions, our Ayurvedic Massage experience at Hatha Yogashala is designed to restore balance to body and mind. Using warm herbal oils and time-honored techniques, each session is tailored to support relaxation, detoxification, and deep physical release alongside your yoga practice.",
+      "Rooted in one of the world's oldest healing traditions, our Ayurvedic Massage experience at The Hatha Yogashala is designed to restore balance to body and mind. Using warm herbal oils and time-honored techniques, each session is tailored to support relaxation, detoxification, and deep physical release alongside your yoga practice.",
     whatIs: {
       heading: "What Is This",
       paragraphs: [
-        "Ayurvedic massage, or Abhyanga, is a therapeutic full-body treatment rooted in Ayurveda, India's traditional system of medicine. Warm, herb-infused oils are massaged into the body using rhythmic strokes suited to your individual constitution, or dosha, helping to release muscular tension, stimulate circulation, and calm the nervous system. At Hatha Yogashala, our practitioners are trained in traditional Ayurvedic methods and work with you to choose oils and techniques that complement your retreat experience, whether your focus is recovery, relaxation, or deeper energetic balance.",
+        "Ayurvedic massage, or Abhyanga, is a therapeutic full-body treatment rooted in Ayurveda, India's traditional system of medicine. Warm, herb-infused oils are massaged into the body using rhythmic strokes suited to your individual constitution, or dosha, helping to release muscular tension, stimulate circulation, and calm the nervous system. At The Hatha Yogashala, our practitioners are trained in traditional Ayurvedic methods and work with you to choose oils and techniques that complement your retreat experience, whether your focus is recovery, relaxation, or deeper energetic balance.",
       ],
       points: [
         "Abhyanga — full-body massage with warm herbal oils",
@@ -2397,7 +2397,7 @@ export const retreats = [
     room: "Sanctuary accommodation in North Goa",
     meals: "Three vegetarian meals per day",
     overview:
-      "Rooted in one of the world's oldest healing traditions, our Ayurvedic Massage experience at Hatha Yogashala is designed to restore balance to body and mind. Using warm herbal oils and time-honored techniques, each session is tailored to support relaxation, detoxification, and deep physical release alongside your yoga practice.",
+      "Rooted in one of the world's oldest healing traditions, our Ayurvedic Massage experience at The Hatha Yogashala is designed to restore balance to body and mind. Using warm herbal oils and time-honored techniques, each session is tailored to support relaxation, detoxification, and deep physical release alongside your yoga practice.",
     distinctFocus:
       "Each retreat is a personal-practice experience, not a teacher-training course or professional certification.",
     whoFor: [
@@ -2421,7 +2421,7 @@ export const retreats = [
     name: "Yoga Festival in Goa",
     category: "Festival & Community",
     description:
-      "Once a year, Hatha Yogashala opens its doors for a celebration of yoga in all its forms. Our Yoga Festival brings together practitioners, teachers, musicians, and seekers from around the world for days of shared practice, workshops, live music, and community — a joyful gathering for anyone who loves yoga, in whatever form that takes.",
+      "Once a year, The Hatha Yogashala opens its doors for a celebration of yoga in all its forms. Our Yoga Festival brings together practitioners, teachers, musicians, and seekers from around the world for days of shared practice, workshops, live music, and community — a joyful gathering for anyone who loves yoga, in whatever form that takes.",
     whatIs: {
       heading: "What Is This Festival Gathering",
       paragraphs: [
@@ -2472,7 +2472,7 @@ export const retreats = [
     room: "Sanctuary accommodation in North Goa",
     meals: "Three vegetarian meals per day",
     overview:
-      "Once a year, Hatha Yogashala opens its doors for a celebration of yoga in all its forms. Our Yoga Festival brings together practitioners, teachers, musicians, and seekers from around the world for days of shared practice, workshops, live music, and community — a joyful gathering for anyone who loves yoga, in whatever form that takes.",
+      "Once a year, The Hatha Yogashala opens its doors for a celebration of yoga in all its forms. Our Yoga Festival brings together practitioners, teachers, musicians, and seekers from around the world for days of shared practice, workshops, live music, and community — a joyful gathering for anyone who loves yoga, in whatever form that takes.",
     distinctFocus:
       "Each retreat is a personal-practice experience, not a teacher-training course or professional certification.",
     whoFor: [
