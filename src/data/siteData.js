@@ -6,10 +6,13 @@ export const site = {
   seoLocation: "Goa",
   description:
     "The Hatha Yogashala is a Yoga Alliance-registered yoga school and ashram in North Goa, offering authentic 100, 200 and 300-hour yoga teacher training, meditation programs, and transformational 3, 5 and 7-day wellness retreats near Querim and Arambol beaches.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.hathayogashala.com",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "https://www.hathayogashala.com"),
   hasProductionUrl: Boolean(process.env.NEXT_PUBLIC_SITE_URL),
-  defaultImage:
-    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+  defaultImage: "/og-image.jpg",
 
   social: {
     instagram: "", // Replace with the verified Instagram URL
@@ -40,7 +43,7 @@ export const pageSeo = {
   home: {
     title: "Yoga School in Goa — Teacher Training & Retreats",
     description:
-      "The Hatha Yogashala is a Yoga Alliance-registered yoga school in Goa offering 100–300-hour teacher training and 3–7 day wellness retreats near Querim beach. Book now.",
+      "Yoga Alliance-certified yoga school in Goa offering 100–300h teacher training & retreats near Querim beach. Book now.",
     path: "/",
   },
   about: {
@@ -732,10 +735,14 @@ export function makeMetadata(
   title,
   description,
   path = "/",
-  image = "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+  image = "/og-image.jpg",
   keywords = [],
 ) {
   const canonicalUrl = new URL(path, site.url).toString();
+  const rawImage = image || site.defaultImage;
+  const imageUrl = rawImage.startsWith("http")
+    ? rawImage
+    : new URL(rawImage, site.url).toString();
 
   return {
     title,
@@ -758,9 +765,9 @@ export function makeMetadata(
       type: "website",
       images: [
         {
-          url: image,
-          width: 1792,
-          height: 896,
+          url: imageUrl,
+          width: 1200,
+          height: 630,
           alt: `${site.name} – Yoga training in Goa`,
         },
       ],
@@ -770,7 +777,7 @@ export function makeMetadata(
       card: "summary_large_image",
       title,
       description,
-      images: [image],
+      images: [imageUrl],
     },
   };
 }

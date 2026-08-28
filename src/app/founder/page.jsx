@@ -6,7 +6,8 @@ import {
   Sparkles,
 } from "lucide-react";
 import { founderData } from "@/data/siteContentData";
-import { pageMetadata } from "@/data/siteData";
+import { pagesMetadata } from "@/data/pages-metadata";
+import { buildMetadata } from "@/lib/seo";
 import {
   ButtonLink,
   Container,
@@ -15,7 +16,7 @@ import {
   PageHero,
 } from "@/components/ui";
 
-export const metadata = pageMetadata("founder");
+export const metadata = buildMetadata(pagesMetadata.founder);
 
 export default function FounderPage() {
   const founderSchema = {
@@ -40,8 +41,8 @@ export default function FounderPage() {
         eyebrow="Leadership & Lineage"
         title="Meet Our Founder"
         text="Discover the vision, traditional background, and teaching philosophy guiding The Hatha Yogashala in Goa, India."
-        image="/images/tha_hatha/The_Hatha_Yogashala-founder-Goa.webp"
-        imageAlt="Pradeep Singh, Founder and Lead Teacher at The Hatha Yogashala in Goa"
+        image="/images/hatha-yogashala/hatha-yogashala-pernem-goa-certificate-presentation-teacher-training-07.webp"
+        imageAlt="Yogi Kalpendra Chauhan presiding over a graduation ceremony at The Hatha Yogashala open-air shala in Goa"
       />
 
       {/* Founder Biography & Lineage */}

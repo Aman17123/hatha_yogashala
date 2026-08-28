@@ -32,12 +32,11 @@ export const SITE = {
   name: site.name,
   url: site.url,
   locale: "en_IN",
-  defaultImage:
-    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+  defaultImage: "/og-image.jpg",
   defaultImageAlt:
     "The Hatha Yogashala — yoga teacher training and retreat school in North Goa, Goa",
-  defaultImageWidth: 1792,
-  defaultImageHeight: 896,
+  defaultImageWidth: 1200,
+  defaultImageHeight: 630,
   twitterCard: "summary_large_image",
 };
 
@@ -84,7 +83,10 @@ export function buildMetadata(
   } = config;
 
   const title = rawTitle ?? SITE.name;
-  const ogImage = pageImage || SITE.defaultImage;
+  const rawImage = pageImage || SITE.defaultImage;
+  const ogImageUrl = rawImage.startsWith("http")
+    ? rawImage
+    : new URL(rawImage, SITE.url).toString();
   const ogImageAlt = imageAlt || SITE.defaultImageAlt;
   const canonicalUrl = new URL(pagePath, SITE.url).toString();
 
@@ -105,7 +107,7 @@ export function buildMetadata(
       type,
       images: [
         {
-          url: ogImage,
+          url: ogImageUrl,
           width: SITE.defaultImageWidth,
           height: SITE.defaultImageHeight,
           alt: ogImageAlt,
@@ -117,7 +119,7 @@ export function buildMetadata(
       card: SITE.twitterCard,
       title,
       description: desc,
-      images: [ogImage],
+      images: [ogImageUrl],
     },
   };
 
