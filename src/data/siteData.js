@@ -44,8 +44,6 @@ import { buildMetadata } from "@/lib/seo";
 
 export { pagesMetadata };
 
-export const pageSeo = pagesMetadata;
-
 export function makeMetadata(
   title,
   description,

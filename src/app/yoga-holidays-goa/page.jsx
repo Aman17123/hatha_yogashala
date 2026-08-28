@@ -36,7 +36,7 @@ import ReviewsSection from "@/components/GoogleReviews";
 
 import { pagesMetadata } from "@/data/pages-metadata";
 import { buildMetadata } from "@/lib/seo";
-import { webPageSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/schema";
 
 export const metadata = buildMetadata(pagesMetadata.yogaHolidays);
 
@@ -342,11 +342,18 @@ export default function YogaHolidaysGoaPage() {
     pagesMetadata.yogaHolidays.title,
     pagesMetadata.yogaHolidays.description,
   );
+  const faq = faqSchema(holidayFaqs);
+  const crumb = breadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Yoga Holidays in Goa", url: "/yoga-holidays-goa" },
+  ]);
 
   return (
     <>
       <JsonLd data={pageSchema} />
       <JsonLd data={holidaySchema} />
+      {faq && <JsonLd data={faq} />}
+      <JsonLd data={crumb} />
 
       {/* =========================================================================
           SECTION 1 — HERO SECTION

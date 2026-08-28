@@ -16,7 +16,7 @@ import { Breadcrumbs, ButtonLink, Container, FinalCTA, JsonLd, PageHero, Section
 import { absoluteUrl, site } from "@/data/siteData";
 import { pagesMetadata } from "@/data/pages-metadata";
 import { buildMetadata } from "@/lib/seo";
-import { webPageSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/schema";
 
 export const metadata = buildMetadata(pagesMetadata.goaTravelGuide);
 
@@ -72,11 +72,18 @@ export default function DestinationGoaPage() {
     pagesMetadata.goaTravelGuide.title,
     pagesMetadata.goaTravelGuide.description,
   );
+  const faq = faqSchema(goaFaqs);
+  const crumb = breadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Destination Goa", url: "/goa-travel-guide" },
+  ]);
 
   return (
     <>
       <JsonLd data={pageSchema} />
       <JsonLd data={destinationSchema} />
+      {faq && <JsonLd data={faq} />}
+      <JsonLd data={crumb} />
       <PageHero
         eyebrow="Ashram Destination & Travel Guide"
         title="A Coastal Setting for Yoga Study in Goa"

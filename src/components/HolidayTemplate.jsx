@@ -42,6 +42,7 @@ import {
 import { Container, ButtonLink, JsonLd } from "./ui";
 import BookingForm from "./retreat/BookingForm";
 import ReviewsSection from "./GoogleReviews";
+import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 
 const holidayActivities = [
   {
@@ -271,10 +272,19 @@ export default function HolidayTemplate({ holiday }) {
 
   const activeDay = holiday.schedule[activeDayIdx] || holiday.schedule[0];
 
+  const faq = faqSchema(holidayFaqs);
+  const crumb = breadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Yoga Holidays in Goa", url: "/yoga-holidays-goa" },
+    { name: holiday.name, url: `/holidays/${holiday.slug}` },
+  ]);
+
   return (
     <>
       <JsonLd data={pageSchema} />
       <JsonLd data={holidaySchema} />
+      {faq && <JsonLd data={faq} />}
+      <JsonLd data={crumb} />
 
       {/* =========================================================================
           SECTION 1 — HERO & AUTHENTIC INTRODUCTION

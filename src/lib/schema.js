@@ -74,15 +74,6 @@ export function siteIdentityGraphSchema() {
   };
 }
 
-// Backwards-compat aliases for layout.jsx
-export function organizationSchema() {
-  return siteIdentityGraphSchema();
-}
-
-export function websiteSchema() {
-  return null;
-}
-
 // ─────────────────────────────────────────────────────────────────────────────
 // 6.2 WebPage Node — for every individual page
 // ─────────────────────────────────────────────────────────────────────────────
@@ -173,105 +164,6 @@ export function courseSchema(course) {
   }
 
   return schema;
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Service Schema — for Ongoing subscriptions & treatments
-// ─────────────────────────────────────────────────────────────────────────────
-export function serviceSchema({ name, description, path, price, priceCurrency = "USD" }) {
-  const url = `${SITE_URL}${path}`;
-  const serviceId = `${url}#service`;
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": serviceId,
-    name,
-    description,
-    provider: { "@id": ORG_ID },
-    url,
-    ...(price
-      ? {
-          offers: {
-            "@type": "Offer",
-            priceCurrency,
-            price: String(price).replace(/[^0-9.]/g, ""),
-            availability: "https://schema.org/InStock",
-            url,
-          },
-        }
-      : {}),
-  };
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// 6.5 TouristTrip Schema — for Retreat & Holiday detail pages
-// ─────────────────────────────────────────────────────────────────────────────
-export function retreatSchema(retreat) {
-  return touristTripSchema(retreat);
-}
-
-export function touristTripSchema(item) {
-  const isHoliday = item.slug?.includes("holiday");
-  const path = isHoliday ? `/holidays/${item.slug}` : `/retreats/${item.slug}`;
-  const tripUrl = `${SITE_URL}${path}`;
-  const tripId = `${tripUrl}#trip`;
-
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "TouristTrip",
-    "@id": tripId,
-    name: item.name || item.title,
-    description: item.description || item.overview,
-    provider: { "@id": ORG_ID },
-    url: tripUrl,
-    touristType: "Wellness travelers, yoga practitioners",
-  };
-
-  const numericPrice = item.priceNumeric || (item.pricing?.shared?.price);
-  if (numericPrice) {
-    schema.offers = {
-      "@type": "Offer",
-      priceCurrency: item.priceCurrency || item.pricing?.shared?.currency || "EUR",
-      price: String(numericPrice),
-      availability: "https://schema.org/InStock",
-      url: tripUrl,
-    };
-  }
-
-  return schema;
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Event Schema — for Yoga Festivals
-// ─────────────────────────────────────────────────────────────────────────────
-export function eventSchema({ name, description, path, startDate, endDate }) {
-  const url = `${SITE_URL}${path}`;
-  return {
-    "@context": "https://schema.org",
-    "@type": "Event",
-    name,
-    description,
-    organizer: { "@id": ORG_ID },
-    url,
-    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-    eventStatus: "https://schema.org/EventScheduled",
-    location: {
-      "@type": "Place",
-      name: "The Hatha Yogashala",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress:
-          "House No. EHN No 1, Dhaktebag, Querim–Arambol–Agarwada Rd",
-        addressLocality: "Pernem",
-        addressRegion: "Goa",
-        postalCode: "403524",
-        addressCountry: "IN",
-      },
-    },
-    ...(startDate ? { startDate } : {}),
-    ...(endDate ? { endDate } : {}),
-  };
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
