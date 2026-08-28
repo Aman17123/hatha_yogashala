@@ -5,7 +5,8 @@ import { CalendarDays, Clock3, UserRound } from "lucide-react";
 import { BlogCard } from "@/components/Interactive";
 import { Breadcrumbs, Container, FinalCTA, JsonLd } from "@/components/ui";
 import { getPost, posts } from "@/data/blogData";
-import { absoluteUrl, makeMetadata, site } from "@/data/siteData";
+import { makeMetadata } from "@/data/siteData";
+import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 
 function slugify(value) {
   return value
@@ -205,42 +206,17 @@ export default async function BlogPostPage({ params }) {
       new Date(value),
     );
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.excerpt,
-    image: absoluteUrl(post.image),
-    datePublished: post.date,
-    dateModified: post.updated,
-    author: { "@type": "Organization", name: post.author },
-    publisher: { "@type": "Organization", name: site.name, url: site.url },
-    mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
-  };
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Blog",
-        item: absoluteUrl("/blog"),
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: post.title,
-        item: absoluteUrl(`/blog/${post.slug}`),
-      },
-    ],
-  };
+  const schema = articleSchema(post);
+  const breadcrumbs = breadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Blog", url: "/blog" },
+    { name: post.title, url: `/blog/${post.slug}` },
+  ]);
 
   return (
     <>
       <JsonLd data={schema} />
-      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={breadcrumbs} />
       <article>
         <header className="article-header">
           <Container className="article-header-inner">

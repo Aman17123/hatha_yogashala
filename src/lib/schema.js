@@ -1,4 +1,4 @@
-import { site } from "@/data/siteData";
+import { absoluteUrl, reviewProfile, site } from "@/data/siteData";
 /**
  * JSON-LD structured data generators — The Hatha Yogashala
  *
@@ -14,6 +14,71 @@ import { site } from "@/data/siteData";
  * they're real. Below, unverified fields are simply omitted rather
  * than included with placeholder text.
  */
+
+// ---------------------------------------------------------------------
+// Organization / EducationalOrganization schema — inject once in the
+// root layout. Extracted here so layout.jsx stays lean.
+// ---------------------------------------------------------------------
+export function organizationSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    name: site.name,
+    url: site.url,
+    logo: absoluteUrl("/images/The-Hatha-Yogashala-logo.png"),
+    image: absoluteUrl(site.defaultImage),
+    description: site.description,
+    telephone: site.contact.phone,
+    email: site.contact.email,
+    areaServed: { "@type": "AdministrativeArea", name: "Goa" },
+    address: {
+      "@type": "PostalAddress",
+      addressRegion: "Goa",
+      addressCountry: "IN",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: reviewProfile.rating,
+      reviewCount: reviewProfile.reviewCount,
+      bestRating: 5,
+    },
+    sameAs: Object.values(site.social).filter(
+      (url) => typeof url === "string" && url.startsWith("https://"),
+    ),
+  };
+}
+
+// ---------------------------------------------------------------------
+// WebSite schema — pair with organizationSchema in the root layout
+// ---------------------------------------------------------------------
+export function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: site.name,
+    url: site.url,
+    inLanguage: "en-IN",
+    dateModified: "2026-07-20",
+  };
+}
+
+// ---------------------------------------------------------------------
+// Article / BlogPosting schema — for /blog/[slug]
+// ---------------------------------------------------------------------
+export function articleSchema(post) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    image: absoluteUrl(post.image),
+    datePublished: post.date,
+    dateModified: post.updated,
+    author: { "@type": "Organization", name: post.author },
+    publisher: { "@type": "Organization", name: site.name, url: site.url },
+    mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
+  };
+}
 
 // ---------------------------------------------------------------------
 // Course schema — for /courses/[slug]

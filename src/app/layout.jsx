@@ -7,7 +7,8 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { JsonLd } from "@/components/ui";
-import { absoluteUrl, pageSeo, reviewProfile, site, whatsappLink } from "@/data/siteData";
+import { pageSeo, site, whatsappLink } from "@/data/siteData";
+import { organizationSchema, websiteSchema } from "@/lib/schema";
 
 const heading = Gotu({
   variable: "--font-heading",
@@ -84,40 +85,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const organization = {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    name: site.name,
-    url: site.url,
-    logo: absoluteUrl("/images/The-Hatha-Yogashala-logo.png"),
-    image: absoluteUrl(site.defaultImage),
-    description: site.description,
-    telephone: site.contact.phone,
-    email: site.contact.email,
-    areaServed: { "@type": "AdministrativeArea", name: "Goa" },
-    address: {
-      "@type": "PostalAddress",
-      addressRegion: "Goa",
-      addressCountry: "IN",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: reviewProfile.rating,
-      reviewCount: reviewProfile.reviewCount,
-      bestRating: 5,
-    },
-    sameAs: Object.values(site.social).filter(
-      (url) => typeof url === "string" && url.startsWith("https://"),
-    ),
-  };
-  const website = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: site.name,
-    url: site.url,
-    inLanguage: "en-IN",
-    dateModified: "2026-07-20",
-  };
 
   return (
     <html
@@ -126,8 +93,8 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <body id="top" suppressHydrationWarning>
-        <JsonLd data={organization} />
-        <JsonLd data={website} />
+        <JsonLd data={organizationSchema()} />
+        <JsonLd data={websiteSchema()} />
         <a className="skip-link" href="#main-content">Skip to content</a>
         <Header />
         <main id="main-content">{children}</main>
