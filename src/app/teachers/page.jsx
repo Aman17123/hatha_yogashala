@@ -21,7 +21,7 @@ import {
 } from "@/components/ui";
 import { pagesMetadata } from "@/data/pages-metadata";
 import { buildMetadata } from "@/lib/seo";
-import { webPageSchema } from "@/lib/schema";
+import { ORG_ID, webPageSchema } from "@/lib/schema";
 
 export const metadata = buildMetadata(pagesMetadata.teachers);
 
@@ -80,7 +80,7 @@ export default function TeachersPage() {
   const facultySchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": "https://www.hathayogashala.com/#organization",
+    "@id": ORG_ID,
     name: "The Hatha Yogashala",
     employee: teachersData.map((t) => ({
       "@type": "Person",

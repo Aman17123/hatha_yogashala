@@ -25,6 +25,7 @@ import { Breadcrumbs, ButtonLink, Container, FinalCTA, JsonLd } from "@/componen
 import { FadeIn } from "@/components/retreat/Motion";
 import { medicalDisclaimer } from "@/data/pranayamaData";
 import { absoluteUrl, site } from "@/data/siteData";
+import { ORG_ID, WEBSITE_ID, LOCAL_BUSINESS_ID } from "@/lib/schema";
 
 export default function PranayamaTemplate({ course }) {
   const [formData, setFormData] = useState({
@@ -53,8 +54,8 @@ export default function PranayamaTemplate({ course }) {
     url: absoluteUrl(`/online-pranayama/${course.slug}`),
     name: course.title,
     description: course.summary,
-    isPartOf: { "@id": "https://www.hathayogashala.com/#website" },
-    about: { "@id": "https://www.hathayogashala.com/#localbusiness" },
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": LOCAL_BUSINESS_ID },
     inLanguage: "en-IN",
   };
 
@@ -66,7 +67,7 @@ export default function PranayamaTemplate({ course }) {
     description: course.summary,
     provider: {
       "@type": "Organization",
-      "@id": "https://www.hathayogashala.com/#organization",
+      "@id": ORG_ID,
       name: site.name,
     },
     educationalLevel: course.level,

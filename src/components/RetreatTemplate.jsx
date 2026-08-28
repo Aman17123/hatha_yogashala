@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { retreats } from "@/data/coursesData";
 import { absoluteUrl, site } from "@/data/siteData";
+import { ORG_ID, WEBSITE_ID, LOCAL_BUSINESS_ID } from "@/lib/schema";
 import { Accordion } from "./Interactive";
 import { Container, ButtonLink, JsonLd, Media, MobileStickyBar, RetreatCard, SectionHeading } from "./ui";
 import BookingSidebar from "./retreat/BookingSidebar";
@@ -30,18 +31,21 @@ import { SiWhatsapp } from "react-icons/si";
 
 const retreatNavLinks = [
   { id: "overview", label: "1. Overview" },
-  { id: "why", label: "2. Why Us" },
-  { id: "highlights", label: "3. Highlights" },
-  { id: "schedule", label: "4. Schedule" },
-  { id: "excursions", label: "5. Excursions" },
-  { id: "accommodation", label: "6. Stay" },
-  { id: "meals", label: "7. Meals" },
-  { id: "included", label: "8. Included" },
-  { id: "excluded", label: "9. Excluded" },
-  { id: "community", label: "10. Community" },
-  { id: "reviews", label: "11. Reviews" },
-  { id: "faq", label: "12. FAQ" },
-  { id: "fees", label: "13. Fees" },
+  { id: "highlights", label: "2. Highlights" },
+  { id: "vedic-rituals", label: "3. Vedic Rituals" },
+  { id: "aerial-alignment", label: "4. Aerial Alignment" },
+  { id: "ayurveda-wisdom", label: "5. Ayurveda" },
+  { id: "community", label: "6. Community" },
+  { id: "accommodation", label: "7. Stay" },
+  { id: "schedule", label: "8. Schedule" },
+  { id: "excursions", label: "9. Excursions" },
+  { id: "why", label: "10. Why Us" },
+  { id: "meals", label: "11. Meals" },
+  { id: "included", label: "12. Included" },
+  { id: "excluded", label: "13. Not Included" },
+  { id: "reviews", label: "14. Reviews" },
+  { id: "faq", label: "15. FAQ" },
+  { id: "fees", label: "16. Fees" },
 ];
 
 const whyIcons = {
@@ -110,7 +114,7 @@ export default function RetreatTemplate({ retreat, page }) {
     description: retreat.description,
     url: absoluteUrl(`/retreats/${retreat.slug}`),
     touristType: "Yoga and wellness travellers",
-    provider: { "@type": "Organization", "@id": "https://www.hathayogashala.com/#organization", name: site.name },
+    provider: { "@type": "Organization", "@id": ORG_ID, name: site.name },
     itinerary: p.daysSchedule?.length > 0 ? {
       "@type": "ItemList",
       itemListElement: p.daysSchedule.map((day, index) => ({
@@ -129,8 +133,8 @@ export default function RetreatTemplate({ retreat, page }) {
     url: absoluteUrl(`/retreats/${retreat.slug}`),
     name: retreat.name,
     description: retreat.description,
-    isPartOf: { "@id": "https://www.hathayogashala.com/#website" },
-    about: { "@id": "https://www.hathayogashala.com/#localbusiness" },
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": LOCAL_BUSINESS_ID },
     inLanguage: "en-IN",
   };
   const breadcrumbSchema = {

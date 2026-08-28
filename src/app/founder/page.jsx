@@ -16,7 +16,7 @@ import {
   PageHero,
 } from "@/components/ui";
 
-import { webPageSchema } from "@/lib/schema";
+import { ORG_ID, webPageSchema } from "@/lib/schema";
 
 export const metadata = buildMetadata(pagesMetadata.founder);
 
@@ -34,7 +34,7 @@ export default function FounderPage() {
     jobTitle: founderData.role,
     worksFor: {
       "@type": "Organization",
-      "@id": "https://www.hathayogashala.com/#organization",
+      "@id": ORG_ID,
       name: "The Hatha Yogashala",
     },
     description: founderData.shortBio,

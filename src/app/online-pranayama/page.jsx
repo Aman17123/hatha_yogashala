@@ -6,7 +6,7 @@ import { pranayamaCourses } from "@/data/pranayamaData";
 import { absoluteUrl, site } from "@/data/siteData";
 import { pagesMetadata } from "@/data/pages-metadata";
 import { buildMetadata } from "@/lib/seo";
-import { webPageSchema } from "@/lib/schema";
+import { ORG_ID, webPageSchema } from "@/lib/schema";
 
 export const metadata = buildMetadata(pagesMetadata.onlinePranayama);
 
@@ -19,7 +19,7 @@ const hubSchema = {
   url: absoluteUrl("/online-pranayama"),
   publisher: {
     "@type": "Organization",
-    "@id": "https://www.hathayogashala.com/#organization",
+    "@id": ORG_ID,
     name: "The Hatha Yogashala",
     url: site.url,
   },

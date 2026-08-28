@@ -4,7 +4,8 @@ import { teacherTrainings } from "@/data/coursesData";
 import { getYttcPageData, yttcFaqs } from "@/data/yttcHubData";
 import { pagesMetadata } from "@/data/pages-metadata";
 import { buildMetadata } from "@/lib/seo";
-import { faqSchema, webPageSchema } from "@/lib/schema";
+import { ORG_ID, faqSchema, webPageSchema } from "@/lib/schema";
+import { site } from "@/data/siteData";
 
 export const metadata = buildMetadata(pagesMetadata.yogaTeacherTraining);
 
@@ -18,15 +19,15 @@ const schemaItemList = {
     "@type": "ListItem",
     position: index + 1,
     name: course.name,
-    url: `https://www.hathayogashala.com/courses/${course.slug}`,
+    url: `${site.url}/courses/${course.slug}`,
     item: {
       "@type": "Course",
       name: course.name,
       description: course.description,
-      url: `https://www.hathayogashala.com/courses/${course.slug}`,
+      url: `${site.url}/courses/${course.slug}`,
       provider: {
         "@type": "Organization",
-        "@id": "https://www.hathayogashala.com/#organization",
+        "@id": ORG_ID,
         name: "The Hatha Yogashala",
       },
     },

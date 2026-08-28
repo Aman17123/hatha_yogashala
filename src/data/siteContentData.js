@@ -127,11 +127,11 @@ export const faqData = [
 
 export const founderData = {
   name: "Yogi Kalpendra Chauhan",
-  role: "Philosophy, Pranayama & Meditationr",
+  role: "Philosophy, Pranayama & Meditation",
   shortBio:
-    "Kalpendra Chauhan Ji who has been on the path of Yoga and spirituality from an early age of 19 born and brought up in Rishikesh traditional north Indian Spiritual family . His expertise lies in understanding the science behind yoga, breathing, meditation, and relaxation practices to help people find the balance between mind, body, and soul. ",
+    "Kalpendra Chauhan Ji has walked the path of Yoga and spirituality since the early age of 19. Born and raised in Rishikesh in a traditional North Indian spiritual family, his expertise lies in the science behind yoga, breathing, meditation, and relaxation — helping people find balance between mind, body, and soul.",
   fullBio:
-    "Kalpendra Chauhan Ji who has been on the path of Yoga and spirituality from an early age of 19 born and brought up in Rishikesh traditional north Indian Spiritual family . His expertise lies in understanding the science behind yoga, breathing, meditation, and relaxation practices to help people find the balance between mind, body, and soul. He has obtained Masters degree in Yoga science from Uttarakhand Sanskrit Universityi, Haridwar in 2008. He also has earned a post-graduate Diploma in Yoga and Holistic Health from HNB Garhwal University in 2005 and Certfied Yoga teacher (ERYT 500 from Yoga Alliance USA),He has been teaching Yoga Philosophy, Pranayam , Yoga Nidra and Meditation for over 16 years now. His simplicity transcends into his teaching philosophy.",
+    "Kalpendra Chauhan Ji has walked the path of Yoga and spirituality since the early age of 19. Born and raised in Rishikesh in a traditional North Indian spiritual family, his expertise lies in the science behind yoga, breathing, meditation, and relaxation — helping people find balance between mind, body, and soul. He earned a Master's degree in Yoga Science from Uttarakhand Sanskrit University, Haridwar in 2008, and a Post-Graduate Diploma in Yoga and Holistic Health from HNB Garhwal University in 2005. He is a certified yoga teacher (ERYT 500, Yoga Alliance USA) and has been teaching Yoga Philosophy, Pranayama, Yoga Nidra, and Meditation for over 16 years. His simplicity and depth flow directly into his teaching philosophy.",
   qualifications: "E-RYT 500 (Yoga Alliance), Advanced Ashtanga",
   experience: "15+ Years Teaching Yoga Teacher Training",
   philosophy:

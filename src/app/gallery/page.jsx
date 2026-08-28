@@ -9,7 +9,7 @@ import {
 import { absoluteUrl, galleryItems, site } from "@/data/siteData";
 import { pagesMetadata } from "@/data/pages-metadata";
 import { buildMetadata } from "@/lib/seo";
-import { webPageSchema } from "@/lib/schema";
+import { ORG_ID, webPageSchema } from "@/lib/schema";
 
 export const metadata = buildMetadata(pagesMetadata.gallery);
 
@@ -29,7 +29,7 @@ export default function GalleryPage() {
     url: absoluteUrl("/gallery"),
     creator: {
       "@type": "Organization",
-      "@id": "https://www.hathayogashala.com/#organization",
+      "@id": ORG_ID,
       name: site.name,
       url: site.url,
     },

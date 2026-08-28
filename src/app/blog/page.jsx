@@ -7,7 +7,7 @@ import { posts } from "@/data/blogData";
 import { absoluteUrl, site } from "@/data/siteData";
 import { pagesMetadata } from "@/data/pages-metadata";
 import { buildMetadata } from "@/lib/seo";
-import { webPageSchema } from "@/lib/schema";
+import { ORG_ID, webPageSchema } from "@/lib/schema";
 
 export const metadata = buildMetadata(pagesMetadata.blog);
 
@@ -20,7 +20,7 @@ const blogSchema = {
   url: absoluteUrl("/blog"),
   publisher: {
     "@type": "Organization",
-    "@id": "https://www.hathayogashala.com/#organization",
+    "@id": ORG_ID,
     name: "The Hatha Yogashala",
     url: absoluteUrl("/"),
   },

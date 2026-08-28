@@ -13,7 +13,7 @@ import {
   Clock,
   TrendingUp,
   Award,
-  DollarSign,
+  Euro,
 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { GiTeacher } from "react-icons/gi";
@@ -105,7 +105,7 @@ const comparisonCards = [
       {
         icon: Clock,
         label: "DURATION",
-        value: "11 Days",
+        value: "14 Days",
       },
       {
         icon: TrendingUp,
@@ -115,12 +115,12 @@ const comparisonCards = [
       {
         icon: Award,
         label: "CERTIFICATION",
-        value: "100 Hour Completion (AYUSH)",
+        value: "100-Hour Yoga Alliance (RYS)",
       },
       {
-        icon: DollarSign,
+        icon: Euro,
         label: "INVESTMENT",
-        value: "$499 - $599",
+        value: "€699 – €999",
       },
     ],
   },
@@ -146,7 +146,7 @@ const comparisonCards = [
       {
         icon: Clock,
         label: "DURATION",
-        value: "24 Days",
+        value: "21–22 Days",
       },
       {
         icon: TrendingUp,
@@ -156,12 +156,12 @@ const comparisonCards = [
       {
         icon: Award,
         label: "CERTIFICATION",
-        value: "Yoga Alliance USA Recognized",
+        value: "Yoga Alliance (RYS 200)",
       },
       {
-        icon: DollarSign,
+        icon: Euro,
         label: "INVESTMENT",
-        value: "$879 - $999",
+        value: "€799 – €1,199",
       },
     ],
   },
@@ -187,7 +187,7 @@ const comparisonCards = [
       {
         icon: Clock,
         label: "DURATION",
-        value: "28 Days",
+        value: "27 Days",
       },
       {
         icon: TrendingUp,
@@ -197,12 +197,12 @@ const comparisonCards = [
       {
         icon: Award,
         label: "CERTIFICATION",
-        value: "Yoga Alliance USA RYT 300",
+        value: "Yoga Alliance (RYS 300)",
       },
       {
-        icon: DollarSign,
+        icon: Euro,
         label: "INVESTMENT",
-        value: "$1149 - $1249",
+        value: "€899 – €1,399",
       },
     ],
   },
@@ -256,7 +256,7 @@ const trustItems = [
     height: 400,
     sizes: "64px",
   },
-  { key: "google", type: "google", rating: "5.0" },
+  { key: "google", type: "google", rating: "4.9" },
   {
     key: "teaching",
     type: "stat",
@@ -276,7 +276,7 @@ const trustItems = [
 const certificationBadges = [
   {
     icon: "/images/tha_hatha/The-hatha-yogashala-certifiacte-rs-200.webp",
-    caption: "200-Hour Yoga\n(YTTC) – Rishikesh",
+    caption: "200-Hour Yoga\n(YTTC) – Goa",
   },
   {
     icon: "/images/tha_hatha/The-hatha-yogashala-yoga-alliance-logo.webp",
@@ -284,7 +284,7 @@ const certificationBadges = [
   },
   {
     icon: "/images/tha_hatha/The-hatha-yogashala-certifiacte-rs-300.webp",
-    caption: "300-Hour Yoga \n(YTTC) – Rishikesh",
+    caption: "300-Hour Yoga \n(YTTC) – Goa",
   },
 ];
 

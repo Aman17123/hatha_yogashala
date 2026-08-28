@@ -4,7 +4,8 @@ import { retreats } from "@/data/coursesData";
 import { retreatFaqs } from "@/data/retreatData";
 import { pagesMetadata } from "@/data/pages-metadata";
 import { buildMetadata } from "@/lib/seo";
-import { faqSchema, webPageSchema } from "@/lib/schema";
+import { ORG_ID, faqSchema, webPageSchema } from "@/lib/schema";
+import { site } from "@/data/siteData";
 
 export const metadata = buildMetadata(pagesMetadata.yogaRetreats);
 
@@ -18,15 +19,15 @@ const schemaItemList = {
     "@type": "ListItem",
     position: index + 1,
     name: retreat.name,
-    url: `https://www.hathayogashala.com/retreats/${retreat.slug}`,
+    url: `${site.url}/retreats/${retreat.slug}`,
     item: {
       "@type": "TouristTrip",
       name: retreat.name,
       description: retreat.description,
-      url: `https://www.hathayogashala.com/retreats/${retreat.slug}`,
+      url: `${site.url}/retreats/${retreat.slug}`,
       provider: {
         "@type": "Organization",
-        "@id": "https://www.hathayogashala.com/#organization",
+        "@id": ORG_ID,
         name: "The Hatha Yogashala",
       },
     },

@@ -10,7 +10,7 @@ export const site = {
     process.env.NEXT_PUBLIC_SITE_URL ||
     (process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
-      : "https://www.hathayogashala.com"),
+      : "https://thehathayogashala.com"),
   hasProductionUrl: Boolean(process.env.NEXT_PUBLIC_SITE_URL),
   defaultImage: "/og-image.jpg",
 

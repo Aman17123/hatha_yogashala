@@ -8,10 +8,12 @@
  * - 6.5 TouristTrip Schema, Service Schema & Event Schema
  */
 
-const SITE_URL = "https://www.hathayogashala.com";
-const ORG_ID = `${SITE_URL}/#organization`;
-const LOCAL_BUSINESS_ID = `${SITE_URL}/#localbusiness`;
-const WEBSITE_ID = `${SITE_URL}/#website`;
+import { site } from "@/data/siteData";
+
+const SITE_URL = site.url;
+export const ORG_ID = `${SITE_URL}/#organization`;
+export const LOCAL_BUSINESS_ID = `${SITE_URL}/#localbusiness`;
+export const WEBSITE_ID = `${SITE_URL}/#website`;
 const LOGO_ID = `${SITE_URL}/#logo`;
 const LOGO_URL = `${SITE_URL}/images/The-Hatha-Yogashala-logo.png`;
 

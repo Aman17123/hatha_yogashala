@@ -42,7 +42,13 @@ import {
 import { Container, ButtonLink, JsonLd } from "./ui";
 import BookingForm from "./retreat/BookingForm";
 import ReviewsSection from "./GoogleReviews";
-import { breadcrumbSchema, faqSchema } from "@/lib/schema";
+import {
+  breadcrumbSchema,
+  faqSchema,
+  ORG_ID,
+  WEBSITE_ID,
+  LOCAL_BUSINESS_ID,
+} from "@/lib/schema";
 
 const holidayActivities = [
   {
@@ -243,8 +249,8 @@ export default function HolidayTemplate({ holiday }) {
     url: absoluteUrl(`/holidays/${holiday.slug}`),
     name: `${holiday.name} in Goa | The Hatha Yogashala`,
     description: holiday.tagline,
-    isPartOf: { "@id": "https://www.hathayogashala.com/#website" },
-    about: { "@id": "https://www.hathayogashala.com/#localbusiness" },
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": LOCAL_BUSINESS_ID },
     inLanguage: "en-IN",
   };
 
@@ -258,7 +264,7 @@ export default function HolidayTemplate({ holiday }) {
     touristType: "Yoga and wellness holiday travellers",
     provider: {
       "@type": "Organization",
-      "@id": "https://www.hathayogashala.com/#organization",
+      "@id": ORG_ID,
       name: "The Hatha Yogashala",
     },
     offers: {

@@ -13,7 +13,7 @@ import { site } from "@/data/siteData";
 // ─────────────────────────────────────────────────────────────────────────────
 export const SITE = {
   name: "The Hatha Yogashala",
-  url: "https://www.hathayogashala.com",
+  url: site.url,
   locale: "en_IN",
   defaultImage: "/og-image.jpg",
   defaultImageAlt:
