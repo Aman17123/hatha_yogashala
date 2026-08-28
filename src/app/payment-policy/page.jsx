@@ -1,7 +1,11 @@
 import PolicyPage from "@/components/PolicyPage";
-import { pageMetadata, placeholders } from "@/data/siteData";
+import { placeholders } from "@/data/siteData";
+import { pagesMetadata } from "@/data/pages-metadata";
+import { buildMetadata } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
+import { JsonLd } from "@/components/ui";
 
-export const metadata = pageMetadata("payment");
+export const metadata = buildMetadata(pagesMetadata.paymentPolicy);
 
 const sections = [
   {
@@ -38,5 +42,21 @@ const sections = [
 ];
 
 export default function PaymentPolicyPage() {
-  return <PolicyPage eyebrow="Legal" title="Payment & Refund Policy" description="A transparent framework for fees, deposits, changes, and refunds." sections={sections} />;
+  const pageSchema = webPageSchema(
+    "/payment-policy",
+    pagesMetadata.paymentPolicy.title,
+    pagesMetadata.paymentPolicy.description,
+  );
+
+  return (
+    <>
+      <JsonLd data={pageSchema} />
+      <PolicyPage
+        eyebrow="Legal"
+        title="Payment Policy"
+        description="A transparent framework for fees, deposits, changes, and refunds."
+        sections={sections}
+      />
+    </>
+  );
 }

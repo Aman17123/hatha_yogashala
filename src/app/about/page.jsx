@@ -19,52 +19,29 @@ import {
   SectionHeading,
 } from "@/components/ui";
 
-export const metadata = pageMetadata("about");
+import { pagesMetadata } from "@/data/pages-metadata";
+import { buildMetadata } from "@/lib/seo";
+import { faqSchema, webPageSchema } from "@/lib/schema";
+
+export const metadata = buildMetadata(pagesMetadata.about);
 
 export default function AboutPage() {
-  const aboutSchema = {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    name: site.name,
-    url: site.url,
-    image: absoluteUrl(site.defaultImage),
-    description: site.description,
-    email: site.contact.email,
-    telephone: site.contact.phone,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Querim–Arambol–Agarwada Rd, Dhaktebag, Pernem",
-      addressLocality: "Pernem",
-      addressRegion: "North Goa",
-      postalCode: "403524",
-      addressCountry: "IN",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 15.729,
-      longitude: 73.701,
-    },
-    areaServed: { "@type": "AdministrativeArea", name: "Goa" },
-  };
+  const pageSchema = webPageSchema(
+    "/about",
+    pagesMetadata.about.title,
+    pagesMetadata.about.description,
+  );
 
   const aboutFaq = faqs.slice(0, 4);
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: aboutFaq.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
-    })),
-  };
+  const faqSchemaData = faqSchema(aboutFaq);
 
   return (
     <>
-      <JsonLd data={aboutSchema} />
-      <JsonLd data={faqSchema} />
+      <JsonLd data={pageSchema} />
+      {faqSchemaData && <JsonLd data={faqSchemaData} />}
       <PageHero
         eyebrow="Our story"
-        title="About the Yoga School in North Goa"
+        title="About The Hatha Yogashala"
         text="The Hatha Yogashala is a Yoga Alliance-registered yoga school and ashram in Querim, North Goa — a beachside setting for clear teaching, traditional Hatha practice, and honest information near Arambol."
         image="/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp"
       />

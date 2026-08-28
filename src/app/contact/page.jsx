@@ -21,13 +21,15 @@ import {
 import {
   absoluteUrl,
   faqs,
-  pageMetadata,
   site,
   travelOptions,
   whatsappLink,
 } from "@/data/siteData";
+import { pagesMetadata } from "@/data/pages-metadata";
+import { buildMetadata } from "@/lib/seo";
+import { faqSchema as buildFaqSchema, webPageSchema } from "@/lib/schema";
 
-export const metadata = pageMetadata("contact");
+export const metadata = buildMetadata(pagesMetadata.contact);
 
 export default function ContactPage() {
   const contactFaqs = faqs.slice(0, 4);
@@ -103,13 +105,19 @@ export default function ContactPage() {
     },
   ];
 
+  const pageSchema = webPageSchema(
+    "/contact",
+    pagesMetadata.contact.title,
+    pagesMetadata.contact.description,
+  );
+
   return (
     <>
+      <JsonLd data={pageSchema} />
       <JsonLd data={faqSchema} />
-      <JsonLd data={localSchema} />
       <PageHero
         eyebrow="We’re here to help"
-        title="Contact the Goa Yoga School"
+        title="Contact & Travel — The Hatha Yogashala"
         text="Ask about yoga teacher training, retreats, accommodation, travel to Querim–Arambol, or the application process at The Hatha Yogashala in North Goa."
       />
       <section className="section">

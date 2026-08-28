@@ -42,15 +42,32 @@ export default function PranayamaTemplate({ course }) {
     setSubmitted(true);
   };
 
+  const isService =
+    course.slug === "daily-pranayama-subscription" ||
+    course.slug === "yoga-meditation";
+
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${absoluteUrl(`/online-pranayama/${course.slug}`)}#webpage`,
+    url: absoluteUrl(`/online-pranayama/${course.slug}`),
+    name: course.title,
+    description: course.summary,
+    isPartOf: { "@id": "https://www.hathayogashala.com/#website" },
+    about: { "@id": "https://www.hathayogashala.com/#localbusiness" },
+    inLanguage: "en-IN",
+  };
+
   const courseSchema = {
     "@context": "https://schema.org",
-    "@type": "Course",
+    "@type": isService ? "Service" : "Course",
+    "@id": `${absoluteUrl(`/online-pranayama/${course.slug}`)}#${isService ? "service" : "course"}`,
     name: course.title,
     description: course.summary,
     provider: {
       "@type": "Organization",
+      "@id": "https://www.hathayogashala.com/#organization",
       name: site.name,
-      sameAs: site.url,
     },
     educationalLevel: course.level,
     timeRequired: course.duration,
@@ -78,6 +95,7 @@ export default function PranayamaTemplate({ course }) {
 
   return (
     <>
+      <JsonLd data={pageSchema} />
       <JsonLd data={courseSchema} />
       <JsonLd data={faqSchema} />
 

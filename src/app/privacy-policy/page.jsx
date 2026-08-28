@@ -1,7 +1,11 @@
 import PolicyPage from "@/components/PolicyPage";
-import { pageMetadata, placeholders } from "@/data/siteData";
+import { placeholders } from "@/data/siteData";
+import { pagesMetadata } from "@/data/pages-metadata";
+import { buildMetadata } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
+import { JsonLd } from "@/components/ui";
 
-export const metadata = pageMetadata("privacy");
+export const metadata = buildMetadata(pagesMetadata.privacyPolicy);
 
 const sections = [
   {
@@ -38,5 +42,21 @@ const sections = [
 ];
 
 export default function PrivacyPage() {
-  return <PolicyPage eyebrow="Legal" title="Privacy Policy" description="How enquiry information is intended to be handled." sections={sections} />;
+  const pageSchema = webPageSchema(
+    "/privacy-policy",
+    pagesMetadata.privacyPolicy.title,
+    pagesMetadata.privacyPolicy.description,
+  );
+
+  return (
+    <>
+      <JsonLd data={pageSchema} />
+      <PolicyPage
+        eyebrow="Legal"
+        title="Privacy Policy"
+        description="How enquiry information is intended to be handled."
+        sections={sections}
+      />
+    </>
+  );
 }

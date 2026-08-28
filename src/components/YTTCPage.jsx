@@ -64,11 +64,28 @@ import {
   SectionHeading,
 } from "./ui";
 import BookingSidebar from "./retreat/BookingSidebar";
+import StickySubNav from "./retreat/StickySubNav";
 import BookingForm from "./retreat/BookingForm";
 import CourseFeesTable from "./CourseFeesTable";
 import TestimonialCarousel from "./retreat/TestimonialCarousel";
 import MonthGuide from "./retreat/MonthGuide";
 import { FadeIn, Stagger, StaggerItem } from "./retreat/Motion";
+
+const yttcNavLinks = [
+  { id: "overview", label: "1. Overview" },
+  { id: "why", label: "2. Why Us" },
+  { id: "syllabus", label: "3. Syllabus" },
+  { id: "schedule", label: "4. Schedule" },
+  { id: "highlights", label: "5. Highlights" },
+  { id: "teachers", label: "6. Teachers" },
+  { id: "experiences", label: "7. Excursions" },
+  { id: "included", label: "8. Included" },
+  { id: "excluded", label: "9. Excluded" },
+  { id: "accommodation", label: "10. Stay & Food" },
+  { id: "learning-outcomes", label: "11. Outcomes" },
+  { id: "dates", label: "12. Dates" },
+  { id: "fees", label: "13. Fees" },
+];
 
 const whyIcons = {
   badge: BadgeCheck,
@@ -403,42 +420,59 @@ export default function YTTCPage({ course }) {
           </nav>
 
           <div className="retreat-hero-badges">
-            <span className="retreat-hero-badge">{pageData.category}</span>
+            <span className="retreat-hero-badge">
+              <Sparkles size={13} className="text-[var(--gold)] shrink-0" aria-hidden="true" />
+              {pageData.category}
+            </span>
             <span className="retreat-hero-badge-sub">
+              <Clock3 size={13} className="shrink-0" aria-hidden="true" />
               {pageData.duration} Intensive
             </span>
           </div>
 
-          <h1 className="retreat-hero-title">{course.name}</h1>
+          <h1 className="retreat-hero-title font-philosopher">{course.name}</h1>
           <p className="retreat-hero-lead">{pageData.heroTagline}</p>
 
           <div className="retreat-hero-meta">
-            <span>
-              <Clock3 size={15} aria-hidden="true" />
-              {pageData.duration}
-            </span>
-            <span>
-              <MapPin size={15} aria-hidden="true" />
-              {pageData.location}
-            </span>
-            <span>
+            <div>
+              <Clock3 size={17} aria-hidden="true" />
+              <div>
+                <span>Duration</span>
+                <strong>{pageData.duration}</strong>
+              </div>
+            </div>
+            <div>
+              <MapPin size={17} aria-hidden="true" />
+              <div>
+                <span>Location</span>
+                <strong>{pageData.location}</strong>
+              </div>
+            </div>
+            <div>
               <Star
-                size={15}
+                size={17}
                 className="fill-[var(--gold)] text-[var(--gold)]"
                 aria-hidden="true"
               />
-              {pageData.rating}/5 ({pageData.ratingCount} reviews)
-            </span>
-            <span>
-              <Users size={15} aria-hidden="true" />
-              Small batch ({pageData.students} max)
-            </span>
+              <div>
+                <span>Rating</span>
+                <strong>{pageData.rating}/5 ({pageData.ratingCount} reviews)</strong>
+              </div>
+            </div>
+            <div>
+              <Users size={17} aria-hidden="true" />
+              <div>
+                <span>Batch Size</span>
+                <strong>Small ({pageData.students} max)</strong>
+              </div>
+            </div>
           </div>
 
           <div className="retreat-hero-actions">
-            <ButtonLink href="#book" className="retreat-hero-cta">
+            <a href="#registration" className="retreat-hero-cta">
               <span>Reserve Your Spot</span>
-            </ButtonLink>
+              <ArrowRight size={17} aria-hidden="true" />
+            </a>
             <a
               href={whatsappHref}
               target="_blank"
@@ -446,31 +480,15 @@ export default function YTTCPage({ course }) {
               className="retreat-hero-wa"
               aria-label="Ask a question on WhatsApp"
             >
-              <SiWhatsapp size={18} aria-hidden="true" />
-              <span>Ask on WhatsApp</span>
+              <SiWhatsapp size={19} aria-hidden="true" className="shrink-0 text-white" />
+              <span>Chat on WhatsApp</span>
             </a>
           </div>
         </div>
       </section>
 
-      {/* ============ STICKY NAV BAR ============ */}
-      <nav className="retreat-stickynav" aria-label="Course section navigation">
-        <div className="container retreat-stickynav-inner">
-          <a href="#overview">1. Overview</a>
-          <a href="#why">2. Why Us</a>
-          <a href="#syllabus">3. Syllabus</a>
-          <a href="#schedule">4. Schedule</a>
-          <a href="#highlights">5. Highlights</a>
-          <a href="#teachers">6. Teachers</a>
-          <a href="#experiences">7. Excursions</a>
-          <a href="#included">8. Included</a>
-          <a href="#excluded">9. Excluded</a>
-          <a href="#accommodation">10. Stay &amp; Food</a>
-          <a href="#learning-outcomes">11. Outcomes</a>
-          <a href="#dates">12. Dates</a>
-          <a href="#fees">13. Fees</a>
-        </div>
-      </nav>
+      {/* ============ STICKY NAV BAR WITH ACTIVE SCROLL SPY ============ */}
+      <StickySubNav links={yttcNavLinks} ariaLabel="Course section navigation" />
 
       {/* ============ MAIN LAYOUT: SIDEBAR + 14 CONTENT SECTIONS ============ */}
       <div className="container retreat-layout">

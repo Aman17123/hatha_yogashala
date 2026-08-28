@@ -107,7 +107,7 @@ function ReviewGrid({
                 />
                 <div>
                   <h3 className="text-[16px] font-semibold leading-tight text-[var(--brown)]">
-                    {review.name}
+                    {review.name}{review.platform ? ` — ${review.platform}` : ""}
                   </h3>
                   <span className="text-[13.5px] font-bold uppercase tracking-tight text-[var(--muted)]">
                     {review.date}
@@ -151,7 +151,7 @@ function ReviewGrid({
 export default function ReviewsSection({
   testimonials = [],
   reviewProfile = {},
-  title = "Student Reviews",
+  title = "Student Reviews — Yoga Teacher Training in Goa",
   subtitle = "Verified 5.0 Rating in Goa",
 }) {
   const trackRef = useRef(null);
@@ -179,7 +179,7 @@ export default function ReviewsSection({
             <div className="mb-2 flex items-center justify-center gap-2">
               <GoogleG className="h-8 w-8 md:h-10 md:w-10" />
               <h2 className="text-[var(--brown)]">
-                Google — <span className="text-[#4285F4]">{title}</span>
+                {title}
               </h2>
             </div>
             <div className="mx-auto mb-2 flex h-1 w-24 overflow-hidden rounded-full">

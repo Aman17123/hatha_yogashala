@@ -34,16 +34,11 @@ import {
 } from "@/data/siteData";
 import ReviewsSection from "@/components/GoogleReviews";
 
-// =========================================================================
-// SEO METADATA & OPEN GRAPH
-// =========================================================================
-export const metadata = makeMetadata(
-  "Yoga Holidays in Goa (3, 5 & 7 Days) | The Hatha Yogashala",
-  "Recharge with authentic residential yoga holidays in Querim, North Goa. Includes daily Hatha yoga, Ayurvedic massage, sattvic food, and beachside relaxation.",
-  "/yoga-holidays-goa",
-  "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
-  "yoga holidays Goa, short yoga retreat Goa, 3 day yoga holiday Goa, 7 day yoga break, beach yoga holiday India",
-);
+import { pagesMetadata } from "@/data/pages-metadata";
+import { buildMetadata } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
+
+export const metadata = buildMetadata(pagesMetadata.yogaHolidays);
 
 // =========================================================================
 // STRUCTURED SCHEMA (JSON-LD)
@@ -342,9 +337,15 @@ export default function YogaHolidaysGoaPage() {
     "Hi The Hatha Yogashala, I would like to check availability and inquire about booking a Yoga Holiday in Goa."
   );
 
+  const pageSchema = webPageSchema(
+    "/yoga-holidays-goa",
+    pagesMetadata.yogaHolidays.title,
+    pagesMetadata.yogaHolidays.description,
+  );
+
   return (
     <>
-      {/* Search Engine Rich Snippet Schema */}
+      <JsonLd data={pageSchema} />
       <JsonLd data={holidaySchema} />
 
       {/* =========================================================================
@@ -352,7 +353,7 @@ export default function YogaHolidaysGoaPage() {
           ========================================================================= */}
       <PageHero
         eyebrow="Mindful Coastal Escapes · Querim, North Goa"
-        title="Yoga Holidays in North Goa"
+        title="All Yoga Holidays in Goa"
         text="Step away from the demands of busy life. Experience 3, 5, or 7 days of restorative yoga practice, Ayurvedic healing, nourishing meals, and unhurried beach walks in Querim, North Goa."
         image="/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-04.webp"
       />

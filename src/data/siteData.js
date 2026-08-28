@@ -15,18 +15,18 @@ export const site = {
   defaultImage: "/og-image.jpg",
 
   social: {
-    instagram: "", // Replace with the verified Instagram URL
-    facebook: "", // Replace with the verified Facebook URL
-    youtube: "", // Replace with the verified YouTube URL
-    tripadvisor: "", // Replace with the verified TripAdvisor URL
+    instagram: "https://www.instagram.com/thehathayogashala/",
+    facebook: "https://www.facebook.com/profile.php?id=61557638113374",
+    youtube: "",
+    tripadvisor: "",
   },
 
   contact: {
-    phone: "+91 9004290242",
+    phone: "+91-9004290242",
     whatsapp: "+91 9004290242",
     email: "admin@hathayogashala.com",
     address:
-      "Querim–Arambol–Agarwada Rd, Dhaktebag, Pernem, North Goa 403524, India",
+      "House No. EHN No 1, Dhaktebag, Querim–Arambol–Agarwada Rd, Pernem, Goa 403524, India",
     map: "https://www.google.com/maps?q=Hatha+Yogashala+Querim+Goa",
     directionsUrl:
       "https://www.google.com/maps/dir/?api=1&destination=Hatha+Yogashala+Querim+Goa",
@@ -39,141 +39,28 @@ export function absoluteUrl(path = "/") {
   return new URL(path, site.url).toString();
 }
 
-export const pageSeo = {
-  home: {
-    title: "Yoga School in Goa — Teacher Training & Retreats",
-    description:
-      "Yoga Alliance-certified yoga school in Goa offering 100–300h teacher training & retreats near Querim beach. Book now.",
-    path: "/",
-  },
-  about: {
-    title: "About the School – Yoga Ashram & Teacher Training in Goa",
-    description:
-      "The Hatha Yogashala is a Yoga Alliance-registered yoga school and beachside ashram in Querim, North Goa — near Arambol. Meet our teachers, philosophy, campus, and why students choose us for yoga teacher training and retreats in Goa.",
-    keywords:
-      "yoga ashram Goa, best yoga school in Goa, Hatha Yoga teacher training Goa, yoga retreat North Goa, Arambol yoga school, Querim yoga ashram, The Hatha Yogashala",
-    path: "/about",
-  },
-  teachers: {
-    title: "Our Yoga Teachers in Goa",
-    description:
-      "Meet the training team at The Hatha Yogashala — experienced yoga educators in Goa with 25+ years of combined teaching experience across Hatha, Ashtanga Vinyasa, Yin, and Restorative yoga.",
-    path: "/teachers",
-  },
-  certification: {
-    title: "Yoga Teacher Training Certification & Verification in Goa",
-    description:
-      "See the certificate graduates receive from The Hatha Yogashala — a Yoga Alliance-registered school in Goa. Learn how our 100, 200 and 300-hour yoga teacher training courses are certified and verified.",
-    keywords:
-      "yoga teacher training certification Goa, Yoga Alliance certificate, 200 hour YTTC certificate, Hatha Yoga TTC certification, yoga school registration Goa",
-    path: "/yoga-alliance-certification",
-  },
-  accommodation: {
-    title: "Accommodation at the Yoga School in North Goa",
-    description:
-      "Rooms, meals and amenities at The Hatha Yogashala — a beachside yoga ashram in Querim, North Goa near Arambol. What's included in yoga course and retreat accommodation.",
-    keywords:
-      "yoga school accommodation Goa, yoga retreat stay Arambol, ashram rooms North Goa, vegetarian meals yoga retreat Goa, The Hatha Yogashala rooms",
-    path: "/accommodation-goa",
-  },
-  contact: {
-    title: "Contact Us – Yoga School in Querim, North Goa",
-    description:
-      "Contact The Hatha Yogashala in Querim, North Goa to ask about yoga teacher training, retreats, dates, fees, accommodation and travel to Arambol and Querim beach, North Goa, India.",
-    keywords:
-      "contact yoga school Goa, yoga teacher training enquiry Goa, The Hatha Yogashala Goa contact, WhatsApp yoga Goa, yoga retreat booking North Goa, Arambol yoga contact",
-    path: "/contact",
-  },
-  apply: {
-    title: "Apply for Yoga Teacher Training in Goa",
-    description:
-      "Submit your application for residential yoga teacher training or a wellness retreat at The Hatha Yogashala in Querim, North Goa.",
-    path: "/apply",
-  },
-  courses: {
-    title: "Yoga Teacher Training Goa | Yoga Alliance Certified TTC | The Hatha Yogashala",
-    description:
-      "Join The Hatha Yogashala in Goa for Yoga Alliance certified 100/200/300-Hour Yoga Teacher Training and Aerial Yoga TTC. Hatha, Ashtanga, Vinyasa & Ayurveda — beachside, all-inclusive, 24/7 support.",
-    path: "/yoga-teacher-training-goa",
-  },
-  retreats: {
-    title: "Yoga Retreats in Goa | 3, 5 & 7 Day Wellness Retreats | The Hatha Yogashala",
-    description:
-      "Book a 3, 5, or 7-day yoga retreat in Goa with The Hatha Yogashala. Daily yoga, meditation, Ayurveda, sound healing, ice baths, and beachside living — all-inclusive.",
-    path: "/yoga-retreats-goa",
-  },
-  holidays: {
-    title: "Yoga Holidays in Goa — 3, 5 & 7 Day Authentic Yogic Breaks",
-    description:
-      "Take an authentic yoga break by the ocean in Goa. Explore 3, 5, and 7-day yoga holidays with daily asana, Ayurvedic massage, sattvic food, and beachside relaxation.",
-    path: "/yoga-holidays-goa",
-  },
-  goaGuide: {
-    title: "Destination Goa — Travel Guide for Yoga Students",
-    description:
-      "Everything you need to know about Querim, Arambol, and North Goa before joining your yoga teacher training or retreat.",
-    path: "/goa-travel-guide",
-  },
-  pranayama: {
-    title: "Online Pranayama & Breathwork Courses | The Hatha Yogashala",
-    description:
-      "Learn classical Hatha Pranayama online with authentic Indian masters. Live interactive batches and on-demand video library.",
-    path: "/online-pranayama",
-  },
-  blog: {
-    title: "Yoga Blog, Tips & Goa Retreat Guides",
-    description:
-      "Practical yoga guides from The Hatha Yogashala in Goa — how to choose yoga teacher training, plan a yoga retreat in Goa near Arambol, and build a sustainable home practice.",
-    keywords:
-      "yoga blog, yoga teacher training tips, yoga retreat Goa guide, Hatha yoga practice, beginner yoga Goa, yoga for beginners",
-    path: "/blog",
-  },
-  gallery: {
-    title: "Yoga School Gallery in Goa – Photos & Campus",
-    description:
-      "Browse the Hatha Yogashala gallery in Querim, Near Arambol, North Goa — yoga teacher training classes, meditation, beach practice, campus rooms and the Goan coast.",
-    keywords:
-      "yoga school photos Goa, Hahn yoga Goa gallery, yoga teacher training pictures, yoga retreat Goa images, Arambol yoga beach, North Goa ashram photos",
-    path: "/gallery",
-  },
-  founder: {
-    title: "Founder of The Hatha Yogashala",
-    description:
-      "Meet the founder of The Hatha Yogashala and the teaching vision behind the school in Goa.",
-    path: "/founder",
-  },
-  privacy: {
-    title: "Privacy Policy | The Hatha Yogashala",
-    description:
-      "How enquiry information submitted to The Hatha Yogashala is intended to be handled.",
-    path: "/privacy-policy",
-  },
-  terms: {
-    title: "Terms & Conditions | The Hatha Yogashala",
-    description:
-      "Booking and participation terms for The Hatha Yogashala yoga programs in Goa.",
-    path: "/terms",
-  },
-  payment: {
-    title: "Payment & Refund Policy | The Hatha Yogashala",
-    description:
-      "The payment, deposit, balance, and refund framework for The Hatha Yogashala in Goa.",
-    path: "/payment-policy",
-  },
-};
+import { pagesMetadata } from "./pages-metadata";
+import { buildMetadata } from "@/lib/seo";
+
+export { pagesMetadata };
+
+export const pageSeo = pagesMetadata;
+
+export function makeMetadata(
+  title,
+  description,
+  path = "/",
+  image,
+  keywords,
+  imageAlt,
+  type = "website",
+) {
+  return buildMetadata(title, description, path, image, keywords, imageAlt, type);
+}
 
 export function pageMetadata(key) {
-  const seo = pageSeo[key];
-  if (!seo) {
-    return makeMetadata(pageSeo.home.title, pageSeo.home.description, "/");
-  }
-  return makeMetadata(
-    seo.title,
-    seo.description,
-    seo.path,
-    site.defaultImage,
-    seo.keywords,
-  );
+  const meta = pagesMetadata[key] || pagesMetadata.home;
+  return buildMetadata(meta);
 }
 
 export function publicValue(value, fallback = "To be confirmed") {
@@ -730,54 +617,3 @@ export const galleryItems = [
     category: "Student Life",
   },
 ];
-
-export function makeMetadata(
-  title,
-  description,
-  path = "/",
-  image = "/og-image.jpg",
-  keywords = [],
-) {
-  const canonicalUrl = new URL(path, site.url).toString();
-  const rawImage = image || site.defaultImage;
-  const imageUrl = rawImage.startsWith("http")
-    ? rawImage
-    : new URL(rawImage, site.url).toString();
-
-  return {
-    title,
-    description,
-
-    alternates: {
-      canonical: canonicalUrl,
-    },
-
-    keywords: keywords,
-    applicationCategory: "Yoga",
-    inLanguage: "en-IN",
-
-    openGraph: {
-      title,
-      description,
-      url: canonicalUrl,
-      siteName: site.name,
-      locale: "en_IN",
-      type: "website",
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: `${site.name} – Yoga training in Goa`,
-        },
-      ],
-    },
-
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [imageUrl],
-    },
-  };
-}

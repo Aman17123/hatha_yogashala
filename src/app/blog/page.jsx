@@ -4,9 +4,12 @@ import { ArrowRight, CalendarDays, Clock3, UserRound } from "lucide-react";
 import { BlogExplorer } from "@/components/Interactive";
 import { Container, JsonLd, PageHero } from "@/components/ui";
 import { posts } from "@/data/blogData";
-import { absoluteUrl, pageMetadata } from "@/data/siteData";
+import { absoluteUrl, site } from "@/data/siteData";
+import { pagesMetadata } from "@/data/pages-metadata";
+import { buildMetadata } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
 
-export const metadata = pageMetadata("blog");
+export const metadata = buildMetadata(pagesMetadata.blog);
 
 const blogSchema = {
   "@context": "https://schema.org",
@@ -17,6 +20,7 @@ const blogSchema = {
   url: absoluteUrl("/blog"),
   publisher: {
     "@type": "Organization",
+    "@id": "https://www.hathayogashala.com/#organization",
     name: "The Hatha Yogashala",
     url: absoluteUrl("/"),
   },
@@ -38,14 +42,21 @@ function formatDate(value) {
 }
 
 export default function BlogPage() {
+  const pageSchema = webPageSchema(
+    "/blog",
+    pagesMetadata.blog.title,
+    pagesMetadata.blog.description,
+  );
+
   const displayedPosts = posts;
   const [featured, ...rest] = displayedPosts;
   return (
     <>
+      <JsonLd data={pageSchema} />
       <JsonLd data={blogSchema} />
       <PageHero
         eyebrow="Journal"
-        title="Yoga Study & Goa Travel Guides"
+        title="Yoga & Goa Travel Guides"
         text="Practical, original articles to help students compare yoga teacher training in Goa, plan a retreat near Arambol, and build a sustainable home practice."
       />
 

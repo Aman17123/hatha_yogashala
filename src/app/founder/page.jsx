@@ -16,16 +16,25 @@ import {
   PageHero,
 } from "@/components/ui";
 
+import { webPageSchema } from "@/lib/schema";
+
 export const metadata = buildMetadata(pagesMetadata.founder);
 
 export default function FounderPage() {
+  const pageSchema = webPageSchema(
+    "/founder",
+    pagesMetadata.founder.title,
+    pagesMetadata.founder.description,
+  );
+
   const founderSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: founderData.name,
     jobTitle: founderData.role,
     worksFor: {
-      "@type": "EducationalOrganization",
+      "@type": "Organization",
+      "@id": "https://www.hathayogashala.com/#organization",
       name: "The Hatha Yogashala",
     },
     description: founderData.shortBio,
@@ -34,12 +43,13 @@ export default function FounderPage() {
 
   return (
     <>
+      <JsonLd data={pageSchema} />
       <JsonLd data={founderSchema} />
 
       {/* Hero Section */}
       <PageHero
         eyebrow="Leadership & Lineage"
-        title="Meet Our Founder"
+        title="Meet the Founder of Our Goa Yoga School"
         text="Discover the vision, traditional background, and teaching philosophy guiding The Hatha Yogashala in Goa, India."
         image="/images/hatha-yogashala/hatha-yogashala-pernem-goa-certificate-presentation-teacher-training-07.webp"
         imageAlt="Yogi Kalpendra Chauhan presiding over a graduation ceremony at The Hatha Yogashala open-air shala in Goa"

@@ -1,14 +1,23 @@
 import Image from "next/image";
 import { Check, ShieldCheck, Sparkles } from "lucide-react";
 import EnquiryForm from "@/components/EnquiryForm";
-import { Container, PageHero, SectionHeading } from "@/components/ui";
-import { pageMetadata } from "@/data/siteData";
+import { Container, JsonLd, PageHero, SectionHeading } from "@/components/ui";
+import { pagesMetadata } from "@/data/pages-metadata";
+import { buildMetadata } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
 
-export const metadata = pageMetadata("apply");
+export const metadata = buildMetadata(pagesMetadata.apply);
 
 export default function ApplyPage() {
+  const pageSchema = webPageSchema(
+    "/apply",
+    pagesMetadata.apply.title,
+    pagesMetadata.apply.description,
+  );
+
   return (
     <>
+      <JsonLd data={pageSchema} />
       <PageHero
         eyebrow="Application"
         title="Reserve Your Spot"

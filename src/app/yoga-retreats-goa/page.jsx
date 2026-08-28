@@ -1,26 +1,12 @@
-import { makeMetadata, site } from "@/data/siteData";
 import RetreatsHubPage from "@/components/RetreatsHubPage";
 import { JsonLd } from "@/components/ui";
 import { retreats } from "@/data/coursesData";
 import { retreatFaqs } from "@/data/retreatData";
-import { faqSchema } from "@/lib/schema";
+import { pagesMetadata } from "@/data/pages-metadata";
+import { buildMetadata } from "@/lib/seo";
+import { faqSchema, webPageSchema } from "@/lib/schema";
 
-export const metadata = makeMetadata(
-  "Yoga Retreats in Goa | 3, 5 & 7 Day Wellness Retreats | The Hatha Yogashala",
-  "Book a 3, 5, or 7-day yoga retreat in Goa with The Hatha Yogashala. Daily yoga, meditation, Ayurveda, sound healing, ice baths, and beachside living — all-inclusive.",
-  "/yoga-retreats-goa",
-  "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
-  [
-    "yoga retreat Goa",
-    "3 day yoga retreat Goa",
-    "5 day yoga retreat Goa",
-    "7 day wellness retreat Goa",
-    "Kundalini Iyengar retreat Goa",
-    "Ayurvedic massage Goa",
-    "aerial yoga retreat Goa",
-    "yoga festival Goa",
-  ],
-);
+export const metadata = buildMetadata(pagesMetadata.yogaRetreats);
 
 const schemaItemList = {
   "@context": "https://schema.org",
@@ -32,16 +18,16 @@ const schemaItemList = {
     "@type": "ListItem",
     position: index + 1,
     name: retreat.name,
-    url: `${site.url}/retreats/${retreat.slug}`,
+    url: `https://www.hathayogashala.com/retreats/${retreat.slug}`,
     item: {
       "@type": "TouristTrip",
       name: retreat.name,
       description: retreat.description,
-      url: `${site.url}/retreats/${retreat.slug}`,
+      url: `https://www.hathayogashala.com/retreats/${retreat.slug}`,
       provider: {
         "@type": "Organization",
-        name: site.name,
-        sameAs: site.url,
+        "@id": "https://www.hathayogashala.com/#organization",
+        name: "The Hatha Yogashala",
       },
     },
   })),
@@ -49,9 +35,15 @@ const schemaItemList = {
 
 export default function YogaRetreatsGoaPage() {
   const faqSchemaData = faqSchema(retreatFaqs);
+  const pageSchema = webPageSchema(
+    "/yoga-retreats-goa",
+    pagesMetadata.yogaRetreats.title,
+    pagesMetadata.yogaRetreats.description,
+  );
 
   return (
     <>
+      <JsonLd data={pageSchema} />
       <JsonLd data={schemaItemList} />
       {faqSchemaData && <JsonLd data={faqSchemaData} />}
       <RetreatsHubPage />

@@ -92,7 +92,7 @@ export default function HomeGalleryMarquee() {
               Visual Journey
             </p>
             <h2 className="mt-1 text-[var(--brown)]">
-              Life at The Hatha Yogashala
+              Life at The Hatha Yogashala — Photo Gallery
             </h2>
           </div>
           <Link

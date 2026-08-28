@@ -11,7 +11,6 @@ import {
   Users,
 } from "lucide-react";
 import { teachersData } from "@/data/siteContentData";
-import { pageMetadata } from "@/data/siteData";
 import {
   ButtonLink,
   Container,
@@ -20,8 +19,11 @@ import {
   PageHero,
   SectionHeading,
 } from "@/components/ui";
+import { pagesMetadata } from "@/data/pages-metadata";
+import { buildMetadata } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
 
-export const metadata = pageMetadata("teachers");
+export const metadata = buildMetadata(pagesMetadata.teachers);
 
 const teachingPillars = [
   {
@@ -69,9 +71,16 @@ const facultyAdvantages = [
 ];
 
 export default function TeachersPage() {
+  const pageSchema = webPageSchema(
+    "/teachers",
+    pagesMetadata.teachers.title,
+    pagesMetadata.teachers.description,
+  );
+
   const facultySchema = {
     "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
+    "@type": "Organization",
+    "@id": "https://www.hathayogashala.com/#organization",
     name: "The Hatha Yogashala",
     employee: teachersData.map((t) => ({
       "@type": "Person",
@@ -83,11 +92,12 @@ export default function TeachersPage() {
 
   return (
     <>
+      <JsonLd data={pageSchema} />
       <JsonLd data={facultySchema} />
 
       <PageHero
         eyebrow="Expert Faculty"
-        title="Our Yoga Teachers in Goa"
+        title="Meet Our Yoga Teacher Training Faculty in Goa"
         text="Meet the dedicated masters and subject specialists guiding traditional Hatha yoga, functional anatomy, pranayama, and teaching methodology."
         image="/images/hatha-yogashala/hatha-yogashala-pernem-goa-yoga-teacher-training-graduation-photo-01.webp"
         imageAlt="The Hatha Yogashala teaching faculty and students at graduation ceremony in Goa"

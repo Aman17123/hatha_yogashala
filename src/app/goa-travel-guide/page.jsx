@@ -13,16 +13,12 @@ import {
   Wind,
 } from "lucide-react";
 import { Breadcrumbs, ButtonLink, Container, FinalCTA, JsonLd, PageHero, SectionHeading } from "@/components/ui";
-import { FadeIn } from "@/components/retreat/Motion";
-import { absoluteUrl, makeMetadata, site } from "@/data/siteData";
+import { absoluteUrl, site } from "@/data/siteData";
+import { pagesMetadata } from "@/data/pages-metadata";
+import { buildMetadata } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
 
-export const metadata = makeMetadata(
-  "Yoga in Goa — Location, Beach Ashram & Travel Guide | The Hatha Yogashala",
-  "Discover why Querim, North Goa is the ideal destination for Yoga Teacher Training and retreats. Travel logistics, MOPA airport proximity, climate guide, and campus details.",
-  "/goa-travel-guide",
-  "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
-  "yoga in Goa, yoga teacher training destination Goa, Querim beach yoga, Arambol yoga ashram, MOPA airport yoga school Goa",
-);
+export const metadata = buildMetadata(pagesMetadata.goaTravelGuide);
 
 const destinationSchema = {
   "@context": "https://schema.org",
@@ -71,12 +67,19 @@ const goaFaqs = [
 ];
 
 export default function DestinationGoaPage() {
+  const pageSchema = webPageSchema(
+    "/goa-travel-guide",
+    pagesMetadata.goaTravelGuide.title,
+    pagesMetadata.goaTravelGuide.description,
+  );
+
   return (
     <>
+      <JsonLd data={pageSchema} />
       <JsonLd data={destinationSchema} />
       <PageHero
         eyebrow="Ashram Destination & Travel Guide"
-        title="Yoga Study & Retreats in North Goa"
+        title="A Coastal Setting for Yoga Study in Goa"
         text="A peaceful coastal sanctuary in Querim, North Goa — where ancient yogic traditions meet serene Arabian Sea sunrises, lush coconut groves, and a focused residential learning environment."
         image="/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-02.webp"
       />

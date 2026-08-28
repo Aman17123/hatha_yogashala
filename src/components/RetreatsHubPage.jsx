@@ -99,23 +99,44 @@ export default function RetreatsHubPage() {
           </nav>
 
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--coral-dark)]/10 px-3 py-1 text-[11.5px] font-bold uppercase tracking-wider text-[var(--coral-dark)] mb-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--coral-dark)]/10 px-3.5 py-1 text-[11.5px] font-bold uppercase tracking-wider text-[var(--coral-dark)] mb-3">
               <Sparkles size={13} aria-hidden="true" />
               Mindful Residential Retreats · North Goa Coast
             </span>
 
-            <h1>
-              Yoga Retreats in Goa
+            <h1 className="font-philosopher text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--brown)]">
+              Yoga Retreats in Goa — Practice, Rest & Restore
             </h1>
 
-            <p className="mt-3 text-sm sm:text-base text-[var(--muted)] leading-relaxed max-w-2xl">
+            <p className="mt-3.5 text-base sm:text-lg text-[var(--muted)] leading-relaxed max-w-2xl">
               Book a 3, 5, or 7-day yoga retreat in Goa with The Hatha
               Yogashala. Daily yoga, meditation, Ayurveda, sound healing, ice
               baths, and beachside living — all-inclusive.
             </p>
 
+            {/* Hero Actions: CTA + WhatsApp */}
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <a
+                href="#programs"
+                className="button button-primary !rounded-full !px-6 !py-3 !text-sm !font-bold"
+              >
+                <span>Explore Retreats</span>
+                <ArrowRight size={16} aria-hidden="true" />
+              </a>
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-5 py-3 text-sm font-bold text-white shadow-md hover:bg-[#20bd5a] hover:shadow-lg transition-all duration-200"
+                aria-label="Chat on WhatsApp"
+              >
+                <SiWhatsapp size={18} aria-hidden="true" />
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
+
             {/* Compact Feature Chips */}
-            <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold text-[var(--brown)]">
+            <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold text-[var(--brown)]">
               <span className="inline-flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-[var(--border)] shadow-xs">
                 <Clock3 size={13} className="text-[var(--coral-dark)]" />
                 3, 5 &amp; 7-Day Formats

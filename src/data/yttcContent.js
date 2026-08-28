@@ -333,7 +333,7 @@ export function yttcContent(course) {
     hero: {
       breadcrumbs: [
         { label: "Home", href: "/" },
-        { label: "Yoga courses", href: "/courses" },
+        { label: "Yoga courses", href: "/yoga-teacher-training-goa" },
         { label: `${course.hours} YTTC` },
       ],
       pills: [
@@ -499,7 +499,7 @@ export function yttcContent(course) {
         eyebrow: "Credential",
         title: `${course.hours} — ${safe(course.certification)}`,
         text: safe(course.outcome),
-        link: "/certification",
+        link: "/yoga-alliance-certification",
       },
     },
 

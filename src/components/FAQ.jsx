@@ -21,8 +21,8 @@ export default function FAQ({
     >
       <Container>
         {/* Mobile Header */}
-        <div className="lg:hidden mb-6 text-center">
-          <SectionHeading eyebrow={eyebrow} title={title} text={text} align="center" />
+        <div className="lg:hidden mb-6 text-center" aria-hidden="true">
+          <SectionHeading eyebrow={eyebrow} title={title} text={text} align="center" as="div" />
         </div>
 
         {/* Two-Column Sticky Scroll Container */}

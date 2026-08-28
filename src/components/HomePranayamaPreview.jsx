@@ -36,7 +36,7 @@ export default function HomePranayamaPreview() {
             Breathe · Regulate · Awaken
           </div>
           <h2 className="text-[var(--brown)]">
-            The Hatha Yogashala — Pranayama & Breathwork
+            Online Pranayama & Breathwork Courses in India
           </h2>
           <p className="mt-2 text-xs sm:text-sm text-[var(--muted)] leading-relaxed font-normal max-w-xl mx-auto">
             Experience the authentic science of classical Indian breathwork, diaphragmatic restoration, and nervous system regulation with Master teachers.

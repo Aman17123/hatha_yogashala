@@ -235,25 +235,30 @@ export default function HolidayTemplate({ holiday }) {
     { label: holiday.name },
   ];
 
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${absoluteUrl(`/holidays/${holiday.slug}`)}#webpage`,
+    url: absoluteUrl(`/holidays/${holiday.slug}`),
+    name: `${holiday.name} in Goa | The Hatha Yogashala`,
+    description: holiday.tagline,
+    isPartOf: { "@id": "https://www.hathayogashala.com/#website" },
+    about: { "@id": "https://www.hathayogashala.com/#localbusiness" },
+    inLanguage: "en-IN",
+  };
+
   const holidaySchema = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
+    "@id": `${absoluteUrl(`/holidays/${holiday.slug}`)}#trip`,
     name: `${holiday.name} in Goa | The Hatha Yogashala`,
     description: `${holiday.tagline} An authentic yoga holiday experience in Goa by The Hatha Yogashala with daily asana, Ayurvedic massage, sattvic meals, and beachside stay.`,
     url: absoluteUrl(`/holidays/${holiday.slug}`),
     touristType: "Yoga and wellness holiday travellers",
     provider: {
       "@type": "Organization",
+      "@id": "https://www.hathayogashala.com/#organization",
       name: "The Hatha Yogashala",
-      url: site.url,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: site.contact.address,
-        addressLocality: "Pernem",
-        addressRegion: "Goa",
-        postalCode: "403524",
-        addressCountry: "IN",
-      },
     },
     offers: {
       "@type": "Offer",
@@ -268,6 +273,7 @@ export default function HolidayTemplate({ holiday }) {
 
   return (
     <>
+      <JsonLd data={pageSchema} />
       <JsonLd data={holidaySchema} />
 
       {/* =========================================================================

@@ -108,24 +108,45 @@ export default function YogaTTCHubPage({ page }) {
           </nav>
 
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--coral-dark)]/10 px-3 py-1 text-[11.5px] font-bold uppercase tracking-wider text-[var(--coral-dark)] mb-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--coral-dark)]/10 px-3.5 py-1 text-[11.5px] font-bold uppercase tracking-wider text-[var(--coral-dark)] mb-3">
               <Sparkles size={13} aria-hidden="true" />
               Yoga Alliance Registered RYS · Querim Beach, North Goa
             </span>
 
-            <h1>
-              Yoga Teacher Training in Goa
+            <h1 className="font-philosopher text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--brown)]">
+              Yoga Teacher Training Courses in Goa
             </h1>
 
-            <p className="mt-3 text-sm sm:text-base text-[var(--muted)] leading-relaxed max-w-2xl">
+            <p className="mt-3.5 text-base sm:text-lg text-[var(--muted)] leading-relaxed max-w-2xl">
               Join The Hatha Yogashala in Goa for Yoga Alliance certified
-              100/200/300-Hour Yoga Teacher Training and Aerial Yoga TTC. Hatha,
+              100, 200 and 300-Hour Yoga Teacher Training. Hatha,
               Ashtanga, Vinyasa &amp; Ayurveda — beachside, all-inclusive, 24/7
               support.
             </p>
 
+            {/* Hero Actions: CTA + WhatsApp */}
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <a
+                href="#courses"
+                className="button button-primary !rounded-full !px-6 !py-3 !text-sm !font-bold"
+              >
+                <span>Explore TTC Courses</span>
+                <ArrowRight size={16} aria-hidden="true" />
+              </a>
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-5 py-3 text-sm font-bold text-white shadow-md hover:bg-[#20bd5a] hover:shadow-lg transition-all duration-200"
+                aria-label="Chat on WhatsApp"
+              >
+                <SiWhatsapp size={18} aria-hidden="true" />
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
+
             {/* Compact Feature Chips */}
-            <div className="mt-5 flex flex-wrap gap-2 text-xs font-semibold text-[var(--brown)]">
+            <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold text-[var(--brown)]">
               <span className="inline-flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-[var(--border)] shadow-xs">
                 <Award size={13} className="text-[var(--coral-dark)]" />
                 Yoga Alliance (RYS) Certified

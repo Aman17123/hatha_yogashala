@@ -117,7 +117,7 @@ export default function Footer() {
               Breathe · Move · Awaken
             </p>
             <h2 className="max-w-xl text-[var(--brown)] tracking-[-0.02em]">
-              Begin your yoga journey in Goa
+              Book Your Course or Retreat
             </h2>
 
             <div className="mt-0.5 sm:mt-1 flex flex-col items-center gap-2">

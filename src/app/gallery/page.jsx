@@ -6,11 +6,20 @@ import {
   PageHero,
   SectionHeading,
 } from "@/components/ui";
-import { absoluteUrl, galleryItems, pageMetadata, site } from "@/data/siteData";
+import { absoluteUrl, galleryItems, site } from "@/data/siteData";
+import { pagesMetadata } from "@/data/pages-metadata";
+import { buildMetadata } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
 
-export const metadata = pageMetadata("gallery");
+export const metadata = buildMetadata(pagesMetadata.gallery);
 
 export default function GalleryPage() {
+  const pageSchema = webPageSchema(
+    "/gallery",
+    pagesMetadata.gallery.title,
+    pagesMetadata.gallery.description,
+  );
+
   const imageSchema = {
     "@context": "https://schema.org",
     "@type": "ImageGallery",
@@ -20,6 +29,7 @@ export default function GalleryPage() {
     url: absoluteUrl("/gallery"),
     creator: {
       "@type": "Organization",
+      "@id": "https://www.hathayogashala.com/#organization",
       name: site.name,
       url: site.url,
     },
@@ -33,10 +43,11 @@ export default function GalleryPage() {
 
   return (
     <>
+      <JsonLd data={pageSchema} />
       <JsonLd data={imageSchema} />
       <PageHero
         eyebrow="Visual journal"
-        title="Yoga School Gallery in Goa"
+        title="Life at The Hatha Yogashala — Photo Gallery"
         text="Explore yoga practice, meditation, residential space, retreats, and Goa’s coastal setting near Arambol through a balanced visual journal."
         image="/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp"
       />

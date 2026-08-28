@@ -1,237 +1,456 @@
 /**
- * data/pages-metadata.js — Single source of truth for static-page metadata
+ * data/pages-metadata.js — Single source of truth for page SEO metadata
  * The Hatha Yogashala
  *
- * Every static route in src/app/ has an entry here.
- * Dynamic routes ([slug]) use generateMetadata() and fetch their own data —
- * they do NOT need an entry here.
- *
- * Shape of each entry:
- *   {
- *     title:       string   — page <title> (without site name suffix)
- *     description: string   — meta description (≤ 160 chars recommended)
- *     path:        string   — canonical path, e.g. "/about"
- *     image:       string?  — OG image path (falls back to SITE.defaultImage)
- *     imageAlt:    string?  — OG image alt text
- *     keywords:    string|string[]?  — optional keyword list
- *   }
- *
- * Usage (static page):
- *   import { buildMetadata } from "@/lib/seo";
- *   import { pagesMetadata } from "@/data/pages-metadata";
- *   export const metadata = buildMetadata(pagesMetadata.home);
+ * All values match the ground-truth SEO specification document:
+ * "The Hatha Yogashala — SEO Slugs, Meta Tags & Heading Hierarchy"
  */
 
 export const pagesMetadata = {
-  // ─── Root ─────────────────────────────────────────────────────────────────
+  // ─── Core Pages ────────────────────────────────────────────────────────────
   home: {
-    title: "Yoga School in Goa | Teacher Training & Retreats",
+    title: "Yoga School in Goa | Teacher Training & Retreats – The Hatha Yogashala",
     description:
-      "Yoga Alliance-certified yoga school in Goa offering 100–300h teacher training & retreats near Querim beach. Book now.",
+      "Yoga Alliance-registered yoga school in Goa offering 100–300-hour teacher training and 3–7 day wellness retreats near Querim beach, North Goa. Book now.",
     path: "/",
-    image: "/og-image.jpg",
-    imageAlt:
-      "Yoga students practicing teacher training alignment at The Hatha Yogashala in Goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+    imageAlt: "Yoga students practicing teacher training alignment at The Hatha Yogashala in Goa",
+    type: "website",
   },
 
-  // ─── About cluster ────────────────────────────────────────────────────────
   about: {
     title: "About The Hatha Yogashala | Yoga School in Goa",
     description:
-      "Yoga Alliance-registered residential yoga school in Querim, North Goa offering teacher training courses and wellness retreats.",
+      "Learn about The Hatha Yogashala, a Yoga Alliance-registered residential yoga school in Querim, North Goa, offering teacher training and retreats.",
     path: "/about",
-    image: "/og-image.jpg",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
     imageAlt: "The Hatha Yogashala campus and open-air shala in Goa",
-    keywords:
-      "yoga ashram Goa, best yoga school in Goa, Hatha Yoga teacher training Goa, yoga retreat North Goa, Arambol yoga school, Querim yoga ashram, The Hatha Yogashala",
+    type: "website",
   },
 
   founder: {
-    title: "Our Founder | Yogi Kalpendra Chauhan",
+    title: "Our Founder | Yogi Kalpendra Chauhan – The Hatha Yogashala",
     description:
-      "Meet Yogi Kalpendra Chauhan, founder of The Hatha Yogashala with 15+ years teaching Hatha yoga, pranayama & philosophy in Goa.",
+      "Meet Yogi Kalpendra Chauhan, founder of The Hatha Yogashala, with 15+ years teaching Hatha yoga, philosophy, pranayama and meditation in Goa.",
     path: "/founder",
-    image: "/og-image.jpg",
-    imageAlt:
-      "Yogi Kalpendra Chauhan, founder of The Hatha Yogashala in Goa",
+    image: "/images/tha_hatha/The_Hatha_Yogashala-founder-Goa.webp",
+    imageAlt: "Yogi Kalpendra Chauhan, founder of The Hatha Yogashala",
+    type: "website",
   },
 
   teachers: {
-    title: "Our Yoga Teachers in Goa | Faculty",
+    title: "Our Teachers | Yoga Faculty in Goa – The Hatha Yogashala",
     description:
-      "Meet the experienced Hatha and Ashtanga Vinyasa teachers leading yoga teacher training and retreats at The Hatha Yogashala, Goa.",
+      "Meet the experienced Hatha yoga, Ashtanga Vinyasa and philosophy teachers leading yoga teacher training and retreats at The Hatha Yogashala, Goa.",
     path: "/teachers",
-    image: "/og-image.jpg",
+    image: "/images/tha_hatha/Pradeep-Singh.png",
     imageAlt: "Yoga teacher training faculty at The Hatha Yogashala, Goa",
+    type: "website",
   },
 
   certification: {
-    title: "Yoga Alliance Certification in Goa",
+    title: "Yoga Alliance Certification | The Hatha Yogashala, Goa",
     description:
-      "Yoga Alliance USA certified 100, 200 & 300-hour yoga teacher training in Goa. Globally recognized certification.",
+      "The Hatha Yogashala offers Yoga Alliance USA certified 100, 200 and 300-hour yoga teacher training in Goa. Certificates accepted worldwide.",
     path: "/yoga-alliance-certification",
-    image: "/og-image.jpg",
-    imageAlt: "Yoga Alliance certificate awarded by The Hatha Yogashala",
-    keywords:
-      "yoga teacher training certification Goa, Yoga Alliance certificate, 200 hour YTTC certificate, Hatha Yoga TTC certification, yoga school registration Goa",
+    image: "/images/tha_hatha/The-hatha-yogashala--Certificate.webp",
+    imageAlt: "Yoga Alliance certificate awarded by The Hatha Yogashala, Goa",
+    type: "website",
   },
 
   accommodation: {
-    title: "Accommodation & Food | The Hatha Yogashala",
+    title: "Accommodation & Food in Goa | The Hatha Yogashala",
     description:
-      "Beach-near rooms from mixed dorms to private cottages with three sattvic vegetarian meals daily in Querim, North Goa.",
+      "Clean, beach-near rooms from mixed dorms to private cottages, with three vegetarian meals a day and 24/7 student support at The Hatha Yogashala, Goa.",
     path: "/accommodation-goa",
-    image: "/og-image.jpg",
-    imageAlt:
-      "Residential accommodation at The Hatha Yogashala in Querim, North Goa",
-    keywords:
-      "yoga school accommodation Goa, yoga retreat stay Arambol, ashram rooms North Goa, vegetarian meals yoga retreat Goa, The Hatha Yogashala rooms",
-  },
-
-  // ─── Programs ─────────────────────────────────────────────────────────────
-  yogaTeacherTraining: {
-    title: "Yoga Teacher Training Courses in Goa",
-    description:
-      "100, 200 & 300-hour Yoga Alliance certified teacher training in Goa. Curriculum, accommodation, dates & fees.",
-    path: "/yoga-teacher-training-goa",
-    image: "/og-image.jpg",
-    imageAlt: "Students taking part in yoga teacher training in Goa",
-    keywords: [
-      "yoga teacher training goa",
-      "200 hour YTT Goa",
-      "Yoga Alliance certified yoga school Goa",
-      "Ashtanga Vinyasa teacher training",
-      "aerial yoga teacher training Goa",
-      "300 hour yoga TTC",
-      "100 hour yoga teacher training goa",
-      "yoga school goa",
-      "yttc goa",
-    ],
-  },
-
-  yogaRetreats: {
-    title: "Yoga & Meditation Retreats in Goa",
-    description:
-      "3, 5 & 7-day yoga and meditation retreats in Goa with daily Hatha practice, sound healing & ayurveda near Querim beach.",
-    path: "/yoga-retreats-goa",
-    image: "/og-image.jpg",
-    imageAlt:
-      "Yoga and meditation retreat session at The Hatha Yogashala, Goa",
-    keywords: [
-      "yoga retreat Goa",
-      "3 day yoga retreat Goa",
-      "5 day yoga retreat Goa",
-      "7 day wellness retreat Goa",
-      "Ayurvedic massage Goa",
-      "aerial yoga retreat Goa",
-      "yoga festival Goa",
-    ],
-  },
-
-  yogaHolidays: {
-    title: "Yoga Holidays in Goa | Beach Breaks",
-    description:
-      "3, 5 and 7-day oceanfront yoga holidays in Goa combining daily practice with beach time and coastal relaxation.",
-    path: "/yoga-holidays-goa",
-    image: "/og-image.jpg",
-    imageAlt:
-      "Students relaxing and restoring in the coastal setting of North Goa",
-    keywords:
-      "yoga holidays Goa, short yoga retreat Goa, 3 day yoga holiday Goa, 7 day yoga break, beach yoga holiday India",
-  },
-
-  onlinePranayama: {
-    title: "Online Pranayama & Breathwork Courses",
-    description:
-      "Learn authentic classical Indian pranayama and breathwork online with experienced teachers from anywhere in the world.",
-    path: "/online-pranayama",
-    image: "/og-image.jpg",
-    imageAlt:
-      "Pranayama and meditation session at The Hatha Yogashala Goa",
-    keywords:
-      "pranayama course, breathwork training online, learn yogic breathing, Hatha pranayama Goa, Nadi Shodhana class",
-  },
-
-  // ─── Blog ─────────────────────────────────────────────────────────────────
-  blog: {
-    title: "Yoga & Goa Travel Guides | Blog",
-    description:
-      "Practical articles on yoga teacher training, retreats and Goa travel from The Hatha Yogashala editorial team.",
-    path: "/blog",
-    image: "/og-image.jpg",
-    imageAlt: "The Hatha Yogashala blog and journal articles",
-    keywords:
-      "yoga blog, yoga teacher training tips, yoga retreat Goa guide, Hatha yoga practice, beginner yoga Goa, yoga for beginners",
-  },
-
-  // ─── Utility pages ────────────────────────────────────────────────────────
-  gallery: {
-    title: "Photo Gallery | Life at The Hatha Yogashala",
-    description:
-      "Photos of daily practice, ceremonies, accommodation and coastal life at The Hatha Yogashala in Querim, North Goa.",
-    path: "/gallery",
-    image: "/og-image.jpg",
-    imageAlt:
-      "Morning asana and alignment practice at The Hatha Yogashala Goa",
-    keywords:
-      "yoga school photos Goa, yoga teacher training pictures, yoga retreat Goa images, Arambol yoga beach, North Goa ashram photos",
-  },
-
-  goaTravelGuide: {
-    title: "Destination Goa | Yoga Student Travel Guide",
-    description:
-      "Travel guide to Querim, Arambol and North Goa for students joining yoga teacher training or a retreat in Goa.",
-    path: "/goa-travel-guide",
-    image: "/og-image.jpg",
-    imageAlt: "Yoga students practicing on a Goa beach in North Goa",
-    keywords:
-      "yoga in Goa, yoga teacher training destination Goa, Querim beach yoga, Arambol yoga ashram, MOPA airport yoga school Goa",
-  },
-
-  contact: {
-    title: "Contact Us | The Hatha Yogashala, Goa",
-    description:
-      "Contact The Hatha Yogashala for course dates, fees and availability. Call, WhatsApp or send an enquiry today.",
-    path: "/contact",
-    image: "/og-image.jpg",
-    imageAlt: "The Hatha Yogashala yoga school location in Goa",
-    keywords:
-      "contact yoga school Goa, yoga teacher training enquiry Goa, The Hatha Yogashala Goa contact, WhatsApp yoga Goa, yoga retreat booking North Goa",
-  },
-
-  apply: {
-    title: "Apply Now | Reserve Your Spot in Goa",
-    description:
-      "Apply for yoga teacher training or a retreat at The Hatha Yogashala Goa. Batch dates and fees confirmed before payment.",
-    path: "/apply",
-    image: "/og-image.jpg",
-    imageAlt: "Graduation celebration at The Hatha Yogashala Goa",
+    image: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
+    imageAlt: "Residential accommodation at The Hatha Yogashala in Querim, North Goa",
+    type: "website",
   },
 
   paymentPolicy: {
     title: "Payment & Booking Policy | The Hatha Yogashala",
     description:
-      "Read our clear payment, deposit and refund terms for yoga teacher training and retreats in Goa.",
+      "Read The Hatha Yogashala's payment terms — dates, fees, faculty and room availability are confirmed in writing before any payment is made.",
     path: "/payment-policy",
-    image: "/og-image.jpg",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
     imageAlt: "The Hatha Yogashala yoga school campus in Goa",
+    type: "website",
+  },
+
+  goaTravelGuide: {
+    title: "Destination Goa | Travel Guide for Yoga Students",
+    description:
+      "Planning your trip to Goa for yoga teacher training or a retreat? A practical guide to weather, travel and life near Querim beach, North Goa.",
+    path: "/goa-travel-guide",
+    image: "/images/accomodation/the-hatha-yogashala-arambol-goa-coconut-palms-sunlight-02.webp",
+    imageAlt: "Yoga students practicing on a Goa beach in North Goa",
+    type: "website",
+  },
+
+  gallery: {
+    title: "Photo Gallery | Life at The Hatha Yogashala, Goa",
+    description:
+      "Browse photos of daily practice, ceremonies, accommodation and coastal life at The Hatha Yogashala, a residential yoga school in Querim, North Goa.",
+    path: "/gallery",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-graduation-group-photo-celebration-01.webp",
+    imageAlt: "Morning asana and alignment practice at The Hatha Yogashala Goa",
+    type: "website",
+  },
+
+  blog: {
+    title: "Yoga & Goa Travel Guides | The Hatha Yogashala Blog",
+    description:
+      "Original, practical articles on yoga teacher training, Goa travel and building a sustainable home practice, from The Hatha Yogashala editorial team.",
+    path: "/blog",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+    imageAlt: "The Hatha Yogashala blog and journal articles",
+    type: "website",
+  },
+
+  contact: {
+    title: "Contact Us | The Hatha Yogashala, Goa",
+    description:
+      "Get in touch with The Hatha Yogashala for course dates, fees, availability and travel planning. Call, WhatsApp or send an enquiry today.",
+    path: "/contact",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+    imageAlt: "The Hatha Yogashala yoga school location in Goa",
+    type: "website",
+  },
+
+  apply: {
+    title: "Reserve Your Spot | The Hatha Yogashala, Goa",
+    description:
+      "Apply for a yoga teacher training course or retreat at The Hatha Yogashala, Goa. Batch dates, fees and room availability confirmed before payment.",
+    path: "/apply",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-graduation-group-photo-celebration-01.webp",
+    imageAlt: "Graduation celebration at The Hatha Yogashala Goa",
+    type: "website",
   },
 
   privacyPolicy: {
     title: "Privacy Policy | The Hatha Yogashala",
     description:
-      "How The Hatha Yogashala collects, uses and protects your personal information.",
+      "Read The Hatha Yogashala's privacy policy covering how we collect, use and protect your personal information.",
     path: "/privacy-policy",
-    image: "/og-image.jpg",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
     imageAlt: "The Hatha Yogashala logo",
+    type: "website",
   },
 
   terms: {
     title: "Terms & Conditions | The Hatha Yogashala",
     description:
-      "Terms and conditions for booking a yoga teacher training course or retreat at The Hatha Yogashala, Goa.",
+      "Read the terms and conditions for booking a yoga teacher training course or retreat with The Hatha Yogashala, Goa.",
     path: "/terms",
-    image: "/og-image.jpg",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
     imageAlt: "The Hatha Yogashala logo",
+    type: "website",
+  },
+
+  // ─── Hub Pages ─────────────────────────────────────────────────────────────
+  yogaTeacherTraining: {
+    title: "Yoga Teacher Training Courses in Goa | The Hatha Yogashala",
+    description:
+      "Compare our 100, 200 and 300-hour Yoga Alliance certified teacher training courses in Goa — curriculum, accommodation, fees and completion details.",
+    path: "/yoga-teacher-training-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+    imageAlt: "Students taking part in yoga teacher training in Goa",
+    type: "website",
+  },
+
+  yogaRetreats: {
+    title: "Yoga & Meditation Retreats in Goa | The Hatha Yogashala",
+    description:
+      "3, 5 and 7-day yoga and meditation retreats in Goa — daily Hatha practice, sound healing, ayurveda and coastal calm near Querim beach.",
+    path: "/yoga-retreats-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
+    imageAlt: "Yoga and meditation retreat session at The Hatha Yogashala, Goa",
+    type: "website",
+  },
+
+  yogaHolidays: {
+    title: "Yoga Holidays in Goa | The Hatha Yogashala",
+    description:
+      "3, 5 and 7-day yoga holidays in Goa combining daily practice with beach time, local culture and a relaxed coastal pace.",
+    path: "/yoga-holidays-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-garden-lounge-candid-portrait-01.webp",
+    imageAlt: "Students relaxing and restoring in the coastal setting of North Goa",
+    type: "website",
+  },
+
+  onlinePranayama: {
+    title: "Online Pranayama & Breathwork Courses | The Hatha Yogashala",
+    description:
+      "Learn classical Indian pranayama and breathwork online with The Hatha Yogashala — foundation to advanced courses, plus daily live classes.",
+    path: "/online-pranayama",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
+    imageAlt: "Pranayama and meditation session at The Hatha Yogashala Goa",
+    type: "website",
+  },
+
+  // ─── Blog Posts ────────────────────────────────────────────────────────────
+  "best-time-to-visit-goa-for-yoga-teacher-training-retreats": {
+    title: "Best Time to Visit Goa for Yoga Teacher Training & Retreats",
+    description:
+      "The best time to visit Goa for yoga is November to February (25–32°C, low humidity). A month-by-month guide to weather, crowds and pricing.",
+    path: "/blog/best-time-to-visit-goa-for-yoga-teacher-training-retreats",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
+    imageAlt: "Sunrise beach yoga session on Querim beach, Goa",
+    type: "article",
+  },
+
+  "yoga-retreat-vs-yoga-teacher-training-goa": {
+    title: "Yoga Retreat vs. Yoga Teacher Training in Goa: Which to Choose?",
+    description:
+      "Choose a retreat for rest and reset, or teacher training for international certification and professional mastery. Here's how to decide.",
+    path: "/blog/yoga-retreat-vs-yoga-teacher-training-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-garden-lounge-candid-portrait-01.webp",
+    imageAlt: "Peaceful garden setting at The Hatha Yogashala in North Goa",
+    type: "article",
+  },
+
+  "how-to-choose-yoga-teacher-training-goa": {
+    title: "How to Choose the Best Yoga Teacher Training School in Goa",
+    description:
+      "Before booking a yoga teacher training in Goa, check five non-negotiables: accreditation, class size, faculty credentials, syllabus and reviews.",
+    path: "/blog/how-to-choose-yoga-teacher-training-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-04.webp",
+    imageAlt: "Students learning alignment and adjustments at The Hatha Yogashala Goa",
+    type: "article",
+  },
+
+  // ─── Course Detail Pages ───────────────────────────────────────────────────
+  "100-hour-yoga-teacher-training-goa": {
+    title: "100-Hour Yoga Teacher Training in Goa | The Hatha Yogashala",
+    description:
+      "14-day, 100-hour Yoga Alliance certified teacher training in Goa. Beginner-friendly, residential with meals, from €699. Batch dates on request.",
+    path: "/courses/100-hour-yoga-teacher-training-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-02.webp",
+    imageAlt: "Students taking part in 100-Hour Yoga Teacher Training in Goa",
+    type: "website",
+  },
+
+  "200-hour-yoga-teacher-training-goa": {
+    title: "200-Hour Yoga Teacher Training in Goa | The Hatha Yogashala",
+    description:
+      "21–22 day, 200-hour Yoga Alliance certified teacher training in Goa — our most popular course. Residential with meals, from €799.",
+    path: "/courses/200-hour-yoga-teacher-training-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+    imageAlt: "Students taking part in 200-Hour Yoga Teacher Training in Goa",
+    type: "website",
+  },
+
+  "22-day-200-hour-flexible-yoga-teacher-training-goa": {
+    title: "22-Day 200-Hour Flexible Yoga Teacher Training in Goa",
+    description:
+      "A flexible 22-day, 200-hour Yoga Alliance certified teacher training in Goa, designed to fit around your schedule. Residential with meals.",
+    path: "/courses/22-day-200-hour-flexible-yoga-teacher-training-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+    imageAlt: "Flexible 200-hour yoga teacher training batch in Goa",
+    type: "website",
+  },
+
+  "200-hour-ashtanga-vinyasa-yoga-teacher-training-goa": {
+    title: "200-Hour Ashtanga Vinyasa Yoga Teacher Training in Goa",
+    description:
+      "A 200-hour Yoga Alliance certified teacher training in Goa focused on Ashtanga Vinyasa yoga, with daily Mysore-style practice and philosophy.",
+    path: "/courses/200-hour-ashtanga-vinyasa-yoga-teacher-training-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+    imageAlt: "Ashtanga Vinyasa yoga teacher training practice in Goa",
+    type: "website",
+  },
+
+  "300-hour-yoga-teacher-training-goa": {
+    title: "300-Hour Yoga Teacher Training in Goa | The Hatha Yogashala",
+    description:
+      "27-day, 300-hour advanced Yoga Alliance certified teacher training in Goa. Residential with meals, from €899. For teachers advancing their skills.",
+    path: "/courses/300-hour-yoga-teacher-training-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-04.webp",
+    imageAlt: "Students taking part in 300-Hour Yoga Teacher Training in Goa",
+    type: "website",
+  },
+
+  "aerial-yoga-teacher-training-goa": {
+    title: "Aerial Yoga Teacher Training in Goa | The Hatha Yogashala",
+    description:
+      "Learn to teach aerial yoga in Goa with hands-on training in hammock-supported asana, inversions and safety technique. Yoga Alliance certified.",
+    path: "/courses/aerial-yoga-teacher-training-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-01.webp",
+    imageAlt: "Aerial yoga teacher training session in Goa",
+    type: "website",
+  },
+
+  // ─── Retreat Detail Pages ──────────────────────────────────────────────────
+  "3-day-yoga-retreat-goa": {
+    title: "3-Day Yoga Retreat in Goa | The Hatha Yogashala",
+    description:
+      "A short, immersive 3-day yoga retreat in Goa — yoga practice, internal cleansing, sound healing and coastal beauty. From €199 per person.",
+    path: "/retreats/3-day-yoga-retreat-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
+    imageAlt: "Yoga and meditation during 3-Day Yoga Retreat in Goa",
+    type: "website",
+  },
+
+  "5-day-yoga-retreat-goa": {
+    title: "5-Day Yoga Retreat in Goa | The Hatha Yogashala",
+    description:
+      "Five days to settle into practice — daily Hatha yoga, philosophy, anatomy, cleansing rituals and restorative downtime in Goa. From €299 per person.",
+    path: "/retreats/5-day-yoga-retreat-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-04.webp",
+    imageAlt: "Yoga and meditation during 5-Day Yoga Retreat in Goa",
+    type: "website",
+  },
+
+  "7-day-yoga-retreat-goa": {
+    title: "7-Day Yoga Retreat in Goa | The Hatha Yogashala",
+    description:
+      "A full week of Hatha practice, philosophy, ayurveda and sound healing at The Hatha Yogashala, Goa. From €399 per person.",
+    path: "/retreats/7-day-yoga-retreat-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
+    imageAlt: "Yoga and meditation during 7-Day Yoga Retreat in Goa",
+    type: "website",
+  },
+
+  "5-day-awaken-and-align-yoga-retreat-goa": {
+    title: "5-Day Awaken & Align Yoga Retreat in Goa",
+    description:
+      "A 5-day Awaken & Align yoga retreat in Goa combining alignment-focused asana, breathwork and reflection in a small-group coastal setting.",
+    path: "/retreats/5-day-awaken-and-align-yoga-retreat-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
+    imageAlt: "Alignment-focused yoga retreat session in Goa",
+    type: "website",
+  },
+
+  "aerial-yoga-retreat-goa": {
+    title: "Aerial Yoga Retreat in Goa | The Hatha Yogashala",
+    description:
+      "Try aerial yoga on a coastal retreat in Goa — hammock-supported asana, inversions and playful practice for all levels.",
+    path: "/retreats/aerial-yoga-retreat-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-01.webp",
+    imageAlt: "Aerial yoga retreat session in Goa",
+    type: "website",
+  },
+
+  "ayurvedic-massage-therapy-goa": {
+    title: "Ayurvedic Massage Therapy in Goa | The Hatha Yogashala",
+    description:
+      "Traditional Ayurvedic massage therapy in Goa — full-body and targeted treatments to complement your yoga practice and support recovery.",
+    path: "/retreats/ayurvedic-massage-therapy-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
+    imageAlt: "Ayurvedic massage therapy treatment in Goa",
+    type: "website",
+  },
+
+  "yoga-festivals-goa": {
+    title: "Yoga Festivals in Goa | The Hatha Yogashala",
+    description:
+      "Join seasonal yoga festivals in Goa at The Hatha Yogashala — community practice, workshops, ceremony and celebration by the coast.",
+    path: "/retreats/yoga-festivals-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-havan-fire-puja-opening-ceremony-01.webp",
+    imageAlt: "Community yoga festival celebration in Goa",
+    type: "website",
+  },
+
+  // ─── Holiday Detail Pages ──────────────────────────────────────────────────
+  "3-day-yoga-holiday-goa": {
+    title: "3-Day Yoga Holiday in Goa | The Hatha Yogashala",
+    description:
+      "A relaxed 3-day yoga holiday in Goa — daily practice paired with beach time and coastal exploration near Querim, North Goa.",
+    path: "/holidays/3-day-yoga-holiday-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-garden-lounge-candid-portrait-01.webp",
+    imageAlt: "Yoga holiday beach session in North Goa",
+    type: "website",
+  },
+
+  "5-day-yoga-holiday-goa": {
+    title: "5-Day Yoga Holiday in Goa | The Hatha Yogashala",
+    description:
+      "Five days of yoga and leisure in Goa — morning practice, free afternoons for the beach and local culture, evenings to unwind.",
+    path: "/holidays/5-day-yoga-holiday-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-garden-lounge-candid-portrait-01.webp",
+    imageAlt: "Yoga holiday relaxation session in North Goa",
+    type: "website",
+  },
+
+  "7-day-yoga-holiday-goa": {
+    title: "7-Day Yoga Holiday in Goa | The Hatha Yogashala",
+    description:
+      "A full week combining daily yoga with holiday time in Goa — beach days, local culture and a relaxed coastal rhythm.",
+    path: "/holidays/7-day-yoga-holiday-goa",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-garden-lounge-candid-portrait-01.webp",
+    imageAlt: "Full week yoga holiday session in North Goa",
+    type: "website",
+  },
+
+  // ─── Online Pranayama Course Detail Pages ──────────────────────────────────
+  "pre-pranayama-foundation-course": {
+    title: "Pre-Pranayama Foundation Course | The Hatha Yogashala",
+    description:
+      "A 10-day online introduction to diaphragmatic breathing, respiratory anatomy and nervous system regulation. $49 / ₹3,999. All levels.",
+    path: "/online-pranayama/pre-pranayama-foundation-course",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-03.webp",
+    imageAlt: "Student practicing foundational yogic breathing on Querim beach Goa",
+    type: "website",
+  },
+
+  "beginner-pranayama-course": {
+    title: "Beginner Pranayama Course Online | The Hatha Yogashala",
+    description:
+      "A 14-day online course in classical Hatha pranayama — Nadi Shodhana, Ujjayi, Sheetali, Sitkari and Bhramari. $79 / ₹6,499.",
+    path: "/online-pranayama/beginner-pranayama-course",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
+    imageAlt: "Evening candlelit pranayama session at The Hatha Yogashala Goa",
+    type: "website",
+  },
+
+  "intermediate-pranayama-course": {
+    title: "Intermediate Pranayama Course Online | The Hatha Yogashala",
+    description:
+      "Build on foundational breathwork with an intermediate online pranayama course — deeper retention practices and energy regulation techniques.",
+    path: "/online-pranayama/intermediate-pranayama-course",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
+    imageAlt: "Intermediate pranayama and breathwork practice session",
+    type: "website",
+  },
+
+  "advanced-pranayama-course": {
+    title: "Advanced Pranayama Course Online | The Hatha Yogashala",
+    description:
+      "An advanced online pranayama course for experienced practitioners — extended retention, bandhas and subtle energy practices.",
+    path: "/online-pranayama/advanced-pranayama-course",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-03.webp",
+    imageAlt: "Advanced pranayama and breathwork practice session",
+    type: "website",
+  },
+
+  "stress-relief-course": {
+    title: "Meditation & Breathing Course for Stress Relief",
+    description:
+      "A fast-acting 7-day online program using neuro-somatic breathing and sound resonance to down-regulate the nervous system. $39 / ₹2,999.",
+    path: "/online-pranayama/stress-relief-course",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-03.webp",
+    imageAlt: "Restorative candlelit meditation and breath relaxation in Goa",
+    type: "website",
+  },
+
+  "daily-pranayama-subscription": {
+    title: "Daily Pranayama Classes | The Hatha Yogashala",
+    description:
+      "Join live daily pranayama classes online with The Hatha Yogashala. Try a $10 daily breathwork trial session.",
+    path: "/online-pranayama/daily-pranayama-subscription",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
+    imageAlt: "Daily live pranayama class session online",
+    type: "website",
+  },
+
+  "yoga-meditation": {
+    title: "Online Yoga and Meditation | The Hatha Yogashala",
+    description:
+      "Practice yoga and meditation online with The Hatha Yogashala's experienced teachers, from anywhere in the world.",
+    path: "/online-pranayama/yoga-meditation",
+    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
+    imageAlt: "Online yoga and meditation class session",
+    type: "website",
   },
 };

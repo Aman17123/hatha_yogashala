@@ -7,8 +7,8 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { JsonLd } from "@/components/ui";
-import { pageSeo, site, whatsappLink } from "@/data/siteData";
-import { organizationSchema, websiteSchema } from "@/lib/schema";
+import { site, whatsappLink } from "@/data/siteData";
+import { siteIdentityGraphSchema } from "@/lib/schema";
 
 const heading = Gotu({
   variable: "--font-heading",
@@ -37,11 +37,12 @@ const quicksand = Quicksand({
 export const metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Yoga School in Goa | Teacher Training & Retreats",
+    default:
+      "Yoga School in Goa | Teacher Training & Retreats – The Hatha Yogashala",
     template: "%s | The Hatha Yogashala",
   },
   description:
-    "Yoga Alliance-certified yoga school in Goa offering 100–300h teacher training & retreats near Querim beach. Book now.",
+    "Yoga Alliance-registered yoga school in Goa offering 100–300-hour teacher training and 3–7 day wellness retreats near Querim beach, North Goa. Book now.",
   applicationName: site.name,
   authors: [{ name: site.name }],
   creator: site.name,
@@ -61,34 +62,38 @@ export const metadata = {
     ],
   },
   openGraph: {
-    title: "Yoga School in Goa | Teacher Training & Retreats",
+    title:
+      "Yoga School in Goa | Teacher Training & Retreats – The Hatha Yogashala",
     description:
-      "Yoga Alliance-certified yoga school in Goa offering 100–300h teacher training & retreats near Querim beach. Book now.",
+      "Yoga Alliance-registered yoga school in Goa offering 100–300-hour teacher training and 3–7 day wellness retreats near Querim beach, North Goa. Book now.",
     url: site.url,
     siteName: site.name,
     locale: "en_IN",
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
         width: 1200,
         height: 630,
-        alt: "The Hatha Yogashala yoga teacher training and retreat school in North Goa",
+        alt: "Yoga students practicing teacher training alignment at The Hatha Yogashala in Goa",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yoga School in Goa | Teacher Training & Retreats",
+    site: "@hathayogashala",
+    title:
+      "Yoga School in Goa | Teacher Training & Retreats – The Hatha Yogashala",
     description:
-      "Yoga Alliance-certified yoga school in Goa offering 100–300h teacher training & retreats near Querim beach. Book now.",
-    images: ["/og-image.jpg"],
+      "Yoga Alliance-registered yoga school in Goa offering 100–300-hour teacher training and 3–7 day wellness retreats near Querim beach, North Goa. Book now.",
+    images: [
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+    ],
   },
   robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }) {
-
   return (
     <html
       lang="en-IN"
@@ -96,9 +101,10 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <body id="top" suppressHydrationWarning>
-        <JsonLd data={organizationSchema()} />
-        <JsonLd data={websiteSchema()} />
-        <a className="skip-link" href="#main-content">Skip to content</a>
+        <JsonLd data={siteIdentityGraphSchema()} />
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
         <Header />
         <main id="main-content">{children}</main>
         <Footer />

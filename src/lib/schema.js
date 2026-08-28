@@ -1,177 +1,306 @@
-import { absoluteUrl, reviewProfile, site } from "@/data/siteData";
 /**
  * JSON-LD structured data generators — The Hatha Yogashala
  *
- * Why this matters for GEO specifically: AI answer engines (ChatGPT,
- * Perplexity, Google AI Overviews) lean heavily on structured,
- * extractable facts rather than parsing prose. A `Course` with a real
- * `provider`, `hasCourseInstance`, and `offers.price` is far more
- * likely to get cited/quoted than a paragraph saying "fee to be
- * confirmed." So: wire this up now, but fill in real values
- * (price, dates, address) as they're confirmed — schema full of
- * placeholder values can trigger Google Search Console rich-result
- * warnings, so keep [VERIFY]'d fields OUT of schema.org output until
- * they're real. Below, unverified fields are simply omitted rather
- * than included with placeholder text.
+ * Implements schema graph per ground truth spec Section 6:
+ * - 6.1 Site-Wide Identity Bundle (Organization + LocalBusiness + WebSite)
+ * - 6.2 WebPage Node (referencing site-wide @ids)
+ * - 6.4 Course Schema & Service Schema
+ * - 6.5 TouristTrip Schema, Service Schema & Event Schema
  */
 
-// ---------------------------------------------------------------------
-// Organization / EducationalOrganization schema — inject once in the
-// root layout. Extracted here so layout.jsx stays lean.
-// ---------------------------------------------------------------------
+const SITE_URL = "https://www.hathayogashala.com";
+const ORG_ID = `${SITE_URL}/#organization`;
+const LOCAL_BUSINESS_ID = `${SITE_URL}/#localbusiness`;
+const WEBSITE_ID = `${SITE_URL}/#website`;
+const LOGO_ID = `${SITE_URL}/#logo`;
+const LOGO_URL = `${SITE_URL}/images/The-Hatha-Yogashala-logo.png`;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 6.1 Site-Wide Identity Bundle — Organization + LocalBusiness + WebSite
+// Injected once in the root layout (src/app/layout.jsx)
+// ─────────────────────────────────────────────────────────────────────────────
+export function siteIdentityGraphSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": ORG_ID,
+        name: "The Hatha Yogashala",
+        url: SITE_URL,
+        logo: {
+          "@type": "ImageObject",
+          "@id": LOGO_ID,
+          url: LOGO_URL,
+        },
+        image: { "@id": LOGO_ID },
+        sameAs: [
+          "https://www.instagram.com/thehathayogashala/",
+          "https://www.facebook.com/profile.php?id=61557638113374",
+        ],
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": LOCAL_BUSINESS_ID,
+        name: "The Hatha Yogashala",
+        url: SITE_URL,
+        image: { "@id": LOGO_ID },
+        telephone: "+91-9004290242",
+        priceRange: "€€",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress:
+            "House No. EHN No 1, Dhaktebag, Querim–Arambol–Agarwada Rd",
+          addressLocality: "Pernem",
+          addressRegion: "Goa",
+          postalCode: "403524",
+          addressCountry: "IN",
+        },
+        sameAs: [
+          "https://www.instagram.com/thehathayogashala/",
+          "https://www.facebook.com/profile.php?id=61557638113374",
+        ],
+        parentOrganization: { "@id": ORG_ID },
+      },
+      {
+        "@type": "WebSite",
+        "@id": WEBSITE_ID,
+        url: SITE_URL,
+        name: "The Hatha Yogashala",
+        publisher: { "@id": ORG_ID },
+        inLanguage: "en-IN",
+      },
+    ],
+  };
+}
+
+// Backwards-compat aliases for layout.jsx
 export function organizationSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    name: site.name,
-    url: site.url,
-    logo: absoluteUrl("/images/The-Hatha-Yogashala-logo.png"),
-    image: absoluteUrl(site.defaultImage),
-    description: site.description,
-    telephone: site.contact.phone,
-    email: site.contact.email,
-    areaServed: { "@type": "AdministrativeArea", name: "Goa" },
-    address: {
-      "@type": "PostalAddress",
-      addressRegion: "Goa",
-      addressCountry: "IN",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: reviewProfile.rating,
-      reviewCount: reviewProfile.reviewCount,
-      bestRating: 5,
-    },
-    sameAs: Object.values(site.social).filter(
-      (url) => typeof url === "string" && url.startsWith("https://"),
-    ),
-  };
+  return siteIdentityGraphSchema();
 }
 
-// ---------------------------------------------------------------------
-// WebSite schema — pair with organizationSchema in the root layout
-// ---------------------------------------------------------------------
 export function websiteSchema() {
+  return null;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 6.2 WebPage Node — for every individual page
+// ─────────────────────────────────────────────────────────────────────────────
+export function webPageSchema(pageUrl, title, description, aboutId = null) {
+  const url = pageUrl.startsWith("http") ? pageUrl : `${SITE_URL}${pageUrl}`;
   return {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: site.name,
-    url: site.url,
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: title,
+    description: description,
+    isPartOf: { "@id": WEBSITE_ID },
+    about: aboutId ? { "@id": aboutId } : { "@id": LOCAL_BUSINESS_ID },
     inLanguage: "en-IN",
-    dateModified: "2026-07-20",
   };
 }
 
-// ---------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// 6.4 Course Schema — for /courses/* and /online-pranayama/* course pages
+// ─────────────────────────────────────────────────────────────────────────────
+export function courseSchema(course) {
+  const coursePath = course.slug.startsWith("/")
+    ? course.slug
+    : course.slug.includes("pranayama")
+      ? `/online-pranayama/${course.slug}`
+      : `/courses/${course.slug}`;
+  const courseUrl = `${SITE_URL}${coursePath}`;
+  const courseId = `${courseUrl}#course`;
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "@id": courseId,
+    name: course.name || course.title,
+    description: course.description || course.summary,
+    provider: { "@id": ORG_ID },
+    url: courseUrl,
+  };
+
+  if (course.certification) {
+    schema.educationalCredentialAwarded = course.certification;
+  }
+
+  if (course.courseWorkload) {
+    schema.hasCourseInstance = {
+      "@type": "CourseInstance",
+      courseMode: course.courseMode || "Onsite",
+      courseWorkload: course.courseWorkload,
+      location: {
+        "@type": "Place",
+        name: "The Hatha Yogashala",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress:
+            "House No. EHN No 1, Dhaktebag, Querim–Arambol–Agarwada Rd",
+          addressLocality: "Pernem",
+          addressRegion: "Goa",
+          postalCode: "403524",
+          addressCountry: "IN",
+        },
+      },
+    };
+  }
+
+  if (course.priceNumeric || (course.pricing && course.pricing.shared)) {
+    const low = course.lowPrice || (typeof course.pricing?.shared === "string" ? course.pricing.shared.replace(/[^0-9]/g, "") : null);
+    const high = course.highPrice || (typeof course.pricing?.private === "string" ? course.pricing.private.replace(/[^0-9]/g, "") : null);
+    
+    if (low && high) {
+      schema.offers = {
+        "@type": "AggregateOffer",
+        priceCurrency: course.priceCurrency || "EUR",
+        lowPrice: String(low),
+        highPrice: String(high),
+        availability: "https://schema.org/InStock",
+        url: courseUrl,
+      };
+    } else if (low || course.priceNumeric) {
+      schema.offers = {
+        "@type": "Offer",
+        priceCurrency: course.priceCurrency || "EUR",
+        price: String(low || course.priceNumeric),
+        availability: "https://schema.org/InStock",
+        url: courseUrl,
+      };
+    }
+  }
+
+  return schema;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Service Schema — for Ongoing subscriptions & treatments
+// ─────────────────────────────────────────────────────────────────────────────
+export function serviceSchema({ name, description, path, price, priceCurrency = "USD" }) {
+  const url = `${SITE_URL}${path}`;
+  const serviceId = `${url}#service`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": serviceId,
+    name,
+    description,
+    provider: { "@id": ORG_ID },
+    url,
+    ...(price
+      ? {
+          offers: {
+            "@type": "Offer",
+            priceCurrency,
+            price: String(price).replace(/[^0-9.]/g, ""),
+            availability: "https://schema.org/InStock",
+            url,
+          },
+        }
+      : {}),
+  };
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 6.5 TouristTrip Schema — for Retreat & Holiday detail pages
+// ─────────────────────────────────────────────────────────────────────────────
+export function retreatSchema(retreat) {
+  return touristTripSchema(retreat);
+}
+
+export function touristTripSchema(item) {
+  const isHoliday = item.slug?.includes("holiday");
+  const path = isHoliday ? `/holidays/${item.slug}` : `/retreats/${item.slug}`;
+  const tripUrl = `${SITE_URL}${path}`;
+  const tripId = `${tripUrl}#trip`;
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "TouristTrip",
+    "@id": tripId,
+    name: item.name || item.title,
+    description: item.description || item.overview,
+    provider: { "@id": ORG_ID },
+    url: tripUrl,
+    touristType: "Wellness travelers, yoga practitioners",
+  };
+
+  const numericPrice = item.priceNumeric || (item.pricing?.shared?.price);
+  if (numericPrice) {
+    schema.offers = {
+      "@type": "Offer",
+      priceCurrency: item.priceCurrency || item.pricing?.shared?.currency || "EUR",
+      price: String(numericPrice),
+      availability: "https://schema.org/InStock",
+      url: tripUrl,
+    };
+  }
+
+  return schema;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Event Schema — for Yoga Festivals
+// ─────────────────────────────────────────────────────────────────────────────
+export function eventSchema({ name, description, path, startDate, endDate }) {
+  const url = `${SITE_URL}${path}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name,
+    description,
+    organizer: { "@id": ORG_ID },
+    url,
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    location: {
+      "@type": "Place",
+      name: "The Hatha Yogashala",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress:
+          "House No. EHN No 1, Dhaktebag, Querim–Arambol–Agarwada Rd",
+        addressLocality: "Pernem",
+        addressRegion: "Goa",
+        postalCode: "403524",
+        addressCountry: "IN",
+      },
+    },
+    ...(startDate ? { startDate } : {}),
+    ...(endDate ? { endDate } : {}),
+  };
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Article / BlogPosting schema — for /blog/[slug]
-// ---------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 export function articleSchema(post) {
+  const postUrl = `${SITE_URL}/blog/${post.slug}`;
+  const imageUrl = post.image.startsWith("http")
+    ? post.image
+    : `${SITE_URL}${post.image}`;
+
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    image: absoluteUrl(post.image),
+    image: imageUrl,
     datePublished: post.date,
-    dateModified: post.updated,
-    author: { "@type": "Organization", name: post.author },
-    publisher: { "@type": "Organization", name: site.name, url: site.url },
-    mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
+    dateModified: post.updated || post.date,
+    author: { "@type": "Organization", name: post.author || "The Hatha Yogashala" },
+    publisher: { "@id": ORG_ID },
+    mainEntityOfPage: postUrl,
   };
 }
 
-// ---------------------------------------------------------------------
-// Course schema — for /courses/[slug]
-// ---------------------------------------------------------------------
-export function courseSchema(course) {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    name: course.name,
-    description: course.description,
-    provider: {
-      "@type": "Organization",
-      name: site.name,
-      sameAs: site.url,
-    },
-    url: `${site.url}/courses/${course.slug}`,
-  };
-
-  // Only attach hasCourseInstance once real dates/mode are confirmed —
-  // don't ship a placeholder startDate.
-  if (course.courseDates && course.courseDates.length > 0) {
-    schema.hasCourseInstance = course.courseDates.map((instance) => ({
-      "@type": "CourseInstance",
-      courseMode: "Onsite",
-      startDate: instance.startDate,
-      endDate: instance.endDate,
-      location: {
-        "@type": "Place",
-        name: site.name,
-        address: site.contact.address,
-      },
-    }));
-  }
-
-  // Only attach offers once a real numeric price exists — "Fee to be
-  // confirmed" is not a valid schema.org price and can trigger a GSC error.
-  if (course.priceNumeric) {
-    schema.offers = {
-      "@type": "Offer",
-      price: course.priceNumeric,
-      priceCurrency: course.priceCurrency || "INR",
-      availability: "https://schema.org/InStock",
-      url: `${site.url}/courses/${course.slug}`,
-    };
-  }
-
-  return schema;
-}
-
-// ---------------------------------------------------------------------
-// Retreat schema — modelled as a TouristTrip (closer fit than Course,
-// since retreats are explicitly NOT a certification/teaching product)
-// ---------------------------------------------------------------------
-export function retreatSchema(retreat) {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "TouristTrip",
-    name: retreat.name,
-    description: retreat.overview,
-    touristType: "Yoga and wellness travellers",
-    provider: {
-      "@type": "Organization",
-      name: site.name,
-      sameAs: site.url,
-    },
-    itinerary: {
-      "@type": "ItemList",
-      itemListElement: retreat.itinerary.map(([day, activity], index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        name: day,
-        description: activity,
-      })),
-    },
-  };
-
-  if (retreat.priceNumeric) {
-    schema.offers = {
-      "@type": "Offer",
-      price: retreat.priceNumeric,
-      priceCurrency: retreat.priceCurrency || "INR",
-      availability: "https://schema.org/InStock",
-    };
-  }
-
-  return schema;
-}
-
-// ---------------------------------------------------------------------
-// Breadcrumb schema — attach on every course/retreat page
-// ---------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// Breadcrumb schema — attach on every inner page
+// ─────────────────────────────────────────────────────────────────────────────
 export function breadcrumbSchema(items) {
-  // items: [{ name: "Home", url: "/" }, { name: "Yoga TTC", url: "/courses" }, { name: "200-Hour", url: "/courses/200-hour..." }]
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -179,15 +308,14 @@ export function breadcrumbSchema(items) {
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: `${site.url}${item.url}`,
+      item: item.url.startsWith("http") ? item.url : `${SITE_URL}${item.url}`,
     })),
   };
 }
 
-// ---------------------------------------------------------------------
-// FAQ schema — only attach if the page actually renders visible FAQ
-// content (Google penalizes schema that doesn't match on-page content)
-// ---------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// FAQ schema
+// ─────────────────────────────────────────────────────────────────────────────
 export function faqSchema(faqItems) {
   if (!faqItems || faqItems.length === 0) return null;
   return {
@@ -198,41 +326,8 @@ export function faqSchema(faqItems) {
       name: item.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.answer,
+        text: item.answer || item.description || "",
       },
     })),
   };
 }
-
-/**
- * Usage in app/courses/[slug]/page.jsx:
- *
- *   import { courseSchema, breadcrumbSchema } from "@/lib/schema";
- *
- *   export default function CoursePage({ params }) {
- *     const course = getCourse(params.slug);
- *     const schema = courseSchema(course);
- *     const breadcrumbs = breadcrumbSchema([
- *       { name: "Home", url: "/" },
- *       { name: "Yoga Teacher Training", url: "/courses" },
- *       { name: course.name, url: `/courses/${course.slug}` },
- *     ]);
- *
- *     return (
- *       <>
- *         <script
- *           type="application/ld+json"
- *           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
- *         />
- *         <script
- *           type="application/ld+json"
- *           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
- *         />
- *         { ...page content... }
- *       </>
- *     );
- *   }
- *
- * Validate every schema block at https://validator.schema.org before
- * deploying — do this per page type (course, retreat), not just once.
- */

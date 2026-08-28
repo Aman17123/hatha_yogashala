@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
+  ArrowRight,
   CalendarDays,
   Check,
   CheckCircle2,
@@ -21,10 +22,27 @@ import { absoluteUrl, site } from "@/data/siteData";
 import { Accordion } from "./Interactive";
 import { Container, ButtonLink, JsonLd, Media, MobileStickyBar, RetreatCard, SectionHeading } from "./ui";
 import BookingSidebar from "./retreat/BookingSidebar";
+import StickySubNav from "./retreat/StickySubNav";
 import BookingForm from "./retreat/BookingForm";
 import TestimonialCarousel from "./retreat/TestimonialCarousel";
 import { FadeIn, Stagger, StaggerItem } from "./retreat/Motion";
 import { SiWhatsapp } from "react-icons/si";
+
+const retreatNavLinks = [
+  { id: "overview", label: "1. Overview" },
+  { id: "why", label: "2. Why Us" },
+  { id: "highlights", label: "3. Highlights" },
+  { id: "schedule", label: "4. Schedule" },
+  { id: "excursions", label: "5. Excursions" },
+  { id: "accommodation", label: "6. Stay" },
+  { id: "meals", label: "7. Meals" },
+  { id: "included", label: "8. Included" },
+  { id: "excluded", label: "9. Excluded" },
+  { id: "community", label: "10. Community" },
+  { id: "reviews", label: "11. Reviews" },
+  { id: "faq", label: "12. FAQ" },
+  { id: "fees", label: "13. Fees" },
+];
 
 const whyIcons = {
   users: Users,
@@ -58,6 +76,14 @@ export default function RetreatTemplate({ retreat, page }) {
       acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
   };
+
+  const currencySymbol =
+    p.pricing?.shared?.currency === "INR" || retreat?.priceCurrency === "INR"
+      ? "₹"
+      : p.pricing?.shared?.currency === "EUR"
+        ? "€"
+        : "$";
+
   const tripOffers = [];
   if (p.pricing && typeof p.pricing.shared?.price === "number") {
     tripOffers.push({
@@ -84,7 +110,7 @@ export default function RetreatTemplate({ retreat, page }) {
     description: retreat.description,
     url: absoluteUrl(`/retreats/${retreat.slug}`),
     touristType: "Yoga and wellness travellers",
-    provider: { "@type": "Organization", name: site.name, url: site.url },
+    provider: { "@type": "Organization", "@id": "https://www.hathayogashala.com/#organization", name: site.name },
     itinerary: p.daysSchedule?.length > 0 ? {
       "@type": "ItemList",
       itemListElement: p.daysSchedule.map((day, index) => ({
@@ -96,68 +122,23 @@ export default function RetreatTemplate({ retreat, page }) {
     } : undefined,
     offers: tripOffers.length > 0 ? tripOffers : undefined,
   };
-  const currencySymbol =
-    p.pricing?.shared?.currency === "INR" || retreat?.priceCurrency === "INR"
-      ? "₹"
-      : p.pricing?.shared?.currency === "EUR"
-        ? "€"
-        : "$";
-  const priceRange =
-    p.pricing && typeof p.pricing.shared?.price === "number" && typeof p.pricing.private?.price === "number"
-      ? `${currencySymbol}${p.pricing.shared.price}-${currencySymbol}${p.pricing.private.price}`
-      : undefined;
-  const localBusinessSchema = {
+  const pageSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${absoluteUrl("/")}#organization`,
-    name: site.name,
-    url: site.url,
-    image: absoluteUrl(site.defaultImage),
-    priceRange,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Goa",
-      addressCountry: "IN",
-    },
-    areaServed: { "@type": "AdministrativeArea", name: "Goa" },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: p.rating,
-      reviewCount: p.ratingCount,
-    },
-  };
-  const eventSchema = {
-    "@context": "https://schema.org",
-    "@type": "Event",
+    "@type": "WebPage",
+    "@id": `${absoluteUrl(`/retreats/${retreat.slug}`)}#webpage`,
+    url: absoluteUrl(`/retreats/${retreat.slug}`),
     name: retreat.name,
-    description: p.overviewSummary[0],
-    startDate: p.dates?.[0]?.start,
-    endDate: p.dates?.[0]?.end,
-    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-    eventStatus: "https://schema.org/EventScheduled",
-    location: {
-      "@type": "Place",
-      name: site.name,
-      address: { "@type": "PostalAddress", addressLocality: "Goa", addressCountry: "IN" },
-    },
-    offers:
-      p.pricing && typeof p.pricing.shared?.price === "number"
-        ? {
-            "@type": "Offer",
-            price: p.pricing.shared.price,
-            priceCurrency: p.pricing.shared.currency,
-            availability: "https://schema.org/InStock",
-            url: absoluteUrl(`/retreats/${retreat.slug}`),
-          }
-        : undefined,
-    organizer: { "@type": "Organization", name: site.name, url: site.url },
+    description: retreat.description,
+    isPartOf: { "@id": "https://www.hathayogashala.com/#website" },
+    about: { "@id": "https://www.hathayogashala.com/#localbusiness" },
+    inLanguage: "en-IN",
   };
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-      { "@type": "ListItem", position: 2, name: "Yoga retreats", item: absoluteUrl("/retreats") },
+      { "@type": "ListItem", position: 2, name: "Yoga retreats", item: absoluteUrl("/yoga-retreats-goa") },
       { "@type": "ListItem", position: 3, name: retreat.name, item: absoluteUrl(`/retreats/${retreat.slug}`) },
     ],
   };
@@ -166,9 +147,8 @@ export default function RetreatTemplate({ retreat, page }) {
 
   return (
     <>
+      <JsonLd data={pageSchema} />
       <JsonLd data={tripSchema} />
-      <JsonLd data={localBusinessSchema} />
-      <JsonLd data={eventSchema} />
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
 
@@ -186,108 +166,88 @@ export default function RetreatTemplate({ retreat, page }) {
           <div className="retreat-hero-overlay" />
           <span className="retreat-hero-orb" aria-hidden="true" />
         </div>
-        <Container className="retreat-hero-inner">
-          <Stagger gap={0.11}>
-            <StaggerItem>
-              <nav aria-label="Breadcrumb" className="retreat-hero-breadcrumbs">
-                <ol>
-                  <li><Link href="/">Home</Link></li>
-                  <li aria-hidden="true">/</li>
-                  <li><Link href="/yoga-retreats-goa">Yoga Retreats</Link></li>
-                  <li aria-hidden="true">/</li>
-                  <li aria-current="page">{retreat.name}</li>
-                </ol>
-              </nav>
-            </StaggerItem>
+        <div className="container retreat-hero-inner">
+          <nav aria-label="Breadcrumb" className="retreat-hero-breadcrumb">
+            <Link href="/">Home</Link>
+            <span>/</span>
+            <Link href="/yoga-retreats-goa">Yoga Retreats</Link>
+            <span>/</span>
+            <span>{retreat.name}</span>
+          </nav>
 
-            <StaggerItem>
-              <div className="retreat-hero-pills">
-                <span>{p.category}</span>
-                <span>Residential · All levels</span>
+          <div className="retreat-hero-badges">
+            <span className="retreat-hero-badge">
+              <Sparkles size={13} className="text-[var(--gold)] shrink-0" aria-hidden="true" />
+              {p.category}
+            </span>
+            <span className="retreat-hero-badge-sub">
+              <Clock3 size={13} className="shrink-0" aria-hidden="true" />
+              {p.duration} Residential
+            </span>
+          </div>
+
+          <h1 className="retreat-hero-title font-philosopher">{retreat.name}</h1>
+          <p className="retreat-hero-lead">{p.heroTagline}</p>
+
+          <div className="retreat-hero-meta">
+            <div>
+              <Clock3 size={17} aria-hidden="true" />
+              <div>
+                <span>Duration</span>
+                <strong>{p.duration}</strong>
               </div>
-            </StaggerItem>
-
-            <StaggerItem>
-              <h1>{retreat.name}</h1>
-            </StaggerItem>
-
-            <StaggerItem>
-              <p className="retreat-hero-tagline">{p.heroTagline}</p>
-            </StaggerItem>
-
-            <StaggerItem>
-              <div className="retreat-hero-meta">
-                <div>
-                  <Clock3 size={17} aria-hidden="true" />
-                  <span><strong>Duration</strong>{p.duration}</span>
-                </div>
-                <div>
-                  <MapPin size={17} aria-hidden="true" />
-                  <span><strong>Location</strong>{p.location}</span>
-                </div>
-                <div>
-                  <span className="hero-stars" aria-hidden="true">
-                    {Array.from({ length: 5 }, (_, i) => (
-                      <Star key={i} className={`size-3.5 ${i < Math.round(p.rating) ? "fill-[var(--gold)] text-[var(--gold)]" : "fill-white/30 text-white/40"}`} />
-                    ))}
-                  </span>
-                  <span><strong>{p.rating}/5</strong>{p.ratingCount} verified reviews</span>
-                </div>
-                <div>
-                  <Users size={17} aria-hidden="true" />
-                  <span><strong>{p.students}</strong>retreat guests</span>
-                </div>
+            </div>
+            <div>
+              <MapPin size={17} aria-hidden="true" />
+              <div>
+                <span>Location</span>
+                <strong>{p.location}</strong>
               </div>
-            </StaggerItem>
-
-            <StaggerItem>
-              <div className="retreat-hero-actions">
-                {isSimple ? (
-                  <>
-                    <ButtonLink href="#inquiry" className="retreat-hero-cta">
-                      Inquire Now
-                    </ButtonLink>
-                    <a href={whatsappHref} className="button retreat-whatsapp">
-                      <SiWhatsapp size={17} aria-hidden="true" />
-                      WhatsApp Inquiry
-                    </a>
-                    <ButtonLink href="/contact" variant="light">
-                      Schedule a Call
-                    </ButtonLink>
-                  </>
-                ) : (
-                  <>
-                    <ButtonLink href="#registration" className="retreat-hero-cta">
-                      Book Your Retreat
-                    </ButtonLink>
-                    <ButtonLink href="#accommodation" variant="light">
-                      View Accommodation
-                    </ButtonLink>
-                    <a href={whatsappHref} className="button retreat-whatsapp">
-                      <SiWhatsapp size={17} aria-hidden="true" />
-                      WhatsApp Inquiry
-                    </a>
-                  </>
-                )}
+            </div>
+            <div>
+              <Star
+                size={17}
+                className="fill-[var(--gold)] text-[var(--gold)]"
+                aria-hidden="true"
+              />
+              <div>
+                <span>Rating</span>
+                <strong>{p.rating}/5 ({p.ratingCount} reviews)</strong>
               </div>
-            </StaggerItem>
-          </Stagger>
-        </Container>
+            </div>
+            <div>
+              <Users size={17} aria-hidden="true" />
+              <div>
+                <span>Batch Size</span>
+                <strong>Small ({p.students} max)</strong>
+              </div>
+            </div>
+          </div>
 
-        <div className="retreat-trust-badges" aria-label="Retreat trust badges">
-          <Container>
-            {p.trustBadges.map((badge) => (
-              <span key={badge}>
-                <Check size={14} aria-hidden="true" />
-                {badge}
-              </span>
-            ))}
-          </Container>
+          <div className="retreat-hero-actions">
+            <a href={isSimple ? "#inquiry" : "#registration"} className="retreat-hero-cta">
+              <span>{isSimple ? "Inquire Now" : "Book Your Retreat"}</span>
+              <ArrowRight size={17} aria-hidden="true" />
+            </a>
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="retreat-hero-wa"
+              aria-label="Ask a question on WhatsApp"
+            >
+              <SiWhatsapp size={19} aria-hidden="true" className="shrink-0 text-white" />
+              <span>Chat on WhatsApp</span>
+            </a>
+          </div>
         </div>
       </section>
 
+      {/* ============ STICKY NAV BAR WITH ACTIVE SCROLL SPY ============ */}
+      <StickySubNav links={retreatNavLinks} ariaLabel="Retreat section navigation" />
+
       {/* ============ STICKY BOOKING SIDEBAR / CONTENT ============ */}
-      <div className={isSimple ? "container max-w-4xl mx-auto px-4 py-12" : "container retreat-layout"}>
+      <div className={isSimple ? "container max-w-4xl mx-auto px-4 py-8" : "container retreat-layout"}>
         {!isSimple && (
           <>
             {/* Sticky booking sidebar */}
@@ -314,7 +274,7 @@ export default function RetreatTemplate({ retreat, page }) {
         <div className={isSimple ? "retreat-content !max-w-none !w-full" : "retreat-content"} id="overview">
 
           {/* ============ SECTION 1 — OVERVIEW ============ */}
-          <section className="retreat-section">
+          <section className="retreat-section" id="overview">
             <RetreatEyebrow>Overview</RetreatEyebrow>
             <h2 className="retreat-section-title">A transformative reset in North Goa</h2>
             <div className="retreat-overview">
@@ -333,7 +293,7 @@ export default function RetreatTemplate({ retreat, page }) {
 
           {/* ============ SECTION 2 — WHAT THIS IS (SEO / AEO) ============ */}
           {retreat.whatIs && (
-            <section className="retreat-section" id="what-is">
+            <section className="retreat-section" id="highlights">
               <RetreatEyebrow>What Is This</RetreatEyebrow>
               <h2 className="retreat-section-title">{retreat.whatIs.heading}</h2>
               <div className="retreat-overview">
@@ -544,7 +504,7 @@ export default function RetreatTemplate({ retreat, page }) {
           </section>
 
           {/* ============ SECTION: COMMUNITY CELEBRATION & FESTIVAL GATHERINGS ============ */}
-          <section className="retreat-section" id="community-festivals">
+          <section className="retreat-section" id="community">
             <RetreatEyebrow>Community &amp; Festivals</RetreatEyebrow>
             <h2 className="retreat-section-title">Community Celebration, Kirtan &amp; Ecstatic Gatherings</h2>
             <p className="retreat-section-lead">
@@ -854,7 +814,7 @@ export default function RetreatTemplate({ retreat, page }) {
                     ))}
                   </ul>
                 </article>
-                <article className="retreat-exclude-card">
+                <article className="retreat-exclude-card" id="excluded">
                   <h3>
                     <XCircle size={18} aria-hidden="true" /> Not included
                   </h3>
@@ -887,7 +847,7 @@ export default function RetreatTemplate({ retreat, page }) {
 
           {/* ============ SECTION — INQUIRY / REGISTRATION ============ */}
           {isSimple ? (
-            <section className="retreat-section" id="inquiry">
+            <section className="retreat-section" id="fees">
               <RetreatEyebrow>Inquire &amp; Connect</RetreatEyebrow>
               <h2 className="retreat-section-title">Inquire About {retreat.name}</h2>
               <p className="retreat-section-lead">
@@ -915,7 +875,8 @@ export default function RetreatTemplate({ retreat, page }) {
               </FadeIn>
             </section>
           ) : (
-            <section className="retreat-section" id="registration">
+            <section className="retreat-section" id="fees">
+              <div id="registration" />
               {/* Centered Course Fees Title with Underline */}
               <div className="text-center mb-6">
                 <h2 className="text-[var(--brown)]">

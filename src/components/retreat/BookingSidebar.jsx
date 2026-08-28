@@ -43,20 +43,21 @@ export default function BookingSidebar({
       ? `${currencySymbol}${price.toLocaleString()}`
       : null;
 
-  const pricingTarget = entityLabel === "TTC Course" ? "#fees" : "#registration";
+  const pricingTarget =
+    entityLabel === "TTC Course" ? "#fees" : "#registration";
 
   return (
     <aside
-      className="retreat-sidebar scroll-mt-[110px]"
+      className="retreat-sidebar scroll-mt-[130px]"
       id="book"
       aria-label={`${entityLabel} booking summary`}
     >
-      <div className="booking-card">
+      <div className="booking-card mt-10">
         {/* Price block */}
-        <div className="booking-card-head">
-          {/* Official Ashram Logo Badge */}
-          <div className="flex items-center justify-between gap-2.5 mb-3.5 pb-3 border-b border-[var(--border)]/70">
-            <div className="relative w-32 h-8 shrink-0">
+        <div className="booking-card-head !p-3.9 sm:!p-4">
+          {/* Ashram Branding */}
+          <div className="flex items-center justify-between gap-2 mb-2.5 pb-2 border-b border-[var(--border)]/70">
+            <div className="relative w-28 h-6.5 shrink-0">
               <Image
                 src="/images/The-Hatha-Yogashala-logo.png"
                 alt="The Hatha Yogashala Logo"
@@ -64,19 +65,23 @@ export default function BookingSidebar({
                 className="object-contain object-left"
               />
             </div>
-            <span className="text-[10px] font-extrabold uppercase tracking-wider text-[var(--coral-dark)] text-right">
+            <span className="text-[9.5px] font-bold uppercase tracking-wider text-[var(--coral-dark)] text-right">
               Direct Reservation
             </span>
           </div>
 
           <div className="booking-price">
-            <span className="booking-price-from">From</span>
+            <span className="booking-price-from !text-[11px] font-bold">
+              From
+            </span>
             <span>
-              <strong>{formatPrice(p.shared.price) ?? "On enquiry"}</strong>
-              <small>/person</small>
+              <strong className="!text-[25px] font-philosopher">
+                {formatPrice(p.shared.price) ?? "On enquiry"}
+              </strong>
+              <small className="!text-[11.5px]"> /person</small>
             </span>
           </div>
-          <div className="booking-rating">
+          <div className="booking-rating !mt-1">
             <span
               aria-label={`${page.rating} out of 5`}
               className="inline-flex items-center gap-0.5"
@@ -84,81 +89,71 @@ export default function BookingSidebar({
               {Array.from({ length: 5 }, (_, i) => (
                 <Star
                   key={i}
-                  className={`size-3.5 ${i < Math.round(page.rating) ? "fill-[var(--gold)] text-[var(--gold)]" : "text-[var(--border)]"}`}
+                  className={`size-3 ${i < Math.round(page.rating) ? "fill-[var(--gold)] text-[var(--gold)]" : "text-[var(--border)]"}`}
                   aria-hidden="true"
                 />
               ))}
             </span>
-            <strong>{page.rating}/5</strong>
-            <small>{page.ratingCount} verified reviews</small>
+            <strong className="!text-[11.5px]">{page.rating}/5</strong>
+            <small className="!text-[11px]">({page.ratingCount} reviews)</small>
           </div>
         </div>
 
         {/* Key details */}
-        <dl className="booking-facts">
-          <div>
-            <dt>
-              <Clock3 size={15} aria-hidden="true" /> Duration
+        <dl className="booking-facts !px-3.5 sm:!px-4">
+          <div className="!py-1.5">
+            <dt className="!text-[12px]">
+              <Clock3 size={13.5} aria-hidden="true" /> Duration
             </dt>
-            <dd>{page.duration}</dd>
+            <dd className="!text-[12px]">{page.duration}</dd>
           </div>
-          <div>
-            <dt>
-              <CalendarDays size={15} aria-hidden="true" /> Dates
+          <div className="!py-1.5">
+            <dt className="!text-[12px]">
+              <CalendarDays size={13.5} aria-hidden="true" /> Dates
             </dt>
-            <dd>{retreat.date || "Flexible — enquire"}</dd>
+            <dd className="!text-[12px]">{retreat.date || "Monthly start"}</dd>
           </div>
-          <div>
-            <dt>
-              <MapPin size={15} aria-hidden="true" /> Location
+          <div className="!py-1.5">
+            <dt className="!text-[12px]">
+              <MapPin size={13.5} aria-hidden="true" /> Location
             </dt>
-            <dd>{page.location}</dd>
+            <dd className="!text-[12px]">Querim, Goa</dd>
           </div>
-          <div>
-            <dt>
-              <Users size={15} aria-hidden="true" /> Students
+          <div className="!py-1.5">
+            <dt className="!text-[12px]">
+              <Users size={13.5} aria-hidden="true" /> Batch Size
             </dt>
-            <dd>
-              {page.students} {studentsLabel}
-            </dd>
+            <dd className="!text-[12px]">{page.students} max</dd>
           </div>
         </dl>
 
         {/* CTA buttons */}
-        <div className="booking-actions">
+        <div className="booking-actions !p-3 sm:!p-3.5 !gap-2">
           <button
             type="button"
-            className="button button-primary !w-full !py-2.5 !text-[13px] font-bold"
+            className="button button-primary !w-full !py-2 !text-[12.5px] font-bold"
             onClick={() => setOpenForm((value) => !value)}
             aria-expanded={openForm}
           >
             <span>{ctaLabel}</span>
-            <ArrowRight size={15} aria-hidden="true" />
+            <ArrowRight size={14} aria-hidden="true" />
           </button>
 
-          <a
-            href={pricingTarget}
-            className="button button-secondary !w-full !py-2.5 !text-[12.5px] font-bold flex items-center justify-center gap-1.5"
-          >
-            <CreditCard size={14} className="text-[var(--coral-dark)]" />
-            <span>View Prices &amp; Dates</span>
-          </a>
-
-          <div className="booking-actions-secondary">
-            <Link
-              href="#accommodation"
-              className="button button-secondary !w-full !py-2 !px-2 !text-[12px] font-semibold text-center truncate"
+          <div className="grid grid-cols-2 gap-2 w-full">
+            <a
+              href={pricingTarget}
+              className="button button-secondary !w-full !py-1.5 !px-2 !text-[11.5px] font-semibold text-center truncate"
             >
-              Accommodation
-            </Link>
+              Prices &amp; Dates
+            </a>
             <a
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="button booking-whatsapp !w-full !py-2 !px-2 !text-[12px] font-bold flex items-center justify-center gap-1 truncate"
+              className="button booking-whatsapp !w-full !py-1.5 !px-2 !text-[11.5px] font-bold flex items-center justify-center gap-1 truncate"
               aria-label="WhatsApp inquiry"
             >
-              <SiWhatsapp size={13} className="shrink-0" />
+              <SiWhatsapp size={12} className="shrink-0" />
               <span>WhatsApp</span>
             </a>
           </div>
@@ -166,7 +161,7 @@ export default function BookingSidebar({
 
         {/* Inline booking form */}
         {openForm && (
-          <div className="booking-inline-form">
+          <div className="booking-inline-form !p-3.5">
             <BookingForm
               retreatName={retreat.name}
               compact
@@ -179,28 +174,19 @@ export default function BookingSidebar({
         )}
 
         {/* Trust badges */}
-        <ul className="booking-trust">
-          {page.trustBadges.map((badge) => (
-            <li key={badge}>
-              <Check size={14} aria-hidden="true" />
-              {badge}
+        <ul className="booking-trust !p-2.5 sm:!p-3 !gap-1">
+          {page.trustBadges.slice(0, 3).map((badge) => (
+            <li key={badge} className="!text-[11px] !gap-1.5">
+              <Check
+                size={12}
+                aria-hidden="true"
+                className="shrink-0 text-emerald-600"
+              />
+              <span>{badge}</span>
             </li>
           ))}
         </ul>
       </div>
-
-      {/* Quick links into the page */}
-      <nav
-        className="booking-mininav"
-        aria-label={`${entityLabel} page sections`}
-      >
-        <a href="#overview">Overview</a>
-        <a href="#accommodation">Accommodation</a>
-        <a href="#meals">Meals</a>
-        <a href="#included">Included</a>
-        <a href={pricingTarget}>Prices &amp; Dates</a>
-        <a href="#faq">FAQ</a>
-      </nav>
     </aside>
   );
 }

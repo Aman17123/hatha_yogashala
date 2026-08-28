@@ -21,9 +21,12 @@ import {
   PageHero,
   SectionHeading,
 } from "@/components/ui";
-import { facilities, pageMetadata } from "@/data/siteData";
+import { facilities } from "@/data/siteData";
+import { pagesMetadata } from "@/data/pages-metadata";
+import { buildMetadata } from "@/lib/seo";
+import { faqSchema, webPageSchema } from "@/lib/schema";
 
-export const metadata = pageMetadata("accommodation");
+export const metadata = buildMetadata(pagesMetadata.accommodation);
 
 const stayFaqs = [
   {
@@ -102,22 +105,21 @@ const dietaryHighlights = [
 ];
 
 export default function AccommodationPage() {
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: stayFaqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
-    })),
-  };
+  const pageSchema = webPageSchema(
+    "/accommodation-goa",
+    pagesMetadata.accommodation.title,
+    pagesMetadata.accommodation.description,
+  );
+
+  const faqSchemaData = faqSchema(stayFaqs);
 
   return (
     <>
-      <JsonLd data={faqSchema} />
+      <JsonLd data={pageSchema} />
+      {faqSchemaData && <JsonLd data={faqSchemaData} />}
       <PageHero
         eyebrow="Residential life"
-        title="Accommodation & Food in North Goa"
+        title="Accommodation & Food at Our Goa Yoga School"
         text="Restful rooms, nourishing sattvic meals, and everyday ashram amenities at The Hatha Yogashala in Querim — a peaceful beachside sanctuary for yoga teacher training and retreats near Arambol."
         image="/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-bedroom-interior-01.webp"
         imageAlt="Comfortable cottage bedroom interior at The Hatha Yogashala in Querim, Goa"

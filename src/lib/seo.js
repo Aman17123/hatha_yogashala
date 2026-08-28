@@ -3,41 +3,26 @@
  * The Hatha Yogashala
  *
  * Single source of truth for generating Next.js metadata objects.
- *
- * Usage (static page):
- *   import { buildMetadata } from "@/lib/seo";
- *   import { pagesMetadata } from "@/data/pages-metadata";
- *   export const metadata = buildMetadata(pagesMetadata.home);
- *
- * Usage (dynamic page — generateMetadata):
- *   import { buildMetadata } from "@/lib/seo";
- *   export async function generateMetadata({ params }) {
- *     const { slug } = await params;
- *     const item = getData(slug);
- *     return buildMetadata({
- *       title: item.name,
- *       description: item.excerpt,
- *       path: `/section/${item.slug}`,
- *       image: item.image,
- *     });
- *   }
+ * Matches ground truth specification: "The Hatha Yogashala — SEO Slugs, Meta Tags & Heading Hierarchy"
  */
 
 import { site } from "@/data/siteData";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Site-wide constants — single place to change domain, name, defaults
+// Site-wide constants
 // ─────────────────────────────────────────────────────────────────────────────
 export const SITE = {
-  name: site.name,
-  url: site.url,
+  name: "The Hatha Yogashala",
+  url: "https://www.hathayogashala.com",
   locale: "en_IN",
-  defaultImage: "/og-image.jpg",
+  defaultImage:
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
   defaultImageAlt:
-    "The Hatha Yogashala — yoga teacher training and retreat school in North Goa, Goa",
+    "Yoga students practicing teacher training alignment at The Hatha Yogashala in Goa",
   defaultImageWidth: 1200,
   defaultImageHeight: 630,
   twitterCard: "summary_large_image",
+  twitterSite: "@hathayogashala", // Placeholder handle noted in spec — confirm real handle before launch
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -46,10 +31,7 @@ export const SITE = {
 // Accepts either:
 //   buildMetadata({ title, description, path, image, imageAlt, type, keywords })
 // or positional args for backwards-compat shim usage:
-//   buildMetadata(title, description, path, image, keywords)
-//
-// Returns a Next.js metadata object (title, description, alternates,
-// openGraph, twitter, keywords).
+//   buildMetadata(title, description, path, image, keywords, imageAlt, type)
 // ─────────────────────────────────────────────────────────────────────────────
 export function buildMetadata(
   titleOrConfig,
@@ -57,8 +39,9 @@ export function buildMetadata(
   path = "/",
   image,
   keywords,
+  imageAlt,
+  type = "website",
 ) {
-  // Allow both object-style and positional-arg-style calls
   let config;
   if (titleOrConfig && typeof titleOrConfig === "object") {
     config = titleOrConfig;
@@ -69,6 +52,8 @@ export function buildMetadata(
       path,
       image,
       keywords,
+      imageAlt,
+      type,
     };
   }
 
@@ -77,8 +62,8 @@ export function buildMetadata(
     description: desc,
     path: pagePath = "/",
     image: pageImage,
-    imageAlt,
-    type = "website",
+    imageAlt: customAlt,
+    type: pageType = "website",
     keywords: kw,
   } = config;
 
@@ -87,24 +72,28 @@ export function buildMetadata(
   const ogImageUrl = rawImage.startsWith("http")
     ? rawImage
     : new URL(rawImage, SITE.url).toString();
-  const ogImageAlt = imageAlt || SITE.defaultImageAlt;
+  const ogImageAlt = customAlt || SITE.defaultImageAlt;
   const canonicalUrl = new URL(pagePath, SITE.url).toString();
 
   const metadata = {
-    title,
+    title: {
+      absolute: title,
+    },
     description: desc,
-
+    robots: {
+      index: true,
+      follow: true,
+    },
     alternates: {
       canonical: canonicalUrl,
     },
-
     openGraph: {
       title,
       description: desc,
       url: canonicalUrl,
       siteName: SITE.name,
       locale: SITE.locale,
-      type,
+      type: pageType,
       images: [
         {
           url: ogImageUrl,
@@ -114,17 +103,16 @@ export function buildMetadata(
         },
       ],
     },
-
     twitter: {
       card: SITE.twitterCard,
+      site: SITE.twitterSite,
       title,
       description: desc,
       images: [ogImageUrl],
     },
   };
 
-  // Only include keywords when provided (avoid empty array in output)
-  if (kw && (Array.isArray(kw) ? kw.length > 0 : kw.trim().length > 0)) {
+  if (kw && (Array.isArray(kw) ? kw.length > 0 : String(kw).trim().length > 0)) {
     metadata.keywords = kw;
   }
 

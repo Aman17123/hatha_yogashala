@@ -3,15 +3,12 @@ import Link from "next/link";
 import { ArrowRight, Award, CheckCircle2, Clock, Sparkles, Wind } from "lucide-react";
 import { Container, FinalCTA, JsonLd, PageHero } from "@/components/ui";
 import { pranayamaCourses } from "@/data/pranayamaData";
-import { absoluteUrl, makeMetadata, site } from "@/data/siteData";
+import { absoluteUrl, site } from "@/data/siteData";
+import { pagesMetadata } from "@/data/pages-metadata";
+import { buildMetadata } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
 
-export const metadata = makeMetadata(
-  "Pranayama & Breathwork Courses Online | The Hatha Yogashala",
-  "Master classical Indian Pranayama, diaphragmatic breathwork, and stress-relief breathing. From Pre-Pranayama Foundation to Advanced Bandhas & Kundalini.",
-  "/online-pranayama",
-  "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
-  "pranayama course, breathwork training online, learn yogic breathing, Hatha pranayama Goa, Nadi Shodhana class",
-);
+export const metadata = buildMetadata(pagesMetadata.onlinePranayama);
 
 const hubSchema = {
   "@context": "https://schema.org",
@@ -22,20 +19,27 @@ const hubSchema = {
   url: absoluteUrl("/online-pranayama"),
   publisher: {
     "@type": "Organization",
-    name: site.name,
+    "@id": "https://www.hathayogashala.com/#organization",
+    name: "The Hatha Yogashala",
     url: site.url,
   },
 };
 
 export default function OnlinePranayamaHubPage() {
   const mainCourses = pranayamaCourses.filter((c) => c.slug !== "prana-circle");
+  const pageSchema = webPageSchema(
+    "/online-pranayama",
+    pagesMetadata.onlinePranayama.title,
+    pagesMetadata.onlinePranayama.description,
+  );
 
   return (
     <>
+      <JsonLd data={pageSchema} />
       <JsonLd data={hubSchema} />
       <PageHero
         eyebrow="Classical Breathwork & Mastery"
-        title="Pranayama & Breathwork Courses"
+        title="The Hatha Yogashala — Pranayama & Breathwork"
         text="Experience authentic yogic breathing from foundational respiratory anatomy to advanced Kumbhaka ratios, energy locks (Bandhas), and daily guided sadhana with Master teachers."
       />
 

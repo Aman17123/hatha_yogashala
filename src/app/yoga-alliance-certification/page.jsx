@@ -8,9 +8,12 @@ import {
   PageHero,
   SectionHeading,
 } from "@/components/ui";
-import { pageMetadata, placeholders } from "@/data/siteData";
+import { pagesMetadata } from "@/data/pages-metadata";
+import { placeholders } from "@/data/siteData";
+import { buildMetadata } from "@/lib/seo";
+import { faqSchema, webPageSchema } from "@/lib/schema";
 
-export const metadata = pageMetadata("certification");
+export const metadata = buildMetadata(pagesMetadata.certification);
 
 const certificationFaqs = [
   {
@@ -38,22 +41,21 @@ const certificateDetails = [
 ];
 
 export default function CertificationPage() {
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: certificationFaqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
-    })),
-  };
+  const pageSchema = webPageSchema(
+    "/yoga-alliance-certification",
+    pagesMetadata.certification.title,
+    pagesMetadata.certification.description,
+  );
+
+  const faqSchemaData = faqSchema(certificationFaqs);
 
   return (
     <>
-      <JsonLd data={faqSchema} />
+      <JsonLd data={pageSchema} />
+      {faqSchemaData && <JsonLd data={faqSchemaData} />}
       <PageHero
         eyebrow="Credentials"
-        title="Certification & Verification"
+        title="Yoga Alliance-Certified Teacher Training in Goa"
         text="See the certificate graduates receive and how to verify it — without badges, recognition claims, or previews that have not been approved."
         image="/images/hatha-yogashala/hatha-yogashala-pernem-goa-certificate-presentation-teacher-training-01.webp"
       />

@@ -1,7 +1,11 @@
 import PolicyPage from "@/components/PolicyPage";
-import { pageMetadata, placeholders } from "@/data/siteData";
+import { placeholders } from "@/data/siteData";
+import { pagesMetadata } from "@/data/pages-metadata";
+import { buildMetadata } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
+import { JsonLd } from "@/components/ui";
 
-export const metadata = pageMetadata("terms");
+export const metadata = buildMetadata(pagesMetadata.terms);
 
 const sections = [
   {
@@ -37,5 +41,21 @@ const sections = [
 ];
 
 export default function TermsPage() {
-  return <PolicyPage eyebrow="Legal" title="Terms & Conditions" description="The booking and participation terms that require school approval." sections={sections} />;
+  const pageSchema = webPageSchema(
+    "/terms",
+    pagesMetadata.terms.title,
+    pagesMetadata.terms.description,
+  );
+
+  return (
+    <>
+      <JsonLd data={pageSchema} />
+      <PolicyPage
+        eyebrow="Legal"
+        title="Terms & Conditions"
+        description="The booking and participation terms that require school approval."
+        sections={sections}
+      />
+    </>
+  );
 }

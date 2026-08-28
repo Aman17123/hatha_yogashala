@@ -489,10 +489,7 @@ export default function HomePage() {
         <Container>
           <FadeIn className="text-center">
             <h2 className="text-[var(--brown)]">
-              Which Course is{" "}
-              <span className="text-[var(--coral-dark)] font-medium">
-                Right for You?
-              </span>
+              Compare Our Yoga Teacher Training Courses in Goa
             </h2>
             <p className="mt-2 text-xs sm:text-[13px] font-extrabold uppercase tracking-[0.16em] text-[var(--muted)]">
               COMPARISON OF OUR TTC PROGRAMS
@@ -677,7 +674,7 @@ export default function HomePage() {
             <div>
               <SectionHeading
                 eyebrow="Why Goa"
-                title="A coastal setting for residential yoga study in Goa"
+                title="A Coastal Setting for Residential Yoga Study in Goa"
                 text="Goa can support early yoga practice, unhurried recovery, and time outdoors when weather, travel, hydration, and rest are planned responsibly."
               />
               <div className="mt-5 grid gap-4 text-[15.5px] leading-7 text-black/70">
@@ -792,7 +789,7 @@ export default function HomePage() {
             <div className="lg:sticky lg:top-24">
               <SectionHeading
                 eyebrow="Residential experience"
-                title="Accommodation & Food"
+                title="Accommodation & Food at Our Goa Yoga School"
                 text="Confirm the exact room, yoga hall, meals, facilities, and support attached to your batch before payment."
               />
               <div className="mt-5 max-w-md space-y-4 text-[14px] leading-7 text-black/80">

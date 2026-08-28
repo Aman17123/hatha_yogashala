@@ -5,8 +5,9 @@ import { CalendarDays, Clock3, UserRound } from "lucide-react";
 import { BlogCard } from "@/components/Interactive";
 import { Breadcrumbs, Container, FinalCTA, JsonLd } from "@/components/ui";
 import { getPost, posts } from "@/data/blogData";
-import { makeMetadata } from "@/data/siteData";
-import { articleSchema, breadcrumbSchema } from "@/lib/schema";
+import { pagesMetadata } from "@/data/pages-metadata";
+import { buildMetadata } from "@/lib/seo";
+import { articleSchema, breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
 function slugify(value) {
   return value
@@ -35,12 +36,12 @@ function formatRichText(text) {
 
       if (href.includes("claude.ai") || href.startsWith("#")) {
         const lower = label.toLowerCase();
-        if (lower.includes("retreat")) href = "/retreats";
-        else if (lower.includes("holiday")) href = "/holidays";
+        if (lower.includes("retreat")) href = "/yoga-retreats-goa";
+        else if (lower.includes("holiday")) href = "/yoga-holidays-goa";
         else if (lower.includes("200-hour") || lower.includes("teacher training"))
           href = "/courses/200-hour-yoga-teacher-training-goa";
         else if (lower.includes("about") || lower.includes("us")) href = "/about";
-        else href = "/courses";
+        else href = "/yoga-teacher-training-goa";
       }
 
       const isInternal = href.startsWith("/");
@@ -178,22 +179,20 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) return {};
-  const metadata = makeMetadata(
-    post.seoTitle || post.title,
-    post.excerpt,
-    `/blog/${post.slug}`,
-    post.image,
-  );
-  return {
-    ...metadata,
-    openGraph: {
-      ...metadata.openGraph,
-      type: "article",
-      publishedTime: post.date,
-      modifiedTime: post.updated,
-      authors: [post.author],
-    },
-  };
+
+  const meta = pagesMetadata[slug];
+  if (meta) {
+    return buildMetadata(meta);
+  }
+
+  const metadata = buildMetadata({
+    title: post.seoTitle || post.title,
+    description: post.excerpt,
+    path: `/blog/${post.slug}`,
+    image: post.image,
+    type: "article",
+  });
+  return metadata;
 }
 
 export default async function BlogPostPage({ params }) {
@@ -206,6 +205,12 @@ export default async function BlogPostPage({ params }) {
       new Date(value),
     );
 
+  const meta = pagesMetadata[slug];
+  const pageSchema = webPageSchema(
+    `/blog/${post.slug}`,
+    meta?.title || post.title,
+    meta?.description || post.excerpt,
+  );
   const schema = articleSchema(post);
   const breadcrumbs = breadcrumbSchema([
     { name: "Home", url: "/" },
@@ -215,6 +220,7 @@ export default async function BlogPostPage({ params }) {
 
   return (
     <>
+      <JsonLd data={pageSchema} />
       <JsonLd data={schema} />
       <JsonLd data={breadcrumbs} />
       <article>
