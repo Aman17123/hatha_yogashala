@@ -13,7 +13,11 @@ import { site } from "@/data/siteData";
 // ─────────────────────────────────────────────────────────────────────────────
 export const SITE = {
   name: "The Hatha Yogashala",
-  url: site.url,
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "https://thehathayogashala.com"),
   locale: "en_IN",
   defaultImage: "/og-image.jpg",
   defaultImageAlt:

@@ -8,9 +8,14 @@
  * - 6.5 TouristTrip Schema, Service Schema & Event Schema
  */
 
-import { site } from "@/data/siteData";
-
-const SITE_URL = site.url;
+// Keep schema.js free of cross-imports from siteData to avoid a circular
+// dependency (siteData.js imports seo.js, and seo.js imports siteData.js).
+// Compute the canonical site URL from env directly, matching siteData.js logic.
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "https://thehathayogashala.com");
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const LOCAL_BUSINESS_ID = `${SITE_URL}/#localbusiness`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
