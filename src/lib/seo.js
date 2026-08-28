@@ -15,8 +15,7 @@ export const SITE = {
   name: "The Hatha Yogashala",
   url: "https://www.hathayogashala.com",
   locale: "en_IN",
-  defaultImage:
-    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+  defaultImage: "/og-image.jpg",
   defaultImageAlt:
     "Yoga students practicing teacher training alignment at The Hatha Yogashala in Goa",
   defaultImageWidth: 1200,
