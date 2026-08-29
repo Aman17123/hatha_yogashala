@@ -283,27 +283,30 @@ export default function RetreatTemplate({ retreat, page }) {
       />
 
       {/* ============ STICKY BOOKING SIDEBAR / CONTENT ============ */}
+      {!isSimple && (
+        <MobileStickyBar
+          left={
+            <p className="truncate text-[13px] font-black leading-tight text-[var(--brown)]">
+              From <span className="text-[var(--coral-dark)]">{typeof p.pricing?.shared?.price === "number" ? `${currencySymbol}${p.pricing.shared.price.toLocaleString()}` : "On enquiry"}</span>
+              <span className="text-[13px] font-semibold text-[var(--muted)]"> /person</span>
+            </p>
+          }
+          right={
+            <>
+              <a href="#book" className="button button-primary !px-3 !py-2 !text-[12px] whitespace-nowrap">Book Now</a>
+              <a href={whatsappHref} className="button booking-whatsapp !size-9 !p-0 !text-[13px] flex items-center justify-center" aria-label="WhatsApp inquiry">
+                <SiWhatsapp size={15} aria-hidden="true" />
+              </a>
+            </>
+          }
+        />
+      )}
+
       <div className={isSimple ? "container max-w-4xl mx-auto px-4 py-8" : "container retreat-layout"}>
         {!isSimple && (
           <>
             {/* Sticky booking sidebar */}
             <BookingSidebar page={p} retreat={retreat} />
-            <MobileStickyBar
-              left={
-                <p className="truncate text-[13px] font-black leading-tight text-[var(--brown)]">
-                  From <span className="text-[var(--coral-dark)]">{typeof p.pricing?.shared?.price === "number" ? `${currencySymbol}${p.pricing.shared.price.toLocaleString()}` : "On enquiry"}</span>
-                  <span className="text-[13px] font-semibold text-[var(--muted)]"> /person</span>
-                </p>
-              }
-              right={
-                <>
-                  <a href="#book" className="button button-primary !px-3 !py-2 !text-[12px] whitespace-nowrap">Book Now</a>
-                  <a href={whatsappHref} className="button booking-whatsapp !size-9 !p-0 !text-[13px] flex items-center justify-center" aria-label="WhatsApp inquiry">
-                    <SiWhatsapp size={15} aria-hidden="true" />
-                  </a>
-                </>
-              }
-            />
           </>
         )}
 

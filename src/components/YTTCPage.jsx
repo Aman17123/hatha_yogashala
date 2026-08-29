@@ -493,6 +493,39 @@ export default function YTTCPage({ course }) {
       <StickySubNav links={yttcNavLinks} ariaLabel="Course section navigation" />
 
       {/* ============ MAIN LAYOUT: SIDEBAR + 14 CONTENT SECTIONS ============ */}
+      <MobileStickyBar
+        left={
+          <p className="truncate text-[13px] font-black leading-tight text-[var(--brown)]">
+            From{" "}
+            <span className="text-[var(--coral-dark)]">
+              {currencySymbol}
+              {sharedPrice}
+            </span>
+            <span className="text-[13px] font-semibold text-[var(--muted)]">
+              {" "}
+              / person
+            </span>
+          </p>
+        }
+        right={
+          <>
+            <a
+              href="#registration"
+              className="button button-primary !px-3 !py-2 !text-[12px] whitespace-nowrap"
+            >
+              Reserve Spot
+            </a>
+            <a
+              href={whatsappHref}
+              className="button booking-whatsapp !size-9 !p-0 !text-[13px] flex items-center justify-center"
+              aria-label="WhatsApp inquiry"
+            >
+              <SiWhatsapp size={15} aria-hidden="true" />
+            </a>
+          </>
+        }
+      />
+
       <div className="container retreat-layout">
         {/* Sticky Sidebar */}
         <BookingSidebar
@@ -506,38 +539,6 @@ export default function YTTCPage({ course }) {
           entityLabel="TTC Course"
           studentsLabel="TTC graduates"
           programOptions={programOptions}
-        />
-        <MobileStickyBar
-          left={
-            <p className="truncate text-[13px] font-black leading-tight text-[var(--brown)]">
-              From{" "}
-              <span className="text-[var(--coral-dark)]">
-                {currencySymbol}
-                {sharedPrice}
-              </span>
-              <span className="text-[13px] font-semibold text-[var(--muted)]">
-                {" "}
-                / person
-              </span>
-            </p>
-          }
-          right={
-            <>
-              <a
-                href="#registration"
-                className="button button-primary !px-3 !py-2 !text-[12px] whitespace-nowrap"
-              >
-                Reserve Spot
-              </a>
-              <a
-                href={whatsappHref}
-                className="button booking-whatsapp !size-9 !p-0 !text-[13px] flex items-center justify-center"
-                aria-label="WhatsApp inquiry"
-              >
-                <SiWhatsapp size={15} aria-hidden="true" />
-              </a>
-            </>
-          }
         />
 
         <div className="retreat-content">

@@ -8462,6 +8462,7 @@ body:has(.yttc-page) .floating-actions {
   .retreat-layout {
     display: flex !important;
     flex-direction: column !important;
+    align-items: stretch !important;
     padding-block: 1.5rem 3rem !important;
     padding-inline: 0.75rem !important;
     gap: 1.5rem !important;
