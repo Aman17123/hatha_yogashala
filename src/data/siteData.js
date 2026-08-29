@@ -53,7 +53,15 @@ export function makeMetadata(
   imageAlt,
   type = "website",
 ) {
-  return buildMetadata(title, description, path, image, keywords, imageAlt, type);
+  return buildMetadata(
+    title,
+    description,
+    path,
+    image,
+    keywords,
+    imageAlt,
+    type,
+  );
 }
 
 export function pageMetadata(key) {
@@ -154,8 +162,6 @@ export const testimonials = [
     sourceUrl: "https://www.google.com/maps?q=Hatha+Yogashala+Querim+Goa",
   },
 ];
-
-
 
 export const travelOptions = [
   {
@@ -517,7 +523,7 @@ export const facilities = [
     title: "Meals",
     text: "Three healthy vegetarian and vegan meals per day, prepared fresh to support your practice — sattvic, nourishing, and served daily.",
     image:
-      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-01.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-04.webp",
     alt: "Wholesome vegetarian ashram thali meal served at The Hatha Yogashala in Pernem, Goa",
   },
   {

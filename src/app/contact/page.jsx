@@ -1,13 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Bus,
-  MapPin,
-  MapPinned,
-  Phone,
-  Plane,
-  Train,
-} from "lucide-react";
+import { Bus, MapPin, MapPinned, Phone, Plane, Train } from "lucide-react";
 import BrandLogo from "@/components/BrandLogos";
 import EnquiryForm from "@/components/EnquiryForm";
 import { Accordion } from "@/components/Interactive";
@@ -119,6 +112,8 @@ export default function ContactPage() {
         eyebrow="We’re here to help"
         title="Contact & Travel — The Hatha Yogashala"
         text="Ask about yoga teacher training, retreats, accommodation, travel to Querim–Arambol, or the application process at The Hatha Yogashala in North Goa."
+        image="/images/hatha-yogashala/hatha-yogashala-pernem-goa-graduation-group-photo-celebration-05.webp"
+        imageAlt="Comfortable cottage bedroom interior at The Hatha Yogashala in Querim, Goa"
       />
       <section className="section">
         <Container className="contact-page-grid">
@@ -167,7 +162,12 @@ export default function ContactPage() {
                     className="mt-0.5 size-11 shrink-0"
                   />
                 ) : (
-                  <Phone aria-hidden="true" size={44} className="shrink-0" style={{ color }} />
+                  <Phone
+                    aria-hidden="true"
+                    size={44}
+                    className="shrink-0"
+                    style={{ color }}
+                  />
                 )}
                 <div>
                   <strong>{label}</strong>
@@ -176,7 +176,9 @@ export default function ContactPage() {
               </a>
             ))}
             <p className="text-xs text-[var(--muted)] text-center pt-2 leading-relaxed">
-              Our Goa admissions team is available daily from 8:00 AM to 8:00 PM (IST) to assist you with dates, room availability, and airport arrival.
+              Our Goa admissions team is available daily from 8:00 AM to 8:00 PM
+              (IST) to assist you with dates, room availability, and airport
+              arrival.
             </p>
           </aside>
         </Container>
@@ -214,7 +216,8 @@ export default function ContactPage() {
               <h3 className="mt-4">{site.contact.address}</h3>
               <p className="mt-3">
                 Request the exact arrival window and route before travel so your
-                airport pickup or bus connection is confirmed for The Hatha Yogashala in Querim, North Goa.
+                airport pickup or bus connection is confirmed for The Hatha
+                Yogashala in Querim, North Goa.
               </p>
               <Link
                 className="button button-primary mt-6"

@@ -123,7 +123,9 @@ export function PageHero({
     <section className={`page-hero ${className}`}>
       <Image
         src={image}
-        alt={imageAlt || `The Hatha Yogashala — ${title || "yoga school in Goa"}`}
+        alt={
+          imageAlt || `The Hatha Yogashala — ${title || "yoga school in Goa"}`
+        }
         fill
         loading="eager"
         fetchPriority="high"

@@ -61,7 +61,7 @@ export default function FounderPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
             {/* Left Column — Founder Portrait & Quick Facts */}
-            <div className="lg:col-span-5 space-y-6">
+            <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-24 lg:self-start">
               <div className="relative aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white">
                 <Image
                   src={founderData.image}

@@ -22,15 +22,11 @@ const sections = [
   },
   {
     title: "Refunds and transfers",
-    paragraphs: [
-      placeholders.payment.changes,
-    ],
+    paragraphs: [placeholders.payment.changes],
   },
   {
     title: "School cancellation",
-    paragraphs: [
-      placeholders.payment.schoolCancellation,
-    ],
+    paragraphs: [placeholders.payment.schoolCancellation],
   },
   {
     title: "Payment safety",

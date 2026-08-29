@@ -1,0 +1,11 @@
+▲ Next.js 16.2.12 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.29.110:3000
+✓ Ready in 788ms
+- Experiments (use with caution):
+  · cpus: 2
+
+ GET /retreats/5-day-awaken-and-align-yoga-retreat-goa 200 in 7.7s (next.js: 1194ms, generate-params: 730ms, application-code: 6.5s)
+ GET / 200 in 4.6s (next.js: 466ms, application-code: 4.1s)
+ GET /retreats/3-day-yoga-retreat-goa 200 in 226ms (next.js: 23ms, generate-params: 13ms, application-code: 203ms)
+[?25h

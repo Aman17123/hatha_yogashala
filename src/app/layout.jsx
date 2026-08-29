@@ -118,11 +118,14 @@ export default function RootLayout({ children }) {
             target="_blank"
             rel="noopener noreferrer"
             className="fa-wa"
-            aria-label="Chat with us on WhatsApp"
+            aria-label="Chat with us on WhatsApp — 1 new message"
           >
             <SiWhatsapp aria-hidden="true" size={34} />
             <span className="fa-tooltip" role="tooltip">
               Chat with us
+            </span>
+            <span className="fa-badge" aria-hidden="true">
+              1
             </span>
           </a>
         </div>

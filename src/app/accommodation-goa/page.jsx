@@ -45,7 +45,8 @@ const stayFaqs = [
       "Yes. Room categories include shared dorms, twin-sharing, and private rooms (AC and non-AC). Availability and the private-room fee are confirmed in writing before booking.",
   },
   {
-    question: "What kind of food is served, and can dietary restrictions be accommodated?",
+    question:
+      "What kind of food is served, and can dietary restrictions be accommodated?",
     answer:
       "We serve three freshly prepared, sattvic vegetarian meals daily (Monday through Saturday morning). Our kitchen accommodates vegan, gluten-free, dairy-free, and nut-allergy requirements upon advance notice.",
   },
@@ -59,7 +60,10 @@ const stayFaqs = [
 const atAGlance = [
   ["Location", "Querim, North Goa — near Arambol & Querim beaches"],
   ["Room options", "Shared dorms · twin-sharing · private (AC / non-AC)"],
-  ["Meals & Food", "3 sattvic vegetarian meals daily (Mon–Sat) · vegan/GF on request"],
+  [
+    "Meals & Food",
+    "3 sattvic vegetarian meals daily (Mon–Sat) · vegan/GF on request",
+  ],
   ["Extras", "Hot-water showers, Wi-Fi, UV-filtered drinking water"],
   ["Practice spaces", "Open-air yoga shala among coconut palms"],
   ["Student support", "24/7 on-site support · course manuals · study library"],
@@ -72,7 +76,7 @@ const mealSchedule = [
     description:
       "Herbal teas, seasonal tropical fruits (papaya, bananas, pomegranate), warm Ayurvedic porridge, traditional South Indian poha, idlis or dosas, and soaked seeds.",
     image:
-      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-01.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-08.webp",
     alt: "Fresh breakfast and herbal tea served at The Hatha Yogashala in Goa",
   },
   {
@@ -81,7 +85,7 @@ const mealSchedule = [
     description:
       "A complete balanced Indian thali featuring organic seasonal sabzi (vegetables), protein-rich dal (lentils), whole-grain rice, freshly rolled chapatis, cooling raita, and crisp garden salads.",
     image:
-      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-02.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-04.webp",
     alt: "Traditional vegetarian ashram lunch thali at The Hatha Yogashala in Pernem Goa",
   },
   {
@@ -121,7 +125,7 @@ export default function AccommodationPage() {
         eyebrow="Residential life"
         title="Accommodation & Food at Our Goa Yoga School"
         text="Restful rooms, nourishing sattvic meals, and everyday ashram amenities at The Hatha Yogashala in Querim — a peaceful beachside sanctuary for yoga teacher training and retreats near Arambol."
-        image="/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-bedroom-interior-01.webp"
+        image="/images/accomodation/the-hatha-yogashala-arambol-goa-beach-shacks-night-view-01.webp"
         imageAlt="Comfortable cottage bedroom interior at The Hatha Yogashala in Querim, Goa"
       />
 
@@ -135,7 +139,7 @@ export default function AccommodationPage() {
           />
           <div className="split-layout">
             <Media
-              src="/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp"
+              src="/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-exterior-evening-01.webp"
               alt="Residential campus and accommodation of the yoga school in North Goa"
               className="course-overview-image"
             />
@@ -276,7 +280,11 @@ export default function AccommodationPage() {
                   Mindful Eating in an Open-Air Ashram Setting
                 </h3>
                 <p className="text-sm sm:text-base text-[var(--text)] leading-relaxed">
-                  Meals are served in our shaded communal dining hall overlooking lush Goan greenery. Dining together creates a warm, supportive community (sangha) where teachers and students share conversations, reflections, and laughter after practice.
+                  Meals are served in our shaded communal dining hall
+                  overlooking lush Goan greenery. Dining together creates a
+                  warm, supportive community (sangha) where teachers and
+                  students share conversations, reflections, and laughter after
+                  practice.
                 </p>
               </div>
 
@@ -286,7 +294,8 @@ export default function AccommodationPage() {
                   <span>Dietary Requirements</span>
                 </div>
                 <p className="text-[13px] leading-relaxed text-[var(--muted)]">
-                  Please notify our team during enrollment if you require vegan, gluten-free, or specific allergen-safe meal preparations.
+                  Please notify our team during enrollment if you require vegan,
+                  gluten-free, or specific allergen-safe meal preparations.
                 </p>
               </div>
             </div>

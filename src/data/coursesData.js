@@ -62,7 +62,7 @@ const hundredHour = {
   hours: "100-hour",
   name: "100-Hour Yoga Teacher Training in Goa",
   image:
-    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-02.webp",
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-15.webp",
   level: "Foundation",
   certification: "Yoga Alliance USA Recognized",
   outcome: "Strong foundation, bridge to 200H",
@@ -2071,7 +2071,7 @@ export const retreats = [
         {
           3: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
           5: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-04.webp",
-          7: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
+          7: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-02.webp",
         }[days] ||
         "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
       date: "Monthly retreat start dates year-round",
@@ -2463,7 +2463,8 @@ export const retreats = [
         text: "I came alone and left with a community. The festival is as much about connection as it is about yoga.",
       },
     ],
-    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-birthday-celebration-community-gathering-01.webp",
+    image:
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-birthday-celebration-community-gathering-01.webp",
     date: "Flexible & Annual dates available on enquiry",
     availability: "Booking Open",
     duration: "3 days",

@@ -56,14 +56,15 @@ const whyItems = [
     content:
       "Course pages explain the learning goal, suitability, subjects, teaching method, daily rhythm, stay, price checks, and the limits of each completion document.",
     image:
-      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-yoga-teacher-training-graduation-photo-04.webp",
     alt: "Students studying yoga alignment with props at The Hatha Yogashala in Goa",
   },
   {
     title: "Information before payment",
     content:
       "Dates, total price, room category, meals, teachers, inclusions, assessment, certification, and cancellation terms are confirmed in writing before a reservation is treated as complete.",
-    image: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
+    image:
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-mandala-art-therapy-workshop-03.webp",
     alt: "Residential campus and gardens of The Hatha Yogashala in North Goa",
   },
   {
@@ -78,7 +79,8 @@ const whyItems = [
     title: "A grounded Goa setting",
     content:
       "Residential planning accounts for coastal weather, rest, wet-season access, transport, hydration, laundry, and quiet time instead of treating Goa as scenery alone.",
-    image: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
+    image:
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
     alt: "Coastal yoga practice at The Hatha Yogashala in Goa",
   },
 ];
@@ -328,8 +330,8 @@ export default function HomePage() {
             </StaggerItem>
             <StaggerItem startVisible>
               <p className="text-[15px]">
-                The Hatha Yogashala is a Yoga Alliance-registered yoga school and
-                ashram in Querim, North Goa, offering residential Hatha yoga
+                The Hatha Yogashala is a Yoga Alliance-registered yoga school
+                and ashram in Querim, North Goa, offering residential Hatha yoga
                 teacher training (100, 200, and 300-hour) and restorative yoga
                 retreats (3 to 7 days) with clear course scope, thoughtful
                 student support, and no unsupported claims.
@@ -338,7 +340,10 @@ export default function HomePage() {
             <StaggerItem startVisible>
               <div className="hero-actions">
                 <ButtonLink href="/apply">Reserve your spot</ButtonLink>
-                <ButtonLink href="/yoga-teacher-training-goa" variant="secondary">
+                <ButtonLink
+                  href="/yoga-teacher-training-goa"
+                  variant="secondary"
+                >
                   Explore courses
                 </ButtonLink>
               </div>
@@ -354,7 +359,7 @@ export default function HomePage() {
             <div className="hero-sun" aria-hidden="true" />
             <div className="hero-image">
               <Image
-                src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp"
+                src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-havan-fire-puja-opening-ceremony-14.webp"
                 alt="Yoga students practicing teacher training alignment at The Hatha Yogashala in Goa"
                 fill
                 loading="eager"
@@ -639,7 +644,9 @@ export default function HomePage() {
                     </p>
                   </div>
                 </div>
-                <ButtonLink href="/yoga-alliance-certification">View credentials</ButtonLink>
+                <ButtonLink href="/yoga-alliance-certification">
+                  View credentials
+                </ButtonLink>
               </div>
             </div>
 
@@ -723,7 +730,7 @@ export default function HomePage() {
               {/* Tall left photo */}
               <div className="relative w-full aspect-[3/4] rounded-2xl sm:rounded-[28px] overflow-hidden shadow-md sm:shadow-xl border-2 border-white">
                 <Image
-                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp"
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-graduation-ceremony-flower-rangoli-03.webp"
                   alt="Yoga students practicing on a Goa beach in North Goa"
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
@@ -734,7 +741,7 @@ export default function HomePage() {
               <div className="flex flex-col gap-2.5 sm:gap-4">
                 <div className="relative w-full aspect-square rounded-2xl sm:rounded-[28px] overflow-hidden shadow-md sm:shadow-xl border-2 border-white">
                   <Image
-                    src="/images/accomodation/the-hatha-yogashala-arambol-goa-coconut-palms-sunlight-02.webp"
+                    src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-graduation-ceremony-flower-rangoli-06.webp"
                     alt="Lush tropical coconut palms and peaceful coastal surroundings in North Goa"
                     fill
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
@@ -895,7 +902,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Find your way"
               title="Find Us — Yoga School Location in Goa, India"
-              text="The exact street address is not published because it has not been confirmed. The map shows Goa at regional level."
+              text="The Hatha Yogashala is a residential yoga school in Querim, North Goa — minutes from Arambol beach. Follow the map below for turn-by-turn directions to the ashram."
             />
           </FadeIn>
           <FadeIn className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
@@ -917,9 +924,9 @@ export default function HomePage() {
                 <div className="mt-4 space-y-3 text-sm text-black/70 border-t border-black/10 pt-4">
                   <p>
                     Nestled in peaceful{" "}
-                    <strong>Querim, Pernem, North Goa</strong>, The Hatha Yogashala
-                    is a premier residential yoga teacher training school and
-                    restorative retreat sanctuary in India.
+                    <strong>Querim, Pernem, North Goa</strong>, The Hatha
+                    Yogashala is a premier residential yoga teacher training
+                    school and restorative retreat sanctuary in India.
                   </p>
                   <ul className="grid gap-2 text-[13.5px] font-medium text-black/80">
                     <li className="flex items-center gap-2">

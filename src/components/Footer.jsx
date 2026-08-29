@@ -62,11 +62,6 @@ const socialLinks = [
     href: site.social.facebook,
   },
   {
-    label: "YouTube",
-    name: "youtube",
-    href: site.social.youtube,
-  },
-  {
     label: "Google Maps",
     name: "google-maps",
     href: site.contact.map,
@@ -103,7 +98,7 @@ export default function Footer() {
             <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(201,169,97,0.18)_0%,rgba(201,169,97,0.08)_42%,transparent_68%)] blur-lg" />
             <Image
               src="/images/The-Hatha-Yogashala-hand-logo.png"
-              alt="The_hatha_Yogashala_logo_Best_ypgashala_Goa"
+              alt=""
               fill
               sizes="(max-width: 768px) 260px, 450px"
               className="object-contain opacity-[0.20]"

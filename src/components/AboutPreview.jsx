@@ -1,10 +1,4 @@
-import {
-  Heart,
-  Leaf,
-  ShieldCheck,
-  Sparkles,
-  Users,
-} from "lucide-react";
+import { Heart, Leaf, ShieldCheck, Sparkles, Users } from "lucide-react";
 import { aboutSectionData } from "@/data/siteContentData";
 import { ButtonLink, Container, Media } from "@/components/ui";
 
@@ -21,7 +15,7 @@ export default function AboutPreview({ data = aboutSectionData }) {
               {/* Primary Main Photo */}
               <div className="home-about-main col-span-2 rounded-2xl sm:rounded-[28px] overflow-hidden shadow-lg aspect-[16/10] sm:aspect-[16/11] relative group">
                 <Media
-                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp"
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-graduation-group-photo-celebration-05.webp"
                   alt="Students learning traditional Hatha Yoga alignment in Goa shala"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 45vw"

@@ -1,8 +1,10 @@
 export const posts = [
   {
     slug: "best-time-to-visit-goa-for-yoga-teacher-training-retreats",
-    title: "Best Time to Visit Goa for Yoga Teacher Training & Retreats (Month-by-Month Guide)",
-    seoTitle: "Best Time to Visit Goa for Yoga Teacher Training & Retreats | 2026 Guide",
+    title:
+      "Best Time to Visit Goa for Yoga Teacher Training & Retreats (Month-by-Month Guide)",
+    seoTitle:
+      "Best Time to Visit Goa for Yoga Teacher Training & Retreats | 2026 Guide",
     category: "Goa & Travel",
     date: "2026-08-20",
     updated: "2026-08-20",
@@ -21,7 +23,8 @@ export const posts = [
     ],
     image:
       "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
-    imageAlt: "Sunrise beach yoga session on Querim beach with students from The Hatha Yogashala Goa",
+    imageAlt:
+      "Sunrise beach yoga session on Querim beach with students from The Hatha Yogashala Goa",
     sections: [
       {
         heading: "Overview: When to Visit Goa for Yoga",
@@ -42,14 +45,26 @@ If you're flexible, the shoulder months of October and March offer a good balanc
         heading: "Month-by-Month Breakdown",
         body: `Here is how the climate, crowds, and rates trend across the calendar year in North Goa:`,
         table: {
-          headers: ["Month", "Avg. Temp (°C)", "Humidity", "Crowd Level", "Price Trend"],
+          headers: [
+            "Month",
+            "Avg. Temp (°C)",
+            "Humidity",
+            "Crowd Level",
+            "Price Trend",
+          ],
           rows: [
             ["January", "20–32", "Low", "Very High", "Peak pricing"],
             ["February", "21–33", "Low", "High", "Peak pricing"],
             ["March", "23–34", "Moderate", "Medium", "Mid-range"],
             ["April", "25–35", "Rising", "Low", "Lower"],
             ["May", "27–35", "High", "Very Low", "Lowest"],
-            ["June–September", "24–30", "Very High (monsoon)", "Very Low", "Many schools closed/limited"],
+            [
+              "June–September",
+              "24–30",
+              "Very High (monsoon)",
+              "Very Low",
+              "Many schools closed/limited",
+            ],
             ["October", "24–33", "Moderate", "Medium", "Mid-range"],
             ["November", "22–32", "Low–Moderate", "High", "Rising"],
             ["December", "20–31", "Low", "Very High", "Peak pricing"],
@@ -107,8 +122,10 @@ Shoulder-season slots (October, March) are more forgiving and can often be booke
   },
   {
     slug: "yoga-retreat-vs-yoga-teacher-training-goa",
-    title: "Yoga Retreat vs. Yoga Teacher Training in Goa: Which One Should You Choose?",
-    seoTitle: "Yoga Retreat vs Yoga Teacher Training in Goa | Which is Right for You?",
+    title:
+      "Yoga Retreat vs. Yoga Teacher Training in Goa: Which One Should You Choose?",
+    seoTitle:
+      "Yoga Retreat vs Yoga Teacher Training in Goa | Which is Right for You?",
     category: "Course Guides",
     date: "2026-08-18",
     updated: "2026-08-18",
@@ -126,7 +143,7 @@ Shoulder-season slots (October, March) are more forgiving and can often be booke
       "Hatha yoga retreat Goa",
     ],
     image:
-      "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-havan-fire-puja-opening-ceremony-06.webp",
     imageAlt: "Peaceful garden setting at The Hatha Yogashala in North Goa",
     sections: [
       {
@@ -163,12 +180,32 @@ Both take place in similar beachside ashram settings and often at the same schoo
           rows: [
             ["Duration", "3–7 days", "21–28+ days"],
             ["Daily hours of practice", "2–4 hours", "6+ hours"],
-            ["Certification", "None (Certificate of Attendance)", "Yoga Alliance RYT-200 / RYT-300"],
-            ["Cost", "Lower (shorter stay)", "Higher (extended stay + certification)"],
+            [
+              "Certification",
+              "None (Certificate of Attendance)",
+              "Yoga Alliance RYT-200 / RYT-300",
+            ],
+            [
+              "Cost",
+              "Lower (shorter stay)",
+              "Higher (extended stay + certification)",
+            ],
             ["Physical intensity", "Light to moderate", "Moderate to high"],
-            ["Structure", "Flexible, wellness-focused", "Fixed, academic + practical curriculum"],
-            ["Best for", "Rest, reset, general wellness", "Deepening practice, becoming a certified teacher"],
-            ["Experience needed", "None (open to all)", "None required, but genuine interest helps"],
+            [
+              "Structure",
+              "Flexible, wellness-focused",
+              "Fixed, academic + practical curriculum",
+            ],
+            [
+              "Best for",
+              "Rest, reset, general wellness",
+              "Deepening practice, becoming a certified teacher",
+            ],
+            [
+              "Experience needed",
+              "None (open to all)",
+              "None required, but genuine interest helps",
+            ],
           ],
         },
       },
@@ -219,8 +256,10 @@ Others do it in the opposite order: completing their YTT, then returning periodi
   },
   {
     slug: "how-to-choose-yoga-teacher-training-goa",
-    title: "How to Choose the Best Yoga Teacher Training School in Goa: A 2026 Checklist",
-    seoTitle: "How to Choose the Best Yoga Teacher Training School in Goa | 2026 Checklist",
+    title:
+      "How to Choose the Best Yoga Teacher Training School in Goa: A 2026 Checklist",
+    seoTitle:
+      "How to Choose the Best Yoga Teacher Training School in Goa | 2026 Checklist",
     category: "Teacher Training",
     date: "2026-08-15",
     updated: "2026-08-15",
@@ -238,8 +277,9 @@ Others do it in the opposite order: completing their YTT, then returning periodi
       "The Hatha Yogashala Goa accreditation",
     ],
     image:
-      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
-    imageAlt: "Students learning alignment and adjustments at The Hatha Yogashala Goa",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-yoga-teacher-training-graduation-photo-01.webp",
+    imageAlt:
+      "Students learning alignment and adjustments at The Hatha Yogashala Goa",
     sections: [
       {
         heading: "The 5 Non-Negotiables Before Enrolling",

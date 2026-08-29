@@ -211,6 +211,168 @@ export default function DestinationGoaPage() {
         </Container>
       </section>
 
+      {/* ============ 2B. ORIGINS OF YOGA IN GOA (history) ============ */}
+      <section className="section bg-white">
+        <Container>
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
+                A Coastline of Onward Practice
+              </span>
+              <h2 className="mt-2 text-[var(--brown)]">
+                The Origins of Yoga in Goa
+              </h2>
+              <p className="mt-3 text-sm text-[var(--muted)]">
+                More than a tropical beach escape, Goa holds one of modern
+                yoga&rsquo;s most remarkable growth stories — how an ancient
+                Indian practice found a new world audience on its northern
+                shores.
+              </p>
+            </div>
+
+            <div className="space-y-5 text-[16px] text-[#433c37] leading-relaxed">
+              <p>
+                <strong>What is the history of yoga in Goa?</strong> Yoga in
+                Goa is not a single ancient lineage — it is the meeting point of
+                India&rsquo;s deep yogic traditions with the global seekers who
+                arrived on the Hippie Trail from the late 1960s onward.
+                Fleeing conscription and the pressures of Western urban life,
+                thousands of travellers reached Goa drawn by its natural beauty,
+                affordable living, and an open, tolerant society. They came
+                searching for meaning, and many turned to the yoga, meditation,
+                and Ayurveda they discovered from local teachers and ashrams
+                across India.
+              </p>
+              <p>
+                Goa&rsquo;s north, and <strong>Pernem taluka</strong> in
+                particular, became the heart of this exchange. The region carries
+                older Hindu heritage rooted in the Kadamba dynasty and the
+                Vijayanagara Empire, which shaped its temples and spiritual
+                culture long before European colonisation — and before Goa was
+                liberated from Portuguese rule in 1961. It was this layered,
+                deeply spiritual landscape that made Arambol — then the fishing
+                village of <em>Harmal</em> — the first tourist beach of Pernem
+                in the early 1980s.
+              </p>
+              <p>
+                A defining milestone came in <strong>1985</strong>, when Yoga
+                Master <strong>Sharat Arora</strong> founded the{" "}
+                <strong>Himalayan Iyengar Yoga Centre</strong> — the first yoga
+                school in North Goa — teaching an evolution of Classical Iyengar
+                Yoga developed under his guru, B.K.S. Iyengar. Its legacy helped
+                establish North Goa as a place where serious, disciplined yoga
+                would be taught, studied, and shared across the world.
+              </p>
+              <p>
+                Today the quiet lanes of Arambol and Querim are lined with
+                internationally accredited schools, organic cafés, and
+                meditation studios. What began as a countercultural refuge has
+                matured into one of India&rsquo;s most respected destinations
+                for <strong>yoga teacher training</strong> — an ecosystem our own
+                ashram in Querim is proud to be part of.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ============ 2C. GOA'S YOGA CULTURE TODAY (why it works) ============ */}
+      <section className="section bg-[var(--surface)]/30 border-y border-[var(--border)]">
+        <Container>
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
+                The Goan Way
+              </span>
+              <h2 className="mt-2 text-[var(--brown)]">
+                Why Goa Became a Global Yoga Destination
+              </h2>
+              <p className="mt-3 text-sm text-[var(--muted)]">
+                A rare blend of tradition, climate, community, and calm that
+                keeps serious practitioners returning year after year.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="p-6 rounded-3xl bg-white border border-[var(--border)] shadow-xs">
+                <div className="size-11 rounded-2xl bg-[var(--coral-dark)]/10 text-[var(--coral-dark)] flex items-center justify-center mb-4">
+                  <Heart size={22} />
+                </div>
+                <h3 className="font-heading text-lg font-bold text-[var(--brown)] mb-2">
+                  An Open, Accepting Culture
+                </h3>
+                <p className="text-sm text-[var(--muted)] leading-relaxed">
+                  Goa has welcomed seekers of every background since the 1960s.
+                  Practitioners feel at home immediately — no judgement, no
+                  pressure — only a shared, quiet devotion to practice.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-3xl bg-white border border-[var(--border)] shadow-xs">
+                <div className="size-11 rounded-2xl bg-[var(--coral-dark)]/10 text-[var(--coral-dark)] flex items-center justify-center mb-4">
+                  <Waves size={22} />
+                </div>
+                <h3 className="font-heading text-lg font-bold text-[var(--brown)] mb-2">
+                  Climate That Deepens Practice
+                </h3>
+                <p className="text-sm text-[var(--muted)] leading-relaxed">
+                  Warm, humid air keeps the body warm and supple, supporting
+                  deeper asana work and safe joint mobility throughout long
+                  daily trainings.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-3xl bg-white border border-[var(--border)] shadow-xs">
+                <div className="size-11 rounded-2xl bg-[var(--coral-dark)]/10 text-[var(--coral-dark)] flex items-center justify-center mb-4">
+                  <Sun size={22} />
+                </div>
+                <h3 className="font-heading text-lg font-bold text-[var(--brown)] mb-2">
+                  A True Wellness Community
+                </h3>
+                <p className="text-sm text-[var(--muted)] leading-relaxed">
+                  From Ayurveda to breathwork, sound healing to meditation,
+                  North Goa concentrates world-class wellness teachers within a
+                  few square kilometres — ideal for immersive study.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-3xl bg-white border border-[var(--border)] shadow-xs">
+                <div className="size-11 rounded-2xl bg-[var(--coral-dark)]/10 text-[var(--coral-dark)] flex items-center justify-center mb-4">
+                  <Compass size={22} />
+                </div>
+                <h3 className="font-heading text-lg font-bold text-[var(--brown)] mb-2">
+                  Rooted, Distraction-Free Study
+                </h3>
+                <p className="text-sm text-[var(--muted)] leading-relaxed">
+                  Away from Goa&rsquo;s busier beach towns, Querim offers a
+                  focused ashram atmosphere — palm groves, quiet lanes, and a
+                  5-minute walk to an untouched shore.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-10 rounded-3xl bg-[var(--cream)] border border-[var(--border)] p-8 text-center">
+              <h3 className="font-heading text-xl sm:text-2xl font-bold text-[var(--brown)]">
+                Study Yoga Where Modern Yoga Found Goa
+              </h3>
+              <p className="mx-auto mt-3 max-w-xl text-sm text-[var(--muted)] leading-relaxed">
+                Join The Hatha Yogashala in Querim and train within walking
+                distance of the very coastline that helped shape global yoga —
+                in a calm, authentic, residential setting.
+              </p>
+              <div className="mt-6 flex flex-wrap justify-center gap-3">
+                <ButtonLink href="/yoga-teacher-training-goa" variant="primary">
+                  Explore Our Teacher Training
+                </ButtonLink>
+                <ButtonLink href="/yoga-retreats-goa" variant="secondary">
+                  View Yoga Retreats in Goa
+                </ButtonLink>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* ============ 3. TRAVEL LOGISTICS & ARRIVAL GUIDE ============ */}
       <section className="section bg-white">
         <Container>

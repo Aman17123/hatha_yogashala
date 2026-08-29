@@ -85,6 +85,8 @@ const yttcNavLinks = [
   { id: "learning-outcomes", label: "11. Outcomes" },
   { id: "dates", label: "12. Dates" },
   { id: "fees", label: "13. Fees" },
+  { id: "reviews", label: "14. Reviews" },
+  { id: "faq", label: "15. FAQ" },
 ];
 
 const whyIcons = {
@@ -538,7 +540,7 @@ export default function YTTCPage({ course }) {
           }
         />
 
-        <div className="retreat-content" id="overview">
+        <div className="retreat-content">
           {/* ============ 1. OVERVIEW (White) ============ */}
           <section
             className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"

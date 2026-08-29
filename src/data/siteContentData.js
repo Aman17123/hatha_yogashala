@@ -34,7 +34,7 @@ export const faqData = [
       "Personal assessment call before booking to set expectations.",
     ],
     image:
-      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-garden-lounge-candid-portrait-08.webp",
     imageAlt:
       "Beginner and experienced yoga students practicing asanas in open-air shala",
   },
@@ -51,7 +51,7 @@ export const faqData = [
       "No hidden charges added after booking.",
     ],
     image:
-      "/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-bedroom-interior-01.webp",
+      "/images/accomodation/the-hatha-yogashala-arambol-goa-double-bed-room-interior-01.webp",
     imageAlt: "Private room accommodation at The Hatha Yogashala Goa campus",
   },
   {

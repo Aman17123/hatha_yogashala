@@ -43,12 +43,12 @@ export default function AboutPage() {
         eyebrow="Our story"
         title="About The Hatha Yogashala"
         text="The Hatha Yogashala is a Yoga Alliance-registered yoga school and ashram in Querim, North Goa — a beachside setting for clear teaching, traditional Hatha practice, and honest information near Arambol."
-        image="/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp"
+        image="/images/hatha-yogashala/hatha-yogashala-pernem-goa-yoga-teacher-training-graduation-photo-04.webp"
       />
       <section className="section">
         <Container className="split-layout">
           <Media
-            src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp"
+            src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-havan-fire-puja-opening-ceremony-13.webp"
             alt="Students learning Hatha yoga in a small group in the Goa shala"
             className="course-overview-image"
           />
@@ -78,16 +78,37 @@ export default function AboutPage() {
 
       <section className="section section-peach">
         <Container>
-          <SectionHeading eyebrow="Our direction" title="Mission, vision, and values" />
+          <SectionHeading
+            eyebrow="Our direction"
+            title="Mission, vision, and values"
+          />
           <div className="values-grid">
             {[
-              ["Mission", "Publish a clear, supportive pathway into yoga study in Goa, with every factual claim approved before it reaches a student.", Heart],
-              ["Vision", "Create a school experience where practice is rigorous, residential life is considered, and booking information is transparent.", Leaf],
-              ["Teaching", "Explain what students will learn, how it will be taught, and who will teach it before enrolment.", BookOpen],
-              ["Trust", "Keep certification, fees, reviews, dates, and outcomes verifiable and easy to update.", ShieldCheck],
+              [
+                "Mission",
+                "Publish a clear, supportive pathway into yoga study in Goa, with every factual claim approved before it reaches a student.",
+                Heart,
+              ],
+              [
+                "Vision",
+                "Create a school experience where practice is rigorous, residential life is considered, and booking information is transparent.",
+                Leaf,
+              ],
+              [
+                "Teaching",
+                "Explain what students will learn, how it will be taught, and who will teach it before enrolment.",
+                BookOpen,
+              ],
+              [
+                "Trust",
+                "Keep certification, fees, reviews, dates, and outcomes verifiable and easy to update.",
+                ShieldCheck,
+              ],
             ].map(([title, text, Icon]) => (
               <article className="card card-body" key={title}>
-                <Icon aria-hidden="true" /><h3>{title}</h3><p>{text}</p>
+                <Icon aria-hidden="true" />
+                <h3>{title}</h3>
+                <p>{text}</p>
               </article>
             ))}
           </div>
@@ -106,12 +127,25 @@ export default function AboutPage() {
               text="The proposed teaching philosophy connects embodied practice with context, safe progression, reflection, and the practical craft of guiding others."
             />
             <ul className="check-list">
-              {["Clear learning outcomes", "Consent-aware instruction", "Time for questions and integration", "Transparent assessment", "Respect for different bodies and backgrounds"].map((item) => (
-                <li key={item}><ShieldCheck aria-hidden="true" />{item}</li>
+              {[
+                "Clear learning outcomes",
+                "Consent-aware instruction",
+                "Time for questions and integration",
+                "Transparent assessment",
+                "Respect for different bodies and backgrounds",
+              ].map((item) => (
+                <li key={item}>
+                  <ShieldCheck aria-hidden="true" />
+                  {item}
+                </li>
               ))}
             </ul>
           </div>
-          <Media src="/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp" alt="Residential study environment for yoga training in Goa" className="course-overview-image" />
+          <Media
+            src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-mandala-art-therapy-workshop-06.webp"
+            alt="Residential study environment for yoga training in Goa"
+            className="course-overview-image"
+          />
         </Container>
       </section>
 
@@ -140,9 +174,35 @@ export default function AboutPage() {
               text="Certification, teachers, graduate outcomes, and student voices each require supporting information and an appropriate public source."
             />
             <div className="policy-grid">
-              <article><h3>Certification</h3><p>{placeholders.certification}. {placeholders.verificationUrl}</p><ButtonLink href="/yoga-alliance-certification" variant="text">View certification</ButtonLink></article>
-              <article><h3>Teaching team</h3><p>Faculty names, qualifications, experience, subject roles, and batch assignments are verified before publication.</p><ButtonLink href="/teachers" variant="text">Meet the teachers</ButtonLink></article>
-              <article><h3>Student reviews</h3><p>No student review is shown without its original platform source, reviewer attribution, rating, and date.</p><ButtonLink href="/contact" variant="text">Ask a question</ButtonLink></article>
+              <article>
+                <h3>Certification</h3>
+                <p>
+                  {placeholders.certification}. {placeholders.verificationUrl}
+                </p>
+                <ButtonLink href="/yoga-alliance-certification" variant="text">
+                  View certification
+                </ButtonLink>
+              </article>
+              <article>
+                <h3>Teaching team</h3>
+                <p>
+                  Faculty names, qualifications, experience, subject roles, and
+                  batch assignments are verified before publication.
+                </p>
+                <ButtonLink href="/teachers" variant="text">
+                  Meet the teachers
+                </ButtonLink>
+              </article>
+              <article>
+                <h3>Student reviews</h3>
+                <p>
+                  No student review is shown without its original platform
+                  source, reviewer attribution, rating, and date.
+                </p>
+                <ButtonLink href="/contact" variant="text">
+                  Ask a question
+                </ButtonLink>
+              </article>
             </div>
           </div>
         </Container>

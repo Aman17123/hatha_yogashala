@@ -6,8 +6,10 @@ export const pranayamaCourses = [
     level: "Foundational / All Levels",
     duration: "10 Days (1 Hour / Day)",
     format: "Live Online & Interactive Sessions (Recordings Included)",
-    timing: "Morning Batch: 07:00 AM – 08:00 AM IST | Evening Batch: 06:00 PM – 07:00 PM IST",
-    timezone: "IST (Indian Standard Time) — UTC+5:30 / CET / EST Friendly Recordings",
+    timing:
+      "Morning Batch: 07:00 AM – 08:00 AM IST | Evening Batch: 06:00 PM – 07:00 PM IST",
+    timezone:
+      "IST (Indian Standard Time) — UTC+5:30 / CET / EST Friendly Recordings",
     price: "$49 USD / ₹3,999 INR",
     trialPrice: "$10 USD Trial Session Available",
     prerequisites: "None. Suitable for absolute beginners and all body types.",
@@ -17,8 +19,9 @@ export const pranayamaCourses = [
       ctaText: "Continue to Beginner Pranayama",
     },
     heroImage:
-      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-03.webp",
-    heroImageAlt: "Student practicing foundational yogic breathing on Querim beach Goa",
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-savasana-final-relaxation-pose-03.webp",
+    heroImageAlt:
+      "Student practicing foundational yogic breathing on Querim beach Goa",
     galleryImages: [
       {
         src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-02.webp",
@@ -120,12 +123,14 @@ export const pranayamaCourses = [
     ],
     faqs: [
       {
-        question: "What is pre-pranayama and why do I need it before classical pranayama?",
+        question:
+          "What is pre-pranayama and why do I need it before classical pranayama?",
         answer:
           "Pre-pranayama consists of preparatory exercises that re-educate the respiratory muscles and nervous system. Jumping directly into intense breath retentions or rapid pumping without preparatory training can cause hyperventilation and tension. Pre-pranayama ensures safe, effortless lung expansion.",
       },
       {
-        question: "Do I need any yoga experience to join this foundation course?",
+        question:
+          "Do I need any yoga experience to join this foundation course?",
         answer:
           "No experience is needed. The course is designed from the ground up for all ages and fitness levels. Modifications and props (cushions, chairs, blocks) are provided for sitting comfortably.",
       },
@@ -155,7 +160,8 @@ export const pranayamaCourses = [
     },
     heroImage:
       "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
-    heroImageAlt: "Evening candlelit pranayama session at The Hatha Yogashala Goa",
+    heroImageAlt:
+      "Evening candlelit pranayama session at The Hatha Yogashala Goa",
     galleryImages: [
       {
         src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-06.webp",
@@ -284,7 +290,8 @@ export const pranayamaCourses = [
     timezone: "IST (Indian Standard Time) — Recordings Included",
     price: "$129 USD / ₹10,499 INR",
     trialPrice: "$15 USD Drop-in Evaluation",
-    prerequisites: "Completion of Beginner Pranayama or 6+ months consistent breath practice.",
+    prerequisites:
+      "Completion of Beginner Pranayama or 6+ months consistent breath practice.",
     nextStep: {
       slug: "advanced-pranayama-course",
       title: "Advanced Pranayama Course",
@@ -292,7 +299,8 @@ export const pranayamaCourses = [
     },
     heroImage:
       "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
-    heroImageAlt: "Intermediate pranayama and bandhas training at The Hatha Yogashala Goa",
+    heroImageAlt:
+      "Intermediate pranayama and bandhas training at The Hatha Yogashala Goa",
     galleryImages: [
       {
         src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-havan-fire-puja-opening-ceremony-03.webp",
@@ -311,7 +319,8 @@ export const pranayamaCourses = [
       },
     ],
     seo: {
-      title: "Intermediate Pranayama Course: Bandhas & Kumbhaka | The Hatha Yogashala",
+      title:
+        "Intermediate Pranayama Course: Bandhas & Kumbhaka | The Hatha Yogashala",
       description:
         "Deepen your breathwork with classical Kumbhaka ratios (1:4:2), Kapalabhati, Bhastrika, and the three Bandhas (Mula, Uddiyana, Jalandhara).",
       keywords: [
@@ -421,7 +430,8 @@ export const pranayamaCourses = [
     timezone: "IST (Indian Standard Time)",
     price: "$199 USD / ₹15,999 INR",
     trialPrice: "Application & Assessment Required",
-    prerequisites: "Intermediate Pranayama certification or minimum 1 year dedicated breathwork.",
+    prerequisites:
+      "Intermediate Pranayama certification or minimum 1 year dedicated breathwork.",
     nextStep: {
       slug: "prana-circle",
       title: "The Prana Circle Community",
@@ -429,7 +439,8 @@ export const pranayamaCourses = [
     },
     heroImage:
       "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-05.webp",
-    heroImageAlt: "Deep meditative pranayama in the quiet shala at The Hatha Yogashala Goa",
+    heroImageAlt:
+      "Deep meditative pranayama in the quiet shala at The Hatha Yogashala Goa",
     galleryImages: [
       {
         src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-12.webp",
@@ -558,7 +569,8 @@ export const pranayamaCourses = [
     timezone: "IST / On-Demand 24/7 Access",
     price: "$39 USD / ₹2,999 INR",
     trialPrice: "$10 USD Single Session Access",
-    prerequisites: "None. Open to anyone feeling stressed, burnt out, or overwhelmed.",
+    prerequisites:
+      "None. Open to anyone feeling stressed, burnt out, or overwhelmed.",
     nextStep: {
       slug: "daily-pranayama-subscription",
       title: "Daily Pranayama Classes",
@@ -566,7 +578,8 @@ export const pranayamaCourses = [
     },
     heroImage:
       "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-03.webp",
-    heroImageAlt: "Restorative candlelit meditation and breath relaxation in Goa",
+    heroImageAlt:
+      "Restorative candlelit meditation and breath relaxation in Goa",
     galleryImages: [
       {
         src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-savasana-final-relaxation-pose-01.webp",
@@ -705,7 +718,8 @@ export const pranayamaCourses = [
     },
     heroImage:
       "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
-    heroImageAlt: "Morning community pranayama circle at sunrise on Querim beach Goa",
+    heroImageAlt:
+      "Morning community pranayama circle at sunrise on Querim beach Goa",
     galleryImages: [
       {
         src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-04.webp",
@@ -724,7 +738,8 @@ export const pranayamaCourses = [
       },
     ],
     seo: {
-      title: "Daily Pranayama Classes Online (Monthly Subscription) | The Hatha Yogashala",
+      title:
+        "Daily Pranayama Classes Online (Monthly Subscription) | The Hatha Yogashala",
       description:
         "Join live daily 30-minute morning and evening Pranayama and meditation classes with expert Indian teachers. $10 trial session available. Subscribe for $99/mo.",
       keywords: [
@@ -972,7 +987,8 @@ export const pranayamaCourses = [
     timezone: "IST (Indian Standard Time)",
     price: "Complimentary for Course Alumni & Active Subscribers",
     trialPrice: "Free for Alumni / Included in Subscription",
-    prerequisites: "Enrollment in any The Hatha Yogashala course or active daily subscription.",
+    prerequisites:
+      "Enrollment in any The Hatha Yogashala course or active daily subscription.",
     heroImage:
       "/images/hatha-yogashala/hatha-yogashala-pernem-goa-graduation-group-photo-celebration-01.webp",
     heroImageAlt: "Alumni community gathering at The Hatha Yogashala Goa",
@@ -985,7 +1001,8 @@ export const pranayamaCourses = [
       {
         src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-teacher-led-meditation-philosophy-talk-10.webp",
         alt: "Philosophical Satsang and open dialogue with lead faculty",
-        caption: "Direct access to lead teachers for guidance and spiritual counsel",
+        caption:
+          "Direct access to lead teachers for guidance and spiritual counsel",
       },
       {
         src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-certificate-presentation-teacher-training-01.webp",
