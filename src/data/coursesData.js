@@ -1353,8 +1353,8 @@ const threeHundredHour = {
 // ---------------------------------------------------------------------
 const flexibleTwoHundredHour = {
   slug: "22-day-200-hour-flexible-yoga-teacher-training-goa",
-  hours: "200-hour",
-  name: "22-Day 200 Hour Flexible Yoga Teacher Training Goa",
+   hours: "200-hour",
+  name: "22-Day 200-Hour Flexible Yoga Teacher Training in Goa",
   image:
     "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-04.webp",
   level: "Multi-Style & Flexible",
@@ -1667,8 +1667,8 @@ const ashtangaTwoHundredHour = {
 // ---------------------------------------------------------------------
 const aerialTtc = {
   slug: "aerial-yoga-teacher-training-goa",
-  hours: "50-hour",
-  name: "Aerial Yoga Teacher Training Course in Goa",
+   hours: "50-hour",
+  name: "Aerial Yoga Teacher Training in Goa",
   image:
     "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-08.webp",
   level: "Aerial Specialist",
@@ -2119,7 +2119,7 @@ export const retreats = [
   {
     slug: "5-day-awaken-and-align-yoga-retreat-goa",
     days: 5,
-    name: "5-Day Awaken & Align Retreat",
+    name: "5-Day Awaken & Align Yoga Retreat in Goa",
     category: "Kundalini & Iyengar Fusion",
     description:
       "The Awaken & Align Retreat is a five-day journey into Iyengar-style asana, Tantra philosophy, and Kundalini and Chakra Sadhana. Structured around a clear arc — arrival, deep practice, and closing ceremony — this retreat is built for those seeking a more focused, tradition-rooted exploration of yoga and inner alignment.",
@@ -2418,7 +2418,7 @@ export const retreats = [
   {
     slug: "yoga-festivals-goa",
     days: 3,
-    name: "Yoga Festival in Goa",
+    name: "Yoga Festivals in Goa",
     category: "Festival & Community",
     description:
       "Once a year, The Hatha Yogashala opens its doors for a celebration of yoga in all its forms. Our Yoga Festival brings together practitioners, teachers, musicians, and seekers from around the world for days of shared practice, workshops, live music, and community — a joyful gathering for anyone who loves yoga, in whatever form that takes.",

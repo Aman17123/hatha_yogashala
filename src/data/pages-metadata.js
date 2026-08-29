@@ -498,4 +498,15 @@ export const pagesMetadata = {
     imageAlt: "Online yoga and meditation class session",
     type: "website",
   },
+
+  "prana-circle": {
+    title: "The Prana Circle (Alumni Community) | The Hatha Yogashala",
+    description:
+      "The Prana Circle is a monthly global community Satsang for The Hatha Yogashala alumni and subscribers, featuring group breathwork and master mentoring.",
+    path: "/online-pranayama/prana-circle",
+    image:
+      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-graduation-group-photo-celebration-01.webp",
+    imageAlt: "Alumni community gathering at The Hatha Yogashala Goa",
+    type: "website",
+  },
 };

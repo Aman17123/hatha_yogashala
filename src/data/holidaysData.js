@@ -2,7 +2,7 @@ export const holidays = [
   {
     slug: "3-day-yoga-holiday-goa",
     days: 3,
-    name: "3 Days Yoga Holiday",
+    name: "3-Day Yoga Holiday in Goa",
     tagline: "Take a 3-day break from your busy and noisy life by the magnificent ocean in Goa.",
     subtitle: "An authentic yogic experience to feel centered and aligned with life once again.",
     price: "$250 USD",
@@ -75,7 +75,7 @@ export const holidays = [
   {
     slug: "5-day-yoga-holiday-goa",
     days: 5,
-    name: "5 Days Yoga Holiday",
+    name: "5-Day Yoga Holiday in Goa",
     tagline: "Escape the daily noise and delve deeper into your inner self with our 5-day yoga retreat.",
     subtitle: "Freedom to practice at your own pace with Ayurvedic spa massages and wholesome meals.",
     price: "$410 USD",
@@ -172,7 +172,7 @@ export const holidays = [
   {
     slug: "7-day-yoga-holiday-goa",
     days: 7,
-    name: "7 Days Yoga Holiday",
+    name: "7-Day Yoga Holiday in Goa",
     tagline: "Experience the ultimate one-week yoga retreat in Goa with The Hatha Yogashala Goa.",
     subtitle: "A complete one-week Ayurvedic immersion with three complimentary full-body massages.",
     price: "$570 USD",

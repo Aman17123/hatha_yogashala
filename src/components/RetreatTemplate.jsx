@@ -119,23 +119,40 @@ export default function RetreatTemplate({ retreat, page }) {
       availability: "https://schema.org/InStock",
     });
   }
+  // Per SEO spec Section 6.5: core multi-day retreats use TouristTrip;
+  // Ayurvedic Massage Therapy is a single treatment (Service); Yoga
+  // Festivals are date-specific occurrences (Event, no fabricated dates).
+  const isMassageRetreat = retreat.slug === "ayurvedic-massage-therapy-goa";
+  const isFestivalRetreat = retreat.slug === "yoga-festivals-goa";
+  const tripSchemaType = isMassageRetreat
+    ? "Service"
+    : isFestivalRetreat
+      ? "Event"
+      : "TouristTrip";
+
   const tripSchema = {
     "@context": "https://schema.org",
-    "@type": "TouristTrip",
+    "@type": tripSchemaType,
     name: retreat.name,
     description: retreat.description,
     url: absoluteUrl(`/retreats/${retreat.slug}`),
-    touristType: "Yoga and wellness travellers",
     provider: { "@type": "Organization", "@id": ORG_ID, name: site.name },
-    itinerary: p.daysSchedule?.length > 0 ? {
-      "@type": "ItemList",
-      itemListElement: p.daysSchedule.map((day, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        name: `Day ${index + 1} — ${day.title}`,
-        description: day.intro,
-      })),
-    } : undefined,
+    ...(!isMassageRetreat && !isFestivalRetreat
+      ? {
+          touristType: "Yoga and wellness travellers",
+          itinerary: p.daysSchedule?.length > 0
+            ? {
+                "@type": "ItemList",
+                itemListElement: p.daysSchedule.map((day, index) => ({
+                  "@type": "ListItem",
+                  position: index + 1,
+                  name: `Day ${index + 1} — ${day.title}`,
+                  description: day.intro,
+                })),
+              }
+            : undefined,
+        }
+      : {}),
     offers: tripOffers.length > 0 ? tripOffers : undefined,
   };
   const pageSchema = {

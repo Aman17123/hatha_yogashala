@@ -81,7 +81,6 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@hathayogashala",
     title:
       "Yoga School in Goa | Teacher Training & Retreats – The Hatha Yogashala",
     description:

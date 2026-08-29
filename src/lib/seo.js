@@ -25,7 +25,6 @@ export const SITE = {
   defaultImageWidth: 1200,
   defaultImageHeight: 630,
   twitterCard: "summary_large_image",
-  twitterSite: "@hathayogashala", // Placeholder handle noted in spec — confirm real handle before launch
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -108,7 +107,6 @@ export function buildMetadata(
     },
     twitter: {
       card: SITE.twitterCard,
-      site: SITE.twitterSite,
       title,
       description: desc,
       images: [ogImageUrl],
