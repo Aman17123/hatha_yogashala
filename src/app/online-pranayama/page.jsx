@@ -41,6 +41,10 @@ export default function OnlinePranayamaHubPage() {
         eyebrow="Classical Breathwork & Mastery"
         title="The Hatha Yogashala — Pranayama & Breathwork"
         text="Experience authentic yogic breathing from foundational respiratory anatomy to advanced Kumbhaka ratios, energy locks (Bandhas), and daily guided sadhana with Master teachers."
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Online Pranayama" },
+        ]}
       />
 
       <section className="section bg-white">

@@ -8639,3 +8639,187 @@ body:has(.yttc-page) .floating-actions {
 }
 
 
+
+/* =============================================================================
+   MOBILE: Holiday-style light & compact heroes (all pages with a hero)
+   These overrides come last so they win over the dark full-bleed hero styles.
+   On phones every page hero is restyled to look like the compact light hero
+   used on the Yoga Holiday detail pages: cream background, breadcrumb at top,
+   tight top spacing, brown text, and light chips instead of a tall dark image.
+   ============================================================================= */
+@media (max-width: 767px) {
+
+  /* ── PageHero (about, online-pranayama, teachers, contact, etc.) ── */
+  .page-hero {
+    display: block !important;
+    min-height: 0 !important;
+    align-items: stretch !important;
+    overflow: visible !important;
+    padding-block: 1.5rem 2rem !important;
+    background: var(--cream) !important;
+    color: var(--brown) !important;
+  }
+  .page-hero > img,
+  .page-hero-overlay {
+    display: none !important;
+  }
+  .page-hero > .container {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+  .page-hero .breadcrumbs {
+    justify-content: flex-start !important;
+    margin-bottom: 0.8rem !important;
+  }
+.page-hero .breadcrumbs li {
+    color: var(--muted) !important;
+    font-size: 12px !important;
+  }
+  .page-hero .breadcrumbs a {
+    color: var(--muted) !important;
+  }
+  .page-hero .breadcrumbs a:hover {
+    color: var(--coral-dark) !important;
+  }
+  .page-hero .breadcrumbs li > span:not([aria-hidden]) {
+    color: var(--brown) !important;
+    font-weight: 700 !important;
+  }
+  .page-hero-eyebrow {
+    color: var(--coral-dark) !important;
+    font-size: 11px !important;
+    letter-spacing: 0.15em !important;
+    margin-bottom: 0.45rem !important;
+  }
+  .page-hero h1 {
+    color: var(--brown) !important;
+    font-size: clamp(26px, 7vw, 34px) !important;
+    line-height: 1.15 !important;
+  }
+  .page-hero-copy {
+    color: var(--muted) !important;
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    max-width: none !important;
+  }
+  .page-hero-actions {
+    margin-top: 1.1rem !important;
+  }
+  .page-hero-facts {
+    margin-top: 1.1rem !important;
+  }
+  .page-hero-facts div {
+    min-width: 0 !important;
+    padding: 0.5rem 0.65rem !important;
+    background: #fff !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+    backdrop-filter: none !important;
+  }
+  .page-hero-facts dt {
+    color: var(--coral-dark) !important;
+    font-size: 10.5px !important;
+  }
+  .page-hero-facts dd {
+    color: var(--brown) !important;
+    font-size: 11.5px !important;
+  }
+
+  /* ── Retreat / TTC hero (retreat-hero) ── */
+  .retreat-hero {
+    background: var(--cream) !important;
+    color: var(--brown) !important;
+    min-height: 0 !important;
+    padding-top: 1.25rem !important;
+  }
+  .retreat-hero-bg,
+  .retreat-hero-bg-img,
+  .retreat-hero-bg img,
+  .retreat-hero-media,
+  .retreat-hero-overlay,
+  .retreat-hero-orb {
+    display: none !important;
+  }
+.retreat-hero-inner {
+    padding-block: 0.25rem 1.75rem !important;
+  }
+  .retreat-hero-breadcrumb,
+  .retreat-hero-breadcrumb a {
+    color: var(--muted) !important;
+    font-size: 12px !important;
+  }
+  .retreat-hero-breadcrumb a:hover {
+    color: var(--coral-dark) !important;
+  }
+  .retreat-hero-breadcrumb span:last-child {
+    color: var(--brown) !important;
+    font-weight: 700 !important;
+  }
+  .retreat-hero-badges {
+    justify-content: flex-start !important;
+  }
+  .retreat-hero-badge,
+  .retreat-hero-badge-sub {
+    color: var(--coral-dark) !important;
+    background: rgba(36, 64, 47, 0.08) !important;
+    border: 1px solid rgba(36, 64, 47, 0.2) !important;
+    backdrop-filter: none !important;
+  }
+  .retreat-hero-badge svg,
+  .retreat-hero-badge-sub svg {
+    color: var(--coral-dark) !important;
+  }
+.retreat-hero-title,
+  .retreat-hero h1 {
+    color: var(--brown) !important;
+    text-shadow: none !important;
+  }
+  .retreat-hero-lead,
+  .retreat-hero-tagline {
+    color: var(--muted) !important;
+    text-shadow: none !important;
+  }
+  .retreat-hero-meta {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    grid-template-columns: none !important;
+    gap: 0.5rem !important;
+    margin-top: 0.9rem !important;
+  }
+  .retreat-hero-meta > div {
+    width: auto !important;
+    min-width: 0 !important;
+    flex: 0 0 auto !important;
+  }
+  .retreat-hero-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
+    width: auto !important;
+    gap: 0.6rem !important;
+    margin-top: 1.15rem !important;
+  }
+  .retreat-hero-actions .retreat-hero-cta,
+  .retreat-hero-actions .retreat-hero-wa {
+    width: auto !important;
+    padding: 0.6rem 1.3rem !important;
+    font-size: 13px !important;
+  }
+  .retreat-hero-meta > div {
+    background: #fff !important;
+    border: 1px solid var(--border) !important;
+    backdrop-filter: none !important;
+    color: var(--brown) !important;
+    box-shadow: 0 1px 3px rgba(36, 36, 29, 0.06) !important;
+    min-height: 0 !important;
+  }
+  .retreat-hero-meta > div > svg {
+    color: var(--coral-dark) !important;
+  }
+  .retreat-hero-meta span {
+    color: var(--muted) !important;
+  }
+  .retreat-hero-meta strong {
+    color: var(--brown) !important;
+  }
+}

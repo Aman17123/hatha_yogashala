@@ -101,7 +101,7 @@ export default function PranayamaTemplate({ course }) {
       <JsonLd data={faqSchema} />
 
       {/* ============ 1. HERO SECTION ============ */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[var(--cream)] via-[var(--surface)]/30 to-white pt-8 pb-16 md:pt-12 md:pb-24 border-b border-[var(--border)]/70">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[var(--cream)] via-[var(--surface)]/30 to-white pt-4 pb-12 md:pt-12 md:pb-24 border-b border-[var(--border)]/70">
         <Container>
           <Breadcrumbs
             items={[
@@ -111,7 +111,7 @@ export default function PranayamaTemplate({ course }) {
             ]}
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mt-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mt-4 md:mt-6">
             <div className="lg:col-span-7 flex flex-col items-start">
               <span className="inline-flex items-center gap-2 rounded-full bg-[var(--coral-dark)]/10 text-[var(--coral-dark)] px-4 py-1.5 text-xs sm:text-[13px] font-bold uppercase tracking-wider mb-4 border border-[var(--coral-dark)]/20">
                 <Wind size={15} aria-hidden="true" />

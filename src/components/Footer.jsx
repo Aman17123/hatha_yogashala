@@ -107,11 +107,11 @@ export default function Footer() {
         </div>
 
         <Container>
-          <div className="relative flex flex-col items-center gap-1.5 sm:gap-2 lg:gap-3 py-4 sm:py-5 md:py-6 lg:py-8 xl:py-10 text-center">
+          <div className="relative flex flex-col items-center gap-1.5 sm:gap-2 lg:gap-3 py-2.5 sm:py-4 md:py-6 lg:py-8 xl:py-10 text-center">
             <p className="font-mono text-[11px] sm:text-xs lg:text-[13.5px] uppercase tracking-[0.28em] sm:tracking-[0.32em] text-[var(--gold)]">
               Breathe · Move · Awaken
             </p>
-            <h2 className="max-w-xl text-[var(--brown)] tracking-[-0.02em]">
+            <h2 className="max-w-xl text-[var(--brown)] tracking-[-0.02em] text-[22px] sm:text-3xl lg:text-4xl">
               Book Your Course or Retreat
             </h2>
 
@@ -134,8 +134,8 @@ export default function Footer() {
       {/* link columns */}
       <section className="relative z-10 -mt-3 sm:-mt-4 lg:-mt-3">
         <Container>
-          <Reveal className="grid gap-5 py-4 sm:gap-6 sm:py-5 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-[1.3fr_1.05fr_1.05fr_1fr_1.2fr] lg:gap-7 lg:py-8 xl:py-10">
-            <FooterColumn>
+          <Reveal className="grid grid-cols-2 gap-x-5 gap-y-6 py-3 text-left sm:gap-6 sm:py-5 sm:grid-cols-2 sm:text-left lg:grid-cols-[1.3fr_1.05fr_1.05fr_1fr_1.2fr] lg:gap-7 lg:py-8 xl:py-10">
+            <FooterColumn className="col-span-2 px-6 sm:col-span-1 sm:px-0">
               <Link
                 href="/"
                 className="mb-2 sm:mb-2.5 inline-flex items-center justify-center sm:justify-start"
@@ -269,9 +269,11 @@ export default function Footer() {
   );
 }
 
-function FooterColumn({ children }) {
+function FooterColumn({ children, className = "" }) {
   return (
-    <div className="flex flex-col items-center sm:items-start">{children}</div>
+    <div className={`flex flex-col items-center sm:items-start ${className}`}>
+      {children}
+    </div>
   );
 }
 
