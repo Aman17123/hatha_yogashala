@@ -449,7 +449,7 @@ export function FinalCTA({
         <h2 id="final-cta-title">{title}</h2>
         <p>{text}</p>
         <div className="final-cta-actions">
-          <ButtonLink href="/apply">Reserve your spot</ButtonLink>
+          <ButtonLink href="/apply">Book Now</ButtonLink>
           <ButtonLink href="/contact#whatsapp" variant="light">
             <SiWhatsapp aria-hidden="true" size={17} />
             Ask on WhatsApp

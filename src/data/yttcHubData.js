@@ -268,37 +268,37 @@ export const yttcDailySchedule = [
 
 const sharedGallery = [
   {
-    src: IMAGES.campus,
-    alt: "Shared student twin room at the Hatha Yogashala Goa ashram",
+    src: "/images/accomodation/the-hatha-yogashala-arambol-goa-twin-bed-room-interior-01.webp",
+    alt: "Shared student twin AC bedroom at The Hatha Yogashala Goa",
     caption: "Shared twin room",
   },
   {
-    src: IMAGES.coast,
-    alt: "Palm-lined garden grounds of the TTC campus in Querim, North Goa",
-    caption: "Garden setting",
+    src: "/images/accomodation/the-hatha-yogashala-arambol-goa-twin-bed-room-interior-02.webp",
+    alt: "Twin sharing room with veranda and tropical garden view in North Goa",
+    caption: "Garden setting & veranda",
   },
   {
-    src: IMAGES.class,
-    alt: "Open-air practice shala used by teacher training students",
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
+    alt: "Open-air wooden practice shala used by teacher training students",
     caption: "Open-air practice hall",
   },
 ];
 
 const privateGallery = [
   {
-    src: IMAGES.campus,
-    alt: "Private student room with attached bathroom at the Goa ashram",
-    caption: "Private room",
+    src: "/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-bedroom-interior-01.webp",
+    alt: "Private student cottage room with attached bathroom at the Goa ashram",
+    caption: "Private cottage room",
   },
   {
-    src: IMAGES.hero,
-    alt: "Quiet corner of the residential TTC campus in North Goa",
-    caption: "Study nook",
+    src: "/images/accomodation/the-hatha-yogashala-arambol-goa-double-bed-room-interior-01.webp",
+    alt: "Spacious private double room with workspace and attached modern bathroom",
+    caption: "Spacious double bedroom",
   },
   {
-    src: IMAGES.coast,
-    alt: "Path from the private rooms down to Querim beach",
-    caption: "Beach access",
+    src: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
+    alt: "Quiet eco-cottages surrounded by lush tropical gardens in North Goa",
+    caption: "Eco-cottages exterior",
   },
 ];
 
@@ -374,13 +374,194 @@ export const yttcFaqs = [
   },
 ];
 
+export const yttcSyllabusModules = [
+  {
+    number: "01",
+    title: "Asana Classes",
+    shortSummary: "Ashtanga Primary Series (A & B), classical Hatha, pranayama, bandhas, drishti & Sanskrit names",
+    paragraphs: [
+      "All our asana classes are dedicated to the in-depth study and practice of the Ashtanga primary series. In these sessions, asanas are practiced in a dynamic, set sequence, with a strong focus on mastering the A and B series. Emphasis is placed on breath control (pranayama), energy locks (bandhas), and the gaze (drishti).",
+      "Ashtanga, which means “eight limbs,” is a branch of yoga introduced to the modern world by K. Pattabhi Jois in the 20th century. While Ashtanga yoga is a prominent focus, we also delve deeply into Hatha yoga. Hatha yoga practice includes postures, pranayama, proper yogic diet, body purification, and discipline, all aimed at achieving health and well-being as a foundation for spiritual growth.",
+      "In these classes, you will also learn the Sanskrit names of the postures, connecting you to the ancient roots of this practice.",
+    ],
+    points: [],
+  },
+  {
+    number: "02",
+    title: "Methodology",
+    shortSummary: "Integrating yogic lifestyle, class prep, presentation & teaching leadership",
+    paragraphs: [
+      "Learn to integrate the yogic lifestyle into modern living and share this wisdom with your future students. Key aspects include:",
+    ],
+    points: [
+      "Incorporating Yoga into Daily Life: Applying yogic disciplines in contemporary settings.",
+      "Class Preparation: Setting up the space and ensuring a conducive environment for teaching.",
+      "Class Presentation: Guidelines for delivering engaging and effective classes.",
+      "Teaching Skills: Developing techniques to clearly explain and lead sessions.",
+    ],
+    note: "Equip yourself with the tools to teach yoga effectively and inspire your students.",
+  },
+  {
+    number: "03",
+    title: "Pranayama Classes",
+    shortSummary: "Vital life energy control, correct breathing techniques & 7 classical pranayamas",
+    paragraphs: [
+      "Pranayama is the conscious control of the vital life energy, with prana meaning life force and ayana meaning control. It involves mastering correct yogic breathing techniques, transforming breathing from an unconscious act into a mindful, intentional practice. Pranayama is particularly beneficial for healing stress-related disorders, promoting overall balance and well-being.",
+      "In our course, you will learn a variety of specific pranayama techniques, each with its own unique healing and balancing effects:",
+    ],
+    points: [
+      "Nadi Shodhana (Alternate Nostril Breathing)",
+      "Ujjayi (Victorious Breath)",
+      "Kapalbhati (Skull Shining Breath)",
+      "Bhastrika (Bellows Breath)",
+      "Bhramari (Humming Bee Breath)",
+      "Sheetali (Cooling Breath)",
+      "Shitkari (Hissing Breath)",
+    ],
+    note: "These techniques will deepen your understanding and practice of pranayama, guiding you towards greater physical and mental harmony.",
+  },
+  {
+    number: "04",
+    title: "Mantras",
+    shortSummary: "Sanskrit sound syllables, positive frequencies, seed mantras & chanting significance",
+    paragraphs: [
+      "In our Yoga Teacher Training Course (YTTC), we explore the power of Sanskrit mantras, which are ancient sound syllables that resonate with specific parts of the body, promoting healing and balance in both the mind and body. These mantras, derived from the Sanskrit alphabet, are known for their ability to induce positive frequencies and facilitate spiritual growth.",
+      "During the course, you will learn various mantras, each with a unique purpose:",
+    ],
+    points: [
+      "Mantras for Good Health: Enhance well-being and vitality.",
+      "Mantras for Wealth: Attract abundance and prosperity.",
+      "Mantras to Remove Obstacles: Clear the path for success and peace.",
+      "Seed Mantras: Activate deep spiritual and energetic healing.",
+    ],
+    note: "These mantras will be taught with their proper pronunciation and significance, enabling you to integrate them into your personal practice and teaching.",
+  },
+  {
+    number: "05",
+    title: "Yoga Philosophy and History",
+    shortSummary: "Kleshas, Koshas, Eight Limbs, Karma/Bhakti/Raja/Kundalini Yoga & history",
+    paragraphs: [
+      "Our Yoga Teacher Training delves into the essence of yoga through its philosophy and history, covering:",
+    ],
+    points: [
+      "Kleshas: The five obstacles to spiritual growth.",
+      "Koshas: The five layers of human existence.",
+      "Eight Limbs of Yoga: Ashtanga Yoga’s path, including yamas, niyamas, asanas, and more.",
+    ],
+    subSectionTitle: "You’ll explore various yoga types:",
+    subPoints: [
+      "Karma Yoga: Selfless action.",
+      "Bhakti Yoga: Devotion.",
+      "Raja Yoga: Meditation and mental control.",
+      "Kundalini Yoga: Awakening spiritual energy.",
+    ],
+    note: "Practical excursions will offer hands-on experience with these styles, alongside a concise summary of yoga’s historical evolution. This blend of theory and practice enriches your teaching and personal journey.",
+  },
+  {
+    number: "06",
+    title: "Alignments and Adjustments",
+    shortSummary: "Entering/exiting postures, holds, alignments, hands-on adjustments & modifications",
+    paragraphs: [
+      "Master the art of safely guiding yourself and others through yoga postures. This module covers:",
+    ],
+    points: [
+      "Entering and Exiting Postures: Techniques for smooth transitions.",
+      "Posture Maintenance: How to hold poses effectively.",
+      "Teaching Alignments: Methods to instruct students on proper posture alignment.",
+      "Hands-On Adjustments: Practical skills for providing corrective adjustments, minimizing injury risks.",
+      "Limitations and Contraindications: Understanding when and how to modify poses for individual needs.",
+    ],
+    note: "Gain confidance in your ability to teach and practice yoga safely and effectively with this essential training.",
+  },
+  {
+    number: "07",
+    title: "Karma Yoga: Selfless Action in Daily Life",
+    shortSummary: "Selfless service, mindful action, detachment from results & inner harmony",
+    paragraphs: [
+      "Karma Yoga focuses on selfless service and mindfulness in everyday tasks. Here’s a brief overview:",
+    ],
+    points: [
+      "Selfless Service: Perform actions without expecting rewards.",
+      "Mindful Action: Be fully present in every task.",
+      "Detachment from Results: Let go of concerns about outcomes.",
+      "Everyday Practice: Turn simple tasks like making your bed, cleaning dishes, and organizing into mindful acts of service.",
+      "Inner Harmony: Achieve balance and peace through daily selfless action.",
+    ],
+    note: "Karma Yoga transforms daily routines into meaningful spiritual practice.",
+  },
+  {
+    number: "08",
+    title: "Introduction to sacred texts",
+    shortSummary: "Patanjali’s Yoga Sutras, Hatha Yoga Pradipika, Bhagavad Gita & regular study",
+    paragraphs: [
+      "Gain insight into key spiritual texts and their significance:",
+    ],
+    points: [
+      "Patanjali’s Yoga Sutras: Explore foundational principles of yoga philosophy.",
+      "Hatha Yoga Pradipika: Understand the essentials of Hatha yoga practice.",
+      "Bhagavad Gita: Delve into the philosophical and spiritual teachings.",
+    ],
+    note: "Learn the benefits of regularly studying these sacred texts to deepen your yoga practice and understanding.",
+  },
+  {
+    number: "09",
+    title: "Mudras",
+    shortSummary: "Total of 12 spiritual, yogic, and healing hand gestures to channel energy",
+    paragraphs: [
+      "Discover the power of spiritual, yogic, and healing hand gestures:",
+    ],
+    points: [
+      "Total of 12 Mudras: Explore various hand gestures used to channel energy and enhance your practice.",
+    ],
+  },
+  {
+    number: "10",
+    title: "Anatomy",
+    shortSummary: "Digestive, respiratory, endocrine, immune, muscular systems & spine focus",
+    paragraphs: [
+      "Comprehensive study of anatomy applied directly to yoga postures and spinal health:",
+    ],
+    points: [
+      "Comprehensive Study: Delve into the digestive, respiratory, endocrine, immune, and muscular systems.",
+      "Focus on the Spine: Detailed examination of the skeleton with an emphasis on spinal function.",
+    ],
+  },
+  {
+    number: "11",
+    title: "Kriyas",
+    shortSummary: "Bodily and mental purification methods & guided practice of at least two kriyas",
+    paragraphs: [
+      "Explore classical yogic kriyas for physical cleansing and mental clarity:",
+    ],
+    points: [
+      "Bodily and Mental Purification: Explore kriyas, which are methods for cleansing and purifying the body and mind.",
+      "Practice and Study: Learn and practice at least two kriyas for deepening your personal and teaching experience.",
+    ],
+  },
+  {
+    number: "12",
+    title: "Meditation",
+    shortSummary: "Silent meditation, Tratak, Sound Healing & Third Eye meditation",
+    paragraphs: [
+      "Diverse Techniques: Engage in and practice four types of meditation.",
+    ],
+    points: [
+      "Silent Meditation: Cultivate inner peace through quiet contemplation.",
+      "Tratak Meditation: Focus on a single point to enhance concentration.",
+      "Sound Healing Meditation: Use sound to promote relaxation and healing.",
+      "Third Eye Meditation: Develop intuition and insight through focused awareness.",
+    ],
+  },
+];
+
 export function getYttcPageData() {
   return {
     name: "Yoga Teacher Training in Goa",
     category: "Yoga Alliance Certified",
     rating: 4.9,
     ratingCount: 187,
-    students: "3,500+",
+    students: "12–15 max",
+    graduates: "3,500+",
     heroTagline:
       "Join The Hatha Yogashala in Goa for Yoga Alliance certified 100/200/300-Hour Yoga Teacher Training and Aerial Yoga TTC. Hatha, Ashtanga, Vinyasa & Ayurveda — beachside, all-inclusive, 24/7 support.",
     duration: "7 to 27 Days · 50 to 300 Hours",
@@ -396,6 +577,7 @@ export function getYttcPageData() {
     teachers: retreatTeachers,
     highlights: yttcHighlights,
     dailySchedule: yttcDailySchedule,
+    curriculum: yttcSyllabusModules,
     experiences: goaExperiences,
     freeTime: freeTimeIdeas,
     accommodation: {

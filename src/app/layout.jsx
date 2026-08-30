@@ -63,7 +63,7 @@ export const metadata = {
   },
   openGraph: {
     title:
-      "Yoga School in Goa | Teacher Training & Retreats – The Hatha Yogashala",
+      "Best Yoga School in Goa | Teacher Training & Retreats – The Hatha Yogashala",
     description:
       "Yoga Alliance-registered yoga school in Goa offering 100–300-hour teacher training and 3–7 day wellness retreats near Querim beach, North Goa. Book now.",
     url: site.url,

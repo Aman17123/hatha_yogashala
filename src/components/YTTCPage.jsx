@@ -6,7 +6,6 @@ import {
   ArrowRight,
   Award,
   BadgeCheck,
-  CalendarDays,
   Camera,
   Check,
   CheckCircle2,
@@ -53,8 +52,10 @@ import {
   yttcOverviewTags,
   yttcWhyChoose,
   yttcHighlights,
+  yttcSyllabusModules,
 } from "@/data/yttcHubData";
 import { Accordion } from "./Interactive";
+import SyllabusAccordion from "./SyllabusAccordion";
 import {
   Container,
   ButtonLink,
@@ -71,21 +72,14 @@ import MonthGuide from "./retreat/MonthGuide";
 import { FadeIn, Stagger, StaggerItem } from "./retreat/Motion";
 
 const yttcNavLinks = [
-  { id: "overview", label: "1. Overview" },
-  { id: "why", label: "2. Why Us" },
-  { id: "syllabus", label: "3. Syllabus" },
-  { id: "schedule", label: "4. Schedule" },
-  { id: "highlights", label: "5. Highlights" },
-  { id: "teachers", label: "6. Teachers" },
-  { id: "experiences", label: "7. Excursions" },
-  { id: "included", label: "8. Included" },
-  { id: "excluded", label: "9. Excluded" },
-  { id: "accommodation", label: "10. Stay & Food" },
-  { id: "learning-outcomes", label: "11. Outcomes" },
-  { id: "dates", label: "12. Dates" },
-  { id: "fees", label: "13. Fees" },
-  { id: "reviews", label: "14. Reviews" },
-  { id: "faq", label: "15. FAQ" },
+  { id: "overview", label: "Overview" },
+  { id: "curriculum", label: "Curriculum" },
+  { id: "schedule", label: "Schedule" },
+  { id: "teachers", label: "Teachers" },
+  { id: "accommodation", label: "Stay & Food" },
+  { id: "certification", label: "Certification" },
+  { id: "fees", label: "Fees & Dates" },
+  { id: "reviews", label: "Reviews & FAQ" },
 ];
 
 const whyIcons = {
@@ -222,7 +216,13 @@ export default function YTTCPage({ course }) {
       ],
     },
     trustBadges: yttcTrustBadges,
-    testimonials: allTestimonials.slice(0, 4),
+    testimonials: course.testimonials || (is100
+      ? allTestimonials.filter((t) => t.platform?.includes("100-Hour") || t.platform?.includes("YTT")).sort((a, b) => (a.platform?.includes("100-Hour") ? -1 : 1))
+      : is200
+        ? allTestimonials.filter((t) => t.platform?.includes("200-Hour") || t.platform?.includes("YTT")).sort((a, b) => (a.platform?.includes("200-Hour") ? -1 : 1))
+        : is300
+          ? allTestimonials.filter((t) => t.platform?.includes("300-Hour") || t.platform?.includes("YTT")).sort((a, b) => (a.platform?.includes("300-Hour") ? -1 : 1))
+          : allTestimonials.filter((t) => t.platform?.includes("YTT"))),
     whatsappMessage: `Hi, I'd like to apply for the ${course.name} in Goa.`,
   };
 
@@ -363,13 +363,6 @@ export default function YTTCPage({ course }) {
           },
         ];
 
-  const datesList = course.dates || [
-    { label: "1st of next month", availability: "6 spots available" },
-    { label: "15th of next month", availability: "4 spots available" },
-    { label: "1st of upcoming month", availability: "8 spots available" },
-    { label: "15th of upcoming month", availability: "Limited spots" },
-  ];
-
   const streamSplit = [
     {
       name: "Asana Techniques & Training",
@@ -422,7 +415,11 @@ export default function YTTCPage({ course }) {
 
           <div className="retreat-hero-badges">
             <span className="retreat-hero-badge">
-              <Sparkles size={13} className="text-[var(--gold)] shrink-0" aria-hidden="true" />
+              <Sparkles
+                size={13}
+                className="text-[var(--gold)] shrink-0"
+                aria-hidden="true"
+              />
               {pageData.category}
             </span>
             <span className="retreat-hero-badge-sub">
@@ -457,7 +454,9 @@ export default function YTTCPage({ course }) {
               />
               <div>
                 <span>Rating</span>
-                <strong>{pageData.rating}/5 ({pageData.ratingCount} reviews)</strong>
+                <strong>
+                  {pageData.rating}/5 ({pageData.ratingCount} reviews)
+                </strong>
               </div>
             </div>
             <div>
@@ -470,10 +469,10 @@ export default function YTTCPage({ course }) {
           </div>
 
           <div className="retreat-hero-actions">
-            <a href="#registration" className="retreat-hero-cta">
-              <span>Reserve Your Spot</span>
+            <Link href="/apply" className="retreat-hero-cta">
+              <span>Book Now</span>
               <ArrowRight size={17} aria-hidden="true" />
-            </a>
+            </Link>
             <a
               href={whatsappHref}
               target="_blank"
@@ -481,7 +480,11 @@ export default function YTTCPage({ course }) {
               className="retreat-hero-wa"
               aria-label="Ask a question on WhatsApp"
             >
-              <SiWhatsapp size={19} aria-hidden="true" className="shrink-0 text-white" />
+              <SiWhatsapp
+                size={19}
+                aria-hidden="true"
+                className="shrink-0 text-white"
+              />
               <span>Chat on WhatsApp</span>
             </a>
           </div>
@@ -489,7 +492,10 @@ export default function YTTCPage({ course }) {
       </section>
 
       {/* ============ STICKY NAV BAR WITH ACTIVE SCROLL SPY ============ */}
-      <StickySubNav links={yttcNavLinks} ariaLabel="Course section navigation" />
+      <StickySubNav
+        links={yttcNavLinks}
+        ariaLabel="Course section navigation"
+      />
 
       {/* ============ MAIN LAYOUT: SIDEBAR + 14 CONTENT SECTIONS ============ */}
       <MobileStickyBar
@@ -508,12 +514,12 @@ export default function YTTCPage({ course }) {
         }
         right={
           <>
-            <a
-              href="#registration"
+            <Link
+              href="/apply"
               className="button button-primary !px-3 !py-2 !text-[12px] whitespace-nowrap"
             >
-              Reserve Spot
-            </a>
+              Book Now
+            </Link>
             <a
               href={whatsappHref}
               className="button booking-whatsapp !size-9 !p-0 !text-[13px] flex items-center justify-center"
@@ -534,7 +540,8 @@ export default function YTTCPage({ course }) {
             date: "Monthly start dates",
             whatsappMessage: pageData.whatsappMessage,
           }}
-          ctaLabel="Reserve Your Spot"
+          ctaLabel="Book Now"
+          ctaHref="/apply"
           entityLabel="TTC Course"
         />
 
@@ -544,7 +551,7 @@ export default function YTTCPage({ course }) {
             className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
             id="overview"
           >
-            <RetreatEyebrow>1. Course Overview</RetreatEyebrow>
+            <RetreatEyebrow>Course Overview</RetreatEyebrow>
             <h2 className="retreat-section-title font-philosopher">
               {whatIs.heading}
             </h2>
@@ -598,7 +605,7 @@ export default function YTTCPage({ course }) {
             {course.designedFor && course.designedFor.length > 0 && (
               <div className="mt-6 rounded-2xl border border-[var(--border)] bg-[var(--cream)] p-6">
                 <h3 className="font-heading text-lg font-semibold text-[var(--brown)] mb-3">
-                  Designed specifically for:
+                  Who Is This Course For?
                 </h3>
                 <ul className="space-y-2">
                   {course.designedFor.map((item) => (
@@ -623,7 +630,7 @@ export default function YTTCPage({ course }) {
               <div className="mt-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6">
                 <h3 className="font-heading text-lg font-semibold text-[var(--brown)] mb-2 flex items-center gap-2">
                   <BadgeCheck size={18} className="text-[var(--coral-dark)]" />
-                  Prerequisites &amp; Admission:
+                  Who Can Join
                 </h3>
                 <ul className="space-y-1.5">
                   {course.prerequisites.map((req) => (
@@ -645,9 +652,9 @@ export default function YTTCPage({ course }) {
             className="retreat-section bg-[var(--surface)] p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
             id="why"
           >
-            <RetreatEyebrow>2. Why Choose This Course</RetreatEyebrow>
+            <RetreatEyebrow>Why Train With Us</RetreatEyebrow>
             <h2 className="retreat-section-title font-philosopher">
-              Why students choose us for their {course.hours || "TTC"} in Goa
+              Why Train With Us
             </h2>
             <Stagger className="retreat-why-grid">
               {whyList.map((item) => {
@@ -667,21 +674,93 @@ export default function YTTCPage({ course }) {
             </Stagger>
           </section>
 
+          {/* ============ 5. COURSE KEY HIGHLIGHTS (White) ============ */}
+          <section
+            className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
+            id="highlights"
+          >
+            <RetreatEyebrow>Course Highlights</RetreatEyebrow>
+            <h2 className="retreat-section-title font-philosopher">
+              Course Highlights
+            </h2>
+            <p className="retreat-section-lead">
+              Every aspect of this training is designed to build confident,
+              knowledgeable, and compassionate teachers.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {keyHighlightsList.map((highlight) => {
+                const Icon = highlight.icon;
+                return (
+                  <div
+                    key={highlight.title}
+                    className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 transition hover:border-[var(--coral-dark)]/40 hover:-translate-y-0.5"
+                  >
+                    <div className="size-9 rounded-lg bg-white text-[var(--coral-dark)] flex items-center justify-center mb-3 shadow-xs border border-[var(--border)]">
+                      <Icon size={18} aria-hidden="true" />
+                    </div>
+                    <h3 className="font-heading text-base font-semibold text-[var(--brown)] mb-1">
+                      {highlight.title}
+                    </h3>
+                    <p className="text-xs text-[var(--muted)] leading-relaxed">
+                      {highlight.desc}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* ============ 7. ACTIVITIES & EXCURSIONS (White) ============ */}
+          <section
+            className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
+            id="experiences"
+          >
+            <RetreatEyebrow>Activities &amp; Excursions</RetreatEyebrow>
+            <h2 className="retreat-section-title font-philosopher">
+              Activities &amp; Excursions
+            </h2>
+            <p className="retreat-section-lead">
+              Sundays and free afternoons are yours — explore the quiet beauty
+              of North Goa, easily arranged with our retreat team.
+            </p>
+            <Stagger className="retreat-experience-grid">
+              {goaExperiences.slice(0, 4).map((experience) => (
+                <StaggerItem key={experience.title}>
+                  <article className="retreat-experience-card">
+                    <span className="retreat-experience-tag">
+                      {experience.tag}
+                    </span>
+                    <h3 className="font-heading">{experience.title}</h3>
+                    <p>{experience.text}</p>
+                  </article>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </section>
+
           {/* ============ 3. SYLLABUS (White) ============ */}
           <section
             className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
-            id="syllabus"
+            id="curriculum"
           >
-            <RetreatEyebrow>3. Syllabus &amp; Curriculum</RetreatEyebrow>
+            <div id="syllabus" />
+            <RetreatEyebrow>Course Syllabus</RetreatEyebrow>
             <h2 className="retreat-section-title font-philosopher">
-              Comprehensive {course.hours || "Yoga Alliance"} Syllabus
+              {is100
+                ? "100-Hour Yoga Teacher Training in Goa – Syllabus"
+                : is200
+                  ? "200-Hour Yoga Teacher Training in Goa – Syllabus"
+                  : `${course.hours || "Yoga"} Teacher Training in Goa – Syllabus`}
             </h2>
             <p className="retreat-section-lead">
-              Our curriculum is structured into four core study streams,
-              combining theory, practice, and hands-on teaching experience.
+              {is100
+                ? "A beginner-friendly, all-inclusive foundation course in Hatha and Ashtanga Vinyasa yoga — with pranayama, meditation, yoga philosophy, and the basics of teaching."
+                : is200
+                  ? "A holistic, immersive certification in Hatha, Ashtanga Vinyasa, Yin, and Restorative yoga — with philosophy, anatomy, pranayama, meditation, and hands-on teaching practice."
+                  : (course.description || "Our curriculum is structured into four core study streams, combining theory, practice, and hands-on teaching experience.")}
             </p>
 
-            <Stagger className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <Stagger className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
               {streamSplit.map((stream) => (
                 <StaggerItem key={stream.name}>
                   <div className="rounded-2xl border border-[var(--border)] bg-[var(--cream)] p-5 shadow-xs">
@@ -701,52 +780,98 @@ export default function YTTCPage({ course }) {
               ))}
             </Stagger>
 
-            {course.curriculum && course.curriculum.length > 0 && (
-              <div className="space-y-4">
-                <h3 className="font-heading text-xl font-semibold text-[var(--brown)]">
-                  Detailed Learning Modules:
-                </h3>
-                {course.curriculum.map((mod, idx) => (
-                  <FadeIn
-                    key={typeof mod === "string" ? mod : mod.title || idx}
-                  >
-                    <div className="rounded-2xl border border-[var(--border)] bg-white p-6 shadow-xs">
-                      {typeof mod === "string" ? (
-                        <p className="font-semibold text-[var(--brown)]">
-                          {mod}
-                        </p>
-                      ) : (
-                        <>
-                          <h4 className="font-heading text-lg font-semibold text-[var(--brown)] flex items-center gap-2 mb-2">
-                            <BookOpen
-                              size={18}
-                              className="text-[var(--coral-dark)]"
-                            />
-                            {mod.title}
-                          </h4>
-                          <p className="text-[14px] text-[var(--muted)] leading-relaxed">
-                            {mod.description}
-                          </p>
-                          {mod.topics && (
-                            <ul className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[var(--text)]">
-                              {mod.topics.map((t) => (
-                                <li key={t} className="flex items-center gap-2">
-                                  <Check
-                                    size={14}
-                                    className="text-[var(--coral-dark)]"
-                                  />
-                                  <span>{t}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </>
-                      )}
-                    </div>
-                  </FadeIn>
-                ))}
+            {/* Visual Stream Showcase Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 my-6">
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xs border border-[var(--border)]">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-05.webp"
+                  alt="Asana technique and posture practice in the shala"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Asana Techniques &amp; Training</span>
+                </div>
               </div>
-            )}
+
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xs border border-[var(--border)]">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-01.webp"
+                  alt="Applied anatomy and posture alignment adjustment labs"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Anatomy &amp; Alignment Labs</span>
+                </div>
+              </div>
+
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xs border border-[var(--border)]">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-teacher-led-meditation-philosophy-talk-01.webp"
+                  alt="Teacher-led yoga philosophy, Patanjali Sutras, and meditation lecture"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Yoga Philosophy &amp; Ethics</span>
+                </div>
+              </div>
+
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xs border border-[var(--border)]">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-10.webp"
+                  alt="Teaching methodology practicum and hands-on peer corrections"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Teaching Practicum</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 12-Module Detailed Curriculum Accordion */}
+            <div className="mt-8">
+              <h3 className="font-heading text-lg font-semibold text-[var(--brown)] mb-3">
+                Topics Covered
+              </h3>
+              <SyllabusAccordion modules={course.curriculum && course.curriculum.length === 12 ? course.curriculum : yttcSyllabusModules} />
+            </div>
+          </section>
+
+          {/* ============ 11. WHAT YOU'LL LEARN (White) ============ */}
+          <section
+            className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
+            id="learning-outcomes"
+          >
+            <RetreatEyebrow>What You&apos;ll Walk Away With</RetreatEyebrow>
+            <h2 className="retreat-section-title font-philosopher">
+              What You&apos;ll Walk Away With
+            </h2>
+            <p className="retreat-section-lead">
+              By completing this course, you will graduate with practical teaching tools, anatomical clarity, and deep personal confidence.
+            </p>
+            <Stagger className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {learningOutcomesList.map((outcome) => (
+                <StaggerItem key={outcome}>
+                  <div className="flex items-start gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-xs">
+                    <CheckCircle2
+                      size={19}
+                      className="mt-0.5 shrink-0 text-[var(--coral-dark)]"
+                      aria-hidden="true"
+                    />
+                    <span className="text-[14px] font-semibold text-[var(--brown)] leading-relaxed">
+                      {outcome}
+                    </span>
+                  </div>
+                </StaggerItem>
+              ))}
+            </Stagger>
           </section>
 
           {/* ============ 4. DAILY SCHEDULE (Surface) ============ */}
@@ -754,13 +879,12 @@ export default function YTTCPage({ course }) {
             className="retreat-section bg-[var(--surface)] p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
             id="schedule"
           >
-            <RetreatEyebrow>4. Daily Schedule</RetreatEyebrow>
+            <RetreatEyebrow>Daily Schedule</RetreatEyebrow>
             <h2 className="retreat-section-title font-philosopher">
-              A structured daily rhythm designed for deep immersion
+              Your Daily Schedule
             </h2>
             <p className="retreat-section-lead">
-              Predictable days make deep learning possible. Here is how a
-              typical day unfolds during the training.
+              Here&apos;s what a typical day looks like during your training.
             </p>
             <div className="retreat-schedule">
               <FadeIn>
@@ -831,42 +955,6 @@ export default function YTTCPage({ course }) {
             </div>
           </section>
 
-          {/* ============ 5. COURSE KEY HIGHLIGHTS (White) ============ */}
-          <section
-            className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
-            id="highlights"
-          >
-            <RetreatEyebrow>5. Course Key Highlights</RetreatEyebrow>
-            <h2 className="retreat-section-title font-philosopher">
-              Core Pillars of Your Teacher Training
-            </h2>
-            <p className="retreat-section-lead">
-              Every aspect of this training is designed to build confident,
-              knowledgeable, and compassionate teachers.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {keyHighlightsList.map((highlight) => {
-                const Icon = highlight.icon;
-                return (
-                  <div
-                    key={highlight.title}
-                    className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 transition hover:border-[var(--coral-dark)]/40 hover:-translate-y-0.5"
-                  >
-                    <div className="size-9 rounded-lg bg-white text-[var(--coral-dark)] flex items-center justify-center mb-3 shadow-xs border border-[var(--border)]">
-                      <Icon size={18} aria-hidden="true" />
-                    </div>
-                    <h3 className="font-heading text-base font-semibold text-[var(--brown)] mb-1">
-                      {highlight.title}
-                    </h3>
-                    <p className="text-xs text-[var(--muted)] leading-relaxed">
-                      {highlight.desc}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-
           {/* ============ 6. TEACHERS SECTION (Surface - Same as Home Page) ============ */}
           <section
             className="retreat-section bg-[var(--surface)] p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
@@ -874,9 +962,9 @@ export default function YTTCPage({ course }) {
           >
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
               <div>
-                <RetreatEyebrow>6. Expert Faculty</RetreatEyebrow>
+                <RetreatEyebrow>Faculty</RetreatEyebrow>
                 <h2 className="retreat-section-title font-philosopher !mb-0">
-                  Meet Your Yoga Teacher Training Faculty in Goa
+                  Meet Your Teachers
                 </h2>
               </div>
               <Link
@@ -899,103 +987,12 @@ export default function YTTCPage({ course }) {
             </div>
           </section>
 
-          {/* ============ 7. ACTIVITIES & EXCURSIONS (White) ============ */}
-          <section
-            className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
-            id="experiences"
-          >
-            <RetreatEyebrow>7. Activities &amp; Excursions</RetreatEyebrow>
-            <h2 className="retreat-section-title font-philosopher">
-              Goa Beyond the Shala
-            </h2>
-            <p className="retreat-section-lead">
-              Sundays and free afternoons are yours — explore the quiet beauty
-              of North Goa, easily arranged with our retreat team.
-            </p>
-            <Stagger className="retreat-experience-grid">
-              {goaExperiences.slice(0, 4).map((experience) => (
-                <StaggerItem key={experience.title}>
-                  <article className="retreat-experience-card">
-                    <span className="retreat-experience-tag">
-                      {experience.tag}
-                    </span>
-                    <h3 className="font-heading">{experience.title}</h3>
-                    <p>{experience.text}</p>
-                  </article>
-                </StaggerItem>
-              ))}
-            </Stagger>
-          </section>
-
-          {/* ============ 8. WHAT'S INCLUDED (Surface) ============ */}
-          <section
-            className="retreat-section bg-[var(--surface)] p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
-            id="included"
-          >
-            <RetreatEyebrow>8. What&apos;s Included</RetreatEyebrow>
-            <h2 className="retreat-section-title font-philosopher">
-              Everything Included in Your Tuition
-            </h2>
-            <p className="retreat-section-lead">
-              Our residential courses are fully all-inclusive with no hidden
-              fees.
-            </p>
-            <div className="rounded-2xl border border-[var(--border)] bg-white p-6 shadow-xs">
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                {inclusionsList.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-2.5 text-xs sm:text-[13.5px] text-[var(--brown)]"
-                  >
-                    <CheckCircle2
-                      size={18}
-                      className="mt-0.5 shrink-0 text-[var(--coral-dark)]"
-                      aria-hidden="true"
-                    />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-
-          {/* ============ 9. WHAT'S EXCLUDED (White) ============ */}
-          <section
-            className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
-            id="excluded"
-          >
-            <RetreatEyebrow>9. What&apos;s Excluded</RetreatEyebrow>
-            <h2 className="retreat-section-title font-philosopher">
-              Items Not Covered in the Course Fee
-            </h2>
-            <p className="retreat-section-lead">
-              Transparent details on personal travel expenses and extras.
-            </p>
-            <div className="rounded-2xl border border-[var(--border)] bg-[var(--cream)] p-6 shadow-xs">
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                {exclusionsList.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-2.5 text-xs sm:text-[13.5px] text-[var(--muted)]"
-                  >
-                    <XCircle
-                      size={17}
-                      className="mt-0.5 shrink-0 text-[var(--coral-dark)]/70"
-                      aria-hidden="true"
-                    />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-
           {/* ============ 10. ACCOMMODATION & FOOD (Cream) ============ */}
           <section
             className="retreat-section bg-[var(--cream)] p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
             id="accommodation"
           >
-            <RetreatEyebrow>10. Accommodation &amp; Food</RetreatEyebrow>
+            <RetreatEyebrow>Accommodation &amp; Food</RetreatEyebrow>
             <h2 className="retreat-section-title font-philosopher">
               Rest &amp; Nourishment on Campus
             </h2>
@@ -1018,7 +1015,7 @@ export default function YTTCPage({ course }) {
               </div>
               <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-xs border border-[var(--border)]">
                 <Image
-                  src="/images/accomodation/the-hatha-yogashala-arambol-goa-private-room-interior-01.webp"
+                  src="/images/accomodation/the-hatha-yogashala-arambol-goa-double-bed-room-interior-01.webp"
                   alt="Spacious private room with ensuite bathroom"
                   fill
                   sizes="(max-width: 768px) 100vw, 30vw"
@@ -1051,8 +1048,8 @@ export default function YTTCPage({ course }) {
                         alt: "Twin sharing AC room at The Hatha Yogashala Goa",
                       },
                       {
-                        src: "/images/accomodation/the-hatha-yogashala-arambol-goa-coconut-palms-sunlight-02.webp",
-                        alt: "Twin sharing bedroom with tropical palm balcony view",
+                        src: "/images/accomodation/the-hatha-yogashala-arambol-goa-twin-bed-room-interior-02.webp",
+                        alt: "Twin sharing bedroom with garden veranda view",
                       },
                     ].map((img) => (
                       <div key={img.src} className="retreat-room-thumb">
@@ -1098,8 +1095,8 @@ export default function YTTCPage({ course }) {
                         alt: "Private room at The Hatha Yogashala Goa",
                       },
                       {
-                        src: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
-                        alt: "Peaceful ashram campus gardens in North Goa",
+                        src: "/images/accomodation/the-hatha-yogashala-arambol-goa-double-bed-room-interior-01.webp",
+                        alt: "Spacious private double room with attached bathroom",
                       },
                     ].map((img) => (
                       <div key={img.src} className="retreat-room-thumb">
@@ -1134,109 +1131,189 @@ export default function YTTCPage({ course }) {
 
             {/* Food Sub-block */}
             <div
-              className="mt-8 rounded-2xl border border-[var(--border)] bg-white p-6 shadow-xs"
+              className="mt-8 rounded-2xl border border-[var(--border)] bg-white p-6 sm:p-8 shadow-xs"
               id="meals"
             >
               <div className="flex items-center gap-2 mb-3 text-[var(--coral-dark)]">
-                <Leaf size={22} />
+                <Leaf size={22} className="shrink-0" />
                 <h3 className="font-heading text-xl font-bold text-[var(--brown)]">
                   Sattvic Yogic Nutrition
                 </h3>
               </div>
-              <p className="text-[14px] text-[var(--muted)] leading-relaxed mb-4">
+              <p className="text-[14px] text-[var(--muted)] leading-relaxed mb-6">
                 Three freshly prepared vegetarian, sattvic meals daily (Monday
-                to Saturday morning). Prepared with locally sourced ingredients,
-                our menu supports intense daily practice with easy digestion and
+                to Saturday). Prepared with locally sourced ingredients, our
+                menu supports intense daily practice with easy digestion and
                 balanced nutrition.
               </p>
               <Stagger className="retreat-meal-grid">
                 {meals.map((meal) => (
                   <StaggerItem key={meal.meal}>
                     <article className="retreat-meal-card">
-                      <span className="retreat-meal-type">{meal.meal}</span>
-                      <p className="retreat-meal-time">{meal.time}</p>
-                      <h4 className="font-heading">{meal.meal}</h4>
-                      <p className="retreat-meal-desc">{meal.text}</p>
+                      <Media
+                        src={meal.image}
+                        alt={`${meal.meal} at The Hatha Yogashala Goa`}
+                        className="h-44 w-full object-cover"
+                      />
+                      <div className="retreat-meal-body">
+                        <span className="retreat-meal-time">
+                          <Clock3 size={13} aria-hidden="true" /> {meal.time}
+                        </span>
+                        <h3>{meal.meal}</h3>
+                        <p>{meal.text}</p>
+                      </div>
                     </article>
                   </StaggerItem>
                 ))}
               </Stagger>
-            </div>
-          </section>
-
-          {/* ============ 11. WHAT YOU'LL LEARN (White) ============ */}
-          <section
-            className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
-            id="learning-outcomes"
-          >
-            <RetreatEyebrow>11. What You&apos;ll Learn</RetreatEyebrow>
-            <h2 className="retreat-section-title font-philosopher">
-              Graduate Learning Outcomes &amp; Skills
-            </h2>
-            <p className="retreat-section-lead">
-              By completing this course, you will acquire core teaching
-              competencies, anatomical alignment skills, and traditional yoga
-              wisdom.
-            </p>
-            <Stagger className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {learningOutcomesList.map((outcome) => (
-                <StaggerItem key={outcome}>
-                  <div className="flex items-start gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-xs">
-                    <CheckCircle2
-                      size={19}
-                      className="mt-0.5 shrink-0 text-[var(--coral-dark)]"
-                      aria-hidden="true"
-                    />
-                    <span className="text-[14px] font-semibold text-[var(--brown)] leading-relaxed">
-                      {outcome}
-                    </span>
-                  </div>
-                </StaggerItem>
-              ))}
-            </Stagger>
-          </section>
-
-          {/* ============ 12. COURSE DATES (Surface) ============ */}
-          <section
-            className="retreat-section bg-[var(--surface)] p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
-            id="dates"
-          >
-            <RetreatEyebrow>12. Upcoming Intakes</RetreatEyebrow>
-            <h2 className="retreat-section-title font-philosopher">
-              Course Dates
-            </h2>
-            <p className="retreat-section-lead">
-              New batches start monthly throughout the year. Select your
-              preferred intake month below.
-            </p>
-            <div className="retreat-dates-strip" aria-label="Batch information">
-              <CalendarDays
-                size={18}
-                className="shrink-0 text-[var(--coral-dark)]"
-                aria-hidden="true"
-              />
-              <div>
-                <strong>Monthly start dates throughout the year</strong>
-                <ul>
-                  {datesList.map((date) => (
-                    <li key={date.id || date.label}>
-                      <span>{date.label}</span>
-                      <small>{date.availability}</small>
-                    </li>
-                  ))}
-                </ul>
+              <div className="mt-6 flex items-start gap-3 rounded-2xl bg-[var(--surface)] p-4 border border-[var(--border)]/70 text-xs sm:text-[13.5px] text-[var(--brown)]">
+                <CheckCircle2 size={18} className="text-[var(--coral-dark)] shrink-0 mt-0.5" />
+                <p>
+                  <strong>Special Dietary Needs:</strong> Vegan, dairy-free, gluten-free, and allergy-sensitive meals are warmly accommodated with prior notice. Pure filtered drinking water and herbal teas are available all day.
+                </p>
               </div>
             </div>
           </section>
 
-          {/* ============ 13. COURSE FEES & REGISTRATION (White / Cream) ============ */}
+          {/* ============ 8. WHAT'S INCLUDED (Surface) ============ */}
+          <section
+            className="retreat-section bg-[var(--surface)] p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
+            id="included"
+          >
+            <RetreatEyebrow>What&apos;s Included</RetreatEyebrow>
+            <h2 className="retreat-section-title font-philosopher">
+              What&apos;s Included
+            </h2>
+            <p className="retreat-section-lead">
+              Our residential courses are fully all-inclusive with no hidden
+              fees.
+            </p>
+            <div className="rounded-2xl border border-[var(--border)] bg-white p-6 shadow-xs">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {inclusionsList.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2.5 text-xs sm:text-[13.5px] text-[var(--brown)]"
+                  >
+                    <CheckCircle2
+                      size={18}
+                      className="mt-0.5 shrink-0 text-[var(--coral-dark)]"
+                      aria-hidden="true"
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          {/* ============ 9. WHAT'S EXCLUDED (White) ============ */}
+          <section
+            className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
+            id="excluded"
+          >
+            <RetreatEyebrow>What&apos;s Not Included</RetreatEyebrow>
+            <h2 className="retreat-section-title font-philosopher">
+              What&apos;s Not Included
+            </h2>
+            <p className="retreat-section-lead">
+              A few things you&apos;ll need to arrange yourself.
+            </p>
+            <div className="rounded-2xl border border-[var(--border)] bg-[var(--cream)] p-6 shadow-xs">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {exclusionsList.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2.5 text-xs sm:text-[13.5px] text-[var(--muted)]"
+                  >
+                    <XCircle
+                      size={17}
+                      className="mt-0.5 shrink-0 text-[var(--coral-dark)]/70"
+                      aria-hidden="true"
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          {/* ============ GRADUATION & CERTIFICATION SECTION (White) ============ */}
+          <section
+            className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
+            id="certification"
+          >
+            <RetreatEyebrow>Graduation &amp; Certification</RetreatEyebrow>
+            <h2 className="retreat-section-title font-philosopher">
+              Graduation Ceremony &amp; Global Certification
+            </h2>
+            <p className="retreat-section-lead">
+              Celebrate your journey from sincere practitioner to Yoga Alliance Certified Teacher. Our graduation includes traditional Vedic Havan fire blessings, sacred flower Om mandalas, and the official presentation of your globally recognized certificate.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 my-6">
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-certificate-presentation-teacher-training-01.webp"
+                  alt="Official Yoga Alliance certificate presentation ceremony"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Certificate Presentation</span>
+                </div>
+              </div>
+
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-graduation-group-photo-celebration-01.webp"
+                  alt="Yoga teacher training batch graduation celebration photo under palm trees"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Batch Graduation Celebration</span>
+                </div>
+              </div>
+
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-havan-fire-puja-opening-ceremony-01.webp"
+                  alt="Vedic Havan fire ceremony and traditional blessings"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Sacred Havan Fire Puja</span>
+                </div>
+              </div>
+
+              <div className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/hatha-yogashala/hatha-yogashala-pernem-goa-flower-petal-om-mandala-ceremony-01.webp"
+                  alt="Handcrafted flower petal Om mandala ceremony"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-bold text-white tracking-wide">Flower Petal Om Mandala</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ============ 12. COURSE FEES & REGISTRATION (White / Cream) ============ */}
           <section
             className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
             id="fees"
           >
             <CourseFeesTable
               programName={course.name}
-              subHeading={`${course.name} in Goa`}
+              subHeading={course.name.includes("in Goa") ? course.name : `${course.name} in Goa`}
               feeRows={course.feeRows}
               hideOuterContainer
             />
@@ -1244,11 +1321,11 @@ export default function YTTCPage({ course }) {
             <div className="retreat-booking-form mt-8" id="registration">
               <RetreatEyebrow>Reserve Your Place</RetreatEyebrow>
               <h2 className="retreat-section-title font-philosopher">
-                Apply to Secure Your Place
+                Apply &amp; Reserve Your Place
               </h2>
               <p className="retreat-section-lead">
-                Start your application and our admissions team will confirm
-                your place with verified payment instructions within 24 hours.
+                Start your application and our admissions team will confirm your
+                place with verified payment instructions within 24 hours.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <ButtonLink href="/apply" className="button button-primary">
@@ -1270,9 +1347,9 @@ export default function YTTCPage({ course }) {
             className="retreat-section bg-[var(--surface)] p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
             id="reviews"
           >
-            <RetreatEyebrow>Student Experiences</RetreatEyebrow>
+            <RetreatEyebrow>Student Reviews</RetreatEyebrow>
             <h2 className="retreat-section-title font-philosopher">
-              Trusted by 3,500+ yoga teacher graduates
+              Student Reviews
             </h2>
             <TestimonialCarousel testimonials={pageData.testimonials} />
           </section>
@@ -1284,7 +1361,7 @@ export default function YTTCPage({ course }) {
           >
             <RetreatEyebrow>Frequently Asked Questions</RetreatEyebrow>
             <h2 className="retreat-section-title font-philosopher">
-              Answers Before You Arrive
+              Frequently Asked Questions
             </h2>
             <Accordion items={faqList} />
           </section>
@@ -1311,7 +1388,7 @@ export default function YTTCPage({ course }) {
             </p>
             <div className="flex justify-center">
               <ButtonLink
-                href="#registration"
+                href="/apply"
                 className="!px-8 !py-3.5 !text-sm font-bold shadow-lg hover:shadow-xl transition-all"
               >
                 <span>Book Now</span>

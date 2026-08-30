@@ -100,9 +100,9 @@ const hundredHour = {
   outcome:
     "A 100-hour Yoga Alliance-approved certificate, plus the option to complete the second half of the 200-hour program within 21 months.",
   description:
-    "A beginner-friendly, all-inclusive foundation course covering traditional Hatha yoga, Ashtanga Vinyasa, pranayama, meditation, the eight limbs of yoga, chakra anatomy, and fundamentals of teaching methodology.",
+    "A beginner-friendly, all-inclusive foundation course in Hatha and Ashtanga Vinyasa yoga — with pranayama, meditation, yoga philosophy, and the basics of teaching.",
   whatIs: {
-    heading: "What is a 100-hour yoga teacher training?",
+    heading: "What Is the 100-Hour Yoga Teacher Training in Goa?",
     paragraphs: [
       "The 100-hour yoga teacher training in Goa at The Hatha Yogashala is a compact, all-inclusive foundation course for students who are new to yoga or simply short on time. You will explore traditional Hatha yoga, Ashtanga Vinyasa, pranayama (breathwork), meditation, the eight limbs of yoga, chakra anatomy, and the fundamentals of teaching methodology — all in a peaceful beachside ashram in North Goa.",
       "The course follows the Yoga Alliance-approved syllabus, giving you a genuine foundation in yoga teacher training in Goa whether you continue your certification or simply wish to deepen your own practice.",
@@ -191,7 +191,7 @@ const hundredHour = {
     },
     {
       icon: "network",
-      title: "Alumni community",
+      title: "Global Yoga Family",
       text: "Join a global network of students from 45+ countries, with a pathway to advanced training.",
     },
   ],
@@ -322,9 +322,10 @@ const hundredHour = {
     "24/7 student support",
   ],
   exclusions: [
-    "Flights, visas, insurance",
-    "Transfers",
-    "200-hour certification (separate course / second half)",
+    "Flights, visas, and travel insurance",
+    "Airport and railway transfers (available on request)",
+    "Your 200-hour certification — that's a separate follow-on course",
+    "Personal laundry and extra café/leisure expenses",
   ],
   accommodation: {
     overview:
@@ -541,9 +542,9 @@ const twoHundredHour = {
   outcome:
     "A 200-hour Yoga Alliance-approved certificate, with eligibility to register with the Yoga Alliance and teach yoga worldwide.",
   description:
-    "A holistic, immersive certification course covering philosophy, meditation, anatomy, kriya, pranayama, and the art of teaching — Hatha, Ashtanga Vinyasa, Yin, and Restorative yoga on the Yoga Alliance-approved syllabus.",
+    "A holistic, immersive certification in Hatha, Ashtanga Vinyasa, Yin, and Restorative yoga — with philosophy, anatomy, pranayama, meditation, and hands-on teaching practice.",
   whatIs: {
-    heading: "What is a 200-hour yoga teacher training?",
+    heading: "What Is the 200-Hour Yoga Teacher Training in Goa?",
     paragraphs: [
       "The Hatha Yogashala's 200-hour yoga teacher training in Goa is a holistic, immersive certification course covering philosophy, meditation, anatomy, kriya, pranayama, and the art of teaching. While primarily designed for aspiring teachers, it is open to all levels — from beginners to experienced practitioners who wish to deepen their self-healing practice.",
       "Led by a nurturing, highly qualified team, the course emphasizes daily asana practice with precise alignment, gradually guiding you into the role of instructor through supervised teaching practice in a supportive environment.",
@@ -1910,39 +1911,36 @@ const retreatProfiles = {
 
 const retreatWhatIs = {
   3: {
-    heading: "3-Day Yoga Retreat — Overview",
+    heading: "Retreat Highlights",
     paragraphs: [
-      "Step away from the noise of daily life and into three days of stillness, movement, and community at The Hatha Yogashala, Goa. This short, immersive retreat is designed for travelers who want a genuine reset — a blend of yoga practice, internal cleansing, sound healing, and the natural beauty of Goa's coastline, all held within a warm and supportive community.",
+      "Step away from daily noise into three days of stillness, movement, and coastal rejuvenation in North Goa.",
     ],
     points: [
-      "Daily yoga practice, internal cleansing & breathwork",
-      "Sound healing, massage & Ayurveda basics",
-      "Ice bath, sauna, waterfalls & sacred kirtan",
-      "Evening Goa Experience outings & beach practice games",
+      "3 days of daily Hatha practice, breathwork & internal cleansing",
+      "Waterfall and beach outings, ice baths & sauna",
+      "Evening kirtan and a warm, close-knit community",
     ],
   },
   5: {
-    heading: "5-Day Yoga Retreat — Overview",
+    heading: "Retreat Highlights",
     paragraphs: [
-      "Five days offers the space to truly settle into practice. This retreat combines daily Hatha yoga, philosophy and anatomy sessions, cleansing rituals, and restorative downtime, giving you enough time to build routine, deepen your understanding, and leave feeling genuinely renewed.",
+      "Five days of immersive practice and rest to reset your rhythm and restore vital energy.",
     ],
     points: [
-      "Daily Hatha yoga, philosophy & anatomy sessions",
-      "Internal cleansing rituals & restorative downtime",
-      "Ice bath, sauna, waterfalls & evening kirtan",
-      "Goa Experience cultural outings & beach sunsets",
+      "5 days of daily Hatha practice, philosophy & Ayurveda",
+      "Waterfall and beach outings, ice baths & sauna",
+      "Evening kirtan and a warm, close-knit community",
     ],
   },
   7: {
-    heading: "7-Day Yoga Retreat — Overview",
+    heading: "Retreat Highlights",
     paragraphs: [
-      "A full week at The Hatha Yogashala is where transformation really begins to take root. Seven days of consistent Hatha practice, philosophy, ayurveda, sound healing, and community give you time to move past the initial adjustment and into a genuine rhythm — leaving with tools and habits you can carry home.",
+      "A seven-day retreat gives you the space to step completely out of routine and establish a lasting rhythm of health and inner calm.",
     ],
     points: [
-      "Full 7-day deep transformational immersion",
-      "Consistent Hatha practice, philosophy & Ayurveda",
-      "Multiple waterfall & beach outings, ice baths & sauna",
-      "Rich community camaraderie, kirtan & beach acro yoga",
+      "7 days of daily Hatha practice, philosophy & Ayurveda",
+      "Waterfall and beach outings, ice baths & sauna",
+      "Evening kirtan and a warm, close-knit community",
     ],
   },
 };
@@ -1965,47 +1963,37 @@ const standardRetreatSchedule = [
 
 const standardAccommodationOptions5 = [
   {
-    name: "Mixed AC Dorm",
+    name: "AC Dorm",
     description:
-      "Experience community living with comfort in our Mixed AC Dorm. Ideal for solo travelers or groups, this dorm offers a cool and relaxed atmosphere, with easy access to all amenities. Enjoy the company of like-minded individuals while still having your own personal space.",
-  },
-  {
-    name: "Female AC Dorm",
-    description:
-      "Our Female AC Dorm is a sanctuary designed specifically for women, offering a safe and peaceful environment. This dorm is perfect for female travelers who value comfort and security while being part of a supportive community. The cool air-conditioned space ensures a restful stay, allowing you to focus on your practice and relaxation.",
+      "Comfortable, climate-controlled shared accommodation with individual secure storage, clean linens, and attached bathrooms — perfect for solo travelers who enjoy a friendly community atmosphere.",
   },
   {
     name: "Twin Sharing",
     description:
-      "The Twin Sharing room is perfect for friends or solo travelers looking to share a space with a fellow yogi. These rooms offer a balance of privacy and companionship, featuring comfortable beds, modern amenities, and a peaceful ambiance that promotes rest and rejuvenation.",
-  },
-  {
-    name: "Triple Sharing",
-    description:
-      "Ideal for small groups or those looking to bond with new friends, the Triple Sharing room provides a spacious and comfortable setting. With three cozy beds, air conditioning, and all necessary amenities, this room offers a budget-friendly option without compromising on comfort or luxury.",
+      "A harmonious balance of privacy and companionship featuring twin beds, air conditioning, attached modern bathroom, and peaceful tropical garden or balcony views.",
   },
   {
     name: "Private Room",
     description:
-      "Our Private Rooms are designed for those who seek solitude and personal space. These rooms offer ultimate privacy and comfort, featuring plush beds, modern amenities, and a tranquil environment that allows you to unwind completely. Perfect for individuals who value their own space while enjoying the benefits of a retreat.",
+      "A serene, private sanctuary with a plush double bed, air conditioning, private attached bathroom, and dedicated workspace — ideal for guests seeking restful solitude.",
   },
 ];
 
 const standardAccommodationOptions7 = [
   {
-    name: "Female AC Dorm",
+    name: "AC Dorm",
     description:
-      "Our Female AC Dorm is a sanctuary designed specifically for women, offering a safe and peaceful environment. This dorm is perfect for female travelers who value comfort and security while being part of a supportive community. The cool air-conditioned space ensures a restful stay, allowing you to focus on your practice and relaxation.",
+      "Comfortable, climate-controlled shared accommodation with individual secure storage, clean linens, and attached bathrooms — perfect for solo travelers who enjoy a friendly community atmosphere.",
   },
   {
     name: "Twin Sharing",
     description:
-      "The Twin Sharing room is perfect for friends or solo travelers looking to share a space with a fellow yogi. These rooms offer a balance of privacy and companionship, featuring comfortable beds, modern amenities, and a peaceful ambiance that promotes rest and rejuvenation.",
+      "A harmonious balance of privacy and companionship featuring twin beds, air conditioning, attached modern bathroom, and peaceful tropical garden or balcony views.",
   },
   {
     name: "Private Room",
     description:
-      "Our Private Rooms are designed for those who seek solitude and personal space. These rooms offer ultimate privacy and comfort, featuring plush beds, modern amenities, and a tranquil environment that allows you to unwind completely. Perfect for individuals who value their own space while enjoying the benefits of a retreat.",
+      "A serene, private sanctuary with a plush double bed, air conditioning, private attached bathroom, and dedicated workspace — ideal for guests seeking restful solitude.",
   },
 ];
 
@@ -2014,18 +2002,18 @@ export const retreats = [
     const profile = retreatProfiles[days];
     const feeRowsByDays = {
       3: [
-        { facility: "Mixes AC Dorm", price: "€199" },
-        { facility: "Twin sharing", price: "€299" },
+        { facility: "Mixed AC Dorm", price: "€199" },
+        { facility: "Twin Sharing", price: "€299" },
         { facility: "Private Room", price: "€399" },
       ],
       5: [
-        { facility: "Mixes AC Dorm", price: "€299" },
-        { facility: "Twin sharing", price: "€399" },
+        { facility: "Mixed AC Dorm", price: "€299" },
+        { facility: "Twin Sharing", price: "€399" },
         { facility: "Private Room", price: "€499" },
       ],
       7: [
         { facility: "AC Dorm", price: "€399" },
-        { facility: "Twin sharing", price: "€499" },
+        { facility: "Twin Sharing", price: "€499" },
         { facility: "Private Room", price: "€599" },
       ],
     };

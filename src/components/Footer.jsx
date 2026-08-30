@@ -98,41 +98,41 @@ export default function Footer() {
       />
 
       {/* top band: glowing logo watermark behind eyebrow + heading + status badge + cta */}
-      <section className="relative z-10">
-        {/* glowing background mark — the one flourish, everything else stays quiet */}
+      <section className="relative z-10 border-b border-[var(--brown)]/10">
+        {/* glowing background mark */}
         <div
           className="pointer-events-none absolute inset-x-0 top-0 flex justify-center"
           aria-hidden="true"
         >
-          <div className="relative -mt-6 size-[15rem] sm:-mt-8 sm:size-[18rem] md:size-[20rem] lg:size-[24rem] xl:size-[26rem]">
+          <div className="relative -mt-5 size-[14rem] sm:-mt-6 sm:size-[16rem] md:size-[18rem] lg:size-[20rem]">
             <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(201,169,97,0.18)_0%,rgba(201,169,97,0.08)_42%,transparent_68%)] blur-lg" />
             <Image
               src="/images/The-Hatha-Yogashala-hand-logo.png"
               alt=""
               fill
-              sizes="(max-width: 768px) 260px, 450px"
-              className="object-contain opacity-[0.20]"
+              sizes="(max-width: 768px) 240px, 400px"
+              className="object-contain opacity-[0.18]"
             />
           </div>
         </div>
 
         <Container>
-          <div className="relative flex flex-col items-center gap-1.5 sm:gap-2 lg:gap-3 py-2.5 sm:py-4 md:py-6 lg:py-8 xl:py-10 text-center">
-            <p className="font-mono text-[11px] sm:text-xs lg:text-[13.5px] uppercase tracking-[0.28em] sm:tracking-[0.32em] text-[var(--gold)]">
+          <div className="relative flex flex-col items-center gap-1.5 sm:gap-2 py-4 sm:py-5 md:py-6 text-center">
+            <p className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.25em] text-[var(--gold)]">
               Breathe · Move · Awaken
             </p>
-            <h2 className="max-w-xl text-[var(--brown)] tracking-[-0.02em] text-[22px] sm:text-3xl lg:text-4xl">
+            <h2 className="max-w-xl text-[var(--brown)] tracking-[-0.02em] text-[20px] sm:text-2xl lg:text-3xl font-bold font-philosopher">
               Book Your Course or Retreat
             </h2>
 
-            <div className="mt-0.5 sm:mt-1 flex flex-col items-center gap-2">
+            <div className="mt-1 flex flex-col items-center">
               <Link
                 href="/yoga-teacher-training-goa"
-                className="group inline-flex min-h-9 sm:min-h-9.5 lg:min-h-10.5 items-center justify-center gap-2 rounded-md border border-[var(--brown)]/20 px-3.5 py-1.5 sm:px-4 sm:py-1.5 lg:px-4.5 lg:py-2 text-xs sm:text-[12.5px] lg:text-[13.5px] font-semibold uppercase tracking-[0.14em] text-[var(--brown)] transition duration-200 hover:border-[var(--gold)] hover:bg-[var(--gold)]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--cream)]"
+                className="group inline-flex min-h-8.5 sm:min-h-9 items-center justify-center gap-1.5 rounded-full border border-[var(--brown)]/25 px-4 py-1.5 text-xs sm:text-[12.5px] font-semibold uppercase tracking-[0.12em] text-[var(--brown)] transition duration-200 hover:border-[var(--coral-dark)] hover:bg-[var(--coral-dark)] hover:text-white"
               >
-                Explore YTTC & retreats
+                Explore YTTC &amp; Retreats
                 <ArrowUpRight
-                  className="size-3.5 lg:size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   aria-hidden="true"
                 />
               </Link>
@@ -142,30 +142,30 @@ export default function Footer() {
       </section>
 
       {/* link columns */}
-      <section className="relative z-10 -mt-3 sm:-mt-4 lg:-mt-3">
+      <section className="relative z-10">
         <Container>
-          <Reveal className="grid grid-cols-2 gap-x-5 gap-y-7 py-3 text-left sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:gap-6 lg:py-8 xl:py-10">
+          <Reveal className="grid grid-cols-2 gap-x-5 gap-y-6 py-5 sm:py-6 md:grid-cols-3 lg:grid-cols-6 lg:gap-6 lg:py-7 text-left">
             <FooterColumn className="col-span-2 items-center text-center sm:col-span-2 sm:items-start sm:text-left md:col-span-3 lg:col-span-1">
               <Link
                 href="/"
-                className="mb-2 inline-flex items-center justify-center sm:mb-2.5 sm:justify-start"
+                className="mb-2 inline-flex items-center justify-center sm:justify-start"
                 aria-label={`${site.name} home`}
               >
                 <Image
                   src="/images/The-Hatha-Yogashala-logo.png"
                   alt="The Hatha Yogashala"
-                  width={150}
-                  height={60}
-                  className="h-8 w-auto object-contain sm:h-9 lg:h-11"
+                  width={145}
+                  height={58}
+                  className="h-8 w-auto object-contain sm:h-9 lg:h-10"
                 />
               </Link>
 
-              <p className="text-body mx-auto max-w-sm text-center text-[11.5px] leading-relaxed sm:mx-0 sm:text-left sm:text-xs md:text-[12.5px] lg:text-[13.5px]">
+              <p className="text-body mx-auto max-w-sm text-center text-[11.5px] sm:text-xs leading-relaxed sm:mx-0 sm:text-left text-[var(--muted)]">
                 Yoga Alliance certified 100/200/300-hour teacher training, online pranayama, and
-                mindful residential retreats in Querim, North Goa.
+                residential retreats in Querim, North Goa.
               </p>
 
-              <div className="mt-2 flex items-center justify-center gap-2.5 sm:mt-2.5 sm:justify-start sm:gap-3 lg:mt-3 lg:gap-3">
+              <div className="mt-2.5 flex items-center justify-center gap-2.5 sm:justify-start sm:gap-3">
                 {socialLinks.map(({ label, name, href }) =>
                   typeof href === "string" &&
                   (href.startsWith("https://") ||
@@ -177,12 +177,12 @@ export default function Footer() {
                       rel="noopener noreferrer"
                       aria-label={label}
                       title={label}
-                      className="inline-flex items-center justify-center transition-transform duration-200 hover:scale-115 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]"
+                      className="inline-flex items-center justify-center transition-transform duration-200 hover:scale-110 focus-visible:outline-none"
                     >
                       <BrandLogo
                         name={name}
                         alt={label}
-                        className="size-5 transition-opacity hover:opacity-80 sm:size-5.5 lg:size-6"
+                        className="size-5 transition-opacity hover:opacity-80 sm:size-5.5"
                       />
                     </a>
                   ) : (
@@ -193,7 +193,7 @@ export default function Footer() {
                       title={`${label} link pending`}
                       className="inline-flex items-center justify-center opacity-40"
                     >
-                      <BrandLogo name={name} className="size-5 sm:size-5.5 lg:size-6" />
+                      <BrandLogo name={name} className="size-5 sm:size-5.5" />
                     </span>
                   ),
                 )}
@@ -224,7 +224,7 @@ export default function Footer() {
               <FooterHeading className="items-center text-center sm:items-start sm:text-left">
                 Contact Us
               </FooterHeading>
-              <ul className="m-0 list-none space-y-1 p-0 text-[11.5px] sm:space-y-1.5 sm:text-xs md:text-[12.5px] lg:space-y-2 lg:text-[13.5px]">
+              <ul className="m-0 list-none space-y-1.5 p-0 text-[11.5px] sm:text-xs lg:text-[12.5px]">
                 <ContactItem Icon={MapPin}>
                   <span>{site.contact.address}</span>
                 </ContactItem>
@@ -238,11 +238,11 @@ export default function Footer() {
 
               <Link
                 href="/contact"
-                className="group mt-2 inline-flex items-center justify-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--gold)] transition hover:text-[var(--brown)] sm:mt-2.5 sm:text-[12px] lg:mt-3 lg:text-[13px]"
+                className="group mt-2 inline-flex items-center justify-center gap-1 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--gold)] transition hover:text-[var(--brown)] sm:text-[11.5px]"
               >
                 Send an enquiry
                 <ArrowUpRight
-                  className="size-3 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 lg:size-3.5"
+                  className="size-3 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                   aria-hidden="true"
                 />
               </Link>
@@ -250,14 +250,14 @@ export default function Footer() {
           </Reveal>
 
           {/* bottom bar */}
-          <div className="flex flex-col items-center gap-2 border-t border-[var(--brown)]/10 py-2.5 text-center font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--brown)] sm:py-2.5 sm:text-[11.5px] md:flex-row md:items-center md:justify-between md:text-left lg:py-3.5 lg:text-[13px] xl:py-4.5">
+          <div className="flex flex-col items-center gap-2 border-t border-[var(--brown)]/10 py-3 text-center font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--brown)] sm:flex-row sm:items-center sm:justify-between sm:text-left sm:text-[11.5px]">
             <p>
               {site.name} <span className="text-[var(--brown)]/60">·</span> ©{" "}
               {new Date().getFullYear()}
             </p>
 
             <nav
-              className="flex flex-wrap justify-center gap-x-4 gap-y-1.5 sm:gap-x-5 sm:gap-y-2 md:justify-start lg:gap-x-6"
+              className="flex flex-wrap justify-center gap-x-4 gap-y-1 sm:justify-start"
               aria-label="Legal links"
             >
               <FooterPolicyLink href="/privacy-policy">
@@ -271,11 +271,11 @@ export default function Footer() {
 
             <Link
               href="#top"
-              className="group inline-flex items-center gap-1.5 transition hover:text-[var(--brown)] sm:gap-2"
+              className="group inline-flex items-center gap-1 transition hover:text-[var(--brown)]"
             >
               Back to top
               <ArrowUp
-                className="size-2.5 transition-transform duration-200 group-hover:-translate-y-0.5 sm:size-3 lg:size-3.5"
+                className="size-2.5 transition-transform duration-200 group-hover:-translate-y-0.5"
                 aria-hidden="true"
               />
             </Link>

@@ -19,24 +19,24 @@ export const pranayamaCourses = [
       ctaText: "Continue to Beginner Pranayama",
     },
     heroImage:
-      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-savasana-final-relaxation-pose-03.webp",
+      "/images/online-pranayama/the-hatha-yogashala-pre-pranayama.webp",
     heroImageAlt:
-      "Student practicing foundational yogic breathing on Querim beach Goa",
+      "Pre-Pranayama Foundation Course online — breath anatomy and diaphragmatic awareness",
     galleryImages: [
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-02.webp",
-        alt: "Diaphragmatic breath awareness in peaceful candlelit meditation shala",
-        caption: "Guided breath awareness in our sacred shala setting",
+        src: "/images/online-pranayama/the-hatha-yogashala-9-day-beginner-pranayama-course-online-rishikesh-india.webp",
+        alt: "Step-by-step online breathwork training and diaphragmatic awareness",
+        caption: "Step-by-step structured breathwork training for beginners",
       },
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-teacher-led-meditation-philosophy-talk-01.webp",
-        alt: "Teacher demonstrating respiratory mechanics and spine alignment",
-        caption: "Individual alignment corrections and posture mechanics",
+        src: "/images/online-pranayama/the-hatha-yogashala-kalpendar-ji-online-yoga-class-teacher.webp",
+        alt: "Master teacher demonstrating respiratory mechanics and seated posture alignment",
+        caption: "Live corrections and posture mechanics from master teachers",
       },
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-05.webp",
-        alt: "Preparatory chest and thoracic opening postures for pranayama",
-        caption: "Chest opening asanas to liberate the respiratory diaphragm",
+        src: "/images/online-pranayama/the-hatha-yogashala-dhyana-meditation-outdoor-rishikesh-kundalini-yogashala.webp",
+        alt: "Restorative breath awareness and nervous system regulation",
+        caption: "Somatic nervous system regulation through conscious breathing",
       },
     ],
     seo: {
@@ -159,24 +159,24 @@ export const pranayamaCourses = [
       ctaText: "Advance to Intermediate Pranayama",
     },
     heroImage:
-      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
+      "/images/online-pranayama/the-hatha-yogashala-beginner-pranayama-course-online-rishikesh-india.webp",
     heroImageAlt:
-      "Evening candlelit pranayama session at The Hatha Yogashala Goa",
+      "Beginner Pranayama Course online — classical yogic breathing with The Hatha Yogashala",
     galleryImages: [
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-06.webp",
-        alt: "Students practicing Nadi Shodhana pranayama facing the Arabian Sea",
-        caption: "Nadi Shodhana practice at sunrise on Querim beach",
+        src: "/images/online-pranayama/the-hatha-yogashala-9-day-beginner-pranayama-course-online-rishikesh-india.webp",
+        alt: "Classical 9-day beginner pranayama curriculum and Nadi Shodhana practice",
+        caption: "Sequential daily breathwork practice for lung capacity",
       },
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-teacher-led-meditation-philosophy-talk-07.webp",
-        alt: "Senior teacher explaining the subtle nadis and pranic pathways",
+        src: "/images/online-pranayama/the-hatha-yogashala-kalpendar-ji-online-yoga-class-teacher.webp",
+        alt: "Senior teacher explaining subtle nadis and pranic pathways in live class",
         caption: "Understanding Ida, Pingala, and Sushumna nadis",
       },
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-12.webp",
-        alt: "Supported sitting posture for long pranayama rounds",
-        caption: "Asana alignment designed for effortless lung expansion",
+        src: "/images/online-pranayama/the-hatha-yogashala-pranayama.webp",
+        alt: "Classical seated posture for effortless lung expansion and breath control",
+        caption: "Classical seated alignment designed for effortless lung expansion",
       },
     ],
     seo: {
@@ -298,24 +298,24 @@ export const pranayamaCourses = [
       ctaText: "Prepare for Advanced Pranayama",
     },
     heroImage:
-      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+      "/images/online-pranayama/the-hatha-yogashala-intermediate-pranayama-student-breath-retention-training.webp",
     heroImageAlt:
-      "Intermediate pranayama and bandhas training at The Hatha Yogashala Goa",
+      "Intermediate Pranayama and breath retention (Kumbhaka) training online with The Hatha Yogashala",
     galleryImages: [
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-havan-fire-puja-opening-ceremony-03.webp",
-        alt: "Sacred fire puja and pranic energy alignment in ashram",
-        caption: "Traditional Vedic alignment and pranic grounding",
+        src: "/images/online-pranayama/the-hatha-yogashala-9-day-intermediate-breathwork-training-online-rishikesh-india.webp",
+        alt: "Intermediate Kumbhaka ratios and bandhas practice in live class",
+        caption: "Progressive Kumbhaka breath retention ratios (1:2:2 and 1:4:2)",
       },
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-09.webp",
-        alt: "Advanced breath retention practice by the quiet morning ocean",
-        caption: "Kumbhaka practice in the pure morning coastal air",
-      },
-      {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-teacher-led-meditation-philosophy-talk-09.webp",
-        alt: "Teacher demonstrating Jalandhara and Mula bandhas",
+        src: "/images/online-pranayama/the-hatha-yogashala-kalpendar-ji-online-yoga-class-teacher.webp",
+        alt: "Teacher demonstrating Jalandhara, Uddiyana, and Mula bandhas",
         caption: "Anatomical activation of the energetic locks (Bandhas)",
+      },
+      {
+        src: "/images/online-pranayama/the-hatha-yogashala-dhyana-meditation-outdoor-rishikesh-kundalini-yogashala.webp",
+        alt: "Pranic grounding and meditative stillness during breath retention",
+        caption: "Cultivating mental stillness through balanced pranic flow",
       },
     ],
     seo: {
@@ -438,24 +438,24 @@ export const pranayamaCourses = [
       ctaText: "Join the Global Prana Circle",
     },
     heroImage:
-      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-05.webp",
+      "/images/online-pranayama/the-hatha-yogashala-advanced-pranayama-breath-retention-training-rishikesh.webp",
     heroImageAlt:
-      "Deep meditative pranayama in the quiet shala at The Hatha Yogashala Goa",
+      "Advanced Pranayama & Kundalini Awakening breathwork training online",
     galleryImages: [
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-12.webp",
-        alt: "Master practitioner in deep meditation on the North Goa coast",
-        caption: "Entering extended stillness and Kevala Kumbhaka",
+        src: "/images/online-pranayama/the-hatha-yogashala-9-day-advanced-pranayama-training-online-rishikesh-india.webp",
+        alt: "Advanced breath retention training and Kundalini pranic awakening",
+        caption: "Mastering classical ratios (1:4:2:1) and Kevala Kumbhaka",
       },
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-flower-petal-om-mandala-ceremony-01.webp",
-        alt: "Vedic mandala ceremony honoring the subtle energy currents",
-        caption: "Sacred yogic environment for profound inner transformation",
+        src: "/images/online-pranayama/the-hatha-yogashala-intermediate-pranayama-student-breath-retention-training.webp",
+        alt: "Advanced student practicing Maha Bandha and Mudras",
+        caption: "Deepening Kevala Kumbhaka and spontaneous meditative absorption",
       },
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-wall-supported-headstand-practice-09.webp",
-        alt: "Inversion postures for cerebral circulation and pranic flow",
-        caption: "Inversions combined with subtle pranic locks",
+        src: "/images/online-pranayama/the-hatha-yogashala-kalpendar-ji-online-yoga-class-teacher.webp",
+        alt: "Master teacher transmitting esoteric pranayama wisdom",
+        caption: "Direct lineage transmission and guidance from master teachers",
       },
     ],
     seo: {
@@ -577,23 +577,23 @@ export const pranayamaCourses = [
       ctaText: "Maintain Your Calm with Daily Classes",
     },
     heroImage:
-      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-03.webp",
+      "/images/online-pranayama/the-hatha-yogashala-dhyana-meditation-outdoor-rishikesh-kundalini-yogashala.webp",
     heroImageAlt:
-      "Restorative candlelit meditation and breath relaxation in Goa",
+      "Meditation and breathing course for stress relief and nervous system reset",
     galleryImages: [
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-savasana-final-relaxation-pose-01.webp",
-        alt: "Restorative Savasana and guided breath release at The Hatha Yogashala",
+        src: "/images/online-pranayama/the-hatha-yogashala-pre-pranayama.webp",
+        alt: "Diaphragmatic breathing for vagus nerve stimulation and stress release",
         caption: "Deep nervous system reset in restorative relaxation",
       },
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-garden-lounge-candid-portrait-01.webp",
-        alt: "Student enjoying peaceful garden surroundings in North Goa",
-        caption: "Peaceful environment supporting emotional healing",
+        src: "/images/online-pranayama/the-hatha-yogashala-pranayama.webp",
+        alt: "Mindful breathing in peaceful meditative posture",
+        caption: "Daily breath rituals for emotional balance and anxiety relief",
       },
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-06.webp",
-        alt: "Candlelit evening meditation for restful sleep and anxiety relief",
+        src: "/images/online-pranayama/the-hatha-yogashala-kalpendar-ji-online-yoga-class-teacher.webp",
+        alt: "Guided mindfulness and breathwork sessions for inner peace",
         caption: "Evening tranquility sessions for deep, restorative sleep",
       },
     ],
@@ -717,24 +717,24 @@ export const pranayamaCourses = [
       ctaText: "Explore the Prana Circle Alumni Call",
     },
     heroImage:
-      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
+      "/images/online-pranayama/the-hatha-yogashala-pranayama.webp",
     heroImageAlt:
-      "Morning community pranayama circle at sunrise on Querim beach Goa",
+      "Daily live online pranayama and meditation classes with The Hatha Yogashala",
     galleryImages: [
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-04.webp",
-        alt: "Community members greeting the morning sun with breathwork",
-        caption: "Daily sunrise community practice from our Goan ashram",
+        src: "/images/online-pranayama/the-hatha-yogashala-kalpendar-ji-online-yoga-class-teacher.webp",
+        alt: "Live daily morning and evening breathwork classes with senior master teacher",
+        caption: "Daily live morning & evening practice with master teachers",
       },
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-04.webp",
-        alt: "Evening meditation circle in the quiet sanctuary",
-        caption: "Daily evening relaxation and breath alignment",
-      },
-      {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-garden-lounge-candid-portrait-08.webp",
-        alt: "Students sharing tea and discussion after morning practice",
+        src: "/images/online-pranayama/the-hatha-yogashala-beginner-pranayama-course-online-rishikesh-india.webp",
+        alt: "Global online breathwork community practicing synchronized pranayama",
         caption: "A supportive global community of dedicated practitioners",
+      },
+      {
+        src: "/images/online-pranayama/the-hatha-yogashala-dhyana-meditation-outdoor-rishikesh-kundalini-yogashala.webp",
+        alt: "Daily guided meditation and breath alignment for ongoing vitality",
+        caption: "Daily evening relaxation and breath alignment",
       },
     ],
     seo: {
@@ -857,23 +857,23 @@ export const pranayamaCourses = [
       ctaText: "Join Ongoing Daily Practice",
     },
     heroImage:
-      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
-    heroImageAlt: "Mindful Hatha yoga asana and meditation practice in shala",
+      "/images/online-pranayama/the-hatha-yogashala-kalpendar-ji-online-yoga-class-teacher.webp",
+    heroImageAlt: "Online Yoga and Meditation Immersion with Senior Master Teacher",
     galleryImages: [
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-15.webp",
-        alt: "Alignment focused Hatha yoga posture and breath integration",
-        caption: "Gentle yet deep classical Hatha asana alignment",
-      },
-      {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-07.webp",
-        alt: "Guided meditation for mental clarity and emotional stillness",
+        src: "/images/online-pranayama/the-hatha-yogashala-dhyana-meditation-outdoor-rishikesh-kundalini-yogashala.webp",
+        alt: "Classical Dhyana meditation and breath integration",
         caption: "Meditation and stillness guided by traditional masters",
       },
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-teacher-led-meditation-philosophy-talk-05.webp",
-        alt: "Weekly live philosophy and holistic lifestyle discussion",
-        caption: "Live interactive philosophical discussions & Q&A",
+        src: "/images/online-pranayama/the-hatha-yogashala-pranayama.webp",
+        alt: "Mindful classical yoga asana and breath flow alignment",
+        caption: "Gentle yet deep classical Hatha asana alignment",
+      },
+      {
+        src: "/images/online-pranayama/the-hatha-yogashala-9-day-intermediate-breathwork-training-online-rishikesh-india.webp",
+        alt: "Live interactive yoga philosophy and holistic lifestyle discussions",
+        caption: "Live interactive philosophical discussions & weekly Q&A",
       },
     ],
     seo: {
@@ -990,23 +990,23 @@ export const pranayamaCourses = [
     prerequisites:
       "Enrollment in any The Hatha Yogashala course or active daily subscription.",
     heroImage:
-      "/images/hatha-yogashala/hatha-yogashala-pernem-goa-graduation-group-photo-celebration-01.webp",
-    heroImageAlt: "Alumni community gathering at The Hatha Yogashala Goa",
+      "/images/online-pranayama/the-hatha-yogashala-kalpendar-ji-online-yoga-class-teacher.webp",
+    heroImageAlt: "The Prana Circle alumni community and monthly Satsang gathering",
     galleryImages: [
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-birthday-celebration-community-gathering-01.webp",
-        alt: "Community celebration and fellowship at The Hatha Yogashala",
+        src: "/images/online-pranayama/the-hatha-yogashala-dhyana-meditation-outdoor-rishikesh-kundalini-yogashala.webp",
+        alt: "Synchronized global breathwork circle and fellowship",
         caption: "Celebrating milestones and mutual spiritual growth",
       },
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-teacher-led-meditation-philosophy-talk-10.webp",
+        src: "/images/online-pranayama/the-hatha-yogashala-advanced-pranayama-breath-retention-training-rishikesh.webp",
         alt: "Philosophical Satsang and open dialogue with lead faculty",
         caption:
           "Direct access to lead teachers for guidance and spiritual counsel",
       },
       {
-        src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-certificate-presentation-teacher-training-01.webp",
-        alt: "Alumni graduation and lifelong community bond",
+        src: "/images/online-pranayama/the-hatha-yogashala-pranayama.webp",
+        alt: "Alumni community bond and ongoing lineage mentorship",
         caption: "Lifelong connections with practitioners worldwide",
       },
     ],

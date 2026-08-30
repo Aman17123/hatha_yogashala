@@ -16,6 +16,7 @@ export default function BookingSidebar({
   page,
   retreat,
   ctaLabel = "Book Your Retreat",
+  ctaHref,
   entityLabel = "Retreat",
 }) {
   const p = page.pricing;
@@ -35,7 +36,7 @@ export default function BookingSidebar({
       : null;
 
   const pricingTarget =
-    entityLabel === "TTC Course" ? "#fees" : "#registration";
+    ctaHref || (entityLabel === "TTC Course" ? "/apply" : "#registration");
 
   return (
     <aside
@@ -106,7 +107,11 @@ export default function BookingSidebar({
             <dt className="!text-[12px]">
               <Users size={13.5} aria-hidden="true" /> Batch Size
             </dt>
-            <dd className="!text-[12px]">{page.students} max</dd>
+            <dd className="!text-[12px]">
+              {page.students?.includes("max")
+                ? page.students
+                : `${page.students || "12–15"} max`}
+            </dd>
           </div>
         </dl>
 

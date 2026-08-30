@@ -129,22 +129,25 @@ export default function StickySubNav({ links = [], ariaLabel = "Section navigati
       }
     }
 
-    // Center the clicked link within the horizontal nav bar
+    // Scroll ONLY the inner nav container horizontally without affecting window scroll
     const navContainer = navContainerRef.current;
     if (navContainer) {
       const activeEl = navContainer.querySelector(`a[href="#${id}"]`);
       if (activeEl) {
-        activeEl.scrollIntoView({
-          behavior: "smooth",
-          inline: "center",
-          block: "nearest",
-        });
+        const containerRect = navContainer.getBoundingClientRect();
+        const elRect = activeEl.getBoundingClientRect();
+        const offset =
+          elRect.left -
+          containerRect.left -
+          (containerRect.width - elRect.width) / 2;
+        navContainer.scrollBy({ left: offset, behavior: "smooth" });
+        setTimeout(checkScrollability, 300);
       }
     }
 
     setTimeout(() => {
       isClickingRef.current = false;
-    }, 800);
+    }, 1000);
   };
 
   const scrollNav = (direction) => {

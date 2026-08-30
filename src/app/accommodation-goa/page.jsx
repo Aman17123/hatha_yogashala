@@ -308,7 +308,7 @@ export default function AccommodationPage() {
         <Container>
           <SectionHeading
             eyebrow="Campus amenities"
-            title="Everything included in your stay"
+            title="What's Included in Your Stay"
             text="From the practice hall to meals and student support, here is what makes up daily life at the Goa ashram."
           />
           <div className="facility-grid">

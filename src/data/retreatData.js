@@ -13,11 +13,16 @@
 
 const IMAGES = {
   hero: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
-  class: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
-  coast: "/images/accomodation/the-hatha-yogashala-arambol-goa-coconut-palms-sunlight-02.webp",
-  accommodation: "/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-bedroom-interior-01.webp",
-  pranayama: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
-  hatha: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
+  class:
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
+  coast:
+    "/images/accomodation/the-hatha-yogashala-arambol-goa-coconut-palms-sunlight-02.webp",
+  accommodation:
+    "/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-bedroom-interior-01.webp",
+  pranayama:
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-candlelit-meditation-session-shala-01.webp",
+  hatha:
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
 };
 
 export const retreatPricingByDays = {
@@ -28,7 +33,12 @@ export const retreatPricingByDays = {
 
 export const retreatPricing = {
   shared: { price: 199, currency: "EUR", label: "Shared Room", per: "person" },
-  private: { price: 399, currency: "EUR", label: "Private Room", per: "person" },
+  private: {
+    price: 399,
+    currency: "EUR",
+    label: "Private Room",
+    per: "person",
+  },
   paymentOptions: ["Bank Transfer", "PayPal", "Wise", "UPI", "Card"],
   trustBadges: [
     "3, 5 & 7-Day Formats + 5-Day Kundalini & Iyengar",
@@ -162,7 +172,10 @@ export const standardRetreatSchedule = [
   ["04:30 PM - 06:00 PM", "Restorative Yoga / Yin Yoga / Wall Rope Alignment"],
   ["06:00 PM - 07:00 PM", "Sunset Meditation, Trataka or Sound Healing"],
   ["07:30 PM - 08:30 PM", "Wholesome Vegetarian Dinner"],
-  ["08:30 PM - 09:30 PM", "Kirtan, Satsang, Philosophy Talk or Silent Reflection"],
+  [
+    "08:30 PM - 09:30 PM",
+    "Kirtan, Satsang, Philosophy Talk or Silent Reflection",
+  ],
 ];
 
 export const goaExperiences = [
@@ -204,14 +217,46 @@ export const goaExperiences = [
 ];
 
 export const freeTimeIdeas = [
-  { title: "Beach walks", text: "Wander the shoreline at low tide and let the sound of the waves reset your mind.", icon: "waves" },
-  { title: "Journaling", text: "Prompts are provided each day to help you capture insights before they fade.", icon: "book" },
-  { title: "Reading", text: "The shala library is stocked with yoga philosophy, memoir, and travel writing.", icon: "book" },
-  { title: "Café hopping", text: "Discover local cafés serving fresh juices, banana pancakes, and filter coffee.", icon: "coffee" },
-  { title: "Nature photography", text: "Golden-hour light, palms, and shoreline make every frame effortless.", icon: "camera" },
-  { title: "Meditation", text: "Sit by the beach or in the garden with your own quiet practice.", icon: "sparkles" },
-  { title: "Sunset watching", text: "Goa sunsets are famous for a reason — find your spot and stay for the show.", icon: "sun" },
-  { title: "Shopping", text: "Hunt for handmade textiles, jewellery, and ceramics at local markets.", icon: "shopping" },
+  {
+    title: "Beach walks",
+    text: "Wander the shoreline at low tide and let the sound of the waves reset your mind.",
+    icon: "waves",
+  },
+  {
+    title: "Journaling",
+    text: "Prompts are provided each day to help you capture insights before they fade.",
+    icon: "book",
+  },
+  {
+    title: "Reading",
+    text: "The shala library is stocked with yoga philosophy, memoir, and travel writing.",
+    icon: "book",
+  },
+  {
+    title: "Café hopping",
+    text: "Discover local cafés serving fresh juices, banana pancakes, and filter coffee.",
+    icon: "coffee",
+  },
+  {
+    title: "Nature photography",
+    text: "Golden-hour light, palms, and shoreline make every frame effortless.",
+    icon: "camera",
+  },
+  {
+    title: "Meditation",
+    text: "Sit by the beach or in the garden with your own quiet practice.",
+    icon: "sparkles",
+  },
+  {
+    title: "Sunset watching",
+    text: "Goa sunsets are famous for a reason — find your spot and stay for the show.",
+    icon: "sun",
+  },
+  {
+    title: "Shopping",
+    text: "Hunt for handmade textiles, jewellery, and ceramics at local markets.",
+    icon: "shopping",
+  },
 ];
 
 export const accommodationFacilities = [
@@ -252,75 +297,197 @@ export const accommodationOptions = [
 ];
 
 const sharedGallery = [
-  { src: "/images/accomodation/the-hatha-yogashala-arambol-goa-twin-bed-room-interior-01.webp", alt: "Air conditioned shared dorm room accommodation at The Hatha Yogashala Goa", caption: "Shared AC dorm room" },
-  { src: "/images/accomodation/the-hatha-yogashala-arambol-goa-coconut-palms-sunlight-02.webp", alt: "Lush tropical palm garden and balcony view", caption: "Tropical garden view" },
-  { src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp", alt: "Open-air wooden shala with yoga mats for daily retreat practice", caption: "Practice hall" },
+  {
+    src: "/images/accomodation/the-hatha-yogashala-arambol-goa-twin-bed-room-interior-01.webp",
+    alt: "Air conditioned shared dorm and twin room accommodation at The Hatha Yogashala Goa",
+    caption: "Shared AC room",
+  },
+  {
+    src: "/images/accomodation/the-hatha-yogashala-arambol-goa-twin-bed-room-interior-02.webp",
+    alt: "Twin sharing room with lush tropical garden view and veranda",
+    caption: "Twin sharing room & garden view",
+  },
+  {
+    src: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-06.webp",
+    alt: "Open-air wooden shala with yoga mats for daily retreat practice",
+    caption: "Practice hall",
+  },
 ];
 
 const privateGallery = [
-  { src: "/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-bedroom-interior-01.webp", alt: "Private room with plush bedding and attached modern bathroom in Goa", caption: "Private room" },
-  { src: "/images/accomodation/the-hatha-yogashala-arambol-goa-coconut-palms-sunlight-02.webp", alt: "Private balcony facing peaceful coconut palm groves", caption: "Private balcony" },
-  { src: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp", alt: "Serene campus pathways to nearby Keri and Arambol beach", caption: "Campus & beach path" },
+  {
+    src: "/images/accomodation/the-hatha-yogashala-arambol-goa-cottage-bedroom-interior-01.webp",
+    alt: "Private room with plush bedding and attached modern bathroom in Goa",
+    caption: "Private cottage room",
+  },
+  {
+    src: "/images/accomodation/the-hatha-yogashala-arambol-goa-double-bed-room-interior-01.webp",
+    alt: "Spacious private double room with attached modern ensuite bathroom",
+    caption: "Spacious double bedroom",
+  },
+  {
+    src: "/images/accomodation/the-hatha-yogashala-arambol-goa-wooden-cottage-exterior-01.webp",
+    alt: "Serene campus pathways and wooden eco-cottages in North Goa",
+    caption: "Campus & cottage gardens",
+  },
 ];
 
 const mealImages = {
-  breakfast: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-01.webp",
-  lunch: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-02.webp",
-  dinner: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-03.webp",
-  snacks: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ayurvedic-cooking-class-kitchen-01.webp",
+  breakfast:
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-08.webp",
+  lunch:
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-06.webp",
+  dinner:
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ashram-vegetarian-thali-meal-03.webp",
+  snacks:
+    "/images/hatha-yogashala/hatha-yogashala-pernem-goa-ayurvedic-cooking-class-kitchen-01.webp",
 };
 
 export const meals = [
   {
     meal: "Breakfast",
     time: "09:30 – 10:45 AM",
-    text: "A wholesome start featuring fruits, cereals, and traditional Indian dishes to ease you into the day.",
+    text: "A wholesome start featuring seasonal fruits, warm porridge, and traditional Indian dishes to ease you into the day.",
     image: mealImages.breakfast,
   },
   {
     meal: "Lunch",
     time: "01:30 – 02:30 PM",
-    text: "A balanced plate of vegetables, grains, and legumes for a satisfying, energizing midday meal.",
+    text: "A balanced, satisfying midday thali of seasonal vegetables, grains, legumes, and fresh roti.",
     image: mealImages.lunch,
   },
   {
     meal: "Dinner",
     time: "07:00 – 08:00 PM",
-    text: "Light, easily digestible dishes designed to support restful sleep and recovery, always vegetarian.",
+    text: "Light, easily digestible sattvic dishes designed to support restful sleep and recovery, always 100% vegetarian.",
     image: mealImages.dinner,
   },
   {
     meal: "Tea/Coffee Break",
     time: "08:00 – 08:15 AM",
-    text: "Herbal teas, fresh filter coffee, and fruit after morning cleansing.",
+    text: "Herbal teas, fresh filter coffee, spiced chai, and fruits after morning cleansing.",
     image: mealImages.snacks,
   },
 ];
 
 export const mealPhilosophy = {
-  title: "Food & Nutrition",
+  title: "Food & Nutrition Philosophy",
   points: [
-    "All meals at The Hatha Yogashala are vegetarian, prepared with fresh, locally sourced ingredients.",
-    "Breakfast: A wholesome start featuring fruits, cereals, and traditional Indian dishes.",
-    "Lunch: A balanced plate of vegetables, grains, and legumes for a satisfying, energizing midday meal.",
-    "Dinner: Light, easily digestible dishes designed to support restful sleep and recovery.",
-    "Vegan, gluten-free, and allergy-specific requirements accommodated with prior notice.",
+    "100% vegetarian Sattvic cuisine cooked fresh daily with wholesome, locally sourced ingredients.",
+    "Nutritionally balanced to optimize digestion, energy levels, and restorative sleep throughout your retreat.",
+    "Filtered drinking water, herbal teas, and seasonal fresh fruits available throughout the day.",
+    "Vegan, gluten-free, dairy-free, and allergy-sensitive diets warmly accommodated with prior notice.",
   ],
 };
 
 export const bestTimeToVisit = [
-  { month: "January", weather: "Clear skies · 24–32°C", crowd: "Busy", experience: "Bright mornings, warm beaches, and energetic retreat energy.", rec: "Best for first-timers and beach lovers.", season: "high" },
-  { month: "February", weather: "Sunny · 23–32°C", crowd: "Busy", experience: "Classic Goan weather — perfect for sunrise yoga and evening ocean swims.", rec: "Best for beach activities.", season: "high" },
-  { month: "March", weather: "Warming · 26–34°C", crowd: "Moderate", experience: "The retreat season peaks as travellers seek reset before the summer heat.", rec: "Best for yoga retreats.", season: "high" },
-  { month: "April", weather: "Hot · 28–36°C", crowd: "Calmer", experience: "Quieter shalas and warm sea make for a focused, personal practice.", rec: "Best for fewer crowds.", season: "shoulder" },
-  { month: "May", weather: "Very warm · 28–37°C", crowd: "Quiet", experience: "An introspective, still month — ideal for deep meditation and slow days.", rec: "Best for quiet stays.", season: "shoulder" },
-  { month: "June", weather: "Monsoon start · humid", crowd: "Very quiet", experience: "Heavy rains begin; lush green begins to overtake the coastline.", rec: "Beginning of monsoon.", season: "monsoon" },
-  { month: "July", weather: "Monsoon · heavy rain", crowd: "Very quiet", experience: "Emerald landscapes and dramatic skies — a dramatic, contemplative setting.", rec: "Lush green landscapes.", season: "monsoon" },
-  { month: "August", weather: "Monsoon easing · warm rain", crowd: "Very quiet", experience: "Peaceful and deeply introspective — retreat rates are at their most gentle.", rec: "Peaceful introspective retreat.", season: "monsoon" },
-  { month: "September", weather: "Rain easing · 25–31°C", crowd: "Quiet", experience: "The landscape is still green but the skies are clearing — an underrated gem.", rec: "Underrated season.", season: "shoulder" },
-  { month: "October", weather: "Dry returning · 24–32°C", crowd: "Quiet", experience: "Clear skies and pleasant warmth return as the tourist season slowly builds.", rec: "Clear skies.", season: "shoulder" },
-  { month: "November", weather: "Perfect · 22–31°C", crowd: "Building", experience: "Near-perfect conditions: warm days, cool nights, and a fresh start to the season.", rec: "Perfect weather.", season: "high" },
-  { month: "December", weather: "Mild · 20–30°C", crowd: "Festive", experience: "Holiday retreat atmosphere with Christmas and New Year beach celebrations.", rec: "Holiday retreat atmosphere.", season: "high" },
+  {
+    month: "January",
+    weather: "Clear skies · 24–32°C",
+    crowd: "Busy",
+    experience: "Bright mornings, warm beaches, and energetic retreat energy.",
+    rec: "Best for first-timers and beach lovers.",
+    season: "high",
+  },
+  {
+    month: "February",
+    weather: "Sunny · 23–32°C",
+    crowd: "Busy",
+    experience:
+      "Classic Goan weather — perfect for sunrise yoga and evening ocean swims.",
+    rec: "Best for beach activities.",
+    season: "high",
+  },
+  {
+    month: "March",
+    weather: "Warming · 26–34°C",
+    crowd: "Moderate",
+    experience:
+      "The retreat season peaks as travellers seek reset before the summer heat.",
+    rec: "Best for yoga retreats.",
+    season: "high",
+  },
+  {
+    month: "April",
+    weather: "Hot · 28–36°C",
+    crowd: "Calmer",
+    experience:
+      "Quieter shalas and warm sea make for a focused, personal practice.",
+    rec: "Best for fewer crowds.",
+    season: "shoulder",
+  },
+  {
+    month: "May",
+    weather: "Very warm · 28–37°C",
+    crowd: "Quiet",
+    experience:
+      "An introspective, still month — ideal for deep meditation and slow days.",
+    rec: "Best for quiet stays.",
+    season: "shoulder",
+  },
+  {
+    month: "June",
+    weather: "Monsoon start · humid",
+    crowd: "Very quiet",
+    experience:
+      "Heavy rains begin; lush green begins to overtake the coastline.",
+    rec: "Beginning of monsoon.",
+    season: "monsoon",
+  },
+  {
+    month: "July",
+    weather: "Monsoon · heavy rain",
+    crowd: "Very quiet",
+    experience:
+      "Emerald landscapes and dramatic skies — a dramatic, contemplative setting.",
+    rec: "Lush green landscapes.",
+    season: "monsoon",
+  },
+  {
+    month: "August",
+    weather: "Monsoon easing · warm rain",
+    crowd: "Very quiet",
+    experience:
+      "Peaceful and deeply introspective — retreat rates are at their most gentle.",
+    rec: "Peaceful introspective retreat.",
+    season: "monsoon",
+  },
+  {
+    month: "September",
+    weather: "Rain easing · 25–31°C",
+    crowd: "Quiet",
+    experience:
+      "The landscape is still green but the skies are clearing — an underrated gem.",
+    rec: "Underrated season.",
+    season: "shoulder",
+  },
+  {
+    month: "October",
+    weather: "Dry returning · 24–32°C",
+    crowd: "Quiet",
+    experience:
+      "Clear skies and pleasant warmth return as the tourist season slowly builds.",
+    rec: "Clear skies.",
+    season: "shoulder",
+  },
+  {
+    month: "November",
+    weather: "Perfect · 22–31°C",
+    crowd: "Building",
+    experience:
+      "Near-perfect conditions: warm days, cool nights, and a fresh start to the season.",
+    rec: "Perfect weather.",
+    season: "high",
+  },
+  {
+    month: "December",
+    weather: "Mild · 20–30°C",
+    crowd: "Festive",
+    experience:
+      "Holiday retreat atmosphere with Christmas and New Year beach celebrations.",
+    rec: "Holiday retreat atmosphere.",
+    season: "high",
+  },
 ];
 
 export const whatIncluded = [
@@ -367,22 +534,6 @@ export const testimonials = [
     tag: "3-Day Retreat",
   },
   {
-    name: "Elena",
-    country: "Russia",
-    rating: 5,
-    text: "The Hatha Yogashala completely transformed my relationship with yoga. The teaching was precise, the community was warm, and training next to the beach in Goa was beyond what I imagined.",
-    image: IMAGES.pranayama,
-    tag: "200-Hour YTT",
-  },
-  {
-    name: "Sarah",
-    country: "United Kingdom",
-    rating: 5,
-    text: "I arrived as a complete beginner and left as a confident yoga teacher. The small class size meant the trainers knew my name and my body. This is genuinely the best yoga teacher training in Goa.",
-    image: IMAGES.hatha,
-    tag: "200-Hour YTT",
-  },
-  {
     name: "David",
     country: "France",
     rating: 5,
@@ -391,20 +542,12 @@ export const testimonials = [
     tag: "5-Day Retreat",
   },
   {
-    name: "Lukas",
-    country: "Germany",
-    rating: 5,
-    text: "The philosophy and meditation teachings at The Hatha Yogashala changed how I see yoga. The quality of teaching and the warmth of the community exceeded every expectation.",
-    image: IMAGES.hero,
-    tag: "300-Hour YTT",
-  },
-  {
     name: "Tom",
     country: "Australia",
     rating: 5,
-    text: "The 100-hour course was the perfect introduction. The teachers made Sanskrit, anatomy, and philosophy accessible and inspiring. I will return for my 200-hour certification.",
+    text: "The 7-day retreat exceeded every expectation. The balance of vigorous morning Hatha, restorative evening sessions, ice baths, and wholesome ashram food made it a deeply healing week.",
     image: IMAGES.pranayama,
-    tag: "100-Hour YTT",
+    tag: "7-Day Retreat",
   },
 ];
 
@@ -733,9 +876,11 @@ function sampleDates(days) {
   };
   const list = starts[days] || starts[3];
   const toDate = (value) =>
-    new Intl.DateTimeFormat("en-IN", { day: "numeric", month: "short", year: "numeric" }).format(
-      new Date(value),
-    );
+    new Intl.DateTimeFormat("en-IN", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    }).format(new Date(value));
   return list.map((start, index) => {
     const end = new Date(start);
     end.setDate(end.getDate() + days - 1);
@@ -744,7 +889,12 @@ function sampleDates(days) {
       start,
       end: end.toISOString().slice(0, 10),
       label: `${toDate(start)} — ${toDate(end.toISOString().slice(0, 10))}`,
-      availability: index === 0 ? "Almost full" : index === 1 ? "6 spots left" : "Available",
+      availability:
+        index === 0
+          ? "Almost full"
+          : index === 1
+            ? "6 spots left"
+            : "Available",
     };
   });
 }
@@ -796,7 +946,7 @@ export function getRetreatPageData(arg) {
     ? Array.isArray(retreat.overview)
       ? retreat.overview
       : [retreat.overview]
-    : retreat?.whatIs?.paragraphs || buildOverview(days, name);
+    : buildOverview(days, name);
 
   const isSimple = Boolean(retreat?.hidePricingAndSidebar);
 
@@ -806,7 +956,8 @@ export function getRetreatPageData(arg) {
     category,
     rating: retreat?.rating ?? (days === 5 ? 5.0 : 4.9),
     ratingCount: 187,
-    students: "3,500+",
+    students: "12–15 max",
+    batchSize: "Small (12–15 max)",
     heroTagline,
     heroImage,
     heroImageAlt,
@@ -817,12 +968,15 @@ export function getRetreatPageData(arg) {
     location,
     locationDetail,
     overview: rawOverview,
-    overviewSummary: retreat?.whatIs?.paragraphs || rawOverview,
+    overviewSummary:
+      retreat?.whatIs?.paragraphs || buildOverviewShort(days, name),
     whyChoose: isSimple ? [] : whyChoose,
     teachers: retreatTeachers,
     highlights: retreat?.benefits || retreatHighlights,
     daysSchedule: isSimple ? [] : baseDays[days] || baseDays[5],
-    dailySchedule: isSimple ? null : retreat?.dailySchedule || standardRetreatSchedule,
+    dailySchedule: isSimple
+      ? null
+      : retreat?.dailySchedule || standardRetreatSchedule,
     scheduleMatrix: isSimple ? null : retreat?.scheduleMatrix || null,
     excursionsStory: isSimple ? null : retreat?.excursionsStory || null,
     experiences: isSimple ? [] : goaExperiences,
@@ -830,9 +984,13 @@ export function getRetreatPageData(arg) {
     feeRows: isSimple ? null : retreat?.feeRows || null,
     feeTableName: retreat?.feeTableName || `${days} Days Yoga Retreat`,
     facilityHeader: retreat?.facilityHeader || "Facilities",
-    priceHeader: retreat?.priceHeader || (retreat?.priceCurrency === "INR" ? "Cost" : "Price In Euro"),
+    priceHeader:
+      retreat?.priceHeader ||
+      (retreat?.priceCurrency === "INR" ? "Cost" : "Price In Euro"),
     accommodation: {
-      options: isSimple ? [] : retreat?.accommodationOptions || accommodationOptions,
+      options: isSimple
+        ? []
+        : retreat?.accommodationOptions || accommodationOptions,
       sharedGallery: isSimple ? [] : sharedGallery,
       privateGallery: isSimple ? [] : privateGallery,
       facilities: isSimple ? [] : accommodationFacilities,

@@ -243,7 +243,7 @@ export default function ContactPage() {
         <Container className="content-narrow">
           <SectionHeading
             eyebrow="Contact FAQ"
-            title="Useful answers before you write"
+            title="Frequently Asked Questions"
           />
           <Accordion items={contactFaqs} />
         </Container>

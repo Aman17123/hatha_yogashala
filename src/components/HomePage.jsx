@@ -339,7 +339,7 @@ export default function HomePage() {
             </StaggerItem>
             <StaggerItem startVisible>
               <div className="hero-actions">
-                <ButtonLink href="/apply">Reserve your spot</ButtonLink>
+                <ButtonLink href="/apply">Book Now</ButtonLink>
                 <ButtonLink
                   href="/yoga-teacher-training-goa"
                   variant="secondary"

@@ -11,11 +11,20 @@ const DEFAULT_FEE_ROWS = [
 ];
 
 export default function CourseFeesTable({
-  programName = "Yoga Teacher Training",
+  programName = "200-Hour Yoga Teacher Training",
+  heading,
   subHeading,
   feeRows = DEFAULT_FEE_ROWS,
   hideOuterContainer = false,
 }) {
+  const displayHeading =
+    heading ||
+    (programName.includes("100-Hour")
+      ? "Fees for the 100-Hour Yoga Teacher Training in Goa"
+      : programName.includes("200-Hour")
+        ? "Fees for the 200-Hour Yoga Teacher Training in Goa"
+        : `Fees for the ${programName}`);
+
   const displaySubHeading =
     subHeading || `${programName} — Room Options & All-Inclusive Fees`;
 
@@ -24,10 +33,10 @@ export default function CourseFeesTable({
       {/* Heading with accent */}
       <div className="text-center mb-6">
         <span className="text-[11.5px] font-extrabold uppercase tracking-widest text-[var(--coral-dark)]">
-          All-Inclusive Investment
+          Course Fees
         </span>
-        <h2 className="mt-1 text-[var(--brown)]">
-          Course Fees for {programName}
+        <h2 className="mt-1 text-[var(--brown)] font-philosopher">
+          {displayHeading}
         </h2>
         <p className="mt-2 text-xs sm:text-sm text-[var(--muted)] max-w-xl mx-auto">
           Includes full tuition, Yoga Alliance certification, accommodation,

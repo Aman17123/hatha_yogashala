@@ -564,7 +564,7 @@ export default function Navbar() {
                   className="size-4 shrink-0 transition-transform duration-300 group-hover:-rotate-3"
                   strokeWidth={1.9}
                 />
-                Reserve Your Spot
+                Book Now
               </Link>
             </div>
           </div>

@@ -123,11 +123,20 @@ export default function OnlinePranayamaHubPage() {
           </div>
 
           {/* Prana Circle Community Banner */}
-          <div className="mt-14 rounded-3xl bg-gradient-to-r from-[var(--surface)] via-[var(--cream)] to-[var(--surface)] p-8 sm:p-10 border border-[var(--border)] shadow-sm">
+          <div className="mt-14 rounded-3xl bg-gradient-to-r from-[var(--surface)] via-[var(--cream)] to-[var(--surface)] p-6 sm:p-10 border border-[var(--border)] shadow-sm overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-8">
+              <div className="lg:col-span-4 relative aspect-[16/10] sm:aspect-[4/3] rounded-2xl overflow-hidden shadow-md border-2 border-white">
+                <Image
+                  src="/images/online-pranayama/the-hatha-yogashala-kalpendar-ji-online-yoga-class-teacher.webp"
+                  alt="Senior teacher leading live online pranayama community session"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 30vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="lg:col-span-8 flex flex-col justify-between items-start">
                 <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[var(--coral-dark)] mb-2">
-                  <Sparkles size={14} /> Global Sangha & Satsang
+                  <Sparkles size={14} /> Global Sangha &amp; Satsang
                 </span>
                 <h3 className="font-heading text-2xl sm:text-3xl font-normal text-[var(--brown)]">
                   The Prana Circle — Alumni Monthly Community
@@ -135,15 +144,15 @@ export default function OnlinePranayamaHubPage() {
                 <p className="text-sm text-[var(--muted)] mt-2 leading-relaxed max-w-2xl">
                   A sacred monthly gathering where course graduates and subscribers practice synchronized global breathwork and explore classical texts with our senior faculty.
                 </p>
-              </div>
-              <div className="lg:col-span-4 flex justify-start lg:justify-end">
-                <Link
-                  href="/online-pranayama/prana-circle"
-                  className="button button-primary !py-3.5 !px-6 text-sm font-bold shadow-md"
-                >
-                  <span>Learn About Prana Circle</span>
-                  <ArrowRight size={15} />
-                </Link>
+                <div className="mt-6">
+                  <Link
+                    href="/online-pranayama/prana-circle"
+                    className="button button-primary !py-3.5 !px-6 text-sm font-bold shadow-md"
+                  >
+                    <span>Learn About Prana Circle</span>
+                    <ArrowRight size={15} />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

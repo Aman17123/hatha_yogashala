@@ -790,10 +790,10 @@ export default function YogaHolidaysGoaPage() {
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
-              Transparent &amp; Complete
+              Inclusions
             </span>
             <h2 className="mt-2 text-[var(--brown)]">
-              Everything Included in Your Stay
+              What&apos;s Included
             </h2>
             <p className="mt-2 text-sm sm:text-base text-[var(--muted)]">
               No hidden costs. Everything you need for a restorative and enriching holiday is prepared for you upon arrival.

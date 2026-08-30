@@ -29,34 +29,20 @@ import { FadeIn, Stagger, StaggerItem } from "./retreat/Motion";
 import { SiWhatsapp } from "react-icons/si";
 
 const defaultRetreatNavLinks = [
-  { id: "overview", label: "1. Overview" },
-  { id: "highlights", label: "2. Highlights" },
-  { id: "vedic-rituals", label: "3. Vedic Rituals" },
-  { id: "aerial-alignment", label: "4. Aerial Alignment" },
-  { id: "ayurveda-wisdom", label: "5. Ayurveda" },
-  { id: "community", label: "6. Community" },
-  { id: "accommodation", label: "7. Stay" },
-  { id: "schedule", label: "8. Schedule" },
-  { id: "excursions", label: "9. Excursions" },
-  { id: "why", label: "10. Why Us" },
-  { id: "meals", label: "11. Meals" },
-  { id: "included", label: "12. Included" },
-  { id: "excluded", label: "13. Excluded" },
-  { id: "reviews", label: "14. Reviews" },
-  { id: "faq", label: "15. FAQ" },
-  { id: "fees", label: "16. Fees" },
+  { id: "overview", label: "Overview" },
+  { id: "highlights", label: "Highlights" },
+  { id: "accommodation", label: "Stay & Meals" },
+  { id: "schedule", label: "Schedule" },
+  { id: "excursions", label: "Excursions" },
+  { id: "fees", label: "Fees & Dates" },
+  { id: "reviews", label: "Reviews & FAQ" },
 ];
 
 const simpleRetreatNavLinks = [
-  { id: "overview", label: "1. Overview" },
-  { id: "highlights", label: "2. Highlights" },
-  { id: "vedic-rituals", label: "3. Vedic Rituals" },
-  { id: "aerial-alignment", label: "4. Aerial Alignment" },
-  { id: "ayurveda-wisdom", label: "5. Ayurveda" },
-  { id: "community", label: "6. Community" },
-  { id: "reviews", label: "7. Reviews" },
-  { id: "faq", label: "8. FAQ" },
-  { id: "fees", label: "9. Inquire" },
+  { id: "overview", label: "Overview" },
+  { id: "highlights", label: "Highlights" },
+  { id: "reviews", label: "Reviews & FAQ" },
+  { id: "fees", label: "Inquire" },
 ];
 
 const whyIcons = {
@@ -251,7 +237,7 @@ export default function RetreatTemplate({ retreat, page }) {
               <Users size={17} aria-hidden="true" />
               <div>
                 <span>Batch Size</span>
-                <strong>Small ({p.students} max)</strong>
+                <strong>Small ({p.students?.includes("max") ? p.students : `${p.students || "12–15"} max`})</strong>
               </div>
             </div>
           </div>
@@ -313,8 +299,8 @@ export default function RetreatTemplate({ retreat, page }) {
 
           {/* ============ SECTION 1 — OVERVIEW ============ */}
           <section className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs" id="overview">
-            <RetreatEyebrow>1. Overview</RetreatEyebrow>
-            <h2 className="retreat-section-title font-philosopher">A transformative reset in North Goa</h2>
+            <RetreatEyebrow>Overview</RetreatEyebrow>
+            <h2 className="retreat-section-title font-philosopher">Retreat Overview</h2>
             <div className="retreat-overview">
               {p.overview.map((paragraph, index) => (
                 <FadeIn key={index} delay={index * 0.04}>
@@ -332,8 +318,8 @@ export default function RetreatTemplate({ retreat, page }) {
           {/* ============ SECTION 2 — WHAT THIS IS (SEO / AEO) ============ */}
           {retreat.whatIs && (
             <section className="retreat-section bg-[var(--surface)] p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs" id="highlights">
-              <RetreatEyebrow>2. Retreat Highlights</RetreatEyebrow>
-              <h2 className="retreat-section-title font-philosopher">{retreat.whatIs.heading}</h2>
+              <RetreatEyebrow>Retreat Highlights</RetreatEyebrow>
+              <h2 className="retreat-section-title font-philosopher">Retreat Highlights</h2>
               <div className="retreat-overview">
                 {retreat.whatIs.paragraphs.map((paragraph, index) => (
                   <FadeIn key={index} delay={index * 0.04}>
@@ -380,8 +366,8 @@ export default function RetreatTemplate({ retreat, page }) {
 
           {/* ============ SECTION 3: VEDIC WISDOM & SACRED FIRE RITUALS ============ */}
           <section className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs" id="vedic-rituals">
-            <RetreatEyebrow>3. Vedic Heritage</RetreatEyebrow>
-            <h2 className="retreat-section-title font-philosopher">Sacred Vedic Rituals &amp; Fire Puja</h2>
+            <RetreatEyebrow>Vedic Heritage</RetreatEyebrow>
+            <h2 className="retreat-section-title font-philosopher">Vedic Rituals &amp; Fire Ceremony</h2>
             <p className="retreat-section-lead">
               Experience the depth of ancient yogic traditions. From sacred Havan fire ceremonies and Vedic mantra chanting to flower petal Om mandalas and candlelit Trataka meditation, these rituals purify the energy and ground your retreat practice.
             </p>
@@ -441,12 +427,12 @@ export default function RetreatTemplate({ retreat, page }) {
             </div>
           </section>
 
-          {/* ============ SECTION 4: AERIAL & WALL-SUPPORTED ALIGNMENT ============ */}
+          {/* ============ SECTION 4: AERIAL & WALL-SUPPORTED INVERSIONS ============ */}
           <section className="retreat-section bg-[var(--surface)] p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs" id="aerial-alignment">
-            <RetreatEyebrow>4. Modern &amp; Classical Alignment</RetreatEyebrow>
-            <h2 className="retreat-section-title font-philosopher">Aerial &amp; Wall-Supported Inversions</h2>
+            <RetreatEyebrow>Alignment</RetreatEyebrow>
+            <h2 className="retreat-section-title font-philosopher">Wall-Supported Inversions</h2>
             <p className="retreat-section-lead">
-              Deepen your asana practice with therapeutic wall ropes and supported aerial inversions. This allows effortless spinal decompression, precise shoulder opening, and safe Sirsasana (headstand) mastery regardless of your experience level.
+              Learn safe headstand (Sirsasana) technique with wall support — great for shoulder opening and spinal relief, at any level.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
@@ -493,8 +479,8 @@ export default function RetreatTemplate({ retreat, page }) {
 
           {/* ============ SECTION 5: AYURVEDIC HEALING & COOKING WISDOM ============ */}
           <section className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs" id="ayurveda-wisdom">
-            <RetreatEyebrow>5. Ayurvedic Living</RetreatEyebrow>
-            <h2 className="retreat-section-title font-philosopher">Ayurvedic Therapies &amp; Kitchen Wisdom</h2>
+            <RetreatEyebrow>Ayurvedic Living</RetreatEyebrow>
+            <h2 className="retreat-section-title font-philosopher">Ayurveda &amp; Cooking</h2>
             <p className="retreat-section-lead">
               Ayurveda and Yoga are sister sciences of longevity. Enjoy rejuvenating herbal oil massages, dosha-balancing Ayurvedic meals, and hands-on interactive cooking masterclasses in our open-air garden kitchen.
             </p>
@@ -543,8 +529,8 @@ export default function RetreatTemplate({ retreat, page }) {
 
           {/* ============ SECTION 6: COMMUNITY CELEBRATION & FESTIVAL GATHERINGS ============ */}
           <section className="retreat-section bg-[var(--surface)] p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs" id="community">
-            <RetreatEyebrow>6. Community &amp; Festivals</RetreatEyebrow>
-            <h2 className="retreat-section-title font-philosopher">Community Celebration, Kirtan &amp; Ecstatic Gatherings</h2>
+            <RetreatEyebrow>Community</RetreatEyebrow>
+            <h2 className="retreat-section-title font-philosopher">Community &amp; Celebration</h2>
             <p className="retreat-section-lead">
               Retreat life at The Hatha Yogashala is vibrant and heartwarming. Join our evening live kirtans, joyful community gatherings, sacred mandala art workshops, and beach sunset circles where lifelong friendships are formed.
             </p>
@@ -594,8 +580,8 @@ export default function RetreatTemplate({ retreat, page }) {
           {/* ============ SECTION 7 — ACCOMMODATION (Standard Retreats Only) ============ */}
           {!isSimple && (
             <section className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs" id="accommodation">
-              <RetreatEyebrow>7. Accommodation &amp; Living</RetreatEyebrow>
-              <h2 className="retreat-section-title font-philosopher">Comfortable living &amp; sanctuary spaces</h2>
+              <RetreatEyebrow>Accommodation</RetreatEyebrow>
+              <h2 className="retreat-section-title font-philosopher">Accommodation</h2>
               <p className="retreat-section-lead">
                 Rest deeply between your yoga practices. Every space is air-conditioned, calm, clean, and located inside our tranquil beachside ashram campus in North Goa.
               </p>
@@ -618,7 +604,7 @@ export default function RetreatTemplate({ retreat, page }) {
               <div className="retreat-rooms mt-8">
                 <FadeIn>
                   <article className="retreat-room-block">
-                    <h3>Shared Living &amp; Dorms</h3>
+                    <h3>AC Dorm &amp; Twin Sharing</h3>
                     <p>Thoughtfully paired twin beds and community dorms with garden views and the easy friendships of retreat life.</p>
                     <div className="retreat-room-gallery">
                       {p.accommodation.sharedGallery.map((image) => (
@@ -629,7 +615,7 @@ export default function RetreatTemplate({ retreat, page }) {
                 </FadeIn>
                 <FadeIn delay={0.08}>
                   <article className="retreat-room-block">
-                    <h3>Private Rooms</h3>
+                    <h3>Private Room</h3>
                     <p>Your own sanctuary with an attached bathroom and quiet environment for those who prefer solitude and personal space.</p>
                     <div className="retreat-room-gallery">
                       {p.accommodation.privateGallery.map((image) => (
@@ -656,8 +642,8 @@ export default function RetreatTemplate({ retreat, page }) {
           {/* ============ SECTION 8 — DAILY SCHEDULE (Standard Retreats Only) ============ */}
           {!isSimple && (p.scheduleMatrix || p.dailySchedule) && (
             <section className="retreat-section bg-[var(--surface)] p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs" id="schedule">
-              <RetreatEyebrow>8. Daily Schedule</RetreatEyebrow>
-              <h2 className="retreat-section-title font-philosopher">Daily rhythm &amp; routine</h2>
+              <RetreatEyebrow>Daily Schedule</RetreatEyebrow>
+              <h2 className="retreat-section-title font-philosopher">Daily Schedule</h2>
               <div className="inline-block bg-[var(--coral-dark)]/10 text-[var(--coral-dark)] px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wide mt-2">
                 <em>Check-in: {p.checkIn || "11:00 AM"} | Check-out: {p.checkOut || "1:00 PM"}</em>
               </div>
@@ -692,7 +678,7 @@ export default function RetreatTemplate({ retreat, page }) {
                               <td
                                 key={cIdx}
                                 className={`py-3 px-4 ${cIdx === 0 ? "font-bold text-[var(--coral-dark)] whitespace-nowrap" : "text-[var(--brown)] font-medium"} ${
-                                  cIdx < row.length - 1 ? "border-r border-[var(--border)]" : ""
+                                   cIdx < row.length - 1 ? "border-r border-[var(--border)]" : ""
                                 }`}
                               >
                                 {cell}
@@ -745,8 +731,8 @@ export default function RetreatTemplate({ retreat, page }) {
           {/* ============ SECTION 9 — EXCURSIONS & ACTIVITIES (Standard Retreats Only) ============ */}
           {!isSimple && (
             <section className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs" id="excursions">
-              <RetreatEyebrow>9. Excursions &amp; Activities</RetreatEyebrow>
-              <h2 className="retreat-section-title font-philosopher">Beyond the mat — the Goa experience</h2>
+              <RetreatEyebrow>Excursions</RetreatEyebrow>
+              <h2 className="retreat-section-title font-philosopher">Excursions</h2>
               {p.excursionsStory && (
                 <div className="p-5 sm:p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] my-6">
                   <p className="text-sm sm:text-base text-[var(--brown)] leading-relaxed font-normal">
@@ -769,8 +755,8 @@ export default function RetreatTemplate({ retreat, page }) {
           {/* ============ SECTION 10 — WHY CHOOSE (Standard Retreats Only) ============ */}
           {!isSimple && p.whyChoose?.length > 0 && (
             <section className="retreat-section bg-[var(--surface)] p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs" id="why">
-              <RetreatEyebrow>10. Why Choose Us</RetreatEyebrow>
-              <h2 className="retreat-section-title font-philosopher">Ten reasons guests keep coming back</h2>
+              <RetreatEyebrow>Why Choose This Retreat</RetreatEyebrow>
+              <h2 className="retreat-section-title font-philosopher">Why Choose This Retreat</h2>
               <Stagger className="retreat-why-grid">
                 {p.whyChoose.map((item) => {
                   const Icon = whyIcons[item.icon] || Sparkles;
@@ -793,8 +779,8 @@ export default function RetreatTemplate({ retreat, page }) {
           {/* ============ SECTION 11 — MEALS (Standard Retreats Only) ============ */}
           {!isSimple && p.meals?.length > 0 && (
             <section className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs" id="meals">
-              <RetreatEyebrow>11. Sattvic Meals</RetreatEyebrow>
-              <h2 className="retreat-section-title font-philosopher">Sattvic food, cooked with love</h2>
+              <RetreatEyebrow>Meals</RetreatEyebrow>
+              <h2 className="retreat-section-title font-philosopher">Meals</h2>
               <p className="retreat-section-lead">
                 Three freshly prepared vegetarian meals a day, plus snacks — the fuel your practice and rest depend on.
               </p>
@@ -836,8 +822,8 @@ export default function RetreatTemplate({ retreat, page }) {
           {/* ============ SECTION 12 & 13 — WHAT'S INCLUDED & NOT INCLUDED (Standard Retreats Only) ============ */}
           {!isSimple && p.included?.length > 0 && (
             <section className="retreat-section bg-[var(--surface)] p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs" id="included">
-              <RetreatEyebrow>12. What&apos;s Included &amp; Excluded</RetreatEyebrow>
-              <h2 className="retreat-section-title font-philosopher">Everything you need, nothing you don&apos;t</h2>
+              <RetreatEyebrow>What&apos;s Included / Not Included</RetreatEyebrow>
+              <h2 className="retreat-section-title font-philosopher">What&apos;s Included / Not Included</h2>
               <div className="retreat-inclusion-grid">
                 <article className="retreat-include-card">
                   <h3>
@@ -871,15 +857,15 @@ export default function RetreatTemplate({ retreat, page }) {
 
           {/* ============ SECTION 14 — TESTIMONIALS ============ */}
           <section className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs" id="reviews">
-            <RetreatEyebrow>14. Guest Stories</RetreatEyebrow>
-            <h2 className="retreat-section-title font-philosopher">Trusted by travellers from 30+ countries</h2>
+            <RetreatEyebrow>Guest Stories</RetreatEyebrow>
+            <h2 className="retreat-section-title font-philosopher">Guest Reviews</h2>
             <TestimonialCarousel testimonials={p.testimonials} />
           </section>
 
           {/* ============ SECTION 15 — FAQ ============ */}
           <section className="retreat-section bg-[var(--surface)] p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs" id="faq">
-            <RetreatEyebrow>15. Retreat FAQ</RetreatEyebrow>
-            <h2 className="retreat-section-title font-philosopher">Answers before you ask</h2>
+            <RetreatEyebrow>Frequently Asked Questions</RetreatEyebrow>
+            <h2 className="retreat-section-title font-philosopher">Frequently Asked Questions</h2>
             <Accordion items={p.faqs} />
           </section>
 
@@ -919,9 +905,9 @@ export default function RetreatTemplate({ retreat, page }) {
               <div id="registration" />
               {/* Centered Course Fees Title with Underline */}
               <div className="text-center mb-6">
-                <RetreatEyebrow>16. Course Fees &amp; Booking</RetreatEyebrow>
+                <RetreatEyebrow>Fees &amp; Dates</RetreatEyebrow>
                 <h2 className="text-[var(--brown)] font-philosopher">
-                  Course Fees
+                  Fees &amp; Dates
                 </h2>
                 <div className="w-16 h-0.5 bg-[var(--coral-dark)] mx-auto mt-2.5" />
               </div>

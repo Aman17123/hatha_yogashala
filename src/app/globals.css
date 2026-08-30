@@ -8580,6 +8580,7 @@ body:has(.yttc-page) .floating-actions {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
 }
 
@@ -8619,6 +8620,7 @@ body:has(.yttc-page) .floating-actions {
 .retreat-stickynav-inner {
   display: flex;
   align-items: center;
+  justify-content: safe center;
   gap: 0.45rem;
   overflow-x: auto;
   scrollbar-width: none;
@@ -8627,7 +8629,14 @@ body:has(.yttc-page) .floating-actions {
   white-space: nowrap;
   padding: 0.2rem 0.5rem;
   width: 100%;
+  max-width: 100%;
   scroll-behavior: smooth;
+}
+
+@media (min-width: 768px) {
+  .retreat-stickynav-inner {
+    justify-content: center;
+  }
 }
 
 .retreat-stickynav-inner::-webkit-scrollbar {
