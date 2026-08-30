@@ -209,9 +209,6 @@ h2 {
   --color-success: var(--success);
   --color-footer: var(--footer);
   --font-sans: var(--font-body), sans-serif;
-  --font-heading: var(--font-heading), "Gotu", sans-serif;
-  --font-quicksand: var(--font-quicksand), "Quicksand", sans-serif;
-  --font-philosopher: var(--font-philosopher), "Philosopher", sans-serif;
 
   --text-xs: 12px;
   --text-xs--line-height: 16px;
@@ -4941,8 +4938,8 @@ body:has(.yttc-page) .floating-actions {
 
 .retreat-overview p:first-child {
   color: var(--brown);
-  font-size: 18px;
-  line-height: 1.65;
+  font-size: var(--fs-para);
+  line-height: 1.7;
 }
 
 .retreat-overview-tags {

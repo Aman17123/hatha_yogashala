@@ -420,7 +420,7 @@ export default function HomePage() {
       </FadeIn>
 
       {/* ===== 4. TEACHER TRAINING — 100/200/300-hour program cards ===== */}
-      <section className="section section-peach" id="courses">
+      <section className="section" id="courses">
         <Container>
           <FadeIn>
             <SectionHeading
@@ -441,7 +441,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== 5. RETREATS — coastal retreat cards ===== */}
-      <section className="section" id="retreats">
+      <section className="section section-peach" id="retreats">
         <Container>
           <FadeIn>
             <SectionHeading
@@ -475,7 +475,7 @@ export default function HomePage() {
       </FadeIn>
 
       {/* ===== 8. WHY CHOOSE US — trust-building reasons ===== */}
-      <section className="section" id="why-us">
+      <section className="section section-peach" id="why-us">
         <Container>
           <FadeIn>
             <WhyChooser items={whyItems}>
@@ -583,7 +583,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== 11 CERTIFICATION — Yoga Alliance accreditation ===== */}
-      <section className="section" id="certification">
+      <section className="section section-peach" id="certification">
         <Container>
           <FadeIn className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
@@ -674,7 +674,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== 12. WHY GOA — coastal setting with photo tiles ===== */}
-      <section className="section section-peach">
+      <section className="section">
         <Container>
           <FadeIn className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left — text + benefits */}
@@ -770,7 +770,7 @@ export default function HomePage() {
 
       {/* ===== 13. RESIDENTIAL EXPERIENCE — facilities and accommodation ===== */}
       <section
-        className="section section-cream"
+        className="section section-peach"
         id="residential-experience"
         aria-labelledby="residential-experience-title"
       >
@@ -896,7 +896,7 @@ export default function HomePage() {
         <FAQ />
       </FadeIn>
 
-      <section className="section" id="location">
+      <section className="section section-peach" id="location">
         <Container>
           <FadeIn>
             <SectionHeading
@@ -982,7 +982,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== 16. BLOG — latest journal articles ===== */}
-      <section className="section section-peach" id="journal">
+      <section className="section" id="journal">
         <Container>
           <FadeIn className="flex flex-wrap items-end justify-between gap-6">
             <SectionHeading

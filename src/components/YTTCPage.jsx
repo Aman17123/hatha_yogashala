@@ -537,8 +537,6 @@ export default function YTTCPage({ course }) {
           }}
           ctaLabel="Reserve Your Spot"
           entityLabel="TTC Course"
-          studentsLabel="TTC graduates"
-          programOptions={programOptions}
         />
 
         <div className="retreat-content">

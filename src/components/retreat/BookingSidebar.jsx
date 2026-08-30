@@ -1,32 +1,23 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import {
   ArrowRight,
   CalendarDays,
   Check,
   Clock3,
-  CreditCard,
-  Heart,
   MapPin,
   Star,
   Users,
 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { whatsappLink } from "@/data/siteData";
-import BookingForm from "./BookingForm";
 
 export default function BookingSidebar({
   page,
   retreat,
   ctaLabel = "Book Your Retreat",
   entityLabel = "Retreat",
-  studentsLabel = "retreat guests",
-  programOptions,
 }) {
-  const [openForm, setOpenForm] = useState(false);
   const p = page.pricing;
   const whatsappHref = whatsappLink(
     retreat.whatsappMessage ||
@@ -55,19 +46,11 @@ export default function BookingSidebar({
       <div className="booking-card mt-10">
         {/* Price block */}
         <div className="booking-card-head !p-3.9 sm:!p-4">
-          {/* Ashram Branding */}
+          {/* Course / retreat name */}
           <div className="flex items-center justify-between gap-2 mb-2.5 pb-2 border-b border-[var(--border)]/70">
-            <div className="relative w-28 h-6.5 shrink-0">
-              <Image
-                src="/images/The-Hatha-Yogashala-logo.png"
-                alt="The Hatha Yogashala Logo"
-                fill
-                className="object-contain object-left"
-              />
-            </div>
-            <span className="text-[9.5px] font-bold uppercase tracking-wider text-[var(--coral-dark)] text-right">
-              Direct Reservation
-            </span>
+            <h3 className="font-philosopher text-lg leading-snug font-bold text-[var(--brown)]">
+              {retreat.name}
+            </h3>
           </div>
 
           <div className="booking-price">
@@ -75,7 +58,7 @@ export default function BookingSidebar({
               From
             </span>
             <span>
-              <strong className="!text-[25px] font-philosopher">
+              <strong className="!text-[25px] !font-philosopher">
                 {formatPrice(p.shared.price) ?? "On enquiry"}
               </strong>
               <small className="!text-[11.5px]"> /person</small>
@@ -129,15 +112,14 @@ export default function BookingSidebar({
 
         {/* CTA buttons */}
         <div className="booking-actions !p-3 sm:!p-3.5 !gap-2">
-          <button
-            type="button"
+          <a
+            href={pricingTarget}
             className="button button-primary !w-full !py-2 !text-[12.5px] font-bold"
-            onClick={() => setOpenForm((value) => !value)}
-            aria-expanded={openForm}
+            aria-label={`${ctaLabel} — ${retreat.name}`}
           >
             <span>{ctaLabel}</span>
             <ArrowRight size={14} aria-hidden="true" />
-          </button>
+          </a>
 
           <div className="grid grid-cols-2 gap-2 w-full">
             <a
@@ -158,20 +140,6 @@ export default function BookingSidebar({
             </a>
           </div>
         </div>
-
-        {/* Inline booking form */}
-        {openForm && (
-          <div className="booking-inline-form !p-3.5">
-            <BookingForm
-              retreatName={retreat.name}
-              compact
-              paymentOptions={p.paymentOptions}
-              pricing={p}
-              programOptions={programOptions}
-              submitLabel={ctaLabel}
-            />
-          </div>
-        )}
 
         {/* Trust badges */}
         <ul className="booking-trust !p-2.5 sm:!p-3 !gap-1">

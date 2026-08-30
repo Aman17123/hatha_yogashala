@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -10,15 +9,11 @@ import {
   CheckCircle2,
   Clock,
   Globe,
-  Heart,
   HelpCircle,
-  Info,
   Layers,
   MapPin,
-  Send,
   ShieldAlert,
   Sparkles,
-  Users,
   Wind,
 } from "lucide-react";
 import { Breadcrumbs, ButtonLink, Container, FinalCTA, JsonLd } from "@/components/ui";
@@ -28,21 +23,6 @@ import { absoluteUrl, site } from "@/data/siteData";
 import { ORG_ID, WEBSITE_ID, LOCAL_BUSINESS_ID } from "@/lib/schema";
 
 export default function PranayamaTemplate({ course }) {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    newsletter: true,
-    trialRequested: false,
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
   const isService =
     course.slug === "daily-pranayama-subscription" ||
     course.slug === "yoga-meditation";
@@ -153,7 +133,7 @@ export default function PranayamaTemplate({ course }) {
               {/* Action Buttons */}
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <ButtonLink
-                  href={course.hasSignupForm ? "#signup-section" : "/apply"}
+                  href="/apply"
                   className="button button-primary !px-7 !py-3.5 text-sm font-bold shadow-md hover:shadow-lg"
                 >
                   <span>Enroll in Program</span>
@@ -162,7 +142,7 @@ export default function PranayamaTemplate({ course }) {
 
                 {course.trialPrice && (
                   <ButtonLink
-                    href={course.hasSignupForm ? "#signup-section" : "/contact#trial"}
+                    href="/contact#trial"
                     variant="outline"
                     className="!px-6 !py-3.5 text-sm font-bold border-2 border-[var(--brown)]/20 hover:border-[var(--coral-dark)] hover:text-[var(--coral-dark)]"
                   >
@@ -207,7 +187,7 @@ export default function PranayamaTemplate({ course }) {
                 {course.whyMatters.heading}
               </h2>
 
-              <div className="mt-6 space-y-4 text-[16px] text-[#433c37] leading-relaxed">
+              <div className="mt-6 space-y-4 text-[15.5px] text-[#433c37] leading-relaxed">
                 {course.whyMatters.paragraphs.map((p, idx) => (
                   <p key={idx}>{p}</p>
                 ))}
@@ -376,104 +356,6 @@ export default function PranayamaTemplate({ course }) {
                 </div>
               </div>
             </div>
-
-            {/* Special Sign-up Form for Daily Subscription & Courses */}
-            {course.hasSignupForm && (
-              <div id="signup-section" className="mt-10 pt-8 border-t border-[var(--border)]">
-                <h3 className="font-heading text-xl sm:text-2xl font-normal text-center text-[var(--brown)] mb-2">
-                  Start Your Daily Pranayama Practice
-                </h3>
-                <p className="text-xs sm:text-sm text-center text-[var(--muted)] mb-6 max-w-md mx-auto">
-                  Sign up for the $10 USD trial session or activate your monthly $99 membership.
-                </p>
-
-                {submitted ? (
-                  <div className="rounded-2xl bg-[var(--surface)] p-6 text-center border border-[var(--coral-dark)]/30">
-                    <CheckCircle2 className="mx-auto text-[var(--coral-dark)] mb-2" size={32} />
-                    <h4 className="font-heading text-lg font-bold text-[var(--brown)]">Registration Received</h4>
-                    <p className="text-sm text-[var(--muted)] mt-1">
-                      Thank you! Our admissions coordinator will email your Zoom access link and payment confirmation shortly.
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto">
-                    <div>
-                      <label className="block text-xs font-bold text-[var(--brown)] mb-1">First Name *</label>
-                      <input
-                        type="text"
-                        required
-                        value={formData.firstName}
-                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                        className="w-full rounded-xl border border-[var(--border)] px-3.5 py-2.5 text-sm focus:outline-none focus:border-[var(--coral-dark)]"
-                        placeholder="Your first name"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-[var(--brown)] mb-1">Last Name *</label>
-                      <input
-                        type="text"
-                        required
-                        value={formData.lastName}
-                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                        className="w-full rounded-xl border border-[var(--border)] px-3.5 py-2.5 text-sm focus:outline-none focus:border-[var(--coral-dark)]"
-                        placeholder="Your last name"
-                      />
-                    </div>
-                    <div className="sm:col-span-2">
-                      <label className="block text-xs font-bold text-[var(--brown)] mb-1">Email Address *</label>
-                      <input
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full rounded-xl border border-[var(--border)] px-3.5 py-2.5 text-sm focus:outline-none focus:border-[var(--coral-dark)]"
-                        placeholder="you@example.com"
-                      />
-                    </div>
-                    <div className="sm:col-span-2 flex items-start gap-2 pt-1">
-                      <input
-                        type="checkbox"
-                        id="newsletter"
-                        checked={formData.newsletter}
-                        onChange={(e) => setFormData({ ...formData, newsletter: e.target.checked })}
-                        className="mt-1 rounded border-gray-300 text-[var(--coral-dark)] focus:ring-[var(--coral-dark)]"
-                      />
-                      <label htmlFor="newsletter" className="text-xs text-[var(--muted)]">
-                        Subscribe to The Hatha Yogashala monthly breathwork newsletter & insights.
-                      </label>
-                    </div>
-                    <div className="sm:col-span-2 flex flex-col sm:flex-row gap-3 pt-2">
-                      <button
-                        type="submit"
-                        className="button button-primary !w-full justify-center !py-3 font-bold text-sm"
-                      >
-                        <Send size={15} />
-                        Join $99/Mo Subscription
-                      </button>
-                      <button
-                        type="submit"
-                        onClick={() => setFormData({ ...formData, trialRequested: true })}
-                        className="button button-secondary !w-full justify-center !py-3 font-bold text-sm"
-                      >
-                        Book $10 Trial Session
-                      </button>
-                    </div>
-                  </form>
-                )}
-
-                <div className="mt-6 text-center">
-                  <p className="text-xs text-[var(--muted)]">
-                    Are you a course graduate? Access your complimentary{" "}
-                    <Link
-                      href="/online-pranayama/prana-circle"
-                      className="text-[var(--coral-dark)] font-bold underline underline-offset-2 hover:text-[var(--brown)]"
-                    >
-                      Prana Circle Alumni Satsang →
-                    </Link>
-                  </p>
-                </div>
-              </div>
-            )}
           </div>
         </Container>
       </section>

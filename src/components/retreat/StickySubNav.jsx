@@ -34,11 +34,39 @@ export default function StickySubNav({ links = [], ariaLabel = "Section navigati
   useEffect(() => {
     if (!links || links.length === 0) return;
 
-    const handleScroll = () => {
+    let raf = 0;
+    let lastRevealedId = "";
+
+    // Keep the active link visible inside the horizontally scrollable bar.
+    // Scrolls instantly and only when the link is not already fully in view,
+    // so it never causes the page/jitter that `scrollIntoView` with smooth
+    // behavior used to introduce.
+    const revealActiveInNav = (activeId) => {
+      if (activeId === lastRevealedId) return;
+      const navContainer = navContainerRef.current;
+      if (!navContainer) return;
+      const activeEl = navContainer.querySelector(`a[href="#${activeId}"]`);
+      if (!activeEl) return;
+
+      const containerRect = navContainer.getBoundingClientRect();
+      const elRect = activeEl.getBoundingClientRect();
+
+      if (elRect.left < containerRect.left || elRect.right > containerRect.right) {
+        const offset =
+          elRect.left -
+          containerRect.left -
+          (containerRect.width - elRect.width) / 2;
+        navContainer.scrollBy({ left: offset, behavior: "auto" });
+        requestAnimationFrame(checkScrollability);
+      }
+      lastRevealedId = activeId;
+    };
+
+    const computeActive = () => {
       if (isClickingRef.current) return;
 
-      const headerOffset = 180; // main header + subnav + buffer
-      const scrollPosition = window.scrollY + headerOffset;
+      const viewportMid = window.innerHeight / 2;
+      const scrollPosition = window.scrollY + viewportMid;
 
       let currentId = links[0]?.id || "";
 
@@ -53,41 +81,34 @@ export default function StickySubNav({ links = [], ariaLabel = "Section navigati
         }
       }
 
-      // Check if at bottom of page -> activate last item
+      // If at the bottom of the page, always activate the last item
       if (
         window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 60
+        document.documentElement.scrollHeight - 80
       ) {
         currentId = links[links.length - 1]?.id || currentId;
       }
 
-      setActiveId((prev) => {
-        if (prev !== currentId) {
-          if (navContainerRef.current) {
-            const activeEl = navContainerRef.current.querySelector(
-              `a[href="#${currentId}"]`
-            );
-            if (activeEl) {
-              activeEl.scrollIntoView({
-                behavior: "smooth",
-                inline: "center",
-                block: "nearest",
-              });
-            }
-          }
-          return currentId;
-        }
-        return prev;
+      if (lastRevealedId !== currentId) revealActiveInNav(currentId);
+      setActiveId((prev) => (prev === currentId ? prev : currentId));
+    };
+
+    const handleScroll = () => {
+      if (raf) return;
+      raf = window.requestAnimationFrame(() => {
+        raf = 0;
+        computeActive();
       });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    computeActive();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      if (raf) window.cancelAnimationFrame(raf);
     };
-  }, [links]);
+  }, [links, checkScrollability]);
 
   const handleClick = (e, id) => {
     e.preventDefault();
@@ -105,6 +126,19 @@ export default function StickySubNav({ links = [], ariaLabel = "Section navigati
 
       if (history.pushState) {
         history.pushState(null, "", `#${id}`);
+      }
+    }
+
+    // Center the clicked link within the horizontal nav bar
+    const navContainer = navContainerRef.current;
+    if (navContainer) {
+      const activeEl = navContainer.querySelector(`a[href="#${id}"]`);
+      if (activeEl) {
+        activeEl.scrollIntoView({
+          behavior: "smooth",
+          inline: "center",
+          block: "nearest",
+        });
       }
     }
 

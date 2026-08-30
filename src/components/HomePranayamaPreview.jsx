@@ -14,7 +14,7 @@ export default function HomePranayamaPreview() {
   const featured = pranayamaCourses.filter((c) => featuredSlugs.includes(c.slug));
 
   return (
-    <section className="py-10 md:py-14 bg-[var(--surface)]/40 border-y border-[var(--border)] relative overflow-hidden">
+    <section className="py-10 md:py-14 bg-[var(--cream)] border-y border-[var(--border)] relative overflow-hidden">
       {/* Subtle brand emblem in background */}
       <div
         className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/3 opacity-[0.04] select-none"

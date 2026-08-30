@@ -6,7 +6,7 @@ export default function AboutPreview({ data = aboutSectionData }) {
   const icons = [Users, ShieldCheck, Heart, Leaf];
 
   return (
-    <section className="section bg-[var(--cream)]" id="about-preview">
+    <section className="section bg-[var(--surface)]" id="about-preview">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column — Visual Collage */}

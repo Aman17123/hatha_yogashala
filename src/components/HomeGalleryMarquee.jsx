@@ -81,7 +81,7 @@ export default function HomeGalleryMarquee() {
 
   return (
     <section
-      className="py-5 md:py-7 bg-white overflow-hidden"
+      className="py-5 md:py-7 bg-[var(--surface)] overflow-hidden"
       id="gallery-preview"
       aria-label="Photo gallery preview"
     >
