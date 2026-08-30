@@ -11,13 +11,21 @@ import { site } from "@/data/siteData";
 // ─────────────────────────────────────────────────────────────────────────────
 // Site-wide constants
 // ─────────────────────────────────────────────────────────────────────────────
+const rawSiteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.VERCEL_PROJECT_PRODUCTION_URL ||
+  process.env.NEXT_PUBLIC_VERCEL_URL ||
+  process.env.VERCEL_URL ||
+  "https://thehathayogashala.com";
+
+const siteUrl =
+  rawSiteUrl.startsWith("http://") || rawSiteUrl.startsWith("https://")
+    ? rawSiteUrl.replace(/\/$/, "")
+    : `https://${rawSiteUrl.replace(/\/$/, "")}`;
+
 export const SITE = {
   name: "The Hatha Yogashala",
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    (process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "https://thehathayogashala.com"),
+  url: siteUrl,
   locale: "en_IN",
   defaultImage:
     "/images/hatha-og-images/hatha-yogashala-pernem-goa-beach-group-tree-pose-vrksasana-02-og.jpg",

@@ -72,7 +72,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: site.defaultImage,
         width: 1200,
         height: 630,
         alt: "Yoga students practicing teacher training alignment at The Hatha Yogashala in Goa",
@@ -85,7 +85,7 @@ export const metadata = {
       "Yoga School in Goa | Teacher Training & Retreats – The Hatha Yogashala",
     description:
       "Yoga Alliance-registered yoga school in Goa offering 100–300-hour teacher training and 3–7 day wellness retreats near Querim beach, North Goa. Book now.",
-    images: ["/og-image.jpg"],
+    images: [site.defaultImage],
   },
   robots: { index: true, follow: true },
 };

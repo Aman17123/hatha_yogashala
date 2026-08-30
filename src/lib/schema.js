@@ -11,11 +11,17 @@
 // Keep schema.js free of cross-imports from siteData to avoid a circular
 // dependency (siteData.js imports seo.js, and seo.js imports siteData.js).
 // Compute the canonical site URL from env directly, matching siteData.js logic.
-const SITE_URL =
+const rawSiteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "https://thehathayogashala.com");
+  process.env.VERCEL_PROJECT_PRODUCTION_URL ||
+  process.env.NEXT_PUBLIC_VERCEL_URL ||
+  process.env.VERCEL_URL ||
+  "https://thehathayogashala.com";
+
+const SITE_URL =
+  rawSiteUrl.startsWith("http://") || rawSiteUrl.startsWith("https://")
+    ? rawSiteUrl.replace(/\/$/, "")
+    : `https://${rawSiteUrl.replace(/\/$/, "")}`;
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const LOCAL_BUSINESS_ID = `${SITE_URL}/#localbusiness`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;

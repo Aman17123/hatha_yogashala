@@ -1,3 +1,15 @@
+const rawSiteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.VERCEL_PROJECT_PRODUCTION_URL ||
+  process.env.NEXT_PUBLIC_VERCEL_URL ||
+  process.env.VERCEL_URL ||
+  "https://hatha-yogashala.vercel.app/";
+
+const siteUrl =
+  rawSiteUrl.startsWith("http://") || rawSiteUrl.startsWith("https://")
+    ? rawSiteUrl.replace(/\/$/, "")
+    : `https://${rawSiteUrl.replace(/\/$/, "")}`;
+
 export const site = {
   name: "The Hatha Yogashala",
   shortName: "The Hatha Yogashala",
@@ -6,11 +18,7 @@ export const site = {
   seoLocation: "Goa",
   description:
     "The Hatha Yogashala is a Yoga Alliance-registered yoga school and ashram in North Goa, offering authentic 100, 200 and 300-hour yoga teacher training, meditation programs, and transformational 3, 5 and 7-day wellness retreats near Querim and Arambol beaches.",
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    (process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "https://thehathayogashala.com"),
+  url: siteUrl,
   hasProductionUrl: Boolean(process.env.NEXT_PUBLIC_SITE_URL),
   defaultImage:
     "/images/hatha-og-images/hatha-yogashala-pernem-goa-beach-group-tree-pose-vrksasana-02-og.jpg",
