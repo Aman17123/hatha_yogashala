@@ -53,16 +53,18 @@ export default function FounderPage() {
         text="Discover the vision, traditional background, and teaching philosophy guiding The Hatha Yogashala in Goa, India."
         image="/images/hatha-yogashala/hatha-yogashala-pernem-goa-certificate-presentation-teacher-training-07.webp"
         imageAlt="Yogi Kalpendra Chauhan presiding over a graduation ceremony at The Hatha Yogashala open-air shala in Goa"
+        className="founder-page-hero"
+        copyClassName="!mb-0"
       />
 
       {/* Founder Biography & Lineage */}
-      <section className="section bg-[var(--cream)]">
+      <section className="section bg-[var(--cream)] founder-bio-section">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
             
             {/* Left Column — Founder Portrait & Quick Facts */}
             <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-24 lg:self-start">
-              <div className="relative aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white">
+              <div className="relative aspect-[4/5] rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-2xl border-4 border-white">
                 <Image
                   src={founderData.image}
                   alt={founderData.imageAlt || founderData.name}

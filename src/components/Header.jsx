@@ -295,7 +295,7 @@ export default function Navbar() {
         <Container>
           <div
             ref={navRef}
-            className="flex h-16 items-center justify-between gap-6 md:h-[76px] xl:gap-10"
+            className="flex h-16 sm:h-18 md:h-20 lg:h-[86px] items-center justify-between gap-6 xl:gap-10"
           >
             <Link
               className="inline-flex shrink-0 items-center rounded-xl xl:mr-6 2xl:mr-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--coral-dark)]/35"
@@ -305,10 +305,10 @@ export default function Navbar() {
               <Image
                 src="/images/The-Hatha-Yogashala-logo.png"
                 alt={`${site.name} logo`}
-                width={175}
-                height={70}
+                width={200}
+                height={100}
                 preload
-                className="h-[46px] w-auto object-contain md:h-14"
+                className="h-12 max-h-12 w-auto max-w-[170px] object-contain sm:h-14 sm:max-h-14 sm:max-w-[190px] md:h-16 md:max-h-16 md:max-w-none lg:h-[72px] lg:max-h-[72px]"
               />
             </Link>
 
@@ -463,9 +463,9 @@ export default function Navbar() {
               <Image
                 src="/images/The-Hatha-Yogashala-logo.png"
                 alt={`${site.name} logo`}
-                width={130}
-                height={52}
-                className="h-[42px] w-auto object-contain"
+                width={160}
+                height={80}
+                className="h-11 max-h-11 w-auto max-w-[155px] object-contain sm:h-12 sm:max-h-12 sm:max-w-[170px]"
               />
               <button
                 type="button"

@@ -111,7 +111,7 @@ export default function HomePranayamaPreview() {
             href="/online-pranayama/daily-pranayama-subscription"
             className="text-xs sm:text-sm font-bold text-[var(--coral-dark)] underline underline-offset-4 hover:text-[var(--brown)]"
           >
-            Try a $10 Daily Breathwork Trial Session →
+            Explore Daily Breathwork Sessions →
           </Link>
         </FadeIn>
       </Container>

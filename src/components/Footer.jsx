@@ -50,6 +50,16 @@ const retreatLinks = [
   ["Yoga Festival in Goa", "/retreats/yoga-festivals-goa"],
 ];
 
+const pranayamaLinks = [
+  ["Online Pranayama", "/online-pranayama"],
+  ["Pre-Pranayama Foundation", "/online-pranayama/pre-pranayama-foundation-course"],
+  ["Beginner Pranayama", "/online-pranayama/beginner-pranayama-course"],
+  ["Intermediate Pranayama", "/online-pranayama/intermediate-pranayama-course"],
+  ["Advanced Pranayama", "/online-pranayama/advanced-pranayama-course"],
+  ["Daily Pranayama Classes", "/online-pranayama/daily-pranayama-subscription"],
+  ["Stress Relief Breathwork", "/online-pranayama/stress-relief-course"],
+];
+
 const socialLinks = [
   {
     label: "Instagram",
@@ -134,28 +144,28 @@ export default function Footer() {
       {/* link columns */}
       <section className="relative z-10 -mt-3 sm:-mt-4 lg:-mt-3">
         <Container>
-          <Reveal className="grid grid-cols-2 gap-x-5 gap-y-6 py-3 text-left sm:gap-6 sm:py-5 sm:grid-cols-2 sm:text-left lg:grid-cols-[1.3fr_1.05fr_1.05fr_1fr_1.2fr] lg:gap-7 lg:py-8 xl:py-10">
-            <FooterColumn className="col-span-2 px-6 sm:col-span-1 sm:px-0">
+          <Reveal className="grid grid-cols-2 gap-x-5 gap-y-7 py-3 text-left sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:gap-6 lg:py-8 xl:py-10">
+            <FooterColumn className="col-span-2 items-center text-center sm:col-span-2 sm:items-start sm:text-left md:col-span-3 lg:col-span-1">
               <Link
                 href="/"
-                className="mb-2 sm:mb-2.5 inline-flex items-center justify-center sm:justify-start"
+                className="mb-2 inline-flex items-center justify-center sm:mb-2.5 sm:justify-start"
                 aria-label={`${site.name} home`}
               >
                 <Image
                   src="/images/The-Hatha-Yogashala-logo.png"
                   alt="The Hatha Yogashala"
-                  width={170}
-                  height={68}
-                  className="h-10 sm:h-11 lg:h-12.5 w-auto object-contain"
+                  width={150}
+                  height={60}
+                  className="h-8 w-auto object-contain sm:h-9 lg:h-11"
                 />
               </Link>
 
-              <p className="text-body mx-auto max-w-xs sm:mx-0 text-[11.5px] sm:text-xs md:text-[12.5px] lg:text-[14px] leading-relaxed">
-                Yoga Alliance certified 100/200/300-hour teacher training and
+              <p className="text-body mx-auto max-w-sm text-center text-[11.5px] leading-relaxed sm:mx-0 sm:text-left sm:text-xs md:text-[12.5px] lg:text-[13.5px]">
+                Yoga Alliance certified 100/200/300-hour teacher training, online pranayama, and
                 mindful residential retreats in Querim, North Goa.
               </p>
 
-              <div className="mx-auto mt-2 sm:mt-2.5 lg:mt-3 flex items-center justify-center gap-2.5 sm:gap-3 lg:gap-3 sm:mx-0 sm:justify-start">
+              <div className="mt-2 flex items-center justify-center gap-2.5 sm:mt-2.5 sm:justify-start sm:gap-3 lg:mt-3 lg:gap-3">
                 {socialLinks.map(({ label, name, href }) =>
                   typeof href === "string" &&
                   (href.startsWith("https://") ||
@@ -172,7 +182,7 @@ export default function Footer() {
                       <BrandLogo
                         name={name}
                         alt={label}
-                        className="size-5 sm:size-5.5 lg:size-6 transition-opacity hover:opacity-80"
+                        className="size-5 transition-opacity hover:opacity-80 sm:size-5.5 lg:size-6"
                       />
                     </a>
                   ) : (
@@ -190,24 +200,31 @@ export default function Footer() {
               </div>
             </FooterColumn>
 
-            <FooterColumn>
+            <FooterColumn className="items-start text-left">
               <FooterHeading>Teacher Training</FooterHeading>
               <FooterLinkList links={ttcLinks} />
             </FooterColumn>
 
-            <FooterColumn>
+            <FooterColumn className="items-start text-left">
               <FooterHeading>Yoga Retreats</FooterHeading>
               <FooterLinkList links={retreatLinks} />
             </FooterColumn>
 
-            <FooterColumn>
+            <FooterColumn className="items-start text-left">
+              <FooterHeading>Online Pranayama</FooterHeading>
+              <FooterLinkList links={pranayamaLinks} />
+            </FooterColumn>
+
+            <FooterColumn className="items-start text-left">
               <FooterHeading>Quick Links</FooterHeading>
               <FooterLinkList links={quickLinks} />
             </FooterColumn>
 
-            <FooterColumn>
-              <FooterHeading>Contact Us</FooterHeading>
-              <ul className="m-0 list-none space-y-1 sm:space-y-1.5 lg:space-y-2 p-0 text-[11.5px] sm:text-xs md:text-[12.5px] lg:text-[13.5px]">
+            <FooterColumn className="col-span-2 items-center text-center sm:col-span-1 sm:items-start sm:text-left">
+              <FooterHeading className="items-center text-center sm:items-start sm:text-left">
+                Contact Us
+              </FooterHeading>
+              <ul className="m-0 list-none space-y-1 p-0 text-[11.5px] sm:space-y-1.5 sm:text-xs md:text-[12.5px] lg:space-y-2 lg:text-[13.5px]">
                 <ContactItem Icon={MapPin}>
                   <span>{site.contact.address}</span>
                 </ContactItem>
@@ -221,11 +238,11 @@ export default function Footer() {
 
               <Link
                 href="/contact"
-                className="group mt-2 sm:mt-2.5 lg:mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] sm:text-[12px] lg:text-[13px] uppercase tracking-[0.14em] text-[var(--gold)] transition hover:text-[var(--brown)]"
+                className="group mt-2 inline-flex items-center justify-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--gold)] transition hover:text-[var(--brown)] sm:mt-2.5 sm:text-[12px] lg:mt-3 lg:text-[13px]"
               >
                 Send an enquiry
                 <ArrowUpRight
-                  className="size-3 lg:size-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  className="size-3 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 lg:size-3.5"
                   aria-hidden="true"
                 />
               </Link>
@@ -233,14 +250,14 @@ export default function Footer() {
           </Reveal>
 
           {/* bottom bar */}
-          <div className="flex flex-col items-center gap-2 border-t border-[var(--brown)]/10 py-2.5 sm:py-2.5 lg:py-3.5 xl:py-4.5 text-center font-mono text-[11px] sm:text-[11.5px] lg:text-[13px] uppercase tracking-[0.14em] text-[var(--brown)] md:flex-row md:items-center md:justify-between md:text-left">
+          <div className="flex flex-col items-center gap-2 border-t border-[var(--brown)]/10 py-2.5 text-center font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--brown)] sm:py-2.5 sm:text-[11.5px] md:flex-row md:items-center md:justify-between md:text-left lg:py-3.5 lg:text-[13px] xl:py-4.5">
             <p>
               {site.name} <span className="text-[var(--brown)]/60">·</span> ©{" "}
               {new Date().getFullYear()}
             </p>
 
             <nav
-              className="flex flex-wrap justify-center gap-x-4 sm:gap-x-5 lg:gap-x-6 gap-y-1.5 sm:gap-y-2 md:justify-start"
+              className="flex flex-wrap justify-center gap-x-4 gap-y-1.5 sm:gap-x-5 sm:gap-y-2 md:justify-start lg:gap-x-6"
               aria-label="Legal links"
             >
               <FooterPolicyLink href="/privacy-policy">
@@ -254,11 +271,11 @@ export default function Footer() {
 
             <Link
               href="#top"
-              className="group inline-flex items-center gap-1.5 sm:gap-2 transition hover:text-[var(--brown)]"
+              className="group inline-flex items-center gap-1.5 transition hover:text-[var(--brown)] sm:gap-2"
             >
               Back to top
               <ArrowUp
-                className="size-2.5 sm:size-3 lg:size-3.5 transition-transform duration-200 group-hover:-translate-y-0.5"
+                className="size-2.5 transition-transform duration-200 group-hover:-translate-y-0.5 sm:size-3 lg:size-3.5"
                 aria-hidden="true"
               />
             </Link>
@@ -271,21 +288,21 @@ export default function Footer() {
 
 function FooterColumn({ children, className = "" }) {
   return (
-    <div className={`flex flex-col items-center sm:items-start ${className}`}>
+    <div className={`flex flex-col ${className}`}>
       {children}
     </div>
   );
 }
 
-function FooterHeading({ children }) {
+function FooterHeading({ children, className = "items-start text-left" }) {
   return (
-    <div className="mb-2 sm:mb-2.5 lg:mb-3 flex flex-col items-center sm:items-start">
+    <div className={`mb-2 sm:mb-2.5 lg:mb-3 flex flex-col ${className}`}>
       <h3 className="font-mono text-xs sm:text-[13px] lg:text-[14px] xl:text-[14.5px] font-bold uppercase tracking-wider text-[var(--gold)]">
         {children}
       </h3>
       <span
         aria-hidden="true"
-        className="block h-px w-[80%] bg-[var(--border)]"
+        className="block h-px w-full max-w-[80px] sm:max-w-[100px] bg-[var(--border)] mt-1"
       />
     </div>
   );
@@ -314,9 +331,9 @@ function FooterLinkList({ links }) {
 
 function ContactItem({ Icon, children }) {
   return (
-    <li className="grid grid-cols-[1rem_1fr] sm:grid-cols-[1.1rem_1fr] lg:grid-cols-[1.2rem_1fr] items-start gap-2 sm:gap-2.5 text-left text-[11.5px] sm:text-[12.5px] md:text-[13px] lg:text-[14px] xl:text-[14.5px] leading-snug sm:leading-5 lg:leading-6 text-[var(--text)]">
+    <li className="flex items-center justify-center gap-2 text-center text-[11.5px] sm:grid sm:grid-cols-[1.1rem_1fr] lg:grid-cols-[1.2rem_1fr] sm:items-start sm:gap-2.5 sm:text-left sm:text-xs md:text-[12.5px] lg:text-[14px] xl:text-[14.5px] leading-snug sm:leading-5 lg:leading-6 text-[var(--text)]">
       <Icon
-        className="mt-0.5 size-3.5 sm:size-4 lg:size-4.5 stroke-[1.7] text-[var(--coral-dark)]"
+        className="shrink-0 size-3.5 sm:size-4 lg:size-4.5 sm:mt-0.5 stroke-[1.7] text-[var(--coral-dark)]"
         aria-hidden="true"
       />
       {children}

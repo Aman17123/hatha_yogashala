@@ -151,7 +151,7 @@ export const pranayamaCourses = [
     timing: "06:30 AM – 07:30 AM IST (Recorded for Global Timezones)",
     timezone: "IST (Indian Standard Time) / Recordings in HD",
     price: "$79 USD / ₹6,499 INR",
-    trialPrice: "$10 USD Single Class Pass",
+
     prerequisites: "Pre-Pranayama Foundation or basic breath awareness.",
     nextStep: {
       slug: "intermediate-pranayama-course",
@@ -825,7 +825,7 @@ export const pranayamaCourses = [
       {
         question: "Can I try a single class before subscribing?",
         answer:
-          "Yes! You can book a single $10 USD Trial Session to experience a live class and meet the teacher before committing to a monthly subscription.",
+          "Yes! You can explore individual sessions to experience a live class and meet the teacher before committing to a monthly subscription.",
       },
       {
         question: "Can I cancel my monthly subscription anytime?",

@@ -368,10 +368,10 @@ export default function HolidayTemplate({ holiday }) {
               </div>
 
               {/* Action Buttons */}
-              <div className="mt-5 flex flex-wrap gap-3">
+              <div className="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
                 <a
                   href="#book"
-                  className="button button-primary !px-5 !py-2.5 !text-xs sm:!text-sm font-bold shadow-sm hover:shadow-md transition-all"
+                  className="button button-primary !px-5 !py-2.5 !text-xs sm:!text-sm font-bold shadow-sm hover:shadow-md transition-all w-full sm:w-auto text-center justify-center"
                 >
                   Book Your Holiday
                 </a>
@@ -379,7 +379,7 @@ export default function HolidayTemplate({ holiday }) {
                   href={whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="button button-secondary !px-5 !py-2.5 !text-xs sm:!text-sm font-bold flex items-center gap-2"
+                  className="button button-secondary !px-5 !py-2.5 !text-xs sm:!text-sm font-bold flex items-center justify-center gap-2 w-full sm:w-auto text-center"
                 >
                   <SiWhatsapp size={15} className="text-[#25D366]" />
                   WhatsApp Inquire

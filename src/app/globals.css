@@ -303,6 +303,11 @@ blockquote {
   font-family: var(--font-quicksand), "Quicksand", sans-serif;
 }
 
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 /* ── Global Type Scale ─────────────────────────
    Philosopher is applied to all h1 & h2 headings site-wide.
    Gotu is applied to h3-h6 site-wide.
@@ -441,6 +446,8 @@ img {
     font-weight: 400;
     color: #000000;
     letter-spacing: normal;
+    text-align: justify;
+    text-justify: inter-word;
   }
 
   /* ─── Lead / large body text ────────────────── */
@@ -630,7 +637,7 @@ img {
   z-index: 900;
   height: 82px;
   border-bottom: 1px solid transparent;
-  background: rgb(255 252 248 / 93%);
+  background: rgb(255 255 248 / 93%);
   backdrop-filter: blur(16px);
   transition:
     box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -2604,6 +2611,41 @@ body:has(.yttc-page) .floating-actions {
   gap: 0.45rem;
   color: rgb(255 255 255 / 75%);
   font-size: var(--fs-small);
+}
+
+/* Pranayama detail pages use a light hero (no dark photo background), so
+   breadcrumbs must render dark instead of the default white-on-image style. */
+.pranayama-hero .breadcrumbs {
+  margin-bottom: 0.8rem;
+}
+
+@media (max-width: 767px) {
+  .pranayama-hero {
+    padding-top: 0.75rem !important;
+  }
+  .pranayama-hero .breadcrumbs {
+    margin-bottom: 0.35rem !important;
+  }
+  .pranayama-hero .breadcrumbs li {
+    font-size: 12px !important;
+  }
+}
+
+.pranayama-hero .breadcrumbs li {
+  color: var(--muted);
+}
+
+.pranayama-hero .breadcrumbs a {
+  color: var(--muted);
+}
+
+.pranayama-hero .breadcrumbs a:hover {
+  color: var(--coral-dark);
+}
+
+.pranayama-hero .breadcrumbs li > span:not([aria-hidden]) {
+  color: var(--brown);
+  font-weight: 700;
 }
 
 /* ── Notice ────────────────────────────────────── */
@@ -8653,9 +8695,25 @@ body:has(.yttc-page) .floating-actions {
     min-height: 0 !important;
     align-items: stretch !important;
     overflow: visible !important;
-    padding-block: 1.5rem 2rem !important;
+    padding-block: 1.25rem 0.5rem !important;
     background: var(--cream) !important;
     color: var(--brown) !important;
+  }
+  .page-hero + .section,
+  .page-hero + section,
+  .page-hero + div > .section:first-child,
+  .page-hero + div > section:first-child,
+  .page-hero + main > .section:first-child {
+    padding-top: 0.75rem !important;
+  }
+  .page-hero-copy {
+    margin-bottom: 0 !important;
+  }
+  .founder-page-hero {
+    padding-block: 1.25rem 0.5rem !important;
+  }
+  .founder-bio-section {
+    padding-top: 0.5rem !important;
   }
   .page-hero > img,
   .page-hero-overlay {

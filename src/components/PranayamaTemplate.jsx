@@ -16,11 +16,18 @@ import {
   Sparkles,
   Wind,
 } from "lucide-react";
-import { Breadcrumbs, ButtonLink, Container, FinalCTA, JsonLd } from "@/components/ui";
+import {
+  Breadcrumbs,
+  ButtonLink,
+  Container,
+  FinalCTA,
+  JsonLd,
+} from "@/components/ui";
 import { FadeIn } from "@/components/retreat/Motion";
 import { medicalDisclaimer } from "@/data/pranayamaData";
-import { absoluteUrl, site } from "@/data/siteData";
+import { absoluteUrl, site, whatsappLink } from "@/data/siteData";
 import { ORG_ID, WEBSITE_ID, LOCAL_BUSINESS_ID } from "@/lib/schema";
+import { SiWhatsapp } from "react-icons/si";
 
 export default function PranayamaTemplate({ course }) {
   const isService =
@@ -81,7 +88,7 @@ export default function PranayamaTemplate({ course }) {
       <JsonLd data={faqSchema} />
 
       {/* ============ 1. HERO SECTION ============ */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[var(--cream)] via-[var(--surface)]/30 to-white pt-4 pb-12 md:pt-12 md:pb-24 border-b border-[var(--border)]/70">
+      <section className="pranayama-hero relative overflow-hidden bg-gradient-to-b from-[var(--cream)] via-[var(--surface)]/30 to-white pt-2 pb-10 sm:pt-4 sm:pb-12 md:pt-12 md:pb-24 border-b border-[var(--border)]/70">
         <Container>
           <Breadcrumbs
             items={[
@@ -91,16 +98,14 @@ export default function PranayamaTemplate({ course }) {
             ]}
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mt-4 md:mt-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mt-1.5 sm:mt-4 md:mt-6">
             <div className="lg:col-span-7 flex flex-col items-start">
-              <span className="inline-flex items-center gap-2 rounded-full bg-[var(--coral-dark)]/10 text-[var(--coral-dark)] px-4 py-1.5 text-xs sm:text-[13px] font-bold uppercase tracking-wider mb-4 border border-[var(--coral-dark)]/20">
+              <span className="inline-flex items-center gap-2 rounded-full bg-[var(--coral-dark)]/10 text-[var(--coral-dark)] px-3.5 py-1 sm:px-4 sm:py-1.5 text-xs sm:text-[13px] font-bold uppercase tracking-wider mb-2.5 sm:mb-4 border border-[var(--coral-dark)]/20">
                 <Wind size={15} aria-hidden="true" />
                 {course.eyebrow}
               </span>
 
-              <h1>
-                {course.title}
-              </h1>
+              <h1>{course.title}</h1>
 
               <p className="mt-4 text-base sm:text-lg text-[var(--muted)] leading-relaxed font-normal max-w-2xl">
                 {course.summary}
@@ -112,43 +117,50 @@ export default function PranayamaTemplate({ course }) {
                   <div className="flex items-center gap-1.5 text-[var(--coral-dark)] text-xs font-bold uppercase tracking-wider mb-1">
                     <Clock size={14} /> Duration
                   </div>
-                  <div className="text-sm font-semibold text-[var(--brown)]">{course.duration}</div>
+                  <div className="text-sm font-semibold text-[var(--brown)]">
+                    {course.duration}
+                  </div>
                 </div>
 
                 <div className="rounded-xl bg-white p-3.5 border border-[var(--border)] shadow-xs">
                   <div className="flex items-center gap-1.5 text-[var(--coral-dark)] text-xs font-bold uppercase tracking-wider mb-1">
                     <Award size={14} /> Level
                   </div>
-                  <div className="text-sm font-semibold text-[var(--brown)]">{course.level}</div>
+                  <div className="text-sm font-semibold text-[var(--brown)]">
+                    {course.level}
+                  </div>
                 </div>
 
                 <div className="rounded-xl bg-white p-3.5 border border-[var(--border)] shadow-xs col-span-2 sm:col-span-1">
                   <div className="flex items-center gap-1.5 text-[var(--coral-dark)] text-xs font-bold uppercase tracking-wider mb-1">
                     <Sparkles size={14} /> Investment
                   </div>
-                  <div className="text-sm font-semibold text-[var(--coral-dark)]">{course.price}</div>
+                  <div className="text-sm font-semibold text-[var(--coral-dark)]">
+                    {course.price}
+                  </div>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
                 <ButtonLink
                   href="/apply"
-                  className="button button-primary !px-7 !py-3.5 text-sm font-bold shadow-md hover:shadow-lg"
+                  className="button button-primary !px-7 !py-3.5 text-sm font-bold shadow-md hover:shadow-lg justify-center text-center w-full sm:w-auto"
                 >
                   <span>Enroll in Program</span>
-                  <ArrowRight size={16} />
                 </ButtonLink>
 
-                {course.trialPrice && (
-                  <ButtonLink
-                    href="/contact#trial"
-                    variant="outline"
-                    className="!px-6 !py-3.5 text-sm font-bold border-2 border-[var(--brown)]/20 hover:border-[var(--coral-dark)] hover:text-[var(--coral-dark)]"
-                  >
-                    <span>{course.trialPrice}</span>
-                  </ButtonLink>
-                )}
+                <a
+                  href={whatsappLink(
+                    `Hi The Hatha Yogashala, I'd like to enquire about the ${course.title}. Could you share more details?`,
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#25D366]/50 bg-white px-6 py-3.5 text-sm font-bold text-[#128C7E] shadow-sm transition-all duration-200 hover:border-[#25D366] hover:bg-[#25D366]/10 hover:shadow-md w-full sm:w-auto"
+                >
+                  <SiWhatsapp size={17} className="text-[#25D366]" aria-hidden="true" />
+                  <span>WhatsApp Enquiry</span>
+                </a>
               </div>
             </div>
 
@@ -195,13 +207,18 @@ export default function PranayamaTemplate({ course }) {
 
               <div className="mt-8 rounded-2xl bg-[var(--surface)]/50 p-6 border border-[var(--border)]">
                 <h3 className="font-heading text-lg font-bold text-[var(--brown)] mb-3 flex items-center gap-2">
-                  <CheckCircle2 className="text-[var(--coral-dark)]" size={18} />
+                  <CheckCircle2
+                    className="text-[var(--coral-dark)]"
+                    size={18}
+                  />
                   Core Physiological & Energetic Benefits:
                 </h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-[#433c37] font-medium">
                   {course.whyMatters.bullets.map((bullet, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="text-[var(--coral-dark)] font-bold mt-0.5">•</span>
+                      <span className="text-[var(--coral-dark)] font-bold mt-0.5">
+                        •
+                      </span>
                       <span>{bullet}</span>
                     </li>
                   ))}
@@ -245,7 +262,8 @@ export default function PranayamaTemplate({ course }) {
               Who Should Join This Program
             </h2>
             <p className="mt-2 text-sm text-[var(--muted)]">
-              Designed with adaptable progressions for a diverse range of goals and backgrounds.
+              Designed with adaptable progressions for a diverse range of goals
+              and backgrounds.
             </p>
           </div>
 
@@ -279,11 +297,10 @@ export default function PranayamaTemplate({ course }) {
             <span className="text-xs sm:text-[13px] font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               Curriculum & Competencies
             </span>
-            <h2 className="mt-2 text-[var(--brown)]">
-              What You Will Master
-            </h2>
+            <h2 className="mt-2 text-[var(--brown)]">What You Will Master</h2>
             <p className="mt-2 text-sm text-[var(--muted)]">
-              Comprehensive module breakdown blending classical lineage texts with modern respiratory science.
+              Comprehensive module breakdown blending classical lineage texts
+              with modern respiratory science.
             </p>
           </div>
 
@@ -313,8 +330,8 @@ export default function PranayamaTemplate({ course }) {
       {/* ============ 5. COURSE DETAILS CHECKLIST ============ */}
       <section className="section bg-[var(--surface)] border-y border-[var(--border)]">
         <Container>
-          <div className="max-w-4xl mx-auto rounded-3xl bg-white p-8 sm:p-10 border border-[var(--border)] shadow-lg">
-            <div className="text-center max-w-xl mx-auto mb-8">
+          <div className="max-w-4xl mx-auto rounded-2xl sm:rounded-3xl bg-white p-5 sm:p-8 md:p-10 border border-[var(--border)] shadow-lg">
+            <div className="text-center max-w-xl mx-auto mb-6 sm:mb-8">
               <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
                 Program Specifications
               </span>
@@ -323,35 +340,57 @@ export default function PranayamaTemplate({ course }) {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm text-[#433c37]">
-              <div className="flex items-start gap-3.5 p-4 rounded-xl bg-[var(--surface)]/30 border border-[var(--border)]">
-                <Clock className="text-[var(--coral-dark)] shrink-0 mt-0.5" size={20} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 text-sm text-[#433c37]">
+              <div className="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-xl bg-[var(--surface)]/30 border border-[var(--border)]">
+                <Clock
+                  className="text-[var(--coral-dark)] shrink-0 mt-0.5"
+                  size={20}
+                />
                 <div>
-                  <strong className="block text-[var(--brown)] font-bold mb-0.5">Duration & Frequency</strong>
+                  <strong className="block text-[var(--brown)] font-bold mb-0.5">
+                    Duration & Frequency
+                  </strong>
                   <span>{course.duration}</span>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3.5 p-4 rounded-xl bg-[var(--surface)]/30 border border-[var(--border)]">
-                <Calendar className="text-[var(--coral-dark)] shrink-0 mt-0.5" size={20} />
+              <div className="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-xl bg-[var(--surface)]/30 border border-[var(--border)]">
+                <Calendar
+                  className="text-[var(--coral-dark)] shrink-0 mt-0.5"
+                  size={20}
+                />
                 <div>
-                  <strong className="block text-[var(--brown)] font-bold mb-0.5">Schedule & Timing</strong>
+                  <strong className="block text-[var(--brown)] font-bold mb-0.5">
+                    Schedule & Timing
+                  </strong>
                   <span>{course.timing}</span>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3.5 p-4 rounded-xl bg-[var(--surface)]/30 border border-[var(--border)]">
-                <Globe className="text-[var(--coral-dark)] shrink-0 mt-0.5" size={20} />
+              <div className="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-xl bg-[var(--surface)]/30 border border-[var(--border)]">
+                <Globe
+                  className="text-[var(--coral-dark)] shrink-0 mt-0.5"
+                  size={20}
+                />
                 <div>
-                  <strong className="block text-[var(--brown)] font-bold mb-0.5">Format & Timezones</strong>
-                  <span>{course.format} · {course.timezone}</span>
+                  <strong className="block text-[var(--brown)] font-bold mb-0.5">
+                    Format & Timezones
+                  </strong>
+                  <span>
+                    {course.format} · {course.timezone}
+                  </span>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3.5 p-4 rounded-xl bg-[var(--surface)]/30 border border-[var(--border)]">
-                <Layers className="text-[var(--coral-dark)] shrink-0 mt-0.5" size={20} />
+              <div className="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-xl bg-[var(--surface)]/30 border border-[var(--border)]">
+                <Layers
+                  className="text-[var(--coral-dark)] shrink-0 mt-0.5"
+                  size={20}
+                />
                 <div>
-                  <strong className="block text-[var(--brown)] font-bold mb-0.5">Prerequisites</strong>
+                  <strong className="block text-[var(--brown)] font-bold mb-0.5">
+                    Prerequisites
+                  </strong>
                   <span>{course.prerequisites}</span>
                 </div>
               </div>
@@ -361,7 +400,7 @@ export default function PranayamaTemplate({ course }) {
       </section>
 
       {/* ============ 6. MEDICAL & WELLNESS DISCLAIMER ============ */}
-      <section className="py-8 bg-amber-50/50 border-b border-amber-200/40">
+      <section className="py-6 sm:py-8 bg-amber-50/50 border-b border-amber-200/40">
         <Container>
           <div className="max-w-4xl mx-auto flex items-start gap-3.5 p-4 sm:p-5 rounded-2xl bg-white border border-amber-200 text-amber-900 shadow-xs">
             <ShieldAlert className="text-amber-700 shrink-0 mt-0.5" size={20} />
@@ -375,7 +414,7 @@ export default function PranayamaTemplate({ course }) {
       {/* ============ 7. FREQUENTLY ASKED QUESTIONS (AEO Optimized) ============ */}
       <section className="section bg-white">
         <Container>
-          <div className="text-center max-w-2xl mx-auto mb-10">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
             <span className="text-xs sm:text-[13px] font-bold uppercase tracking-widest text-[var(--coral-dark)]">
               Common Questions
             </span>
@@ -384,17 +423,20 @@ export default function PranayamaTemplate({ course }) {
             </h2>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-4">
+          <div className="max-w-3xl mx-auto space-y-3.5 sm:space-y-4">
             {course.faqs.map((faq, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl border border-[var(--border)] bg-[var(--cream)]/40 p-5 sm:p-6 shadow-xs"
+                className="rounded-2xl border border-[var(--border)] bg-[var(--cream)]/40 p-4 sm:p-6 shadow-xs"
               >
                 <h3 className="font-heading text-base sm:text-lg font-bold text-[var(--brown)] mb-2 flex items-start gap-2">
-                  <HelpCircle size={18} className="text-[var(--coral-dark)] shrink-0 mt-0.5" />
+                  <HelpCircle
+                    size={18}
+                    className="text-[var(--coral-dark)] shrink-0 mt-0.5"
+                  />
                   <span>{faq.question}</span>
                 </h3>
-                <p className="text-sm text-[#433c37] leading-relaxed pl-6">
+                <p className="text-sm text-[#433c37] leading-relaxed pl-0 sm:pl-6 pt-1 sm:pt-0">
                   {faq.answer}
                 </p>
               </div>
@@ -405,9 +447,9 @@ export default function PranayamaTemplate({ course }) {
 
       {/* ============ 8. NEXT STEP PROGRESSION BANNER ============ */}
       {course.nextStep && (
-        <section className="py-10 bg-[var(--surface)] border-t border-[var(--border)]">
+        <section className="py-8 sm:py-10 bg-[var(--surface)] border-t border-[var(--border)]">
           <Container>
-            <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left bg-white p-6 rounded-2xl border border-[var(--border)] shadow-xs">
+            <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left bg-white p-5 sm:p-6 rounded-2xl border border-[var(--border)] shadow-xs">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-[var(--coral-dark)]">
                   Next Step in Your Practice
@@ -418,7 +460,7 @@ export default function PranayamaTemplate({ course }) {
               </div>
               <Link
                 href={`/online-pranayama/${course.nextStep.slug}`}
-                className="button button-primary !py-2.5 !px-5 text-xs sm:text-sm font-bold shrink-0"
+                className="button button-primary !py-2.5 !px-5 text-xs sm:text-sm font-bold shrink-0 w-full sm:w-auto text-center justify-center"
               >
                 <span>{course.nextStep.ctaText}</span>
                 <ArrowRight size={14} />
