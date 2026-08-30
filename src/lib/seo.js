@@ -80,19 +80,10 @@ export function buildMetadata(
 
   const title = rawTitle ?? SITE.name;
   const rawImage = pageImage || SITE.defaultImage;
-
-  // Build high-conversion dynamic OG URL with headline, description & CTA overlay
-  const ogParams = new URLSearchParams({
-    title,
-    desc: desc || "",
-    image: rawImage,
-  });
-  const ogImageUrl = new URL(
-    `/api/og?${ogParams.toString()}`,
-    SITE.url,
-  ).toString();
-
-  const ogImageAlt = customAlt || `${title} — The Hatha Yogashala Goa`;
+  const ogImageUrl = rawImage.startsWith("http")
+    ? rawImage
+    : new URL(rawImage, SITE.url).toString();
+  const ogImageAlt = customAlt || SITE.defaultImageAlt;
   const canonicalUrl = new URL(pagePath, SITE.url).toString();
 
   const metadata = {
