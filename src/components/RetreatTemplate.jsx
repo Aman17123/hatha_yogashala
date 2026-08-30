@@ -24,7 +24,6 @@ import { Accordion } from "./Interactive";
 import { Container, ButtonLink, JsonLd, Media, MobileStickyBar, RetreatCard, SectionHeading } from "./ui";
 import BookingSidebar from "./retreat/BookingSidebar";
 import StickySubNav from "./retreat/StickySubNav";
-import BookingForm from "./retreat/BookingForm";
 import TestimonialCarousel from "./retreat/TestimonialCarousel";
 import { FadeIn, Stagger, StaggerItem } from "./retreat/Motion";
 import { SiWhatsapp } from "react-icons/si";
@@ -895,21 +894,22 @@ export default function RetreatTemplate({ retreat, page }) {
               </p>
               <FadeIn>
                 <div className="retreat-booking-form mt-6">
-                  <BookingForm
-                    retreatName={retreat.name}
-                    showPayment={false}
-                    submitLabel="Send Enquiry"
-                  />
-                  <div className="retreat-booking-trust">
-                    <span>
-                      <ShieldCheck size={15} aria-hidden="true" /> Secure confidential inquiry
-                    </span>
-                    <span>
-                      <LockIcon /> Spam protected
-                    </span>
-                    <span>
-                      <Check size={15} aria-hidden="true" /> No spam, ever
-                    </span>
+                  <p className="retreat-section-lead">
+                    Interested in joining or have questions about upcoming dates
+                    and arrangements? Start your enquiry and our team will get
+                    back to you within 24 hours.
+                  </p>
+                  <div className="mt-6 flex flex-wrap items-center gap-4">
+                    <ButtonLink href="/apply" className="button button-primary">
+                      Apply Now
+                    </ButtonLink>
+                    <Link
+                      href={whatsappHref}
+                      className="inline-flex items-center gap-2 text-sm font-bold text-[var(--coral-dark)] hover:underline"
+                    >
+                      <SiWhatsapp size={18} aria-hidden="true" />
+                      Chat on WhatsApp
+                    </Link>
                   </div>
                 </div>
               </FadeIn>
@@ -975,22 +975,22 @@ export default function RetreatTemplate({ retreat, page }) {
 
               <FadeIn>
                 <div className="retreat-booking-form">
-                  <h3>Secure booking form</h3>
-                  <BookingForm
-                    retreatName={retreat.name}
-                    paymentOptions={p.pricing?.paymentOptions}
-                    pricing={p.pricing}
-                  />
-                  <div className="retreat-booking-trust">
-                    <span>
-                      <ShieldCheck size={15} aria-hidden="true" /> Secure encrypted submission
-                    </span>
-                    <span>
-                      <LockIcon /> Spam protected
-                    </span>
-                    <span>
-                      <Check size={15} aria-hidden="true" /> No spam, ever
-                    </span>
+                  <h3>Apply to secure your place</h3>
+                  <p className="retreat-section-lead mt-2">
+                    Start your application and our team will confirm your place
+                    with verified payment instructions within 24 hours.
+                  </p>
+                  <div className="mt-6 flex flex-wrap items-center gap-4">
+                    <ButtonLink href="/apply" className="button button-primary">
+                      Apply Now
+                    </ButtonLink>
+                    <Link
+                      href={whatsappHref}
+                      className="inline-flex items-center gap-2 text-sm font-bold text-[var(--coral-dark)] hover:underline"
+                    >
+                      <SiWhatsapp size={18} aria-hidden="true" />
+                      Chat on WhatsApp
+                    </Link>
                   </div>
                 </div>
               </FadeIn>
@@ -1049,11 +1049,3 @@ export default function RetreatTemplate({ retreat, page }) {
   );
 }
 
-function LockIcon() {
-  return (
-    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="3" y="11" width="18" height="11" rx="2" />
-      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-    </svg>
-  );
-}

@@ -65,7 +65,6 @@ import {
 } from "./ui";
 import BookingSidebar from "./retreat/BookingSidebar";
 import StickySubNav from "./retreat/StickySubNav";
-import BookingForm from "./retreat/BookingForm";
 import CourseFeesTable from "./CourseFeesTable";
 import TestimonialCarousel from "./retreat/TestimonialCarousel";
 import MonthGuide from "./retreat/MonthGuide";
@@ -1245,31 +1244,23 @@ export default function YTTCPage({ course }) {
             <div className="retreat-booking-form mt-8" id="registration">
               <RetreatEyebrow>Reserve Your Place</RetreatEyebrow>
               <h2 className="retreat-section-title font-philosopher">
-                Secure Enrollment Form
+                Apply to Secure Your Place
               </h2>
               <p className="retreat-section-lead">
-                Submit the form below and our admissions team will confirm your
-                place and provide verified payment instructions within 24 hours.
+                Start your application and our admissions team will confirm
+                your place with verified payment instructions within 24 hours.
               </p>
-              <BookingForm
-                retreatName={course.name}
-                paymentOptions={pageData.pricing.paymentOptions}
-                pricing={pageData.pricing}
-                programOptions={programOptions}
-                submitLabel="Reserve Your Spot"
-              />
-              <div className="retreat-booking-trust">
-                <span>
-                  <ShieldCheck size={15} aria-hidden="true" /> Secure encrypted
-                  submission
-                </span>
-                <span>
-                  <BadgeCheck size={15} aria-hidden="true" /> Yoga Alliance
-                  Registered School
-                </span>
-                <span>
-                  <Check size={15} aria-hidden="true" /> Reply within 24 hours
-                </span>
+              <div className="mt-6 flex flex-wrap items-center gap-4">
+                <ButtonLink href="/apply" className="button button-primary">
+                  Apply Now
+                </ButtonLink>
+                <Link
+                  href={whatsappHref}
+                  className="inline-flex items-center gap-2 text-sm font-bold text-[var(--coral-dark)] hover:underline"
+                >
+                  <SiWhatsapp size={18} aria-hidden="true" />
+                  Chat on WhatsApp
+                </Link>
               </div>
             </div>
           </section>

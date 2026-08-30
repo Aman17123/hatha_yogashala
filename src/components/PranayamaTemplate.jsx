@@ -235,7 +235,7 @@ export default function PranayamaTemplate({ course }) {
       </section>
 
       {/* ============ 3. WHO SHOULD JOIN CARDS ============ */}
-      <section className="section bg-[var(--surface)]/30 border-y border-[var(--border)]/70">
+      <section className="section bg-[var(--surface)] border-y border-[var(--border)]/70">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs sm:text-[13px] font-bold uppercase tracking-widest text-[var(--coral-dark)]">
@@ -311,7 +311,7 @@ export default function PranayamaTemplate({ course }) {
       </section>
 
       {/* ============ 5. COURSE DETAILS CHECKLIST ============ */}
-      <section className="section bg-[var(--cream)] border-y border-[var(--border)]">
+      <section className="section bg-[var(--surface)] border-y border-[var(--border)]">
         <Container>
           <div className="max-w-4xl mx-auto rounded-3xl bg-white p-8 sm:p-10 border border-[var(--border)] shadow-lg">
             <div className="text-center max-w-xl mx-auto mb-8">

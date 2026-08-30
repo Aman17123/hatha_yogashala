@@ -116,9 +116,9 @@ export default function AboutPage() {
       </section>
 
       {/* Founder Preview Section */}
-      <FounderPreview />
+      <FounderPreview variant="cream" />
 
-      <section className="section section-cream">
+      <section className="section section-peach">
         <Container className="split-layout split-reverse">
           <div>
             <SectionHeading

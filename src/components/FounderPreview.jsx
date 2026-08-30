@@ -8,10 +8,12 @@ import {
 import { founderData } from "@/data/siteContentData";
 import { ButtonLink, Container } from "@/components/ui";
 
-export default function FounderPreview({ founder = founderData }) {
+export default function FounderPreview({ founder = founderData, variant = "peach" }) {
+  const sectionClass =
+    variant === "cream" ? "section section-cream" : "section section-peach";
   return (
     <section
-      className="section section-peach relative overflow-hidden"
+      className={`${sectionClass} relative overflow-hidden`}
       id="founder-preview"
     >
       <Container>

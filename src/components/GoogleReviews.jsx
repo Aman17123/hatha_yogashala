@@ -153,6 +153,7 @@ export default function ReviewsSection({
   reviewProfile = {},
   title = "Student Reviews — Yoga Teacher Training in Goa",
   subtitle = "Verified 5.0 Rating in Goa",
+  variant = "cream",
 }) {
   const trackRef = useRef(null);
 
@@ -171,7 +172,9 @@ export default function ReviewsSection({
     <>
       {/* ============ GOOGLE SECTION ============ */}
       <section
-        className="section-tight overflow-hidden border-t border-[var(--border)] bg-[var(--cream)]"
+        className={`section-tight overflow-hidden border-t border-[var(--border)] ${
+          variant === "surface" ? "bg-[var(--surface)]" : "bg-[var(--cream)]"
+        }`}
         id="google-reviews"
       >
         <div className="mx-auto max-w-7xl px-4 md:px-8">

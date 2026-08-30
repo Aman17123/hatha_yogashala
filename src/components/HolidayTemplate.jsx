@@ -40,7 +40,6 @@ import {
   whatsappLink,
 } from "@/data/siteData";
 import { Container, ButtonLink, JsonLd } from "./ui";
-import BookingForm from "./retreat/BookingForm";
 import ReviewsSection from "./GoogleReviews";
 import {
   breadcrumbSchema,
@@ -646,7 +645,7 @@ export default function HolidayTemplate({ holiday }) {
       {/* =========================================================================
           SECTION 4 — CORE EXPERIENCE PILLARS (Visual Cards)
           ========================================================================= */}
-      <section className="section bg-white">
+      <section className="section bg-[var(--surface)]">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
@@ -700,7 +699,7 @@ export default function HolidayTemplate({ holiday }) {
       {/* =========================================================================
           SECTION 5 — THE QUERIM BEACH SANCTUARY (Location Showcase)
           ========================================================================= */}
-      <section className="section bg-[var(--surface)]/30 border-y border-[var(--border)]">
+      <section className="section bg-[var(--cream)] border-y border-[var(--border)]">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
@@ -753,7 +752,7 @@ export default function HolidayTemplate({ holiday }) {
       {/* =========================================================================
           SECTION 6 — SANCTUARY ACCOMMODATION & FOOD SHOWCASE
           ========================================================================= */}
-      <section className="section bg-white">
+      <section className="section bg-[var(--surface)]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             <div className="lg:col-span-6">
@@ -878,7 +877,7 @@ export default function HolidayTemplate({ holiday }) {
       {/* =========================================================================
           SECTION 8 — WHO IS THIS YOGA HOLIDAY FOR?
           ========================================================================= */}
-      <section className="section bg-white">
+      <section className="section bg-[var(--surface)]">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-[var(--coral-dark)]">
@@ -929,7 +928,7 @@ export default function HolidayTemplate({ holiday }) {
       {/* =========================================================================
           SECTION 9 — HOLIDAY MOMENTS & ATMOSPHERE (PHOTO MOSAIC)
           ========================================================================= */}
-      <section className="section bg-[var(--surface)]/30 border-y border-[var(--border)]">
+      <section className="section bg-[var(--cream)] border-y border-[var(--border)]">
         <Container>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
@@ -981,6 +980,7 @@ export default function HolidayTemplate({ holiday }) {
         reviewProfile={reviewProfile}
         title="Student Reviews"
         subtitle="Verified 5.0 Rating for The Hatha Yogashala Goa"
+        variant="surface"
       />
 
       {/* =========================================================================
@@ -1031,37 +1031,38 @@ export default function HolidayTemplate({ holiday }) {
                 Book Your {holiday.name}
               </h3>
               <p className="text-xs sm:text-sm text-[var(--muted)] mt-1.5">
-                Submit the short form below. The Hatha Yogashala team will reply
-                within 24 hours with availability.
+                Ready to book {holiday.name}? Start your application and our
+                team will reply within 24 hours with availability.
               </p>
             </div>
 
-            <BookingForm
-              retreatName={holiday.name}
-              pricing={{
-                shared: { price: holiday.numericPrice, currency: "USD" },
-                private: { price: holiday.numericPrice + 150, currency: "USD" },
-              }}
-              submitLabel={`Book ${holiday.name}`}
-            />
-
-            <div className="mt-5 pt-5 border-t border-[var(--border)] flex flex-wrap items-center justify-center gap-4 text-xs text-[var(--muted)]">
-              <span className="flex items-center gap-1.5">
-                <ShieldCheck size={14} className="text-[var(--coral-dark)]" />
-                Secure submission
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Check size={14} className="text-[var(--coral-dark)]" />
-                No spam guarantee
-              </span>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <ButtonLink href="/apply" className="button button-primary">
+                Apply to Book
+              </ButtonLink>
               <a
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[var(--coral-dark)] font-bold hover:underline flex items-center gap-1"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[var(--coral-dark)] hover:underline"
               >
-                <SiWhatsapp size={14} /> WhatsApp The Hatha Yogashala
+                <SiWhatsapp size={18} /> Chat on WhatsApp
               </a>
+            </div>
+
+            <div className="mt-5 pt-5 border-t border-[var(--border)] flex flex-wrap items-center justify-center gap-4 text-xs text-[var(--muted)]">
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck size={14} className="text-[var(--coral-dark)]" />
+                Verified booking process
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Check size={14} className="text-[var(--coral-dark)]" />
+                Reply within 24 hours
+              </span>
+              <span className="flex items-center gap-1.5">
+                <SiWhatsapp size={14} className="text-[var(--coral-dark)]" />
+                No obligation, no spam
+              </span>
             </div>
           </div>
         </Container>
