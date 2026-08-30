@@ -58,7 +58,7 @@ export function siteIdentityGraphSchema() {
         name: "The Hatha Yogashala",
         url: SITE_URL,
         image: { "@id": LOGO_ID },
-        telephone: "+91-9004290242",
+        telephone: "+91 98370 01148",
         priceRange: "€€",
         address: {
           "@type": "PostalAddress",

@@ -46,6 +46,8 @@ export default function EnquiryForm({
 
   async function submit(event) {
     event.preventDefault();
+    if (status.state === "loading") return;
+
     setStatus({ state: "loading", message: "Sending your enquiry…", errors: [] });
 
     const form = event.currentTarget;
@@ -57,18 +59,18 @@ export default function EnquiryForm({
     }
 
     try {
-      const response = await fetch("/api/enquiry", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
       const result = await response.json();
 
-      if (!response.ok) {
+      if (!response.ok || result.success === false) {
         setStatus({
           state: "error",
-          message: result.message || "Your enquiry could not be sent.",
-          errors: Object.values(result.errors || {}),
+          message: result.error || result.message || "Your enquiry could not be sent. Please check the fields and try again.",
+          errors: result.errors ? Object.values(result.errors) : [],
         });
         return;
       }
@@ -77,13 +79,14 @@ export default function EnquiryForm({
       setPhone("");
       setStatus({
         state: "success",
-        message: "Your enquiry was delivered. The school will respond with verified details shortly.",
+        message: result.message || "Namaste! Your enquiry was delivered successfully. The school will respond within 24 hours.",
         errors: [],
       });
-    } catch {
+    } catch (err) {
+      console.error("Form submit error:", err);
       setStatus({
         state: "error",
-        message: "The form could not reach the server. Please try again later.",
+        message: "The form could not reach the server. Please check your connection or contact us via WhatsApp.",
         errors: [],
       });
     }

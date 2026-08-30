@@ -31,9 +31,9 @@ export const site = {
   },
 
   contact: {
-    phone: "+91-9004290242",
-    whatsapp: "+91 9004290242",
-    email: "admin@hathayogashala.com",
+    phone: "+91 98370 01148",
+    whatsapp: "+91 98370 01148",
+    email: "info@thehathayogashala.com",
     address:
       "House No. EHN No 1, Dhaktebag, Querim–Arambol–Agarwada Rd, Pernem, Goa 403524, India",
     map: "https://www.google.com/maps?q=Hatha+Yogashala+Querim+Goa",
