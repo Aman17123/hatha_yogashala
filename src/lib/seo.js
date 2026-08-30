@@ -19,7 +19,8 @@ export const SITE = {
       ? `https://${process.env.VERCEL_URL}`
       : "https://thehathayogashala.com"),
   locale: "en_IN",
-  defaultImage: "/og-image.jpg",
+  defaultImage:
+    "/images/hatha-og-images/hatha-yogashala-pernem-goa-beach-group-tree-pose-vrksasana-02-og.jpg",
   defaultImageAlt:
     "Yoga students practicing teacher training alignment at The Hatha Yogashala in Goa",
   defaultImageWidth: 1200,

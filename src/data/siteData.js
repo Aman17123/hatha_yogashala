@@ -12,7 +12,8 @@ export const site = {
       ? `https://${process.env.VERCEL_URL}`
       : "https://thehathayogashala.com"),
   hasProductionUrl: Boolean(process.env.NEXT_PUBLIC_SITE_URL),
-  defaultImage: "/og-image.jpg",
+  defaultImage:
+    "/images/hatha-og-images/hatha-yogashala-pernem-goa-beach-group-tree-pose-vrksasana-02-og.jpg",
 
   social: {
     instagram: "https://www.instagram.com/thehathayogashala/",
