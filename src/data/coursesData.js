@@ -22,6 +22,8 @@
  * never publishes invented claims.
  */
 
+import { siteStats } from "./siteData";
+
 // ---------------------------------------------------------------------
 // Shared business defaults (facts, not SEO body copy). These are safe
 // to spread across all courses because they're not what Google evaluates
@@ -89,7 +91,7 @@ const hundredHour = {
     { facility: "Private AC Room for 2 Pax", price: "€1,499" },
   ],
   rating: 4.9,
-  graduates: 3500,
+  graduates: siteStats.graduates,
   whatsappMessage:
     "Hi The Hatha Yogashala, I'm interested in the 100-Hour Yoga Teacher Training in Goa. Could you share the upcoming dates, availability, and the full fee breakdown?",
   heroIntroduction:
@@ -531,7 +533,7 @@ const twoHundredHour = {
     { facility: "Private AC Room (2 Pax)", price: "€1,699" },
   ],
   rating: 5.0,
-  graduates: 3500,
+  graduates: siteStats.graduates,
   whatsappMessage:
     "Hi The Hatha Yogashala, I'm interested in the 200-Hour Yoga Teacher Training in Goa. Could you share the upcoming dates, availability, and the full fee breakdown?",
   heroIntroduction:
@@ -960,7 +962,7 @@ const threeHundredHour = {
     { facility: "Private AC Room for 2 Pax", price: "€1,899" },
   ],
   rating: 4.9,
-  graduates: 3500,
+  graduates: siteStats.graduates,
   whatsappMessage:
     "Hi The Hatha Yogashala, I'm interested in the 300-Hour Advanced Yoga Teacher Training in Goa. Could you share the upcoming dates, availability, and the full fee breakdown?",
   heroIntroduction:
@@ -1392,7 +1394,7 @@ const flexibleTwoHundredHour = {
     { facility: "Private AC Room for 2 Pax", price: "€1,699" },
   ],
   rating: 5.0,
-  graduates: 3500,
+  graduates: siteStats.graduates,
   whatsappMessage:
     "Hi The Hatha Yogashala, I'm interested in the 22-Day 200-Hour Flexible Yoga Teacher Training in Goa. Could you share upcoming dates and availability?",
   heroIntroduction:
@@ -1545,7 +1547,7 @@ const ashtangaTwoHundredHour = {
     { facility: "Private AC Room (2 Pax)", price: "€1,699" },
   ],
   rating: 5.0,
-  graduates: 3500,
+  graduates: siteStats.graduates,
   whatsappMessage:
     "Hi The Hatha Yogashala, I'm interested in the 200-Hour Ashtanga Vinyasa Yoga Teacher Training in Goa. Could you share upcoming dates and availability?",
   heroIntroduction:
@@ -1703,7 +1705,7 @@ const aerialTtc = {
     { facility: "Private Room AC", price: "€1,199" },
   ],
   rating: 4.9,
-  graduates: 3500,
+  graduates: siteStats.graduates,
   whatsappMessage:
     "Hi The Hatha Yogashala, I'm interested in the Aerial Yoga Teacher Training in Goa. Could you share upcoming dates and availability?",
   heroIntroduction:

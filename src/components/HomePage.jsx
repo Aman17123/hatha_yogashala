@@ -26,6 +26,7 @@ import {
   galleryItems,
   reviewProfile,
   site,
+  siteStats,
   testimonials,
 } from "@/data/siteData";
 import {
@@ -270,8 +271,8 @@ const trustItems = [
     key: "graduates",
     type: "stat",
     icon: PiGraduationCapFill,
-    value: "947 Graduates",
-    label: "From 77 Countries",
+    value: `${siteStats.graduates}+ Graduates`,
+    label: "Worldwide Alumni",
   },
 ];
 

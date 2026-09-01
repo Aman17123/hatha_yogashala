@@ -11,6 +11,8 @@
  * public launch.
  */
 
+import { siteStats } from "./siteData";
+
 const IMAGES = {
   hero: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-sunrise-beach-yoga-session-querim-01.webp",
   class:
@@ -1014,7 +1016,7 @@ export function getRetreatPageData(arg) {
     name,
     category,
     rating: retreat?.rating ?? (days === 5 ? 5.0 : 4.9),
-    ratingCount: 187,
+    ratingCount: siteStats.reviews,
     students: "12–15 max",
     batchSize: "Small (12–15 max)",
     heroTagline,

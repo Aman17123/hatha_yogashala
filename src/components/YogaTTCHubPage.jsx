@@ -16,7 +16,12 @@ import {
   Users,
 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
-import { whatsappLink, testimonials, reviewProfile } from "@/data/siteData";
+import {
+  whatsappLink,
+  testimonials,
+  reviewProfile,
+  siteStats,
+} from "@/data/siteData";
 import { Accordion } from "./Interactive";
 import ReviewsSection from "./GoogleReviews";
 import { Container } from "./ui";
@@ -165,7 +170,7 @@ export default function YogaTTCHubPage({ page }) {
                   size={13}
                   className="fill-[var(--gold)] text-[var(--gold)]"
                 />
-                4.9/5 Rating (180+ Reviews)
+                {reviewProfile.rating.toFixed(1)}/5 Rating ({siteStats.reviews}+ Reviews)
               </span>
             </div>
           </div>

@@ -19,6 +19,7 @@ import {
   retreatTeachers,
   testimonials as allTestimonials,
 } from "@/data/retreatData";
+import { siteStats } from "@/data/siteData";
 
 const IMAGES = {
   hero: "/images/hatha-yogashala/hatha-yogashala-pernem-goa-hatha-yoga-asana-practice-shala-01.webp",
@@ -559,9 +560,9 @@ export function getYttcPageData() {
     name: "Yoga Teacher Training in Goa",
     category: "Yoga Alliance Certified",
     rating: 4.9,
-    ratingCount: 187,
+    ratingCount: siteStats.reviews,
     students: "12–15 max",
-    graduates: "3,500+",
+    graduates: `${siteStats.graduates}+`,
     heroTagline:
       "Join The Hatha Yogashala in Goa for Yoga Alliance certified 100/200/300-Hour Yoga Teacher Training and Aerial Yoga TTC. Hatha, Ashtanga, Vinyasa & Ayurveda — beachside, all-inclusive, 24/7 support.",
     duration: "7 to 27 Days · 50 to 300 Hours",

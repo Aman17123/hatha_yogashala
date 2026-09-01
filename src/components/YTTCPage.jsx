@@ -34,7 +34,7 @@ import {
 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { teacherTrainings, retreats } from "@/data/coursesData";
-import { whatsappLink } from "@/data/siteData";
+import { whatsappLink, siteStats } from "@/data/siteData";
 import {
   accommodationFacilities,
   bestTimeToVisit,
@@ -204,7 +204,7 @@ export default function YTTCPage({ course }) {
       course.duration || (is100 ? "14 days" : is200 ? "24 days" : "28 days"),
     location: course.location || "Querim, North Goa, India",
     rating: course.rating || 4.9,
-    ratingCount: course.ratingCount || 120,
+    ratingCount: course.ratingCount || siteStats.reviews,
     students: course.groupSize || "12–15",
     pricing: {
       shared: { price: sharedPrice, currency: "EUR" },

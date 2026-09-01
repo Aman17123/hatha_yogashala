@@ -100,10 +100,20 @@ export function whatsappLink(message = "") {
   return `https://wa.me/${digits}${text ? `?text=${text}` : ""}`;
 }
 
+/**
+ * Single source of truth for site-wide trust numbers (graduates, reviews).
+ * Import `siteStats` everywhere a graduate/review count is shown so the
+ * figures stay consistent and never drift between pages.
+ */
+export const siteStats = {
+  graduates: 465,
+  reviews: 112,
+};
+
 export const reviewProfile = {
   googleBusinessUrl: "",
   rating: 4.9,
-  reviewCount: 187,
+  reviewCount: siteStats.reviews,
 };
 
 export const testimonials = [

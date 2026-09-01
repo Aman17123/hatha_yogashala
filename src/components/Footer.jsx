@@ -280,6 +280,34 @@ export default function Footer() {
               />
             </Link>
           </div>
+
+          {/* designer credit */}
+          <div className="border-t border-[var(--brown)]/10 px-4 py-3 text-center sm:px-0 sm:py-2.5">
+            <p className="font-mono text-[10px] sm:text-[11px] uppercase leading-relaxed tracking-[0.1em] text-[var(--muted)]">
+              <span className="inline-block">All Rights Reserved</span>
+              <span
+                className="hidden sm:inline-block text-[var(--brown)]/40"
+                aria-hidden="true"
+              >
+                {" "}
+                ·{" "}
+              </span>
+              <span className="block sm:hidden" aria-hidden="true">
+                <span className="mx-auto my-1.5 block h-px w-8 bg-[var(--brown)]/25" />
+              </span>
+              <span className="inline-block">
+                Designed by{" "}
+                <a
+                  href="https://www.devbhoomiinfotech.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-[var(--gold)] underline underline-offset-2 decoration-1 transition hover:text-[var(--coral-dark)]"
+                >
+                  Devbhoomi Infotech
+                </a>
+              </span>
+            </p>
+          </div>
         </Container>
       </section>
     </footer>

@@ -21,7 +21,7 @@ import {
   retreatPricingByDays,
   retreatFaqs,
 } from "@/data/retreatData";
-import { whatsappLink } from "@/data/siteData";
+import { whatsappLink, siteStats } from "@/data/siteData";
 import { Accordion } from "./Interactive";
 import { Container } from "./ui";
 
@@ -150,7 +150,7 @@ export default function RetreatsHubPage() {
                   size={13}
                   className="fill-[var(--gold)] text-[var(--gold)]"
                 />
-                5.0 Rating (180+ Reviews)
+                5.0 Rating ({siteStats.reviews}+ Reviews)
               </span>
               <span className="inline-flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-[var(--border)] shadow-xs">
                 <Leaf size={13} className="text-[var(--coral-dark)]" />

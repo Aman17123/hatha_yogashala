@@ -164,6 +164,7 @@ export function WhyChooser({ items, children }) {
               fill
               sizes="(max-width: 820px) 100vw, 42vw"
               data-active={index === active}
+              aria-hidden={index !== active}
             />
           </div>
         ))}

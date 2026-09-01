@@ -27,14 +27,18 @@ export default function TestimonialCarousel({ testimonials = [] }) {
   const nextIndex = (index + 1) % count;
 
   const current = testimonials[index];
-  const prev = testimonials[prevIndex];
-  const next = testimonials[nextIndex];
 
-  const slides = [
-    { item: prev, position: 0 },
-    { item: current, position: 1 },
-    { item: next, position: 2 },
-  ];
+  // When only a single testimonial exists, show just it rather than
+  // repeating the same entry as prev/current/next (which duplicated it
+  // visually 3x in a row).
+  const slides =
+    count === 1
+      ? [{ item: current, position: 1 }]
+      : [
+          { item: testimonials[prevIndex], position: 0 },
+          { item: current, position: 1 },
+          { item: testimonials[nextIndex], position: 2 },
+        ];
 
   return (
     <div
