@@ -1342,12 +1342,12 @@ export default function YTTCPage({ course }) {
             </div>
           </section>
 
-          {/* ============ TESTIMONIALS (Surface) ============ */}
+          {/* ============ TESTIMONIALS ============ */}
           <section
-            className="retreat-section bg-[var(--surface)] p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
+            className="retreat-section bg-white p-6 sm:p-8 rounded-3xl border border-[var(--border)] shadow-xs"
             id="reviews"
           >
-            <RetreatEyebrow>Student Reviews</RetreatEyebrow>
+            <RetreatEyebrow>Student Stories</RetreatEyebrow>
             <h2 className="retreat-section-title font-philosopher">
               Student Reviews
             </h2>

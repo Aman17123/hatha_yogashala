@@ -368,21 +368,21 @@ export function RetreatCard({ retreat }) {
         <p className="text-body mt-2.5 line-clamp-2">{retreat.description}</p>
 
         {/* Card Footer */}
-        <div className="mt-auto flex items-center justify-between gap-3 border-t border-[var(--border)] pt-5">
+        <div className="mt-auto flex flex-wrap items-center justify-between gap-x-3 gap-y-4 border-t border-[var(--border)] pt-5">
           <div>
             <span className="block text-[13.5px] font-bold uppercase tracking-wider text-[var(--muted)]">
               {typeof numericPrice === "number" ? "From / person" : "Pricing"}
             </span>
-            <strong className="text-lg font-bold text-[var(--coral-dark)]">
+            <strong className="mt-0.5 inline-block text-lg font-bold leading-tight text-[var(--coral-dark)]">
               {price}
             </strong>
           </div>
-          <ButtonLink
+          <Link
             href={`/retreats/${retreat.slug}`}
-            className="home-retreat-cta"
+            className="home-retreat-cta inline-flex items-center justify-center rounded-full bg-[var(--coral)] px-4 py-2 text-xs font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--coral-dark)] hover:shadow-lg"
           >
             View Details
-          </ButtonLink>
+          </Link>
         </div>
       </div>
     </article>

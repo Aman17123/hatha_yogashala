@@ -77,11 +77,6 @@ export default function OnlinePranayamaHubPage() {
                       {course.level}
                     </span>
                   </div>
-                  <div className="absolute bottom-3 right-3">
-                    <span className="inline-flex rounded-full bg-[var(--brown)]/90 backdrop-blur-md px-3 py-1 text-[12px] font-bold text-white shadow-xs">
-                      {course.price}
-                    </span>
-                  </div>
                 </div>
 
                 <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between">

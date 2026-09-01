@@ -13,7 +13,6 @@ import {
   Layers,
   MapPin,
   ShieldAlert,
-  Sparkles,
   Wind,
 } from "lucide-react";
 import {
@@ -59,13 +58,6 @@ export default function PranayamaTemplate({ course }) {
     },
     educationalLevel: course.level,
     timeRequired: course.duration,
-    offers: {
-      "@type": "Offer",
-      category: "Paid",
-      priceCurrency: "USD",
-      price: course.price.replace(/[^0-9.]/g, "") || "49",
-      availability: "https://schema.org/InStock",
-    },
   };
 
   const faqSchema = {
@@ -112,7 +104,7 @@ export default function PranayamaTemplate({ course }) {
               </p>
 
               {/* Quick factual highlights bar for GEO / AEO engines */}
-              <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3.5 w-full max-w-xl">
+              <div className="mt-6 grid grid-cols-2 gap-3.5 w-full max-w-xl">
                 <div className="rounded-xl bg-white p-3.5 border border-[var(--border)] shadow-xs">
                   <div className="flex items-center gap-1.5 text-[var(--coral-dark)] text-xs font-bold uppercase tracking-wider mb-1">
                     <Clock size={14} /> Duration
@@ -128,15 +120,6 @@ export default function PranayamaTemplate({ course }) {
                   </div>
                   <div className="text-sm font-semibold text-[var(--brown)]">
                     {course.level}
-                  </div>
-                </div>
-
-                <div className="rounded-xl bg-white p-3.5 border border-[var(--border)] shadow-xs col-span-2 sm:col-span-1">
-                  <div className="flex items-center gap-1.5 text-[var(--coral-dark)] text-xs font-bold uppercase tracking-wider mb-1">
-                    <Sparkles size={14} /> Investment
-                  </div>
-                  <div className="text-sm font-semibold text-[var(--coral-dark)]">
-                    {course.price}
                   </div>
                 </div>
               </div>

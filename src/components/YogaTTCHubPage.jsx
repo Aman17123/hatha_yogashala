@@ -16,8 +16,9 @@ import {
   Users,
 } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
-import { whatsappLink } from "@/data/siteData";
+import { whatsappLink, testimonials, reviewProfile } from "@/data/siteData";
 import { Accordion } from "./Interactive";
+import ReviewsSection from "./GoogleReviews";
 import { Container } from "./ui";
 
 const CATEGORIES = [
@@ -395,7 +396,15 @@ export default function YogaTTCHubPage({ page }) {
         </Container>
       </section>
 
-      {/* ============ 4. FAQS ============ */}
+      {/* ============ 4. STUDENT REVIEWS ============ */}
+      <ReviewsSection
+        testimonials={testimonials.filter((t) => t.platform?.includes("YTT"))}
+        reviewProfile={reviewProfile}
+        title="Student Reviews — Yoga Teacher Training in Goa"
+        subtitle="Verified 4.9 Rating in Goa"
+      />
+
+      {/* ============ 5. FAQS ============ */}
       {p.faqs && p.faqs.length > 0 && (
         <section className="py-12 md:py-16 bg-white" id="faq">
           <Container>
@@ -414,7 +423,7 @@ export default function YogaTTCHubPage({ page }) {
         </section>
       )}
 
-      {/* ============ 5. START YOUR YOGA JOURNEY CTA ============ */}
+      {/* ============ 6. START YOUR YOGA JOURNEY CTA ============ */}
       <section className="relative overflow-hidden bg-[#134e4a] text-white py-16 md:py-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(201,169,97,0.2),transparent_60%)] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(217,99,74,0.15),transparent_60%)] pointer-events-none" />

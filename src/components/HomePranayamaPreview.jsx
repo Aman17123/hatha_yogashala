@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Clock, Wind } from "lucide-react";
+import { Clock, Wind } from "lucide-react";
 import { ButtonLink, Container } from "@/components/ui";
 import { FadeIn, Stagger, StaggerItem } from "@/components/retreat/Motion";
 import { pranayamaCourses } from "@/data/pranayamaData";
@@ -11,7 +11,9 @@ export default function HomePranayamaPreview() {
     "beginner-pranayama-course",
     "stress-relief-course",
   ];
-  const featured = pranayamaCourses.filter((c) => featuredSlugs.includes(c.slug));
+  const featured = pranayamaCourses.filter((c) =>
+    featuredSlugs.includes(c.slug),
+  );
 
   return (
     <section className="py-10 md:py-14 bg-[var(--cream)] border-y border-[var(--border)] relative overflow-hidden">
@@ -39,7 +41,9 @@ export default function HomePranayamaPreview() {
             Online Pranayama & Breathwork Courses in India
           </h2>
           <p className="mt-2 text-xs sm:text-sm text-[var(--muted)] leading-relaxed font-normal max-w-xl mx-auto">
-            Experience the authentic science of classical Indian breathwork, diaphragmatic restoration, and nervous system regulation with Master teachers.
+            Experience the authentic science of classical Indian breathwork,
+            diaphragmatic restoration, and nervous system regulation with Master
+            teachers.
           </p>
         </FadeIn>
 
@@ -58,11 +62,6 @@ export default function HomePranayamaPreview() {
                   <div className="absolute top-2.5 left-2.5">
                     <span className="inline-flex items-center gap-1 rounded-full bg-white/90 backdrop-blur-md px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[var(--coral-dark)] shadow-xs">
                       {course.level}
-                    </span>
-                  </div>
-                  <div className="absolute bottom-2.5 right-2.5">
-                    <span className="inline-flex rounded-full bg-[var(--brown)]/90 backdrop-blur-md px-2.5 py-0.5 text-[11px] font-bold text-white shadow-xs">
-                      {course.price}
                     </span>
                   </div>
                 </div>
@@ -87,10 +86,9 @@ export default function HomePranayamaPreview() {
                     </span>
                     <Link
                       href={`/online-pranayama/${course.slug}`}
-                      className="inline-flex items-center gap-1 text-xs font-bold text-[var(--coral-dark)] group-hover:translate-x-0.5 transition-transform"
+                      className="inline-flex items-center justify-center rounded-full bg-[var(--coral)] px-4 py-2 text-xs font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--coral-dark)] hover:shadow-lg"
                     >
-                      <span>Learn more</span>
-                      <ArrowRight size={13} />
+                      <span>View Detail</span>
                     </Link>
                   </div>
                 </div>
@@ -105,7 +103,6 @@ export default function HomePranayamaPreview() {
             className="button button-primary !py-2.5 !px-6 text-xs sm:text-sm font-bold shadow-md hover:shadow-lg"
           >
             <span>View all Pranayama programs</span>
-            <ArrowRight size={15} />
           </ButtonLink>
           <Link
             href="/online-pranayama/daily-pranayama-subscription"

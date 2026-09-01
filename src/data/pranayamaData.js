@@ -10,8 +10,6 @@ export const pranayamaCourses = [
       "Morning Batch: 07:00 AM – 08:00 AM IST | Evening Batch: 06:00 PM – 07:00 PM IST",
     timezone:
       "IST (Indian Standard Time) — UTC+5:30 / CET / EST Friendly Recordings",
-    price: "$49 USD / ₹3,999 INR",
-    trialPrice: "$10 USD Trial Session Available",
     prerequisites: "None. Suitable for absolute beginners and all body types.",
     nextStep: {
       slug: "beginner-pranayama-course",
@@ -150,7 +148,6 @@ export const pranayamaCourses = [
     format: "Live Interactive Daily Sessions + Practice Manual",
     timing: "06:30 AM – 07:30 AM IST (Recorded for Global Timezones)",
     timezone: "IST (Indian Standard Time) / Recordings in HD",
-    price: "$79 USD / ₹6,499 INR",
 
     prerequisites: "Pre-Pranayama Foundation or basic breath awareness.",
     nextStep: {
@@ -288,8 +285,6 @@ export const pranayamaCourses = [
     format: "Live Online Intensive + Mentorship Check-ins",
     timing: "06:00 AM – 07:15 AM IST (Live + HD Library)",
     timezone: "IST (Indian Standard Time) — Recordings Included",
-    price: "$129 USD / ₹10,499 INR",
-    trialPrice: "$15 USD Drop-in Evaluation",
     prerequisites:
       "Completion of Beginner Pranayama or 6+ months consistent breath practice.",
     nextStep: {
@@ -428,8 +423,6 @@ export const pranayamaCourses = [
     format: "Masterclass Lectures, Extended Sittings & 1-on-1 Guidance",
     timing: "05:30 AM – 07:30 AM IST",
     timezone: "IST (Indian Standard Time)",
-    price: "$199 USD / ₹15,999 INR",
-    trialPrice: "Application & Assessment Required",
     prerequisites:
       "Intermediate Pranayama certification or minimum 1 year dedicated breathwork.",
     nextStep: {
@@ -567,8 +560,6 @@ export const pranayamaCourses = [
     format: "Live Daily Calm Sessions + Audio Guided Practices",
     timing: "Morning Batch: 08:00 AM IST | Evening Rest: 08:00 PM IST",
     timezone: "IST / On-Demand 24/7 Access",
-    price: "$39 USD / ₹2,999 INR",
-    trialPrice: "$10 USD Single Session Access",
     prerequisites:
       "None. Open to anyone feeling stressed, burnt out, or overwhelmed.",
     nextStep: {
@@ -706,8 +697,6 @@ export const pranayamaCourses = [
     format: "Live Streaming on Zoom + On-Demand Recording Vault",
     timing: "Morning: 07:00 AM IST | Evening: 07:00 PM IST (Choose your slot)",
     timezone: "IST (Indian Standard Time) — Recordings Available Worldwide",
-    price: "$99 USD / Month (Cancel Anytime) or $899 / Year",
-    trialPrice: "$10 USD Trial Session (Single Drop-In)",
     prerequisites: "Open to all. No experience required.",
     hasSignupForm: true,
     hasTrialOption: true,
@@ -741,13 +730,13 @@ export const pranayamaCourses = [
       title:
         "Daily Pranayama Classes Online (Monthly Subscription) | The Hatha Yogashala",
       description:
-        "Join live daily 30-minute morning and evening Pranayama and meditation classes with expert Indian teachers. $10 trial session available. Subscribe for $99/mo.",
+        "Join live daily 30-minute morning and evening Pranayama and meditation classes with expert Indian teachers.",
       keywords: [
         "daily pranayama classes online",
         "live morning breathwork subscription",
         "daily meditation membership",
         "The Hatha Yogashala online classes",
-        "breathwork trial session $10",
+        "breathwork trial session",
       ],
     },
     summary:
@@ -848,8 +837,6 @@ export const pranayamaCourses = [
     format: "Live Interactive Virtual Ashram + Community Cohort",
     timing: "06:30 AM – 07:30 AM IST / Evening Replay Available",
     timezone: "IST (Indian Standard Time) — Global Recordings",
-    price: "$89 USD / ₹7,499 INR",
-    trialPrice: "$12 USD Single Class Drop-In",
     prerequisites: "None. Suitable for all fitness levels.",
     nextStep: {
       slug: "daily-pranayama-subscription",
@@ -985,8 +972,6 @@ export const pranayamaCourses = [
     format: "Live Community Satsang, Group Breathwork & Q&A",
     timing: "Last Sunday of Every Month — 06:30 PM IST",
     timezone: "IST (Indian Standard Time)",
-    price: "Complimentary for Course Alumni & Active Subscribers",
-    trialPrice: "Free for Alumni / Included in Subscription",
     prerequisites:
       "Enrollment in any The Hatha Yogashala course or active daily subscription.",
     heroImage:
