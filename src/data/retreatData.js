@@ -551,6 +551,65 @@ export const testimonials = [
   },
 ];
 
+export const yttcTestimonials = [
+  {
+    name: "Elena",
+    country: "Russia",
+    rating: 5,
+    text: "The Hatha Yogashala transformed more than my practice — it transformed my life. The teachers are precise, patient, and deeply knowledgeable. Completing my 200-hour certification by the beach in Goa was a dream.",
+    image: IMAGES.class,
+    tag: "200-Hour YTT",
+  },
+  {
+    name: "Sarah",
+    country: "United Kingdom",
+    rating: 5,
+    text: "I arrived as a complete beginner and left as a confident yoga teacher. The small class size meant the trainers knew my name and my body. This is genuinely the best yoga teacher training in Goa.",
+    image: IMAGES.hero,
+    tag: "200-Hour YTT",
+  },
+  {
+    name: "Lukas",
+    country: "Germany",
+    rating: 5,
+    text: "The philosophy and meditation teachings at The Hatha Yogashala changed how I see yoga. The quality of teaching and the warmth of the community exceeded every expectation.",
+    image: IMAGES.coast,
+    tag: "300-Hour YTT",
+  },
+  {
+    name: "Tom",
+    country: "Australia",
+    rating: 5,
+    text: "The 100-hour course was the perfect introduction. The teachers made Sanskrit, anatomy, and philosophy accessible and inspiring. I will return for my 200-hour certification.",
+    image: IMAGES.hatha,
+    tag: "100-Hour YTT",
+  },
+  {
+    name: "Olga",
+    country: "Russia",
+    rating: 5,
+    text: "From booking to graduation, everything was seamless. The accommodation was clean, the food was nourishing, and the teaching was world-class. A truly authentic yoga school in India.",
+    image: IMAGES.pranayama,
+    tag: "200-Hour YTT",
+  },
+  {
+    name: "Priya",
+    country: "India",
+    rating: 5,
+    text: "The 300-hour advanced training pushed my practice and teaching to a professional level. Small batches, master teachers, and a daily rhythm that nurtures growth — I recommend it wholeheartedly.",
+    image: IMAGES.accommodation,
+    tag: "300-Hour YTT",
+  },
+  {
+    name: "James",
+    country: "Canada",
+    rating: 5,
+    text: "Honest, authentic, and life-altering. The daily ashtanga practice, pranayama, and teaching practicums prepared me to teach with confidence from day one. The best 200-hour YTT in Goa, hands down.",
+    image: IMAGES.coast,
+    tag: "200-Hour YTT",
+  },
+];
+
 export const retreatFaqs = [
   {
     question:

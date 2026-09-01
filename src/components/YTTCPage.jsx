@@ -42,7 +42,7 @@ import {
   goaExperiences,
   mealPhilosophy,
   meals,
-  testimonials as allTestimonials,
+  yttcTestimonials,
 } from "@/data/retreatData";
 import { teachersData } from "@/data/siteContentData";
 import TeacherCard from "@/components/TeacherCard";
@@ -216,13 +216,15 @@ export default function YTTCPage({ course }) {
       ],
     },
     trustBadges: yttcTrustBadges,
-    testimonials: course.testimonials || (is100
-      ? allTestimonials.filter((t) => t.platform?.includes("100-Hour") || t.platform?.includes("YTT")).sort((a, b) => (a.platform?.includes("100-Hour") ? -1 : 1))
-      : is200
-        ? allTestimonials.filter((t) => t.platform?.includes("200-Hour") || t.platform?.includes("YTT")).sort((a, b) => (a.platform?.includes("200-Hour") ? -1 : 1))
-        : is300
-          ? allTestimonials.filter((t) => t.platform?.includes("300-Hour") || t.platform?.includes("YTT")).sort((a, b) => (a.platform?.includes("300-Hour") ? -1 : 1))
-          : allTestimonials.filter((t) => t.platform?.includes("YTT"))),
+    testimonials:
+      course.testimonials ||
+      (is100
+        ? yttcTestimonials.filter((t) => t.tag?.includes("100-Hour"))
+        : is200
+          ? yttcTestimonials.filter((t) => t.tag?.includes("200-Hour"))
+          : is300
+            ? yttcTestimonials.filter((t) => t.tag?.includes("300-Hour"))
+            : yttcTestimonials),
     whatsappMessage: `Hi, I'd like to apply for the ${course.name} in Goa.`,
   };
 
